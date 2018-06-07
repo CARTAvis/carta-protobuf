@@ -1,0 +1,21 @@
+syntax = "proto3";
+package CARTA;
+
+import "../shared/defs.proto";
+
+// REGION_STATS_DATA:
+//Stats data for a specific region
+message RegionStatsData {
+    // The file ID that the profile corresponds to
+    fixed32 file_id = 1;
+    // The region ID that the stats data corresponds to. If the profile corresponds to the cursor position,
+    // the region ID “cursor” is given.
+    fixed32 region_id = 2;
+    // Progress indicator, in the case of partial statistics results being sent. If the statistics calculations are
+    // time-consuming, regular updates should be sent to the frontend. If the data is complete, progress >= 1.
+    float progress = 3;
+    // The spectral coordinates of the stats data arrays.
+    repeated float channel_vals = 4;
+    // Array of statistics sets, each corresponding to a particular measurement, such as max, min, mean, etc
+    repeated StatisticsSet statistics = 5;
+}

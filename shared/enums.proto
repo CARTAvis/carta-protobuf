@@ -1,0 +1,58 @@
+syntax = "proto3";
+package CARTA;
+
+enum SessionType {
+    NEW = 0;
+    RESUMED = 1;
+}
+
+enum FileType {
+    FITS = 0;
+    CASA = 1;
+    HDF5 = 2;
+    MIRIAD = 3;
+}
+
+enum RenderMode {
+    RASTER = 0;
+    CONTOUR = 1;
+}
+
+enum CompressionType {
+    NONE = 0;
+    ZFP = 1;
+    SZ = 2;
+}
+
+enum RegionType {
+    POINT = 0;
+    LINE = 1;
+    POLYLINE = 2;
+    RECTANGLE = 3;
+    ELLIPSE = 4;
+    ANNULUS = 5;
+    POLYGON = 6;
+}
+
+enum ContourMode {
+    ORIGINAL = 0;
+    GAUSSIANBLUR_3 = 1;
+    GAUSSIANBLUR_5 = 2;
+    BOXBLUR_3 = 3;
+    BOXBLUR_5 = 4;
+}
+
+enum StatsType {
+    MAX = 0;
+    MIN = 1;
+    MEAN = 2;
+    STD = 3;
+    NAN_COUNT = 4;
+}
+
+enum ErrorSeverity {
+    INFO = 0;
+    WARNING = 1;
+    ERROR = 2;
+    CRITICAL = 3;
+}

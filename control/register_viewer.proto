@@ -1,5 +1,7 @@
 syntax = "proto3";
-package Control;
+package CARTA;
+
+import "../shared/enums.proto";
 
 // REGISTER_VIEWER:
 // Registers the viewer with the backend.
@@ -20,9 +22,4 @@ message RegisterViewerAck {
     bool success = 2;
     // Defines the type of session established
     SessionType session_type = 3;
-
-    enum SessionType {
-        NEW = 0;
-        RESUMED = 1;
-    }
 }

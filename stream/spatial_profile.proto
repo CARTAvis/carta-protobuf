@@ -1,0 +1,27 @@
+syntax = "proto3";
+package CARTA;
+
+import "../shared/enums.proto";
+import "../shared/defs.proto";
+
+// SPATIAL_PROFILE_DATA:
+// Data for spatial profile set for a specific file
+message SpatialProfileData {
+    // The file ID that the profile corresponds to
+    fixed32 file_id = 1;
+    // The pixel X-coordinate of the profile set
+    fixed32 x = 2;
+    // The pixel Y-coordinate of the profile set
+    fixed32 y = 3;
+    // The image channel used to generate the profiles
+    fixed32 channel = 4;
+    // The image stokes parameter used to generate the profiles
+    fixed32 stokes = 5;
+    // The value of the image at the given coordinates
+    float value = 6;
+    // The region_id corresponding to this profile. If the profile corresponds to the cursor position,
+    // the region ID is zero.
+    fixed32 region_id = 7;
+    // Spectral profiles for each required profile type
+    repeated SpectralProfile profiles = 8;
+}

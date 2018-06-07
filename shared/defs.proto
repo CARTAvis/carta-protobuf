@@ -1,0 +1,90 @@
+syntax = "proto3";
+package CARTA;
+
+import "enums.proto";
+
+//
+// Utility definitions and sub-messages for the Control package
+//
+
+message Point {
+    float x = 1;
+    float y = 2;
+}
+
+// File info message structure (internal use only)
+message FileInfo {
+    string name = 1;
+    FileType type = 2;
+    fixed64 size = 3;
+}
+
+message FileInfoExtended {
+    // Number of dimensions of the image file
+    fixed32 dimensions = 1;
+    // Width of the XY plane
+    fixed32 width = 2;
+    // Height of the XY plane
+    fixed32 height = 3;
+    // Number of channels
+    fixed32 depth = 4;
+    // Number of Stokes parameters
+    fixed32 stokes = 5;
+    // List of Stokes parameters contained in the file (if applicable).
+    // For files that do not specify explicitly, we should assume just I
+    repeated string stokes_vals = 6;
+    // Tyupe of unit of the Z coordinate (e.g. FREQ)
+    string channel_unit = 7;
+    // WCS type used by file (if any)
+    string WCS = 8;
+    // WCS header string (if applicable). Used for AST plotting.
+    string WCS_header = 9;
+    // WCS range (X coordinate)
+    DoubleBounds WCS_bounds_x = 10;
+    // WCS range (Y coordinate)
+    DoubleBounds WCS_bounds_y = 11;
+    // WCS range (Z coordinate)
+    DoubleBounds WCS_bounds_z = 12;
+}
+
+message DoubleBounds {
+    double min = 1;
+    double max = 2;
+}
+
+message ImageBounds {
+    sfixed32 x_min = 1;
+    sfixed32 x_max = 2;
+    sfixed32 y_min = 3;
+    sfixed32 y_max = 4;
+}
+
+message AnimationFrame {
+    sfixed32 channel = 1;
+    sfixed32 stokes = 2;
+    sfixed32 file_id = 3;
+}
+
+message SpatialProfile {
+    fixed32 start= 1;
+    fixed32 end = 2;
+    repeated float values = 3;
+    string coordinate = 4;
+}
+
+message SpectralProfile {
+    repeated float channel_vals = 1;
+    repeated float vals = 2;
+    string coordinate = 3;
+}
+
+message StatisticsSet {
+    StatsType stats_type = 1;
+    repeated float values = 2;
+}
+
+message ContourSet {
+    repeated float coordinates = 1;
+    repeated fixed32 start_indices = 2;
+    float value = 3;
+}
