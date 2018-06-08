@@ -20,8 +20,10 @@ message FileListRequest {
 message FileListResponse {
     // Defines whether the FILE_LIST_REQUEST was successful
     bool success = 1;
+    // Error message (if applicable)
+    string message = 2;
     // List of available image files, with file type information and size information.
-    repeated FileInfo files = 2;
+    repeated FileInfo files = 3;
     // List of available subdirectories
-    repeated string directories = 3;
+    repeated string directories = 4;
 }
