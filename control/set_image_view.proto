@@ -1,8 +1,8 @@
 syntax = "proto3";
 package CARTA;
 
-import "../shared/enums.proto";
-import "../shared/defs.proto";
+import "enums.proto";
+import "defs.proto";
 
 // SET_IMAGE_VIEW
 // Sets the current image view position in image space coordinates

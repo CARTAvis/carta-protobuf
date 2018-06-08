@@ -1,7 +1,7 @@
 syntax = "proto3";
 package CARTA;
 
-import "../shared/defs.proto";
+import "defs.proto";
 
 // FILE_INFO_REQUEST:
 // Requests the list of available files for a given directory.
@@ -16,7 +16,7 @@ message FileInfoRequest {
 // FILE_INFO_RESPONSE
 // Response for FILE_INFO_REQUEST.
 // Gives information on the requested file
-message FileListResponse {
+message FileInfoResponse {
     // Defines whether the FILE_INFO_REQUEST was successful
     bool success = 1;
     // Error message (if applicable)

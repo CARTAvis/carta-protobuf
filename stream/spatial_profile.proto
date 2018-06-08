@@ -1,8 +1,7 @@
 syntax = "proto3";
 package CARTA;
 
-import "../shared/enums.proto";
-import "../shared/defs.proto";
+import "defs.proto";
 
 // SPATIAL_PROFILE_DATA:
 // Data for spatial profile set for a specific file

@@ -1,7 +1,7 @@
 syntax = "proto3";
 package CARTA;
 
-import "../shared/enums.proto";
+import "enums.proto";
 
 // ERROR_DATA:
 // Stream of error/warning/info data. This stream is used to present the frontend with additional information on

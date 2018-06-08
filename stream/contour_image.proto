@@ -1,12 +1,11 @@
 syntax = "proto3";
 package CARTA;
 
-import "../shared/enums.proto";
-import "../shared/defs.proto";
+import "defs.proto";
 
-// RASTER_IMAGE_DATA:
+// CONTOUR_IMAGE_DATA:
 // Data for an image rendered in raster mode.
-message RasterImageData {
+message ContourImageData {
     // The file ID that the raster image corresponds to
     fixed32 file_id = 1;
     // The layer ID that the raster image corresponds to

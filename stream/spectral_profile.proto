@@ -1,12 +1,11 @@
 syntax = "proto3";
 package CARTA;
 
-import "../shared/enums.proto";
-import "../shared/defs.proto";
+import "defs.proto";
 
 // SPECTRAL_PROFILE_DATA:
 // Data for spectral profile set for a specific file
-message SpatialProfileData {
+message SpectralProfileData {
     // The file ID that the profile corresponds to
     fixed32 file_id = 1;
     // The pixel X-coordinate of the profile set

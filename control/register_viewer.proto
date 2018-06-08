@@ -1,7 +1,7 @@
 syntax = "proto3";
 package CARTA;
 
-import "../shared/enums.proto";
+import "enums.proto";
 
 // REGISTER_VIEWER:
 // Registers the viewer with the backend.

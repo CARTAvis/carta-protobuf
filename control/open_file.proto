@@ -1,8 +1,8 @@
 syntax = "proto3";
 package CARTA;
 
-import "../shared/defs.proto";
-import "../shared/enums.proto";
+import "defs.proto";
+import "enums.proto";
 
 // OPEN_FILE:
 // Requests the opening of a specific file.

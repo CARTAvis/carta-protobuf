@@ -1,7 +1,7 @@
 syntax = "proto3";
 package CARTA;
 
-import "../shared/defs.proto";
+import "defs.proto";
 
 // FILE_LIST_REQUEST:
 // Requests the list of available files for a given directory.

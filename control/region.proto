@@ -1,8 +1,8 @@
 syntax = "proto3";
 package CARTA;
 
-import "shared/enums.proto";
-import "shared/defs.proto";
+import "enums.proto";
+import "defs.proto";
 
 // SET_REGION:
 // Creates or updates a region. Backend responds with SET_REGION_ACK
