@@ -56,3 +56,9 @@ enum ErrorSeverity {
     ERROR = 2;
     CRITICAL = 3;
 }
+
+enum EntryType {
+    STRING = 0;
+    FLOAT = 1;
+    INT = 2;
+}

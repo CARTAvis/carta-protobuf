@@ -33,18 +33,14 @@ message FileInfoExtended {
     // List of Stokes parameters contained in the file (if applicable).
     // For files that do not specify explicitly, we should assume just I
     repeated string stokes_vals = 6;
-    // Tyupe of unit of the Z coordinate (e.g. FREQ)
-    string channel_unit = 7;
-    // WCS type used by file (if any)
-    string WCS = 8;
-    // WCS header string (if applicable). Used for AST plotting.
-    string WCS_header = 9;
-    // WCS range (X coordinate)
-    DoubleBounds WCS_bounds_x = 10;
-    // WCS range (Y coordinate)
-    DoubleBounds WCS_bounds_y = 11;
-    // WCS range (Z coordinate)
-    DoubleBounds WCS_bounds_z = 12;
+    repeated HeaderEntry header_entries = 7;
+}
+
+message HeaderEntry {
+    string name = 1;
+    string value = 2;
+    EntryType entry_type = 3;
+    double numeric_value = 4;
 }
 
 message DoubleBounds {
