@@ -9,9 +9,6 @@ import "defs.proto";
 message FileListRequest {
     // Required directory name
     string directory = 1;
-    //Number of sub-directory levels to include in search for files.
-    //Setting this parameter to zero will result in only files in the requested directory being shown.
-    fixed32 recursion_level = 2;
 }
 
 // FILE_LIST_RESPONSE
