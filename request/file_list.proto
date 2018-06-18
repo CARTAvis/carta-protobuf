@@ -19,8 +19,12 @@ message FileListResponse {
     bool success = 1;
     // Error message (if applicable)
     string message = 2;
+    // Directory of listing
+    string directory = 3;
+    // Directory parent (null/empty if top-level)
+    string parent = 4;
     // List of available image files, with file type information and size information.
-    repeated FileInfo files = 3;
+    repeated FileInfo files = 5;
     // List of available subdirectories
-    repeated string directories = 4;
+    repeated string subdirectories = 6;
 }
