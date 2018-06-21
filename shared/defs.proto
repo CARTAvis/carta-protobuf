@@ -16,23 +16,24 @@ message Point {
 message FileInfo {
     string name = 1;
     FileType type = 2;
-    fixed64 size = 3;
+    sfixed64 size = 3;
+    repeated string HDU_list = 4;
 }
 
 message FileInfoExtended {
     // Number of dimensions of the image file
-    fixed32 dimensions = 1;
+    sfixed32 dimensions = 1;
     // Width of the XY plane
-    fixed32 width = 2;
+    sfixed32 width = 2;
     // Height of the XY plane
-    fixed32 height = 3;
+    sfixed32 height = 3;
     // Number of channels
-    fixed32 depth = 4;
+    sfixed32 depth = 4;
     // Number of Stokes parameters
-    fixed32 stokes = 5;
-    // List of Stokes parameters contained in the file (if applicable).
-    // For files that do not specify explicitly, we should assume just I
+    sfixed32 stokes = 5;
+    // List of Stokes parameters contained in the file (if applicable). For files that do not explicitly specify Stokes files, this will be blank.
     repeated string stokes_vals = 6;
+    // Header entries from header string or attributes
     repeated HeaderEntry header_entries = 7;
 }
 
@@ -62,25 +63,33 @@ message AnimationFrame {
 }
 
 message SpatialProfile {
-    fixed32 start= 1;
-    fixed32 end = 2;
+    sfixed32 start = 1;
+    sfixed32 end = 2;
     repeated float values = 3;
     string coordinate = 4;
 }
 
 message SpectralProfile {
-    repeated float channel_vals = 1;
-    repeated float vals = 2;
-    string coordinate = 3;
+    string coordinate = 1;
+    StatsType stats_type = 2;
+    repeated float vals = 3;
 }
 
-message StatisticsSet {
+message StatisticsValue {
     StatsType stats_type = 1;
-    repeated float values = 2;
+    float value = 2;
+}
+
+message Histogram {
+    sfixed32 channel = 1;
+    sfixed32 num_bins = 2;
+    double bin_width = 3;
+    double first_bin_center = 4;
+    repeated sfixed32 bins = 5;
 }
 
 message ContourSet {
-    repeated float coordinates = 1;
-    repeated fixed32 start_indices = 2;
-    float value = 3;
+    float value = 1;
+    repeated float coordinates = 2;
+    repeated sfixed32 start_indices = 3;
 }

@@ -7,21 +7,16 @@ import "defs.proto";
 // Data for spectral profile set for a specific file
 message SpectralProfileData {
     // The file ID that the profile corresponds to
-    fixed32 file_id = 1;
-    // The pixel X-coordinate of the profile set
-    fixed32 x = 2;
-    // The pixel Y-coordinate of the profile set
-    fixed32 y = 3;
-    // The image channel used to generate the profiles
-    fixed32 channel = 4;
+    sfixed32 file_id = 1;
+    // The region ID that the stats data corresponds to. If the profile corresponds to the cursor position, the region ID has a value of 0.
+    sfixed32 region_id = 2;
     // The image stokes parameter used to generate the profiles
-    fixed32 stokes = 5;
-    // The region_id corresponding to this profile. If the profile corresponds to the cursor position,
-    // the region ID is zero.
-    fixed32 region_id = 6;
+    sfixed32 stokes = 3;
     // Progress indicator, in the case of partial profile results being sent. If the profile calculations are
     // time-consuming, regular updates should be sent to the frontend. If the data is complete, progress >= 1.
-    float progress = 7;
+    float progress = 4;
+    // The spectral coordinates of the stats data arrays.
+    repeated float channel_vals = 5;
     // Spatial profiles for each required profile type
-    repeated SpectralProfile profiles = 8;
+    repeated SpectralProfile profiles = 6;
 }

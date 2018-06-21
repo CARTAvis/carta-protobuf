@@ -11,6 +11,8 @@ message FileInfoRequest {
     string directory = 1;
     // Required file name
     string file = 2;
+    // Required HDU name (if applicable). If left empty, the first HDU is selected
+    string hdu = 3;
 }
 
 // FILE_INFO_RESPONSE

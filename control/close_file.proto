@@ -5,7 +5,5 @@ package CARTA;
 // Instructs the backend to close a file with a given file ID
 message CloseFile {
     // Which "file" slot to close
-    fixed32 file_id = 1;
-    // Which layer to remove (if the file is loaded as a contour layer).
-    fixed32 layer_id = 2;
+    sfixed32 file_id = 1;
 }

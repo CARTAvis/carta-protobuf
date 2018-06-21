@@ -23,6 +23,8 @@ message RegisterViewerAck {
     string session_id = 1;
     // Defines whether the REGISTER_VIEWER command was successful
     bool success = 2;
+    // Error message (if applicable)
+    string message = 3;
     // Defines the type of session established
-    SessionType session_type = 3;
+    SessionType session_type = 4;
 }

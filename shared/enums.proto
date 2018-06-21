@@ -43,11 +43,23 @@ enum ContourMode {
 }
 
 enum StatsType {
-    MAX = 0;
-    MIN = 1;
-    MEAN = 2;
-    STD = 3;
-    NAN_COUNT = 4;
+    Sum = 15;
+    FluxDensity = 16;
+    Mean = 17;
+    RMS = 18;
+    Sigma = 19;
+    SumSq = 20;
+    Min = 21;
+    Max = 22;
+    Blc = 23;
+    Trc = 24;
+    MinPos = 25;
+    MaxPos = 26;
+    Blcf = 27;
+    Trcf =  28;
+    MinPosf = 29;
+    MaxPosf = 30;
+    PluginDefined = 31;
 }
 
 enum ErrorSeverity {

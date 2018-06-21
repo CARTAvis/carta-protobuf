@@ -10,16 +10,16 @@ import "enums.proto";
 message StartAnimation {
     // Which file slot the animation describes.
     // If the animation is between files, this should be the same as the starting file.
-    fixed32 file_id = 1;
+    sfixed32 file_id = 1;
     // The starting point of the animation.
-    AnimationFrame startFrame = 2;
+    AnimationFrame start_frame = 2;
     // The ending point of the animation
-    AnimationFrame endFrame = 3;
+    AnimationFrame end_frame = 3;
     // The frame change step for the animation. For example, a delta frame of {channel=1, stokes=0, file_id=0}
     // would step through each channel in the same file.
-    AnimationFrame deltaFrame = 4;
+    AnimationFrame delta_frame = 4;
     // Frame interval in milliseconds
-    fixed32 frameInterval = 5;
+    sfixed32 frame_interval = 5;
     // Whether to loop the animation indefinitely.
     bool looping = 6;
     // Whether to reverse the animation direction when endFrame is reached.
@@ -42,12 +42,12 @@ message StartAnimationAck {
     // Error message (if applicable)
     string message = 2;
     // The unique animation ID
-    fixed32 animation_id = 3;
+    sfixed32 animation_id = 3;
 }
 
 // STOP_ANIMATION
 // Stops a specific animation, or all playing animations.
 message StopAnimation {
-    // ID of the animation to stop. If this is <0, all animations are stopped.
+    // ID of the animation to stop. This is included purely for logging/diagnostic purposes.
     sfixed32 animation_id = 1;
 }

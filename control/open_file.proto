@@ -12,12 +12,12 @@ message OpenFile {
     string directory = 1;
     // Required file name
     string file = 2;
+    // Which HDU to load (if applicable). If left blank, the first HDU will be used
+    string hdu = 3;
     // Which "file" slot to load the file into (when viewing multiple files)
-    fixed32 file_id = 3;
+    sfixed32 file_id = 4;
     // The render mode to use. Additional modes will be added in subsequent versions.
-    RenderMode render_mode = 4;
-    // Layer to load the file into (for contour files)
-    fixed32 layer_id = 5;
+    RenderMode render_mode = 5;
 }
 
 // OPEN_FILE_ACK
@@ -26,7 +26,7 @@ message OpenFileAck {
     // Defines whether OPEN_FILE was successful
     bool success = 1;
     // Which file slot the file was loaded into (when viewing multiple files)
-    fixed32 file_id = 2;
+    sfixed32 file_id = 2;
     // Error message (if applicable)
     string message = 3;
     // Basic file info (type, size)

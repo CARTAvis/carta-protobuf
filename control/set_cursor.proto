@@ -8,7 +8,7 @@ import "defs.proto";
 // The cursor defines a special case of a region, with a single control point.
 message SetCursor {
     // Which file slot the cursor is moving over
-    fixed32 file_id =1;
+    sfixed32 file_id =1;
     // XY-coordinates of cursor in image space
     Point point = 2;
 }
