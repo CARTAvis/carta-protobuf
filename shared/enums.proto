@@ -43,6 +43,7 @@ enum ContourMode {
 }
 
 enum StatsType {
+    None = 0;
     Sum = 15;
     FluxDensity = 16;
     Mean = 17;
