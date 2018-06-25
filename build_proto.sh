@@ -3,8 +3,8 @@ cd "$(dirname "$0")"
 mkdir -p build
 
 printf "Building all message modules..."
-pbjs -p shared -p control -p request -p stream -t static-module -o build/index.js --wrap es6 shared/*.proto control/*.proto request/*.proto stream/*.proto
-pbts -o build/index.d.ts build/index.js
+../node_modules/protobufjs/bin/pbjs -p shared -p control -p request -p stream -t static-module -o build/index.js --wrap es6 shared/*.proto control/*.proto request/*.proto stream/*.proto
+../node_modules/protobufjs/bin/pbts -o build/index.d.ts build/index.js
 printf "...done\n"
 
 #printf "Building Request message module..."
