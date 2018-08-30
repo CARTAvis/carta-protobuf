@@ -3,6 +3,7 @@ package CARTA;
 
 import "enums.proto";
 import "defs.proto";
+import "region_histogram.proto";
 
 // RASTER_IMAGE_DATA:
 // Data for an image rendered in raster mode.
@@ -25,4 +26,6 @@ message RasterImageData {
     repeated bytes image_data = 8;
     // Run-length encodings of NaN values removed before compression. These values are used to restore the image’s NaN values after decompression.
     repeated bytes nan_encodings = 9;
+    // Optional channel histogram
+    RegionHistogramData channel_histogram_data = 10;
 }
