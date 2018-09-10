@@ -35,7 +35,7 @@ message FileInfoExtended {
     repeated string stokes_vals = 6;
     // Header entries from header string or attributes
     repeated HeaderEntry header_entries = 7;
-    map<string, string> computed_entries = 8;
+    repeated HeaderEntry computed_entries = 8;
 }
 
 message HeaderEntry {

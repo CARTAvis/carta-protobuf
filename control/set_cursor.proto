@@ -2,6 +2,7 @@ syntax = "proto3";
 package CARTA;
 
 import "defs.proto";
+import "region_requirements.proto";
 
 // SET_CURSOR:
 // Sets the current cursor position in image space coordinates.
@@ -11,4 +12,6 @@ message SetCursor {
     sfixed32 file_id =1;
     // XY-coordinates of cursor in image space
     Point point = 2;
+    // Optional accompanying spatial requirements message to be processed prior to cursor update
+    SetSpatialRequirements spatial_requirements = 3;
 }
