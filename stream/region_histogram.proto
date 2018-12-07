@@ -14,4 +14,6 @@ message RegionHistogramData {
     sfixed32 stokes = 3;
     // array of histograms of the current region
     repeated Histogram histograms = 4;
+    // Progress indicator, in the case of partial histogram results being sent
+    float progress = 5;
 }
