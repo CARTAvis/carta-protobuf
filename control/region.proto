@@ -17,16 +17,10 @@ message SetRegion {
     // depending on the type of region being defined. For example, an ellipse will require three control points:
     // center, vertex and co-vertex. A rectangle requires two control points: top left and bottom right
     RegionType region_type = 4;
-    // Minimum channel bound for the region. Set to < 0 if not required
-    sfixed32 channel_min = 5;
-    // Maximum channel bound for the region. Set to < 0 if not required
-    sfixed32 channel_max = 6;
-    // Index of selected Stokes values. If this is empty, the current Stokes value is used
-    repeated sfixed32 stokes = 7;
     // Control points for the region
-    repeated Point control_points = 8;
+    repeated Point control_points = 5;
     // (Only applicable for ellipse and rectangle) Rotation of the region in the xy plane (radians).
-    float rotation = 9;
+    float rotation = 6;
 }
 
 // SET_REGION_ACK:
