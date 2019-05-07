@@ -73,6 +73,7 @@ message SpectralProfile {
     string coordinate = 1;
     StatsType stats_type = 2;
     repeated float vals = 3;
+    repeated double double_vals = 4;
 }
 
 message StatisticsValue {
