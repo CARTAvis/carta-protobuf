@@ -15,8 +15,6 @@ message SpectralProfileData {
     // Progress indicator, in the case of partial profile results being sent. If the profile calculations are
     // time-consuming, regular updates should be sent to the frontend. If the data is complete, progress >= 1.
     float progress = 4;
-    // The spectral coordinates of the stats data arrays.
-    repeated float channel_vals = 5;
     // Spatial profiles for each required profile type
-    repeated SpectralProfile profiles = 6;
+    repeated SpectralProfile profiles = 5;
 }

@@ -33,4 +33,6 @@ message OpenFileAck {
     FileInfo file_info = 4;
     // Extended file info (WCS, header info)
     FileInfoExtended file_info_extended = 5;
+    // Optional bitflags specifying feature flags of the file being opened.
+    fixed32 file_feature_flags = 6;
 }

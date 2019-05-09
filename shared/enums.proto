@@ -1,6 +1,39 @@
 syntax = "proto3";
 package CARTA;
 
+enum EventType {
+    EMPTY_EVENT = 0;
+    REGISTER_VIEWER = 1;
+    FILE_LIST_REQUEST = 2;
+    FILE_INFO_REQUEST = 3;
+    OPEN_FILE = 4;
+    SET_IMAGE_VIEW = 5;
+    SET_IMAGE_CHANNELS = 6;
+    SET_CURSOR = 7;
+    SET_SPATIAL_REQUIREMENTS = 8;
+    SET_HISTOGRAM_REQUIREMENTS = 9;
+    SET_STATS_REQUIREMENTS = 10;
+    SET_REGION = 11;
+    REMOVE_REGION = 12;
+    CLOSE_FILE = 13;
+    SET_SPECTRAL_REQUIREMENTS = 14;
+    START_ANIMATION = 15;
+    START_ANIMATION_ACK = 16;
+    STOP_ANIMATION = 17;
+    REGISTER_VIEWER_ACK = 18;
+    FILE_LIST_RESPONSE = 19;
+    FILE_INFO_RESPONSE = 20;
+    OPEN_FILE_ACK = 21;
+    SET_REGION_ACK = 22;
+    REGION_HISTOGRAM_DATA = 23;
+    RASTER_IMAGE_DATA = 24;
+    SPATIAL_PROFILE_DATA = 25;
+    SPECTRAL_PROFILE_DATA = 26;
+    REGION_STATS_DATA = 27;
+    ERROR_DATA = 28;
+    ANIMATION_FLOW_CONTROL = 29;
+}
+
 enum SessionType {
     NEW = 0;
     RESUMED = 1;
@@ -46,26 +79,24 @@ enum ContourMode {
 }
 
 enum StatsType {
-    None = 0;
-    NumPixels = 13;
-    NanCount = 14;
-    Sum = 15;
-    FluxDensity = 16;
-    Mean = 17;
-    RMS = 18;
-    Sigma = 19;
-    SumSq = 20;
-    Min = 21;
-    Max = 22;
-    Blc = 23;
-    Trc = 24;
-    MinPos = 25;
-    MaxPos = 26;
-    Blcf = 27;
-    Trcf =  28;
-    MinPosf = 29;
-    MaxPosf = 30;
-    PluginDefined = 31;
+    NumPixels = 0;
+    NanCount = 1;
+    Sum = 2;
+    FluxDensity = 3;
+    Mean = 4;
+    RMS = 5;
+    Sigma = 6;
+    SumSq = 7;
+    Min = 8;
+    Max = 9;
+    Blc = 10;
+    Trc = 11;
+    MinPos = 12;
+    MaxPos = 13;
+    Blcf = 14;
+    Trcf =  15;
+    MinPosf = 16;
+    MaxPosf = 17;
 }
 
 enum ErrorSeverity {
@@ -80,4 +111,30 @@ enum EntryType {
     STRING = 0;
     FLOAT = 1;
     INT = 2;
+}
+
+enum ClientFeatureFlags {
+    CLIENT_FEATURE_NONE = 0;
+    WEB_GL = 1;
+    WEB_GL_2 = 2;
+    WEB_ASSEMBLY = 4;
+    WEB_ASSEMBLY_THREADS = 8;
+    OFFSCREEN_CANVAS = 16;
+}
+
+enum ServerFeatureFlags {
+    SERVER_FEATURE_NONE = 0;
+    SZ_COMPRESSION = 1;
+    HEVC_COMPRESSION = 2;
+    NVENC_COMPRESSION = 4;
+}
+
+enum FileFeatureFlags {
+    FILE_FEATURE_NONE = 0;
+    ROTATED_DATASET = 1;
+    CHANNEL_HISTOGRAMS = 2;
+    CUBE_HISTOGRAMS = 4;
+    CHANNEL_STATS = 8;
+    MEAN_IMAGE = 16;
+    MIP_DATASET = 32;
 }
