@@ -13,6 +13,8 @@ message RegisterViewer {
     // Optional user-specific API key to be used for basic authentication.
     // Could be an encrypted JWT for secure authentication.
     string api_key = 2;
+    // Optional feature bitflag specifying client-side feature set
+    fixed32 client_feature_flags = 3;
 }
 
 // REGISTER_VIEWER_ACK
@@ -27,4 +29,6 @@ message RegisterViewerAck {
     string message = 3;
     // Defines the type of session established
     SessionType session_type = 4;
+    // Optional feature bitflag specifying server-side feature set
+    fixed32 server_feature_flags = 5;
 }

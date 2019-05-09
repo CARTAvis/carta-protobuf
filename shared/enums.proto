@@ -79,3 +79,29 @@ enum EntryType {
     FLOAT = 1;
     INT = 2;
 }
+
+enum ClientFeatureFlags {
+    CLIENT_FEATURE_NONE = 0;
+    WEB_GL = 1;
+    WEB_GL_2 = 2;
+    WEB_ASSEMBLY = 4;
+    WEB_ASSEMBLY_THREADS = 8;
+    OFFSCREEN_CANVAS = 16;
+}
+
+enum ServerFeatureFlags {
+    SERVER_FEATURE_NONE = 0;
+    SZ_COMPRESSION = 1;
+    HEVC_COMPRESSION = 2;
+    NVENC_COMPRESSION = 4;
+}
+
+enum FileFeatureFlags {
+    FILE_FEATURE_NONE = 0;
+    ROTATED_DATASET = 1;
+    CHANNEL_HISTOGRAMS = 2;
+    CUBE_HISTOGRAMS = 4;
+    CHANNEL_STATS = 8;
+    MEAN_IMAGE = 16;
+    MIP_DATASET = 32;
+}
