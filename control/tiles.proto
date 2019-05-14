@@ -1,0 +1,23 @@
+syntax = "proto3";
+package CARTA;
+
+import "enums.proto";
+import "defs.proto";
+
+// ADD_REQUIRED_TILES
+// Provides a list of tiles that are required for the specified file
+message AddRequiredTiles {
+    // The file ID that the view corresponds to
+    sfixed32 file_id = 1;
+    // The list of tiles required, in encoded coordinate
+    repeated sfixed32 tiles = 2;
+}
+
+// REMOVE_REQUIRED_TILES
+// Provides a list of tiles that are required for the specified file
+message RemoveRequiredTiles {
+    // The file ID that the view corresponds to
+    sfixed32 file_id = 1;
+    // The list of tiles required, in encoded coordinate
+    repeated sfixed32 tiles = 2;
+}
