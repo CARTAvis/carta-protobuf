@@ -10,27 +10,29 @@ import "enums.proto";
 message StartAnimation {
     // Which file slot the animation describes.
     sfixed32 file_id = 1;
+    // The lower bound of the animation when looping.
+    AnimationFrame first_frame = 2;
     // The starting point of the animation.
-    AnimationFrame start_frame = 2;
-    // The ending point of the animation
-    AnimationFrame end_frame = 3;
+    AnimationFrame start_frame = 3;
+    // The upper bound of the animation.
+    AnimationFrame last_frame = 4;
     // The frame change step for the animation. For example, a delta frame of {channel=1, stokes=0}
     // would step through each channel in the file.
-    AnimationFrame delta_frame = 4;
-    // Frame interval in milliseconds
-    sfixed32 frame_interval = 5;
+    AnimationFrame delta_frame = 5;
+    // Frame rate per second
+    sfixed32 frame_rate = 6;
     // Whether to loop the animation indefinitely.
-    bool looping = 6;
+    bool looping = 7;
     // Whether to reverse the animation direction when endFrame is reached.
-    bool reverse = 7;
+    bool reverse = 8;
     // The compression algorithm used. Additional compression types may be introduced if
     // we allow the compression library to vary the algorithm details. For example,
     // ZFP has modes of bounding the compression artifacts.
-    CompressionType compression_type = 8;
+    CompressionType compression_type = 9;
     // Compression quality switch. Note: A different compression type or quality can be specified in
     // the animation message, as animations may require smaller image data sizes to playback
     // smoothly on poor quality connections.
-    float compression_quality = 9;
+    float compression_quality = 10;
 }
 
 // START_ANIMATION_ACK
