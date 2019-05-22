@@ -11,6 +11,10 @@ message AddRequiredTiles {
     sfixed32 file_id = 1;
     // The list of tiles required, in encoded coordinate
     repeated sfixed32 tiles = 2;
+    // The compression algorithm used
+    CompressionType compression_type = 3;
+    // Compression quality switch
+    float compression_quality = 4;
 }
 
 // REMOVE_REQUIRED_TILES
