@@ -3,7 +3,6 @@ package CARTA;
 
 import "enums.proto";
 import "defs.proto";
-import "tiles.proto";
 
 // SET_IMAGE_CHANNELS
 // Sets the current image channel and Stokes parameter
@@ -14,6 +13,4 @@ message SetImageChannels {
     sfixed32 channel = 2;
     // The image stokes parameter
     sfixed32 stokes = 3;
-    // Required tiles when changing channels
-    AddRequiredTiles required_tiles = 4;
 }

@@ -32,9 +32,6 @@ enum EventType {
     REGION_STATS_DATA = 27;
     ERROR_DATA = 28;
     ANIMATION_FLOW_CONTROL = 29;
-    ADD_REQUIRED_TILES = 30;
-    REMOVE_REQUIRED_TILES = 31;
-    RASTER_TILE_DATA = 32;
 }
 
 enum SessionType {

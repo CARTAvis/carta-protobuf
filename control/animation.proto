@@ -3,7 +3,6 @@ package CARTA;
 
 import "defs.proto";
 import "enums.proto";
-import "set_image_view.proto";
 
 // START_ANIMATION:
 // Starts an animation, as defined by the start, stop and step definitions.
@@ -26,8 +25,14 @@ message StartAnimation {
     bool looping = 7;
     // Whether to reverse the animation direction when endFrame is reached.
     bool reverse = 8;
-    // Image view of the animation, defining the compression settings, bounds and mip
-    SetImageView imageView = 9;
+    // The compression algorithm used. Additional compression types may be introduced if
+    // we allow the compression library to vary the algorithm details. For example,
+    // ZFP has modes of bounding the compression artifacts.
+    CompressionType compression_type = 9;
+    // Compression quality switch. Note: A different compression type or quality can be specified in
+    // the animation message, as animations may require smaller image data sizes to playback
+    // smoothly on poor quality connections.
+    float compression_quality = 10;
 }
 
 // START_ANIMATION_ACK
