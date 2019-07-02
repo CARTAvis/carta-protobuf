@@ -1,0 +1,37 @@
+syntax = "proto3";
+package CARTA;
+
+import "enums.proto";
+
+message RasterTileData {
+    // The file ID that the raster image corresponds to
+    sfixed32 file_id = 1;
+    // The image channel (z-coordinate)
+    sfixed32 channel = 2;
+    // The image stokes coordinate
+    sfixed32 stokes = 3;
+    // The compression algorithm used.
+    CompressionType compression_type = 4;
+    // Compression quality switch
+    float compression_quality = 5;
+    // List of tile data
+    repeated TileData tiles = 6;
+}
+
+message TileData {
+    // Tile layer coordinate
+    sfixed32 layer = 1;
+    // Tile x coordinate
+    sfixed32 x = 2;
+    // Tile y coordinate
+    sfixed32 y = 3;
+    // Width of the tile data. If this is left as zero, the default tile size should be used
+    sfixed32 width = 4;
+    // Height of the tile data. If this is left as zero, the default tile size should be used
+    sfixed32 height = 5;
+    // Image data. For uncompressed data, this is converted into FP32, while for compressed data,
+    // this is passed to the compression library for decompression.
+    bytes image_data = 6;
+    // Run-length encodings of NaN values. These values are used to restore the NaN values after decompression.
+    bytes nan_encodings = 7;
+}
