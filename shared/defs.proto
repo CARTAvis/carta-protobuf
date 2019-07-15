@@ -65,15 +65,15 @@ message AnimationFrame {
 message SpatialProfile {
     sfixed32 start = 1;
     sfixed32 end = 2;
-    repeated float values = 3;
+    bytes raw_values_fp32 = 3;
     string coordinate = 4;
 }
 
 message SpectralProfile {
     string coordinate = 1;
     StatsType stats_type = 2;
-    repeated float vals = 3;
-    repeated double double_vals = 4;
+    bytes raw_values_fp32 = 3;
+    bytes raw_values_fp64 = 4;
 }
 
 message StatisticsValue {
@@ -86,11 +86,11 @@ message Histogram {
     sfixed32 num_bins = 2;
     double bin_width = 3;
     double first_bin_center = 4;
-    repeated sfixed32 bins = 5;
+    bytes raw_bins_i32 = 5;
 }
 
 message ContourSet {
     float value = 1;
-    repeated float coordinates = 2;
-    repeated sfixed32 start_indices = 3;
+    bytes raw_coordinates_fp32 = 2;
+    bytes raw_start_indices_i32= 3;
 }
