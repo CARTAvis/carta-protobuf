@@ -86,7 +86,7 @@ message Histogram {
     sfixed32 num_bins = 2;
     double bin_width = 3;
     double first_bin_center = 4;
-    bytes raw_bins_i32 = 5;
+    repeated sfixed32 bins = 5;
 }
 
 message ContourSet {
