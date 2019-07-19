@@ -37,6 +37,8 @@ message StartAnimationAck {
     bool success = 1;
     // Error message (if applicable)
     string message = 2;
+    // The animation ID of the new animation
+    sfixed32 animation_id = 3;
 }
 
 // ANIMATION_FLOW_CONTROL
@@ -45,6 +47,10 @@ message AnimationFlowControl {
     sfixed32 file_id = 1;
     // The latest flow control frame received
     AnimationFrame received_frame = 2;
+    // The animation ID that the flow control message belongs to
+    sfixed32 animation_id = 3;
+    // Timestamp at which the frame was received
+    sfixed64 timestamp = 4;
 }
 
 // STOP_ANIMATION

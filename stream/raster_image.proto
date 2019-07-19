@@ -28,4 +28,6 @@ message RasterImageData {
     repeated bytes nan_encodings = 9;
     // Optional channel histogram
     RegionHistogramData channel_histogram_data = 10;
+    // The ID of the animation this frame belongs to
+    sfixed32 animation_id = 11;
 }
