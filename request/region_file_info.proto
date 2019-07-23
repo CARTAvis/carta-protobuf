@@ -1,0 +1,28 @@
+syntax = "proto3";
+package CARTA;
+
+import "defs.proto";
+
+// REGION_FILE_INFO_REQUEST:
+// Requests contents for a specific region file on the server
+// Backend responds with REGION_FILE_INFO_RESPONSE
+message RegionFileInfoRequest {
+    // Required directory name
+    string directory = 1;
+    // Required file name
+    string file = 2;
+}
+
+// REGION_FILE_INFO_RESPONSE
+// Response for REGION_FILE_INFO_REQUEST.
+// Gives information on the requested file
+message RegionFileInfoResponse {
+    // Defines whether the REGION_INFO_REQUEST was successful
+    bool success = 1;
+    // Error message (if applicable)
+    string message = 2;
+    // Basic info about region file
+    FileInfo file_info = 3;
+    // Contents of file; each string is a line
+    repeated string contents = 4;
+}

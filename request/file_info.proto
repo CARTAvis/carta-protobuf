@@ -4,7 +4,7 @@ package CARTA;
 import "defs.proto";
 
 // FILE_INFO_REQUEST:
-// Requests the list of available files for a given directory.
+// Requests the file info for a specific file.
 // Backend responds with FILE_INFO_RESPONSE
 message FileInfoRequest {
     // Required directory name

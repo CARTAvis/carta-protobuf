@@ -1,0 +1,33 @@
+syntax = "proto3";
+package CARTA;
+
+import "defs.proto";
+import "enums.proto";
+
+// EXPORT_REGION:
+// Requests exporting the specified regions to a file on the server.
+// If directory and file are blank, return file contents for export on client.
+// Backend responds with  EXPORT_REGION_ACK
+message ExportRegion {
+    // Required file type
+    FileType type = 1;
+    // File id for the coordinate system to use
+    sfixed32 file_id = 2;
+    // Region ids to export
+    repeated sfixed32 region_id = 3;
+    // Optional directory name of server file
+    string directory = 4;
+    // Optional file name of server file
+    string file = 5;
+}
+
+// EXPORT_REGION_ACK
+// Response for EXPORT_REGION to indicate success and file contents if on client.
+message ExportRegionAck {
+    // Defines whether EXPORT_REGION was successful
+    bool success = 1;
+    // Error message (if applicable)
+    string message = 2;
+    // File contents for client export (one line per string)
+    repeated string contents = 3;
+}

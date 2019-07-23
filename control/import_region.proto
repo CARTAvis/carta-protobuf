@@ -1,0 +1,32 @@
+syntax = "proto3";
+package CARTA;
+
+import "defs.proto";
+import "enums.proto";
+
+// IMPORT_REGION:
+// Requests the opening and applying of a specific region file.
+// Backend responds with  IMPORT_REGION_ACK
+message ImportRegion {
+    // Required WCS group id (may be a single file id)
+    sfixed32 group_id = 1;
+    // Required file type
+    FileType type = 2;
+    // Optional directory name of server file
+    string directory = 3;
+    // Optional file name of server file
+    string file = 4;
+    // Optional file contents of client file (1 line per string)
+    repeated string contents = 5;
+}
+
+// IMPORT_REGION_ACK
+// Response for IMPORT_REGION. Also supplies region properties
+message ImportRegionAck {
+    // Defines whether IMPORT_REGION was successful
+    bool success = 1;
+    // Error message (if applicable)
+    string message = 2;
+    // Region id and parameters
+    repeated RegionProperties regions = 3;
+}

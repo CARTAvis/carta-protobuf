@@ -94,3 +94,15 @@ message ContourSet {
     bytes raw_coordinates_fp32 = 2;
     bytes raw_start_indices_i32= 3;
 }
+
+message RegionProperties {
+    sfixed32 region_id = 1;
+    RegionInfo region_info = 2;
+}
+
+message RegionInfo {
+    string region_name = 1;
+    RegionType type = 2;
+    repeated Point control_points = 3;
+    float rotation = 4;
+}
