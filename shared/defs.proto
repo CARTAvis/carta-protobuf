@@ -102,7 +102,7 @@ message RegionProperties {
 
 message RegionInfo {
     string region_name = 1;
-    RegionType type = 2;
+    RegionType region_type = 2;
     repeated Point control_points = 3;
     float rotation = 4;
 }
