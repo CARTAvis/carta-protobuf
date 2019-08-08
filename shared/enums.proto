@@ -149,3 +149,8 @@ enum FileFeatureFlags {
     MEAN_IMAGE = 16;
     MIP_DATASET = 32;
 }
+
+enum CoordinateType {
+    PIXEL = 0;
+    WORLD = 1;
+}

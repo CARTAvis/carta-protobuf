@@ -11,14 +11,16 @@ import "enums.proto";
 message ExportRegion {
     // Required file type
     FileType type = 1;
+    // Required coordinate type pixel/world
+    CoordinateType coord_type = 2;
     // File id for the coordinate system to use
-    sfixed32 file_id = 2;
+    sfixed32 file_id = 3;
     // Region ids to export
-    repeated sfixed32 region_id = 3;
+    repeated sfixed32 region_id = 4;
     // Optional directory name of server file
-    string directory = 4;
+    string directory = 5;
     // Optional file name of server file
-    string file = 5;
+    string file = 6;
 }
 
 // EXPORT_REGION_ACK
