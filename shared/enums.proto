@@ -35,6 +35,14 @@ enum EventType {
     ADD_REQUIRED_TILES = 30;
     REMOVE_REQUIRED_TILES = 31;
     RASTER_TILE_DATA = 32;
+    REGION_LIST_REQUEST = 33;
+    REGION_LIST_RESPONSE = 34;
+    REGION_FILE_INFO_REQUEST = 35;
+    REGION_FILE_INFO_RESPONSE = 36;
+    IMPORT_REGION = 37;
+    IMPORT_REGION_ACK = 38;
+    EXPORT_REGION = 39;
+    EXPORT_REGION_ACK = 40;
 }
 
 enum SessionType {
@@ -140,4 +148,9 @@ enum FileFeatureFlags {
     CHANNEL_STATS = 8;
     MEAN_IMAGE = 16;
     MIP_DATASET = 32;
+}
+
+enum CoordinateType {
+    PIXEL = 0;
+    WORLD = 1;
 }
