@@ -20,8 +20,8 @@ message SetContourParameters {
     // Contour levels
     repeated double levels = 6;
     // Pre-contouring smoothing mode
-    SmoothingMode smoothingMode = 7;
+    SmoothingMode smoothing_mode = 7;
     // Contour smoothness factor. For block averaging, this is the block width
     // For Gaussian smoothing, this defines both the Gaussian width, and the kernel size
-    float smoothingFactor = 8;
+    int32 smoothing_factor = 8;
 }
