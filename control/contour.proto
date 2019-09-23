@@ -9,8 +9,8 @@ import "defs.proto";
 message SetContourParameters {
     // The file ID that the contour corresponds to
     fixed32 file_id = 1;
-    // The layer ID that the contour image corresponds to
-    fixed32 layer_id = 2;
+    // The file ID of the reference image that the contour vertices should be mapped to
+    fixed32 reference_file_id = 2;
     // The XY bounds corresponding to the image data in pixel coordinates
     ImageBounds image_bounds = 3;
     // The image channel (Z-coordinate)
@@ -19,8 +19,9 @@ message SetContourParameters {
     fixed32 stokes = 5;
     // Contour levels
     repeated double levels = 6;
-    // Contour generation mode
-    ContourMode contour_mode = 7;
-    // Contour smoothness
-    float smoothness = 8;
+    // Pre-contouring smoothing mode
+    SmoothingMode smoothingMode = 7;
+    // Contour smoothness factor. For block averaging, this is the block width
+    // For Gaussian smoothing, this defines both the Gaussian width, and the kernel size
+    float smoothingFactor = 8;
 }

@@ -81,12 +81,10 @@ enum RegionType {
     POLYGON = 6;
 }
 
-enum ContourMode {
-    ORIGINAL = 0;
-    GAUSSIANBLUR_3 = 1;
-    GAUSSIANBLUR_5 = 2;
-    BOXBLUR_3 = 3;
-    BOXBLUR_5 = 4;
+enum SmoothingMode {
+    NoSmoothing = 0;
+    BlockAverage = 1;
+    GaussianBlur = 2;
 }
 
 enum StatsType {
