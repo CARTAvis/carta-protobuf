@@ -21,7 +21,7 @@ message ContourImageData {
 }
 
 message ContourSet {
-    float value = 1;
+    double level = 1;
     bytes raw_coordinates_fp32 = 2;
     bytes raw_start_indices_i32= 3;
 }
