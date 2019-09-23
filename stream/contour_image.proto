@@ -19,3 +19,9 @@ message ContourImageData {
     // separate poly-lines when rendering.
     repeated ContourSet contour_sets = 5;
 }
+
+message ContourSet {
+    float value = 1;
+    bytes raw_coordinates_fp32 = 2;
+    bytes raw_start_indices_i32= 3;
+}
