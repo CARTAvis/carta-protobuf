@@ -13,19 +13,15 @@ message SetContourParameters {
     fixed32 reference_file_id = 2;
     // The XY bounds corresponding to the image data in pixel coordinates
     ImageBounds image_bounds = 3;
-    // The image channel (Z-coordinate)
-    fixed32 channel = 4;
-    // The image stokes parameter
-    fixed32 stokes = 5;
     // Contour levels
-    repeated double levels = 6;
+    repeated double levels = 4;
     // Pre-contouring smoothing mode
-    SmoothingMode smoothing_mode = 7;
+    SmoothingMode smoothing_mode = 5;
     // Contour smoothness factor. For block averaging, this is the block width
     // For Gaussian smoothing, this defines both the Gaussian width, and the kernel size
-    int32 smoothing_factor = 8;
+    int32 smoothing_factor = 6;
     // Decimation factor, indicates to what 1/Nth of a pixel the contour vertices should be rounded to
-    int32 decimation_factor = 9;
+    int32 decimation_factor = 7;
     // Zstd compression level
-    int32 compression_level = 10;
+    int32 compression_level = 8;
 }
