@@ -142,6 +142,9 @@ enum ServerFeatureFlags {
     SZ_COMPRESSION = 1;
     HEVC_COMPRESSION = 2;
     NVENC_COMPRESSION = 4;
+    REGION_WRITE_ACCESS = 8;
+    USER_PREFERENCES = 16;
+    USER_LAYOUTS = 32;
 }
 
 enum FileFeatureFlags {
