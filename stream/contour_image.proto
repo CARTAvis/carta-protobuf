@@ -4,18 +4,27 @@ package CARTA;
 import "defs.proto";
 
 // CONTOUR_IMAGE_DATA:
-// Data for an image rendered in raster mode.
+// Data for an image rendered in contour mode.
 message ContourImageData {
-    // The file ID that the raster image corresponds to
+    // The file ID that the contour image corresponds to
     sfixed32 file_id = 1;
+    // The file ID of the reference image that the contour vertices are mapped to
+    fixed32 reference_file_id = 2;
     // The bounding box in the XY plane corresponding to the image data in pixel coordinates
-    ImageBounds image_bounds = 2;
+    ImageBounds image_bounds = 3;
     // The image channel used to generate the contours
-    sfixed32 channel = 3;
+    sfixed32 channel = 4;
     // The image stokes parameter used to generate the contours
-    sfixed32 stokes = 4;
+    sfixed32 stokes = 5;
     // Each contour set consists of the contour level value, as well as a list of coordinates.
     // The start_indices list is used to determine how to subdivide the coordinates list into
     // separate poly-lines when rendering.
-    repeated ContourSet contour_sets = 5;
+    repeated ContourSet contour_sets = 6;
+}
+
+message ContourSet {
+    double level = 1;
+    int32 decimation_factor = 2;
+    bytes raw_coordinates = 3;
+    bytes raw_start_indices = 4;
 }

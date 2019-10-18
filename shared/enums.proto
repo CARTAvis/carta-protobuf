@@ -43,7 +43,13 @@ enum EventType {
     IMPORT_REGION_ACK = 38;
     EXPORT_REGION = 39;
     EXPORT_REGION_ACK = 40;
-    RESUME_SESSION = 41;
+    SET_USER_PREFERENCES = 41;
+    SET_USER_PREFERENCES_ACK = 42;
+    SET_USER_LAYOUT = 43;
+    SET_USER_LAYOUT_ACK = 44;
+    SET_CONTOUR_PARAMETERS = 45;
+    CONTOUR_IMAGE_DATA = 46;
+    RESUME_SESSION = 47;
 }
 
 enum SessionType {
@@ -82,12 +88,10 @@ enum RegionType {
     POLYGON = 6;
 }
 
-enum ContourMode {
-    ORIGINAL = 0;
-    GAUSSIANBLUR_3 = 1;
-    GAUSSIANBLUR_5 = 2;
-    BOXBLUR_3 = 3;
-    BOXBLUR_5 = 4;
+enum SmoothingMode {
+    NoSmoothing = 0;
+    BlockAverage = 1;
+    GaussianBlur = 2;
 }
 
 enum StatsType {
@@ -139,6 +143,9 @@ enum ServerFeatureFlags {
     SZ_COMPRESSION = 1;
     HEVC_COMPRESSION = 2;
     NVENC_COMPRESSION = 4;
+    REGION_WRITE_ACCESS = 8;
+    USER_PREFERENCES = 16;
+    USER_LAYOUTS = 32;
 }
 
 enum FileFeatureFlags {

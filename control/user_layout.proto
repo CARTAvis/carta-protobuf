@@ -1,0 +1,21 @@
+syntax = "proto3";
+package CARTA;
+
+// SET_USER_LAYOUT:
+// Sets or clears a user layout.
+// Backend responds with  SET_USER_LAYOUT_ACK
+message SetUserLayout {
+    // Name of the layout to update. If no layout with the given name is present in the server database,
+    // a new layout is created
+    string name = 1;
+    // JSON string representing the layout. If the value is empty, the user layout is cleared from the server database.
+    string value = 2;
+}
+
+// SET_USER_LAYOUT_ACK
+// Response for SET_USER_LAYOUT
+message SetUserLayoutAck {
+    // Defines whether SET_USER_LAYOUT was successful
+    bool success = 1;
+    // Error message (if applicable)
+}

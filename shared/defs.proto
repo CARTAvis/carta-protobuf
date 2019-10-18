@@ -89,12 +89,6 @@ message Histogram {
     repeated sfixed32 bins = 5;
 }
 
-message ContourSet {
-    float value = 1;
-    bytes raw_coordinates_fp32 = 2;
-    bytes raw_start_indices_i32= 3;
-}
-
 message RegionProperties {
     sfixed32 region_id = 1;
     RegionInfo region_info = 2;
