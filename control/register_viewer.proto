@@ -31,4 +31,10 @@ message RegisterViewerAck {
     SessionType session_type = 4;
     // Optional feature bitflag specifying server-side feature set
     fixed32 server_feature_flags = 5;
+    // Map of user preferences retrieved from the server database.
+    // If this is empty and the server does not have the USER_PREFERENCES feature flag set,
+    // then the user preferences are read from localStorage instead.
+    map<string, string> user_preferences = 6;
+    // Map of user layouts retrieved from the server database
+    map<string, string> user_layouts = 7;
 }
