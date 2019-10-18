@@ -43,6 +43,7 @@ enum EventType {
     IMPORT_REGION_ACK = 38;
     EXPORT_REGION = 39;
     EXPORT_REGION_ACK = 40;
+    RESUME_SESSION = 41;
 }
 
 enum SessionType {

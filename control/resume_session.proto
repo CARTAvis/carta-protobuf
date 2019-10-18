@@ -1,0 +1,11 @@
+syntax = "proto3";
+package CARTA;
+
+import "defs.proto";
+
+message ResumeSession {
+    fixed32 session_id = 1;
+    fixed32 client_feature_flags = 2;
+    repeated ImageProperties images = 3;
+}
+

@@ -106,3 +106,15 @@ message RegionInfo {
     repeated Point control_points = 3;
     float rotation = 4;
 }
+
+message ImageProperties {
+    string directory = 1;
+    string file = 2;
+    string hdu = 3;
+    sfixed32 file_id = 4;
+    RenderMode render_mode = 5;
+    sfixed32 channel = 6;
+    sfixed32 stokes = 7;
+    repeated RegionProperties regions = 8;
+}
+
