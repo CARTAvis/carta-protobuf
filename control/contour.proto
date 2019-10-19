@@ -24,4 +24,6 @@ message SetContourParameters {
     int32 decimation_factor = 7;
     // Zstd compression level
     int32 compression_level = 8;
+    // Size of contour chunks, in number of vertices. If this is set to zero, partial contour results are not used
+    int32 contour_chunk_size = 9;
 }

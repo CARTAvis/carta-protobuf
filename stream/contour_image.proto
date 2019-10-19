@@ -20,6 +20,8 @@ message ContourImageData {
     // The start_indices list is used to determine how to subdivide the coordinates list into
     // separate poly-lines when rendering.
     repeated ContourSet contour_sets = 6;
+    // Progress of the contour sets being sent. If this is zero, the message is assumed to contain the entire contour sets
+    double progress = 7;
 }
 
 message ContourSet {
