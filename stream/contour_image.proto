@@ -29,4 +29,5 @@ message ContourSet {
     int32 decimation_factor = 2;
     bytes raw_coordinates = 3;
     bytes raw_start_indices = 4;
+    int32 uncompressed_coordinates_size = 5;
 }
