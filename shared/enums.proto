@@ -50,6 +50,7 @@ enum EventType {
     SET_CONTOUR_PARAMETERS = 45;
     CONTOUR_IMAGE_DATA = 46;
     RESUME_SESSION = 47;
+    RESUME_SESSION_ACK = 48;
 }
 
 enum SessionType {
