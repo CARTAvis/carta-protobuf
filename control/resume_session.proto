@@ -4,7 +4,7 @@ package CARTA;
 import "defs.proto";
 
 message ResumeSession {
-    repeated ImageProperties images = 3;
+    repeated ImageProperties images = 1;
 }
 
 message ResumeSessionAck {
