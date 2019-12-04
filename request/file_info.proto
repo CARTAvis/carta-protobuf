@@ -26,5 +26,5 @@ message FileInfoResponse {
     // Basic file info (type, size)
     FileInfo file_info = 3;
     // Extended file info (WCS, header info)
-    FileInfoExtended file_info_extended = 4;
+    map<string, FileInfoExtended> file_info_extended = 4;
 }
