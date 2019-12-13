@@ -87,6 +87,8 @@ message Histogram {
     double bin_width = 3;
     double first_bin_center = 4;
     repeated sfixed32 bins = 5;
+    double mean = 6;
+    double std_dev = 7;
 }
 
 message RegionProperties {
