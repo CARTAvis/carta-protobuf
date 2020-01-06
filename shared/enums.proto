@@ -128,6 +128,10 @@ enum EntryType {
     STRING = 0;
     FLOAT = 1;
     INT = 2;
+    BOOL = 3;
+    LONG = 4;
+    DOUBLE = 5;
+    UNKNOWN_TYPE = 6;
 }
 
 enum ClientFeatureFlags {
@@ -162,4 +166,19 @@ enum FileFeatureFlags {
 enum CoordinateType {
     PIXEL = 0;
     WORLD = 1;
+}
+
+enum CatalogFileType {
+    VOTable = 0;
+}
+
+enum ComparisonOperator {
+    EqualTo = 0;
+    NotEqualTo = 1;
+    LessThan = 2;
+    GreaterThan = 3;
+    LessThanOrEqualTo = 4;
+    GreaterThanOrEqualTo = 5;
+    BetweenAnd = 6;
+    FromTo = 7;
 }
