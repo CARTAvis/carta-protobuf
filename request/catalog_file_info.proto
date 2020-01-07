@@ -5,7 +5,7 @@ import "defs.proto";
 
 message CatalogFileInfoRequest {
     string directory = 1;
-    string file = 2;
+    string name = 2;
 }
 
 message CatalogFileInfoResponse {
