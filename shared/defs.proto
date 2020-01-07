@@ -133,7 +133,7 @@ message CatalogColumnsData {
     repeated BoolColumn bool_column = 1;
     repeated StringColumn string_column = 2;
     repeated IntColumn int_column = 3;
-    repeated LongColumn long_column = 4;
+    repeated LLColumn ll_column = 4;
     repeated FloatColumn float_column = 5;
     repeated DoubleColumn double_column = 6;
 }
@@ -150,8 +150,8 @@ message IntColumn {
     repeated sfixed32 int_column = 1;
 }
 
-message LongColumn {
-    repeated sfixed64 long_column = 1;
+message LLColumn {
+    repeated sfixed64 ll_column = 1;
 }
 
 message FloatColumn {

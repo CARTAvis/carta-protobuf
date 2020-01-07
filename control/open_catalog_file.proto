@@ -6,7 +6,7 @@ import "enums.proto";
 
 message OpenCatalogFile {
     string directory = 1;
-    string file = 2;
+    string name = 2;
     sfixed32 file_id = 3;
     sfixed32 preview_data_size = 4;
 }
