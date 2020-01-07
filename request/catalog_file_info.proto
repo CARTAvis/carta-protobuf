@@ -8,7 +8,7 @@ message CatalogFileInfoRequest {
     string file = 2;
 }
 
-message RegionFileInfoResponse {
+message CatalogFileInfoResponse {
     bool success = 1;
     string message = 2;
     CatalogFileInfo file_info = 3;
