@@ -129,7 +129,7 @@ enum EntryType {
     FLOAT = 1;
     INT = 2;
     BOOL = 3;
-    LONG = 4;
+    LONGLONG = 4;
     DOUBLE = 5;
     UNKNOWN_TYPE = 6;
 }

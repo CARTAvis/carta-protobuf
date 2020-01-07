@@ -168,5 +168,4 @@ message FilterConfig {
     float min = 3;
     float max = 4;
     string sub_string = 5;
-    EntryType data_type = 6;
 }
