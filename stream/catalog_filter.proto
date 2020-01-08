@@ -6,7 +6,7 @@ import "defs.proto";
 
 message CatalogFilterRequest {
     sfixed32 file_id = 1;
-    repeated CatalogHeader headers = 2;
+    repeated string hided_headers = 2;
     repeated FilterConfig filter_configs = 3;
     sfixed32 subset_data_size = 4;
     sfixed32 subset_start_index = 5;
