@@ -10,7 +10,7 @@ message CatalogFilterRequest {
     repeated FilterConfig filter_configs = 3;
     sfixed32 subset_data_size = 4;
     sfixed32 subset_start_index = 5;
-    ImageBounds image_bounds = 6;
+    CatalogImageBounds image_bounds = 6;
     sfixed32 region_id = 7;
 }
 

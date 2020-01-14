@@ -170,3 +170,9 @@ message FilterConfig {
     float max = 4;
     string sub_string = 5;
 }
+
+message CatalogImageBounds {
+    string x_column_name = 1;
+    string y_column_name = 2;
+    ImageBounds image_bounds = 3;
+}
