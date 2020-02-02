@@ -156,7 +156,8 @@ message LLColumn {
 }
 
 message FloatColumn {
-    repeated float float_column = 1;
+    // TODO: Due to the precision problem for the float type, we store its value as a double type instead.
+    repeated double float_column = 1;
 }
 
 message DoubleColumn {
