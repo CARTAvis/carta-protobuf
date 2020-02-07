@@ -19,5 +19,7 @@ message CatalogFilterResponse {
     sfixed32 region_id = 2;
     repeated CatalogHeader headers = 3;
     CatalogColumnsData columns_data = 4;
-    float progress = 5;
+    sfixed32 subset_data_size = 5;
+    sfixed32 subset_end_index = 6;
+    float progress = 7;
 }
