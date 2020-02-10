@@ -12,6 +12,5 @@ message CatalogFileInfoResponse {
     bool success = 1;
     string message = 2;
     CatalogFileInfo file_info = 3;
-    sfixed32 data_size = 4;
-    repeated CatalogHeader headers = 5;
+    repeated CatalogHeader headers = 4;
 }
