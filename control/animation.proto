@@ -27,7 +27,7 @@ message StartAnimation {
     // Whether to reverse the animation direction when endFrame is reached.
     bool reverse = 8;
     // Required tiles when changing channels
-    AddRequiredTiles required_tiles = 4;
+    AddRequiredTiles required_tiles = 9;
 }
 
 // START_ANIMATION_ACK
