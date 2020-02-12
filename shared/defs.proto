@@ -117,7 +117,7 @@ message ImageProperties {
 message CatalogFileInfo {
     string name = 1;
     CatalogFileType type = 2;
-    sfixed32 file_size = 3;
+    sfixed64 file_size = 3;
     string description = 4;
 }
 
