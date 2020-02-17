@@ -49,6 +49,7 @@ enum EventType {
     CONTOUR_IMAGE_DATA = 46;
     RESUME_SESSION = 47;
     RESUME_SESSION_ACK = 48;
+    RASTER_TILE_SYNC = 49;
 }
 
 enum SessionType {
