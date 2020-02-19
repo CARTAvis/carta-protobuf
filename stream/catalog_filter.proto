@@ -21,9 +21,8 @@ message CatalogFilterResponse {
     sfixed32 file_id = 1;
     sfixed32 image_file_id = 2;
     sfixed32 region_id = 3;
-    repeated CatalogHeader headers = 4;
-    CatalogColumnsData columns_data = 5;
-    sfixed32 subset_data_size = 6;
-    sfixed32 subset_end_index = 7;
-    float progress = 8;
+    CatalogColumnsData columns_data = 4;
+    sfixed32 subset_data_size = 5;
+    sfixed32 subset_end_index = 6;
+    float progress = 7;
 }
