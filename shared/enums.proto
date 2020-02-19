@@ -191,3 +191,8 @@ enum ComparisonOperator {
     BetweenAnd = 6;
     FromTo = 7;
 }
+
+enum SortingType {
+    Ascend = 0;
+    Descend = 1;
+}

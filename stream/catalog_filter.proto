@@ -13,6 +13,8 @@ message CatalogFilterRequest {
     CatalogImageBounds image_bounds = 6;
     sfixed32 image_file_id = 7;
     sfixed32 region_id = 8;
+    string sort_column = 9;
+    SortingType sorting_type = 10;
 }
 
 message CatalogFilterResponse {
