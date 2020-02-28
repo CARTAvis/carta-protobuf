@@ -119,6 +119,13 @@ message CatalogFileInfo {
     CatalogFileType type = 2;
     sfixed64 file_size = 3;
     string description = 4;
+    repeated Coosys coosys = 5;
+}
+
+message Coosys {
+    string equinox = 1;
+    string epoch = 2;
+    string system = 3;
 }
 
 message CatalogHeader {
