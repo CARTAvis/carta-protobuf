@@ -19,6 +19,8 @@ message ScriptingResponse {
     sfixed32 scripting_request_id = 1;
     // indicates whether the call was correctly executed
     bool success = 2;
+    // optional error message
+    string message = 3;
     // JSON-parsable response. e.g. "true", or the base64-encoded string
-    string response = 3;
+    string response = 4;
 };
