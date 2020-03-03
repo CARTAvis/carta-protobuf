@@ -50,6 +50,8 @@ enum EventType {
     RESUME_SESSION = 47;
     RESUME_SESSION_ACK = 48;
     RASTER_TILE_SYNC = 49;
+    SCRIPTING_REQUEST = 50;
+    SCRIPTING_RESPONSE = 51;
 }
 
 enum SessionType {
