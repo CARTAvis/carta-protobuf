@@ -25,4 +25,5 @@ message CatalogFilterResponse {
     sfixed32 subset_data_size = 5;
     sfixed32 subset_end_index = 6;
     float progress = 7;
+    sfixed32 filter_data_size = 8;
 }
