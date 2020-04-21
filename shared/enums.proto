@@ -195,3 +195,41 @@ enum SortingType {
     Ascend = 0;
     Descend = 1;
 }
+
+enum Moment {
+    MEAN_OF_THE_SPECTRUM = 0;
+    INTEGRATED_OF_THE_SPECTRUM = 1;
+    INTENSITY_WEIGHTED_COORD = 2;
+    INTENSITY_WEIGHTED_DISPERSION_OF_THE_COORD = 3;
+    MEDIAN_OF_THE_SPECTRUM = 4;
+    MEDIAN_COORDINATE = 5;
+    STD_DEV_ABOUT_THE_MEAN_OF_THE_SPECTRUM = 6;
+    RMS_OF_THE_SPECTRUM = 7;
+    ABS_MEAN_DEVIATION_OF_THE_SPECTRUM = 8;
+    MAX_OF_THE_SPECTRUM = 9;
+    COORD_OF_THE_MAX_OF_THE_SPECTRUM = 10;
+    MIN_OF_THE_SPECTRUM = 11;
+    COORD_OF_THE_MIN_OF_THE_SPECTRUM = 12;
+}
+
+enum MomentAxis {
+    RA = 0;
+    DEC = 1;
+    LAT = 2;
+    LONG = 3;
+    SPECTRAL = 4;
+    STOKES = 5;
+}
+
+enum MomentStokes {
+    I = 0;
+    IV = 1;
+    IQU = 2;
+    IQUV = 3;
+}
+
+enum Mask {
+    None = 0;
+    Include = 1;
+    Exclude = 2;
+}

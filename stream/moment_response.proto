@@ -1,0 +1,10 @@
+syntax = "proto3";
+package CARTA;
+
+import "enums.proto";
+import "defs.proto";
+
+message MomentResponse {
+    float progress = 1;
+    repeated MomentImage moment_images = 2;
+}

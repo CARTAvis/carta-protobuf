@@ -1,0 +1,17 @@
+syntax = "proto3";
+package CARTA;
+
+import "defs.proto";
+import "enums.proto";
+
+message MomentRequest {
+    sfixed32 file_id = 1;
+    repeated Moment moments = 2;
+    MomentAxis axis = 3;
+    sfixed32 region_id = 4;
+    IntFromTo spectral_range = 5;
+    MomentStokes stokes = 6;
+    Mask mask = 7;
+    FloatFromTo pixel_range = 8;
+    string outfile = 9;
+}

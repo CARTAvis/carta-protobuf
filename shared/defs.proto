@@ -183,3 +183,25 @@ message CatalogImageBounds {
     string y_column_name = 2;
     ImageBounds image_bounds = 3;
 }
+
+message IntFromTo {
+    sfixed32 from = 1;
+    sfixed32 to = 2;
+}
+
+message FloatFromTo {
+    float from = 1;
+    float to = 2;
+}
+
+message ImageData {
+    sfixed32 width = 1;
+    sfixed32 height = 2;
+    bytes image_data = 3;
+    Histogram histogram = 4;
+}
+
+message MomentImage {
+    Moment moment = 1;
+    ImageData image_data = 2;
+}
