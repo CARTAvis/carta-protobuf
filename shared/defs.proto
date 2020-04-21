@@ -45,6 +45,11 @@ message HeaderEntry {
     double numeric_value = 4;
 }
 
+message IntBounds {
+    sfixed32 min = 1;
+    sfixed32 max = 2;
+}
+
 message DoubleBounds {
     double min = 1;
     double max = 2;
@@ -182,16 +187,6 @@ message CatalogImageBounds {
     string x_column_name = 1;
     string y_column_name = 2;
     ImageBounds image_bounds = 3;
-}
-
-message IntFromTo {
-    sfixed32 from = 1;
-    sfixed32 to = 2;
-}
-
-message FloatFromTo {
-    float from = 1;
-    float to = 2;
 }
 
 message ImageData {

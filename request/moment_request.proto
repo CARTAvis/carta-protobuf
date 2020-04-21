@@ -9,9 +9,9 @@ message MomentRequest {
     repeated Moment moments = 2;
     MomentAxis axis = 3;
     sfixed32 region_id = 4;
-    IntFromTo spectral_range = 5;
+    IntBounds spectral_range = 5;
     MomentStokes stokes = 6;
     Mask mask = 7;
-    FloatFromTo pixel_range = 8;
+    DoubleBounds pixel_range = 8;
     string outfile = 9;
 }
