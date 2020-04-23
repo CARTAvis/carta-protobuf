@@ -59,6 +59,10 @@ enum EventType {
     CLOSE_CATALOG_FILE = 56;
     CATALOG_FILTER_REQUEST = 57;
     CATALOG_FILTER_RESPONSE = 58;
+    MOMENT_REQUEST = 59;
+    MOMENT_RESPONSE = 60;
+    STOP_MOMENT_CALC = 61;
+
 }
 
 enum SessionType {
