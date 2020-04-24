@@ -50,6 +50,11 @@ message IntBounds {
     sfixed32 max = 2;
 }
 
+message FloatBounds {
+    float min = 1;
+    float max = 2;
+}
+
 message DoubleBounds {
     double min = 1;
     double max = 2;

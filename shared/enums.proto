@@ -232,7 +232,7 @@ enum MomentStokes {
     IQUV = 3;
 }
 
-enum Mask {
+enum MomentMask {
     None = 0;
     Include = 1;
     Exclude = 2;

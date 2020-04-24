@@ -11,7 +11,7 @@ message MomentRequest {
     sfixed32 region_id = 4;
     IntBounds spectral_range = 5;
     MomentStokes stokes = 6;
-    Mask mask = 7;
-    DoubleBounds pixel_range = 8;
+    MomentMask mask = 7;
+    FloatBounds pixel_range = 8;
     string outfile = 9;
 }
