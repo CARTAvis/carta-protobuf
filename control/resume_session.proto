@@ -2,9 +2,11 @@ syntax = "proto3";
 package CARTA;
 
 import "defs.proto";
+import "open_catalog_file.proto";
 
 message ResumeSession {
     repeated ImageProperties images = 1;
+    repeated OpenCatalogFile catalog_files = 2;
 }
 
 message ResumeSessionAck {
