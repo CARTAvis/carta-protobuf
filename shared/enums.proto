@@ -50,6 +50,15 @@ enum EventType {
     RESUME_SESSION = 47;
     RESUME_SESSION_ACK = 48;
     RASTER_TILE_SYNC = 49;
+    CATALOG_LIST_REQUEST = 50;
+    CATALOG_LIST_RESPONSE = 51;
+    CATALOG_FILE_INFO_REQUEST = 52;
+    CATALOG_FILE_INFO_RESPONSE = 53;
+    OPEN_CATALOG_FILE = 54;
+    OPEN_CATALOG_FILE_ACK = 55;
+    CLOSE_CATALOG_FILE = 56;
+    CATALOG_FILTER_REQUEST = 57;
+    CATALOG_FILTER_RESPONSE = 58;
 }
 
 enum SessionType {
@@ -127,6 +136,10 @@ enum EntryType {
     STRING = 0;
     FLOAT = 1;
     INT = 2;
+    BOOL = 3;
+    LONGLONG = 4;
+    DOUBLE = 5;
+    UNKNOWN_TYPE = 6;
 }
 
 enum ClientFeatureFlags {
@@ -161,4 +174,24 @@ enum FileFeatureFlags {
 enum CoordinateType {
     PIXEL = 0;
     WORLD = 1;
+}
+
+enum CatalogFileType {
+    VOTable = 0;
+}
+
+enum ComparisonOperator {
+    EqualTo = 0;
+    NotEqualTo = 1;
+    LessThan = 2;
+    GreaterThan = 3;
+    LessThanOrEqualTo = 4;
+    GreaterThanOrEqualTo = 5;
+    BetweenAnd = 6;
+    FromTo = 7;
+}
+
+enum SortingType {
+    Ascend = 0;
+    Descend = 1;
 }
