@@ -43,6 +43,7 @@ message HeaderEntry {
     string value = 2;
     EntryType entry_type = 3;
     double numeric_value = 4;
+    string comment = 5;
 }
 
 message DoubleBounds {
