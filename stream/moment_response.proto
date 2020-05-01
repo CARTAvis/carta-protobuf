@@ -5,8 +5,8 @@ import "enums.proto";
 import "defs.proto";
 
 message MomentResponse {
-    repeated MomentImage output_files = 1;
-    bool success = 2;
+    bool success = 1;
+    repeated MomentImage output_files = 2;
 }
 
 message MomentProgress {
