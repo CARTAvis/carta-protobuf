@@ -5,9 +5,8 @@ import "enums.proto";
 import "defs.proto";
 
 message MomentResponse {
-    sfixed32 file_id = 1;
-    repeated sfixed32 moment_file_id = 2;
-    bool success = 3;
+    repeated MomentImage output_files = 1;
+    bool success = 2;
 }
 
 message MomentProgress {

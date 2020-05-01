@@ -13,5 +13,4 @@ message MomentRequest {
     MomentStokes stokes = 6;
     MomentMask mask = 7;
     FloatBounds pixel_range = 8;
-    string outfile = 9;
 }
