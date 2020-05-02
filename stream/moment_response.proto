@@ -6,7 +6,8 @@ import "defs.proto";
 
 message MomentResponse {
     bool success = 1;
-    repeated MomentImage output_files = 2;
+    string directory = 2;
+    repeated MomentImage output_files = 3;
 }
 
 message MomentProgress {
