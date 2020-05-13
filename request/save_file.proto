@@ -3,13 +3,13 @@ package CARTA;
 
 import "enums.proto";
 
-message SaveMomentFile {
+message SaveFile {
     sfixed32 file_id = 1;
     string output_file_name = 2;
     FileType output_file_type = 3;
 }
 
-message SaveMomentFileAck {
+message SaveFileAck {
     sfixed32 file_id = 1;
     bool success = 2;
     string message = 3;
