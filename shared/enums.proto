@@ -63,7 +63,8 @@ enum EventType {
     MOMENT_RESPONSE = 60;
     MOMENT_PROGRESS = 61;
     STOP_MOMENT_CALC = 62;
-
+    SAVE_MOMENT_FILE = 63;
+    SAVE_MOMENT_FILE_ACK = 64;
 }
 
 enum SessionType {
