@@ -5,8 +5,9 @@ import "enums.proto";
 
 message SaveFile {
     sfixed32 file_id = 1;
-    string output_file_name = 2;
-    FileType output_file_type = 3;
+    string output_file_directory = 2;
+    string output_file_name = 3;
+    FileType output_file_type = 4;
 }
 
 message SaveFileAck {
