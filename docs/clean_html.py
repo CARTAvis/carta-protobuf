@@ -1,28 +1,32 @@
-#!/usr/bin/env python3
-
-import sys
+import re
 from bs4 import BeautifulSoup
 
-with open(sys.argv[1]) as f:
+with open("CARTABackendFrontendInterfaceControlDocument.html") as f:
     data = f.read()
 
 soup = BeautifulSoup(data, 'html.parser')
 
-colours = {
-    "c0": "red",
-    "c16": "blue",
-    "c84": "orange",
+css_entries = re.findall(r"([^{]+)\{(.*?)\}", soup.style.text)
+css_entries[:10]
+
+c_classes = [(k, v) for (k, v) in css_entries if re.match("\.c\d+", k)]
+
+mapping_search = {
+    "strong": "font-weight:700",
+    "code": "Courier New",
+    "em": "font-style:italic",
+    "orange": "#ff9900",
+    "blue": "#0b5394",
+    "red": "#741b47",
 }
 
-replacements = {
-    "c4": "strong",
-    "c5": "code",
-    "c19": "code",
-    "c36": "code",
-    "c57": "code",
-    "c79": "em",
-    "c95": "em",
-}
+mapping = {}
+
+# We're assuming that multiple effects are applied by different nested classes
+for k, v in c_classes:
+    for new, old in mapping_search.items():
+        if old in v:
+            mapping[k.replace('.', '')] = new
 
 soup.style.clear()
 soup.style.append(".orange { color: #ff9900 } .blue { color: #0b5394 } .red { color: #741b47 }")
@@ -31,7 +35,7 @@ for tag_name in ("body", "a", "h1", "h2", "h3", "table", "thead", "tbody", "tr",
     for tag in soup.find_all(tag_name):
         if "class" in tag.attrs:
             del tag.attrs["class"]
-            
+
 for tag in soup.find_all("p"):
     if "class" in tag.attrs:
         if "title" in tag["class"]:
@@ -41,27 +45,23 @@ for tag in soup.find_all("p"):
 
 for tag in soup.find_all("span"):
     if "class" in tag.attrs:
-        for k, v in colours.items():
+        for k, v in mapping.items():
             if k in tag["class"]:
-                new_span = soup.new_tag("span")
-                new_span["class"] = [v]
-                tag.wrap(new_span)
-        
-        for k, v in replacements.items():
-            if k in tag["class"]:
-                tag.wrap(soup.new_tag(v))
+                if v in ("blue", "red", "orange"):
+                    new_span = soup.new_tag("span")
+                    new_span["class"] = [v]
+                    tag.wrap(new_span)
+                else:
+                    tag.wrap(soup.new_tag(v))
                 
     tag.unwrap()
-    
+
 for tag in soup.find_all("img"):
     tag.attrs = {"src": tag["src"]}
-    
-# Strip empty paragraphs
+
 for tag in soup.find_all("p"):
     if not tag.contents or (not tag.get_text().strip() and not tag.find_all("img")):
         tag.extract()
-
-# Merge and nest lists correctly
 
 # nests under first li (that's all we need)
 def nest(l1, l2):
@@ -75,16 +75,12 @@ def merge(l1, l2):
 lists = soup.find_all("ol")
 first, second = lists[:6], lists[6:]
 
-# first list (resuming)
-
 nest(first[0], first[1])
 nest(first[2], first[3])
 nest(first[4], first[5])
 
 merge(first[0], first[2])
 merge(first[0], first[4])
-
-# second list (catalog diagrams)
 
 for i in range(4):
     nest(second[i], second[i].find_next("p"))
@@ -94,16 +90,51 @@ merge(second[0], second[1])
 merge(second[0], second[2])
 merge(second[0], second[3])
 
-# TODO: fix manually in the original document:
+# Merge adjacent string nodes
+for e in soup.find_all():
+    e.smooth()
 
-# FOO_BAR_BAZ text which doesn't have the right code formatting
-# some of the images are huge -- different resolution?
+# Remove non-breaking spaces
+for t in soup.find_all(None, text=re.compile(".+")):
+    t.replace_with(t.replace('\xa0', ' '))
+    
+# Add code formatting to unformatted message type names
 
-# TODO: fix automatically:
+caps_text = re.compile("[A-Z]{2,}_[A-Z]{2,}")
+
+def has_ancestor(element, name):
+    if element.parent.name == "html":
+        return False
+    if element.parent.name == name:
+        return True
+    return has_ancestor(element.parent, name)
+
+strings = soup.find_all(None, text=caps_text)
+
+for s in strings:
+    if not has_ancestor(s, "code"):
+        parent = s.parent
+        s.extract()
+        parts = re.split("( )", s)
+        for p in parts:
+            if caps_text.match(p):
+                c = soup.new_tag("code")
+                c.append(p)
+                parent.append(c)
+            else:
+                parent.append(p)
+
+# TODO TODO TODO
+
+# TABLE FIXES
+# * Strip paragraphs from cells
+# * Add code formatting to property names and types (first two columns)
+
+# Normalize order of code and colour tags
 
 # Split into sections
 # Rename the section anchors / links
 # Rename the images
 
-print(soup.prettify())
+print(str(soup))
 
