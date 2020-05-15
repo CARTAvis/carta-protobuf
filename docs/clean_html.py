@@ -55,10 +55,55 @@ for tag in soup.find_all("span"):
     
 for tag in soup.find_all("img"):
     tag.attrs = {"src": tag["src"]}
+    
+# Strip empty paragraphs
+for tag in soup.find_all("p"):
+    if not tag.contents or (not tag.get_text().strip() and not tag.find_all("img")):
+        tag.extract()
 
-# TODO fix FOO_BAR_BAZ text which doesn't have the right code formatting
-# TODO fix messed-up consecutive lists (by hand?)
-# TODO some of the images are huge -- different resolution? Fix.
+# Merge and nest lists correctly
+
+# nests under first li (that's all we need)
+def nest(l1, l2):
+    l1.li.append(l2.extract())
+
+# only merges first li (also all we need)
+def merge(l1, l2):
+    l1.append(l2.li)
+    l2.extract()
+
+lists = soup.find_all("ol")
+first, second = lists[:6], lists[6:]
+
+# first list (resuming)
+
+nest(first[0], first[1])
+nest(first[2], first[3])
+nest(first[4], first[5])
+
+merge(first[0], first[2])
+merge(first[0], first[4])
+
+# second list (catalog diagrams)
+
+for i in range(4):
+    nest(second[i], second[i].find_next("p"))
+    second[i].p.unwrap()
+
+merge(second[0], second[1])
+merge(second[0], second[2])
+merge(second[0], second[3])
+
+# TODO: fix manually in the original document:
+
+# FOO_BAR_BAZ text which doesn't have the right code formatting
+# some of the images are huge -- different resolution?
+
+# TODO: fix automatically:
+
+# Split into sections
+# Rename the section anchors / links
+# Rename the images
 
 print(soup.prettify())
 
