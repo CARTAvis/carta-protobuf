@@ -1,4 +1,5 @@
 import re
+from collections import defaultdict
 from bs4 import BeautifulSoup
 
 with open("CARTABackendFrontendInterfaceControlDocument.html") as f:
@@ -20,13 +21,12 @@ mapping_search = {
     "red": "#741b47",
 }
 
-mapping = {}
+mapping = defaultdict(list)
 
-# We're assuming that multiple effects are applied by different nested classes
 for k, v in c_classes:
     for new, old in mapping_search.items():
         if old in v:
-            mapping[k.replace('.', '')] = new
+            mapping[k.replace('.', '')].append(new)
 
 soup.style.clear()
 soup.style.append(".orange { color: #ff9900 } .blue { color: #0b5394 } .red { color: #741b47 }")
@@ -47,12 +47,13 @@ for tag in soup.find_all("span"):
     if "class" in tag.attrs:
         for k, v in mapping.items():
             if k in tag["class"]:
-                if v in ("blue", "red", "orange"):
-                    new_span = soup.new_tag("span")
-                    new_span["class"] = [v]
-                    tag.wrap(new_span)
-                else:
-                    tag.wrap(soup.new_tag(v))
+                for newclass in v:
+                    if newclass in ("blue", "red", "orange"):
+                        new_span = soup.new_tag("span")
+                        new_span["class"] = [newclass]
+                        tag.wrap(new_span)
+                    else:
+                        tag.wrap(soup.new_tag(newclass))
                 
     tag.unwrap()
 
@@ -90,15 +91,11 @@ merge(second[0], second[1])
 merge(second[0], second[2])
 merge(second[0], second[3])
 
-# Merge adjacent string nodes
 for e in soup.find_all():
     e.smooth()
 
-# Remove non-breaking spaces
 for t in soup.find_all(None, text=re.compile(".+")):
     t.replace_with(t.replace('\xa0', ' '))
-    
-# Add code formatting to unformatted message type names
 
 caps_text = re.compile("[A-Z]{2,}_[A-Z]{2,}")
 
@@ -128,7 +125,6 @@ for s in strings:
 
 # TABLE FIXES
 # * Strip paragraphs from cells
-# * Add code formatting to property names and types (first two columns)
 
 # Normalize order of code and colour tags
 
