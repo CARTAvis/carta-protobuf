@@ -59,12 +59,14 @@ enum EventType {
     CLOSE_CATALOG_FILE = 56;
     CATALOG_FILTER_REQUEST = 57;
     CATALOG_FILTER_RESPONSE = 58;
-    MOMENT_REQUEST = 59;
-    MOMENT_RESPONSE = 60;
-    MOMENT_PROGRESS = 61;
-    STOP_MOMENT_CALC = 62;
-    SAVE_FILE = 63;
-    SAVE_FILE_ACK = 64;
+    SCRIPTING_REQUEST = 59;
+    SCRIPTING_RESPONSE = 60;
+    MOMENT_REQUEST = 61;
+    MOMENT_RESPONSE = 62;
+    MOMENT_PROGRESS = 63;
+    STOP_MOMENT_CALC = 64;
+    SAVE_FILE = 65;
+    SAVE_FILE_ACK = 66;
 }
 
 enum SessionType {
@@ -125,7 +127,7 @@ enum StatsType {
     MinPos = 12;
     MaxPos = 13;
     Blcf = 14;
-    Trcf =  15;
+    Trcf = 15;
     MinPosf = 16;
     MaxPosf = 17;
 }
