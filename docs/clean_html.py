@@ -1,5 +1,4 @@
 import re
-from collections import defaultdict
 from bs4 import BeautifulSoup
 
 with open("CARTABackendFrontendInterfaceControlDocument.html") as f:
@@ -7,35 +6,60 @@ with open("CARTABackendFrontendInterfaceControlDocument.html") as f:
 
 soup = BeautifulSoup(data, 'html.parser')
 
+# get styles
 css_entries = re.findall(r"([^{]+)\{(.*?)\}", soup.style.text)
-css_entries[:10]
-
 c_classes = [(k, v) for (k, v) in css_entries if re.match("\.c\d+", k)]
 
+# map old styles to new semantic tags and colours
 mapping_search = {
     "strong": "font-weight:700",
     "code": "Courier New",
     "em": "font-style:italic",
+}
+
+colour_search = {
     "orange": "#ff9900",
     "blue": "#0b5394",
     "red": "#741b47",
 }
 
-mapping = defaultdict(list)
+mapping = {}
+colour = {}
 
 for k, v in c_classes:
     for new, old in mapping_search.items():
         if old in v:
-            mapping[k.replace('.', '')].append(new)
+            mapping[k.replace('.', '')] = new
+    for new, old in colour_search.items():
+        if old in v:
+            colour[k.replace('.', '')] = new
 
+# styles (placeholders for legibility)
 soup.style.clear()
-soup.style.append(".orange { color: #ff9900 } .blue { color: #0b5394 } .red { color: #741b47 }")
+soup.style.append("""
+.orange { color: #ff9900 }
+.blue { color: #0b5394 } 
+.red { color: #741b47 }
+td {
+    border: solid 1px black;
+    padding: 10px;
+}
+table {
+    border: solid 1px black;
+    border-collapse: collapse;
+    margin: 10px 0;
+}
+""")
 
-for tag_name in ("body", "a", "h1", "h2", "h3", "table", "thead", "tbody", "tr", "td", "th", "ul", "ol", "li"):
+# strip styles
+for tag_name in ("body", "a", "h1", "h2", "h3", "hr", "table", "thead", "tbody", "tr", "td", "th", "ul", "ol", "li"):
     for tag in soup.find_all(tag_name):
         if "class" in tag.attrs:
             del tag.attrs["class"]
+        if "style" in tag.attrs:
+            del tag.attrs["style"]
 
+# convert title
 for tag in soup.find_all("p"):
     if "class" in tag.attrs:
         if "title" in tag["class"]:
@@ -43,26 +67,32 @@ for tag in soup.find_all("p"):
         
         del tag["class"]
 
+# convert old style spans to semantic tags and colours
 for tag in soup.find_all("span"):
     if "class" in tag.attrs:
+        for k, v in colour.items():
+            if k in tag["class"]:
+                new_span = soup.new_tag("span")
+                new_span["class"] = [v]
+                tag.wrap(new_span)
+        
         for k, v in mapping.items():
             if k in tag["class"]:
-                for newclass in v:
-                    if newclass in ("blue", "red", "orange"):
-                        new_span = soup.new_tag("span")
-                        new_span["class"] = [newclass]
-                        tag.wrap(new_span)
-                    else:
-                        tag.wrap(soup.new_tag(newclass))
+                tag.wrap(soup.new_tag(v))
                 
     tag.unwrap()
 
+# strip styles
 for tag in soup.find_all("img"):
     tag.attrs = {"src": tag["src"]}
 
+# remove empty paragraphs
 for tag in soup.find_all("p"):
     if not tag.contents or (not tag.get_text().strip() and not tag.find_all("img")):
         tag.extract()
+
+        
+# merge and nest specific lists correctly
 
 # nests under first li (that's all we need)
 def nest(l1, l2):
@@ -91,12 +121,15 @@ merge(second[0], second[1])
 merge(second[0], second[2])
 merge(second[0], second[3])
 
+# merge adjacent text elements
 for e in soup.find_all():
     e.smooth()
 
+# remove non-breaking spaces
 for t in soup.find_all(None, text=re.compile(".+")):
     t.replace_with(t.replace('\xa0', ' '))
 
+# fix unformatted event names
 caps_text = re.compile("[A-Z]{2,}_[A-Z]{2,}")
 
 def has_ancestor(element, name):
@@ -121,13 +154,83 @@ for s in strings:
             else:
                 parent.append(p)
 
+# Strip paragraphs and no-op rowspans and colspans from table cells
+for td in soup.find_all("td"):
+    if td.contents:
+        child = td.contents[0]
+        if child.name == 'p':
+            child.unwrap()
+    
+    for span in ("rowspan", "colspan"):
+        if td.attrs.get(span) == "1":
+            del td.attrs[span]
+
+# add colour span parent to <code> or <a> if it is surrounded by the same colour siblings
+
+def colour_of(t):
+    if hasattr(t, "attrs") and "class" in t.attrs:
+        has_colour = {"red", "blue", "orange"}.intersection(t["class"]) or None
+        if has_colour:
+            return has_colour.pop()
+    if t.name == 'html':
+        return None
+    return colour_of(t.parent)
+        
+
+links = soup.find_all("a")
+for link in links:
+    tag = link
+    if tag.parent.name in ("code", "em", "strong"):
+        tag = tag.parent
+    c = [colour_of(t) for t in (tag.previous_sibling, tag.next_sibling) if t and colour_of(t)]
+    if len(c) == 1 or len(c) == 2 and c[0] == c[1]:
+        new_span = soup.new_tag("span")
+        new_span["class"] = [c[0]]
+        tag.wrap(new_span)
+
+# then merge adjacent colour spans
+cells = soup.find_all("td")
+for cell in cells:
+    children = cell.contents
+    if len(children) > 1 and all(c.name == "span" for c in children) and len(set(c["class"][0] for c in children)) == 1:
+        for c in children[1:]:
+            children[0].extend(c.contents)
+            c.extract()
+
+
+# merge adjacent code tags; move trailing spaces inside code tags to the outside
+code = soup.find_all("code")
+for c in code:    
+    if not c.parent:
+        continue # extracted
+    
+    for s in c.next_siblings:
+        if s.name == "code":
+            c.extend(s.contents)
+            s.extract()
+        else:
+            break
+    
+    pos = c.parent.contents.index(c)
+    
+    if c.text.endswith(" "):
+        c.parent.insert(pos + 1, " ")
+    if c.text.startswith(" "):
+        c.parent.insert(pos, " ")
+    c.parent.smooth()
+    
+    first = last = c
+    
+    while first.name:
+        first = first.contents[0]
+    first.replace_with(first.lstrip(" "))
+    
+    while last.name:
+        last = last.contents[-1]
+    last.replace_with(last.rstrip(" "))
+
 # TODO TODO TODO
-
-# TABLE FIXES
-# * Strip paragraphs from cells
-
-# Normalize order of code and colour tags
-
+# Modify tables -- none of the table extensions support row or column spans
 # Split into sections
 # Rename the section anchors / links
 # Rename the images
