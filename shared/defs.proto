@@ -130,11 +130,22 @@ message Coosys {
 
 message CatalogHeader {
     string name = 1;
-    EntryType data_type = 2;
+    ColumnType data_type = 2;
     sfixed32 column_index = 3;
-    sfixed32 data_type_index = 4;
     string description = 5;
     string units = 6;
+}
+
+message CatalogData {
+    map<fixed32, ColumnData> columns = 1;
+}
+
+message ColumnData {
+    ColumnType data_type = 1;
+    // All data types other than string sent as binary
+    repeated string string_data = 2;
+    // binary data will get converted to a TypedArray
+    bytes binary_data = 3;
 }
 
 message CatalogColumnsData {

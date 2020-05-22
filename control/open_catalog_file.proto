@@ -18,7 +18,7 @@ message OpenCatalogFileAck {
     CatalogFileInfo file_info = 4;
     sfixed32 data_size = 5;
     repeated CatalogHeader headers = 6;
-    CatalogColumnsData columns_data = 7;
+    CatalogData preview_data = 7;
 }
 
 message CloseCatalogFile {
