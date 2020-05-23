@@ -180,8 +180,8 @@ message DoubleColumn {
 message FilterConfig {
     string column_name = 1;
     ComparisonOperator comparison_operator = 2;
-    float min = 3;
-    float max = 4;
+    double value = 3;
+    double secondary_value = 4;
     string sub_string = 5;
 }
 

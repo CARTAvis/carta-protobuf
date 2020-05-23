@@ -196,17 +196,17 @@ enum ColumnType {
 }
 
 enum ComparisonOperator {
-    EqualTo = 0;
-    NotEqualTo = 1;
-    LessThan = 2;
-    GreaterThan = 3;
-    LessThanOrEqualTo = 4;
-    GreaterThanOrEqualTo = 5;
-    BetweenAnd = 6;
-    FromTo = 7;
+    Equal = 0;
+    NotEqual = 1;
+    Lesser = 2;
+    Greater = 3;
+    LessorOrEqual = 4;
+    GreaterOrEqual = 5;
+    RangeOpen = 6;
+    RangeClosed = 7;
 }
 
 enum SortingType {
-    Ascend = 0;
-    Descend = 1;
+    Ascending = 0;
+    Descending = 1;
 }
