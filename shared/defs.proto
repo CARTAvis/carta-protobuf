@@ -136,10 +136,6 @@ message CatalogHeader {
     string units = 6;
 }
 
-message CatalogData {
-    map<fixed32, ColumnData> columns = 1;
-}
-
 message ColumnData {
     ColumnType data_type = 1;
     // All data types other than string sent as binary
