@@ -144,39 +144,6 @@ message ColumnData {
     bytes binary_data = 3;
 }
 
-message CatalogColumnsData {
-    repeated BoolColumn bool_column = 1;
-    repeated StringColumn string_column = 2;
-    repeated IntColumn int_column = 3;
-    repeated LLColumn ll_column = 4;
-    repeated FloatColumn float_column = 5;
-    repeated DoubleColumn double_column = 6;
-}
-
-message BoolColumn {
-    repeated bool bool_column = 1;
-}
-
-message StringColumn {
-    repeated string string_column = 1;
-}
-
-message IntColumn {
-    repeated sfixed32 int_column = 1;
-}
-
-message LLColumn {
-    repeated sfixed64 ll_column = 1;
-}
-
-message FloatColumn {
-    repeated float float_column = 1;
-}
-
-message DoubleColumn {
-    repeated double double_column = 1;
-}
-
 message FilterConfig {
     string column_name = 1;
     ComparisonOperator comparison_operator = 2;
