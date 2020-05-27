@@ -1,7 +1,10 @@
+#!/usr/bin/env python3
+
 import re
+import sys
 from bs4 import BeautifulSoup
 
-with open("CARTABackendFrontendInterfaceControlDocument.html") as f:
+with open(sys.argv[1]) as f:
     data = f.read()
 
 soup = BeautifulSoup(data, 'html.parser')
@@ -263,5 +266,5 @@ for table in tables:
     for td in field_names.find_all("td"):
         td.name = "th"
 
-print(str(soup))
-
+with open(sys.argv[2], "w") as out:
+    out.write(str(soup))
