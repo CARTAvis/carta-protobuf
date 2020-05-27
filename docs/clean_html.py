@@ -52,7 +52,7 @@ table {
 """)
 
 # strip styles
-for tag_name in ("body", "a", "h1", "h2", "h3", "hr", "table", "thead", "tbody", "tr", "td", "th", "ul", "ol", "li"):
+for tag_name in ("body", "a", "h1", "h2", "h3", "h4", "h5", "h6", "hr", "table", "thead", "tbody", "tr", "td", "th", "ul", "ol", "li"):
     for tag in soup.find_all(tag_name):
         if "class" in tag.attrs:
             del tag.attrs["class"]
@@ -144,20 +144,20 @@ strings = soup.find_all(None, text=caps_text)
 for s in strings:
     if not has_ancestor(s, "code"):
         parent = s.parent
+        pos = parent.contents.index(s)
         s.extract()
         parts = re.split("( )", s)
-        for p in parts:
+        for i, p in enumerate(parts):
             if caps_text.match(p):
                 c = soup.new_tag("code")
                 c.append(p)
-                parent.append(c)
+                parent.insert(pos + i, c)
             else:
-                parent.append(p)
+                parent.insert(pos + i, p)
 
 # Strip paragraphs and no-op rowspans and colspans from table cells
 for td in soup.find_all("td"):
-    if td.contents:
-        child = td.contents[0]
+    for child in td.contents:
         if child.name == 'p':
             child.unwrap()
     
@@ -197,7 +197,6 @@ for cell in cells:
             children[0].extend(c.contents)
             c.extract()
 
-
 # merge adjacent code tags; move trailing spaces inside code tags to the outside
 code = soup.find_all("code")
 for c in code:    
@@ -229,11 +228,40 @@ for c in code:
         last = last.contents[-1]
     last.replace_with(last.rstrip(" "))
 
-# TODO TODO TODO
-# Modify tables -- none of the table extensions support row or column spans
-# Split into sections
-# Rename the section anchors / links
-# Rename the images
+# Colspans and rowspans are not supported
+# We can have either multiline or no manual indentation; I'm picking no manual indentation
+
+tables = soup.find_all("table")
+for table in tables:
+    pos = table.parent.index(table)
+    desc_head, desc, field_head, field_names, *fields = table.tbody.contents
+        
+    table.parent.insert(pos, desc_head.td.h5.extract())
+    desc_head.extract()
+    
+    new_desc_head = soup.new_tag("h6")
+    new_desc_head.append("Description")
+    
+    table.parent.insert(pos + 1, new_desc_head)
+        
+    new_desc = soup.new_tag("p")
+    
+    for child in list(desc.find_all("td")[1].contents):
+        new_desc.append(child)
+    
+    table.parent.insert(pos + 2, new_desc)
+    
+    desc.extract()
+    
+    new_field_head = soup.new_tag("h6")
+    new_field_head.append(field_head.text.strip(" :"))
+    
+    table.parent.insert(pos + 3, new_field_head)
+    
+    field_head.extract()
+    
+    for td in field_names.find_all("td"):
+        td.name = "th"
 
 print(str(soup))
 

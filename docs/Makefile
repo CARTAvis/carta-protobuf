@@ -1,3 +1,6 @@
+ICD_clean.md: ICD_clean.html
+	pandoc ICD_clean.html -o ICD_clean.md
+
 ICD_clean.html: CARTABackendFrontendInterfaceControlDocument.html
 	./clean_html.py CARTABackendFrontendInterfaceControlDocument.html > ICD_clean.html
 
