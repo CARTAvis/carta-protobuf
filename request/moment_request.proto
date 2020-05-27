@@ -17,9 +17,8 @@ message MomentRequest {
 
 message MomentResponse {
     bool success = 1;
-    string directory = 2;
-    repeated MomentImage output_files = 3;
-    string message = 4;
+    repeated MomentImage output_files = 2;
+    string message = 3;
 }
 
 message MomentProgress {
