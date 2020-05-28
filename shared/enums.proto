@@ -138,10 +138,6 @@ enum EntryType {
     STRING = 0;
     FLOAT = 1;
     INT = 2;
-    BOOL = 3;
-    LONGLONG = 4;
-    DOUBLE = 5;
-    UNKNOWN_TYPE = 6;
 }
 
 enum ClientFeatureFlags {
@@ -180,20 +176,37 @@ enum CoordinateType {
 
 enum CatalogFileType {
     VOTable = 0;
+    FITSTable = 1;
+}
+
+enum ColumnType {
+    UnsupportedType = 0;
+    String = 1;
+    Uint8 = 2;
+    Int8 = 3;
+    Uint16 = 4;
+    Int16 = 5;
+    Uint32 = 6;
+    Int32 = 7;
+    Uint64 = 8;
+    Int64 = 9;
+    Float = 10;
+    Double = 11;
+    Bool = 12;
 }
 
 enum ComparisonOperator {
-    EqualTo = 0;
-    NotEqualTo = 1;
-    LessThan = 2;
-    GreaterThan = 3;
-    LessThanOrEqualTo = 4;
-    GreaterThanOrEqualTo = 5;
-    BetweenAnd = 6;
-    FromTo = 7;
+    Equal = 0;
+    NotEqual = 1;
+    Lesser = 2;
+    Greater = 3;
+    LessorOrEqual = 4;
+    GreaterOrEqual = 5;
+    RangeOpen = 6;
+    RangeClosed = 7;
 }
 
 enum SortingType {
-    Ascend = 0;
-    Descend = 1;
+    Ascending = 0;
+    Descending = 1;
 }
