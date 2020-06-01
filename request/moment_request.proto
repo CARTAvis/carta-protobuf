@@ -3,6 +3,7 @@ package CARTA;
 
 import "defs.proto";
 import "enums.proto";
+import "open_file.proto";
 
 message MomentRequest {
     sfixed32 file_id = 1;
@@ -17,8 +18,9 @@ message MomentRequest {
 
 message MomentResponse {
     bool success = 1;
-    repeated MomentImage output_files = 2;
-    string message = 3;
+    string message = 2;
+    repeated OpenFileAck open_file_acks = 3;
+
 }
 
 message MomentProgress {
