@@ -5,7 +5,7 @@ import "defs.proto";
 import "enums.proto";
 
 message SpectralLineRequest {
-    FloatBounds frequency_range = 1;
+    DoubleBounds frequency_range = 1;
 }
 
 message SpectralLineResponse {
