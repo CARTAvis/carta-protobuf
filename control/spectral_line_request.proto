@@ -1,0 +1,16 @@
+syntax = "proto3";
+package CARTA;
+
+import "defs.proto";
+import "enums.proto";
+
+message SpectralLineRequest {
+    FloatBounds frequency_range = 1;
+}
+
+message SpectralLineResponse {
+    bool success = 1;
+    string message = 2;
+    repeated CatalogHeader headers = 3;
+    map<fixed32, ColumnData> preview_data = 4;
+}
