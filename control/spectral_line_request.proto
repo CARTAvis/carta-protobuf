@@ -11,6 +11,7 @@ message SpectralLineRequest {
 message SpectralLineResponse {
     bool success = 1;
     string message = 2;
-    repeated CatalogHeader headers = 3;
-    map<fixed32, ColumnData> preview_data = 4;
+    sfixed32 data_size = 3;
+    repeated CatalogHeader headers = 4;
+    map<fixed32, ColumnData> data = 5;
 }
