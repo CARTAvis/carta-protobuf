@@ -13,5 +13,5 @@ message SpectralLineResponse {
     string message = 2;
     sfixed32 data_size = 3;
     repeated CatalogHeader headers = 4;
-    map<fixed32, ColumnData> data = 5;
+    map<fixed32, ColumnData> spectral_line_data = 5;
 }
