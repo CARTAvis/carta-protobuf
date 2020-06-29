@@ -104,7 +104,7 @@ message RegionInfo {
 }
 
 message ContourSettings {
-    fixed32 reference_file_id = 1;
+    ImageBounds image_bounds = 1;
     repeated double levels = 2;
     SmoothingMode smoothing_mode = 3;
     int32 smoothing_factor = 4;
