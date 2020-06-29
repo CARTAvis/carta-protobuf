@@ -103,28 +103,6 @@ message RegionInfo {
     float rotation = 4;
 }
 
-message ContourSettings {
-    ImageBounds image_bounds = 1;
-    repeated double levels = 2;
-    SmoothingMode smoothing_mode = 3;
-    int32 smoothing_factor = 4;
-    int32 decimation_factor = 5;
-    int32 compression_level = 6;
-    int32 contour_chunk_size = 7;
-}
-
-message ImageProperties {
-    string directory = 1;
-    string file = 2;
-    string hdu = 3;
-    sfixed32 file_id = 4;
-    RenderMode render_mode = 5;
-    sfixed32 channel = 6;
-    sfixed32 stokes = 7;
-    repeated RegionProperties regions = 8;
-    ContourSettings contour_settings = 9;
-}
-
 message CatalogFileInfo {
     string name = 1;
     CatalogFileType type = 2;
