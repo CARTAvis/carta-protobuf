@@ -234,19 +234,8 @@ enum Moment {
 }
 
 enum MomentAxis {
-    RA = 0;
-    DEC = 1;
-    LAT = 2;
-    LONG = 3;
-    SPECTRAL = 4;
-    STOKES = 5;
-}
-
-enum MomentStokes {
-    I = 0;
-    IV = 1;
-    IQU = 2;
-    IQUV = 3;
+    SPECTRAL = 0;
+    STOKES = 1;
 }
 
 enum MomentMask {
