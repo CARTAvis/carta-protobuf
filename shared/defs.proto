@@ -18,6 +18,7 @@ message FileInfo {
     FileType type = 2;
     sfixed64 size = 3;
     repeated string HDU_list = 4;
+    sfixed64 date = 5;
 }
 
 message FileInfoExtended {
@@ -109,6 +110,7 @@ message CatalogFileInfo {
     sfixed64 file_size = 3;
     string description = 4;
     repeated Coosys coosys = 5;
+    sfixed64 date = 6;
 }
 
 message Coosys {
