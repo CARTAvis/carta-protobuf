@@ -71,12 +71,12 @@ enum SessionType {
 }
 
 enum FileType {
-    FITS = 0;
-    CASA = 1;
-    HDF5 = 2;
-    MIRIAD = 3;
-    REG = 4;
-    CRTF = 5;
+    CASA = 0;
+    CRTF = 1;
+    DS9_REG = 2;
+    FITS = 3;
+    HDF5 = 4;
+    MIRIAD = 5;
     UNKNOWN = 6;
 }
 
@@ -177,8 +177,8 @@ enum CoordinateType {
 }
 
 enum CatalogFileType {
-    VOTable = 0;
-    FITSTable = 1;
+    FITSTable = 0;
+    VOTable = 1;
 }
 
 enum ColumnType {
