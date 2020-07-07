@@ -158,9 +158,3 @@ message CatalogImageBounds {
     string y_column_name = 2;
     ImageBounds image_bounds = 3;
 }
-
-message MomentImage {
-    string name = 1;
-    sfixed32 file_id = 2;
-    Moment moment_type = 3;
-}
