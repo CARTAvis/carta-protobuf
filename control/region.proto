@@ -1,7 +1,6 @@
 syntax = "proto3";
 package CARTA;
 
-import "enums.proto";
 import "defs.proto";
 
 // SET_REGION:
@@ -11,21 +10,10 @@ message SetRegion {
     sfixed32 file_id = 1;
     // Unique region ID. <=0 if a new region is being created.
     sfixed32 region_id = 2;
-    // The name of the region, displayed as an annotation label.
-    string region_name = 3;
-    // The type of region described by the control points. The meaning of the control points will differ,
-    // depending on the type of region being defined. For example, an ellipse will require three control points:
-    // center, vertex and co-vertex. A rectangle requires two control points: top left and bottom right
-    RegionType region_type = 4;
-    // Control points for the region
-    repeated Point control_points = 5;
-    // (Only applicable for ellipse and rectangle) Rotation of the region in the xy plane (radians).
-    float rotation = 6;
-    // Style parameters
-    string color = 7;
-    sfixed32 line_width = 8;
-    sfixed32 dash_length = 9;
+    // Region parameters
+    RegionInfo region_info = 3;
 }
+
 
 // SET_REGION_ACK:
 // Response for SET_REGION

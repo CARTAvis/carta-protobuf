@@ -27,6 +27,6 @@ message ImportRegionAck {
     bool success = 1;
     // Error message (if applicable)
     string message = 2;
-    // Region id and parameters
-    repeated RegionProperties regions = 3;
+    // Map region id to parameters
+    map<sfixed32, RegionInfo> regions = 3;
 }
