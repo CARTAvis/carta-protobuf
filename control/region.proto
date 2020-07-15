@@ -21,6 +21,10 @@ message SetRegion {
     repeated Point control_points = 5;
     // (Only applicable for ellipse and rectangle) Rotation of the region in the xy plane (radians).
     float rotation = 6;
+    // Style parameters
+    string color;
+    sfixed32 line_width;
+    sfixed32 dash_length;
 }
 
 // SET_REGION_ACK:
