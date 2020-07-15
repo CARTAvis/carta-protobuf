@@ -22,9 +22,9 @@ message SetRegion {
     // (Only applicable for ellipse and rectangle) Rotation of the region in the xy plane (radians).
     float rotation = 6;
     // Style parameters
-    string color;
-    sfixed32 line_width;
-    sfixed32 dash_length;
+    string color = 7;
+    sfixed32 line_width = 8;
+    sfixed32 dash_length = 9;
 }
 
 // SET_REGION_ACK:

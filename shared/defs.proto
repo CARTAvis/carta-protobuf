@@ -103,9 +103,9 @@ message RegionInfo {
     RegionType region_type = 2;
     repeated Point control_points = 3;
     float rotation = 4;
-    string color;
-    sfixed32 line_width;
-    sfixed32 dash_length;
+    string color = 5;
+    sfixed32 line_width = 6;
+    sfixed32 dash_length = 7;
 }
 
 message CatalogFileInfo {
