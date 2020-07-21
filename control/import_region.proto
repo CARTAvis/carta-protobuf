@@ -29,4 +29,6 @@ message ImportRegionAck {
     string message = 2;
     // Map region id to parameters
     map<sfixed32, RegionInfo> regions = 3;
+    // Map region id to style parameters
+    map<sfixed32, RegionStyle> region_styles = 4;
 }
