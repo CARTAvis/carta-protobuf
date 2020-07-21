@@ -94,21 +94,24 @@ message Histogram {
 }
 
 message RegionInfo {
-    // The name of the region, displayed as an annotation label.
-    string region_name = 1;
     // The type of region described by the control points. The meaning of the control points will differ,
     // depending on the type of region being defined.
-    RegionType region_type = 2;
+    RegionType region_type = 1;
     // Control points for the region
-    repeated Point control_points = 3;
+    repeated Point control_points = 2;
     // (Only applicable for ellipse and rectangle) Rotation of the region in the xy plane (radians).
-    float rotation = 4;
+    float rotation = 3;
+}
+
+message RegionStyle {
+    // The name of the region, displayed as an annotation label.
+    string region_name = 1;
     // Color as a name ("blue"), RGB string, or hex string
-    string color = 5;
+    string color = 2;
     // Width in pixels
-    sfixed32 line_width = 6;
+    sfixed32 line_width = 3;
     // Dash length: on, off
-    repeated sfixed32 dash_list = 7;
+    repeated sfixed32 dash_list = 4;
 }
 
 message CatalogFileInfo {
