@@ -1,0 +1,17 @@
+syntax = "proto3";
+package CARTA;
+
+import "defs.proto";
+
+message CatalogListRequest {
+    string directory = 1;
+}
+
+message CatalogListResponse {
+    bool success = 1;
+    string message = 2;
+    string directory = 3;
+    string parent = 4;
+    repeated CatalogFileInfo files = 5;
+    repeated string subdirectories = 6;
+}
