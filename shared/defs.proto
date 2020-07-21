@@ -105,7 +105,7 @@ message RegionInfo {
 
 message RegionStyle {
     // The name of the region, displayed as an annotation label.
-    string region_name = 1;
+    string name = 1;
     // Color as a name ("blue"), RGB string, or hex string
     string color = 2;
     // Width in pixels
