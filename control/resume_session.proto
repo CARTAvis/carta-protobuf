@@ -14,7 +14,7 @@ message ImageProperties {
     RenderMode render_mode = 5;
     sfixed32 channel = 6;
     sfixed32 stokes = 7;
-    repeated RegionProperties regions = 8;
+    map<sfixed32, RegionInfo> regions = 8;
     SetContourParameters contour_settings = 9;
 }
 
