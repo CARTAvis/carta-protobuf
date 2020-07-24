@@ -103,16 +103,25 @@ message Histogram {
     double std_dev = 7;
 }
 
-message RegionProperties {
-    sfixed32 region_id = 1;
-    RegionInfo region_info = 2;
+message RegionInfo {
+    // The type of region described by the control points. The meaning of the control points will differ,
+    // depending on the type of region being defined.
+    RegionType region_type = 1;
+    // Control points for the region
+    repeated Point control_points = 2;
+    // (Only applicable for ellipse and rectangle) Rotation of the region in the xy plane (radians).
+    float rotation = 3;
 }
 
-message RegionInfo {
-    string region_name = 1;
-    RegionType region_type = 2;
-    repeated Point control_points = 3;
-    float rotation = 4;
+message RegionStyle {
+    // The name of the region, displayed as an annotation label.
+    string name = 1;
+    // Color as a name ("blue"), RGB string, or hex string
+    string color = 2;
+    // Width in pixels
+    sfixed32 line_width = 3;
+    // Dash length: on, off
+    repeated sfixed32 dash_list = 4;
 }
 
 message CatalogFileInfo {
