@@ -116,13 +116,14 @@ nest(first[4], first[5])
 merge(first[0], first[2])
 merge(first[0], first[4])
 
-for i in range(4):
+for i in range(5):
     nest(second[i], second[i].find_next("p"))
     second[i].p.unwrap()
 
 merge(second[0], second[1])
 merge(second[0], second[2])
 merge(second[0], second[3])
+merge(second[0], second[4])
 
 # merge adjacent text elements
 for e in soup.find_all():
@@ -266,5 +267,4 @@ for table in tables:
     for td in field_names.find_all("td"):
         td.name = "th"
 
-with open(sys.argv[2], "w") as out:
-    out.write(str(soup))
+print(str(soup))
