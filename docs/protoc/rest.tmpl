@@ -1,0 +1,35 @@
+{{range .Files}}
+{{range .Messages}}
+.. {{.FullName}}:
+
+{{.LongName}}
+^^^^^^^^^^^^^
+
+{{.Description}}
+
+{{if .HasFields}}
++-------+------+-------+-------------+
+| Field | Type | Label | Description |
++=======+======+=======+=============+
+{{range .Fields -}}
+| {{.Name}} | {{.FullType}} | {{.Label}} | {{nobr .Description}} |
++-------+------+-------+-------------+
+{{end}}
+{{end}}
+{{end}}
+{{range .Enums}}
+.. {{.FullName}}:
+
+{{.LongName}}
+^^^^^^^^^^^^^
+
+{{.Description}}
++------+--------+-------------+
+| Name | Number | Description |
++======+========+=============+
+{{range .Values -}}
+| {{.Name}} | {{.Number}} | {{nobr .Description}} |
++------+--------+-------------+
+{{end}}
+{{end}}
+{{end}}

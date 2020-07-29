@@ -839,7 +839,7 @@ calculation are shown below:
 .. _Application Layer:
 
 4.1 Application Layer
-~~~~~~~~~~~~~~~~~~~~~
+---------------------
 
 Interface communication messages fall into three overall categories:
 
@@ -890,15 +890,15 @@ used for backend->frontend communication.**
 .. _Control messages:
 
 4.1.1 Control messages
-^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. _CARTA.RegisterViewer:
 
 ``REGISTER_VIEWER``
-'''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^
 
 Description
-           
+'''''''''''
 
 :blue:`Registers the viewer with the backend. Responds
 with`\ ```REGISTER_VIEWER_ACK``. <CARTA.RegisterViewerAck>`__\ :blue:`In
@@ -907,7 +907,7 @@ or settings that persist throughout the session. A JWT could be an
 appropriate authentication string to pass through at this point.`
 
 Fields
-      
+''''''
 
 +-----------------------+--------------------+-----------------------+
 | :blue:`Name`          | :blue:`Type`       | :blue:`Description`   |
@@ -946,12 +946,12 @@ Fields
 .. _CARTA.RegisterViewerAck:
 
 ``REGISTER_VIEWER_ACK``
-'''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-1:
 
 Description
-           
+'''''''''''
 
 :red:`Acknowledgement response
 for`\ ```REGISTER_VIEWER`` <CARTA.RegisterViewer>`__\ :red:`. Informs
@@ -960,7 +960,7 @@ the frontend whether the session was correctly.`
 .. _fields-1:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :red:`Name`          | :red:`Type`          | :red:`Description`   |
@@ -1023,12 +1023,12 @@ Fields
 .. _CARTA.OpenFile:
 
 ``OPEN_FILE``
-'''''''''''''
+^^^^^^^^^^^^^
 
 .. _description-2:
 
 Description
-           
+'''''''''''
 
 :blue:`Requests the opening of a specific file. Backend responds
 with`\ ```OPEN_FILE_ACK`` <CARTA.OpenFileAck>`__
@@ -1036,7 +1036,7 @@ with`\ ```OPEN_FILE_ACK`` <CARTA.OpenFileAck>`__
 .. _fields-2:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
@@ -1080,12 +1080,12 @@ Fields
 .. _CARTA.OpenFileAck:
 
 ``OPEN_FILE_ACK``
-'''''''''''''''''
+^^^^^^^^^^^^^^^^^
 
 .. _description-3:
 
 Description
-           
+'''''''''''
 
 :red:`Response for`\ ```OPEN_FILE`` <CARTA.OpenFile>`__\ :red:`. Also
 supplies file information`
@@ -1093,7 +1093,7 @@ supplies file information`
 .. _fields-3:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :red:`Name`          | :red:`Type`          | :red:`Description`   |
@@ -1151,19 +1151,19 @@ Fields
 .. _CARTA.CloseFile:
 
 ``CLOSE_FILE``
-''''''''''''''
+^^^^^^^^^^^^^^
 
 .. _description-4:
 
 Description
-           
+'''''''''''
 
 :blue:`Instructs the backend to close a file with a given file ID`
 
 .. _fields-4:
 
 Fields
-      
+''''''
 
 +---------------------+-------------------+--------------------------+
 | :blue:`Name`        | :blue:`Type`      | :blue:`Description`      |
@@ -1178,12 +1178,12 @@ Fields
 .. _CARTA.AddRequiredTiles:
 
 ``ADD_REQUIRED_TILES``
-''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-5:
 
 Description
-           
+'''''''''''
 
 :blue:`Provides a list of tiles that are required for the specified
 file`
@@ -1191,7 +1191,7 @@ file`
 .. _fields-5:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
@@ -1221,12 +1221,12 @@ Fields
 .. _CARTA.RemoveRequiredTiles:
 
 ``REMOVE_REQUIRED_TILES``
-'''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-6:
 
 Description
-           
+'''''''''''
 
 :blue:`Provides a list of tiles that are no longer required for the
 specified file and can be safely discarded by the backend`
@@ -1234,7 +1234,7 @@ specified file and can be safely discarded by the backend`
 .. _fields-6:
 
 Fields
-      
+''''''
 
 +---------------------+---------------------+------------------------+
 | :blue:`Name`        | :blue:`Type`        | :blue:`Description`    |
@@ -1252,19 +1252,19 @@ Fields
 .. _CARTA.SetImageChannels:
 
 ``SET_IMAGE_CHANNELS``
-''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-7:
 
 Description
-           
+'''''''''''
 
 :blue:`Sets the current image channel and Stokes parameter.`
 
 .. _fields-7:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
@@ -1289,12 +1289,12 @@ Fields
 .. _CARTA.StartAnimation:
 
 ``START_ANIMATION``
-'''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^
 
 .. _description-8:
 
 Description
-           
+'''''''''''
 
 :blue:`Starts an animation, as defined by the start, stop and step
 definitions. Backend responds
@@ -1303,7 +1303,7 @@ with`\ ```START_ANIMATION_ACK`` <CARTA.StartAnimationAck>`__
 .. _fields-8:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
@@ -1359,12 +1359,12 @@ Fields
 .. _CARTA.StartAnimationAck:
 
 ``START_ANIMATION_ACK``
-'''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-9:
 
 Description
-           
+'''''''''''
 
 :red:`Response
 for`\ ```START_ANIMATION`` <CARTA.StartAnimation>`__\ :red:`.`
@@ -1372,7 +1372,7 @@ for`\ ```START_ANIMATION`` <CARTA.StartAnimation>`__\ :red:`.`
 .. _fields-9:
 
 Fields
-      
+''''''
 
 +-----------------------+-------------------+-----------------------+
 | :red:`Name`           | :red:`Type`       | :red:`Description`    |
@@ -1395,12 +1395,12 @@ Fields
 .. _CARTA.AnimationFlowControl:
 
 ``ANIMATION_FLOW_CONTROL``
-''''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-10:
 
 Description
-           
+'''''''''''
 
 :blue:`Used for informing the backend of which frames have been
 received`
@@ -1408,7 +1408,7 @@ received`
 .. _fields-10:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
@@ -1434,19 +1434,19 @@ Fields
 .. _CARTA.StopAnimation:
 
 ``STOP_ANIMATION``
-''''''''''''''''''
+^^^^^^^^^^^^^^^^^^
 
 .. _description-11:
 
 Description
-           
+'''''''''''
 
 :blue:`Stops a playing animation.`
 
 .. _fields-11:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
@@ -1463,12 +1463,12 @@ Fields
 .. _CARTA.SetCursor:
 
 ``SET_CURSOR``
-''''''''''''''
+^^^^^^^^^^^^^^
 
 .. _description-12:
 
 Description
-           
+'''''''''''
 
 :blue:`Sets the current cursor position in image space coordinates. The
 cursor defines a special case of a region (with region ID = 0), with a
@@ -1477,7 +1477,7 @@ single control point.`
 .. _fields-12:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
@@ -1501,12 +1501,12 @@ Fields
 .. _CARTA.SetRegion:
 
 ``SET_REGION``
-''''''''''''''
+^^^^^^^^^^^^^^
 
 .. _description-13:
 
 Description
-           
+'''''''''''
 
 :blue:`Creates or updates a region. Backend responds
 with`\ ```SET_REGION_ACK`` <CARTA.SetRegionAck>`__
@@ -1514,7 +1514,7 @@ with`\ ```SET_REGION_ACK`` <CARTA.SetRegionAck>`__
 .. _fields-13:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
@@ -1540,19 +1540,19 @@ Fields
 .. _CARTA.SetRegionAck:
 
 ``SET_REGION_ACK``
-''''''''''''''''''
+^^^^^^^^^^^^^^^^^^
 
 .. _description-14:
 
 Description
-           
+'''''''''''
 
 :red:`Response for`\ ```SET_REGION`` <CARTA.SetRegion>`__\ :red:`.`
 
 .. _fields-14:
 
 Fields
-      
+''''''
 
 +----------------------+-------------------+-----------------------+
 | :red:`Name`          | :red:`Type`       | :red:`Description`    |
@@ -1584,19 +1584,19 @@ Fields
 .. _CARTA.RemoveRegion:
 
 ``REMOVE_REGION``
-'''''''''''''''''
+^^^^^^^^^^^^^^^^^
 
 .. _description-15:
 
 Description
-           
+'''''''''''
 
 :blue:`Removes a region.`
 
 .. _fields-15:
 
 Fields
-      
+''''''
 
 +-----------------------+-------------------+-----------------------+
 | :blue:`Name`          | :blue:`Type`      | :blue:`Description`   |
@@ -1609,12 +1609,12 @@ Fields
 .. _CARTA.ImportRegion:
 
 ``IMPORT_REGION``
-'''''''''''''''''
+^^^^^^^^^^^^^^^^^
 
 .. _description-16:
 
 Description
-           
+'''''''''''
 
 :blue:`Requests the opening of a specific region file. Backend responds
 with`\ :red:```IMPORT_REGION_ACK```
@@ -1622,7 +1622,7 @@ with`\ :red:```IMPORT_REGION_ACK```
 .. _fields-16:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
@@ -1655,12 +1655,12 @@ Fields
 .. _CARTA.ImportRegionAck:
 
 ``IMPORT_REGION_ACK``
-'''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-17:
 
 Description
-           
+'''''''''''
 
 :red:`Response for`\ :blue:```IMPORT_REGION```\ :red:`. Also supplies
 IDs and properties of regions in file.`
@@ -1668,7 +1668,7 @@ IDs and properties of regions in file.`
 .. _fields-17:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :red:`Name`          | :red:`Type`          | :red:`Description`   |
@@ -1699,12 +1699,12 @@ Fields
 .. _CARTA.ExportRegion:
 
 ``EXPORT_REGION``
-'''''''''''''''''
+^^^^^^^^^^^^^^^^^
 
 .. _description-18:
 
 Description
-           
+'''''''''''
 
 :blue:`Requests exporting region(s); reverse of ``IMPORT_REGION.``
 Backend responds with`\ :red:```EXPORT_REGION_ACK```
@@ -1712,7 +1712,7 @@ Backend responds with`\ :red:```EXPORT_REGION_ACK```
 .. _fields-18:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
@@ -1746,19 +1746,19 @@ Fields
 .. _CARTA.ExportRegionAck:
 
 ``EXPORT_REGION_ACK``
-'''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-19:
 
 Description
-           
+'''''''''''
 
 :red:`Response for`\ :blue:```EXPORT_REGION```\ :red:`.`
 
 .. _fields-19:
 
 Fields
-      
+''''''
 
 +-----------------------+-------------------+-----------------------+
 | :red:`Name`           | :red:`Type`       | :red:`Description`    |
@@ -1781,12 +1781,12 @@ Fields
 .. _CARTA.SetStatsRequirements:
 
 ``SET_STATS_REQUIREMENTS``
-''''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-20:
 
 Description
-           
+'''''''''''
 
 :blue:`Sets which stats data needs to be streamed to the frontend when
 the region is updated`
@@ -1794,7 +1794,7 @@ the region is updated`
 .. _fields-20:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
@@ -1820,12 +1820,12 @@ Fields
 .. _CARTA.SetHistogramRequirements:
 
 ``SET_HISTOGRAM_REQUIREMENTS``
-''''''''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-21:
 
 Description
-           
+'''''''''''
 
 :blue:`Sets which histogram data needs to be streamed to the frontend
 when the region is updated`
@@ -1833,7 +1833,7 @@ when the region is updated`
 .. _fields-21:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
@@ -1880,12 +1880,12 @@ Fields
 .. _CARTA.SetSpatialRequirements:
 
 ``SET_SPATIAL_REQUIREMENTS``
-''''''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-22:
 
 Description
-           
+'''''''''''
 
 :blue:`Sets which spatial profile data needs to be streamed to the
 frontend when the region is updated`
@@ -1893,7 +1893,7 @@ frontend when the region is updated`
 .. _fields-22:
 
 Fields
-      
+''''''
 
 +-----------------------+--------------------+-----------------------+
 | :blue:`Name`          | :blue:`Type`       | :blue:`Description`   |
@@ -1932,12 +1932,12 @@ Fields
 .. _CARTA.SetSpectralRequirements:
 
 ``SET_SPECTRAL_REQUIREMENTS``
-'''''''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-23:
 
 Description
-           
+'''''''''''
 
 :blue:`Sets which spectral profile data needs to be streamed to the
 frontend when the region is updated`
@@ -1945,7 +1945,7 @@ frontend when the region is updated`
 .. _fields-23:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
@@ -1994,19 +1994,19 @@ Fields
 .. _CARTA.SetUserPreferences:
 
 ``SET_USER_PREFERENCES``
-''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-24:
 
 Description
-           
+'''''''''''
 
 :blue:`Sets or clears one or more user preferences`
 
 .. _fields-24:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
@@ -2024,12 +2024,12 @@ Fields
 .. _CARTA.SetUserPreferencesAck:
 
 ``SET_USER_PREFERENCES_ACK``
-''''''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-25:
 
 Description
-           
+'''''''''''
 
 :red:`Response
 for`\ ```SET_USER_PREFERENCES`` <CARTA.SetUserPreferences>`__
@@ -2037,7 +2037,7 @@ for`\ ```SET_USER_PREFERENCES`` <CARTA.SetUserPreferences>`__
 .. _fields-25:
 
 Fields
-      
+''''''
 
 +--------------------+-------------------+---------------------------+
 | :red:`Name`        | :red:`Type`       | :red:`Description`        |
@@ -2056,19 +2056,19 @@ Fields
 .. _CARTA.SetUserLayout:
 
 ``SET_USER_LAYOUT``
-'''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^
 
 .. _description-26:
 
 Description
-           
+'''''''''''
 
 :blue:`Sets or clears a user layout`
 
 .. _fields-26:
 
 Fields
-      
+''''''
 
 +-------------------+--------------------+---------------------------+
 | :blue:`Name`      | :blue:`Type`       | :blue:`Description`       |
@@ -2091,19 +2091,19 @@ Fields
 .. _CARTA.SetUserLayoutAck:
 
 ``SET_USER_LAYOUT_ACK``
-'''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-27:
 
 Description
-           
+'''''''''''
 
 :red:`Response for`\ ```SET_USER_LAYOUT`` <CARTA.SetUserLayout>`__
 
 .. _fields-27:
 
 Fields
-      
+''''''
 
 +--------------------+-------------------+---------------------------+
 | :red:`Name`        | :red:`Type`       | :red:`Description`        |
@@ -2121,19 +2121,19 @@ Fields
 .. _CARTA.SetContourParameters:
 
 ``SET_CONTOUR_PARAMETERS``
-''''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-28:
 
 Description
-           
+'''''''''''
 
 :blue:`Sets the contour parameters for a file`
 
 .. _fields-28:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
@@ -2191,12 +2191,12 @@ Fields
 .. _CARTA.ResumeSession:
 
 ``RESUME_SESSION``
-''''''''''''''''''
+^^^^^^^^^^^^^^^^^^
 
 .. _description-29:
 
 Description
-           
+'''''''''''
 
 :blue:`Recover the viewer’s state on the backend. If there are errors
 occur, backend responds an error message
@@ -2205,7 +2205,7 @@ in`\ ```RESUME_SESSION_ACK`` <CARTA.ResumeSessionAck>`__\ :blue:`.`
 .. _fields-29:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
@@ -2223,17 +2223,17 @@ Fields
 .. _CARTA.ResumeSessionAck:
 
 ``RESUME_SESSION_ACK``
-''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-30:
 
 Description
-           
+'''''''''''
 
 .. _fields-30:
 
 Fields
-      
+''''''
 
 +--------------------+-------------------+---------------------------+
 | :red:`Name`        | :red:`Type`       | :red:`Description`        |
@@ -2253,12 +2253,12 @@ Fields
 .. _CARTA.OpenCatalogFile:
 
 :blue:```OPEN_CATALOG_FILE`` (`\ :blue:`OpenCatalogFile`:blue:`)`
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-31:
 
 Description
-           
+'''''''''''
 
 :blue:`Requests the opening of a specific catalog file. Backend responds
 with ``OPEN_CATALOG_FILE_ACK```
@@ -2266,7 +2266,7 @@ with ``OPEN_CATALOG_FILE_ACK```
 .. _fields-31:
 
 Fields
-      
+''''''
 
 +-----------------------+--------------------+-----------------------+
 | :blue:`Name`          | :blue:`Type`       | :blue:`Description`   |
@@ -2298,19 +2298,19 @@ Fields
 .. _CARTA.OpenCatalogFileAck:
 
 ``OPEN_CATALOG_FILE_ACK`` (*OpenCatalogFileAck*)
-''''''''''''''''''''''''''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-32:
 
 Description
-           
+'''''''''''
 
 Response for\ :red:```OPEN_CATALOG_FILE```
 
 .. _fields-32:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :red:`Name`          | :red:`Type`          | :red:`Description`   |
@@ -2346,19 +2346,19 @@ Fields
 .. _CARTA.CloseCatalogFile:
 
 ``CLOSE_CATALOG_FILE`` (*CloseCatalogFile*)
-'''''''''''''''''''''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-33:
 
 Description
-           
+'''''''''''
 
 :blue:`Instructs the backend to close a file with a given file ID`
 
 .. _fields-33:
 
 Fields
-      
+''''''
 
 +---------------------+-------------------+--------------------------+
 | :blue:`Name`        | :blue:`Type`      | :blue:`Description`      |
@@ -2370,19 +2370,19 @@ Fields
 .. _CARTA.StopMomentCalc:
 
 ``STOP_MOMENT_CALC`` (StopMomentCalc)
-'''''''''''''''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-34:
 
 Description
-           
+'''''''''''
 
 :blue:`Stop the moment calculation with respect to the image file id`
 
 .. _fields-34:
 
 Fields
-      
+''''''
 
 =================== ================= =====================
 Name                Type              Description
@@ -2393,17 +2393,17 @@ Name                Type              Description
 .. _Request messages:
 
 4.1.2 Request messages
-^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. _CARTA.FileListRequest:
 
 ``FILE_LIST_REQUEST``
-'''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-35:
 
 Description
-           
+'''''''''''
 
 :blue:`Requests the list of available files for a given directory.
 Backend responds
@@ -2412,7 +2412,7 @@ with`\ ```FILE_LIST_RESPONSE`` <CARTA.FileListResponse>`__
 .. _fields-35:
 
 Fields
-      
+''''''
 
 +-----------------------+--------------------+-----------------------+
 | :blue:`Name`          | :blue:`Type`       | :blue:`Description`   |
@@ -2428,12 +2428,12 @@ Fields
 .. _CARTA.FileListResponse:
 
 ``FILE_LIST_RESPONSE``
-''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-36:
 
 Description
-           
+'''''''''''
 
 :red:`Response
 for`\ ```FILE_LIST_REQUEST`` <CARTA.FileListRequest>`__\ :red:`. Gives a
@@ -2442,7 +2442,7 @@ list of available files (and their types), as well as subdirectories`
 .. _fields-36:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :red:`Name`          | :red:`Type`          | :red:`Description`   |
@@ -2479,12 +2479,12 @@ Fields
 .. _CARTA.FileInfoRequest:
 
 ``FILE_INFO_REQUEST``
-'''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-37:
 
 Description
-           
+'''''''''''
 
 :blue:`Requests file info for a specific file. Backend responds
 with`\ ```FILE_INFO_RESPONSE`` <CARTA.FileInfoResponse>`__
@@ -2492,7 +2492,7 @@ with`\ ```FILE_INFO_RESPONSE`` <CARTA.FileInfoResponse>`__
 .. _fields-37:
 
 Fields
-      
+''''''
 
 +-----------------------+--------------------+-----------------------+
 | :blue:`Name`          | :blue:`Type`       | :blue:`Description`   |
@@ -2517,12 +2517,12 @@ Fields
 .. _CARTA.FileInfoResponse:
 
 ``FILE_INFO_RESPONSE``
-''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-38:
 
 Description
-           
+'''''''''''
 
 :red:`Response
 for`\ ```FILE_INFO_REQUEST`` <CARTA.FileInfoRequest>`__\ :red:`. Gives
@@ -2531,7 +2531,7 @@ information on the requested file.`
 .. _fields-38:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :red:`Name`          | :red:`Type`          | :red:`Description`   |
@@ -2558,12 +2558,12 @@ Fields
 .. _CARTA.RegionListRequest:
 
 ``REGION_LIST_REQUEST``
-'''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-39:
 
 Description
-           
+'''''''''''
 
 :blue:`Requests the list of available region files for a given
 directory. Backend responds with`\ :red:```REGION_LIST_RESPONSE```
@@ -2571,7 +2571,7 @@ directory. Backend responds with`\ :red:```REGION_LIST_RESPONSE```
 .. _fields-39:
 
 Fields
-      
+''''''
 
 +-----------------------+--------------------+-----------------------+
 | :blue:`Name`          | :blue:`Type`       | :blue:`Description`   |
@@ -2587,12 +2587,12 @@ Fields
 .. _CARTA.RegionListResponse:
 
 ``REGION_LIST_RESPONSE``
-''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-40:
 
 Description
-           
+'''''''''''
 
 :red:`Response for`\ ``REGION_LIST_REQUEST``\ :red:`. Gives a list of
 available region files (and their types), as well as subdirectories`
@@ -2600,7 +2600,7 @@ available region files (and their types), as well as subdirectories`
 .. _fields-40:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :red:`Name`          | :red:`Type`          | :red:`Description`   |
@@ -2635,12 +2635,12 @@ Fields
 .. _CARTA.RegionFileInfoRequest:
 
 ``REGION_FILE_INFO_REQUEST``
-''''''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-41:
 
 Description
-           
+'''''''''''
 
 :blue:`Requests region info (contents) for a specific region file on the
 server. Backend responds with`\ :red:```REGION_FILE_INFO_RESPONSE```
@@ -2648,7 +2648,7 @@ server. Backend responds with`\ :red:```REGION_FILE_INFO_RESPONSE```
 .. _fields-41:
 
 Fields
-      
+''''''
 
 +-----------------------+--------------------+-----------------------+
 | :blue:`Name`          | :blue:`Type`       | :blue:`Description`   |
@@ -2667,12 +2667,12 @@ Fields
 .. _CARTA.RegionFileInfoResponse:
 
 ``REGION_FILE_INFO_RESPONSE``
-'''''''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-42:
 
 Description
-           
+'''''''''''
 
 :red:`Response for`\ :blue:```REGION_FILE_INFO_REQUEST```\ :red:`.
 Returns the contents of the requested region file on the server.`
@@ -2680,7 +2680,7 @@ Returns the contents of the requested region file on the server.`
 .. _fields-42:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :red:`Name`          | :red:`Type`          | :red:`Description`   |
@@ -2706,12 +2706,12 @@ Fields
 .. _CARTA.CatalogListRequest:
 
 ``CATALOG_LIST_REQUEST`` (*CatalogListRequest*)
-'''''''''''''''''''''''''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-43:
 
 Description
-           
+'''''''''''
 
 :blue:`Requests the list of available files
 (`\ `CatalogFileType <CARTA.CatalogFileType>`__\ :blue:`) for a given
@@ -2721,7 +2721,7 @@ with`\ ```CATALOG_LIST_RESPONSE`` <CARTA.CatalogListResponse>`__
 .. _fields-43:
 
 Fields
-      
+''''''
 
 ===================== ================== ===============================
 :blue:`Name`          :blue:`Type`       :blue:`Description`
@@ -2732,12 +2732,12 @@ Fields
 .. _CARTA.CatalogListResponse:
 
 ``CATALOG_LIST_RESPONSE`` (*CatalogListResponse*)
-'''''''''''''''''''''''''''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-44:
 
 Description
-           
+'''''''''''
 
 :red:`Response
 for`\ ```CATALOG_LIST_REQUEST`` <CARTA.CatalogListRequest>`__\ :red:`\ ​.
@@ -2747,7 +2747,7 @@ subdirectories`
 .. _fields-44:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :red:`Name`          | :red:`Type`          | :red:`Description`   |
@@ -2783,12 +2783,12 @@ Fields
 .. _CARTA.CatalogFileInfoRequest:
 
 ``CATALOG_FILE_INFO_REQUEST`` (*CatalogFileInfoRequest*)
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-45:
 
 Description
-           
+'''''''''''
 
 :blue:`Requests file info for a catalog file. Backend responds
 with`\ ```CATALOG_FILE_INFO_RESPONSE`` <CARTA.CatalogFileInfoResponse>`__
@@ -2796,7 +2796,7 @@ with`\ ```CATALOG_FILE_INFO_RESPONSE`` <CARTA.CatalogFileInfoResponse>`__
 .. _fields-45:
 
 Fields
-      
+''''''
 
 ===================== ================== ===============================
 :blue:`Name`          :blue:`Type`       :blue:`Description`
@@ -2808,12 +2808,12 @@ Fields
 .. _CARTA.CatalogFileInfoResponse:
 
 ``CATALOG_FILE_INFO_RESPONSE`` (*CatalogFileInfoResponse*)
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-46:
 
 Description
-           
+'''''''''''
 
 :red:`Response
 for`\ ```CATALOG_FILE_INFO_REQUEST`` <CARTA.CatalogFileInfoRequest>`__\ :red:`.
@@ -2822,7 +2822,7 @@ Gives information on the requested catalog file.`
 .. _fields-46:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :red:`Name`          | :red:`Type`          | :red:`Description`   |
@@ -2848,12 +2848,12 @@ Fields
 .. _CARTA.CatalogFilterRequest:
 
 ``CATALOG_FILTER_REQUEST`` (*CatalogFilterRequest*)
-'''''''''''''''''''''''''''''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-47:
 
 Description
-           
+'''''''''''
 
 :blue:`Return`\ ```CATALOG_FILTER_RESPONSE`` <CARTA.CatalogFilterResponse>`__\ :blue:`according
 to the user filter settings.`
@@ -2861,7 +2861,7 @@ to the user filter settings.`
 .. _fields-47:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
@@ -2922,12 +2922,12 @@ Fields
 .. _CARTA.MomentRequest:
 
 ``MOMENT_REQUEST`` (MomentRequest)
-''''''''''''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-48:
 
 Description
-           
+'''''''''''
 
 :blue:`Response with`\ ```MOMENT_RESPONSE``
 (MomentResponse) <CARTA.MomentResponse>`__
@@ -2935,7 +2935,7 @@ Description
 .. _fields-48:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | Name                 | Type                 | Description          |
@@ -2970,17 +2970,17 @@ Fields
 .. _CARTA.MomentResponse:
 
 :red:```MOMENT_RESPONSE`` (MomentResponse)`
-'''''''''''''''''''''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-49:
 
 Description
-           
+'''''''''''
 
 .. _fields-49:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | Name                 | Type                 | Description          |
@@ -3000,19 +3000,19 @@ Fields
 .. _CARTA.SaveFile:
 
 ``SAVE_FILE`` (SaveFile)
-''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-50:
 
 Description
-           
+'''''''''''
 
 :blue:`Save the image file with different name or type`
 
 .. _fields-50:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | Name                 | Type                 | Description          |
@@ -3039,17 +3039,17 @@ Fields
 .. _CARTA.SaveFileAck:
 
 :red:```SAVE_FILE_ACK`` (SaveFileAck)`
-''''''''''''''''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-51:
 
 Description
-           
+'''''''''''
 
 .. _fields-51:
 
 Fields
-      
+''''''
 
 +--------------------+-------------------+---------------------------+
 | Name               | Type              | Description               |
@@ -3066,24 +3066,24 @@ Fields
 .. _Data stream messages:
 
 4.1.3 Data stream messages
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. _CARTA.RasterTileSync:
 
 ``RASTER_TILE_SYNC``
-''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^
 
 .. _description-52:
 
 Description
-           
+'''''''''''
 
 :red:`Sync message sent at the start and end of a stream of data tiles`
 
 .. _fields-52:
 
 Fields
-      
+''''''
 
 +-----------------------+--------------------+-----------------------+
 | :red:`Name`           | :red:`Type`        | :red:`Description`    |
@@ -3111,19 +3111,19 @@ Fields
 .. _CARTA.RasterTileData:
 
 ``RASTER_TILE_DATA``
-''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^
 
 .. _description-53:
 
 Description
-           
+'''''''''''
 
 :red:`Data for a single tile or list of tiles rendered in raster mode.`
 
 .. _fields-53:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :red:`Name`          | :red:`Type`          | :red:`Description`   |
@@ -3159,19 +3159,19 @@ Fields
 .. _CARTA.SpatialProfileData:
 
 ``SPATIAL_PROFILE_DATA``
-''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-54:
 
 Description
-           
+'''''''''''
 
 :red:`Data for spatial profile set for a specific file`
 
 .. _fields-54:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :red:`Name`          | :red:`Type`          | :red:`Description`   |
@@ -3247,19 +3247,19 @@ Fields
 .. _CARTA.RegionStatsData:
 
 ``REGION_STATS_DATA``
-'''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-55:
 
 Description
-           
+'''''''''''
 
 :red:`Simple statistics for a region`
 
 .. _fields-55:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :red:`Name`          | :red:`Type`          | :red:`Description`   |
@@ -3299,19 +3299,19 @@ Fields
 .. _CARTA.RegionHistogramData:
 
 ``REGION_HISTOGRAM_DATA``
-'''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-56:
 
 Description
-           
+'''''''''''
 
 :red:`Histograms for a region`
 
 .. _fields-56:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :red:`Name`          | :red:`Type`          | :red:`Description`   |
@@ -3369,19 +3369,19 @@ Fields
 .. _CARTA.SpectralProfileData:
 
 ``SPECTRAL_PROFILE_DATA``
-'''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-57:
 
 Description
-           
+'''''''''''
 
 :red:`Data for a spectral profile set for a specific file`
 
 .. _fields-57:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :red:`Name`          | :red:`Type`          | :red:`Description`   |
@@ -3440,12 +3440,12 @@ Fields
 .. _CARTA.ErrorData:
 
 ``ERROR_DATA``
-''''''''''''''
+^^^^^^^^^^^^^^
 
 .. _description-58:
 
 Description
-           
+'''''''''''
 
 :red:`Stream of error/warning/info data. This stream is used to present
 the frontend with additional information on the state of the backend,
@@ -3455,7 +3455,7 @@ commands.`
 .. _fields-58:
 
 Fields
-      
+''''''
 
 +---------------------+----------------------+----------------------+
 | :red:`Name`         | :red:`Type`          | :red:`Description`   |
@@ -3496,19 +3496,19 @@ Fields
 .. _CARTA.ContourImageData:
 
 ``CONTOUR_IMAGE_DATA``
-''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-59:
 
 Description
-           
+'''''''''''
 
 :red:`Data for an image rendered in contour mode`
 
 .. _fields-59:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :red:`Name`          | :red:`Type`          | :red:`Description`   |
@@ -3558,12 +3558,12 @@ Fields
 .. _CARTA.CatalogFilterResponse:
 
 ``CATALOG_FILTER_RESPONSE`` (*CatalogFilterResponse*)
-'''''''''''''''''''''''''''''''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-60:
 
 Description
-           
+'''''''''''
 
 :red:`Returned catalog data and associated file according
 to`\ ```CATALOG_FILTER_REQUEST`` <CARTA.CatalogFilterRequest>`__
@@ -3571,7 +3571,7 @@ to`\ ```CATALOG_FILTER_REQUEST`` <CARTA.CatalogFilterRequest>`__
 .. _fields-60:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | :red:`Name`          | :red:`Type`          | :red:`Description`   |
@@ -3631,17 +3631,17 @@ Fields
 .. _CARTA.MomentProgress:
 
 :red:```MOMENT_PROGRESS`` (MomentProgress)`
-'''''''''''''''''''''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-61:
 
 Description
-           
+'''''''''''
 
 .. _fields-61:
 
 Fields
-      
+''''''
 
 +---------------------+------------------+---------------------------+
 | Name                | Type             | Description               |
@@ -3654,24 +3654,24 @@ Fields
 .. _Sub-messages:
 
 4.1.4 Sub-messages
-^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~
 
 .. _CARTA.FileInfo:
 
 FileInfo
-''''''''
+^^^^^^^^
 
 .. _description-62:
 
 Description
-           
+'''''''''''
 
 Basic file info
 
 .. _fields-62:
 
 Fields
-      
+''''''
 
 +----------------+-------------------------+-------------------------+
 | Name           | Type                    | Description             |
@@ -3692,19 +3692,19 @@ Fields
 .. _CARTA.FileInfoExtended:
 
 FileInfoExtended
-''''''''''''''''
+^^^^^^^^^^^^^^^^
 
 .. _description-63:
 
 Description
-           
+'''''''''''
 
 Basic file info
 
 .. _fields-63:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | Name                 | Type                 | Description          |
@@ -3744,19 +3744,19 @@ Fields
 .. _CARTA.HeaderEntry:
 
 HeaderEntry
-'''''''''''
+^^^^^^^^^^^
 
 .. _description-64:
 
 Description
-           
+'''''''''''
 
 FITS/CASA header / HDF5 attribute entry
 
 .. _fields-64:
 
 Fields
-      
+''''''
 
 +-------------------+-----------------------+-----------------------+
 | Name              | Type                  | Description           |
@@ -3777,19 +3777,19 @@ Fields
 .. _CARTA.ImageBounds:
 
 ImageBounds
-'''''''''''
+^^^^^^^^^^^
 
 .. _description-65:
 
 Description
-           
+'''''''''''
 
 Bounds in XY plane (image space)
 
 .. _fields-65:
 
 Fields
-      
+''''''
 
 ========= ========= ===========================
 Name      Type      Description
@@ -3803,19 +3803,19 @@ Name      Type      Description
 .. _CARTA.TileData:
 
 TileData
-''''''''
+^^^^^^^^
 
 .. _description-66:
 
 Description
-           
+'''''''''''
 
 Single tile object
 
 .. _fields-66:
 
 Fields
-      
+''''''
 
 +-------------------+-------------+----------------------------------+
 | Name              | Type        | Description                      |
@@ -3850,19 +3850,19 @@ Fields
 .. _CARTA.RegionInfo:
 
 RegionInfo
-''''''''''
+^^^^^^^^^^
 
 .. _description-67:
 
 Description
-           
+'''''''''''
 
 Region parameters
 
 .. _fields-67:
 
 Fields
-      
+''''''
 
 +--------------------+-----------------------+-----------------------+
 | Name               | Type                  | Description           |
@@ -3885,19 +3885,19 @@ Fields
 .. _CARTA.RegionStyle:
 
 RegionStyle
-'''''''''''
+^^^^^^^^^^^
 
 .. _description-68:
 
 Description
-           
+'''''''''''
 
 Region id and style parameters
 
 .. _fields-68:
 
 Fields
-      
+''''''
 
 ============== =========== ======================================
 Name           Type        Description
@@ -3911,12 +3911,12 @@ Name           Type        Description
 .. _CARTA.ContourSet:
 
 ContourSet
-''''''''''
+^^^^^^^^^^
 
 .. _description-69:
 
 Description
-           
+'''''''''''
 
 Each contour set consists of the contour level value, as well as a list
 of coordinates. The start_indices list is used to determine how to
@@ -3925,7 +3925,7 @@ subdivide the coordinates list into separate poly-lines when rendering.
 .. _fields-69:
 
 Fields
-      
+''''''
 
 +---------------------------+------------+---------------------------+
 | Name                      | Type       | Description               |
@@ -3957,19 +3957,19 @@ Fields
 .. _CARTA.ImageProperties:
 
 ImageProperties
-'''''''''''''''
+^^^^^^^^^^^^^^^
 
 .. _description-70:
 
 Description
-           
+'''''''''''
 
 Requests the opening of a specific file.
 
 .. _fields-70:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | Name                 | Type                 | Description          |
@@ -4013,19 +4013,19 @@ Fields
 .. _CARTA.ContourSettings:
 
 ContourSettings
-'''''''''''''''
+^^^^^^^^^^^^^^^
 
 .. _description-71:
 
 Description
-           
+'''''''''''
 
 Requests the opening of a specific file.
 
 .. _fields-71:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | Name                 | Type                 | Description          |
@@ -4070,19 +4070,19 @@ Fields
 .. _CARTA.CatalogHeader:
 
 CatalogHeader
-'''''''''''''
+^^^^^^^^^^^^^
 
 .. _description-72:
 
 Description
-           
+'''''''''''
 
 Catalog table header entry
 
 .. _fields-72:
 
 Fields
-      
+''''''
 
 +------------------+----------------+--------------------------------+
 | Name             | Type           | Description                    |
@@ -4104,19 +4104,19 @@ Fields
 .. _CARTA.ColumnData:
 
 ColumnData
-''''''''''
+^^^^^^^^^^
 
 .. _description-73:
 
 Description
-           
+'''''''''''
 
 Data for a single catalog column
 
 .. _fields-73:
 
 Fields
-      
+''''''
 
 +-----------------+----------------+---------------------------------+
 | Name            | Type           | Description                     |
@@ -4133,19 +4133,19 @@ Fields
 .. _CARTA.FilterConfig:
 
 FilterConfig
-''''''''''''
+^^^^^^^^^^^^
 
 .. _description-74:
 
 Description
-           
+'''''''''''
 
 Filter configurations
 
 .. _fields-74:
 
 Fields
-      
+''''''
 
 +----------------------+----------------------+----------------------+
 | Name                 | Type                 | Description          |
@@ -4173,19 +4173,19 @@ Fields
 .. _CARTA.CatalogFileInfo:
 
 CatalogFileInfo
-'''''''''''''''
+^^^^^^^^^^^^^^^
 
 .. _description-75:
 
 Description
-           
+'''''''''''
 
 Catalog file information
 
 .. _fields-75:
 
 Fields
-      
+''''''
 
 +-----------------+------------------------+------------------------+
 | ``Name``        | ``Type``               | Description            |
@@ -4211,19 +4211,19 @@ Fields
 .. _CARTA.Coosys:
 
 Coosys
-''''''
+^^^^^^
 
 .. _description-76:
 
 Description
-           
+'''''''''''
 
 WCS info for catalog file
 
 .. _fields-76:
 
 Fields
-      
+''''''
 
 =========== ========== =================
 ``Name``    ``Type``   Description
@@ -4236,19 +4236,19 @@ Fields
 .. _CARTA.CatalogImageBounds:
 
 CatalogImageBounds
-''''''''''''''''''
+^^^^^^^^^^^^^^^^^^
 
 .. _description-77:
 
 Description
-           
+'''''''''''
 
 Catalog image boundary
 
 .. _fields-77:
 
 Fields
-      
+''''''
 
 +-------------------+-----------------------+-----------------------+
 | ``Name``          | ``Type``              | Description           |
@@ -4266,19 +4266,19 @@ Fields
 .. _CARTA.IntBounds:
 
 IntBounds
-'''''''''
+^^^^^^^^^
 
 .. _description-78:
 
 Description
-           
+'''''''''''
 
 Moment calculation results
 
 .. _fields-78:
 
 Fields
-      
+''''''
 
 ======= ========= ============================
 Name    Type      Description
@@ -4290,19 +4290,19 @@ Name    Type      Description
 .. _CARTA.FloatBounds:
 
 FloatBounds
-'''''''''''
+^^^^^^^^^^^
 
 .. _description-79:
 
 Description
-           
+'''''''''''
 
 Moment calculation results
 
 .. _fields-79:
 
 Fields
-      
+''''''
 
 ======= ========= ==========================
 Name    Type      Description
@@ -4314,22 +4314,22 @@ Name    Type      Description
 .. _Enums:
 
 4.1.5 Enums
-^^^^^^^^^^^
+~~~~~~~~~~~
 
 .. _CARTA.EventType:
 
 EventType (Enum)
-''''''''''''''''
+^^^^^^^^^^^^^^^^
 
 .. _description-80:
 
 Description
-           
+'''''''''''
 
 Event types used in the ICD
 
 Entries
-       
+'''''''
 
 +------------------------------------------------------------+--------+
 | Name                                                       | Value  |
@@ -4469,19 +4469,19 @@ Entries
 .. _CARTA.FileType:
 
 FileType (Enum)
-'''''''''''''''
+^^^^^^^^^^^^^^^
 
 .. _description-81:
 
 Description
-           
+'''''''''''
 
 Basic file types
 
 .. _entries-1:
 
 Entries
-       
+'''''''
 
 =========== =====
 Name        Value
@@ -4498,19 +4498,19 @@ Name        Value
 .. _CARTA.RegionType:
 
 RegionType (Enum)
-'''''''''''''''''
+^^^^^^^^^^^^^^^^^
 
 .. _description-82:
 
 Description
-           
+'''''''''''
 
 Supported region types
 
 .. _entries-2:
 
 Entries
-       
+'''''''
 
 ============= =====
 Name          Value
@@ -4527,19 +4527,19 @@ Name          Value
 .. _CARTA.StatsType:
 
 StatsType (Enum)
-''''''''''''''''
+^^^^^^^^^^^^^^^^
 
 .. _description-83:
 
 Description
-           
+'''''''''''
 
 Supported region stats types.
 
 .. _entries-3:
 
 Entries
-       
+'''''''
 
 =============== ======
 Name            Value
@@ -4567,12 +4567,12 @@ Name            Value
 .. _CARTA.ClientFeatureFlags:
 
 ClientFeatureFlags (Enum)
-'''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-84:
 
 Description
-           
+'''''''''''
 
 Supported client features. Currently, ``WEB_GL`` and ``WEB_ASSEMBLY``
 flags are set by default. The backend does not currently react to these
@@ -4582,7 +4582,7 @@ delivers data to the frontend.
 .. _entries-4:
 
 Entries
-       
+'''''''
 
 ======================== ======
 Name                     Value
@@ -4598,12 +4598,12 @@ Name                     Value
 .. _CARTA.ServerFeatureFlags:
 
 ServerFeatureFlags (Enum)
-'''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-85:
 
 Description
-           
+'''''''''''
 
 Supported server features. The compression features are currently not
 used, as the backend does not support any of the optional modes
@@ -4613,7 +4613,7 @@ the frontend requests data.
 .. _entries-5:
 
 Entries
-       
+'''''''
 
 ======================= ======
 Name                    Value
@@ -4630,19 +4630,19 @@ Name                    Value
 .. _CARTA.FileFeatureFlags:
 
 FileFeatureFlags (Enum)
-'''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-86:
 
 Description
-           
+'''''''''''
 
 Supported file features.
 
 .. _entries-6:
 
 Entries
-       
+'''''''
 
 ====================== ======
 Name                   Value
@@ -4659,19 +4659,19 @@ Name                   Value
 .. _CARTA.SmoothingMode:
 
 SmoothingMode (Enum)
-''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^
 
 .. _description-87:
 
 Description
-           
+'''''''''''
 
 Available smoothing types
 
 .. _entries-7:
 
 Entries
-       
+'''''''
 
 ================ =====
 Name             Value
@@ -4684,19 +4684,19 @@ Name             Value
 .. _CARTA.ColumnType:
 
 ColumnType (Enum)
-'''''''''''''''''
+^^^^^^^^^^^^^^^^^
 
 .. _description-88:
 
 Description
-           
+'''''''''''
 
 Data types
 
 .. _entries-8:
 
 Entries
-       
+'''''''
 
 =================== ======
 Name                Value
@@ -4719,12 +4719,12 @@ Name                Value
 .. _CARTA.ComparisonOperator:
 
 ComparisonOperator (Enum)
-'''''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-89:
 
 Description
-           
+'''''''''''
 
 Filter comparison operator. BetweenAnd is 100<=a<=200. FromTo is
 100<a<200.
@@ -4732,7 +4732,7 @@ Filter comparison operator. BetweenAnd is 100<=a<=200. FromTo is
 .. _entries-9:
 
 Entries
-       
+'''''''
 
 ================== =====
 Name               Value
@@ -4750,19 +4750,19 @@ Name               Value
 .. _CARTA.CatalogFileType:
 
 CatalogFileType (Enum)
-''''''''''''''''''''''
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. _description-90:
 
 Description
-           
+'''''''''''
 
 File type for catalog overlay
 
 .. _entries-10:
 
 Entries
-       
+'''''''
 
 ============= =====
 Name          Value
@@ -4774,19 +4774,19 @@ Name          Value
 .. _CARTA.SortingType:
 
 SortingType (Enum)
-''''''''''''''''''
+^^^^^^^^^^^^^^^^^^
 
 .. _description-91:
 
 Description
-           
+'''''''''''
 
 Sorting as ascend or descend
 
 .. _entries-11:
 
 Entries
-       
+'''''''
 
 ============== =====
 Name           Value
@@ -4798,17 +4798,17 @@ Name           Value
 .. _CARTA.Moment:
 
 Moment (Enum)
-'''''''''''''
+^^^^^^^^^^^^^
 
 .. _description-92:
 
 Description
-           
+'''''''''''
 
 .. _entries-12:
 
 Entries
-       
+'''''''
 
 ============================================== ======
 Name                                           Value
@@ -4831,12 +4831,12 @@ Name                                           Value
 .. _CARTA.MomentAxis:
 
 MomentAxis (Enum)
-'''''''''''''''''
+^^^^^^^^^^^^^^^^^
 
 .. _description-93:
 
 Description
-           
+'''''''''''
 
 The moment axis: “spectral”, or “stokes”. By default use the spectral
 axis.
@@ -4844,7 +4844,7 @@ axis.
 .. _entries-13:
 
 Entries
-       
+'''''''
 
 ============ =====
 Name         Value
@@ -4856,17 +4856,17 @@ Name         Value
 .. _CARTA.MomentMask:
 
 MomentMask (Enum)
-'''''''''''''''''
+^^^^^^^^^^^^^^^^^
 
 .. _description-94:
 
 Description
-           
+'''''''''''
 
 .. _entries-14:
 
 Entries
-       
+'''''''
 
 =========== =====
 Name        Value
@@ -4879,7 +4879,7 @@ Name        Value
 .. _Presentation layer:
 
 4.2 Presentation layer
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 
 Messages are encoded using the Protocol Buffers message format, which
 encodes into a binary format. Each message is prepended by a 64-bit
@@ -4915,7 +4915,7 @@ accessed by ``msg.minVal`` in javascript.
 .. _Session Layer:
 
 4.3 Session Layer
-~~~~~~~~~~~~~~~~~
+-----------------
 
 Sessions will utilise the the WebSocket protocol, as the frontend will
 be browser-based. Initial session establishment will occur using HTTP,
@@ -4929,7 +4929,7 @@ supported.
 .. _Transport Layer:
 
 4.4 Transport Layer
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 The interface will use TCP to communicate. Network layer and below will
 be dependent on the server/client connection and need not be detailed.

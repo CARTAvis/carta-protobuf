@@ -300,9 +300,7 @@ anchor_exceptions = {
     "Moment (Enum)": "CARTA.Moment",
 }
 
-headings = soup.find_all(re.compile("h\d"))
-
-for heading in headings:
+for heading in soup.find_all(re.compile("h\d")):
     if "id" in heading.attrs:
         old_name, new_name = heading["id"], heading.text.strip()
         if new_name in anchor_exceptions:
@@ -312,7 +310,7 @@ for heading in headings:
                 new_name = re.sub(s, r, new_name)
         anchors[old_name] = new_name
         
-for heading in headings:
+for heading in soup.find_all(re.compile("h\d")):
     if "id" in heading.attrs:
         hid = heading["id"]
         if hid in anchors:
@@ -320,6 +318,17 @@ for heading in headings:
                 heading.extract()
                 continue
             heading["id"] = anchors[hid]
+            
+# also fix broken heading levels
+for heading in soup.find_all(re.compile("h\d")):
+    if re.match("4\.\d+ ", heading.text):
+        heading.name = "h2"
+    elif re.match("4\.\d+\.\d+ ", heading.text):
+        heading.name = "h3"
+    elif heading.name == "h5":
+        heading.name = "h4"
+    elif heading.name == "h6":
+        heading.name = "h5"
 
 missing_anchors = {
     "OPEN_CATALOG_FILE_ACK" : "CARTA.OpenCatalogFileAck",
@@ -351,5 +360,5 @@ for s in soup.find_all("span"):
 with open(sys.argv[2], 'w') as f:
     print(str(soup), file=f)
 
-# TODO rename images
-# TODO fix missing links and links to catalog document
+# TODO fix heading levels
+# TODO rename images -- use the metadata
