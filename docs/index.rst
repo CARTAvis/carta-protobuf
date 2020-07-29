@@ -1,4 +1,4 @@
-.. _h.760gw3x2yqqk:
+.. _CARTA Interface Control Document:
 
 CARTA Interface Control Document
 ================================
@@ -97,7 +97,7 @@ types alphabetically
 ``16.0.0 (??/07/20):`` Added sub-message for region style, replace
 RegionProperties with map
 
-.. _h.psxugp5f9v9f:
+.. _Introduction:
 
 1. Introduction
 ===============
@@ -113,7 +113,7 @@ multiple HDUs in a file, and header entries.
 :orange:`Throughout this document, things that require some clarity, or
 are not finalised are commented on in this font style.`
 
-.. _h.3alfbhbei8ai:
+.. _Context:
 
 2. Context
 ==========
@@ -142,7 +142,7 @@ communication channel, with message formats defined using protocol
 buffers
 [`3 <https://www.google.com/url?q=https://developers.google.com/protocol-buffers/&sa=D&ust=1595980841123000&usg=AOvVaw1BHzSVf8KTo-cO-WH_qXJV>`__],
 based on the message structures defined in `Section
-4.1 <#h.m3knt95uc9s>`__.
+4.1 <Application%20Layer>`__.
 
 Image data is sent to the frontend as either uncompressed or compressed
 floating point data. The frontend can request which type of data is sent
@@ -164,34 +164,34 @@ when network bandwidth is sufficient. In the case of a desktop
 application, uncompressed data or very high quality ZFP compressed data
 should be favoured. When using uncompressed data, the FP32 floating
 point data is copied directly to and from the uint8 array specified by
-``TileData`` (using 4 uint8 entries per 32-bit floating point entry).
+```TileData`` <CARTA.TileData>`__ (using 4 uint8 entries per 32-bit
+floating point entry).
 
 --------------
 
-.. _h.sh609pjox520:
-
-.. _h.xibteqnwgrp1:
+.. _Behaviour:
 
 3. Behaviour
 ============
 
-.. _h.wfvt4qo2aez:
+.. _Connection:
 
 3.1 Connection
 --------------
 
 Connection takes place via the WebSockets protocol, and is initiated as
 soon as the frontend page is successfully loaded. Upon connection, the
-frontend registers itself to the backend using the ``REGISTER_VIEWER``
-message and retrieves a new session ID, server capabilities and user
-preferences through ``REGISTER_VIEWER_ACK``. It then requests the list
-of files in the default directory. If the connection is dropped, the
-frontend re-registers itself to the server, but passes through the
-original session ID. The server should attempt to resume this session,
-but if not possible, will generate a new session ID for the client. In
-addition to the session ID, the frontend can pass through an optional
-API key, which can be used to determine basic permissions and
-user-related settings.
+frontend registers itself to the backend using the
+```REGISTER_VIEWER`` <CARTA.RegisterViewer>`__ message and retrieves a
+new session ID, server capabilities and user preferences through
+```REGISTER_VIEWER_ACK`` <CARTA.RegisterViewerAck>`__. It then requests
+the list of files in the default directory. If the connection is
+dropped, the frontend re-registers itself to the server, but passes
+through the original session ID. The server should attempt to resume
+this session, but if not possible, will generate a new session ID for
+the client. In addition to the session ID, the frontend can pass through
+an optional API key, which can be used to determine basic permissions
+and user-related settings.
 
 A connection heartbeat is established by the server-initiated ping/pong
 sequence defined by the WebSocket protocol. In addition to this, a
@@ -210,7 +210,7 @@ frontend should attempt to reconnect with the same session ID when a
 connection is dropped. If the backend responds with a session type set
 to ``RESUMED``, the frontend will attempt to resume the session by
 sending a list of files, along with their associated regions in a
-``RESUME_SESSION`` message.
+```RESUME_SESSION`` <CARTA.ResumeSession>`__ message.
 
 |image0|
 
@@ -227,7 +227,7 @@ in JSON format. Each incoming scripting request includes a unique ID,
 which is passed back in the scripting response, in order to uniquely
 match scripting requests to their responses.
 
-.. _h.58ke5sat0rfq:
+.. _File browsing:
 
 3.2 File browsing
 -----------------
@@ -242,9 +242,10 @@ for that subdirectory. When a file is loaded, the default image view is
 requested. A file can be loaded as a raster or contour image (not
 currently implemented), and can be appended to the current list of open
 files, or can replace all open files, in which case the frontend must
-first close all files using the ``CLOSE_FILE`` message with
-``file_id = -1``. Individual open files can be removed from the file
-list by calling ``CLOSE_FILE`` with an appropriate ``file_id`` field.
+first close all files using the ```CLOSE_FILE`` <CARTA.CloseFile>`__
+message with ``file_id = -1``. Individual open files can be removed from
+the file list by calling ```CLOSE_FILE`` <CARTA.CloseFile>`__ with an
+appropriate ``file_id`` field.
 
 |image2|
 
@@ -254,16 +255,17 @@ list by calling ``CLOSE_FILE`` with an appropriate ``file_id`` field.
 
 |image5|
 
-.. _h.u73x4b49hzwi:
+.. _Data cube navigation:
 
 3.3 Data cube navigation
 ------------------------
 
 The frontend can change the displayed channel and Stokes parameter by
-issuing the ``SET_IMAGE_CHANNELS`` command. When an image is opened, the
-frontend will send a ``SET_IMAGE_CHANNELS`` with the first channel and
-Stokes parameter. The frontend subscribes to all ``RASTER_TILE_DATA``
-messages.
+issuing the ```SET_IMAGE_CHANNELS`` <CARTA.SetImageChannels>`__ command.
+When an image is opened, the frontend will send a
+```SET_IMAGE_CHANNELS`` <CARTA.SetImageChannels>`__ with the first
+channel and Stokes parameter. The frontend subscribes to all
+```RASTER_TILE_DATA`` <CARTA.RasterTileData>`__ messages.
 
 Tiled rendering splits the image into individual square tiles
 (defaulting to 256 pixels in width), and renders the image progressively
@@ -273,15 +275,16 @@ image. Images are downsampled by a power of 2.
 
 In addition, contour rendering can be used on files. The contours for an
 entire channel are generated when the frontend sends the
-``SET_CONTOUR_PARAMETERS`` command. The frontend subscribes to all
-``CONTOUR_IMAGE_DATA`` messages. Currently, contour renders are
-automatically updated when the user changes channel or plays an
-animation. Contours are delivered in separate chunks by the backend, so
-that the user can see the contours as they are delivered to the
-frontend, and can get an idea of how long the contour fetching will
+```SET_CONTOUR_PARAMETERS`` <CARTA.SetContourParameters>`__ command. The
+frontend subscribes to all
+```CONTOUR_IMAGE_DATA`` <CARTA.ContourImageData>`__ messages. Currently,
+contour renders are automatically updated when the user changes channel
+or plays an animation. Contours are delivered in separate chunks by the
+backend, so that the user can see the contours as they are delivered to
+the frontend, and can get an idea of how long the contour fetching will
 take.
 
-.. _h.ps0vfolqup99:
+.. _Zooming and panning:
 
 3.3.1 Zooming and panning
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -328,40 +331,46 @@ shifting. A single line JavaScript function to encode is:
 
 ``(x, y, layer) => (layer << 24) | (y << 12) | x;``
 
-When a user zooms or pans, the frontend sends the ``ADD_REQUIRED_TILES``
-command to the backend. The frontend may debounce, throttle or delay
-sending tiles to the backend, in order to optimise delivery and avoid
-sending stale tiles. The order of the list of tiles supplied to
-``ADD_REQUIRED_TILES`` determines the order in which the backend
-delivers tiles. If subsequent ``ADD_REQUIRED_TILES`` messages arrive
+When a user zooms or pans, the frontend sends the
+```ADD_REQUIRED_TILES`` <CARTA.AddRequiredTiles>`__ command to the
+backend. The frontend may debounce, throttle or delay sending tiles to
+the backend, in order to optimise delivery and avoid sending stale
+tiles. The order of the list of tiles supplied to
+```ADD_REQUIRED_TILES`` <CARTA.AddRequiredTiles>`__ determines the order
+in which the backend delivers tiles. If subsequent
+```ADD_REQUIRED_TILES`` <CARTA.AddRequiredTiles>`__ messages arrive
 while the backend is still delivering tiles, the most recent tile list
 is prioritised.
 
 Another route for optimisation available to the frontend is
-``REMOVE_REQUIRED_TILES``, which allows the frontend to explicitly
-indicate that certain tiles are no longer required. If any of these
-tiles are yet to be delivered to the frontend, the backend can optimise
-tile delivery by removing them from the queue of titles to be delivered.
+```REMOVE_REQUIRED_TILES`` <CARTA.RemoveRequiredTiles>`__, which allows
+the frontend to explicitly indicate that certain tiles are no longer
+required. If any of these tiles are yet to be delivered to the frontend,
+the backend can optimise tile delivery by removing them from the queue
+of titles to be delivered.
 
-Tile data is delivered by the backend using the ``RASTER_TILE_DATA``
-stream. This allows the backend to send one or more raster tiles with
-the same compression format and quality to the frontend. Each time a
-tile is delivered to the frontend, the image is re-rendered.
+Tile data is delivered by the backend using the
+```RASTER_TILE_DATA`` <CARTA.RasterTileData>`__ stream. This allows the
+backend to send one or more raster tiles with the same compression
+format and quality to the frontend. Each time a tile is delivered to the
+frontend, the image is re-rendered.
 
 |image6|
 
-.. _h.dds0t5d46snc:
+.. _Channel navigation:
 
 3.3.2 Channel navigation
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-When changing channels via a ``SET_IMAGE_CHANNELS`` message, the
+When changing channels via a
+```SET_IMAGE_CHANNELS`` <CARTA.SetImageChannels>`__ message, the
 frontend includes an initial list of required tiles. These tiles are
 then delivered individually by the backend. Unlike the case when zooming
 and panning, the frontend will wait for all required tiles to be
 delivered before displaying an image when switching channels. When
-receiving a ``SET_IMAGE_CHANNELS`` message, the backend will also send
-the new channel histogram via the ``REGION_HISTOGRAM_DATA`` stream.
+receiving a ```SET_IMAGE_CHANNELS`` <CARTA.SetImageChannels>`__ message,
+the backend will also send the new channel histogram via the
+```REGION_HISTOGRAM_DATA`` <CARTA.RegionHistogramData>`__ stream.
 
 In general, one image view command will correspond to a subsequent image
 data stream message. However, changing the image channel will result in
@@ -370,47 +379,51 @@ statistics, histograms or profile data.
 
 |image7|
 
-.. _h.8n2v2rbr3275:
+.. _Animation:
 
 3.3.3 Animation
 ~~~~~~~~~~~~~~~
 
-An animation can be played back by issuing the ``START_ANIMATION``
-command. This command encapsulates all the different animation stepping
-and bounds parameters, in order to allow the backend to perform frame
-calculations and deliver image data to the front. After the the
-``START_ANIMATION`` command has been issued, the backend sends images
-and analysis results to the frontend at a regular interval. When the
-user stops an animation, the frontend sends the ``STOP_ANIMATION``
-command, which includes information on the current image’s channels, so
-that the backend can be sure that the frontend channel state is the same
-as that of the backend. If the last sent frame does match the frontend
-channel state, the backend adjusts channels again. In order to prevent
-the backend from sending too many animation frames, some basic flow
-control is provided through ``ANIMATION_FLOW_CONTROL`` message. This is
-sent from the frontend to the backend to indicate the latest frame
-received, preventing the backend from queuing up too many frames. The
-``START_ANIMATION`` command includes an ``ADD_REQUIRED_TILES``
+An animation can be played back by issuing the
+```START_ANIMATION`` <CARTA.StartAnimation>`__ command. This command
+encapsulates all the different animation stepping and bounds parameters,
+in order to allow the backend to perform frame calculations and deliver
+image data to the front. After the the
+```START_ANIMATION`` <CARTA.StartAnimation>`__ command has been issued,
+the backend sends images and analysis results to the frontend at a
+regular interval. When the user stops an animation, the frontend sends
+the ```STOP_ANIMATION`` <CARTA.StopAnimation>`__ command, which includes
+information on the current image’s channels, so that the backend can be
+sure that the frontend channel state is the same as that of the backend.
+If the last sent frame does match the frontend channel state, the
+backend adjusts channels again. In order to prevent the backend from
+sending too many animation frames, some basic flow control is provided
+through ```ANIMATION_FLOW_CONTROL`` <CARTA.AnimationFlowControl>`__
+message. This is sent from the frontend to the backend to indicate the
+latest frame received, preventing the backend from queuing up too many
+frames. The ```START_ANIMATION`` <CARTA.StartAnimation>`__ command
+includes an ```ADD_REQUIRED_TILES`` <CARTA.AddRequiredTiles>`__
 sub-message, specifying the required tiles and compression type to be
 used in the animation. The backend includes an animation ID field in
-``START_ANIMATION_ACK`` in order to allow the frontend to differentiate
-between frames of previous animations and the latest animation.
+```START_ANIMATION_ACK`` <CARTA.StartAnimationAck>`__ in order to allow
+the frontend to differentiate between frames of previous animations and
+the latest animation.
 
 |image8|
 
 Images are sent as tiled data. In order to keep the image view channel
 and full image histogram synchronised, the ``RASTER_IMAGE_DATA`` message
-includes a ``REGION_HISTOGRAM_DATA`` object, containing the channel
-histogram for the new channel. During animation playback, each animation
-step will result in image data stream messages, as well as any relevant
-analytics updates. If zooming or panning occurs during animation, a
-``SET_IMAGE_VIEW`` message is sent to the backend, updating the view
-bounds. These new bounds are used in the next frame generated by the
-backend.
+includes a ```REGION_HISTOGRAM_DATA`` <CARTA.RegionHistogramData>`__
+object, containing the channel histogram for the new channel. During
+animation playback, each animation step will result in image data stream
+messages, as well as any relevant analytics updates. If zooming or
+panning occurs during animation, a ``SET_IMAGE_VIEW`` message is sent to
+the backend, updating the view bounds. These new bounds are used in the
+next frame generated by the backend.
 
 --------------
 
-.. _h.3z1uylqiabgw:
+.. _Changing view parameters:
 
 3.4 Changing view parameters
 ----------------------------
@@ -431,14 +444,12 @@ do not require any interaction between frontend and backend:
 
 --------------
 
-.. _h.wvuye0qtk32h:
-
-.. _h.851wh0pxqqcn:
+.. _Region selection and statistics:
 
 3.5 Region selection and statistics
 -----------------------------------
 
-.. _h.myeas9ynh2um:
+.. _Region creation:
 
 3.5.1 Region creation
 ~~~~~~~~~~~~~~~~~~~~~
@@ -448,20 +459,21 @@ data associated with a region flow from the backend to the server
 whenever an update is required. Updates may be required (a) when a
 region is created or updated; (b) when the image channel is explicitly
 switched to a different channel or Stokes parameter using
-``SET_IMAGE_CHANNELS`` or (c) when an animation playback results in the
-image view being updated implicitly.
+```SET_IMAGE_CHANNELS`` <CARTA.SetImageChannels>`__ or (c) when an
+animation playback results in the image view being updated implicitly.
 
 In addition, the backend may choose to provide partial region statistics
 or profile updates if the calculations are time-intensive. When creating
-a region, the ``region_id`` field of ``SET_REGION`` is less than zero:
-the backend generates the unique region_id field, and returns it in the
+a region, the ``region_id`` field of
+```SET_REGION`` <CARTA.SetRegion>`__ is less than zero: the backend
+generates the unique region_id field, and returns it in the
 acknowledgement message.
 
 |image11|
 
 |image12|
 
-.. _h.s7l4h2dtujcf:
+.. _Cursor updates:
 
 3.5.2 Cursor updates
 ~~~~~~~~~~~~~~~~~~~~
@@ -471,13 +483,13 @@ use case, a separate control message is used specifically for this
 purpose, and does not require the definition of any additional region.
 The cursor-based region has a ``region_id`` field value of zero, and is
 defined as a point-type region. The X and Y coordinates of the region
-can only be updated via the ```SET_CURSOR`` <#h.phs5ttglm95>`__ command,
-while the channel and Stokes coordinates are automatically updated by
-the backend whenever the image view is changed.
+can only be updated via the ```SET_CURSOR`` <CARTA.SetCursor>`__
+command, while the channel and Stokes coordinates are automatically
+updated by the backend whenever the image view is changed.
 
 |image13|
 
-.. _h.e098rxpenog1:
+.. _Region requirements:
 
 3.5.3 Region requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -501,9 +513,11 @@ profile widget on the frontend and setting its requirements will mean
 that the region it is associated with now has an additional requirement,
 and the frontend requires new data. As such, the backend will calculate
 the required spectral profile and send it using
-``SPECTRAL_PROFILE_DATA``. However, removing the spectral profile widget
-on the frontend will now remove that requirement, but no new
-``SPECTRAL_PROFILE_DATA`` message is needed from the frontend.
+```SPECTRAL_PROFILE_DATA`` <CARTA.RegionStatsData>`__. However, removing
+the spectral profile widget on the frontend will now remove that
+requirement, but no new
+```SPECTRAL_PROFILE_DATA`` <CARTA.RegionStatsData>`__ message is needed
+from the frontend.
 
 |image14|
 
@@ -522,7 +536,7 @@ frame is closed, the regions persist.
 
 |image17|
 
-.. _h.kwxocwxdru9g:
+.. _Per-cube histograms:
 
 3.5.4 Per-cube histograms
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -530,7 +544,8 @@ frame is closed, the regions persist.
 As users may wish to use a histogram generated from the entire cube to
 choose their render bounds, the backend needs to support the calculation
 of a histogram on a per-cube as well as per-slice basis. A per-cube
-histogram is requested through the ``SET_HISTOGRAM_REQUIREMENTS``
+histogram is requested through the
+```SET_HISTOGRAM_REQUIREMENTS`` <CARTA.SetHistogramRequirements>`__
 message, with the region ID set to -2. As per-cube histograms may take a
 long time to calculate, there are additional requirements over and above
 per-slice histograms.
@@ -547,14 +562,15 @@ frontend.
 
 The backend should be able to cancel the histogram calculation when
 receiving a specific message from the frontend. By sending a second
-``SET_HISTOGRAM_REQUIREMENTS`` message to the backend, with the region
-ID set to -2 and an empty histogram list, the frontend can indicate to
-the backend that the per-cube histogram is no longer required, and the
-backend can cancel the calculation.
+```SET_HISTOGRAM_REQUIREMENTS`` <CARTA.SetHistogramRequirements>`__
+message to the backend, with the region ID set to -2 and an empty
+histogram list, the frontend can indicate to the backend that the
+per-cube histogram is no longer required, and the backend can cancel the
+calculation.
 
 |image19|
 
-.. _h.2r0bdrhq0hz:
+.. _Data streaming:
 
 3.6 Data streaming
 ------------------
@@ -566,87 +582,98 @@ from situations where a single state change command corresponds to more
 than one response from the backend. For example, changing image channel
 would require each spatial profile associated with the active image
 channel to be updated, possibly resulting in more than one
-```SPATIAL_PROFILE_DATA`` <#h.s1l0povv67tc>`__ messages. Moving a region
-would require updating any analytics associated with the region. It is
-the backend’s responsibility to correctly determine which analytic data
-needs to be updated whenever a control message is sent. It is essential
-that the backend only recalculates and sends data when needed. In order
-to do this, the backend must keep track of any updates to region
-requirements, and use these requirements to determine whether updates
-are needed. Region requirements will reflect the current frontend UI
-configuration. Changes to the frontend UI configuration (such as
-changing between “average” and “max” on a spectral profile widget) will
-result in new region requirements being sent to the backend, which will
-then be processed, resulting in new data being sent to the frontend when
-required.
+```SPATIAL_PROFILE_DATA`` <CARTA.SpatialProfileData>`__ messages. Moving
+a region would require updating any analytics associated with the
+region. It is the backend’s responsibility to correctly determine which
+analytic data needs to be updated whenever a control message is sent. It
+is essential that the backend only recalculates and sends data when
+needed. In order to do this, the backend must keep track of any updates
+to region requirements, and use these requirements to determine whether
+updates are needed. Region requirements will reflect the current
+frontend UI configuration. Changes to the frontend UI configuration
+(such as changing between “average” and “max” on a spectral profile
+widget) will result in new region requirements being sent to the
+backend, which will then be processed, resulting in new data being sent
+to the frontend when required.
 
 Some examples of possible resultant data streams for control messages
 are given below:
 
--  ``SET_IMAGE_CHANNELS``: Changing either the channel or the Stokes
-   parameter would require new image data to be sent, for both raster
-   and contour images. Changing from one channel to another in the same
-   Stokes cube could result in histograms, spatial profiles or region
-   stats to require updating. Changing to a new stokes cube could also
-   require spectral profiles to be updated. These updates will depend on
-   the defined regions and defined region requirements.
--  ``START_ANIMATION``: Starting an animation will require new image
-   data for each frame. In addition, since the animation playback may be
-   across file, Stokes or channel parameters, the same data streams as
-   those arising from ``SET_IMAGE_CHANNELS`` can occur.
--  ``SET_CURSOR``: Updating the cursor position is a special case of
-   updating a region. As the cursor position is a point region, only
-   spectral data and spatial data can require an update.
--  ``SET_REGION``: Creating a region will not result in any data
-   streams, as the region’s requirements will be empty by default.
-   However, updating a regions parameters (other than region name) could
-   result in spatial profiles (for open regions), spectral profiles,
-   region stats and histograms (for closed and point regions) to be
+-  ```SET_IMAGE_CHANNELS`` <CARTA.SetImageChannels>`__: Changing either
+   the channel or the Stokes parameter would require new image data to
+   be sent, for both raster and contour images. Changing from one
+   channel to another in the same Stokes cube could result in
+   histograms, spatial profiles or region stats to require updating.
+   Changing to a new stokes cube could also require spectral profiles to
+   be updated. These updates will depend on the defined regions and
+   defined region requirements.
+-  ```START_ANIMATION`` <CARTA.StartAnimation>`__: Starting an animation
+   will require new image data for each frame. In addition, since the
+   animation playback may be across file, Stokes or channel parameters,
+   the same data streams as those arising from
+   ```SET_IMAGE_CHANNELS`` <CARTA.SetImageChannels>`__ can occur.
+-  ```SET_CURSOR`` <CARTA.SetCursor>`__: Updating the cursor position is
+   a special case of updating a region. As the cursor position is a
+   point region, only spectral data and spatial data can require an
+   update.
+-  ```SET_REGION`` <CARTA.SetRegion>`__: Creating a region will not
+   result in any data streams, as the region’s requirements will be
+   empty by default. However, updating a regions parameters (other than
+   region name) could result in spatial profiles (for open regions),
+   spectral profiles, region stats and histograms (for closed and point
+   regions) to be updated.
+-  ```SET_STATS_REQUIREMENTS`` <CARTA.SetStatsRequirements>`__: Updating
+   stats requirements for a region can result in region stats data being
    updated.
--  ``SET_STATS_REQUIREMENTS``: Updating stats requirements for a region
-   can result in region stats data being updated.
--  ``SET_HISTOGRAM_REQUIREMENTS``: Updating histogram requirements for a
-   region (either by updating the channel required for the histogram or
-   by changing the histogram bin number) can result in histogram data
-   being updated.
--  ``SET_SPATIAL_REQUIREMENTS``: Updating spatial profile requirements
-   for a region can result in spatial profile data being updated.
--  ``SET_SPECTRAL_REQUIREMENTS``: Updating spectral profile requirements
-   for a region (either by changing the coordinate required, such as
-   “Qz” or “Uz”, or by changing the statistic type used to generate the
-   profile) can result in spectral profile data being updated.
--  ``SET_CONTOUR_PARAMETERS``: Updating contour parameters for a file
-   will result in new contour image data being required.
+-  ```SET_HISTOGRAM_REQUIREMENTS`` <CARTA.SetHistogramRequirements>`__:
+   Updating histogram requirements for a region (either by updating the
+   channel required for the histogram or by changing the histogram bin
+   number) can result in histogram data being updated.
+-  ```SET_SPATIAL_REQUIREMENTS`` <CARTA.SetSpatialRequirements>`__:
+   Updating spatial profile requirements for a region can result in
+   spatial profile data being updated.
+-  ```SET_SPECTRAL_REQUIREMENTS`` <CARTA.SetSpectralRequirements>`__:
+   Updating spectral profile requirements for a region (either by
+   changing the coordinate required, such as “Qz” or “Uz”, or by
+   changing the statistic type used to generate the profile) can result
+   in spectral profile data being updated.
+-  ```SET_CONTOUR_PARAMETERS`` <CARTA.SetContourParameters>`__: Updating
+   contour parameters for a file will result in new contour image data
+   being required.
 
-.. _h.q86xtkfulkg1:
+.. _User preferences:
 
 3.7 User preferences
 --------------------
 
-If the backend supports the ``USER_PREFERENCES`` server feature flag,
+If the backend supports the
+```USER_PREFERENCES`` <CARTA.ServerFeatureFlags>`__ server feature flag,
 the frontend will expect all the user’s preferences (default settings,
 color maps, interaction preferences and others) to be included in the
-``REGISTER_VIEWER_ACK`` message. Changes to the user preferences can be
-made by the frontend through the ``SET_USER_PREFERENCES`` control
-message. Each preference to be updated, along with the updated value, is
-stored as a map. User preference entries can be removed from the server
-by sending a ``SET_USER_PREFERENCES`` message with a map of preference
-keys with empty values.
+```REGISTER_VIEWER_ACK`` <CARTA.RegisterViewerAck>`__ message. Changes
+to the user preferences can be made by the frontend through the
+```SET_USER_PREFERENCES`` <CARTA.SetUserPreferences>`__ control message.
+Each preference to be updated, along with the updated value, is stored
+as a map. User preference entries can be removed from the server by
+sending a ```SET_USER_PREFERENCES`` <CARTA.SetUserPreferences>`__
+message with a map of preference keys with empty values.
 
-If the backend supports the ``USER_LAYOUTS`` server feature flag, the
+If the backend supports the
+```USER_LAYOUTS`` <CARTA.ServerFeatureFlags>`__ server feature flag, the
 frontend will expect all the user’s custom UI layouts to be included in
-the ``REGISTER_VIEWER_ACK`` message. Changes to individual layouts
-(adding, updating or removing) are updated through the
-``SET_USER_LAYOUT`` control message.
+the ```REGISTER_VIEWER_ACK`` <CARTA.RegisterViewerAck>`__ message.
+Changes to individual layouts (adding, updating or removing) are updated
+through the ```SET_USER_LAYOUT`` <CARTA.SetUserLayout>`__ control
+message.
 
-.. _h.2sfmsvkqco5e:
+.. _Resume the session:
 
 3.8 Resume the session
 ----------------------
 
 The basic idea is that, when the frontend reconnects to the backend
-(with ``REGISTER_VIEWER``), it would also send some state information,
-such as:
+(with ```REGISTER_VIEWER`` <CARTA.RegisterViewer>`__), it would also
+send some state information, such as:
 
 -  list of open files, along with their IDs and the current channels and
    stokes
@@ -664,13 +691,16 @@ third where resume is not possible.
 #. Backend is restarted, frontend connects, frontend sends state
    information.
 
-   #. Frontend sends ``REGISTER_VIEWER`` with session_id > 0.
-   #. Restarted backend has no session_ids, ``REGISTER_VIEWER_ACK`` sets
+   #. Frontend sends ```REGISTER_VIEWER`` <CARTA.RegisterViewer>`__ with
+      session_id > 0.
+   #. Restarted backend has no session_ids,
+      ```REGISTER_VIEWER_ACK`` <CARTA.RegisterViewerAck>`__ sets
       session_type=RESUMED\ *.* Backend creates new Session with given
       session_id (On Connect).
-   #. Frontend sends state to backend, i.e., sends ``RESUME_SESSION``
-      message with state information, backend responds with
-      ``RESUME_SESSION_ACK``.
+   #. Frontend sends state to backend, i.e., sends
+      ```RESUME_SESSION`` <CARTA.ResumeSession>`__ message with state
+      information, backend responds with
+      ```RESUME_SESSION_ACK`` <CARTA.ResumeSessionAck>`__.
    #. Backend sets state in newly-created Session.
 
 #. Network connection drops, frontend reconnects to backend with
@@ -681,29 +711,34 @@ third where resume is not possible.
       new version of uWebsocket, we can set the timeout via the variable
       “\ *.idleTimeout”*. On Disconnect is called after the timeout and
       then backend deletes Session.
-   #. Frontend sends ``REGISTER_VIEWER`` with session_id > 0.
-   #. Backend has session_id, ``REGISTER_VIEWER_ACK`` sets
+   #. Frontend sends ```REGISTER_VIEWER`` <CARTA.RegisterViewer>`__ with
+      session_id > 0.
+   #. Backend has session_id,
+      ```REGISTER_VIEWER_ACK`` <CARTA.RegisterViewerAck>`__ sets
       session_type=RESUMED. Frontend sends state to backend with
-      ``RESUME_SESSION``, and backend responses with
-      ``RESUME_SESSION_ACK``.
+      ```RESUME_SESSION`` <CARTA.ResumeSession>`__, and backend
+      responses with
+      ```RESUME_SESSION_ACK`` <CARTA.ResumeSessionAck>`__.
    #. Backend sets state in existing Session, requirements trigger
       sending data streams (possibly cached).
 
 #. Frontend is restarted, has no existing session id so cannot resume
    even though backend continues.
 
-   #. Frontend sends ``REGISTER_VIEWER`` with session_id = 0.
-   #. Backend creates a new Session, ``REGISTER_VIEWER_ACK`` sets
+   #. Frontend sends ```REGISTER_VIEWER`` <CARTA.RegisterViewer>`__ with
+      session_id = 0.
+   #. Backend creates a new Session,
+      ```REGISTER_VIEWER_ACK`` <CARTA.RegisterViewerAck>`__ sets
       session_type=NEW.
    #. The Session will be deleted immediately while the frontend is
       restarted.
 
-.. _h.uzmvi2hbzbxe:
+.. _Catalog overlay:
 
 3.9 Catalog overlay
 -------------------
 
-.. _h.t96bdjd8vv86:
+.. _Sequence Diagrams:
 
 3.9.1 Sequence Diagrams
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -714,7 +749,7 @@ third where resume is not possible.
 #. Catalog file data stream\ |image23|
 #. Closing catalog file\ |image24|
 
-.. _h.4066jwrwicfh:
+.. _Moments generator:
 
 3.10 Moments generator
 ----------------------
@@ -796,12 +831,12 @@ calculation are shown below:
 
 |image26|
 
-.. _h.busj5lil4awd:
+.. _Layer descriptions:
 
 4. Layer descriptions
 =====================
 
-.. _h.m3knt95uc9s:
+.. _Application Layer:
 
 4.1 Application Layer
 ~~~~~~~~~~~~~~~~~~~~~
@@ -852,12 +887,12 @@ file, and those messages should be removed from the queue.
 ->backend communication. Message definitions shown in** :red:`red` **are
 used for backend->frontend communication.**
 
-.. _h.vi2c13c71rc7:
+.. _Control messages:
 
 4.1.1 Control messages
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. _h.z9b0zj29ibhg:
+.. _CARTA.RegisterViewer:
 
 ``REGISTER_VIEWER``
 '''''''''''''''''''
@@ -865,11 +900,11 @@ used for backend->frontend communication.**
 Description
            
 
-:blue:`Registers the viewer with the backend. Responds with
-``REGISTER_VIEWER_ACK.`` In future, may be the appropriate message to
-include authentication options or settings that persist throughout the
-session. A JWT could be an appropriate authentication string to pass
-through at this point.`
+:blue:`Registers the viewer with the backend. Responds
+with`\ ```REGISTER_VIEWER_ACK``. <CARTA.RegisterViewerAck>`__\ :blue:`In
+future, may be the appropriate message to include authentication options
+or settings that persist throughout the session. A JWT could be an
+appropriate authentication string to pass through at this point.`
 
 Fields
       
@@ -899,15 +934,16 @@ Fields
 |                       |                    | specifying            |
 |                       |                    | client-side feature   |
 |                       |                    | set.                  |
-|                       |                    | See`\ `ClientFea      |
-|                       |                    | tureFlags <#h.im7a1pm |
-|                       |                    | k1f4f>`__\ :blue:`for |
+|                       |                    | See`                  |
+|                       |                    | \ `ClientFeatureFlags |
+|                       |                    |  <CARTA.ClientFeature |
+|                       |                    | Flags>`__\ :blue:`for |
 |                       |                    | details`              |
 +-----------------------+--------------------+-----------------------+
 
 --------------
 
-.. _h.gebjowaw6mor:
+.. _CARTA.RegisterViewerAck:
 
 ``REGISTER_VIEWER_ACK``
 '''''''''''''''''''''''
@@ -917,8 +953,9 @@ Fields
 Description
            
 
-:red:`Acknowledgement response for ``REGISTER_VIEWER``. Informs the
-frontend whether the session was correctly.`
+:red:`Acknowledgement response
+for`\ ```REGISTER_VIEWER`` <CARTA.RegisterViewer>`__\ :red:`. Informs
+the frontend whether the session was correctly.`
 
 .. _fields-1:
 
@@ -949,9 +986,10 @@ Fields
 |                      |                      | specifying           |
 |                      |                      | server-side feature  |
 |                      |                      | set.                 |
-|                      |                      | See`\ `ServerFea     |
-|                      |                      | tureFlags <#h.6wen0u |
-|                      |                      | kf0xd>`__\ :red:`for |
+|                      |                      | See`\                |
+|                      |                      | `ServerFeatureFlags  |
+|                      |                      | <CARTA.ServerFeature |
+|                      |                      | Flags>`__\ :red:`for |
 |                      |                      | details`             |
 +----------------------+----------------------+----------------------+
 | :red:``              | :r                   | :red:`Map of user    |
@@ -982,7 +1020,7 @@ Fields
 |                      |                      | storage instead.`    |
 +----------------------+----------------------+----------------------+
 
-.. _h.gusxs6aga46x:
+.. _CARTA.OpenFile:
 
 ``OPEN_FILE``
 '''''''''''''
@@ -992,8 +1030,8 @@ Fields
 Description
            
 
-:blue:`Requests the opening of a specific file. Backend responds with
-``OPEN_FILE_ACK```
+:blue:`Requests the opening of a specific file. Backend responds
+with`\ ```OPEN_FILE_ACK`` <CARTA.OpenFileAck>`__
 
 .. _fields-2:
 
@@ -1039,7 +1077,7 @@ Fields
 |                      |                      | size`                |
 +----------------------+----------------------+----------------------+
 
-.. _h.20daqjgvxgug:
+.. _CARTA.OpenFileAck:
 
 ``OPEN_FILE_ACK``
 '''''''''''''''''
@@ -1049,7 +1087,8 @@ Fields
 Description
            
 
-:red:`Response for ``OPEN_FILE``. Also supplies file information`
+:red:`Response for`\ ```OPEN_FILE`` <CARTA.OpenFile>`__\ :red:`. Also
+supplies file information`
 
 .. _fields-3:
 
@@ -1060,9 +1099,9 @@ Fields
 | :red:`Name`          | :red:`Type`          | :red:`Description`   |
 +======================+======================+======================+
 | :red:```success```   | :red:```bool```      | :red:`Defines        |
-|                      |                      | whether`\ ```OPE     |
-|                      |                      | N_FILE`` <#h.gusxs6a |
-|                      |                      | ga46x>`__\ :red:`was |
+|                      |                      | whether`\ ```OP      |
+|                      |                      | EN_FILE`` <CARTA.Ope |
+|                      |                      | nFile>`__\ :red:`was |
 |                      |                      | successful`          |
 +----------------------+----------------------+----------------------+
 | :red:```message```   | :red:```string```    | :red:`Error message  |
@@ -1074,16 +1113,17 @@ Fields
 |                      |                      | viewing multiple     |
 |                      |                      | files)`              |
 +----------------------+----------------------+----------------------+
-| :red:```file_info``` | ``FileInfo``         | :red:`Basic file     |
-|                      |                      | info. If the file    |
+| :red:```file_info``` | ```FileInfo``        | :red:`Basic file     |
+|                      |  <CARTA.FileInfo>`__ | info. If the file    |
 |                      |                      | has more than one    |
 |                      |                      | HDU, only the loaded |
 |                      |                      | HDU should appear in |
 |                      |                      | the ``HDU_list``     |
 |                      |                      | field`               |
 +----------------------+----------------------+----------------------+
-| :red:```f            | ``FileInfoExtended`` | :red:`Extended file  |
-| ile_info_extended``` |                      | info`                |
+| :red:```f            | ```FileIn            | :red:`Extended file  |
+| ile_info_extended``` | foExtended`` <CARTA. | info`                |
+|                      | FileInfoExtended>`__ |                      |
 +----------------------+----------------------+----------------------+
 | :red:```f            | :red:```uint32```    | :red:`Optional       |
 | ile_feature_flags``` |                      | bitflags specifying  |
@@ -1095,9 +1135,10 @@ Fields
 |                      |                      | Z-profile reads, or  |
 |                      |                      | has cached           |
 |                      |                      | histograms.          |
-|                      |                      | See`\ `FileFea       |
-|                      |                      | tureEnum <#h.igqs91q |
-|                      |                      | lyb7r>`__\ :red:`for |
+|                      |                      | S                    |
+|                      |                      | ee`\ `FileFeatureEnu |
+|                      |                      | m <CARTA.FileFeature |
+|                      |                      | Flags>`__\ :red:`for |
 |                      |                      | details`             |
 +----------------------+----------------------+----------------------+
 | :red:```tile_size``` | :red:```int32```     | :red:`Tile size of   |
@@ -1107,7 +1148,7 @@ Fields
 
 --------------
 
-.. _h.ah8gp2kq1hun:
+.. _CARTA.CloseFile:
 
 ``CLOSE_FILE``
 ''''''''''''''
@@ -1134,7 +1175,7 @@ Fields
 |                     |                   | are removed.`            |
 +---------------------+-------------------+--------------------------+
 
-.. _h.regyxdq3ju35:
+.. _CARTA.AddRequiredTiles:
 
 ``ADD_REQUIRED_TILES``
 ''''''''''''''''''''''
@@ -1177,7 +1218,7 @@ Fields
 |                      |                      | images.`             |
 +----------------------+----------------------+----------------------+
 
-.. _h.llk00i4m05nu:
+.. _CARTA.RemoveRequiredTiles:
 
 ``REMOVE_REQUIRED_TILES``
 '''''''''''''''''''''''''
@@ -1208,7 +1249,7 @@ Fields
 |                     |                     | encoded coordinates.`  |
 +---------------------+---------------------+------------------------+
 
-.. _h.gwqdmfhrapyp:
+.. _CARTA.SetImageChannels:
 
 ``SET_IMAGE_CHANNELS``
 ''''''''''''''''''''''
@@ -1239,13 +1280,13 @@ Fields
 | :blue:```stokes```   | :blue:```int32```    | :blue:`The image     |
 |                      |                      | stokes parameter`    |
 +----------------------+----------------------+----------------------+
-| :blue:               | ``AddRequiredTiles`` | :blue:`Tiles         |
-| ```required_tiles``` |                      | required by the      |
-|                      |                      | frontend when        |
+| :blue:               | ```AddReq            | :blue:`Tiles         |
+| ```required_tiles``` | uiredTiles`` <CARTA. | required by the      |
+|                      | AddRequiredTiles>`__ | frontend when        |
 |                      |                      | changing channels`   |
 +----------------------+----------------------+----------------------+
 
-.. _h.35zrt1gr6yxj:
+.. _CARTA.StartAnimation:
 
 ``START_ANIMATION``
 '''''''''''''''''''
@@ -1256,7 +1297,8 @@ Description
            
 
 :blue:`Starts an animation, as defined by the start, stop and step
-definitions. Backend responds with ``START_ANIMATION_ACK```
+definitions. Backend responds
+with`\ ```START_ANIMATION_ACK`` <CARTA.StartAnimationAck>`__
 
 .. _fields-8:
 
@@ -1308,13 +1350,13 @@ Fields
 |                      |                      | when endFrame is     |
 |                      |                      | reached.`            |
 +----------------------+----------------------+----------------------+
-| :blue:               | ``AddRequiredTiles`` | :blue:`Tiles         |
-| ```required_tiles``` |                      | required by the      |
-|                      |                      | frontend when        |
+| :blue:               | ```AddReq            | :blue:`Tiles         |
+| ```required_tiles``` | uiredTiles`` <CARTA. | required by the      |
+|                      | AddRequiredTiles>`__ | frontend when        |
 |                      |                      | changing channels`   |
 +----------------------+----------------------+----------------------+
 
-.. _h.2lf9le5ng811:
+.. _CARTA.StartAnimationAck:
 
 ``START_ANIMATION_ACK``
 '''''''''''''''''''''''
@@ -1324,7 +1366,8 @@ Fields
 Description
            
 
-:red:`Response for ``START_ANIMATION``.`
+:red:`Response
+for`\ ```START_ANIMATION`` <CARTA.StartAnimation>`__\ :red:`.`
 
 .. _fields-9:
 
@@ -1335,9 +1378,10 @@ Fields
 | :red:`Name`           | :red:`Type`       | :red:`Description`    |
 +=======================+===================+=======================+
 | :red:```success```    | :red:```bool```   | :red:`Defines         |
-|                       |                   | whether`\ ```START_A  |
-|                       |                   | NIMATION`` <#h.35zrt1 |
-|                       |                   | gr6yxj>`__\ :red:`was |
+|                       |                   | whet                  |
+|                       |                   | her`\ ```START_ANIMAT |
+|                       |                   | ION`` <CARTA.StartAni |
+|                       |                   | mation>`__\ :red:`was |
 |                       |                   | successful`           |
 +-----------------------+-------------------+-----------------------+
 | :red:```message```    | :red:```string``` | :red:`Error message   |
@@ -1348,7 +1392,7 @@ Fields
 |                       |                   | animation`            |
 +-----------------------+-------------------+-----------------------+
 
-.. _h.4psnm1h0049e:
+.. _CARTA.AnimationFlowControl:
 
 ``ANIMATION_FLOW_CONTROL``
 ''''''''''''''''''''''''''
@@ -1387,7 +1431,7 @@ Fields
 |                      |                      | received`            |
 +----------------------+----------------------+----------------------+
 
-.. _h.h1nxgp4bn1sx:
+.. _CARTA.StopAnimation:
 
 ``STOP_ANIMATION``
 ''''''''''''''''''
@@ -1416,7 +1460,7 @@ Fields
 |                      |                      | received.`           |
 +----------------------+----------------------+----------------------+
 
-.. _h.phs5ttglm95:
+.. _CARTA.SetCursor:
 
 ``SET_CURSOR``
 ''''''''''''''
@@ -1447,14 +1491,14 @@ Fields
 |                      | ``y: float;}```      | of cursor in image   |
 |                      |                      | space`               |
 +----------------------+----------------------+----------------------+
-| :blue:```spa         | ``SET_SP             | :blue:`Optional      |
-| tial_requirements``` | ATIAL_REQUIREMENTS`` | spatial requirements |
-|                      |                      | message applied at   |
-|                      |                      | the same time as the |
+| :blue:```spa         | ```                  | :blue:`Optional      |
+| tial_requirements``` | SET_SPATIAL_REQUIREM | spatial requirements |
+|                      | ENTS`` <CARTA.SetSpa | message applied at   |
+|                      | tialRequirements>`__ | the same time as the |
 |                      |                      | cursor update.`      |
 +----------------------+----------------------+----------------------+
 
-.. _h.h8gjsouxzb4y:
+.. _CARTA.SetRegion:
 
 ``SET_REGION``
 ''''''''''''''
@@ -1465,34 +1509,35 @@ Description
            
 
 :blue:`Creates or updates a region. Backend responds
-with`\ ```SET_REGION_ACK`` <#h.mx7hy8di73cf>`__
+with`\ ```SET_REGION_ACK`` <CARTA.SetRegionAck>`__
 
 .. _fields-13:
 
 Fields
       
 
-+-----------------------+-------------------+-----------------------+
-| :blue:`Name`          | :blue:`Type`      | :blue:`Description`   |
-+=======================+===================+=======================+
-| :blue:```file_id```   | :blue:```int32``` | :blue:`File ID of the |
-|                       |                   | reference image,      |
-|                       |                   | which defines the     |
-|                       |                   | image space of the    |
-|                       |                   | control points.`      |
-+-----------------------+-------------------+-----------------------+
-| :blue:```region_id``` | :blue:```int32``` | :blue:`Unique region  |
-|                       |                   | ID. <= 0 if a new     |
-|                       |                   | region is being       |
-|                       |                   | created.`             |
-+-----------------------+-------------------+-----------------------+
-| :b                    | ``RegionInfo``    | :blue:`Submessage     |
-| lue:```region_info``` |                   | describing region     |
-|                       |                   | type, control points, |
-|                       |                   | and rotation`         |
-+-----------------------+-------------------+-----------------------+
++----------------------+----------------------+----------------------+
+| :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
++======================+======================+======================+
+| :blue:```file_id```  | :blue:```int32```    | :blue:`File ID of    |
+|                      |                      | the reference image, |
+|                      |                      | which defines the    |
+|                      |                      | image space of the   |
+|                      |                      | control points.`     |
++----------------------+----------------------+----------------------+
+| :                    | :blue:```int32```    | :blue:`Unique region |
+| blue:```region_id``` |                      | ID. <= 0 if a new    |
+|                      |                      | region is being      |
+|                      |                      | created.`            |
++----------------------+----------------------+----------------------+
+| :bl                  | ```RegionInfo`` <    | :blue:`Submessage    |
+| ue:```region_info``` | CARTA.RegionInfo>`__ | describing region    |
+|                      |                      | type, control        |
+|                      |                      | points, and          |
+|                      |                      | rotation`            |
++----------------------+----------------------+----------------------+
 
-.. _h.mx7hy8di73cf:
+.. _CARTA.SetRegionAck:
 
 ``SET_REGION_ACK``
 ''''''''''''''''''
@@ -1502,7 +1547,7 @@ Fields
 Description
            
 
-:red:`Response for ``SET_REGION``.`
+:red:`Response for`\ ```SET_REGION`` <CARTA.SetRegion>`__\ :red:`.`
 
 .. _fields-14:
 
@@ -1514,8 +1559,8 @@ Fields
 +======================+===================+=======================+
 | :red:```success```   | :red:```bool```   | :red:`Defines         |
 |                      |                   | whether`\ ```SE       |
-|                      |                   | T_REGION`` <#h.h8gjso |
-|                      |                   | uxzb4y>`__\ :red:`was |
+|                      |                   | T_REGION`` <CARTA.Set |
+|                      |                   | Region>`__\ :red:`was |
 |                      |                   | successful`           |
 +----------------------+-------------------+-----------------------+
 | :red:```message```   | :red:```string``` | :red:`Error message   |
@@ -1528,15 +1573,15 @@ Fields
 |                      |                   | as the region ID      |
 |                      |                   | specified             |
 |                      |                   | in`\ ```              |
-|                      |                   | SET_REGION`` <#h.h8gj |
-|                      |                   | souxzb4y>`__\ :red:`. |
+|                      |                   | SET_REGION`` <CARTA.S |
+|                      |                   | etRegion>`__\ :red:`. |
 |                      |                   | If a new region is    |
 |                      |                   | being created, the ID |
 |                      |                   | of the new region     |
 |                      |                   | will be passed back.` |
 +----------------------+-------------------+-----------------------+
 
-.. _h.ks01i4n5pc34:
+.. _CARTA.RemoveRegion:
 
 ``REMOVE_REGION``
 '''''''''''''''''
@@ -1561,7 +1606,7 @@ Fields
 |                       |                   | be removed`           |
 +-----------------------+-------------------+-----------------------+
 
-.. _h.d7wa3i4x96qh:
+.. _CARTA.ImportRegion:
 
 ``IMPORT_REGION``
 '''''''''''''''''
@@ -1607,7 +1652,7 @@ Fields
 |                      |                      | SERVER`              |
 +----------------------+----------------------+----------------------+
 
-.. _h.n1bgpt70bnez:
+.. _CARTA.ImportRegionAck:
 
 ``IMPORT_REGION_ACK``
 '''''''''''''''''''''
@@ -1651,7 +1696,7 @@ Fields
 |                      |                      | parameters`          |
 +----------------------+----------------------+----------------------+
 
-.. _h.iexn95l8v5kj:
+.. _CARTA.ExportRegion:
 
 ``EXPORT_REGION``
 '''''''''''''''''
@@ -1698,7 +1743,7 @@ Fields
 |                      |                      | blank if CLIENT`     |
 +----------------------+----------------------+----------------------+
 
-.. _h.ynh4z171w4ha:
+.. _CARTA.ExportRegionAck:
 
 ``EXPORT_REGION_ACK``
 '''''''''''''''''''''
@@ -1733,7 +1778,7 @@ Fields
 |                       |                   | SERVER`               |
 +-----------------------+-------------------+-----------------------+
 
-.. _h.fhk5gv91nn2v:
+.. _CARTA.SetStatsRequirements:
 
 ``SET_STATS_REQUIREMENTS``
 ''''''''''''''''''''''''''
@@ -1751,26 +1796,28 @@ the region is updated`
 Fields
       
 
-+-----------------------+-------------------+-----------------------+
-| :blue:`Name`          | :blue:`Type`      | :blue:`Description`   |
-+=======================+===================+=======================+
-| :blue:```file_id```   | :blue:```int32``` | :blue:`Which file     |
-|                       |                   | slot the requirements |
-|                       |                   | describe`             |
-+-----------------------+-------------------+-----------------------+
-| :blue:```region_id``` | :blue:```int32``` | :blue:`ID of the      |
-|                       |                   | region that is having |
-|                       |                   | requirements defined. |
-|                       |                   | If a region ID of -1  |
-|                       |                   | is given, this        |
-|                       |                   | corresponds to the    |
-|                       |                   | entire 2D image.`     |
-+-----------------------+-------------------+-----------------------+
-| :blue:```stats[]```   | ``StatsType``     | :blue:`List of        |
-|                       |                   | required stats`       |
-+-----------------------+-------------------+-----------------------+
++----------------------+----------------------+----------------------+
+| :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
++======================+======================+======================+
+| :blue:```file_id```  | :blue:```int32```    | :blue:`Which file    |
+|                      |                      | slot the             |
+|                      |                      | requirements         |
+|                      |                      | describe`            |
++----------------------+----------------------+----------------------+
+| :                    | :blue:```int32```    | :blue:`ID of the     |
+| blue:```region_id``` |                      | region that is       |
+|                      |                      | having requirements  |
+|                      |                      | defined. If a region |
+|                      |                      | ID of -1 is given,   |
+|                      |                      | this corresponds to  |
+|                      |                      | the entire 2D        |
+|                      |                      | image.`              |
++----------------------+----------------------+----------------------+
+| :blue:```stats[]```  | ```StatsType``       | :blue:`List of       |
+|                      | <CARTA.StatsType>`__ | required stats`      |
++----------------------+----------------------+----------------------+
 
-.. _h.t18lsmc1msfy:
+.. _CARTA.SetHistogramRequirements:
 
 ``SET_HISTOGRAM_REQUIREMENTS``
 ''''''''''''''''''''''''''''''
@@ -1830,7 +1877,7 @@ Fields
 |                      |                      | required`            |
 +----------------------+----------------------+----------------------+
 
-.. _h.7lk8s261f1r5:
+.. _CARTA.SetSpatialRequirements:
 
 ``SET_SPATIAL_REQUIREMENTS``
 ''''''''''''''''''''''''''''
@@ -1882,7 +1929,7 @@ Fields
 |                       |                    | parameter is used.`   |
 +-----------------------+--------------------+-----------------------+
 
-.. _h.rr0ni01iupo5:
+.. _CARTA.SetSpectralRequirements:
 
 ``SET_SPECTRAL_REQUIREMENTS``
 '''''''''''''''''''''''''''''
@@ -1944,7 +1991,7 @@ Fields
 |                      |                      | is ignored.`         |
 +----------------------+----------------------+----------------------+
 
-.. _h.vhm5hkfc1fn5:
+.. _CARTA.SetUserPreferences:
 
 ``SET_USER_PREFERENCES``
 ''''''''''''''''''''''''
@@ -1974,7 +2021,7 @@ Fields
 |                      |                      | server database`     |
 +----------------------+----------------------+----------------------+
 
-.. _h.m30663srh3il:
+.. _CARTA.SetUserPreferencesAck:
 
 ``SET_USER_PREFERENCES_ACK``
 ''''''''''''''''''''''''''''
@@ -1984,7 +2031,8 @@ Fields
 Description
            
 
-:red:`Response for ``SET_USER_PREFERENCES```
+:red:`Response
+for`\ ```SET_USER_PREFERENCES`` <CARTA.SetUserPreferences>`__
 
 .. _fields-25:
 
@@ -1994,15 +2042,18 @@ Fields
 +--------------------+-------------------+---------------------------+
 | :red:`Name`        | :red:`Type`       | :red:`Description`        |
 +====================+===================+===========================+
-| :red:```success``` | :red:```bool```   | :red:`Defines whether     |
-|                    |                   | ``SET_USER_PREFERENCES``  |
-|                    |                   | was successful`           |
+| :red:```success``` | :red:```bool```   | :red:`Defines             |
+|                    |                   | w                         |
+|                    |                   | hether`\ ```SET_USER_PREF |
+|                    |                   | ERENCES`` <CARTA.SetUserP |
+|                    |                   | references>`__\ :red:`was |
+|                    |                   | successful`               |
 +--------------------+-------------------+---------------------------+
 | :red:```message``` | :red:```string``` | :red:`Error message (if   |
 |                    |                   | applicable)`              |
 +--------------------+-------------------+---------------------------+
 
-.. _h.tiies27npf81:
+.. _CARTA.SetUserLayout:
 
 ``SET_USER_LAYOUT``
 '''''''''''''''''''
@@ -2037,7 +2088,7 @@ Fields
 |                   |                    | database.`                |
 +-------------------+--------------------+---------------------------+
 
-.. _h.gwhrluowrwe6:
+.. _CARTA.SetUserLayoutAck:
 
 ``SET_USER_LAYOUT_ACK``
 '''''''''''''''''''''''
@@ -2047,7 +2098,7 @@ Fields
 Description
            
 
-:red:`Response for ``SET_USER_LAYOUT```
+:red:`Response for`\ ```SET_USER_LAYOUT`` <CARTA.SetUserLayout>`__
 
 .. _fields-27:
 
@@ -2057,15 +2108,17 @@ Fields
 +--------------------+-------------------+---------------------------+
 | :red:`Name`        | :red:`Type`       | :red:`Description`        |
 +====================+===================+===========================+
-| :red:```success``` | :red:```bool```   | :red:`Defines whether     |
-|                    |                   | ``SET_USER_LAYOUT`` was   |
+| :red:```success``` | :red:```bool```   | :red:`Defines             |
+|                    |                   | whether`\ ```SET          |
+|                    |                   | _USER_LAYOUT`` <CARTA.Set |
+|                    |                   | UserLayout>`__\ :red:`was |
 |                    |                   | successful`               |
 +--------------------+-------------------+---------------------------+
 | :red:```message``` | :red:```string``` | :red:`Error message (if   |
 |                    |                   | applicable)`              |
 +--------------------+-------------------+---------------------------+
 
-.. _h.e2p7hzy1pnb6:
+.. _CARTA.SetContourParameters:
 
 ``SET_CONTOUR_PARAMETERS``
 ''''''''''''''''''''''''''
@@ -2095,17 +2148,17 @@ Fields
 |                      |                      | contour vertices     |
 |                      |                      | should be mapped to` |
 +----------------------+----------------------+----------------------+
-| :blu                 | ``ImageBounds``      | :blue:`The XY bounds |
-| e:```image_bounds``` |                      | corresponding to the |
+| :blu                 | ```ImageBounds`` <C  | :blue:`The XY bounds |
+| e:```image_bounds``` | ARTA.ImageBounds>`__ | corresponding to the |
 |                      |                      | image data in pixel  |
 |                      |                      | coordinates`         |
 +----------------------+----------------------+----------------------+
 | :blue:```levels```   | :blue:```double[]``` | :blue:`Contour       |
 |                      |                      | levels`              |
 +----------------------+----------------------+----------------------+
-| :blue:               | ``SmoothingMode``    | :                    |
-| ```smoothing_mode``` |                      | blue:`Pre-contouring |
-|                      |                      | smoothing mode`      |
+| :blue:               | ```                  | :                    |
+| ```smoothing_mode``` | SmoothingMode`` <CAR | blue:`Pre-contouring |
+|                      | TA.SmoothingMode>`__ | smoothing mode`      |
 +----------------------+----------------------+----------------------+
 | :blue:``             | :blue:```int32```    | :blue:`Contour       |
 | `smoothing_factor``` |                      | smoothness factor.   |
@@ -2135,7 +2188,7 @@ Fields
 |                      |                      | not used`            |
 +----------------------+----------------------+----------------------+
 
-.. _h.xz67c638g5k3:
+.. _CARTA.ResumeSession:
 
 ``RESUME_SESSION``
 ''''''''''''''''''
@@ -2146,7 +2199,8 @@ Description
            
 
 :blue:`Recover the viewer’s state on the backend. If there are errors
-occur, backend responds an error message in ``RESUME_SESSION_ACK``.`
+occur, backend responds an error message
+in`\ ```RESUME_SESSION_ACK`` <CARTA.ResumeSessionAck>`__\ :blue:`.`
 
 .. _fields-29:
 
@@ -2156,17 +2210,17 @@ Fields
 +----------------------+----------------------+----------------------+
 | :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
 +======================+======================+======================+
-| :blue:```images```   | :blue:```            | :blue:`A list of     |
-|                      | ImageProperties[]``` | image files, regions |
-|                      |                      | and contours to      |
+| :blue:```images```   | ```ImagePro          | :blue:`A list of     |
+|                      | perties``\ [] <CARTA | image files, regions |
+|                      | .ImageProperties>`__ | and contours to      |
 |                      |                      | open`                |
 +----------------------+----------------------+----------------------+
-| :blue                | :blue:```            | :blue:`A list of     |
-| :```catalog_files``` | OpenCatalogFile[]``` | catalog files to     |
-|                      |                      | open`                |
+| :blue                | ```OpenCata          | :blue:`A list of     |
+| :```catalog_files``` | logFile``\ [] <CARTA | catalog files to     |
+|                      | .OpenCatalogFile>`__ | open`                |
 +----------------------+----------------------+----------------------+
 
-.. _h.p84tvda4sw2q:
+.. _CARTA.ResumeSessionAck:
 
 ``RESUME_SESSION_ACK``
 ''''''''''''''''''''''
@@ -2184,8 +2238,10 @@ Fields
 +--------------------+-------------------+---------------------------+
 | :red:`Name`        | :red:`Type`       | :red:`Description`        |
 +====================+===================+===========================+
-| :red:```success``` | :red:```bool```   | :red:`Defines whether     |
-|                    |                   | ``RESUME_SESSION`` is     |
+| :red:```success``` | :red:```bool```   | :red:`Defines             |
+|                    |                   | whether`\ ```R            |
+|                    |                   | ESUME_SESSION`` <CARTA.Re |
+|                    |                   | sumeSession>`__\ :red:`is |
 |                    |                   | successful`               |
 +--------------------+-------------------+---------------------------+
 | :red:```message``` | :red:```string``` | :red:`The error message   |
@@ -2194,7 +2250,7 @@ Fields
 |                    |                   | blank`                    |
 +--------------------+-------------------+---------------------------+
 
-.. _h.etdc7scikk0:
+.. _CARTA.OpenCatalogFile:
 
 :blue:```OPEN_CATALOG_FILE`` (`\ :blue:`OpenCatalogFile`:blue:`)`
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -2239,7 +2295,7 @@ Fields
 |                       |                    | rows (50) is sent.`   |
 +-----------------------+--------------------+-----------------------+
 
-.. _h.s5kloul8uckk:
+.. _CARTA.OpenCatalogFileAck:
 
 ``OPEN_CATALOG_FILE_ACK`` (*OpenCatalogFileAck*)
 ''''''''''''''''''''''''''''''''''''''''''''''''
@@ -2270,23 +2326,24 @@ Fields
 | :red:```file_id```   | :red:```int32```     | :red:`Unique file    |
 |                      |                      | identifier to open`  |
 +----------------------+----------------------+----------------------+
-| :red:```file_info``` | :red:`               | :red:`Basic file     |
-|                      | ``CatalogFileInfo``` | info name and type   |
-|                      |                      | and description.`    |
+| :red:```file_info``` | ```Catal             | :red:`Basic file     |
+|                      | ogFileInfo`` <#CARTA | info name and type   |
+|                      | .CatalogFileInfo>`__ | and description.`    |
 +----------------------+----------------------+----------------------+
 | :red:```data_size``` | :red:```int32```     | :red:`Size of table  |
 |                      |                      | data (total row      |
 |                      |                      | number) for this     |
 |                      |                      | file`                |
 +----------------------+----------------------+----------------------+
-| :red:```headers[]``` | :red                 | :red:`Table header   |
-|                      | :```CatalogHeader``` | info`                |
+| :red:```headers[]``` | ```C                 | :red:`Table header   |
+|                      | atalogHeader`` <#CAR | info`                |
+|                      | TA.CatalogHeader>`__ |                      |
 +----------------------+----------------------+----------------------+
 | :re                  | :red:```map<i        | :red:`Returned data  |
 | d:```preview_data``` | nt32, ColumnData>``` | for user preview`    |
 +----------------------+----------------------+----------------------+
 
-.. _h.c5p11srqqm32:
+.. _CARTA.CloseCatalogFile:
 
 ``CLOSE_CATALOG_FILE`` (*CloseCatalogFile*)
 '''''''''''''''''''''''''''''''''''''''''''
@@ -2310,7 +2367,7 @@ Fields
 |                     |                   | identifier to close`     |
 +---------------------+-------------------+--------------------------+
 
-.. _h.mumylsgnmopb:
+.. _CARTA.StopMomentCalc:
 
 ``STOP_MOMENT_CALC`` (StopMomentCalc)
 '''''''''''''''''''''''''''''''''''''
@@ -2333,14 +2390,12 @@ Name                Type              Description
 :blue:```file_id``` :blue:```int32``` :blue:`Image file id`
 =================== ================= =====================
 
-.. _h.irfh7nonudi2:
-
-.. _h.qxzyxrsa34xm:
+.. _Request messages:
 
 4.1.2 Request messages
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. _h.sgxhpgbn2sks:
+.. _CARTA.FileListRequest:
 
 ``FILE_LIST_REQUEST``
 '''''''''''''''''''''
@@ -2351,7 +2406,8 @@ Description
            
 
 :blue:`Requests the list of available files for a given directory.
-Backend responds with ``FILE_LIST_RESPONSE```
+Backend responds
+with`\ ```FILE_LIST_RESPONSE`` <CARTA.FileListResponse>`__
 
 .. _fields-35:
 
@@ -2369,7 +2425,7 @@ Fields
 |                       |                    | ``$BASE```            |
 +-----------------------+--------------------+-----------------------+
 
-.. _h.zhcanhq2o1tj:
+.. _CARTA.FileListResponse:
 
 ``FILE_LIST_RESPONSE``
 ''''''''''''''''''''''
@@ -2379,45 +2435,48 @@ Fields
 Description
            
 
-:red:`Response for ``FILE_LIST_REQUEST``. Gives a list of available
-files (and their types), as well as subdirectories`
+:red:`Response
+for`\ ```FILE_LIST_REQUEST`` <CARTA.FileListRequest>`__\ :red:`. Gives a
+list of available files (and their types), as well as subdirectories`
 
 .. _fields-36:
 
 Fields
       
 
-+-----------------------+-------------------+-----------------------+
-| :red:`Name`           | :red:`Type`       | :red:`Description`    |
-+=======================+===================+=======================+
-| :red:```success```    | :red:```bool```   | :red:`Defines whether |
-|                       |                   | the`\ ```FILE_LIST    |
-|                       |                   | _REQUEST`` <#h.sgxhpg |
-|                       |                   | bn2sks>`__\ :red:`was |
-|                       |                   | successful`           |
-+-----------------------+-------------------+-----------------------+
-| :red:```message```    | :red:```string``` | :red:`Error message   |
-|                       |                   | (if applicable)`      |
-+-----------------------+-------------------+-----------------------+
-| :red:```directory```  | :red:```string``` | :red:`Directory of    |
-|                       |                   | listing`              |
-+-----------------------+-------------------+-----------------------+
-| :red:```parent```     | :red:```string``` | :red:`Directory       |
-|                       |                   | parent (null if       |
-|                       |                   | top-level)`           |
-+-----------------------+-------------------+-----------------------+
-| :red:```files[]```    | ``FileInfo``      | :red:`List of         |
-|                       |                   | available image       |
-|                       |                   | files, with file type |
-|                       |                   | information and size  |
-|                       |                   | information.`         |
-+-----------------------+-------------------+-----------------------+
-| :red:`                | :red:```string``` | :red:`List of         |
-| ``subdirectories[]``` |                   | available             |
-|                       |                   | subdirectories`       |
-+-----------------------+-------------------+-----------------------+
++----------------------+----------------------+----------------------+
+| :red:`Name`          | :red:`Type`          | :red:`Description`   |
++======================+======================+======================+
+| :red:```success```   | :red:```bool```      | :red:`Defines        |
+|                      |                      | whether              |
+|                      |                      | the`\                |
+|                      |                      | ```FILE_LIST_REQUEST |
+|                      |                      | `` <CARTA.FileListRe |
+|                      |                      | quest>`__\ :red:`was |
+|                      |                      | successful`          |
++----------------------+----------------------+----------------------+
+| :red:```message```   | :red:```string```    | :red:`Error message  |
+|                      |                      | (if applicable)`     |
++----------------------+----------------------+----------------------+
+| :red:```directory``` | :red:```string```    | :red:`Directory of   |
+|                      |                      | listing`             |
++----------------------+----------------------+----------------------+
+| :red:```parent```    | :red:```string```    | :red:`Directory      |
+|                      |                      | parent (null if      |
+|                      |                      | top-level)`          |
++----------------------+----------------------+----------------------+
+| :red:```files[]```   | ```FileInfo``        | :red:`List of        |
+|                      |  <CARTA.FileInfo>`__ | available image      |
+|                      |                      | files, with file     |
+|                      |                      | type information and |
+|                      |                      | size information.`   |
++----------------------+----------------------+----------------------+
+| :red:``              | :red:```string```    | :red:`List of        |
+| `subdirectories[]``` |                      | available            |
+|                      |                      | subdirectories`      |
++----------------------+----------------------+----------------------+
 
-.. _h.l6iknrxdt8s5:
+.. _CARTA.FileInfoRequest:
 
 ``FILE_INFO_REQUEST``
 '''''''''''''''''''''
@@ -2427,8 +2486,8 @@ Fields
 Description
            
 
-:blue:`Requests file info for a specific file. Backend responds with
-``FILE_INFO_RESPONSE```
+:blue:`Requests file info for a specific file. Backend responds
+with`\ ```FILE_INFO_RESPONSE`` <CARTA.FileInfoResponse>`__
 
 .. _fields-37:
 
@@ -2455,7 +2514,7 @@ Fields
 |                       |                    | selected.`            |
 +-----------------------+--------------------+-----------------------+
 
-.. _h.2oto6bfe07l9:
+.. _CARTA.FileInfoResponse:
 
 ``FILE_INFO_RESPONSE``
 ''''''''''''''''''''''
@@ -2465,8 +2524,9 @@ Fields
 Description
            
 
-:red:`Response for ``FILE_INFO_REQUEST``. Gives information on the
-requested file.`
+:red:`Response
+for`\ ```FILE_INFO_REQUEST`` <CARTA.FileInfoRequest>`__\ :red:`. Gives
+information on the requested file.`
 
 .. _fields-38:
 
@@ -2478,23 +2538,24 @@ Fields
 +======================+======================+======================+
 | :red:```success```   | :red:```bool```      | :red:`Defines        |
 |                      |                      | whether              |
-|                      |                      | the`\ ```FILE_INFO_R |
-|                      |                      | EQUEST`` <#h.l6iknrx |
-|                      |                      | dt8s5>`__\ :red:`was |
+|                      |                      | the`\                |
+|                      |                      | ```FILE_INFO_REQUEST |
+|                      |                      | `` <CARTA.FileInfoRe |
+|                      |                      | quest>`__\ :red:`was |
 |                      |                      | successful`          |
 +----------------------+----------------------+----------------------+
 | :red:```message```   | :red:```string```    | :red:`Error message  |
 |                      |                      | (if applicable)`     |
 +----------------------+----------------------+----------------------+
-| :red:```file_info``` | ``FileInfo``         | :red:`Basic file     |
-|                      |                      | info (type, size)`   |
+| :red:```file_info``` | ```FileInfo``        | :red:`Basic file     |
+|                      |  <CARTA.FileInfo>`__ | info (type, size)`   |
 +----------------------+----------------------+----------------------+
-| :red:```f            | ``FileInfoExtended`` | :red:`Extended file  |
-| ile_info_extended``` |                      | info (WCS, header    |
-|                      |                      | info)`               |
+| :red:```f            | ```FileIn            | :red:`Extended file  |
+| ile_info_extended``` | foExtended`` <CARTA. | info (WCS, header    |
+|                      | FileInfoExtended>`__ | info)`               |
 +----------------------+----------------------+----------------------+
 
-.. _h.y1npgmv2jh3r:
+.. _CARTA.RegionListRequest:
 
 ``REGION_LIST_REQUEST``
 '''''''''''''''''''''''
@@ -2523,7 +2584,7 @@ Fields
 |                       |                    | ``$BASE```            |
 +-----------------------+--------------------+-----------------------+
 
-.. _h.lkeps85rzk2s:
+.. _CARTA.RegionListResponse:
 
 ``REGION_LIST_RESPONSE``
 ''''''''''''''''''''''''
@@ -2571,7 +2632,7 @@ Fields
 |                      |                      | subdirectories`      |
 +----------------------+----------------------+----------------------+
 
-.. _h.gfcsqs6xtg8o:
+.. _CARTA.RegionFileInfoRequest:
 
 ``REGION_FILE_INFO_REQUEST``
 ''''''''''''''''''''''''''''
@@ -2603,7 +2664,7 @@ Fields
 |                       |                    | name`                 |
 +-----------------------+--------------------+-----------------------+
 
-.. _h.x348ps5qdi3k:
+.. _CARTA.RegionFileInfoResponse:
 
 ``REGION_FILE_INFO_RESPONSE``
 '''''''''''''''''''''''''''''
@@ -2621,29 +2682,28 @@ Returns the contents of the requested region file on the server.`
 Fields
       
 
-+-----------------------+-------------------+-----------------------+
-| :red:`Name`           | :red:`Type`       | :red:`Description`    |
-+=======================+===================+=======================+
-| :red:```success```    | :red:```bool```   | :red:`Defines whether |
-|                       |                   | the`\ :blue           |
-|                       |                   | :```REGION_FILE_INFO_ |
-|                       |                   | REQUEST```\ :red:`was |
-|                       |                   | successful`           |
-+-----------------------+-------------------+-----------------------+
-| :red:```message```    | :red:```string``` | :red:`Error message   |
-|                       |                   | (if applicable)`      |
-+-----------------------+-------------------+-----------------------+
-| :red:```file_info```  | ``FileInfo``      | :red:`Basic file info |
-|                       |                   | (type, size)`         |
-+-----------------------+-------------------+-----------------------+
-| :red:```contents[]``` | :red:```string``` | :red:`File contents   |
-|                       |                   | (one line per         |
-|                       |                   | string)`              |
-+-----------------------+-------------------+-----------------------+
++----------------------+----------------------+----------------------+
+| :red:`Name`          | :red:`Type`          | :red:`Description`   |
++======================+======================+======================+
+| :red:```success```   | :red:```bool```      | :red:`Defines        |
+|                      |                      | whether              |
+|                      |                      | the`\ :blue:`        |
+|                      |                      | ``REGION_FILE_INFO_R |
+|                      |                      | EQUEST```\ :red:`was |
+|                      |                      | successful`          |
++----------------------+----------------------+----------------------+
+| :red:```message```   | :red:```string```    | :red:`Error message  |
+|                      |                      | (if applicable)`     |
++----------------------+----------------------+----------------------+
+| :red:```file_info``` | ```FileInfo``        | :red:`Basic file     |
+|                      |  <CARTA.FileInfo>`__ | info (type, size)`   |
++----------------------+----------------------+----------------------+
+| :                    | :red:```string```    | :red:`File contents  |
+| red:```contents[]``` |                      | (one line per        |
+|                      |                      | string)`             |
++----------------------+----------------------+----------------------+
 
-.. _h.gjuwr7558gp8:
-
-.. _h.yad8y99e8zwh:
+.. _CARTA.CatalogListRequest:
 
 ``CATALOG_LIST_REQUEST`` (*CatalogListRequest*)
 '''''''''''''''''''''''''''''''''''''''''''''''
@@ -2654,9 +2714,9 @@ Description
            
 
 :blue:`Requests the list of available files
-(`\ `CatalogFileType <#h.zgx1u51vn0cp>`__\ :blue:`) for a given
+(`\ `CatalogFileType <CARTA.CatalogFileType>`__\ :blue:`) for a given
 directory. Backend responds
-with`\ ```CATALOG_LIST_RESPONSE`` <#h.m006rxpxr1yh>`__
+with`\ ```CATALOG_LIST_RESPONSE`` <CARTA.CatalogListResponse>`__
 
 .. _fields-43:
 
@@ -2669,9 +2729,7 @@ Fields
 :blue:```directory``` :blue:```string``` :blue:`Required directory name`
 ===================== ================== ===============================
 
-.. _h.ij09mxtwn4yp:
-
-.. _h.m006rxpxr1yh:
+.. _CARTA.CatalogListResponse:
 
 ``CATALOG_LIST_RESPONSE`` (*CatalogListResponse*)
 '''''''''''''''''''''''''''''''''''''''''''''''''
@@ -2682,48 +2740,47 @@ Description
            
 
 :red:`Response
-for`\ ```CATALOG_LIST_REQUEST`` <#h.yad8y99e8zwh>`__\ :red:`\ ​. Gives a
-list of available files (and their types), as well as subdirectories`
+for`\ ```CATALOG_LIST_REQUEST`` <CARTA.CatalogListRequest>`__\ :red:`\ ​.
+Gives a list of available files (and their types), as well as
+subdirectories`
 
 .. _fields-44:
 
 Fields
       
 
-+----------------------+---------------------+----------------------+
-| :red:`Name`          | :red:`Type`         | :red:`Description`   |
-+======================+=====================+======================+
-| :red:```success```   | :red:```bool```     | :red:`Defines        |
-|                      |                     | whether              |
-|                      |                     | ​`\ ``               |
-|                      |                     | `CATALOG_FILE_LIST_R |
-|                      |                     | EQUEST`` <#h.yad8y99 |
-|                      |                     | e8zwh>`__\ :red:`was |
-|                      |                     | successful`          |
-+----------------------+---------------------+----------------------+
-| :red:```message```   | :red:```string```   | :red:`Error message  |
-|                      |                     | (if applicable)`     |
-+----------------------+---------------------+----------------------+
-| :red:```directory``` | :red:```string```   | :red:`Directory of   |
-|                      |                     | listing`             |
-+----------------------+---------------------+----------------------+
-| :red:```parent```    | :red:```string```   | :red:`Directory      |
-|                      |                     | parent (null if      |
-|                      |                     | top-level)`          |
-+----------------------+---------------------+----------------------+
-| :red:```files[]```   | ``CatalogFileInfo`` | :red:`List of        |
-|                      |                     | available catalog    |
-|                      |                     | files, with file     |
-|                      |                     | type, size.`         |
-+----------------------+---------------------+----------------------+
-| :red:``              | :red:```string```   | :red:`List for       |
-| `subdirectories[]``` |                     | available            |
-|                      |                     | subdirectories`      |
-+----------------------+---------------------+----------------------+
++----------------------+----------------------+----------------------+
+| :red:`Name`          | :red:`Type`          | :red:`Description`   |
++======================+======================+======================+
+| :red:```success```   | :red:```bool```      | :red:`Defines        |
+|                      |                      | whether              |
+|                      |                      | ​`\ ```CATALOG_      |
+|                      |                      | FILE_LIST_REQUEST``  |
+|                      |                      | <CARTA.CatalogListRe |
+|                      |                      | quest>`__\ :red:`was |
+|                      |                      | successful`          |
++----------------------+----------------------+----------------------+
+| :red:```message```   | :red:```string```    | :red:`Error message  |
+|                      |                      | (if applicable)`     |
++----------------------+----------------------+----------------------+
+| :red:```directory``` | :red:```string```    | :red:`Directory of   |
+|                      |                      | listing`             |
++----------------------+----------------------+----------------------+
+| :red:```parent```    | :red:```string```    | :red:`Directory      |
+|                      |                      | parent (null if      |
+|                      |                      | top-level)`          |
++----------------------+----------------------+----------------------+
+| :red:```files[]```   | ```Cata              | :red:`List of        |
+|                      | logFileInfo`` <CARTA | available catalog    |
+|                      | .CatalogFileInfo>`__ | files, with file     |
+|                      |                      | type, size.`         |
++----------------------+----------------------+----------------------+
+| :red:``              | :red:```string```    | :red:`List for       |
+| `subdirectories[]``` |                      | available            |
+|                      |                      | subdirectories`      |
++----------------------+----------------------+----------------------+
 
-.. _h.94q5l9jbotlw:
-
-.. _h.eoi9zzg3a5cv:
+.. _CARTA.CatalogFileInfoRequest:
 
 ``CATALOG_FILE_INFO_REQUEST`` (*CatalogFileInfoRequest*)
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -2734,7 +2791,7 @@ Description
            
 
 :blue:`Requests file info for a catalog file. Backend responds
-with`\ ```CATALOG_FILE_INFO_RESPONSE`` <#h.c4ct00oldijn>`__
+with`\ ```CATALOG_FILE_INFO_RESPONSE`` <CARTA.CatalogFileInfoResponse>`__
 
 .. _fields-45:
 
@@ -2748,9 +2805,7 @@ Fields
 :blue:```name```      :blue:```string``` :blue:`Required file name`
 ===================== ================== ===============================
 
-.. _h.y0jt3rdhzzgn:
-
-.. _h.c4ct00oldijn:
+.. _CARTA.CatalogFileInfoResponse:
 
 ``CATALOG_FILE_INFO_RESPONSE`` (*CatalogFileInfoResponse*)
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -2761,37 +2816,36 @@ Description
            
 
 :red:`Response
-for`\ ```CATALOG_FILE_INFO_REQUEST`` <#h.eoi9zzg3a5cv>`__\ :red:`. Gives
-information on the requested catalog file.`
+for`\ ```CATALOG_FILE_INFO_REQUEST`` <CARTA.CatalogFileInfoRequest>`__\ :red:`.
+Gives information on the requested catalog file.`
 
 .. _fields-46:
 
 Fields
       
 
-+----------------------+---------------------+----------------------+
-| :red:`Name`          | :red:`Type`         | :red:`Description`   |
-+======================+=====================+======================+
-| :red:```success```   | :red:```bool```     | :red:`Defines        |
-|                      |                     | whether              |
-|                      |                     | ​CATAL               |
-|                      |                     | OG_FILE_INFO_REQUEST |
-|                      |                     | was successful`      |
-+----------------------+---------------------+----------------------+
-| :red:```message```   | :red:```string```   | :red:`Error message  |
-|                      |                     | (if applicable)`     |
-+----------------------+---------------------+----------------------+
-| :red:```file_info``` | ``CatalogFileInfo`` | :red:`Basic file     |
-|                      |                     | info name and type   |
-|                      |                     | and description.`    |
-+----------------------+---------------------+----------------------+
-| :red:```headers[]``` | ``CatalogHeader``   | :red:`Table header   |
-|                      |                     | info.`               |
-+----------------------+---------------------+----------------------+
++----------------------+----------------------+----------------------+
+| :red:`Name`          | :red:`Type`          | :red:`Description`   |
++======================+======================+======================+
+| :red:```success```   | :red:```bool```      | :red:`Defines        |
+|                      |                      | whether              |
+|                      |                      | ​CATAL               |
+|                      |                      | OG_FILE_INFO_REQUEST |
+|                      |                      | was successful`      |
++----------------------+----------------------+----------------------+
+| :red:```message```   | :red:```string```    | :red:`Error message  |
+|                      |                      | (if applicable)`     |
++----------------------+----------------------+----------------------+
+| :red:```file_info``` | ```Cata              | :red:`Basic file     |
+|                      | logFileInfo`` <CARTA | info name and type   |
+|                      | .CatalogFileInfo>`__ | and description.`    |
++----------------------+----------------------+----------------------+
+| :red:```headers[]``` | ```                  | :red:`Table header   |
+|                      | CatalogHeader`` <CAR | info.`               |
+|                      | TA.CatalogHeader>`__ |                      |
++----------------------+----------------------+----------------------+
 
-.. _h.pbsjoosp72fy:
-
-.. _h.5er8gvmp2ywc:
+.. _CARTA.CatalogFilterRequest:
 
 ``CATALOG_FILTER_REQUEST`` (*CatalogFilterRequest*)
 '''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -2801,7 +2855,7 @@ Fields
 Description
            
 
-:blue:`Return`\ ```CATALOG_FILTER_RESPONSE`` <#h.tjzxx851tlul>`__\ :blue:`according
+:blue:`Return`\ ```CATALOG_FILTER_RESPONSE`` <CARTA.CatalogFilterResponse>`__\ :blue:`according
 to the user filter settings.`
 
 .. _fields-47:
@@ -2821,8 +2875,9 @@ Fields
 |                      |                      | return in the        |
 |                      |                      | filter`              |
 +----------------------+----------------------+----------------------+
-| :blue:``             | :blu                 | :blue:`User filters  |
-| `filter_configs[]``` | e:```FilterConfig``` | config array.`       |
+| :blue:``             | `                    | :blue:`User filters  |
+| `filter_configs[]``` | ``FilterConfig`` <CA | config array.`       |
+|                      | RTA.FilterConfig>`__ |                      |
 +----------------------+----------------------+----------------------+
 | :blue:``             | :blue:```int32```    | :blue:`An optional   |
 | `subset_data_size``` |                      | number specifying    |
@@ -2836,9 +2891,9 @@ Fields
 |                      |                      | row before the       |
 |                      |                      | scan.`               |
 +----------------------+----------------------+----------------------+
-| :blu                 | :blue:```C           | :blue:`If image      |
-| e:```image_bounds``` | atalogImageBounds``` | bounds exist, only   |
-|                      |                      | return data points   |
+| :blu                 | ```CatalogIma        | :blue:`If image      |
+| e:```image_bounds``` | geBounds`` <CARTA.Ca | bounds exist, only   |
+|                      | talogImageBounds>`__ | return data points   |
 |                      |                      | inside the boundary. |
 |                      |                      | Using for user zoom  |
 |                      |                      | action.`             |
@@ -2859,14 +2914,12 @@ Fields
 | :bl                  | :blue:```string```   | :blue:`Name of the   |
 | ue:```sort_column``` |                      | column to be sorted` |
 +----------------------+----------------------+----------------------+
-| :blu                 | :bl                  | :blue:`Sote by       |
-| e:```sorting_type``` | ue:```SortingType``` | ascending or         |
+| :blu                 | ```SortingType`` <C  | :blue:`Sote by       |
+| e:```sorting_type``` | ARTA.SortingType>`__ | ascending or         |
 |                      |                      | descending`          |
 +----------------------+----------------------+----------------------+
 
-.. _h.h54006k8zysr:
-
-.. _h.6kigw1g3e9li:
+.. _CARTA.MomentRequest:
 
 ``MOMENT_REQUEST`` (MomentRequest)
 ''''''''''''''''''''''''''''''''''
@@ -2877,7 +2930,7 @@ Description
            
 
 :blue:`Response with`\ ```MOMENT_RESPONSE``
-(MomentResponse) <#h.amci175wugqh>`__
+(MomentResponse) <CARTA.MomentResponse>`__
 
 .. _fields-48:
 
@@ -2890,33 +2943,31 @@ Fields
 | :blue:```file_id```  | :blue:```int32```    | :blue:`Image file    |
 |                      |                      | id`                  |
 +----------------------+----------------------+----------------------+
-| :blue:```moments```  | :blue:```Moment[]``` | :blue:`List of       |
-|                      |                      | moments to compute`  |
+| :blue:```moments```  | ```Moment``\         | :blue:`List of       |
+|                      | [] <CARTA.Moment>`__ | moments to compute`  |
 +----------------------+----------------------+----------------------+
-| :blue:```axis```     | :b                   | :blue:`The moment    |
-|                      | lue:```MomentAxis``` | axis: “spectral”, or |
+| :blue:```axis```     | ```MomentAxis`` <    | :blue:`The moment    |
+|                      | CARTA.MomentAxis>`__ | axis: “spectral”, or |
 |                      |                      | “stokes”`            |
 +----------------------+----------------------+----------------------+
 | :                    | :blue:```int32```    | :blue:`Region id,    |
 | blue:```region_id``` |                      | default is to use    |
 |                      |                      | the full image`      |
 +----------------------+----------------------+----------------------+
-| :blue:               | ``IntBounds``        | :blue:`Channels to   |
-| ```spectral_range``` |                      | use, default is to   |
+| :blue:               | ```IntBounds``       | :blue:`Channels to   |
+| ```spectral_range``` | <CARTA.IntBounds>`__ | use, default is to   |
 |                      |                      | use all channels`    |
 +----------------------+----------------------+----------------------+
-| :blue:```mask```     | ``MomentMask``       | :blue:`Range of      |
-|                      |                      | pixel values to      |
+| :blue:```mask```     | ```MomentMask`` <    | :blue:`Range of      |
+|                      | CARTA.MomentMask>`__ | pixel values to      |
 |                      |                      | include, exclude or  |
 |                      |                      | none`                |
 +----------------------+----------------------+----------------------+
-| :bl                  | ``FloatBounds``      | :blue:`Range of      |
-| ue:```pixel_range``` |                      | pixel values`        |
+| :bl                  | ```FloatBounds`` <C  | :blue:`Range of      |
+| ue:```pixel_range``` | ARTA.FloatBounds>`__ | pixel values`        |
 +----------------------+----------------------+----------------------+
 
-.. _h.blpd79j4hn4o:
-
-.. _h.amci175wugqh:
+.. _CARTA.MomentResponse:
 
 :red:```MOMENT_RESPONSE`` (MomentResponse)`
 '''''''''''''''''''''''''''''''''''''''''''
@@ -2931,21 +2982,22 @@ Description
 Fields
       
 
-+-----------------------+-------------------+-----------------------+
-| Name                  | Type              | Description           |
-+=======================+===================+=======================+
-| :red:```success```    | :red:```bool```   | :red:`Whether the     |
-|                       |                   | moments generation is |
-|                       |                   | success`              |
-+-----------------------+-------------------+-----------------------+
-| :red:```message```    | :red:```string``` | :red:`Error message   |
-|                       |                   | if something wrong`   |
-+-----------------------+-------------------+-----------------------+
-| :red                  | ``OpenFileAck[]`` | :red:`Open file       |
-| :```open_file_acks``` |                   | acknowledges`         |
-+-----------------------+-------------------+-----------------------+
++----------------------+----------------------+----------------------+
+| Name                 | Type                 | Description          |
++======================+======================+======================+
+| :red:```success```   | :red:```bool```      | :red:`Whether the    |
+|                      |                      | moments generation   |
+|                      |                      | is success`          |
++----------------------+----------------------+----------------------+
+| :red:```message```   | :red:```string```    | :red:`Error message  |
+|                      |                      | if something wrong`  |
++----------------------+----------------------+----------------------+
+| :red:                | ```                  | :red:`Open file      |
+| ```open_file_acks``` | OpenFileAck``\ [] <C | acknowledges`        |
+|                      | ARTA.OpenFileAck>`__ |                      |
++----------------------+----------------------+----------------------+
 
-.. _h.7roiom29eddz:
+.. _CARTA.SaveFile:
 
 ``SAVE_FILE`` (SaveFile)
 ''''''''''''''''''''''''
@@ -2962,30 +3014,29 @@ Description
 Fields
       
 
-+-----------------------+--------------------+-----------------------+
-| Name                  | Type               | Description           |
-+=======================+====================+=======================+
-| :blue:```file_id```   | :blue:```int32```  | :blue:`Image file id` |
-+-----------------------+--------------------+-----------------------+
-| :blue:```out          | :blue:```string``` | :blue:`Set the output |
-| put_file_directory``` |                    | file                  |
-|                       |                    | directory`:red:       |
-|                       |                    | `,`:blue:`e.q.,`:blue |
-|                       |                    | :`“path/to/the/file”` |
-+-----------------------+--------------------+-----------------------+
-| :blue:`               | :blue:```string``` | :blue:`Set the name   |
-| ``output_file_name``` |                    | of new image file`    |
-+-----------------------+--------------------+-----------------------+
-| :blue:`               | ``FileType``       | :blue:`The format of  |
-| ``output_file_type``` |                    | a new image file      |
-|                       |                    | (only the conversion  |
-|                       |                    | between CASA and FITS |
-|                       |                    | is available)`        |
-+-----------------------+--------------------+-----------------------+
++----------------------+----------------------+----------------------+
+| Name                 | Type                 | Description          |
++======================+======================+======================+
+| :blue:```file_id```  | :blue:```int32```    | :blue:`Image file    |
+|                      |                      | id`                  |
++----------------------+----------------------+----------------------+
+| :blue:```outp        | :blue:```string```   | :blue:`Set the       |
+| ut_file_directory``` |                      | output file          |
+|                      |                      | directory`:red:`,    |
+|                      |                      | `:blue:`e.q.,`:blue: |
+|                      |                      | `“path/to/the/file”` |
++----------------------+----------------------+----------------------+
+| :blue:``             | :blue:```string```   | :blue:`Set the name  |
+| `output_file_name``` |                      | of new image file`   |
++----------------------+----------------------+----------------------+
+| :blue:``             | ```FileType``        | :blue:`The format of |
+| `output_file_type``` |  <CARTA.FileType>`__ | a new image file     |
+|                      |                      | (only the conversion |
+|                      |                      | between CASA and     |
+|                      |                      | FITS is available)`  |
++----------------------+----------------------+----------------------+
 
-.. _h.fyneoz8q1gw9:
-
-.. _h.xd9w0b5hxjux:
+.. _CARTA.SaveFileAck:
 
 :red:```SAVE_FILE_ACK`` (SaveFileAck)`
 ''''''''''''''''''''''''''''''''''''''
@@ -3012,14 +3063,12 @@ Fields
 |                    |                   | not success`              |
 +--------------------+-------------------+---------------------------+
 
-.. _h.bsmfb13stqzu:
-
-.. _h.vu0bl9w8nqm2:
+.. _Data stream messages:
 
 4.1.3 Data stream messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _h.hreryeh6q26x:
+.. _CARTA.RasterTileSync:
 
 ``RASTER_TILE_SYNC``
 ''''''''''''''''''''
@@ -3059,7 +3108,7 @@ Fields
 |                       |                    | end sync message`     |
 +-----------------------+--------------------+-----------------------+
 
-.. _h.8crj1yz1o7a9:
+.. _CARTA.RasterTileData:
 
 ``RASTER_TILE_DATA``
 ''''''''''''''''''''
@@ -3103,11 +3152,11 @@ Fields
 | d:```animation_id``` |                      | current animation    |
 |                      |                      | (if any)`            |
 +----------------------+----------------------+----------------------+
-| :red:```tiles```     | :                    | :red:`List of tile   |
-|                      | red:```TileData[]``` | data`                |
+| :red:```tiles```     | ```TileData``\ []    | :red:`List of tile   |
+|                      |  <CARTA.TileData>`__ | data`                |
 +----------------------+----------------------+----------------------+
 
-.. _h.s1l0povv67tc:
+.. _CARTA.SpatialProfileData:
 
 ``SPATIAL_PROFILE_DATA``
 ''''''''''''''''''''''''
@@ -3195,7 +3244,7 @@ Fields
 
 --------------
 
-.. _h.yrkr69v1obb9:
+.. _CARTA.RegionStatsData:
 
 ``REGION_STATS_DATA``
 '''''''''''''''''''''
@@ -3238,16 +3287,16 @@ Fields
 |                      |                      | used to generate the |
 |                      |                      | profiles`            |
 +----------------------+----------------------+----------------------+
-| :re                  | :red:```StatisticsV  | :red:`Array of stats |
-| d:```statistics[]``` | alue {  statsType:`` | sets, each           |
-|                      | ``StatsType  valu    | corresponding to a   |
-|                      | e: double;``\ ``}``` | particular           |
-|                      |                      | measurement, such as |
-|                      |                      | max, min, mean,      |
-|                      |                      | etc.`                |
+| :re                  | :red:```Statisti     | :red:`Array of stats |
+| d:```statistics[]``` | csValue {  statsType | sets, each           |
+|                      | :```\ ```StatsType`` | corresponding to a   |
+|                      | value:               | particular           |
+|                      | doub                 | measurement, such as |
+|                      | le; <CARTA.StatsType | max, min, mean,      |
+|                      | >`__\ :red:`\ ``}``` | etc.`                |
 +----------------------+----------------------+----------------------+
 
-.. _h.3ya6e87mjlgg:
+.. _CARTA.RegionHistogramData:
 
 ``REGION_HISTOGRAM_DATA``
 '''''''''''''''''''''''''
@@ -3317,7 +3366,7 @@ Fields
 |                      | v: double;``\ ``}``` |                      |
 +----------------------+----------------------+----------------------+
 
-.. _h.hts6ule5q5mo:
+.. _CARTA.SpectralProfileData:
 
 ``SPECTRAL_PROFILE_DATA``
 '''''''''''''''''''''''''
@@ -3388,7 +3437,7 @@ Fields
 |                      |                      | large profiles`      |
 +----------------------+----------------------+----------------------+
 
-.. _h.5x7g8gqf3tl3:
+.. _CARTA.ErrorData:
 
 ``ERROR_DATA``
 ''''''''''''''
@@ -3444,7 +3493,7 @@ Fields
 |                     |                      | file.`               |
 +---------------------+----------------------+----------------------+
 
-.. _h.y4zql17t73jl:
+.. _CARTA.ContourImageData:
 
 ``CONTOUR_IMAGE_DATA``
 ''''''''''''''''''''''
@@ -3475,8 +3524,8 @@ Fields
 |                      |                      | vertices are mapped  |
 |                      |                      | to`                  |
 +----------------------+----------------------+----------------------+
-| :re                  | ``ImageBounds``      | :red:`The bounding   |
-| d:```image_bounds``` |                      | box in the XY plane  |
+| :re                  | ```ImageBounds`` <C  | :red:`The bounding   |
+| d:```image_bounds``` | ARTA.ImageBounds>`__ | box in the XY plane  |
 |                      |                      | corresponding to the |
 |                      |                      | image data in pixel  |
 |                      |                      | coordinates`         |
@@ -3491,9 +3540,9 @@ Fields
 |                      |                      | used to generate the |
 |                      |                      | contours`            |
 +----------------------+----------------------+----------------------+
-| :r                   | :re                  | :red:`Each contour   |
-| ed:```contour_set``` | d:```ContourSet[]``` | set consists of the  |
-|                      |                      | contour level value, |
+| :r                   | `                    | :red:`Each contour   |
+| ed:```contour_set``` | ``ContourSet``\ [] < | set consists of the  |
+|                      | CARTA.ContourSet>`__ | contour level value, |
 |                      |                      | as well as a list of |
 |                      |                      | cooridnates`         |
 +----------------------+----------------------+----------------------+
@@ -3506,7 +3555,7 @@ Fields
 |                      |                      | contour sets`        |
 +----------------------+----------------------+----------------------+
 
-.. _h.tjzxx851tlul:
+.. _CARTA.CatalogFilterResponse:
 
 ``CATALOG_FILTER_RESPONSE`` (*CatalogFilterResponse*)
 '''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -3517,7 +3566,7 @@ Description
            
 
 :red:`Returned catalog data and associated file according
-to`\ ```CATALOG_FILTER_REQUEST`` <#h.5er8gvmp2ywc>`__
+to`\ ```CATALOG_FILTER_REQUEST`` <CARTA.CatalogFilterRequest>`__
 
 .. _fields-60:
 
@@ -3538,10 +3587,10 @@ Fields
 | :red:```region_id``` | :red:```int32```     | :red:`Catalog_data   |
 |                      |                      | associated region`   |
 +----------------------+----------------------+----------------------+
-| :red:```columns```   | :red:```map          | :red:`Map containing |
-|                      | <int32,```\ :red:``` | all column data      |
-|                      | ColumnData```\ ``>`` | after catalog        |
-|                      |                      | filter. This array   |
+| :red:```columns```   | :red:``              | :red:`Map containing |
+|                      | `map<int32,```\ ```C | all column data      |
+|                      | olumnData`` <CARTA.C | after catalog        |
+|                      | olumnData>`__\ ``>`` | filter. This array   |
 |                      |                      | size and start point |
 |                      |                      | can be determined by |
 |                      |                      | subset_data_size and |
@@ -3579,7 +3628,7 @@ Fields
 |                      |                      | the table`           |
 +----------------------+----------------------+----------------------+
 
-.. _h.ise7tgmgr1et:
+.. _CARTA.MomentProgress:
 
 :red:```MOMENT_PROGRESS`` (MomentProgress)`
 '''''''''''''''''''''''''''''''''''''''''''
@@ -3602,12 +3651,12 @@ Fields
 |                     |                  | progress >= 1.`           |
 +---------------------+------------------+---------------------------+
 
-.. _h.96q7a5njivii:
+.. _Sub-messages:
 
 4.1.4 Sub-messages
 ^^^^^^^^^^^^^^^^^^
 
-.. _h.exinv06ge3g6:
+.. _CARTA.FileInfo:
 
 FileInfo
 ''''''''
@@ -3624,19 +3673,23 @@ Basic file info
 Fields
       
 
-============== ============ ============================
-Name           Type         Description
-============== ============ ============================
-``name``       ``string``   File name
-``type``       ``FileType`` File type
-``size``       ``int64``    File size in bytes
-``HDU_list[]`` ``string``   List of HDUs (if applicable)
-``date``       ``int64``    Modified date
-============== ============ ============================
++----------------+-------------------------+-------------------------+
+| Name           | Type                    | Description             |
++================+=========================+=========================+
+| ``name``       | ``string``              | File name               |
++----------------+-------------------------+-------------------------+
+| ``type``       | ```FileTyp              | File type               |
+|                | e`` <CARTA.FileType>`__ |                         |
++----------------+-------------------------+-------------------------+
+| ``size``       | ``int64``               | File size in bytes      |
++----------------+-------------------------+-------------------------+
+| ``HDU_list[]`` | ``string``              | List of HDUs (if        |
+|                |                         | applicable)             |
++----------------+-------------------------+-------------------------+
+| ``date``       | ``int64``               | Modified date           |
++----------------+-------------------------+-------------------------+
 
-.. _h.tm1r6n63oku7:
-
-.. _h.fgexdzhcrzey:
+.. _CARTA.FileInfoExtended:
 
 FileInfoExtended
 ''''''''''''''''
@@ -3653,40 +3706,42 @@ Basic file info
 Fields
       
 
-+----------------------+-----------------+------------------------+
-| Name                 | Type            | Description            |
-+======================+=================+========================+
-| ``dimensions``       | ``int32``       | Number of dimensions   |
-|                      |                 | of the image file      |
-+----------------------+-----------------+------------------------+
-| ``width``            | ``int32``       | Width of the XY plane  |
-+----------------------+-----------------+------------------------+
-| ``height``           | ``int32``       | Height of the XY plane |
-+----------------------+-----------------+------------------------+
-| ``depth``            | ``int32``       | Number of channels     |
-+----------------------+-----------------+------------------------+
-| ``stokes``           | ``int32``       | Number of Stokes       |
-|                      |                 | parameters             |
-+----------------------+-----------------+------------------------+
-| ``stokes_vals[]``    | ``string``      | List of Stokes         |
-|                      |                 | parameters contained   |
-|                      |                 | in the file (if        |
-|                      |                 | applicable). For files |
-|                      |                 | that do not explicitly |
-|                      |                 | specify Stokes files,  |
-|                      |                 | we should leave this   |
-|                      |                 | blank.                 |
-+----------------------+-----------------+------------------------+
-| ``header_entries[]`` | ``HeaderEntry`` | FITS/CASA header /     |
-|                      |                 | HDF5 attribute entries |
-+----------------------+-----------------+------------------------+
-| ``computed_entries`` | ``HeaderEntry`` | Computed file          |
-|                      |                 | information            |
-+----------------------+-----------------+------------------------+
++----------------------+----------------------+----------------------+
+| Name                 | Type                 | Description          |
++======================+======================+======================+
+| ``dimensions``       | ``int32``            | Number of dimensions |
+|                      |                      | of the image file    |
++----------------------+----------------------+----------------------+
+| ``width``            | ``int32``            | Width of the XY      |
+|                      |                      | plane                |
++----------------------+----------------------+----------------------+
+| ``height``           | ``int32``            | Height of the XY     |
+|                      |                      | plane                |
++----------------------+----------------------+----------------------+
+| ``depth``            | ``int32``            | Number of channels   |
++----------------------+----------------------+----------------------+
+| ``stokes``           | ``int32``            | Number of Stokes     |
+|                      |                      | parameters           |
++----------------------+----------------------+----------------------+
+| ``stokes_vals[]``    | ``string``           | List of Stokes       |
+|                      |                      | parameters contained |
+|                      |                      | in the file (if      |
+|                      |                      | applicable). For     |
+|                      |                      | files that do not    |
+|                      |                      | explicitly specify   |
+|                      |                      | Stokes files, we     |
+|                      |                      | should leave this    |
+|                      |                      | blank.               |
++----------------------+----------------------+----------------------+
+| ``header_entries[]`` | ```HeaderEntry`` <C  | FITS/CASA header /   |
+|                      | ARTA.HeaderEntry>`__ | HDF5 attribute       |
+|                      |                      | entries              |
++----------------------+----------------------+----------------------+
+| ``computed_entries`` | ```HeaderEntry`` <C  | Computed file        |
+|                      | ARTA.HeaderEntry>`__ | information          |
++----------------------+----------------------+----------------------+
 
-.. _h.bip8x6p9kqht:
-
-.. _h.fa9cxkbjorxi:
+.. _CARTA.HeaderEntry:
 
 HeaderEntry
 '''''''''''
@@ -3719,9 +3774,7 @@ Fields
 |                   |                       | floats and ints)      |
 +-------------------+-----------------------+-----------------------+
 
-.. _h.fbl8okv1chwe:
-
-.. _h.6xv44tcd93le:
+.. _CARTA.ImageBounds:
 
 ImageBounds
 '''''''''''
@@ -3747,9 +3800,7 @@ Name      Type      Description
 ``y_max`` ``int32`` Upper bound in Y-coordinate
 ========= ========= ===========================
 
-.. _h.vggqetbkcj2y:
-
-.. _h.bavptpksblgj:
+.. _CARTA.TileData:
 
 TileData
 ''''''''
@@ -3796,7 +3847,7 @@ Fields
 |                   |             | decompression.                   |
 +-------------------+-------------+----------------------------------+
 
-.. _h.adr20r3sfbbg:
+.. _CARTA.RegionInfo:
 
 RegionInfo
 ''''''''''
@@ -3816,8 +3867,8 @@ Fields
 +--------------------+-----------------------+-----------------------+
 | Name               | Type                  | Description           |
 +====================+=======================+=======================+
-| ``region_type``    | ``RegionType``        | (Enum) Type of region |
-|                    |                       | described by control  |
+| ``region_type``    | ```RegionType``       | (Enum) Type of region |
+|                    | <CARTA.RegionType>`__ | described by control  |
 |                    |                       | points                |
 +--------------------+-----------------------+-----------------------+
 | ``control_points`` | ``P                   | Control points for    |
@@ -3831,7 +3882,7 @@ Fields
 |                    |                       | xy plane (degrees).   |
 +--------------------+-----------------------+-----------------------+
 
-.. _h.t23sej6o6le:
+.. _CARTA.RegionStyle:
 
 RegionStyle
 '''''''''''
@@ -3857,7 +3908,7 @@ Name           Type        Description
 ``dash_list``  ``int32[]`` Dash length: [on, off]
 ============== =========== ======================================
 
-.. _h.fav2agqq3vhp:
+.. _CARTA.ContourSet:
 
 ContourSet
 ''''''''''
@@ -3903,9 +3954,7 @@ Fields
 |                           |            | decompression             |
 +---------------------------+------------+---------------------------+
 
-.. _h.kshugmmexs47:
-
-.. _h.ert6ampv2pqg:
+.. _CARTA.ImageProperties:
 
 ImageProperties
 '''''''''''''''
@@ -3953,15 +4002,15 @@ Fields
 |                      |                      | parameter            |
 +----------------------+----------------------+----------------------+
 | ``regions``          | ``map<int32,``       | A map of region ids  |
-|                      | ``RegionInfo>``      | and parameters       |
-|                      |                      | associated with the  |
+|                      | ```RegionInfo``> <   | and parameters       |
+|                      | CARTA.RegionInfo>`__ | associated with the  |
 |                      |                      | image file           |
 +----------------------+----------------------+----------------------+
 | ``contour_settings`` | ``ContourSettings``  | Contour parameters   |
 |                      |                      | for a file           |
 +----------------------+----------------------+----------------------+
 
-.. _h.e3bqdi76bg7u:
+.. _CARTA.ContourSettings:
 
 ContourSettings
 '''''''''''''''
@@ -3978,45 +4027,47 @@ Requests the opening of a specific file.
 Fields
       
 
-+-----------------------+-------------------+-----------------------+
-| Name                  | Type              | Description           |
-+=======================+===================+=======================+
-| ``reference_file_id`` | ``int32``         | The file ID of the    |
-|                       |                   | reference image that  |
-|                       |                   | the contour vertices  |
-|                       |                   | should be mapped to   |
-+-----------------------+-------------------+-----------------------+
-| ``levels``            | ``double[]``      | Contour levels        |
-+-----------------------+-------------------+-----------------------+
-| ``smoothing_mode``    | ``SmoothingMode`` | Pre-contouring        |
-|                       |                   | smoothing mode        |
-+-----------------------+-------------------+-----------------------+
-| ``smoothing_factor``  | ``int32``         | Contour smoothness    |
-|                       |                   | factor. For block     |
-|                       |                   | averaging, this is    |
-|                       |                   | the block width. For  |
-|                       |                   | Gaussian smoothing,   |
-|                       |                   | this defines both the |
-|                       |                   | Gaussian width, and   |
-|                       |                   | the kernel size       |
-+-----------------------+-------------------+-----------------------+
-| ``decimation_factor`` | ``int32``         | Indicates to what     |
-|                       |                   | 1/Nth of a pixel the  |
-|                       |                   | contour vertices      |
-|                       |                   | should be rounded to  |
-+-----------------------+-------------------+-----------------------+
-| ``compression_level`` | ``int32``         | Zstd compression      |
-|                       |                   | level                 |
-+-----------------------+-------------------+-----------------------+
-| `                     | ``int32``         | Preferred size of     |
-| `contour_chunk_size`` |                   | contour chunks, in    |
-|                       |                   | number of vertices.   |
-|                       |                   | If this is set to     |
-|                       |                   | zero, partial contour |
-|                       |                   | results are not used  |
-+-----------------------+-------------------+-----------------------+
++----------------------+----------------------+----------------------+
+| Name                 | Type                 | Description          |
++======================+======================+======================+
+| `                    | ``int32``            | The file ID of the   |
+| `reference_file_id`` |                      | reference image that |
+|                      |                      | the contour vertices |
+|                      |                      | should be mapped to  |
++----------------------+----------------------+----------------------+
+| ``levels``           | ``double[]``         | Contour levels       |
++----------------------+----------------------+----------------------+
+| ``smoothing_mode``   | ```                  | Pre-contouring       |
+|                      | SmoothingMode`` <CAR | smoothing mode       |
+|                      | TA.SmoothingMode>`__ |                      |
++----------------------+----------------------+----------------------+
+| ``smoothing_factor`` | ``int32``            | Contour smoothness   |
+|                      |                      | factor. For block    |
+|                      |                      | averaging, this is   |
+|                      |                      | the block width. For |
+|                      |                      | Gaussian smoothing,  |
+|                      |                      | this defines both    |
+|                      |                      | the Gaussian width,  |
+|                      |                      | and the kernel size  |
++----------------------+----------------------+----------------------+
+| `                    | ``int32``            | Indicates to what    |
+| `decimation_factor`` |                      | 1/Nth of a pixel the |
+|                      |                      | contour vertices     |
+|                      |                      | should be rounded to |
++----------------------+----------------------+----------------------+
+| `                    | ``int32``            | Zstd compression     |
+| `compression_level`` |                      | level                |
++----------------------+----------------------+----------------------+
+| ``                   | ``int32``            | Preferred size of    |
+| contour_chunk_size`` |                      | contour chunks, in   |
+|                      |                      | number of vertices.  |
+|                      |                      | If this is set to    |
+|                      |                      | zero, partial        |
+|                      |                      | contour results are  |
+|                      |                      | not used             |
++----------------------+----------------------+----------------------+
 
-.. _h.emskvvzahjqs:
+.. _CARTA.CatalogHeader:
 
 CatalogHeader
 '''''''''''''
@@ -4040,8 +4091,8 @@ Fields
 +------------------+----------------+--------------------------------+
 | ``data_type``    | ``ColumnType`` | Catalog table column type,     |
 |                  |                | associated with                |
-|                  |                | `C                             |
-|                  |                | olumnData <#h.aoicx1ifzpyb>`__ |
+|                  |                | `Co                            |
+|                  |                | lumnData <CARTA.ColumnData>`__ |
 +------------------+----------------+--------------------------------+
 | ``column_index`` | ``int32``      | Column order in catalog table  |
 +------------------+----------------+--------------------------------+
@@ -4050,7 +4101,7 @@ Fields
 | ``units``        | ``string``     | Catalog Header units           |
 +------------------+----------------+--------------------------------+
 
-.. _h.aoicx1ifzpyb:
+.. _CARTA.ColumnData:
 
 ColumnData
 ''''''''''
@@ -4079,7 +4130,7 @@ Fields
 |                 |                | column types                    |
 +-----------------+----------------+---------------------------------+
 
-.. _h.e7eyd5yopnyc:
+.. _CARTA.FilterConfig:
 
 FilterConfig
 ''''''''''''
@@ -4101,9 +4152,9 @@ Fields
 +======================+======================+======================+
 | ``column_name``      | ``string``           | Table column name    |
 +----------------------+----------------------+----------------------+
-| ``c                  | ``                   | Comparison operator  |
-| omparison_operator`` | ComparisonOperator`` | to use in filter.    |
-|                      |                      | Not used for Bool or |
+| ``c                  | ```Comparison        | Comparison operator  |
+| omparison_operator`` | Operator`` <CARTA.Co | to use in filter.    |
+|                      | mparisonOperator>`__ | Not used for Bool or |
 |                      |                      | String column types  |
 +----------------------+----------------------+----------------------+
 | ``value``            | ``double``           | Value for filter     |
@@ -4119,7 +4170,7 @@ Fields
 |                      |                      | datatype is String.  |
 +----------------------+----------------------+----------------------+
 
-.. _h.oys8a94gv5cs:
+.. _CARTA.CatalogFileInfo:
 
 CatalogFileInfo
 '''''''''''''''
@@ -4136,18 +4187,28 @@ Catalog file information
 Fields
       
 
-=============== =================== ===============================
-``Name``        ``Type``            Description
-=============== =================== ===============================
-``name``        ``string``          File name
-``type``        ``CatalogFileType`` File type
-``file_size``   ``int64``           File size (in the unit of Byte)
-``description`` ``string``          File information description
-``coosys``      ``Coosys[]``        WCS info array
-``date``        ``int64``           Modified date
-=============== =================== ===============================
++-----------------+------------------------+------------------------+
+| ``Name``        | ``Type``               | Description            |
++=================+========================+========================+
+| ``name``        | ``string``             | File name              |
++-----------------+------------------------+------------------------+
+| ``type``        | ```                    | File type              |
+|                 | CatalogFileType`` <CAR |                        |
+|                 | TA.CatalogFileType>`__ |                        |
++-----------------+------------------------+------------------------+
+| ``file_size``   | ``int64``              | File size (in the unit |
+|                 |                        | of Byte)               |
++-----------------+------------------------+------------------------+
+| ``description`` | ``string``             | File information       |
+|                 |                        | description            |
++-----------------+------------------------+------------------------+
+| ``coosys``      | ```Coosys``            | WCS info array         |
+|                 | \ [] <CARTA.Coosys>`__ |                        |
++-----------------+------------------------+------------------------+
+| ``date``        | ``int64``              | Modified date          |
++-----------------+------------------------+------------------------+
 
-.. _h.epnxb1hdtvk2:
+.. _CARTA.Coosys:
 
 Coosys
 ''''''
@@ -4172,7 +4233,7 @@ Fields
 ``system``  ``string`` Coordinate system
 =========== ========== =================
 
-.. _h.t49jvw8ckym2:
+.. _CARTA.CatalogImageBounds:
 
 CatalogImageBounds
 ''''''''''''''''''
@@ -4189,15 +4250,20 @@ Catalog image boundary
 Fields
       
 
-================= =============== ==========================
-``Name``          ``Type``        Description
-================= =============== ==========================
-``x_column_name`` ``string``      Column name for the x-axis
-``y_column_name`` ``string``      Column name for the y-axis
-``image_bounds``  ``ImageBounds`` Bounds in x-y plane
-================= =============== ==========================
++-------------------+-----------------------+-----------------------+
+| ``Name``          | ``Type``              | Description           |
++===================+=======================+=======================+
+| ``x_column_name`` | ``string``            | Column name for the   |
+|                   |                       | x-axis                |
++-------------------+-----------------------+-----------------------+
+| ``y_column_name`` | ``string``            | Column name for the   |
+|                   |                       | y-axis                |
++-------------------+-----------------------+-----------------------+
+| ``image_bounds``  | ```ImageBounds`` <    | Bounds in x-y plane   |
+|                   | CARTA.ImageBounds>`__ |                       |
++-------------------+-----------------------+-----------------------+
 
-.. _h.5zo9gci2wa4e:
+.. _CARTA.IntBounds:
 
 IntBounds
 '''''''''
@@ -4221,7 +4287,7 @@ Name    Type      Description
 ``max`` ``int32`` Maximum of the integer value
 ======= ========= ============================
 
-.. _h.8jzpmqwu8f8d:
+.. _CARTA.FloatBounds:
 
 FloatBounds
 '''''''''''
@@ -4245,12 +4311,12 @@ Name    Type      Description
 ``max`` ``float`` Maximum of the float value
 ======= ========= ==========================
 
-.. _h.k2ax1scr4izl:
+.. _Enums:
 
 4.1.5 Enums
 ^^^^^^^^^^^
 
-.. _h.w8q5ep31q0hb:
+.. _CARTA.EventType:
 
 EventType (Enum)
 ''''''''''''''''
@@ -4265,71 +4331,142 @@ Event types used in the ICD
 Entries
        
 
-============================== ======
-Name                           Value
-============================== ======
-``EMPTY_EVENT``                ``0``
-``REGISTER_VIEWER``            ``1``
-``FILE_LIST_REQUEST``          ``2``
-``FILE_INFO_REQUEST``          ``3``
-``OPEN_FILE``                  ``4``
-``SET_IMAGE_VIEW``             ``5``
-``SET_IMAGE_CHANNELS``         ``6``
-``SET_CURSOR``                 ``7``
-``SET_SPATIAL_REQUIREMENTS``   ``8``
-``SET_HISTOGRAM_REQUIREMENTS`` ``9``
-``SET_STATS_REQUIREMENTS``     ``10``
-``SET_REGION``                 ``11``
-``REMOVE_REGION``              ``12``
-``CLOSE_FILE``                 ``13``
-``SET_SPECTRAL_REQUIREMENTS``  ``14``
-``START_ANIMATION``            ``15``
-``START_ANIMATION_ACK``        ``16``
-``STOP_ANIMATION``             ``17``
-``REGISTER_VIEWER_ACK``        ``18``
-``FILE_LIST_RESPONSE``         ``19``
-``FILE_INFO_RESPONSE``         ``20``
-``OPEN_FILE_ACK``              ``21``
-``SET_REGION_ACK``             ``22``
-``REGION_HISTOGRAM_DATA``      ``23``
-``RASTER_IMAGE_DATA``          ``24``
-``SPATIAL_PROFILE_DATA``       ``25``
-``SPECTRAL_PROFILE_DATA``      ``26``
-``REGION_STATS_DATA``          ``27``
-``ERROR_DATA``                 ``28``
-``ANIMATION_FLOW_CONTROL``     ``29``
-``ADD_REQUIRED_TILES``         ``30``
-``REMOVE_REQUIRED_TILES``      ``31``
-``RASTER_TILE_DATA``           ``32``
-``REGION_LIST_REQUEST``        ``33``
-``REGION_LIST_RESPONSE``       ``34``
-``REGION_FILE_INFO_REQUEST``   ``35``
-``REGION_FILE_INFO_RESPONSE``  ``36``
-``IMPORT_REGION``              ``37``
-``IMPORT_REGION_ACK``          ``38``
-``EXPORT_REGION``              ``39``
-``EXPORT_REGION_ACK``          ``40``
-``SET_USER_PREFERENCES``       ``41``
-``SET_USER_PREFERENCES_ACK``   ``42``
-``SET_USER_LAYOUT``            ``43``
-``SET_USER_LAYOUT_ACK``        ``44``
-``SET_CONTOUR_PARAMETERS``     ``45``
-``CONTOUR_IMAGE_DATA``         ``46``
-``RESUME_SESSION``             ``47``
-``RESUME_SESSION_ACK``         ``48``
-``RASTER_TILE_SYNC``           ``49``
-``CATALOG_LIST_REQUEST``       ``50``
-``CATALOG_LIST_RESPONSE``      ``51``
-``CATALOG_FILE_INFO_REQUEST``  ``52``
-``CATALOG_FILE_INFO_RESPONSE`` ``53``
-``OPEN_CATALOG_FILE``          ``54``
-``OPEN_CATALOG_FILE_ACK``      ``55``
-``CLOSE_CATALOG_FILE``         ``56``
-``CATALOG_FILTER_REQUEST``     ``57``
-``CATALOG_FILTER_RESPONSE``    ``58``
-============================== ======
++------------------------------------------------------------+--------+
+| Name                                                       | Value  |
++============================================================+========+
+| ``EMPTY_EVENT``                                            | ``0``  |
++------------------------------------------------------------+--------+
+| ```REGISTER_VIEWER`` <CARTA.RegisterViewer>`__             | ``1``  |
++------------------------------------------------------------+--------+
+| ```FILE_LIST_REQUEST`` <CARTA.FileListRequest>`__          | ``2``  |
++------------------------------------------------------------+--------+
+| ```FILE_INFO_REQUEST`` <CARTA.FileInfoRequest>`__          | ``3``  |
++------------------------------------------------------------+--------+
+| ```OPEN_FILE`` <CARTA.OpenFile>`__                         | ``4``  |
++------------------------------------------------------------+--------+
+| ``SET_IMAGE_VIEW``                                         | ``5``  |
++------------------------------------------------------------+--------+
+| ```SET_IMAGE_CHANNELS`` <CARTA.SetImageChannels>`__        | ``6``  |
++------------------------------------------------------------+--------+
+| ```SET_CURSOR`` <CARTA.SetCursor>`__                       | ``7``  |
++------------------------------------------------------------+--------+
+| ```SE                                                      | ``8``  |
+| T_SPATIAL_REQUIREMENTS`` <CARTA.SetSpatialRequirements>`__ |        |
++------------------------------------------------------------+--------+
+| ```SET_HI                                                  | ``9``  |
+| STOGRAM_REQUIREMENTS`` <CARTA.SetHistogramRequirements>`__ |        |
++------------------------------------------------------------+--------+
+| `                                                          | ``10`` |
+| ``SET_STATS_REQUIREMENTS`` <CARTA.SetStatsRequirements>`__ |        |
++------------------------------------------------------------+--------+
+| ```SET_REGION`` <CARTA.SetRegion>`__                       | ``11`` |
++------------------------------------------------------------+--------+
+| ```REMOVE_REGION`` <CARTA.RemoveRegion>`__                 | ``12`` |
++------------------------------------------------------------+--------+
+| ```CLOSE_FILE`` <CARTA.CloseFile>`__                       | ``13`` |
++------------------------------------------------------------+--------+
+| ```SET_                                                    | ``14`` |
+| SPECTRAL_REQUIREMENTS`` <CARTA.SetSpectralRequirements>`__ |        |
++------------------------------------------------------------+--------+
+| ```START_ANIMATION`` <CARTA.StartAnimation>`__             | ``15`` |
++------------------------------------------------------------+--------+
+| ```START_ANIMATION_ACK`` <CARTA.StartAnimationAck>`__      | ``16`` |
++------------------------------------------------------------+--------+
+| ```STOP_ANIMATION`` <CARTA.StopAnimation>`__               | ``17`` |
++------------------------------------------------------------+--------+
+| ```REGISTER_VIEWER_ACK`` <CARTA.RegisterViewerAck>`__      | ``18`` |
++------------------------------------------------------------+--------+
+| ```FILE_LIST_RESPONSE`` <CARTA.FileListResponse>`__        | ``19`` |
++------------------------------------------------------------+--------+
+| ```FILE_INFO_RESPONSE`` <CARTA.FileInfoResponse>`__        | ``20`` |
++------------------------------------------------------------+--------+
+| ```OPEN_FILE_ACK`` <CARTA.OpenFileAck>`__                  | ``21`` |
++------------------------------------------------------------+--------+
+| ```SET_REGION_ACK`` <CARTA.SetRegionAck>`__                | ``22`` |
++------------------------------------------------------------+--------+
+| ```REGION_HISTOGRAM_DATA`` <CARTA.RegionHistogramData>`__  | ``23`` |
++------------------------------------------------------------+--------+
+| ``RASTER_IMAGE_DATA``                                      | ``24`` |
++------------------------------------------------------------+--------+
+| ```SPATIAL_PROFILE_DATA`` <CARTA.SpatialProfileData>`__    | ``25`` |
++------------------------------------------------------------+--------+
+| ```SPECTRAL_PROFILE_DATA`` <CARTA.RegionStatsData>`__      | ``26`` |
++------------------------------------------------------------+--------+
+| ```REGION_STATS_DATA`` <CARTA.RegionStatsData>`__          | ``27`` |
++------------------------------------------------------------+--------+
+| ```ERROR_DATA`` <CARTA.ErrorData>`__                       | ``28`` |
++------------------------------------------------------------+--------+
+| `                                                          | ``29`` |
+| ``ANIMATION_FLOW_CONTROL`` <CARTA.AnimationFlowControl>`__ |        |
++------------------------------------------------------------+--------+
+| ```ADD_REQUIRED_TILES`` <CARTA.AddRequiredTiles>`__        | ``30`` |
++------------------------------------------------------------+--------+
+| ```REMOVE_REQUIRED_TILES`` <CARTA.RemoveRequiredTiles>`__  | ``31`` |
++------------------------------------------------------------+--------+
+| ```RASTER_TILE_DATA`` <CARTA.RasterTileData>`__            | ``32`` |
++------------------------------------------------------------+--------+
+| ```REGION_LIST_REQUEST`` <CARTA.RegionListRequest>`__      | ``33`` |
++------------------------------------------------------------+--------+
+| ```REGION_LIST_RESPONSE`` <CARTA.RegionListResponse>`__    | ``34`` |
++------------------------------------------------------------+--------+
+| ```R                                                       | ``35`` |
+| EGION_FILE_INFO_REQUEST`` <CARTA.RegionFileInfoRequest>`__ |        |
++------------------------------------------------------------+--------+
+| ```REG                                                     | ``36`` |
+| ION_FILE_INFO_RESPONSE`` <CARTA.RegionFileInfoResponse>`__ |        |
++------------------------------------------------------------+--------+
+| ```IMPORT_REGION`` <CARTA.ImportRegion>`__                 | ``37`` |
++------------------------------------------------------------+--------+
+| ```IMPORT_REGION_ACK`` <CARTA.ImportRegionAck>`__          | ``38`` |
++------------------------------------------------------------+--------+
+| ```EXPORT_REGION`` <CARTA.ExportRegion>`__                 | ``39`` |
++------------------------------------------------------------+--------+
+| ```EXPORT_REGION_ACK`` <CARTA.ExportRegionAck>`__          | ``40`` |
++------------------------------------------------------------+--------+
+| ```SET_USER_PREFERENCES`` <CARTA.SetUserPreferences>`__    | ``41`` |
++------------------------------------------------------------+--------+
+| ```S                                                       | ``42`` |
+| ET_USER_PREFERENCES_ACK`` <CARTA.SetUserPreferencesAck>`__ |        |
++------------------------------------------------------------+--------+
+| ```SET_USER_LAYOUT`` <CARTA.SetUserLayout>`__              | ``43`` |
++------------------------------------------------------------+--------+
+| ```SET_USER_LAYOUT_ACK`` <CARTA.SetUserLayoutAck>`__       | ``44`` |
++------------------------------------------------------------+--------+
+| `                                                          | ``45`` |
+| ``SET_CONTOUR_PARAMETERS`` <CARTA.SetContourParameters>`__ |        |
++------------------------------------------------------------+--------+
+| ```CONTOUR_IMAGE_DATA`` <CARTA.ContourImageData>`__        | ``46`` |
++------------------------------------------------------------+--------+
+| ```RESUME_SESSION`` <CARTA.ResumeSession>`__               | ``47`` |
++------------------------------------------------------------+--------+
+| ```RESUME_SESSION_ACK`` <CARTA.ResumeSessionAck>`__        | ``48`` |
++------------------------------------------------------------+--------+
+| ```RASTER_TILE_SYNC`` <CARTA.RasterTileSync>`__            | ``49`` |
++------------------------------------------------------------+--------+
+| ```CATALOG_LIST_REQUEST`` <CARTA.CatalogListRequest>`__    | ``50`` |
++------------------------------------------------------------+--------+
+| ```CATALOG_LIST_RESPONSE`` <CARTA.CatalogListResponse>`__  | ``51`` |
++------------------------------------------------------------+--------+
+| ```CAT                                                     | ``52`` |
+| ALOG_FILE_INFO_REQUEST`` <CARTA.CatalogFileInfoRequest>`__ |        |
++------------------------------------------------------------+--------+
+| ```CATAL                                                   | ``53`` |
+| OG_FILE_INFO_RESPONSE`` <CARTA.CatalogFileInfoResponse>`__ |        |
++------------------------------------------------------------+--------+
+| ```OPEN_CATALOG_FILE`` <CARTA.OpenCatalogFile>`__          | ``54`` |
++------------------------------------------------------------+--------+
+| ```OPEN_CATALOG_FILE_ACK`` <CARTA.OpenCatalogFileAck>`__   | ``55`` |
++------------------------------------------------------------+--------+
+| ```CLOSE_CATALOG_FILE`` <CARTA.CloseCatalogFile>`__        | ``56`` |
++------------------------------------------------------------+--------+
+| `                                                          | ``57`` |
+| ``CATALOG_FILTER_REQUEST`` <CARTA.CatalogFilterRequest>`__ |        |
++------------------------------------------------------------+--------+
+| ```                                                        | ``58`` |
+| CATALOG_FILTER_RESPONSE`` <CARTA.CatalogFilterResponse>`__ |        |
++------------------------------------------------------------+--------+
 
-.. _h.4i2aq6kwppax:
+.. _CARTA.FileType:
 
 FileType (Enum)
 '''''''''''''''
@@ -4358,7 +4495,7 @@ Name        Value
 ``UNKNOWN`` ``6``
 =========== =====
 
-.. _h.ex0f97rczpqq:
+.. _CARTA.RegionType:
 
 RegionType (Enum)
 '''''''''''''''''
@@ -4387,7 +4524,7 @@ Name          Value
 ``POLYGON``   ``6``
 ============= =====
 
-.. _h.l43mvgsxs43:
+.. _CARTA.StatsType:
 
 StatsType (Enum)
 ''''''''''''''''
@@ -4427,7 +4564,7 @@ Name            Value
 ``MaxPosf``     ``17``
 =============== ======
 
-.. _h.im7a1pmk1f4f:
+.. _CARTA.ClientFeatureFlags:
 
 ClientFeatureFlags (Enum)
 '''''''''''''''''''''''''
@@ -4458,7 +4595,7 @@ Name                     Value
 ``OFFSCREEN_CANVAS``     ``16``
 ======================== ======
 
-.. _h.6wen0ukf0xd:
+.. _CARTA.ServerFeatureFlags:
 
 ServerFeatureFlags (Enum)
 '''''''''''''''''''''''''
@@ -4490,7 +4627,7 @@ Name                    Value
 ``USER_LAYOUTS``        ``32``
 ======================= ======
 
-.. _h.igqs91qlyb7r:
+.. _CARTA.FileFeatureFlags:
 
 FileFeatureFlags (Enum)
 '''''''''''''''''''''''
@@ -4519,7 +4656,7 @@ Name                   Value
 ``MIP_DATASET``        ``32``
 ====================== ======
 
-.. _h.q48i89n9e9qq:
+.. _CARTA.SmoothingMode:
 
 SmoothingMode (Enum)
 ''''''''''''''''''''
@@ -4544,7 +4681,7 @@ Name             Value
 ``GaussianBlur`` ``2``
 ================ =====
 
-.. _h.q2lxsrkkwipl:
+.. _CARTA.ColumnType:
 
 ColumnType (Enum)
 '''''''''''''''''
@@ -4579,7 +4716,7 @@ Name                Value
 ``Bool``            ``12``
 =================== ======
 
-.. _h.q4ijnqndffph:
+.. _CARTA.ComparisonOperator:
 
 ComparisonOperator (Enum)
 '''''''''''''''''''''''''
@@ -4610,7 +4747,7 @@ Name               Value
 ``RangeClosed``    ``7``
 ================== =====
 
-.. _h.zgx1u51vn0cp:
+.. _CARTA.CatalogFileType:
 
 CatalogFileType (Enum)
 ''''''''''''''''''''''
@@ -4634,7 +4771,7 @@ Name          Value
 ``VOTable``   ``1``
 ============= =====
 
-.. _h.6nsjmx5pw4b3:
+.. _CARTA.SortingType:
 
 SortingType (Enum)
 ''''''''''''''''''
@@ -4658,7 +4795,7 @@ Name           Value
 ``Descending`` ``1``
 ============== =====
 
-.. _h.pgm3heyep8q7:
+.. _CARTA.Moment:
 
 Moment (Enum)
 '''''''''''''
@@ -4691,7 +4828,7 @@ Name                                           Value
 ``COORD_OF_THE_MIN_OF_THE_SPECTRUM``           ``12``
 ============================================== ======
 
-.. _h.1bwvdudxzm8i:
+.. _CARTA.MomentAxis:
 
 MomentAxis (Enum)
 '''''''''''''''''
@@ -4716,7 +4853,7 @@ Name         Value
 ``STOKES``   ``1``
 ============ =====
 
-.. _h.ovmjjqkeygqi:
+.. _CARTA.MomentMask:
 
 MomentMask (Enum)
 '''''''''''''''''
@@ -4739,9 +4876,7 @@ Name        Value
 ``Exclude`` ``2``
 =========== =====
 
-.. _h.1l3hap7bomqv:
-
-.. _h.myrlfhsaytsk:
+.. _Presentation layer:
 
 4.2 Presentation layer
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -4751,7 +4886,7 @@ encodes into a binary format. Each message is prepended by a 64-bit
 structure, consisting of:
 
 -  16-bit unsigned integer, used to identify the message type, specified
-   by `EventType <#h.w8q5ep31q0hb>`__
+   by `EventType <CARTA.EventType>`__
 -  16-bit unsigned integer, used to determine the ICD version
 -  32-bit unsigned integer, used to uniquely identify requests and
    corresponding responses. In the case of messages with no
@@ -4777,7 +4912,7 @@ names in snake_case, while the javascript compiler leaves field names in
 camelCase. So a field accessed via ``msg.min_val() in c++`` would be
 accessed by ``msg.minVal`` in javascript.
 
-.. _h.jnn8ttf5urb8:
+.. _Session Layer:
 
 4.3 Session Layer
 ~~~~~~~~~~~~~~~~~
@@ -4791,7 +4926,7 @@ explicitly, the session ID can be passed to the backend upon
 reconnection to resume the session, although this is not currently
 supported.
 
-.. _h.xrwjy9f3lmni:
+.. _Transport Layer:
 
 4.4 Transport Layer
 ~~~~~~~~~~~~~~~~~~~

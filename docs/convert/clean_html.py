@@ -268,4 +268,83 @@ for table in tables:
     for td in field_names.find_all("td"):
         td.name = "th"
 
-print(str(soup))
+# links outside code
+
+for c in soup.find_all("code"):
+    child = c.contents[0]
+    if child.name == "a":
+        c.name = "a"
+        c["href"] = child["href"]
+        child.name = "code"
+        del child.attrs["href"]        
+
+# Rename anchors using heading text
+
+anchors = {}
+
+def camel(s):
+    return "".join(p.title() for p in s.split("_"))
+
+def snake(s):
+    return "_".join(p.lower() for p in s.split(" "))
+
+anchor_replacements = {
+    "[\d.]+ (.*)": r"\1",
+    "(.*) \(.*\)": r"\1",
+    "^([A-Z_]+)$": lambda m: camel(m.group(1)),
+    "^((?:[A-Z][a-z]+){2,})$": r"CARTA.\1",
+}
+
+anchor_exceptions = {
+    "Coosys": "CARTA.Coosys",
+    "Moment (Enum)": "CARTA.Moment",
+}
+
+headings = soup.find_all(re.compile("h\d"))
+
+for heading in headings:
+    if "id" in heading.attrs:
+        old_name, new_name = heading["id"], heading.text.strip()
+        if new_name in anchor_exceptions:
+            new_name = anchor_exceptions[new_name]
+        else:
+            for s, r in anchor_replacements.items():
+                new_name = re.sub(s, r, new_name)
+        anchors[old_name] = new_name
+        
+for heading in headings:
+    if "id" in heading.attrs:
+        hid = heading["id"]
+        if hid in anchors:
+            if not anchors[hid]:
+                heading.extract()
+                continue
+            heading["id"] = anchors[hid]
+
+missing_anchors = {
+    "OPEN_CATALOG_FILE_ACK" : "CARTA.OpenCatalogFileAck",
+    "OPEN_CATALOG_FILE" : "CARTA.OpenCatalogFileAck",
+}
+
+for a in soup.find_all("a"):
+    if "href" in a.attrs:
+        if a["href"].startswith("#"):
+            href = a["href"].lstrip("#")
+            if href in anchors:
+                a["href"] = anchors[href]
+            else:
+                anchor_fix = missing_anchors.get(href)
+                if anchor_fix:
+                    a["href"] = anchor_fix
+                else:
+                    a.unwrap()
+                    
+        elif "1mD9cZri8S25hm6VTPehEXUXA_kDptlcr41ktbEZQv1k" in a["href"]:
+            # fix links to catalog doc which are supposed to be anchors
+            a["href"] = "#CARTA.%s" % a.text
+                
+with open(sys.argv[2], 'w') as f:
+    print(str(soup), file=f)
+
+# TODO rename images
+# TODO fix missing links and links to catalog document

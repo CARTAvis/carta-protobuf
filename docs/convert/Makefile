@@ -2,7 +2,7 @@
 	pandoc $< -o $@
 
 index.html: CARTABackendFrontendInterfaceControlDocument.html clean_html.py
-	./clean_html.py $< > $@
+	./clean_html.py $< $@
 
 CARTABackendFrontendInterfaceControlDocument.html: downloaded_ICD.zip
 	unzip -o $<
