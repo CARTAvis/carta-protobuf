@@ -1,8 +1,8 @@
 build/*
-docs/.ipynb_checkpoints
-docs/CARTABackendFrontendInterfaceControlDocument.html
-docs/*.ipynb
-docs/ICD_clean.*
-docs/*.zip
-docs/protoc.html
-docs/protoc.rst
+docs/convert/CARTABackendFrontendInterfaceControlDocument.html
+docs/convert/downloaded_ICD.zip
+docs/convert/images/
+docs/convert/index.html
+docs/protoc/protoc.html
+docs/protoc/protoc.rst
+
