@@ -20,6 +20,7 @@ mapping_search = {
     "em": "font-style:italic",
 }
 
+
 colour_search = {
     "orange": "#ff9900",
     "blue": "#0b5394",
@@ -76,7 +77,7 @@ for tag in soup.find_all("span"):
         for k, v in colour.items():
             if k in tag["class"]:
                 new_span = soup.new_tag("span")
-                new_span["class"] = [v]
+                new_span["role"] = [v]
                 tag.wrap(new_span)
         
         for k, v in mapping.items():
@@ -172,8 +173,8 @@ for td in soup.find_all("td"):
 # add colour span parent to <code> or <a> if it is surrounded by the same colour siblings
 
 def colour_of(t):
-    if hasattr(t, "attrs") and "class" in t.attrs:
-        has_colour = {"red", "blue", "orange"}.intersection(t["class"]) or None
+    if hasattr(t, "attrs") and "role" in t.attrs:
+        has_colour = {"red", "blue", "orange"}.intersection(t["role"]) or None
         if has_colour:
             return has_colour.pop()
     if t.name == 'html':
@@ -189,14 +190,14 @@ for link in links:
     c = [colour_of(t) for t in (tag.previous_sibling, tag.next_sibling) if t and colour_of(t)]
     if len(c) == 1 or len(c) == 2 and c[0] == c[1]:
         new_span = soup.new_tag("span")
-        new_span["class"] = [c[0]]
+        new_span["role"] = [c[0]]
         tag.wrap(new_span)
 
 # then merge adjacent colour spans
 cells = soup.find_all("td")
 for cell in cells:
     children = cell.contents
-    if len(children) > 1 and all(c.name == "span" for c in children) and len(set(c["class"][0] for c in children)) == 1:
+    if len(children) > 1 and all(c.name == "span" for c in children) and len(set(c["role"][0] for c in children)) == 1:
         for c in children[1:]:
             children[0].extend(c.contents)
             c.extract()

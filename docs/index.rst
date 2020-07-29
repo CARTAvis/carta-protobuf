@@ -110,8 +110,8 @@ formats (FITS, CASA, HDF5 and Miriad), throughout the document,
 nomenclature will be defaulted to FITS files, such as when referring to
 multiple HDUs in a file, and header entries.
 
-Throughout this document, things that require some clarity, or are not
-finalised are commented on in this font style.
+:orange:`Throughout this document, things that require some clarity, or
+are not finalised are commented on in this font style.`
 
 .. _h.3alfbhbei8ai:
 
@@ -129,11 +129,11 @@ view
 The second usage scenario is that of a remote viewer, where the backend
 is running on a remote server, while the frontend is loaded in the
 user’s browser of choice (as long as that choice is Chrome, Firefox,
-Safari or Edge) by visiting a URL associated with the remote server. A
-third possible configuration is running the desktop Electron
+Safari or Edge) by visiting a URL associated with the remote server.
+:orange:`A third possible configuration is running the desktop Electron
 application, while connecting to a specific server IP for remote data.
 This is not a high priority, as most usage scenarios would be better
-handled through accessing the frontend through a remote URL.
+handled through accessing the frontend through a remote URL.`
 
 In both of these scenarios, communication between the frontend and
 backend takes place over a standard WebSocket
@@ -814,7 +814,7 @@ Interface communication messages fall into three overall categories:
    the cursor or updating region parameters. Each message from the
    frontend correspond to zero or one acknowledgement response from the
    backend. Message names for this category follow the naming convention
-   ``MESSAGE_NAME`` and ``MESSAGE_NAME_ACK``
+   :blue:```MESSAGE_NAME``` and :red:```MESSAGE_NAME_ACK```
 -  **Request messages** (along with the required responses), which are
    used to explicitly request information from the backend without
    explicitly changing the backend state. Examples of this would be
@@ -825,7 +825,7 @@ Interface communication messages fall into three overall categories:
    unique requestID entry. Each message from the frontend in this
    category corresponds to exactly one response from the backend.
    Message names for this category follow the naming convention
-   ``MESSAGE_NAME_REQUEST`` and ``MESSAGE_NAME_RESPONSE``
+   :blue:```MESSAGE_NAME_REQUEST``` and :red:```MESSAGE_NAME_RESPONSE```
 -  **Data flow messages**, which flow from the backend to the frontend
    without an originating front end request. These messages are used for
    pushing updated data from the backend to the frontend. Examples of
@@ -848,9 +848,9 @@ time to calculate. If a file is closed by the frontend, the backend no
 longer needs to process any remaining cursor messages relating to this
 file, and those messages should be removed from the queue.
 
-**Message definitions shown in** blue\ **are used for frontend ->backend
-communication. Message definitions shown in** red **are used for
-backend->frontend communication.**
+**Message definitions shown in** :blue:`blue`\ **are used for frontend
+->backend communication. Message definitions shown in** :red:`red` **are
+used for backend->frontend communication.**
 
 .. _h.vi2c13c71rc7:
 
@@ -865,40 +865,45 @@ backend->frontend communication.**
 Description
            
 
-Registers the viewer with the backend. Responds with
+:blue:`Registers the viewer with the backend. Responds with
 ``REGISTER_VIEWER_ACK.`` In future, may be the appropriate message to
 include authentication options or settings that persist throughout the
 session. A JWT could be an appropriate authentication string to pass
-through at this point.
+through at this point.`
 
 Fields
       
 
-+--------------------------+------------+---------------------------+
-| Name                     | Type       | Description               |
-+==========================+============+===========================+
-| ``session_id``           | ``uint32`` | Unique session ID         |
-|                          |            | parameter (can be         |
-|                          |            | generated using UUID      |
-|                          |            | libraries). Passing in an |
-|                          |            | existing session ID can   |
-|                          |            | be used for resuming      |
-|                          |            | sessions                  |
-+--------------------------+------------+---------------------------+
-| ``api_key``              | ``string`` | Optional user-specific    |
-|                          |            | API key to be used for    |
-|                          |            | basic authentication.     |
-|                          |            | Could be an encrypted JWT |
-|                          |            | for secure                |
-|                          |            | authentication.           |
-+--------------------------+------------+---------------------------+
-| ``client_feature_flags`` | ``uint32`` | Optional feature bitflag  |
-|                          |            | specifying client-side    |
-|                          |            | feature set.              |
-|                          |            | See\ `ClientFeatureFlags  |
-|                          |            | <#h.im7a1pmk1f4f>`__\ for |
-|                          |            | details                   |
-+--------------------------+------------+---------------------------+
++-----------------------+--------------------+-----------------------+
+| :blue:`Name`          | :blue:`Type`       | :blue:`Description`   |
++=======================+====================+=======================+
+| :                     | :blue:```uint32``` | :blue:`Unique session |
+| blue:```session_id``` |                    | ID parameter (can be  |
+|                       |                    | generated using UUID  |
+|                       |                    | libraries). Passing   |
+|                       |                    | in an existing        |
+|                       |                    | session ID can be     |
+|                       |                    | used for resuming     |
+|                       |                    | sessions`             |
++-----------------------+--------------------+-----------------------+
+| :blue:```api_key```   | :blue:```string``` | :blue:`Optional       |
+|                       |                    | user-specific API key |
+|                       |                    | to be used for basic  |
+|                       |                    | authentication. Could |
+|                       |                    | be an encrypted JWT   |
+|                       |                    | for secure            |
+|                       |                    | authentication.`      |
++-----------------------+--------------------+-----------------------+
+| :blue:```cl           | :blue:```uint32``` | :blue:`Optional       |
+| ient_feature_flags``` |                    | feature bitflag       |
+|                       |                    | specifying            |
+|                       |                    | client-side feature   |
+|                       |                    | set.                  |
+|                       |                    | See`\ `ClientFea      |
+|                       |                    | tureFlags <#h.im7a1pm |
+|                       |                    | k1f4f>`__\ :blue:`for |
+|                       |                    | details`              |
++-----------------------+--------------------+-----------------------+
 
 --------------
 
@@ -912,8 +917,8 @@ Fields
 Description
            
 
-Acknowledgement response for ``REGISTER_VIEWER``. Informs the frontend
-whether the session was correctly.
+:red:`Acknowledgement response for ``REGISTER_VIEWER``. Informs the
+frontend whether the session was correctly.`
 
 .. _fields-1:
 
@@ -921,34 +926,37 @@ Fields
       
 
 +----------------------+----------------------+----------------------+
-| Name                 | Type                 | Description          |
+| :red:`Name`          | :red:`Type`          | :red:`Description`   |
 +======================+======================+======================+
-| ``session_id``       | ``uint32``           | Unique session ID    |
+| :                    | :red:```uint32```    | :red:`Unique session |
+| red:```session_id``` |                      | ID`                  |
 +----------------------+----------------------+----------------------+
-| ``success``          | ``bool``             | Defines whether the  |
+| :red:```success```   | :red:```bool```      | :red:`Defines        |
+|                      |                      | whether the          |
 |                      |                      | ``REGISTER_VIEWER``  |
 |                      |                      | command was          |
-|                      |                      | successful           |
+|                      |                      | successful`          |
 +----------------------+----------------------+----------------------+
-| ``message``          | ``string``           | Error message (if    |
-|                      |                      | applicable)          |
+| :red:```message```   | :red:```string```    | :red:`Error message  |
+|                      |                      | (if applicable)`     |
 +----------------------+----------------------+----------------------+
-| ``session_type``     | ``enum Sess          | Defines the type of  |
-|                      | ionType {    NEW = 0 | session established. |
-|                      | ;    RESUMED = 1;}`` |                      |
+| :re                  | :red:```enum Sessi   | :red:`Defines the    |
+| d:```session_type``` | onType {    NEW = 0; | type of session      |
+|                      |     RESUMED = 1;}``` | established.`        |
 +----------------------+----------------------+----------------------+
-| ``se                 | ``uint32``           | Optional feature     |
-| rver_feature_flags`` |                      | bitflag specifying   |
+| :red:```ser          | :red:```uint32```    | :red:`Optional       |
+| ver_feature_flags``` |                      | feature bitflag      |
+|                      |                      | specifying           |
 |                      |                      | server-side feature  |
 |                      |                      | set.                 |
-|                      |                      | See\ `Ser            |
-|                      |                      | verFeatureFlags <#h. |
-|                      |                      | 6wen0ukf0xd>`__\ for |
-|                      |                      | details              |
+|                      |                      | See`\ `ServerFea     |
+|                      |                      | tureFlags <#h.6wen0u |
+|                      |                      | kf0xd>`__\ :red:`for |
+|                      |                      | details`             |
 +----------------------+----------------------+----------------------+
-| ``user_preferences`` | ``map<key: stri      | Map of user          |
-|                      | ng, value: string>`` | preferences          |
-|                      |                      | retrieved from the   |
+| :red:``              | :r                   | :red:`Map of user    |
+| `user_preferences``` | ed:```map<key: strin | preferences          |
+|                      | g, value: string>``` | retrieved from the   |
 |                      |                      | server database. If  |
 |                      |                      | this is empty and    |
 |                      |                      | the server does not  |
@@ -958,20 +966,20 @@ Fields
 |                      |                      | then the user        |
 |                      |                      | preferences are read |
 |                      |                      | from the browser     |
-|                      |                      | storage instead.     |
+|                      |                      | storage instead.`    |
 +----------------------+----------------------+----------------------+
-| ``user_layouts``     | ``map<key: stri      | Map of user layouts  |
-|                      | ng, value: string>`` | retrieved from the   |
-|                      |                      | server database. If  |
-|                      |                      | this is empty and    |
-|                      |                      | the server does not  |
-|                      |                      | have the             |
+| :re                  | :r                   | :red:`Map of user    |
+| d:```user_layouts``` | ed:```map<key: strin | layouts retrieved    |
+|                      | g, value: string>``` | from the server      |
+|                      |                      | database. If this is |
+|                      |                      | empty and the server |
+|                      |                      | does not have the    |
 |                      |                      | ``USER_LAYOUTS``     |
 |                      |                      | feature flag set,    |
 |                      |                      | then the user        |
 |                      |                      | layouts are read     |
 |                      |                      | from the browser     |
-|                      |                      | storage instead.     |
+|                      |                      | storage instead.`    |
 +----------------------+----------------------+----------------------+
 
 .. _h.gusxs6aga46x:
@@ -984,46 +992,52 @@ Fields
 Description
            
 
-Requests the opening of a specific file. Backend responds with
-``OPEN_FILE_ACK``
+:blue:`Requests the opening of a specific file. Backend responds with
+``OPEN_FILE_ACK```
 
 .. _fields-2:
 
 Fields
       
 
-+-----------------+------------------------+------------------------+
-| Name            | Type                   | Description            |
-+=================+========================+========================+
-| ``directory``   | ``string``             | Required directory     |
-|                 |                        | name                   |
-+-----------------+------------------------+------------------------+
-| ``file``        | ``string``             | Required file name     |
-+-----------------+------------------------+------------------------+
-| ``hdu``         | ``string``             | Which HDU to load (if  |
-|                 |                        | applicable). If left   |
-|                 |                        | blank, the first HDU   |
-|                 |                        | will be used.          |
-+-----------------+------------------------+------------------------+
-| ``file_id``     | ``int32``              | Which “file” slot to   |
-|                 |                        | load the file into     |
-|                 |                        | (when viewing multiple |
-|                 |                        | files)                 |
-+-----------------+------------------------+------------------------+
-| ``render_mode`` | ``enum Rende           | The render mode to     |
-|                 | rMode {  RASTER = 0;`` | use. For now, just     |
-|                 | ``CONTOUR = 1;}``      | raster image and       |
-|                 |                        | contour image.         |
-+-----------------+------------------------+------------------------+
-| ``tile_size``   | ``int32``              | Optionally indicate    |
-|                 |                        | what the required tile |
-|                 |                        | size is. If empty, the |
-|                 |                        | default tile size is   |
-|                 |                        | used. Tile size must   |
-|                 |                        | be a multiple of four, |
-|                 |                        | due to ZFP’s use of a  |
-|                 |                        | 4x4 block size         |
-+-----------------+------------------------+------------------------+
++----------------------+----------------------+----------------------+
+| :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
++======================+======================+======================+
+| :                    | :blue:```string```   | :blue:`Required      |
+| blue:```directory``` |                      | directory name`      |
++----------------------+----------------------+----------------------+
+| :blue:```file```     | :blue:```string```   | :blue:`Required file |
+|                      |                      | name`                |
++----------------------+----------------------+----------------------+
+| :blue:```hdu```      | :blue:```string```   | :blue:`Which HDU to  |
+|                      |                      | load (if             |
+|                      |                      | applicable). If left |
+|                      |                      | blank, the first HDU |
+|                      |                      | will be used.`       |
++----------------------+----------------------+----------------------+
+| :blue:```file_id```  | :blue:```int32```    | :blue:`Which “file”  |
+|                      |                      | slot to load the     |
+|                      |                      | file into (when      |
+|                      |                      | viewing multiple     |
+|                      |                      | files)`              |
++----------------------+----------------------+----------------------+
+| :bl                  | :                    | :blue:`The render    |
+| ue:```render_mode``` | blue:```enum RenderM | mode to use. For     |
+|                      | ode {  RASTER = 0;`` | now, just raster     |
+|                      | ``CONTOUR = 1;}```   | image and contour    |
+|                      |                      | image.`              |
++----------------------+----------------------+----------------------+
+| :                    | :blue:```int32```    | :blue:`Optionally    |
+| blue:```tile_size``` |                      | indicate what the    |
+|                      |                      | required tile size   |
+|                      |                      | is. If empty, the    |
+|                      |                      | default tile size is |
+|                      |                      | used. Tile size must |
+|                      |                      | be a multiple of     |
+|                      |                      | four, due to ZFP’s   |
+|                      |                      | use of a 4x4 block   |
+|                      |                      | size`                |
++----------------------+----------------------+----------------------+
 
 .. _h.20daqjgvxgug:
 
@@ -1035,7 +1049,7 @@ Fields
 Description
            
 
-Response for ``OPEN_FILE``. Also supplies file information
+:red:`Response for ``OPEN_FILE``. Also supplies file information`
 
 .. _fields-3:
 
@@ -1043,50 +1057,52 @@ Fields
       
 
 +----------------------+----------------------+----------------------+
-| Name                 | Type                 | Description          |
+| :red:`Name`          | :red:`Type`          | :red:`Description`   |
 +======================+======================+======================+
-| ``success``          | ``bool``             | Defines              |
-|                      |                      | whether\             |
-|                      |                      | ```OPEN_FILE`` <#h.g |
-|                      |                      | usxs6aga46x>`__\ was |
-|                      |                      | successful           |
+| :red:```success```   | :red:```bool```      | :red:`Defines        |
+|                      |                      | whether`\ ```OPE     |
+|                      |                      | N_FILE`` <#h.gusxs6a |
+|                      |                      | ga46x>`__\ :red:`was |
+|                      |                      | successful`          |
 +----------------------+----------------------+----------------------+
-| ``message``          | ``string``           | Error message (if    |
-|                      |                      | applicable)          |
+| :red:```message```   | :red:```string```    | :red:`Error message  |
+|                      |                      | (if applicable)`     |
 +----------------------+----------------------+----------------------+
-| ``file_id``          | ``int32``            | Which file slot the  |
-|                      |                      | file was loaded into |
-|                      |                      | (when viewing        |
-|                      |                      | multiple files)      |
+| :red:```file_id```   | :red:```int32```     | :red:`Which file     |
+|                      |                      | slot the file was    |
+|                      |                      | loaded into (when    |
+|                      |                      | viewing multiple     |
+|                      |                      | files)`              |
 +----------------------+----------------------+----------------------+
-| ``file_info``        | ``FileInfo``         | Basic file info. If  |
-|                      |                      | the file has more    |
-|                      |                      | than one HDU, only   |
-|                      |                      | the loaded HDU       |
-|                      |                      | should appear in the |
-|                      |                      | ``HDU_list`` field   |
+| :red:```file_info``` | ``FileInfo``         | :red:`Basic file     |
+|                      |                      | info. If the file    |
+|                      |                      | has more than one    |
+|                      |                      | HDU, only the loaded |
+|                      |                      | HDU should appear in |
+|                      |                      | the ``HDU_list``     |
+|                      |                      | field`               |
 +----------------------+----------------------+----------------------+
-| ``                   | ``FileInfoExtended`` | Extended file info   |
-| file_info_extended`` |                      |                      |
+| :red:```f            | ``FileInfoExtended`` | :red:`Extended file  |
+| ile_info_extended``` |                      | info`                |
 +----------------------+----------------------+----------------------+
-| ``                   | ``uint32``           | Optional bitflags    |
-| file_feature_flags`` |                      | specifying feature   |
-|                      |                      | flags of the file    |
-|                      |                      | being opened.        |
+| :red:```f            | :red:```uint32```    | :red:`Optional       |
+| ile_feature_flags``` |                      | bitflags specifying  |
+|                      |                      | feature flags of the |
+|                      |                      | file being opened.   |
 |                      |                      | Examples of this are |
 |                      |                      | whether the file     |
 |                      |                      | supports efficient   |
 |                      |                      | Z-profile reads, or  |
 |                      |                      | has cached           |
 |                      |                      | histograms.          |
-|                      |                      | See\ `F              |
-|                      |                      | ileFeatureEnum <#h.i |
-|                      |                      | gqs91qlyb7r>`__\ for |
-|                      |                      | details              |
+|                      |                      | See`\ `FileFea       |
+|                      |                      | tureEnum <#h.igqs91q |
+|                      |                      | lyb7r>`__\ :red:`for |
+|                      |                      | details`             |
 +----------------------+----------------------+----------------------+
-| ``tile_size``        | ``int32``            | Tile size of tile    |
-|                      |                      | data delivered for   |
-|                      |                      | this file            |
+| :red:```tile_size``` | :red:```int32```     | :red:`Tile size of   |
+|                      |                      | tile data delivered  |
+|                      |                      | for this file`       |
 +----------------------+----------------------+----------------------+
 
 --------------
@@ -1101,20 +1117,22 @@ Fields
 Description
            
 
-Instructs the backend to close a file with a given file ID
+:blue:`Instructs the backend to close a file with a given file ID`
 
 .. _fields-4:
 
 Fields
       
 
-+-------------+-----------+------------------------------------------+
-| Name        | Type      | Description                              |
-+=============+===========+==========================================+
-| ``file_id`` | ``int32`` | Which “file” slot to close. If this      |
-|             |           | value is negative, all files are closed  |
-|             |           | and regions are removed.                 |
-+-------------+-----------+------------------------------------------+
++---------------------+-------------------+--------------------------+
+| :blue:`Name`        | :blue:`Type`      | :blue:`Description`      |
++=====================+===================+==========================+
+| :blue:```file_id``` | :blue:```int32``` | :blue:`Which “file” slot |
+|                     |                   | to close. If this value  |
+|                     |                   | is negative, all files   |
+|                     |                   | are closed and regions   |
+|                     |                   | are removed.`            |
++---------------------+-------------------+--------------------------+
 
 .. _h.regyxdq3ju35:
 
@@ -1126,7 +1144,8 @@ Fields
 Description
            
 
-Provides a list of tiles that are required for the specified file
+:blue:`Provides a list of tiles that are required for the specified
+file`
 
 .. _fields-5:
 
@@ -1134,27 +1153,28 @@ Fields
       
 
 +----------------------+----------------------+----------------------+
-| Name                 | Type                 | Description          |
+| :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
 +======================+======================+======================+
-| ``file_id``          | ``int32``            | The file ID that the |
-|                      |                      | view corresponds to  |
+| :blue:```file_id```  | :blue:```int32```    | :blue:`The file ID   |
+|                      |                      | that the view        |
+|                      |                      | corresponds to`      |
 +----------------------+----------------------+----------------------+
-| ``tiles``            | ``int32[]``          | The list of tiles    |
-|                      |                      | required, in encoded |
-|                      |                      | coordinates. Stored  |
-|                      |                      | in order of          |
-|                      |                      | priority.            |
+| :blue:```tiles```    | :blue:```int32[]```  | :blue:`The list of   |
+|                      |                      | tiles required, in   |
+|                      |                      | encoded coordinates. |
+|                      |                      | Stored in order of   |
+|                      |                      | priority.`           |
 +----------------------+----------------------+----------------------+
-| ``compression_type`` | `                    | The compression      |
-|                      | `enum {  NONE = 0;`` | algorithm used.      |
-|                      | ``ZFP =              |                      |
-|                      | 1;  SZ = 2;``\ ``}`` |                      |
+| :blue:``             | :blue:``             | :blue:`The           |
+| `compression_type``` | `enum {  NONE = 0;`` | compression          |
+|                      | ``ZFP = 1            | algorithm used.`     |
+|                      | ;  SZ = 2;``\ ``}``` |                      |
 +----------------------+----------------------+----------------------+
-| ``c                  | ``float``            | Compression quality  |
-| ompression_quality`` |                      | switch. Only         |
+| :blue:```co          | :blue:```float```    | :blue:`Compression   |
+| mpression_quality``` |                      | quality switch. Only |
 |                      |                      | applicable for       |
 |                      |                      | compressed raster    |
-|                      |                      | images.              |
+|                      |                      | images.`             |
 +----------------------+----------------------+----------------------+
 
 .. _h.llk00i4m05nu:
@@ -1167,24 +1187,26 @@ Fields
 Description
            
 
-Provides a list of tiles that are no longer required for the specified
-file and can be safely discarded by the backend
+:blue:`Provides a list of tiles that are no longer required for the
+specified file and can be safely discarded by the backend`
 
 .. _fields-6:
 
 Fields
       
 
-+-------------+-------------+----------------------------------------+
-| Name        | Type        | Description                            |
-+=============+=============+========================================+
-| ``file_id`` | ``int32``   | The file ID that the view corresponds  |
-|             |             | to                                     |
-+-------------+-------------+----------------------------------------+
-| ``tiles``   | ``int32[]`` | The list of tiles to be explicitly     |
-|             |             | removed from the, in encoded           |
-|             |             | coordinates.                           |
-+-------------+-------------+----------------------------------------+
++---------------------+---------------------+------------------------+
+| :blue:`Name`        | :blue:`Type`        | :blue:`Description`    |
++=====================+=====================+========================+
+| :blue:```file_id``` | :blue:```int32```   | :blue:`The file ID     |
+|                     |                     | that the view          |
+|                     |                     | corresponds to`        |
++---------------------+---------------------+------------------------+
+| :blue:```tiles```   | :blue:```int32[]``` | :blue:`The list of     |
+|                     |                     | tiles to be explicitly |
+|                     |                     | removed from the, in   |
+|                     |                     | encoded coordinates.`  |
++---------------------+---------------------+------------------------+
 
 .. _h.gwqdmfhrapyp:
 
@@ -1196,29 +1218,32 @@ Fields
 Description
            
 
-Sets the current image channel and Stokes parameter.
+:blue:`Sets the current image channel and Stokes parameter.`
 
 .. _fields-7:
 
 Fields
       
 
-+--------------------+----------------------+-----------------------+
-| Name               | Type                 | Description           |
-+====================+======================+=======================+
-| ``file_id``        | ``int32``            | The file ID that the  |
-|                    |                      | view corresponds to   |
-+--------------------+----------------------+-----------------------+
-| ``channel``        | ``int32``            | The image channel     |
-|                    |                      | (Z-coordinate)        |
-+--------------------+----------------------+-----------------------+
-| ``stokes``         | ``int32``            | The image stokes      |
-|                    |                      | parameter             |
-+--------------------+----------------------+-----------------------+
-| ``required_tiles`` | ``AddRequiredTiles`` | Tiles required by the |
-|                    |                      | frontend when         |
-|                    |                      | changing channels     |
-+--------------------+----------------------+-----------------------+
++----------------------+----------------------+----------------------+
+| :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
++======================+======================+======================+
+| :blue:```file_id```  | :blue:```int32```    | :blue:`The file ID   |
+|                      |                      | that the view        |
+|                      |                      | corresponds to`      |
++----------------------+----------------------+----------------------+
+| :blue:```channel```  | :blue:```int32```    | :blue:`The image     |
+|                      |                      | channel              |
+|                      |                      | (Z-coordinate)`      |
++----------------------+----------------------+----------------------+
+| :blue:```stokes```   | :blue:```int32```    | :blue:`The image     |
+|                      |                      | stokes parameter`    |
++----------------------+----------------------+----------------------+
+| :blue:               | ``AddRequiredTiles`` | :blue:`Tiles         |
+| ```required_tiles``` |                      | required by the      |
+|                      |                      | frontend when        |
+|                      |                      | changing channels`   |
++----------------------+----------------------+----------------------+
 
 .. _h.35zrt1gr6yxj:
 
@@ -1230,56 +1255,64 @@ Fields
 Description
            
 
-Starts an animation, as defined by the start, stop and step definitions.
-Backend responds with ``START_ANIMATION_ACK``
+:blue:`Starts an animation, as defined by the start, stop and step
+definitions. Backend responds with ``START_ANIMATION_ACK```
 
 .. _fields-8:
 
 Fields
       
 
-+--------------------+-----------------------+-----------------------+
-| Name               | Type                  | Description           |
-+====================+=======================+=======================+
-| ``file_id``        | ``int32``             | Which file slot the   |
-|                    |                       | animation describes.  |
-+--------------------+-----------------------+-----------------------+
-| ``first_frame``    | ``AnimationFrame      | The lower bound of    |
-|                    |  {  channel: int32;`` | the animation when    |
-|                    | ``stokes: int32;}``   | looping               |
-+--------------------+-----------------------+-----------------------+
-| ``start_frame``    | ``AnimationFrame``    | The starting point of |
-|                    |                       | the animation.        |
-+--------------------+-----------------------+-----------------------+
-| ``last_frame``     | ``AnimationFrame``    | The upper bound of    |
-|                    |                       | the animation when    |
-|                    |                       | looping               |
-+--------------------+-----------------------+-----------------------+
-| ``delta_frame``    | ``AnimationFrame``    | The frame change step |
-|                    |                       | for the animation.    |
-|                    |                       | For example, a delta  |
-|                    |                       | frame of              |
-|                    |                       | ``{c                  |
-|                    |                       | hannel=1, stokes=0}`` |
-|                    |                       | would step through    |
-|                    |                       | each channel in the   |
-|                    |                       | file.                 |
-+--------------------+-----------------------+-----------------------+
-| ``frame_rate``     | ``int32``             | Frames per second     |
-+--------------------+-----------------------+-----------------------+
-| ``looping``        | ``boolean``           | Whether to loop the   |
-|                    |                       | animation             |
-|                    |                       | indefinitely.         |
-+--------------------+-----------------------+-----------------------+
-| ``reverse``        | ``boolean``           | Whether to reverse    |
-|                    |                       | the animation         |
-|                    |                       | direction when        |
-|                    |                       | endFrame is reached.  |
-+--------------------+-----------------------+-----------------------+
-| ``required_tiles`` | ``AddRequiredTiles``  | Tiles required by the |
-|                    |                       | frontend when         |
-|                    |                       | changing channels     |
-+--------------------+-----------------------+-----------------------+
++----------------------+----------------------+----------------------+
+| :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
++======================+======================+======================+
+| :blue:```file_id```  | :blue:```int32```    | :blue:`Which file    |
+|                      |                      | slot the animation   |
+|                      |                      | describes.`          |
++----------------------+----------------------+----------------------+
+| :bl                  | :blu                 | :blue:`The lower     |
+| ue:```first_frame``` | e:```AnimationFrame  | bound of the         |
+|                      | {  channel: int32;`` | animation when       |
+|                      | ``stokes: int32;}``` | looping`             |
++----------------------+----------------------+----------------------+
+| :bl                  | :blue:               | :blue:`The starting  |
+| ue:```start_frame``` | ```AnimationFrame``` | point of the         |
+|                      |                      | animation.`          |
++----------------------+----------------------+----------------------+
+| :b                   | :blue:               | :blue:`The upper     |
+| lue:```last_frame``` | ```AnimationFrame``` | bound of the         |
+|                      |                      | animation when       |
+|                      |                      | looping`             |
++----------------------+----------------------+----------------------+
+| :bl                  | :blue:               | :blue:`The frame     |
+| ue:```delta_frame``` | ```AnimationFrame``` | change step for the  |
+|                      |                      | animation. For       |
+|                      |                      | example, a delta     |
+|                      |                      | frame of             |
+|                      |                      | ``{ch                |
+|                      |                      | annel=1, stokes=0}`` |
+|                      |                      | would step through   |
+|                      |                      | each channel in the  |
+|                      |                      | file.`               |
++----------------------+----------------------+----------------------+
+| :b                   | :blue:```int32```    | :blue:`Frames per    |
+| lue:```frame_rate``` |                      | second`              |
++----------------------+----------------------+----------------------+
+| :blue:```looping```  | :blue:```boolean```  | :blue:`Whether to    |
+|                      |                      | loop the animation   |
+|                      |                      | indefinitely.`       |
++----------------------+----------------------+----------------------+
+| :blue:```reverse```  | :blue:```boolean```  | :blue:`Whether to    |
+|                      |                      | reverse the          |
+|                      |                      | animation direction  |
+|                      |                      | when endFrame is     |
+|                      |                      | reached.`            |
++----------------------+----------------------+----------------------+
+| :blue:               | ``AddRequiredTiles`` | :blue:`Tiles         |
+| ```required_tiles``` |                      | required by the      |
+|                      |                      | frontend when        |
+|                      |                      | changing channels`   |
++----------------------+----------------------+----------------------+
 
 .. _h.2lf9le5ng811:
 
@@ -1291,26 +1324,29 @@ Fields
 Description
            
 
-Response for ``START_ANIMATION``.
+:red:`Response for ``START_ANIMATION``.`
 
 .. _fields-9:
 
 Fields
       
 
-+------------------+------------+------------------------------------+
-| Name             | Type       | Description                        |
-+==================+============+====================================+
-| ``success``      | ``bool``   | Defines                            |
-|                  |            | whether\ ```START_ANI              |
-|                  |            | MATION`` <#h.35zrt1gr6yxj>`__\ was |
-|                  |            | successful                         |
-+------------------+------------+------------------------------------+
-| ``message``      | ``string`` | Error message (if applicable)      |
-+------------------+------------+------------------------------------+
-| ``animation_id`` | ``int32``  | The animation ID of the new        |
-|                  |            | animation                          |
-+------------------+------------+------------------------------------+
++-----------------------+-------------------+-----------------------+
+| :red:`Name`           | :red:`Type`       | :red:`Description`    |
++=======================+===================+=======================+
+| :red:```success```    | :red:```bool```   | :red:`Defines         |
+|                       |                   | whether`\ ```START_A  |
+|                       |                   | NIMATION`` <#h.35zrt1 |
+|                       |                   | gr6yxj>`__\ :red:`was |
+|                       |                   | successful`           |
++-----------------------+-------------------+-----------------------+
+| :red:```message```    | :red:```string``` | :red:`Error message   |
+|                       |                   | (if applicable)`      |
++-----------------------+-------------------+-----------------------+
+| :r                    | :red:```int32```  | :red:`The animation   |
+| ed:```animation_id``` |                   | ID of the new         |
+|                       |                   | animation`            |
++-----------------------+-------------------+-----------------------+
 
 .. _h.4psnm1h0049e:
 
@@ -1322,29 +1358,34 @@ Fields
 Description
            
 
-Used for informing the backend of which frames have been received
+:blue:`Used for informing the backend of which frames have been
+received`
 
 .. _fields-10:
 
 Fields
       
 
-+--------------------+--------------------+--------------------------+
-| Name               | Type               | Description              |
-+====================+====================+==========================+
-| ``file_id``        | ``int32``          | Which file slot the      |
-|                    |                    | animation describes.     |
-+--------------------+--------------------+--------------------------+
-| ``received_frame`` | ``AnimationFrame`` | The ending point of the  |
-|                    |                    | animation.               |
-+--------------------+--------------------+--------------------------+
-| ``animation_id``   | ``int32``          | The animation ID that    |
-|                    |                    | the flow control message |
-|                    |                    | belongs to               |
-+--------------------+--------------------+--------------------------+
-| ``timestamp``      | ``int64``          | Timestamp at which the   |
-|                    |                    | frame was received       |
-+--------------------+--------------------+--------------------------+
++----------------------+----------------------+----------------------+
+| :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
++======================+======================+======================+
+| :blue:```file_id```  | :blue:```int32```    | :blue:`Which file    |
+|                      |                      | slot the animation   |
+|                      |                      | describes.`          |
++----------------------+----------------------+----------------------+
+| :blue:               | :blue:               | :blue:`The ending    |
+| ```received_frame``` | ```AnimationFrame``` | point of the         |
+|                      |                      | animation.`          |
++----------------------+----------------------+----------------------+
+| :blu                 | :blue:```int32```    | :blue:`The animation |
+| e:```animation_id``` |                      | ID that the flow     |
+|                      |                      | control message      |
+|                      |                      | belongs to`          |
++----------------------+----------------------+----------------------+
+| :                    | :blue:```int64```    | :blue:`Timestamp at  |
+| blue:```timestamp``` |                      | which the frame was  |
+|                      |                      | received`            |
++----------------------+----------------------+----------------------+
 
 .. _h.h1nxgp4bn1sx:
 
@@ -1356,20 +1397,24 @@ Fields
 Description
            
 
-Stops a playing animation.
+:blue:`Stops a playing animation.`
 
 .. _fields-11:
 
 Fields
       
 
-+---------------+--------------------+------------------------------------------+
-| Name          | Type               | Description                              |
-+===============+====================+==========================================+
-| ``file_id``   | ``int32``          | Which file slot the animation describes. |
-+---------------+--------------------+------------------------------------------+
-| ``end_frame`` | ``AnimationFrame`` | The latest flow control frame received.  |
-+---------------+--------------------+------------------------------------------+
++----------------------+----------------------+----------------------+
+| :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
++======================+======================+======================+
+| :blue:```file_id```  | :blue:```int32```    | :blue:`Which file    |
+|                      |                      | slot the animation   |
+|                      |                      | describes.`          |
++----------------------+----------------------+----------------------+
+| :                    | :blue:               | :blue:`The latest    |
+| blue:```end_frame``` | ```AnimationFrame``` | flow control frame   |
+|                      |                      | received.`           |
++----------------------+----------------------+----------------------+
 
 .. _h.phs5ttglm95:
 
@@ -1381,9 +1426,9 @@ Fields
 Description
            
 
-Sets the current cursor position in image space coordinates. The cursor
-defines a special case of a region (with region ID = 0), with a single
-control point.
+:blue:`Sets the current cursor position in image space coordinates. The
+cursor defines a special case of a region (with region ID = 0), with a
+single control point.`
 
 .. _fields-12:
 
@@ -1391,21 +1436,22 @@ Fields
       
 
 +----------------------+----------------------+----------------------+
-| Name                 | Type                 | Description          |
+| :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
 +======================+======================+======================+
-| ``file_id``          | ``int32``            | Which file slot the  |
-|                      |                      | cursor is moving     |
-|                      |                      | over                 |
+| :blue:```file_id```  | :blue:```int32```    | :blue:`Which file    |
+|                      |                      | slot the cursor is   |
+|                      |                      | moving over`         |
 +----------------------+----------------------+----------------------+
-| ``point``            | ``                   | XY-coordinates of    |
-|                      | Point {  x: float;`` | cursor in image      |
-|                      | ``y: float;}``       | space                |
+| :blue:```point```    | :blue:```            | :                    |
+|                      | Point {  x: float;`` | blue:`XY-coordinates |
+|                      | ``y: float;}```      | of cursor in image   |
+|                      |                      | space`               |
 +----------------------+----------------------+----------------------+
-| ``sp                 | ``SET_SP             | Optional spatial     |
-| atial_requirements`` | ATIAL_REQUIREMENTS`` | requirements message |
-|                      |                      | applied at the same  |
-|                      |                      | time as the cursor   |
-|                      |                      | update.              |
+| :blue:```spa         | ``SET_SP             | :blue:`Optional      |
+| tial_requirements``` | ATIAL_REQUIREMENTS`` | spatial requirements |
+|                      |                      | message applied at   |
+|                      |                      | the same time as the |
+|                      |                      | cursor update.`      |
 +----------------------+----------------------+----------------------+
 
 .. _h.h8gjsouxzb4y:
@@ -1418,28 +1464,33 @@ Fields
 Description
            
 
-Creates or updates a region. Backend responds
-with\ ```SET_REGION_ACK`` <#h.mx7hy8di73cf>`__
+:blue:`Creates or updates a region. Backend responds
+with`\ ```SET_REGION_ACK`` <#h.mx7hy8di73cf>`__
 
 .. _fields-13:
 
 Fields
       
 
-+-----------------+----------------+---------------------------------+
-| Name            | Type           | Description                     |
-+=================+================+=================================+
-| ``file_id``     | ``int32``      | File ID of the reference image, |
-|                 |                | which defines the image space   |
-|                 |                | of the control points.          |
-+-----------------+----------------+---------------------------------+
-| ``region_id``   | ``int32``      | Unique region ID. <= 0 if a new |
-|                 |                | region is being created.        |
-+-----------------+----------------+---------------------------------+
-| ``region_info`` | ``RegionInfo`` | Submessage describing region    |
-|                 |                | type, control points, and       |
-|                 |                | rotation                        |
-+-----------------+----------------+---------------------------------+
++-----------------------+-------------------+-----------------------+
+| :blue:`Name`          | :blue:`Type`      | :blue:`Description`   |
++=======================+===================+=======================+
+| :blue:```file_id```   | :blue:```int32``` | :blue:`File ID of the |
+|                       |                   | reference image,      |
+|                       |                   | which defines the     |
+|                       |                   | image space of the    |
+|                       |                   | control points.`      |
++-----------------------+-------------------+-----------------------+
+| :blue:```region_id``` | :blue:```int32``` | :blue:`Unique region  |
+|                       |                   | ID. <= 0 if a new     |
+|                       |                   | region is being       |
+|                       |                   | created.`             |
++-----------------------+-------------------+-----------------------+
+| :b                    | ``RegionInfo``    | :blue:`Submessage     |
+| lue:```region_info``` |                   | describing region     |
+|                       |                   | type, control points, |
+|                       |                   | and rotation`         |
++-----------------------+-------------------+-----------------------+
 
 .. _h.mx7hy8di73cf:
 
@@ -1451,32 +1502,39 @@ Fields
 Description
            
 
-Response for ``SET_REGION``.
+:red:`Response for ``SET_REGION``.`
 
 .. _fields-14:
 
 Fields
       
 
-+---------------+------------+---------------------------------------+
-| Name          | Type       | Description                           |
-+===============+============+=======================================+
-| ``success``   | ``bool``   | Defines                               |
-|               |            | whether\ ```S                         |
-|               |            | ET_REGION`` <#h.h8gjsouxzb4y>`__\ was |
-|               |            | successful                            |
-+---------------+------------+---------------------------------------+
-| ``message``   | ``string`` | Error message (if applicable)         |
-+---------------+------------+---------------------------------------+
-| ``region_id`` | ``int32``  | The unique region ID. If the region   |
-|               |            | is updated, this will be the same as  |
-|               |            | the region ID specified               |
-|               |            | in\ ``                                |
-|               |            | `SET_REGION`` <#h.h8gjsouxzb4y>`__\ . |
-|               |            | If a new region is being created, the |
-|               |            | ID of the new region will be passed   |
-|               |            | back.                                 |
-+---------------+------------+---------------------------------------+
++----------------------+-------------------+-----------------------+
+| :red:`Name`          | :red:`Type`       | :red:`Description`    |
++======================+===================+=======================+
+| :red:```success```   | :red:```bool```   | :red:`Defines         |
+|                      |                   | whether`\ ```SE       |
+|                      |                   | T_REGION`` <#h.h8gjso |
+|                      |                   | uxzb4y>`__\ :red:`was |
+|                      |                   | successful`           |
++----------------------+-------------------+-----------------------+
+| :red:```message```   | :red:```string``` | :red:`Error message   |
+|                      |                   | (if applicable)`      |
++----------------------+-------------------+-----------------------+
+| :red:```region_id``` | :red:```int32```  | :red:`The unique      |
+|                      |                   | region ID. If the     |
+|                      |                   | region is updated,    |
+|                      |                   | this will be the same |
+|                      |                   | as the region ID      |
+|                      |                   | specified             |
+|                      |                   | in`\ ```              |
+|                      |                   | SET_REGION`` <#h.h8gj |
+|                      |                   | souxzb4y>`__\ :red:`. |
+|                      |                   | If a new region is    |
+|                      |                   | being created, the ID |
+|                      |                   | of the new region     |
+|                      |                   | will be passed back.` |
++----------------------+-------------------+-----------------------+
 
 .. _h.ks01i4n5pc34:
 
@@ -1488,18 +1546,20 @@ Fields
 Description
            
 
-Removes a region.
+:blue:`Removes a region.`
 
 .. _fields-15:
 
 Fields
       
 
-============= ========= ============================================
-Name          Type      Description
-============= ========= ============================================
-``region_id`` ``int32`` Unique region ID of the region to be removed
-============= ========= ============================================
++-----------------------+-------------------+-----------------------+
+| :blue:`Name`          | :blue:`Type`      | :blue:`Description`   |
++=======================+===================+=======================+
+| :blue:```region_id``` | :blue:```int32``` | :blue:`Unique region  |
+|                       |                   | ID of the region to   |
+|                       |                   | be removed`           |
++-----------------------+-------------------+-----------------------+
 
 .. _h.d7wa3i4x96qh:
 
@@ -1511,33 +1571,41 @@ Name          Type      Description
 Description
            
 
-Requests the opening of a specific region file. Backend responds
-with\ ``IMPORT_REGION_ACK``
+:blue:`Requests the opening of a specific region file. Backend responds
+with`\ :red:```IMPORT_REGION_ACK```
 
 .. _fields-16:
 
 Fields
       
 
-+----------------+--------------+------------------------------------+
-| Name           | Type         | Description                        |
-+================+==============+====================================+
-| ``group_id``   | ``int32``    | the reference image (file id) in   |
-|                |              | the group to apply the region(s)   |
-|                |              | to                                 |
-+----------------+--------------+------------------------------------+
-| ``type``       | ``FileType`` | File type (4=REG, 5=CRTF)          |
-+----------------+--------------+------------------------------------+
-| ``directory``  | ``string``   | Directory name if importing from   |
-|                |              | SERVER; blank if CLIENT            |
-+----------------+--------------+------------------------------------+
-| ``file``       | ``string``   | File name if importing from        |
-|                |              | SERVER; blank if CLIENT            |
-+----------------+--------------+------------------------------------+
-| ``contents[]`` | ``string``   | File contents if importing from    |
-|                |              | CLIENT (one line per string);      |
-|                |              | blank if SERVER                    |
-+----------------+--------------+------------------------------------+
++----------------------+----------------------+----------------------+
+| :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
++======================+======================+======================+
+| :blue:```group_id``` | :blue:```int32```    | :blue:`the reference |
+|                      |                      | image (file id) in   |
+|                      |                      | the group to apply   |
+|                      |                      | the region(s) to`    |
++----------------------+----------------------+----------------------+
+| :blue:```type```     | :blue:```FileType``` | :blue:`File type     |
+|                      |                      | (4=REG, 5=CRTF)`     |
++----------------------+----------------------+----------------------+
+| :                    | :blue:```string```   | :blue:`Directory     |
+| blue:```directory``` |                      | name if importing    |
+|                      |                      | from SERVER; blank   |
+|                      |                      | if CLIENT`           |
++----------------------+----------------------+----------------------+
+| :blue:```file```     | :blue:```string```   | :blue:`File name if  |
+|                      |                      | importing from       |
+|                      |                      | SERVER; blank if     |
+|                      |                      | CLIENT`              |
++----------------------+----------------------+----------------------+
+| :b                   | :blue:```string```   | :blue:`File contents |
+| lue:```contents[]``` |                      | if importing from    |
+|                      |                      | CLIENT (one line per |
+|                      |                      | string); blank if    |
+|                      |                      | SERVER`              |
++----------------------+----------------------+----------------------+
 
 .. _h.n1bgpt70bnez:
 
@@ -1549,36 +1617,39 @@ Fields
 Description
            
 
-Response for\ ``IMPORT_REGION``\ . Also supplies IDs and properties of
-regions in file.
+:red:`Response for`\ :blue:```IMPORT_REGION```\ :red:`. Also supplies
+IDs and properties of regions in file.`
 
 .. _fields-17:
 
 Fields
       
 
-+-------------------+-----------------------+-----------------------+
-| Name              | Type                  | Description           |
-+===================+=======================+=======================+
-| ``success``       | ``bool``              | Defines               |
-|                   |                       | whether\ `            |
-|                   |                       | `IMPORT_REGION``\ was |
-|                   |                       | successful            |
-+-------------------+-----------------------+-----------------------+
-| ``message``       | ``string``            | Error message (if     |
-|                   |                       | applicable)           |
-+-------------------+-----------------------+-----------------------+
-| ``regions``       | ``map<int32           | For each region in    |
-|                   | , RegionInfo``\ ``>`` | the file, return a    |
-|                   |                       | unique region ID and  |
-|                   |                       | the region parameters |
-+-------------------+-----------------------+-----------------------+
-| ``region_styles`` | ``map<int32,          | For each region in    |
-|                   |  RegionStyle``\ ``>`` | the file, return a    |
-|                   |                       | unique region ID and  |
-|                   |                       | the region style      |
-|                   |                       | parameters            |
-+-------------------+-----------------------+-----------------------+
++----------------------+----------------------+----------------------+
+| :red:`Name`          | :red:`Type`          | :red:`Description`   |
++======================+======================+======================+
+| :red:```success```   | :red:```bool```      | :red:`Defines        |
+|                      |                      | whethe               |
+|                      |                      | r`\ :blue:```IMPORT_ |
+|                      |                      | REGION```\ :red:`was |
+|                      |                      | successful`          |
++----------------------+----------------------+----------------------+
+| :red:```message```   | :red:```string```    | :red:`Error message  |
+|                      |                      | (if applicable)`     |
++----------------------+----------------------+----------------------+
+| :red:```regions```   | :red:```map<int32,   | :red:`For each       |
+|                      | RegionInfo``\ ``>``` | region in the file,  |
+|                      |                      | return a unique      |
+|                      |                      | region ID and the    |
+|                      |                      | region parameters`   |
++----------------------+----------------------+----------------------+
+| :red                 | :red:```map<int32, R | :red:`For each       |
+| :```region_styles``` | egionStyle``\ ``>``` | region in the file,  |
+|                      |                      | return a unique      |
+|                      |                      | region ID and the    |
+|                      |                      | region style         |
+|                      |                      | parameters`          |
++----------------------+----------------------+----------------------+
 
 .. _h.iexn95l8v5kj:
 
@@ -1590,39 +1661,42 @@ Fields
 Description
            
 
-Requests exporting region(s); reverse of ``IMPORT_REGION.`` Backend
-responds with\ ``EXPORT_REGION_ACK``
+:blue:`Requests exporting region(s); reverse of ``IMPORT_REGION.``
+Backend responds with`\ :red:```EXPORT_REGION_ACK```
 
 .. _fields-18:
 
 Fields
       
 
-+-------------------+-----------------------+-----------------------+
-| Name              | Type                  | Description           |
-+===================+=======================+=======================+
-| ``type``          | ``FileType``          | File type (4=REG,     |
-|                   |                       | 5=CRTF)               |
-+-------------------+-----------------------+-----------------------+
-| ``coord_type``    | ``Enum CoordinateT    | Control points        |
-|                   | ype {    PIXEL = 0;`` | exported in pixel or  |
-|                   | ``WORLD = 1;}``       | wcs coordinates       |
-+-------------------+-----------------------+-----------------------+
-| ``file_id``       | ``int32``             | File ID for           |
-|                   |                       | coordinate system to  |
-|                   |                       | use.                  |
-+-------------------+-----------------------+-----------------------+
-| ``region_styles`` | ``map<int32,          | Region IDs and style  |
-|                   |  RegionStyle``\ ``>`` | parameters to export  |
-+-------------------+-----------------------+-----------------------+
-| ``directory``     | ``string``            | Directory name if     |
-|                   |                       | exporting to SERVER;  |
-|                   |                       | blank if CLIENT       |
-+-------------------+-----------------------+-----------------------+
-| ``file``          | ``string``            | File name if          |
-|                   |                       | exporting to SERVER;  |
-|                   |                       | blank if CLIENT       |
-+-------------------+-----------------------+-----------------------+
++----------------------+----------------------+----------------------+
+| :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
++======================+======================+======================+
+| :blue:```type```     | :blue:```FileType``` | :blue:`File type     |
+|                      |                      | (4=REG, 5=CRTF)`     |
++----------------------+----------------------+----------------------+
+| :b                   | :blue:               | :blue:`Control       |
+| lue:```coord_type``` | ```Enum CoordinateTy | points exported in   |
+|                      | pe {    PIXEL = 0;`` | pixel or wcs         |
+|                      | ``WORLD = 1;}```     | coordinates`         |
++----------------------+----------------------+----------------------+
+| :blue:```file_id```  | :blue:```int32```    | :blue:`File ID for   |
+|                      |                      | coordinate system to |
+|                      |                      | use.`                |
++----------------------+----------------------+----------------------+
+| :blue                | :                    | :blue:`Region IDs    |
+| :```region_styles``` | blue:```map<int32, R | and style parameters |
+|                      | egionStyle``\ ``>``` | to export`           |
++----------------------+----------------------+----------------------+
+| :                    | :blue:```string```   | :blue:`Directory     |
+| blue:```directory``` |                      | name if exporting to |
+|                      |                      | SERVER; blank if     |
+|                      |                      | CLIENT`              |
++----------------------+----------------------+----------------------+
+| :blue:```file```     | :blue:```string```   | :blue:`File name if  |
+|                      |                      | exporting to SERVER; |
+|                      |                      | blank if CLIENT`     |
++----------------------+----------------------+----------------------+
 
 .. _h.ynh4z171w4ha:
 
@@ -1634,25 +1708,30 @@ Fields
 Description
            
 
-Response for\ ``EXPORT_REGION``\ .
+:red:`Response for`\ :blue:```EXPORT_REGION```\ :red:`.`
 
 .. _fields-19:
 
 Fields
       
 
-+----------------+------------+--------------------------------------+
-| Name           | Type       | Description                          |
-+================+============+======================================+
-| ``success``    | ``bool``   | Defines                              |
-|                |            | whether\ ``EXPORT_REGION``\ was      |
-|                |            | successful                           |
-+----------------+------------+--------------------------------------+
-| ``message``    | ``string`` | Error message (if applicable)        |
-+----------------+------------+--------------------------------------+
-| ``contents[]`` | ``string`` | File contents if exporting to        |
-|                |            | CLIENT; blank if SERVER              |
-+----------------+------------+--------------------------------------+
++-----------------------+-------------------+-----------------------+
+| :red:`Name`           | :red:`Type`       | :red:`Description`    |
++=======================+===================+=======================+
+| :red:```success```    | :red:```bool```   | :red:`Defines         |
+|                       |                   | whet                  |
+|                       |                   | her`\ :blue:```EXPORT |
+|                       |                   | _REGION```\ :red:`was |
+|                       |                   | successful`           |
++-----------------------+-------------------+-----------------------+
+| :red:```message```    | :red:```string``` | :red:`Error message   |
+|                       |                   | (if applicable)`      |
++-----------------------+-------------------+-----------------------+
+| :red:```contents[]``` | :red:```string``` | :red:`File contents   |
+|                       |                   | if exporting to       |
+|                       |                   | CLIENT; blank if      |
+|                       |                   | SERVER`               |
++-----------------------+-------------------+-----------------------+
 
 .. _h.fhk5gv91nn2v:
 
@@ -1664,28 +1743,32 @@ Fields
 Description
            
 
-Sets which stats data needs to be streamed to the frontend when the
-region is updated
+:blue:`Sets which stats data needs to be streamed to the frontend when
+the region is updated`
 
 .. _fields-20:
 
 Fields
       
 
-+---------------+---------------+------------------------------------+
-| Name          | Type          | Description                        |
-+===============+===============+====================================+
-| ``file_id``   | ``int32``     | Which file slot the requirements   |
-|               |               | describe                           |
-+---------------+---------------+------------------------------------+
-| ``region_id`` | ``int32``     | ID of the region that is having    |
-|               |               | requirements defined. If a region  |
-|               |               | ID of -1 is given, this            |
-|               |               | corresponds to the entire 2D       |
-|               |               | image.                             |
-+---------------+---------------+------------------------------------+
-| ``stats[]``   | ``StatsType`` | List of required stats             |
-+---------------+---------------+------------------------------------+
++-----------------------+-------------------+-----------------------+
+| :blue:`Name`          | :blue:`Type`      | :blue:`Description`   |
++=======================+===================+=======================+
+| :blue:```file_id```   | :blue:```int32``` | :blue:`Which file     |
+|                       |                   | slot the requirements |
+|                       |                   | describe`             |
++-----------------------+-------------------+-----------------------+
+| :blue:```region_id``` | :blue:```int32``` | :blue:`ID of the      |
+|                       |                   | region that is having |
+|                       |                   | requirements defined. |
+|                       |                   | If a region ID of -1  |
+|                       |                   | is given, this        |
+|                       |                   | corresponds to the    |
+|                       |                   | entire 2D image.`     |
++-----------------------+-------------------+-----------------------+
+| :blue:```stats[]```   | ``StatsType``     | :blue:`List of        |
+|                       |                   | required stats`       |
++-----------------------+-------------------+-----------------------+
 
 .. _h.t18lsmc1msfy:
 
@@ -1697,49 +1780,55 @@ Fields
 Description
            
 
-Sets which histogram data needs to be streamed to the frontend when the
-region is updated
+:blue:`Sets which histogram data needs to be streamed to the frontend
+when the region is updated`
 
 .. _fields-21:
 
 Fields
       
 
-+------------------+------------------------+------------------------+
-| Name             | Type                   | Description            |
-+==================+========================+========================+
-| ``file_id``      | ``int32``              | Which file slot the    |
-|                  |                        | requirements describe  |
-+------------------+------------------------+------------------------+
-| ``region_id``    | ``int32``              | ID of the region that  |
-|                  |                        | is having requirements |
-|                  |                        | defined. If a region   |
-|                  |                        | ID of -1 is given,     |
-|                  |                        | this corresponds to    |
-|                  |                        | the entire 2D image.   |
-|                  |                        | If a region ID of -2   |
-|                  |                        | is given, this         |
-|                  |                        | corresponds to the     |
-|                  |                        | entire 3D cube.        |
-+------------------+------------------------+------------------------+
-| ``histograms[]`` | ``HistogramConfig {``  | List of required       |
-|                  | ``channel: int32;  num | histograms, along with |
-|                  | _bins: int32;``\ ``}`` | the number of bins. If |
-|                  |                        | the channel is -1, the |
-|                  |                        | current channel is     |
-|                  |                        | used. If the channel   |
-|                  |                        | is -2, the histogram   |
-|                  |                        | is constructed over    |
-|                  |                        | all channels. If the   |
-|                  |                        | number of bins is less |
-|                  |                        | than zero, an          |
-|                  |                        | automatic bin size is  |
-|                  |                        | used, based on the     |
-|                  |                        | number of values. If   |
-|                  |                        | the array is empty, no |
-|                  |                        | histograms are         |
-|                  |                        | required               |
-+------------------+------------------------+------------------------+
++----------------------+----------------------+----------------------+
+| :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
++======================+======================+======================+
+| :blue:```file_id```  | :blue:```int32```    | :blue:`Which file    |
+|                      |                      | slot the             |
+|                      |                      | requirements         |
+|                      |                      | describe`            |
++----------------------+----------------------+----------------------+
+| :                    | :blue:```int32```    | :blue:`ID of the     |
+| blue:```region_id``` |                      | region that is       |
+|                      |                      | having requirements  |
+|                      |                      | defined. If a region |
+|                      |                      | ID of -1 is given,   |
+|                      |                      | this corresponds to  |
+|                      |                      | the entire 2D image. |
+|                      |                      | If a region ID of -2 |
+|                      |                      | is given, this       |
+|                      |                      | corresponds to the   |
+|                      |                      | entire 3D cube.`     |
++----------------------+----------------------+----------------------+
+| :blu                 | :blue:``             | :blue:`List of       |
+| e:```histograms[]``` | `HistogramConfig {`` | required histograms, |
+|                      | ``cha                | along with the       |
+|                      | nnel: int32;  num_bi | number of bins. If   |
+|                      | ns: int32;``\ ``}``` | the channel is -1,   |
+|                      |                      | the current channel  |
+|                      |                      | is used. If the      |
+|                      |                      | channel is -2, the   |
+|                      |                      | histogram is         |
+|                      |                      | constructed over all |
+|                      |                      | channels. If the     |
+|                      |                      | number of bins is    |
+|                      |                      | less than zero, an   |
+|                      |                      | automatic bin size   |
+|                      |                      | is used, based on    |
+|                      |                      | the number of        |
+|                      |                      | values. If the array |
+|                      |                      | is empty, no         |
+|                      |                      | histograms are       |
+|                      |                      | required`            |
++----------------------+----------------------+----------------------+
 
 .. _h.7lk8s261f1r5:
 
@@ -1751,41 +1840,47 @@ Fields
 Description
            
 
-Sets which spatial profile data needs to be streamed to the frontend
-when the region is updated
+:blue:`Sets which spatial profile data needs to be streamed to the
+frontend when the region is updated`
 
 .. _fields-22:
 
 Fields
       
 
-+------------------------+------------+---------------------------+
-| Name                   | Type       | Description               |
-+========================+============+===========================+
-| ``file_id``            | ``int32``  | Which file slot the       |
-|                        |            | requirements describe     |
-+------------------------+------------+---------------------------+
-| ``region_id``          | ``int32``  | ID of the region that is  |
-|                        |            | having requirements       |
-|                        |            | defined. If a region ID   |
-|                        |            | of 0 is given, this       |
-|                        |            | corresponds to the point  |
-|                        |            | region defined by the     |
-|                        |            | cursor position.          |
-+------------------------+------------+---------------------------+
-| ``spatial_profiles[]`` | ``string`` | List of spatial profiles  |
-|                        |            | needed (for example,      |
-|                        |            | [“Qx, “Ux”] will include  |
-|                        |            | the X-profile of the Q    |
-|                        |            | and U Stokes cube,        |
-|                        |            | regardless of which       |
-|                        |            | Stokes parameter is       |
-|                        |            | currently in use). If no  |
-|                        |            | Stokes parameter is       |
-|                        |            | specified (i.e. just “x”  |
-|                        |            | or “y”), the active       |
-|                        |            | Stokes parameter is used. |
-+------------------------+------------+---------------------------+
++-----------------------+--------------------+-----------------------+
+| :blue:`Name`          | :blue:`Type`       | :blue:`Description`   |
++=======================+====================+=======================+
+| :blue:```file_id```   | :blue:```int32```  | :blue:`Which file     |
+|                       |                    | slot the requirements |
+|                       |                    | describe`             |
++-----------------------+--------------------+-----------------------+
+| :blue:```region_id``` | :blue:```int32```  | :blue:`ID of the      |
+|                       |                    | region that is having |
+|                       |                    | requirements defined. |
+|                       |                    | If a region ID of 0   |
+|                       |                    | is given, this        |
+|                       |                    | corresponds to the    |
+|                       |                    | point region defined  |
+|                       |                    | by the cursor         |
+|                       |                    | position.`            |
++-----------------------+--------------------+-----------------------+
+| :blue:```             | :blue:```string``` | :blue:`List of        |
+| spatial_profiles[]``` |                    | spatial profiles      |
+|                       |                    | needed (for example,  |
+|                       |                    | [“Qx, “Ux”] will      |
+|                       |                    | include the X-profile |
+|                       |                    | of the Q and U Stokes |
+|                       |                    | cube, regardless of   |
+|                       |                    | which Stokes          |
+|                       |                    | parameter is          |
+|                       |                    | currently in use). If |
+|                       |                    | no Stokes parameter   |
+|                       |                    | is specified (i.e.    |
+|                       |                    | just “x” or “y”), the |
+|                       |                    | active Stokes         |
+|                       |                    | parameter is used.`   |
++-----------------------+--------------------+-----------------------+
 
 .. _h.rr0ni01iupo5:
 
@@ -1797,8 +1892,8 @@ Fields
 Description
            
 
-Sets which spectral profile data needs to be streamed to the frontend
-when the region is updated
+:blue:`Sets which spectral profile data needs to be streamed to the
+frontend when the region is updated`
 
 .. _fields-23:
 
@@ -1806,28 +1901,30 @@ Fields
       
 
 +----------------------+----------------------+----------------------+
-| Name                 | Type                 | Description          |
+| :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
 +======================+======================+======================+
-| ``file_id``          | ``int32``            | Which file slot the  |
+| :blue:```file_id```  | :blue:```int32```    | :blue:`Which file    |
+|                      |                      | slot the             |
 |                      |                      | requirements         |
-|                      |                      | describe             |
+|                      |                      | describe`            |
 +----------------------+----------------------+----------------------+
-| ``region_id``        | ``int32``            | ID of the region     |
-|                      |                      | that is having       |
-|                      |                      | requirements         |
+| :                    | :blue:```int32```    | :blue:`ID of the     |
+| blue:```region_id``` |                      | region that is       |
+|                      |                      | having requirements  |
 |                      |                      | defined. If a region |
 |                      |                      | ID of 0 is given,    |
 |                      |                      | this corresponds to  |
 |                      |                      | the point region     |
 |                      |                      | defined by the       |
-|                      |                      | cursor position.     |
+|                      |                      | cursor position.`    |
 +----------------------+----------------------+----------------------+
-| ``s                  | `                    | List of spectral     |
-| pectral_profiles[]`` | `SpectralConfig {  c | profiles needed (for |
-|                      | oordinate: string;`` | example, [“Qz”,      |
-|                      | ``stats_types[]      | “Uz”] will include   |
-|                      | : StatsType``\ ``}`` | the Z-profile of the |
-|                      |                      | Q and U Stokes cube, |
+| :blue:```sp          | :blue:``             | :blue:`List of       |
+| ectral_profiles[]``` | `SpectralConfig {  c | spectral profiles    |
+|                      | oordinate: string;`` | needed (for example, |
+|                      | ``stats_types[]:     | [“Qz”, “Uz”] will    |
+|                      |  StatsType``\ ``}``` | include the          |
+|                      |                      | Z-profile of the Q   |
+|                      |                      | and U Stokes cube,   |
 |                      |                      | regardless of which  |
 |                      |                      | Stokes parameter is  |
 |                      |                      | currently in use),   |
@@ -1844,7 +1941,7 @@ Fields
 |                      |                      | If the region is a   |
 |                      |                      | point region, the    |
 |                      |                      | ``statsTypes`` field |
-|                      |                      | is ignored.          |
+|                      |                      | is ignored.`         |
 +----------------------+----------------------+----------------------+
 
 .. _h.vhm5hkfc1fn5:
@@ -1857,23 +1954,25 @@ Fields
 Description
            
 
-Sets or clears one or more user preferences
+:blue:`Sets or clears one or more user preferences`
 
 .. _fields-24:
 
 Fields
       
 
-+--------------------+-----------------------+-----------------------+
-| Name               | Type                  | Description           |
-+====================+=======================+=======================+
-| ``preference_map`` | ``map<key: str        | Map of preferences to |
-|                    | ing, value: string>`` | update. If an entry’s |
-|                    |                       | value is empty, the   |
-|                    |                       | preference entry is   |
-|                    |                       | cleared from the      |
-|                    |                       | server database       |
-+--------------------+-----------------------+-----------------------+
++----------------------+----------------------+----------------------+
+| :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
++======================+======================+======================+
+| :blue:               | :bl                  | :blue:`Map of        |
+| ```preference_map``` | ue:```map<key: strin | preferences to       |
+|                      | g, value: string>``` | update. If an        |
+|                      |                      | entry’s value is     |
+|                      |                      | empty, the           |
+|                      |                      | preference entry is  |
+|                      |                      | cleared from the     |
+|                      |                      | server database`     |
++----------------------+----------------------+----------------------+
 
 .. _h.m30663srh3il:
 
@@ -1885,21 +1984,23 @@ Fields
 Description
            
 
-Response for ``SET_USER_PREFERENCES``
+:red:`Response for ``SET_USER_PREFERENCES```
 
 .. _fields-25:
 
 Fields
       
 
-+-------------+------------+-----------------------------------------+
-| Name        | Type       | Description                             |
-+=============+============+=========================================+
-| ``success`` | ``bool``   | Defines whether                         |
-|             |            | ``SET_USER_PREFERENCES`` was successful |
-+-------------+------------+-----------------------------------------+
-| ``message`` | ``string`` | Error message (if applicable)           |
-+-------------+------------+-----------------------------------------+
++--------------------+-------------------+---------------------------+
+| :red:`Name`        | :red:`Type`       | :red:`Description`        |
++====================+===================+===========================+
+| :red:```success``` | :red:```bool```   | :red:`Defines whether     |
+|                    |                   | ``SET_USER_PREFERENCES``  |
+|                    |                   | was successful`           |
++--------------------+-------------------+---------------------------+
+| :red:```message``` | :red:```string``` | :red:`Error message (if   |
+|                    |                   | applicable)`              |
++--------------------+-------------------+---------------------------+
 
 .. _h.tiies27npf81:
 
@@ -1911,25 +2012,30 @@ Fields
 Description
            
 
-Sets or clears a user layout
+:blue:`Sets or clears a user layout`
 
 .. _fields-26:
 
 Fields
       
 
-+-----------+------------+-------------------------------------------+
-| Name      | Type       | Description                               |
-+===========+============+===========================================+
-| ``name``  | ``string`` | Name of the layout to update. If no       |
-|           |            | layout with the given name is present in  |
-|           |            | the server database, a new layout is      |
-|           |            | created                                   |
-+-----------+------------+-------------------------------------------+
-| ``value`` | ``string`` | JSON string representing the layout. If   |
-|           |            | the value is empty, the user layout is    |
-|           |            | cleared from the server database.         |
-+-----------+------------+-------------------------------------------+
++-------------------+--------------------+---------------------------+
+| :blue:`Name`      | :blue:`Type`       | :blue:`Description`       |
++===================+====================+===========================+
+| :blue:```name```  | :blue:```string``` | :blue:`Name of the layout |
+|                   |                    | to update. If no layout   |
+|                   |                    | with the given name is    |
+|                   |                    | present in the server     |
+|                   |                    | database, a new layout is |
+|                   |                    | created`                  |
++-------------------+--------------------+---------------------------+
+| :blue:```value``` | :blue:```string``` | :blue:`JSON string        |
+|                   |                    | representing the layout.  |
+|                   |                    | If the value is empty,    |
+|                   |                    | the user layout is        |
+|                   |                    | cleared from the server   |
+|                   |                    | database.`                |
++-------------------+--------------------+---------------------------+
 
 .. _h.gwhrluowrwe6:
 
@@ -1941,20 +2047,23 @@ Fields
 Description
            
 
-Response for ``SET_USER_LAYOUT``
+:red:`Response for ``SET_USER_LAYOUT```
 
 .. _fields-27:
 
 Fields
       
 
-+-------------+------------+----------------------------------------------------+
-| Name        | Type       | Description                                        |
-+=============+============+====================================================+
-| ``success`` | ``bool``   | Defines whether ``SET_USER_LAYOUT`` was successful |
-+-------------+------------+----------------------------------------------------+
-| ``message`` | ``string`` | Error message (if applicable)                      |
-+-------------+------------+----------------------------------------------------+
++--------------------+-------------------+---------------------------+
+| :red:`Name`        | :red:`Type`       | :red:`Description`        |
++====================+===================+===========================+
+| :red:```success``` | :red:```bool```   | :red:`Defines whether     |
+|                    |                   | ``SET_USER_LAYOUT`` was   |
+|                    |                   | successful`               |
++--------------------+-------------------+---------------------------+
+| :red:```message``` | :red:```string``` | :red:`Error message (if   |
+|                    |                   | applicable)`              |
++--------------------+-------------------+---------------------------+
 
 .. _h.e2p7hzy1pnb6:
 
@@ -1966,59 +2075,65 @@ Fields
 Description
            
 
-Sets the contour parameters for a file
+:blue:`Sets the contour parameters for a file`
 
 .. _fields-28:
 
 Fields
       
 
-+-----------------------+-------------------+-----------------------+
-| Name                  | Type              | Description           |
-+=======================+===================+=======================+
-| ``file_id``           | ``int32``         | The file ID that the  |
-|                       |                   | contour corresponds   |
-|                       |                   | to                    |
-+-----------------------+-------------------+-----------------------+
-| ``reference_file_id`` | ``int32``         | The file ID of the    |
-|                       |                   | reference image that  |
-|                       |                   | the contour vertices  |
-|                       |                   | should be mapped to   |
-+-----------------------+-------------------+-----------------------+
-| ``image_bounds``      | ``ImageBounds``   | The XY bounds         |
-|                       |                   | corresponding to the  |
-|                       |                   | image data in pixel   |
-|                       |                   | coordinates           |
-+-----------------------+-------------------+-----------------------+
-| ``levels``            | ``double[]``      | Contour levels        |
-+-----------------------+-------------------+-----------------------+
-| ``smoothing_mode``    | ``SmoothingMode`` | Pre-contouring        |
-|                       |                   | smoothing mode        |
-+-----------------------+-------------------+-----------------------+
-| ``smoothing_factor``  | ``int32``         | Contour smoothness    |
-|                       |                   | factor. For block     |
-|                       |                   | averaging, this is    |
-|                       |                   | the block width. For  |
-|                       |                   | Gaussian smoothing,   |
-|                       |                   | this defines both the |
-|                       |                   | Gaussian width, and   |
-|                       |                   | the kernel size       |
-+-----------------------+-------------------+-----------------------+
-| ``decimation_factor`` | ``int32``         | Indicates to what     |
-|                       |                   | 1/Nth of a pixel the  |
-|                       |                   | contour vertices      |
-|                       |                   | should be rounded to  |
-+-----------------------+-------------------+-----------------------+
-| ``compression_level`` | ``int32``         | Zstd compression      |
-|                       |                   | level                 |
-+-----------------------+-------------------+-----------------------+
-| `                     | ``int32``         | Preferred size of     |
-| `contour_chunk_size`` |                   | contour chunks, in    |
-|                       |                   | number of vertices.   |
-|                       |                   | If this is set to     |
-|                       |                   | zero, partial contour |
-|                       |                   | results are not used  |
-+-----------------------+-------------------+-----------------------+
++----------------------+----------------------+----------------------+
+| :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
++======================+======================+======================+
+| :blue:```file_id```  | :blue:```int32```    | :blue:`The file ID   |
+|                      |                      | that the contour     |
+|                      |                      | corresponds to`      |
++----------------------+----------------------+----------------------+
+| :blue:```            | :blue:```int32```    | :blue:`The file ID   |
+| reference_file_id``` |                      | of the reference     |
+|                      |                      | image that the       |
+|                      |                      | contour vertices     |
+|                      |                      | should be mapped to` |
++----------------------+----------------------+----------------------+
+| :blu                 | ``ImageBounds``      | :blue:`The XY bounds |
+| e:```image_bounds``` |                      | corresponding to the |
+|                      |                      | image data in pixel  |
+|                      |                      | coordinates`         |
++----------------------+----------------------+----------------------+
+| :blue:```levels```   | :blue:```double[]``` | :blue:`Contour       |
+|                      |                      | levels`              |
++----------------------+----------------------+----------------------+
+| :blue:               | ``SmoothingMode``    | :                    |
+| ```smoothing_mode``` |                      | blue:`Pre-contouring |
+|                      |                      | smoothing mode`      |
++----------------------+----------------------+----------------------+
+| :blue:``             | :blue:```int32```    | :blue:`Contour       |
+| `smoothing_factor``` |                      | smoothness factor.   |
+|                      |                      | For block averaging, |
+|                      |                      | this is the block    |
+|                      |                      | width. For Gaussian  |
+|                      |                      | smoothing, this      |
+|                      |                      | defines both the     |
+|                      |                      | Gaussian width, and  |
+|                      |                      | the kernel size`     |
++----------------------+----------------------+----------------------+
+| :blue:```            | :blue:```int32```    | :blue:`Indicates to  |
+| decimation_factor``` |                      | what 1/Nth of a      |
+|                      |                      | pixel the contour    |
+|                      |                      | vertices should be   |
+|                      |                      | rounded to`          |
++----------------------+----------------------+----------------------+
+| :blue:```            | :blue:```int32```    | :blue:`Zstd          |
+| compression_level``` |                      | compression level`   |
++----------------------+----------------------+----------------------+
+| :blue:```c           | :blue:```int32```    | :blue:`Preferred     |
+| ontour_chunk_size``` |                      | size of contour      |
+|                      |                      | chunks, in number of |
+|                      |                      | vertices. If this is |
+|                      |                      | set to zero, partial |
+|                      |                      | contour results are  |
+|                      |                      | not used`            |
++----------------------+----------------------+----------------------+
 
 .. _h.xz67c638g5k3:
 
@@ -2030,24 +2145,26 @@ Fields
 Description
            
 
-Recover the viewer’s state on the backend. If there are errors occur,
-backend responds an error message in ``RESUME_SESSION_ACK``.
+:blue:`Recover the viewer’s state on the backend. If there are errors
+occur, backend responds an error message in ``RESUME_SESSION_ACK``.`
 
 .. _fields-29:
 
 Fields
       
 
-+-------------------+-----------------------+-----------------------+
-| Name              | Type                  | Description           |
-+===================+=======================+=======================+
-| ``images``        | ``ImageProperties[]`` | A list of image       |
-|                   |                       | files, regions and    |
-|                   |                       | contours to open      |
-+-------------------+-----------------------+-----------------------+
-| ``catalog_files`` | ``OpenCatalogFile[]`` | A list of catalog     |
-|                   |                       | files to open         |
-+-------------------+-----------------------+-----------------------+
++----------------------+----------------------+----------------------+
+| :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
++======================+======================+======================+
+| :blue:```images```   | :blue:```            | :blue:`A list of     |
+|                      | ImageProperties[]``` | image files, regions |
+|                      |                      | and contours to      |
+|                      |                      | open`                |
++----------------------+----------------------+----------------------+
+| :blue                | :blue:```            | :blue:`A list of     |
+| :```catalog_files``` | OpenCatalogFile[]``` | catalog files to     |
+|                      |                      | open`                |
++----------------------+----------------------+----------------------+
 
 .. _h.p84tvda4sw2q:
 
@@ -2064,54 +2181,63 @@ Description
 Fields
       
 
-+-------------+------------+-----------------------------------------+
-| Name        | Type       | Description                             |
-+=============+============+=========================================+
-| ``success`` | ``bool``   | Defines whether ``RESUME_SESSION`` is   |
-|             |            | successful                              |
-+-------------+------------+-----------------------------------------+
-| ``message`` | ``string`` | The error message if success is false,  |
-|             |            | otherwise leave it as blank             |
-+-------------+------------+-----------------------------------------+
++--------------------+-------------------+---------------------------+
+| :red:`Name`        | :red:`Type`       | :red:`Description`        |
++====================+===================+===========================+
+| :red:```success``` | :red:```bool```   | :red:`Defines whether     |
+|                    |                   | ``RESUME_SESSION`` is     |
+|                    |                   | successful`               |
++--------------------+-------------------+---------------------------+
+| :red:```message``` | :red:```string``` | :red:`The error message   |
+|                    |                   | if success is false,      |
+|                    |                   | otherwise leave it as     |
+|                    |                   | blank`                    |
++--------------------+-------------------+---------------------------+
 
 .. _h.etdc7scikk0:
 
-``OPEN_CATALOG_FILE`` (\ OpenCatalogFile)
-'''''''''''''''''''''''''''''''''''''''''
+:blue:```OPEN_CATALOG_FILE`` (`\ :blue:`OpenCatalogFile`:blue:`)`
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 .. _description-31:
 
 Description
            
 
-Requests the opening of a specific catalog file. Backend responds with
-``OPEN_CATALOG_FILE_ACK``
+:blue:`Requests the opening of a specific catalog file. Backend responds
+with ``OPEN_CATALOG_FILE_ACK```
 
 .. _fields-31:
 
 Fields
       
 
-+-----------------------+------------+---------------------------+
-| Name                  | Type       | Description               |
-+=======================+============+===========================+
-| ``directory``         | ``string`` | Defines whether           |
-|                       |            | ``OPEN_CATALOG_FILE`` was |
-|                       |            | successful                |
-+-----------------------+------------+---------------------------+
-| ``name``              | ``string`` | Required file name        |
-+-----------------------+------------+---------------------------+
-| ``file_id``           | ``int32``  | Unique file identifier.   |
-|                       |            | Which catalog file to     |
-|                       |            | open.                     |
-+-----------------------+------------+---------------------------+
-| ``preview_data_size`` | ``int32``  | The size of CatalogData   |
-|                       |            | returned by               |
-|                       |            | ``OPEN_CATALOG_FILE,`` if |
-|                       |            | this value is equal to    |
-|                       |            | zero, the default number  |
-|                       |            | of rows (50) is sent.     |
-+-----------------------+------------+---------------------------+
++-----------------------+--------------------+-----------------------+
+| :blue:`Name`          | :blue:`Type`       | :blue:`Description`   |
++=======================+====================+=======================+
+| :blue:```directory``` | :blue:```string``` | :blue:`Defines        |
+|                       |                    | whether               |
+|                       |                    | ``OPEN_CATALOG_FILE`` |
+|                       |                    | was successful`       |
++-----------------------+--------------------+-----------------------+
+| :blue:```name```      | :blue:```string``` | :blue:`Required file  |
+|                       |                    | name`                 |
++-----------------------+--------------------+-----------------------+
+| :blue:```file_id```   | :blue:```int32```  | :blue:`Unique file    |
+|                       |                    | identifier. Which     |
+|                       |                    | catalog file to       |
+|                       |                    | open.`                |
++-----------------------+--------------------+-----------------------+
+| :blue:``              | :blue:```int32```  | :blue:`The size of    |
+| `preview_data_size``` |                    | CatalogData returned  |
+|                       |                    | by                    |
+|                       |                    | `                     |
+|                       |                    | `OPEN_CATALOG_FILE,`` |
+|                       |                    | if this value is      |
+|                       |                    | equal to zero, the    |
+|                       |                    | default number of     |
+|                       |                    | rows (50) is sent.`   |
++-----------------------+--------------------+-----------------------+
 
 .. _h.s5kloul8uckk:
 
@@ -2123,39 +2249,42 @@ Fields
 Description
            
 
-Response for\ ``OPEN_CATALOG_FILE``
+Response for\ :red:```OPEN_CATALOG_FILE```
 
 .. _fields-32:
 
 Fields
       
 
-+------------------+------------------------+------------------------+
-| Name             | Type                   | Description            |
-+==================+========================+========================+
-| ``success``      | ``bool``               | Defines whether        |
-|                  |                        | ​OPEN_CATALOG_FILE was |
-|                  |                        | successful             |
-+------------------+------------------------+------------------------+
-| ``message``      | ``string``             | Error message (if      |
-|                  |                        | applicable)            |
-+------------------+------------------------+------------------------+
-| ``file_id``      | ``int32``              | Unique file identifier |
-|                  |                        | to open                |
-+------------------+------------------------+------------------------+
-| ``file_info``    | ``CatalogFileInfo``    | Basic file info name   |
-|                  |                        | and type and           |
-|                  |                        | description.           |
-+------------------+------------------------+------------------------+
-| ``data_size``    | ``int32``              | Size of table data     |
-|                  |                        | (total row number) for |
-|                  |                        | this file              |
-+------------------+------------------------+------------------------+
-| ``headers[]``    | ``CatalogHeader``      | Table header info      |
-+------------------+------------------------+------------------------+
-| ``preview_data`` | ``ma                   | Returned data for user |
-|                  | p<int32, ColumnData>`` | preview                |
-+------------------+------------------------+------------------------+
++----------------------+----------------------+----------------------+
+| :red:`Name`          | :red:`Type`          | :red:`Description`   |
++======================+======================+======================+
+| :red:```success```   | :red:```bool```      | :red:`Defines        |
+|                      |                      | whether              |
+|                      |                      | ​OPEN_CATALOG_FILE   |
+|                      |                      | was successful`      |
++----------------------+----------------------+----------------------+
+| :red:```message```   | :red:```string```    | :red:`Error message  |
+|                      |                      | (if applicable)`     |
++----------------------+----------------------+----------------------+
+| :red:```file_id```   | :red:```int32```     | :red:`Unique file    |
+|                      |                      | identifier to open`  |
++----------------------+----------------------+----------------------+
+| :red:```file_info``` | :red:`               | :red:`Basic file     |
+|                      | ``CatalogFileInfo``` | info name and type   |
+|                      |                      | and description.`    |
++----------------------+----------------------+----------------------+
+| :red:```data_size``` | :red:```int32```     | :red:`Size of table  |
+|                      |                      | data (total row      |
+|                      |                      | number) for this     |
+|                      |                      | file`                |
++----------------------+----------------------+----------------------+
+| :red:```headers[]``` | :red                 | :red:`Table header   |
+|                      | :```CatalogHeader``` | info`                |
++----------------------+----------------------+----------------------+
+| :re                  | :red:```map<i        | :red:`Returned data  |
+| d:```preview_data``` | nt32, ColumnData>``` | for user preview`    |
++----------------------+----------------------+----------------------+
 
 .. _h.c5p11srqqm32:
 
@@ -2167,18 +2296,19 @@ Fields
 Description
            
 
-Instructs the backend to close a file with a given file ID
+:blue:`Instructs the backend to close a file with a given file ID`
 
 .. _fields-33:
 
 Fields
       
 
-=========== ========= ===============================
-Name        Type      Description
-=========== ========= ===============================
-``file_id`` ``int32`` Unique file identifier to close
-=========== ========= ===============================
++---------------------+-------------------+--------------------------+
+| :blue:`Name`        | :blue:`Type`      | :blue:`Description`      |
++=====================+===================+==========================+
+| :blue:```file_id``` | :blue:```int32``` | :blue:`Unique file       |
+|                     |                   | identifier to close`     |
++---------------------+-------------------+--------------------------+
 
 .. _h.mumylsgnmopb:
 
@@ -2190,18 +2320,18 @@ Name        Type      Description
 Description
            
 
-Stop the moment calculation with respect to the image file id
+:blue:`Stop the moment calculation with respect to the image file id`
 
 .. _fields-34:
 
 Fields
       
 
-=========== ========= =============
-Name        Type      Description
-=========== ========= =============
-``file_id`` ``int32`` Image file id
-=========== ========= =============
+=================== ================= =====================
+Name                Type              Description
+=================== ================= =====================
+:blue:```file_id``` :blue:```int32``` :blue:`Image file id`
+=================== ================= =====================
 
 .. _h.irfh7nonudi2:
 
@@ -2220,21 +2350,24 @@ Name        Type      Description
 Description
            
 
-Requests the list of available files for a given directory. Backend
-responds with ``FILE_LIST_RESPONSE``
+:blue:`Requests the list of available files for a given directory.
+Backend responds with ``FILE_LIST_RESPONSE```
 
 .. _fields-35:
 
 Fields
       
 
-+---------------+------------+---------------------------------------+
-| Name          | Type       | Description                           |
-+===============+============+=======================================+
-| ``directory`` | ``string`` | Required directory name. The base     |
-|               |            | directory can be requested by setting |
-|               |            | this value to ``$BASE``               |
-+---------------+------------+---------------------------------------+
++-----------------------+--------------------+-----------------------+
+| :blue:`Name`          | :blue:`Type`       | :blue:`Description`   |
++=======================+====================+=======================+
+| :blue:```directory``` | :blue:```string``` | :blue:`Required       |
+|                       |                    | directory name. The   |
+|                       |                    | base directory can be |
+|                       |                    | requested by setting  |
+|                       |                    | this value to         |
+|                       |                    | ``$BASE```            |
++-----------------------+--------------------+-----------------------+
 
 .. _h.zhcanhq2o1tj:
 
@@ -2246,39 +2379,43 @@ Fields
 Description
            
 
-Response for ``FILE_LIST_REQUEST``. Gives a list of available files (and
-their types), as well as subdirectories
+:red:`Response for ``FILE_LIST_REQUEST``. Gives a list of available
+files (and their types), as well as subdirectories`
 
 .. _fields-36:
 
 Fields
       
 
-+----------------------+--------------+--------------------------+
-| Name                 | Type         | Description              |
-+======================+==============+==========================+
-| ``success``          | ``bool``     | Defines whether          |
-|                      |              | the\                     |
-|                      |              | ```FILE_LIST_REQUEST`` < |
-|                      |              | #h.sgxhpgbn2sks>`__\ was |
-|                      |              | successful               |
-+----------------------+--------------+--------------------------+
-| ``message``          | ``string``   | Error message (if        |
-|                      |              | applicable)              |
-+----------------------+--------------+--------------------------+
-| ``directory``        | ``string``   | Directory of listing     |
-+----------------------+--------------+--------------------------+
-| ``parent``           | ``string``   | Directory parent (null   |
-|                      |              | if top-level)            |
-+----------------------+--------------+--------------------------+
-| ``files[]``          | ``FileInfo`` | List of available image  |
-|                      |              | files, with file type    |
-|                      |              | information and size     |
-|                      |              | information.             |
-+----------------------+--------------+--------------------------+
-| ``subdirectories[]`` | ``string``   | List of available        |
-|                      |              | subdirectories           |
-+----------------------+--------------+--------------------------+
++-----------------------+-------------------+-----------------------+
+| :red:`Name`           | :red:`Type`       | :red:`Description`    |
++=======================+===================+=======================+
+| :red:```success```    | :red:```bool```   | :red:`Defines whether |
+|                       |                   | the`\ ```FILE_LIST    |
+|                       |                   | _REQUEST`` <#h.sgxhpg |
+|                       |                   | bn2sks>`__\ :red:`was |
+|                       |                   | successful`           |
++-----------------------+-------------------+-----------------------+
+| :red:```message```    | :red:```string``` | :red:`Error message   |
+|                       |                   | (if applicable)`      |
++-----------------------+-------------------+-----------------------+
+| :red:```directory```  | :red:```string``` | :red:`Directory of    |
+|                       |                   | listing`              |
++-----------------------+-------------------+-----------------------+
+| :red:```parent```     | :red:```string``` | :red:`Directory       |
+|                       |                   | parent (null if       |
+|                       |                   | top-level)`           |
++-----------------------+-------------------+-----------------------+
+| :red:```files[]```    | ``FileInfo``      | :red:`List of         |
+|                       |                   | available image       |
+|                       |                   | files, with file type |
+|                       |                   | information and size  |
+|                       |                   | information.`         |
++-----------------------+-------------------+-----------------------+
+| :red:`                | :red:```string``` | :red:`List of         |
+| ``subdirectories[]``` |                   | available             |
+|                       |                   | subdirectories`       |
++-----------------------+-------------------+-----------------------+
 
 .. _h.l6iknrxdt8s5:
 
@@ -2290,27 +2427,33 @@ Fields
 Description
            
 
-Requests file info for a specific file. Backend responds with
-``FILE_INFO_RESPONSE``
+:blue:`Requests file info for a specific file. Backend responds with
+``FILE_INFO_RESPONSE```
 
 .. _fields-37:
 
 Fields
       
 
-+---------------+------------+---------------------------------------+
-| Name          | Type       | Description                           |
-+===============+============+=======================================+
-| ``directory`` | ``string`` | Required directory name. The base     |
-|               |            | directory can be requested by setting |
-|               |            | this value to ``$BASE``               |
-+---------------+------------+---------------------------------------+
-| ``file``      | ``string`` | Required file name                    |
-+---------------+------------+---------------------------------------+
-| ``hdu``       | ``string`` | Required HDU name (if applicable). If |
-|               |            | left empty, the first HDU is          |
-|               |            | selected.                             |
-+---------------+------------+---------------------------------------+
++-----------------------+--------------------+-----------------------+
+| :blue:`Name`          | :blue:`Type`       | :blue:`Description`   |
++=======================+====================+=======================+
+| :blue:```directory``` | :blue:```string``` | :blue:`Required       |
+|                       |                    | directory name. The   |
+|                       |                    | base directory can be |
+|                       |                    | requested by setting  |
+|                       |                    | this value to         |
+|                       |                    | ``$BASE```            |
++-----------------------+--------------------+-----------------------+
+| :blue:```file```      | :blue:```string``` | :blue:`Required file  |
+|                       |                    | name`                 |
++-----------------------+--------------------+-----------------------+
+| :blue:```hdu```       | :blue:```string``` | :blue:`Required HDU   |
+|                       |                    | name (if applicable). |
+|                       |                    | If left empty, the    |
+|                       |                    | first HDU is          |
+|                       |                    | selected.`            |
++-----------------------+--------------------+-----------------------+
 
 .. _h.2oto6bfe07l9:
 
@@ -2322,8 +2465,8 @@ Fields
 Description
            
 
-Response for ``FILE_INFO_REQUEST``. Gives information on the requested
-file.
+:red:`Response for ``FILE_INFO_REQUEST``. Gives information on the
+requested file.`
 
 .. _fields-38:
 
@@ -2331,22 +2474,24 @@ Fields
       
 
 +----------------------+----------------------+----------------------+
-| Name                 | Type                 | Description          |
+| :red:`Name`          | :red:`Type`          | :red:`Description`   |
 +======================+======================+======================+
-| ``success``          | ``bool``             | Defines whether      |
-|                      |                      | the\ ```FILE_        |
-|                      |                      | INFO_REQUEST`` <#h.l |
-|                      |                      | 6iknrxdt8s5>`__\ was |
-|                      |                      | successful           |
+| :red:```success```   | :red:```bool```      | :red:`Defines        |
+|                      |                      | whether              |
+|                      |                      | the`\ ```FILE_INFO_R |
+|                      |                      | EQUEST`` <#h.l6iknrx |
+|                      |                      | dt8s5>`__\ :red:`was |
+|                      |                      | successful`          |
 +----------------------+----------------------+----------------------+
-| ``message``          | ``string``           | Error message (if    |
-|                      |                      | applicable)          |
+| :red:```message```   | :red:```string```    | :red:`Error message  |
+|                      |                      | (if applicable)`     |
 +----------------------+----------------------+----------------------+
-| ``file_info``        | ``FileInfo``         | Basic file info      |
-|                      |                      | (type, size)         |
+| :red:```file_info``` | ``FileInfo``         | :red:`Basic file     |
+|                      |                      | info (type, size)`   |
 +----------------------+----------------------+----------------------+
-| ``                   | ``FileInfoExtended`` | Extended file info   |
-| file_info_extended`` |                      | (WCS, header info)   |
+| :red:```f            | ``FileInfoExtended`` | :red:`Extended file  |
+| ile_info_extended``` |                      | info (WCS, header    |
+|                      |                      | info)`               |
 +----------------------+----------------------+----------------------+
 
 .. _h.y1npgmv2jh3r:
@@ -2359,21 +2504,24 @@ Fields
 Description
            
 
-Requests the list of available region files for a given directory.
-Backend responds with\ ``REGION_LIST_RESPONSE``
+:blue:`Requests the list of available region files for a given
+directory. Backend responds with`\ :red:```REGION_LIST_RESPONSE```
 
 .. _fields-39:
 
 Fields
       
 
-+---------------+------------+---------------------------------------+
-| Name          | Type       | Description                           |
-+===============+============+=======================================+
-| ``directory`` | ``string`` | Required directory name. The base     |
-|               |            | directory can be requested by setting |
-|               |            | this value to ``$BASE``               |
-+---------------+------------+---------------------------------------+
++-----------------------+--------------------+-----------------------+
+| :blue:`Name`          | :blue:`Type`       | :blue:`Description`   |
++=======================+====================+=======================+
+| :blue:```directory``` | :blue:```string``` | :blue:`Required       |
+|                       |                    | directory name. The   |
+|                       |                    | base directory can be |
+|                       |                    | requested by setting  |
+|                       |                    | this value to         |
+|                       |                    | ``$BASE```            |
++-----------------------+--------------------+-----------------------+
 
 .. _h.lkeps85rzk2s:
 
@@ -2385,38 +2533,43 @@ Fields
 Description
            
 
-Response for\ ``REGION_LIST_REQUEST``\ . Gives a list of available
-region files (and their types), as well as subdirectories
+:red:`Response for`\ ``REGION_LIST_REQUEST``\ :red:`. Gives a list of
+available region files (and their types), as well as subdirectories`
 
 .. _fields-40:
 
 Fields
       
 
-+----------------------+--------------+--------------------------+
-| Name                 | Type         | Description              |
-+======================+==============+==========================+
-| ``success``          | ``bool``     | Defines whether          |
-|                      |              | the\ ``RE                |
-|                      |              | GION_LIST_REQUEST``\ was |
-|                      |              | successful               |
-+----------------------+--------------+--------------------------+
-| ``message``          | ``string``   | Error message (if        |
-|                      |              | applicable)              |
-+----------------------+--------------+--------------------------+
-| ``directory``        | ``string``   | Directory of listing     |
-+----------------------+--------------+--------------------------+
-| ``parent``           | ``string``   | Directory parent (null   |
-|                      |              | if top-level)            |
-+----------------------+--------------+--------------------------+
-| ``files[]``          | ``FileInfo`` | List of available region |
-|                      |              | files, with file type    |
-|                      |              | information and size     |
-|                      |              | information.             |
-+----------------------+--------------+--------------------------+
-| ``subdirectories[]`` | ``string``   | List of available        |
-|                      |              | subdirectories           |
-+----------------------+--------------+--------------------------+
++----------------------+----------------------+----------------------+
+| :red:`Name`          | :red:`Type`          | :red:`Description`   |
++======================+======================+======================+
+| :red:```success```   | :red:```bool```      | :red:`Defines        |
+|                      |                      | whether              |
+|                      |                      | the`\ ``REGION_LIST_ |
+|                      |                      | REQUEST``\ :red:`was |
+|                      |                      | successful`          |
++----------------------+----------------------+----------------------+
+| :red:```message```   | :red:```string```    | :red:`Error message  |
+|                      |                      | (if applicable)`     |
++----------------------+----------------------+----------------------+
+| :red:```directory``` | :red:```string```    | :red:`Directory of   |
+|                      |                      | listing`             |
++----------------------+----------------------+----------------------+
+| :red:```parent```    | :red:```string```    | :red:`Directory      |
+|                      |                      | parent (null if      |
+|                      |                      | top-level)`          |
++----------------------+----------------------+----------------------+
+| :red:```files[]```   | :blue:```FileInfo``` | :red:`List of        |
+|                      |                      | available region     |
+|                      |                      | files, with file     |
+|                      |                      | type information and |
+|                      |                      | size information.`   |
++----------------------+----------------------+----------------------+
+| :red:``              | :red:```string```    | :red:`List of        |
+| `subdirectories[]``` |                      | available            |
+|                      |                      | subdirectories`      |
++----------------------+----------------------+----------------------+
 
 .. _h.gfcsqs6xtg8o:
 
@@ -2428,23 +2581,27 @@ Fields
 Description
            
 
-Requests region info (contents) for a specific region file on the
-server. Backend responds with\ ``REGION_FILE_INFO_RESPONSE``
+:blue:`Requests region info (contents) for a specific region file on the
+server. Backend responds with`\ :red:```REGION_FILE_INFO_RESPONSE```
 
 .. _fields-41:
 
 Fields
       
 
-+---------------+------------+---------------------------------------+
-| Name          | Type       | Description                           |
-+===============+============+=======================================+
-| ``directory`` | ``string`` | Required directory name. The base     |
-|               |            | directory can be requested by setting |
-|               |            | this value to ``$BASE``               |
-+---------------+------------+---------------------------------------+
-| ``file``      | ``string`` | Required file name                    |
-+---------------+------------+---------------------------------------+
++-----------------------+--------------------+-----------------------+
+| :blue:`Name`          | :blue:`Type`       | :blue:`Description`   |
++=======================+====================+=======================+
+| :blue:```directory``` | :blue:```string``` | :blue:`Required       |
+|                       |                    | directory name. The   |
+|                       |                    | base directory can be |
+|                       |                    | requested by setting  |
+|                       |                    | this value to         |
+|                       |                    | ``$BASE```            |
++-----------------------+--------------------+-----------------------+
+| :blue:```file```      | :blue:```string``` | :blue:`Required file  |
+|                       |                    | name`                 |
++-----------------------+--------------------+-----------------------+
 
 .. _h.x348ps5qdi3k:
 
@@ -2456,29 +2613,33 @@ Fields
 Description
            
 
-Response for\ ``REGION_FILE_INFO_REQUEST``\ . Returns the contents of
-the requested region file on the server.
+:red:`Response for`\ :blue:```REGION_FILE_INFO_REQUEST```\ :red:`.
+Returns the contents of the requested region file on the server.`
 
 .. _fields-42:
 
 Fields
       
 
-+----------------+--------------+------------------------------------+
-| Name           | Type         | Description                        |
-+================+==============+====================================+
-| ``success``    | ``bool``     | Defines whether                    |
-|                |              | the\                               |
-|                |              |  ``REGION_FILE_INFO_REQUEST``\ was |
-|                |              | successful                         |
-+----------------+--------------+------------------------------------+
-| ``message``    | ``string``   | Error message (if applicable)      |
-+----------------+--------------+------------------------------------+
-| ``file_info``  | ``FileInfo`` | Basic file info (type, size)       |
-+----------------+--------------+------------------------------------+
-| ``contents[]`` | ``string``   | File contents (one line per        |
-|                |              | string)                            |
-+----------------+--------------+------------------------------------+
++-----------------------+-------------------+-----------------------+
+| :red:`Name`           | :red:`Type`       | :red:`Description`    |
++=======================+===================+=======================+
+| :red:```success```    | :red:```bool```   | :red:`Defines whether |
+|                       |                   | the`\ :blue           |
+|                       |                   | :```REGION_FILE_INFO_ |
+|                       |                   | REQUEST```\ :red:`was |
+|                       |                   | successful`           |
++-----------------------+-------------------+-----------------------+
+| :red:```message```    | :red:```string``` | :red:`Error message   |
+|                       |                   | (if applicable)`      |
++-----------------------+-------------------+-----------------------+
+| :red:```file_info```  | ``FileInfo``      | :red:`Basic file info |
+|                       |                   | (type, size)`         |
++-----------------------+-------------------+-----------------------+
+| :red:```contents[]``` | :red:```string``` | :red:`File contents   |
+|                       |                   | (one line per         |
+|                       |                   | string)`              |
++-----------------------+-------------------+-----------------------+
 
 .. _h.gjuwr7558gp8:
 
@@ -2492,20 +2653,21 @@ Fields
 Description
            
 
-Requests the list of available files
-(\ `CatalogFileType <#h.zgx1u51vn0cp>`__\ ) for a given directory.
-Backend responds with\ ```CATALOG_LIST_RESPONSE`` <#h.m006rxpxr1yh>`__
+:blue:`Requests the list of available files
+(`\ `CatalogFileType <#h.zgx1u51vn0cp>`__\ :blue:`) for a given
+directory. Backend responds
+with`\ ```CATALOG_LIST_RESPONSE`` <#h.m006rxpxr1yh>`__
 
 .. _fields-43:
 
 Fields
       
 
-============= ========== =======================
-Name          Type       Description
-============= ========== =======================
-``directory`` ``string`` Required directory name
-============= ========== =======================
+===================== ================== ===============================
+:blue:`Name`          :blue:`Type`       :blue:`Description`
+===================== ================== ===============================
+:blue:```directory``` :blue:```string``` :blue:`Required directory name`
+===================== ================== ===============================
 
 .. _h.ij09mxtwn4yp:
 
@@ -2519,8 +2681,9 @@ Name          Type       Description
 Description
            
 
-Response for\ ```CATALOG_LIST_REQUEST`` <#h.yad8y99e8zwh>`__\ \ ​. Gives
-a list of available files (and their types), as well as subdirectories
+:red:`Response
+for`\ ```CATALOG_LIST_REQUEST`` <#h.yad8y99e8zwh>`__\ :red:`\ ​. Gives a
+list of available files (and their types), as well as subdirectories`
 
 .. _fields-44:
 
@@ -2528,28 +2691,34 @@ Fields
       
 
 +----------------------+---------------------+----------------------+
-| Name                 | Type                | Description          |
+| :red:`Name`          | :red:`Type`         | :red:`Description`   |
 +======================+=====================+======================+
-| ``success``          | ``bool``            | Defines whether      |
-|                      |                     | ​\ ```CATALOG_FILE_  |
-|                      |                     | LIST_REQUEST`` <#h.y |
-|                      |                     | ad8y99e8zwh>`__\ was |
-|                      |                     | successful           |
+| :red:```success```   | :red:```bool```     | :red:`Defines        |
+|                      |                     | whether              |
+|                      |                     | ​`\ ``               |
+|                      |                     | `CATALOG_FILE_LIST_R |
+|                      |                     | EQUEST`` <#h.yad8y99 |
+|                      |                     | e8zwh>`__\ :red:`was |
+|                      |                     | successful`          |
 +----------------------+---------------------+----------------------+
-| ``message``          | ``string``          | Error message (if    |
-|                      |                     | applicable)          |
+| :red:```message```   | :red:```string```   | :red:`Error message  |
+|                      |                     | (if applicable)`     |
 +----------------------+---------------------+----------------------+
-| ``directory``        | ``string``          | Directory of listing |
+| :red:```directory``` | :red:```string```   | :red:`Directory of   |
+|                      |                     | listing`             |
 +----------------------+---------------------+----------------------+
-| ``parent``           | ``string``          | Directory parent     |
-|                      |                     | (null if top-level)  |
+| :red:```parent```    | :red:```string```   | :red:`Directory      |
+|                      |                     | parent (null if      |
+|                      |                     | top-level)`          |
 +----------------------+---------------------+----------------------+
-| ``files[]``          | ``CatalogFileInfo`` | List of available    |
-|                      |                     | catalog files, with  |
-|                      |                     | file type, size.     |
+| :red:```files[]```   | ``CatalogFileInfo`` | :red:`List of        |
+|                      |                     | available catalog    |
+|                      |                     | files, with file     |
+|                      |                     | type, size.`         |
 +----------------------+---------------------+----------------------+
-| ``subdirectories[]`` | ``string``          | List for available   |
-|                      |                     | subdirectories       |
+| :red:``              | :red:```string```   | :red:`List for       |
+| `subdirectories[]``` |                     | available            |
+|                      |                     | subdirectories`      |
 +----------------------+---------------------+----------------------+
 
 .. _h.94q5l9jbotlw:
@@ -2564,20 +2733,20 @@ Fields
 Description
            
 
-Requests file info for a catalog file. Backend responds
-with\ ```CATALOG_FILE_INFO_RESPONSE`` <#h.c4ct00oldijn>`__
+:blue:`Requests file info for a catalog file. Backend responds
+with`\ ```CATALOG_FILE_INFO_RESPONSE`` <#h.c4ct00oldijn>`__
 
 .. _fields-45:
 
 Fields
       
 
-============= ========== =======================
-Name          Type       Description
-============= ========== =======================
-``directory`` ``string`` Required directory name
-``name``      ``string`` Required file name
-============= ========== =======================
+===================== ================== ===============================
+:blue:`Name`          :blue:`Type`       :blue:`Description`
+===================== ================== ===============================
+:blue:```directory``` :blue:```string``` :blue:`Required directory name`
+:blue:```name```      :blue:```string``` :blue:`Required file name`
+===================== ================== ===============================
 
 .. _h.y0jt3rdhzzgn:
 
@@ -2591,29 +2760,34 @@ Name          Type       Description
 Description
            
 
-Response for\ ```CATALOG_FILE_INFO_REQUEST`` <#h.eoi9zzg3a5cv>`__\ .
-Gives information on the requested catalog file.
+:red:`Response
+for`\ ```CATALOG_FILE_INFO_REQUEST`` <#h.eoi9zzg3a5cv>`__\ :red:`. Gives
+information on the requested catalog file.`
 
 .. _fields-46:
 
 Fields
       
 
-+---------------+---------------------+------------------------------+
-| Name          | Type                | Description                  |
-+===============+=====================+==============================+
-| ``success``   | ``bool``            | Defines whether              |
-|               |                     | ​CATALOG_FILE_INFO_REQUEST   |
-|               |                     | was successful               |
-+---------------+---------------------+------------------------------+
-| ``message``   | ``string``          | Error message (if            |
-|               |                     | applicable)                  |
-+---------------+---------------------+------------------------------+
-| ``file_info`` | ``CatalogFileInfo`` | Basic file info name and     |
-|               |                     | type and description.        |
-+---------------+---------------------+------------------------------+
-| ``headers[]`` | ``CatalogHeader``   | Table header info.           |
-+---------------+---------------------+------------------------------+
++----------------------+---------------------+----------------------+
+| :red:`Name`          | :red:`Type`         | :red:`Description`   |
++======================+=====================+======================+
+| :red:```success```   | :red:```bool```     | :red:`Defines        |
+|                      |                     | whether              |
+|                      |                     | ​CATAL               |
+|                      |                     | OG_FILE_INFO_REQUEST |
+|                      |                     | was successful`      |
++----------------------+---------------------+----------------------+
+| :red:```message```   | :red:```string```   | :red:`Error message  |
+|                      |                     | (if applicable)`     |
++----------------------+---------------------+----------------------+
+| :red:```file_info``` | ``CatalogFileInfo`` | :red:`Basic file     |
+|                      |                     | info name and type   |
+|                      |                     | and description.`    |
++----------------------+---------------------+----------------------+
+| :red:```headers[]``` | ``CatalogHeader``   | :red:`Table header   |
+|                      |                     | info.`               |
++----------------------+---------------------+----------------------+
 
 .. _h.pbsjoosp72fy:
 
@@ -2627,8 +2801,8 @@ Fields
 Description
            
 
-Return\ ```CATALOG_FILTER_RESPONSE`` <#h.tjzxx851tlul>`__\ according to
-the user filter settings.
+:blue:`Return`\ ```CATALOG_FILTER_RESPONSE`` <#h.tjzxx851tlul>`__\ :blue:`according
+to the user filter settings.`
 
 .. _fields-47:
 
@@ -2636,54 +2810,58 @@ Fields
       
 
 +----------------------+----------------------+----------------------+
-| Name                 | Type                 | Description          |
+| :blue:`Name`         | :blue:`Type`         | :blue:`Description`  |
 +======================+======================+======================+
-| ``file_id``          | ``int32``            | The file ID that the |
-|                      |                      | catalog data         |
-|                      |                      | corresponds to       |
+| :blue:```file_id```  | :blue:```int32```    | :blue:`The file ID   |
+|                      |                      | that the catalog     |
+|                      |                      | data corresponds to` |
 +----------------------+----------------------+----------------------+
-| ``column_indices[]`` | ``int32[]``          | Indices of the       |
-|                      |                      | columns to return in |
-|                      |                      | the filter           |
+| :blue:``             | :blue:```int32[]```  | :blue:`Indices of    |
+| `column_indices[]``` |                      | the columns to       |
+|                      |                      | return in the        |
+|                      |                      | filter`              |
 +----------------------+----------------------+----------------------+
-| ``filter_configs[]`` | ``FilterConfig``     | User filters config  |
-|                      |                      | array.               |
+| :blue:``             | :blu                 | :blue:`User filters  |
+| `filter_configs[]``` | e:```FilterConfig``` | config array.`       |
 +----------------------+----------------------+----------------------+
-| ``subset_data_size`` | ``int32``            | An optional number   |
-|                      |                      | specifying how many  |
-|                      |                      | rows to return. If   |
-|                      |                      | this is -1, it       |
-|                      |                      | returns all rows.    |
+| :blue:``             | :blue:```int32```    | :blue:`An optional   |
+| `subset_data_size``` |                      | number specifying    |
+|                      |                      | how many rows to     |
+|                      |                      | return. If this is   |
+|                      |                      | -1, it returns all   |
+|                      |                      | rows.`               |
 +----------------------+----------------------+----------------------+
-| ``                   | ``int32``            | The start index of   |
-| subset_start_index`` |                      | the table row before |
-|                      |                      | the scan.            |
+| :blue:```s           | :blue:```int32```    | :blue:`The start     |
+| ubset_start_index``` |                      | index of the table   |
+|                      |                      | row before the       |
+|                      |                      | scan.`               |
 +----------------------+----------------------+----------------------+
-| ``image_bounds``     | ``                   | If image bounds      |
-|                      | CatalogImageBounds`` | exist, only return   |
-|                      |                      | data points inside   |
-|                      |                      | the boundary. Using  |
-|                      |                      | for user zoom        |
-|                      |                      | action.              |
+| :blu                 | :blue:```C           | :blue:`If image      |
+| e:```image_bounds``` | atalogImageBounds``` | bounds exist, only   |
+|                      |                      | return data points   |
+|                      |                      | inside the boundary. |
+|                      |                      | Using for user zoom  |
+|                      |                      | action.`             |
 +----------------------+----------------------+----------------------+
-| ``image_file_id``    | ``int32``            | If the               |
-|                      |                      | image(image_file_id) |
+| :blue                | :blue:```int32```    | :blue:`If the        |
+| :```image_file_id``` |                      | image(image_file_id) |
 |                      |                      | exists, try to get   |
 |                      |                      | the region with the  |
 |                      |                      | region_id (see       |
-|                      |                      | below).              |
+|                      |                      | below).`             |
 +----------------------+----------------------+----------------------+
-| ``region_id``        | ``int32``            | If the image         |
-|                      |                      | region(region_id)    |
+| :                    | :blue:```int32```    | :blue:`If the image  |
+| blue:```region_id``` |                      | region(region_id)    |
 |                      |                      | exists, only return  |
 |                      |                      | data points inside   |
-|                      |                      | the region.          |
+|                      |                      | the region.`         |
 +----------------------+----------------------+----------------------+
-| ``sort_column``      | ``string``           | Name of the column   |
-|                      |                      | to be sorted         |
+| :bl                  | :blue:```string```   | :blue:`Name of the   |
+| ue:```sort_column``` |                      | column to be sorted` |
 +----------------------+----------------------+----------------------+
-| ``sorting_type``     | ``SortingType``      | Sote by ascending or |
-|                      |                      | descending           |
+| :blu                 | :bl                  | :blue:`Sote by       |
+| e:```sorting_type``` | ue:```SortingType``` | ascending or         |
+|                      |                      | descending`          |
 +----------------------+----------------------+----------------------+
 
 .. _h.h54006k8zysr:
@@ -2698,7 +2876,7 @@ Fields
 Description
            
 
-Response with\ ```MOMENT_RESPONSE``
+:blue:`Response with`\ ```MOMENT_RESPONSE``
 (MomentResponse) <#h.amci175wugqh>`__
 
 .. _fields-48:
@@ -2706,34 +2884,42 @@ Response with\ ```MOMENT_RESPONSE``
 Fields
       
 
-+--------------------+-----------------+-----------------------------+
-| Name               | Type            | Description                 |
-+====================+=================+=============================+
-| ``file_id``        | ``int32``       | Image file id               |
-+--------------------+-----------------+-----------------------------+
-| ``moments``        | ``Moment[]``    | List of moments to compute  |
-+--------------------+-----------------+-----------------------------+
-| ``axis``           | ``MomentAxis``  | The moment axis:            |
-|                    |                 | “spectral”, or “stokes”     |
-+--------------------+-----------------+-----------------------------+
-| ``region_id``      | ``int32``       | Region id, default is to    |
-|                    |                 | use the full image          |
-+--------------------+-----------------+-----------------------------+
-| ``spectral_range`` | ``IntBounds``   | Channels to use, default is |
-|                    |                 | to use all channels         |
-+--------------------+-----------------+-----------------------------+
-| ``mask``           | ``MomentMask``  | Range of pixel values to    |
-|                    |                 | include, exclude or none    |
-+--------------------+-----------------+-----------------------------+
-| ``pixel_range``    | ``FloatBounds`` | Range of pixel values       |
-+--------------------+-----------------+-----------------------------+
++----------------------+----------------------+----------------------+
+| Name                 | Type                 | Description          |
++======================+======================+======================+
+| :blue:```file_id```  | :blue:```int32```    | :blue:`Image file    |
+|                      |                      | id`                  |
++----------------------+----------------------+----------------------+
+| :blue:```moments```  | :blue:```Moment[]``` | :blue:`List of       |
+|                      |                      | moments to compute`  |
++----------------------+----------------------+----------------------+
+| :blue:```axis```     | :b                   | :blue:`The moment    |
+|                      | lue:```MomentAxis``` | axis: “spectral”, or |
+|                      |                      | “stokes”`            |
++----------------------+----------------------+----------------------+
+| :                    | :blue:```int32```    | :blue:`Region id,    |
+| blue:```region_id``` |                      | default is to use    |
+|                      |                      | the full image`      |
++----------------------+----------------------+----------------------+
+| :blue:               | ``IntBounds``        | :blue:`Channels to   |
+| ```spectral_range``` |                      | use, default is to   |
+|                      |                      | use all channels`    |
++----------------------+----------------------+----------------------+
+| :blue:```mask```     | ``MomentMask``       | :blue:`Range of      |
+|                      |                      | pixel values to      |
+|                      |                      | include, exclude or  |
+|                      |                      | none`                |
++----------------------+----------------------+----------------------+
+| :bl                  | ``FloatBounds``      | :blue:`Range of      |
+| ue:```pixel_range``` |                      | pixel values`        |
++----------------------+----------------------+----------------------+
 
 .. _h.blpd79j4hn4o:
 
 .. _h.amci175wugqh:
 
-``MOMENT_RESPONSE`` (MomentResponse)
-''''''''''''''''''''''''''''''''''''
+:red:```MOMENT_RESPONSE`` (MomentResponse)`
+'''''''''''''''''''''''''''''''''''''''''''
 
 .. _description-49:
 
@@ -2745,17 +2931,19 @@ Description
 Fields
       
 
-+--------------------+-------------------+---------------------------+
-| Name               | Type              | Description               |
-+====================+===================+===========================+
-| ``success``        | ``bool``          | Whether the moments       |
-|                    |                   | generation is success     |
-+--------------------+-------------------+---------------------------+
-| ``message``        | ``string``        | Error message if          |
-|                    |                   | something wrong           |
-+--------------------+-------------------+---------------------------+
-| ``open_file_acks`` | ``OpenFileAck[]`` | Open file acknowledges    |
-+--------------------+-------------------+---------------------------+
++-----------------------+-------------------+-----------------------+
+| Name                  | Type              | Description           |
++=======================+===================+=======================+
+| :red:```success```    | :red:```bool```   | :red:`Whether the     |
+|                       |                   | moments generation is |
+|                       |                   | success`              |
++-----------------------+-------------------+-----------------------+
+| :red:```message```    | :red:```string``` | :red:`Error message   |
+|                       |                   | if something wrong`   |
++-----------------------+-------------------+-----------------------+
+| :red                  | ``OpenFileAck[]`` | :red:`Open file       |
+| :```open_file_acks``` |                   | acknowledges`         |
++-----------------------+-------------------+-----------------------+
 
 .. _h.7roiom29eddz:
 
@@ -2767,37 +2955,40 @@ Fields
 Description
            
 
-Save the image file with different name or type
+:blue:`Save the image file with different name or type`
 
 .. _fields-50:
 
 Fields
       
 
-+--------------------------+--------------+--------------------------+
-| Name                     | Type         | Description              |
-+==========================+==============+==========================+
-| ``file_id``              | ``int32``    | Image file id            |
-+--------------------------+--------------+--------------------------+
-| `                        | ``string``   | Set the output file      |
-| `output_file_directory`` |              | directory                |
-|                          |              | ,e.q.,“path/to/the/file” |
-+--------------------------+--------------+--------------------------+
-| ``output_file_name``     | ``string``   | Set the name of new      |
-|                          |              | image file               |
-+--------------------------+--------------+--------------------------+
-| ``output_file_type``     | ``FileType`` | The format of a new      |
-|                          |              | image file (only the     |
-|                          |              | conversion between CASA  |
-|                          |              | and FITS is available)   |
-+--------------------------+--------------+--------------------------+
++-----------------------+--------------------+-----------------------+
+| Name                  | Type               | Description           |
++=======================+====================+=======================+
+| :blue:```file_id```   | :blue:```int32```  | :blue:`Image file id` |
++-----------------------+--------------------+-----------------------+
+| :blue:```out          | :blue:```string``` | :blue:`Set the output |
+| put_file_directory``` |                    | file                  |
+|                       |                    | directory`:red:       |
+|                       |                    | `,`:blue:`e.q.,`:blue |
+|                       |                    | :`“path/to/the/file”` |
++-----------------------+--------------------+-----------------------+
+| :blue:`               | :blue:```string``` | :blue:`Set the name   |
+| ``output_file_name``` |                    | of new image file`    |
++-----------------------+--------------------+-----------------------+
+| :blue:`               | ``FileType``       | :blue:`The format of  |
+| ``output_file_type``` |                    | a new image file      |
+|                       |                    | (only the conversion  |
+|                       |                    | between CASA and FITS |
+|                       |                    | is available)`        |
++-----------------------+--------------------+-----------------------+
 
 .. _h.fyneoz8q1gw9:
 
 .. _h.xd9w0b5hxjux:
 
-``SAVE_FILE_ACK`` (SaveFileAck)
-'''''''''''''''''''''''''''''''
+:red:```SAVE_FILE_ACK`` (SaveFileAck)`
+''''''''''''''''''''''''''''''''''''''
 
 .. _description-51:
 
@@ -2809,13 +3000,17 @@ Description
 Fields
       
 
-=========== ========== =================================
-Name        Type       Description
-=========== ========== =================================
-``file_id`` ``int32``  Image file id
-``success`` ``bool``   Saving new file is success or not
-``message`` ``string`` Error message if not success
-=========== ========== =================================
++--------------------+-------------------+---------------------------+
+| Name               | Type              | Description               |
++====================+===================+===========================+
+| :red:```file_id``` | :red:```int32```  | :red:`Image file id`      |
++--------------------+-------------------+---------------------------+
+| :red:```success``` | :red:```bool```   | :red:`Saving new file is  |
+|                    |                   | success or not`           |
++--------------------+-------------------+---------------------------+
+| :red:```message``` | :red:```string``` | :red:`Error message if    |
+|                    |                   | not success`              |
++--------------------+-------------------+---------------------------+
 
 .. _h.bsmfb13stqzu:
 
@@ -2834,29 +3029,35 @@ Name        Type       Description
 Description
            
 
-Sync message sent at the start and end of a stream of data tiles
+:red:`Sync message sent at the start and end of a stream of data tiles`
 
 .. _fields-52:
 
 Fields
       
 
-+------------------+-------------+-----------------------------------+
-| Name             | Type        | Description                       |
-+==================+=============+===================================+
-| ``file_id``      | ``int32``   | The file ID that the raster image |
-|                  |             | corresponds to                    |
-+------------------+-------------+-----------------------------------+
-| ``channel``      | ``int32``   | The image channel (z-coordinate)  |
-+------------------+-------------+-----------------------------------+
-| ``stokes``       | ``int32``   | The image stokes parameter        |
-+------------------+-------------+-----------------------------------+
-| ``animation_id`` | ``int32``   | ID of the current animation (if   |
-|                  |             | any)                              |
-+------------------+-------------+-----------------------------------+
-| ``end_sync``     | ``boolean`` | Flag indicating whether this is   |
-|                  |             | an end sync message               |
-+------------------+-------------+-----------------------------------+
++-----------------------+--------------------+-----------------------+
+| :red:`Name`           | :red:`Type`        | :red:`Description`    |
++=======================+====================+=======================+
+| :red:```file_id```    | :red:```int32```   | :red:`The file ID     |
+|                       |                    | that the raster image |
+|                       |                    | corresponds to`       |
++-----------------------+--------------------+-----------------------+
+| :red:```channel```    | :red:```int32```   | :red:`The image       |
+|                       |                    | channel               |
+|                       |                    | (z-coordinate)`       |
++-----------------------+--------------------+-----------------------+
+| :red:```stokes```     | :red:```int32```   | :red:`The image       |
+|                       |                    | stokes parameter`     |
++-----------------------+--------------------+-----------------------+
+| :r                    | :red:```int32```   | :red:`ID of the       |
+| ed:```animation_id``` |                    | current animation (if |
+|                       |                    | any)`                 |
++-----------------------+--------------------+-----------------------+
+| :red:```end_sync```   | :red:```boolean``` | :red:`Flag indicating |
+|                       |                    | whether this is an    |
+|                       |                    | end sync message`     |
++-----------------------+--------------------+-----------------------+
 
 .. _h.8crj1yz1o7a9:
 
@@ -2868,7 +3069,7 @@ Fields
 Description
            
 
-Data for a single tile or list of tiles rendered in raster mode.
+:red:`Data for a single tile or list of tiles rendered in raster mode.`
 
 .. _fields-53:
 
@@ -2876,30 +3077,34 @@ Fields
       
 
 +----------------------+----------------------+----------------------+
-| Name                 | Type                 | Description          |
+| :red:`Name`          | :red:`Type`          | :red:`Description`   |
 +======================+======================+======================+
-| ``file_id``          | ``int32``            | The file ID that the |
-|                      |                      | raster image         |
-|                      |                      | corresponds to       |
+| :red:```file_id```   | :red:```int32```     | :red:`The file ID    |
+|                      |                      | that the raster      |
+|                      |                      | image corresponds    |
+|                      |                      | to`                  |
 +----------------------+----------------------+----------------------+
-| ``channel``          | ``int32``            | The image channel    |
-|                      |                      | (z-coordinate)       |
+| :red:```channel```   | :red:```int32```     | :red:`The image      |
+|                      |                      | channel              |
+|                      |                      | (z-coordinate)`      |
 +----------------------+----------------------+----------------------+
-| ``stokes``           | ``int32``            | The image stokes     |
-|                      |                      | parameter            |
+| :red:```stokes```    | :red:```int32```     | :red:`The image      |
+|                      |                      | stokes parameter`    |
 +----------------------+----------------------+----------------------+
-| ``compression_type`` | `                    | The compression      |
-|                      | `enum {  NONE = 0;`` | algorithm used.      |
-|                      | ``ZFP =              |                      |
-|                      | 1;  SZ = 2;``\ ``}`` |                      |
+| :red:``              | :red:``              | :red:`The            |
+| `compression_type``` | `enum {  NONE = 0;`` | compression          |
+|                      | ``ZFP = 1            | algorithm used.`     |
+|                      | ;  SZ = 2;``\ ``}``` |                      |
 +----------------------+----------------------+----------------------+
-| ``c                  | ``float``            | Compression quality  |
-| ompression_quality`` |                      | switch               |
+| :red:```co           | :red:```float```     | :red:`Compression    |
+| mpression_quality``` |                      | quality switch`      |
 +----------------------+----------------------+----------------------+
-| ``animation_id``     | ``int32``            | ID of the current    |
-|                      |                      | animation (if any)   |
+| :re                  | :red:```int32```     | :red:`ID of the      |
+| d:```animation_id``` |                      | current animation    |
+|                      |                      | (if any)`            |
 +----------------------+----------------------+----------------------+
-| ``tiles``            | ``TileData[]``       | List of tile data    |
+| :red:```tiles```     | :                    | :red:`List of tile   |
+|                      | red:```TileData[]``` | data`                |
 +----------------------+----------------------+----------------------+
 
 .. _h.s1l0povv67tc:
@@ -2912,70 +3117,81 @@ Fields
 Description
            
 
-Data for spatial profile set for a specific file
+:red:`Data for spatial profile set for a specific file`
 
 .. _fields-54:
 
 Fields
       
 
-+----------------+-------------------------+-------------------------+
-| Name           | Type                    | Description             |
-+================+=========================+=========================+
-| ``file_id``    | ``int32``               | The file ID that the    |
-|                |                         | spatial profile         |
-|                |                         | corresponds to          |
-+----------------+-------------------------+-------------------------+
-| ``region_id``  | ``int32``               | The region_id           |
-|                |                         | corresponding to this   |
-|                |                         | profile. If the profile |
-|                |                         | corresponds to the      |
-|                |                         | cursor position, the    |
-|                |                         | region ID is 0.         |
-+----------------+-------------------------+-------------------------+
-| ``x``          | ``int32``               | The pixel X-coordinate  |
-|                |                         | of the profile set      |
-+----------------+-------------------------+-------------------------+
-| ``y``          | ``int32``               | The pixel Y-coordinate  |
-|                |                         | of the profile set      |
-+----------------+-------------------------+-------------------------+
-| ``channel``    | ``int32``               | The image channel used  |
-|                |                         | to generate the         |
-|                |                         | profiles                |
-+----------------+-------------------------+-------------------------+
-| ``stokes``     | ``int32``               | The image stokes        |
-|                |                         | parameter used to       |
-|                |                         | generate the profiles   |
-+----------------+-------------------------+-------------------------+
-| ``value``      | ``float``               | The value of the image  |
-|                |                         | at the given            |
-|                |                         | coordinates             |
-+----------------+-------------------------+-------------------------+
-| ``profiles[]`` | ``SpatialPro            | Spatial coordinates are |
-|                | file {  start: int32;`` | assumed to be           |
-|                | ``end: int32;  ra       | contiguous, so we only  |
-|                | w_values_fp32: bytes;`` | need to send the start  |
-|                | `                       | and end coordinates in  |
-|                | `coordinate: string;}`` | image space, as well as |
-|                |                         | the values. The         |
-|                |                         | coordinate parameter is |
-|                |                         | used to describe which  |
-|                |                         | coordinate the profile  |
-|                |                         | corresponds to (“x”,    |
-|                |                         | “y”, for the current    |
-|                |                         | Stokes parameter, or a  |
-|                |                         | specific Stokes         |
-|                |                         | parameter “Qx”, “Uy”,   |
-|                |                         | “Ix” etc.)Values are    |
-|                |                         | stored as a byte field, |
-|                |                         | and converted to a      |
-|                |                         | Float32Array by the     |
-|                |                         | frontend to avoid the   |
-|                |                         | protocol buffer         |
-|                |                         | decoding overhead when  |
-|                |                         | dealing with large      |
-|                |                         | profiles                |
-+----------------+-------------------------+-------------------------+
++----------------------+----------------------+----------------------+
+| :red:`Name`          | :red:`Type`          | :red:`Description`   |
++======================+======================+======================+
+| :red:```file_id```   | :red:```int32```     | :red:`The file ID    |
+|                      |                      | that the spatial     |
+|                      |                      | profile corresponds  |
+|                      |                      | to`                  |
++----------------------+----------------------+----------------------+
+| :red:```region_id``` | :red:```int32```     | :red:`The region_id  |
+|                      |                      | corresponding to     |
+|                      |                      | this profile. If the |
+|                      |                      | profile corresponds  |
+|                      |                      | to the cursor        |
+|                      |                      | position, the region |
+|                      |                      | ID is 0.`            |
++----------------------+----------------------+----------------------+
+| :red:```x```         | :red:```int32```     | :red:`The pixel      |
+|                      |                      | X-coordinate of the  |
+|                      |                      | profile set`         |
++----------------------+----------------------+----------------------+
+| :red:```y```         | :red:```int32```     | :red:`The pixel      |
+|                      |                      | Y-coordinate of the  |
+|                      |                      | profile set`         |
++----------------------+----------------------+----------------------+
+| :red:```channel```   | :red:```int32```     | :red:`The image      |
+|                      |                      | channel used to      |
+|                      |                      | generate the         |
+|                      |                      | profiles`            |
++----------------------+----------------------+----------------------+
+| :red:```stokes```    | :red:```int32```     | :red:`The image      |
+|                      |                      | stokes parameter     |
+|                      |                      | used to generate the |
+|                      |                      | profiles`            |
++----------------------+----------------------+----------------------+
+| :red:```value```     | :red:```float```     | :red:`The value of   |
+|                      |                      | the image at the     |
+|                      |                      | given coordinates`   |
++----------------------+----------------------+----------------------+
+| :                    | :                    | :red:`Spatial        |
+| red:```profiles[]``` | red:```SpatialProfil | coordinates are      |
+|                      | e {  start: int32;`` | assumed to be        |
+|                      | ``end: int32;  raw_v | contiguous, so we    |
+|                      | alues_fp32: bytes;`` | only need to send    |
+|                      | ``coo                | the start and end    |
+|                      | rdinate: string;}``` | coordinates in image |
+|                      |                      | space, as well as    |
+|                      |                      | the values. The      |
+|                      |                      | coordinate parameter |
+|                      |                      | is used to describe  |
+|                      |                      | which coordinate the |
+|                      |                      | profile corresponds  |
+|                      |                      | to (“x”, “y”, for    |
+|                      |                      | the current Stokes   |
+|                      |                      | parameter, or a      |
+|                      |                      | specific Stokes      |
+|                      |                      | parameter “Qx”,      |
+|                      |                      | “Uy”, “Ix”           |
+|                      |                      | etc.)Values are      |
+|                      |                      | stored as a byte     |
+|                      |                      | field, and converted |
+|                      |                      | to a Float32Array by |
+|                      |                      | the frontend to      |
+|                      |                      | avoid the protocol   |
+|                      |                      | buffer decoding      |
+|                      |                      | overhead when        |
+|                      |                      | dealing with large   |
+|                      |                      | profiles`            |
++----------------------+----------------------+----------------------+
 
 --------------
 
@@ -2989,43 +3205,47 @@ Fields
 Description
            
 
-Simple statistics for a region
+:red:`Simple statistics for a region`
 
 .. _fields-55:
 
 Fields
       
 
-+------------------+------------------------+------------------------+
-| Name             | Type                   | Description            |
-+==================+========================+========================+
-| ``file_id``      | ``int32``              | The file ID that the   |
-|                  |                        | stats data corresponds |
-|                  |                        | to                     |
-+------------------+------------------------+------------------------+
-| ``region_id``    | ``int32``              | The region_id          |
-|                  |                        | corresponding to this  |
-|                  |                        | profile. If the        |
-|                  |                        | statistics data        |
-|                  |                        | corresponds to the     |
-|                  |                        | entire current 2D      |
-|                  |                        | image, the region ID   |
-|                  |                        | has a value of -1.     |
-+------------------+------------------------+------------------------+
-| ``channel``      | ``int32``              | The image channel used |
-|                  |                        | to generate the        |
-|                  |                        | statistics             |
-+------------------+------------------------+------------------------+
-| ``stokes``       | ``int32``              | The image stokes       |
-|                  |                        | parameter used to      |
-|                  |                        | generate the profiles  |
-+------------------+------------------------+------------------------+
-| ``statistics[]`` | ``Statistic            | Array of stats sets,   |
-|                  | sValue {  statsType:`` | each corresponding to  |
-|                  | ``StatsType  v         | a particular           |
-|                  | alue: double;``\ ``}`` | measurement, such as   |
-|                  |                        | max, min, mean, etc.   |
-+------------------+------------------------+------------------------+
++----------------------+----------------------+----------------------+
+| :red:`Name`          | :red:`Type`          | :red:`Description`   |
++======================+======================+======================+
+| :red:```file_id```   | :red:```int32```     | :red:`The file ID    |
+|                      |                      | that the stats data  |
+|                      |                      | corresponds to`      |
++----------------------+----------------------+----------------------+
+| :red:```region_id``` | :red:```int32```     | :red:`The region_id  |
+|                      |                      | corresponding to     |
+|                      |                      | this profile. If the |
+|                      |                      | statistics data      |
+|                      |                      | corresponds to the   |
+|                      |                      | entire current 2D    |
+|                      |                      | image, the region ID |
+|                      |                      | has a value of -1.`  |
++----------------------+----------------------+----------------------+
+| :red:```channel```   | :red:```int32```     | :red:`The image      |
+|                      |                      | channel used to      |
+|                      |                      | generate the         |
+|                      |                      | statistics`          |
++----------------------+----------------------+----------------------+
+| :red:```stokes```    | :red:```int32```     | :red:`The image      |
+|                      |                      | stokes parameter     |
+|                      |                      | used to generate the |
+|                      |                      | profiles`            |
++----------------------+----------------------+----------------------+
+| :re                  | :red:```StatisticsV  | :red:`Array of stats |
+| d:```statistics[]``` | alue {  statsType:`` | sets, each           |
+|                      | ``StatsType  valu    | corresponding to a   |
+|                      | e: double;``\ ``}``` | particular           |
+|                      |                      | measurement, such as |
+|                      |                      | max, min, mean,      |
+|                      |                      | etc.`                |
++----------------------+----------------------+----------------------+
 
 .. _h.3ya6e87mjlgg:
 
@@ -3037,59 +3257,65 @@ Fields
 Description
            
 
-Histograms for a region
+:red:`Histograms for a region`
 
 .. _fields-56:
 
 Fields
       
 
-+------------------+------------------------+------------------------+
-| Name             | Type                   | Description            |
-+==================+========================+========================+
-| ``file_id``      | ``int32``              | The file ID that the   |
-|                  |                        | histogram data         |
-|                  |                        | corresponds to         |
-+------------------+------------------------+------------------------+
-| ``region_id``    | ``int32``              | The region_id          |
-|                  |                        | corresponding to these |
-|                  |                        | histograms. If the     |
-|                  |                        | histograms correspond  |
-|                  |                        | to the entire current  |
-|                  |                        | 2D image, the region   |
-|                  |                        | ID has a value of      |
-|                  |                        | -1.If a region ID of   |
-|                  |                        | -2 is given, this      |
-|                  |                        | corresponds to the     |
-|                  |                        | entire 3D cube.        |
-+------------------+------------------------+------------------------+
-| ``stokes``       | ``int32``              | The image stokes       |
-|                  |                        | parameter used to      |
-|                  |                        | generate the           |
-|                  |                        | histograms             |
-+------------------+------------------------+------------------------+
-| ``progress``     | ``float``              | Progress indicator, in |
-|                  |                        | the case of partial    |
-|                  |                        | histogram results      |
-|                  |                        | being sent. If the     |
-|                  |                        | histogram calculations |
-|                  |                        | are time-consuming,    |
-|                  |                        | regular updates should |
-|                  |                        | be sent to the         |
-|                  |                        | frontend. If the data  |
-|                  |                        | is complete, progress  |
-|                  |                        | >= 1.                  |
-+------------------+------------------------+------------------------+
-| ``histograms[]`` | ``Histogr              | Histograms of the      |
-|                  | am {  channel: int32`` | current region. A      |
-|                  | ``num_bins: uint32;    | channel value less     |
-|                  |   bin_width: double;`` | than zero indicates    |
-|                  | `                      | the histogram is for   |
-|                  | `first_bin_center: dou | the entire region.     |
-|                  | ble;  bins[]: int32;`` |                        |
-|                  | ``mean: double;  std   |                        |
-|                  | _dev: double;``\ ``}`` |                        |
-+------------------+------------------------+------------------------+
++----------------------+----------------------+----------------------+
+| :red:`Name`          | :red:`Type`          | :red:`Description`   |
++======================+======================+======================+
+| :red:```file_id```   | :red:```int32```     | :red:`The file ID    |
+|                      |                      | that the histogram   |
+|                      |                      | data corresponds to` |
++----------------------+----------------------+----------------------+
+| :red:```region_id``` | :red:```int32```     | :red:`The region_id  |
+|                      |                      | corresponding to     |
+|                      |                      | these histograms. If |
+|                      |                      | the histograms       |
+|                      |                      | correspond to the    |
+|                      |                      | entire current 2D    |
+|                      |                      | image, the region ID |
+|                      |                      | has a value of       |
+|                      |                      | -1`.:red:`If a       |
+|                      |                      | region ID of -2 is   |
+|                      |                      | given, this          |
+|                      |                      | corresponds to the   |
+|                      |                      | entire 3D cube.`     |
++----------------------+----------------------+----------------------+
+| :red:```stokes```    | :red:```int32```     | :red:`The image      |
+|                      |                      | stokes parameter     |
+|                      |                      | used to generate the |
+|                      |                      | histograms`          |
++----------------------+----------------------+----------------------+
+| :red:```progress```  | :red:```float```     | :red:`Progress       |
+|                      |                      | indicator, in the    |
+|                      |                      | case of partial      |
+|                      |                      | histogram results    |
+|                      |                      | being sent. If the   |
+|                      |                      | histogram            |
+|                      |                      | calculations are     |
+|                      |                      | time-consuming,      |
+|                      |                      | regular updates      |
+|                      |                      | should be sent to    |
+|                      |                      | the frontend. If the |
+|                      |                      | data is complete,    |
+|                      |                      | progress >= 1.`      |
++----------------------+----------------------+----------------------+
+| :re                  | :red:```Histogram    | :red:`Histograms of  |
+| d:```histograms[]``` |  {  channel: int32`` | the current region.  |
+|                      | `                    | A channel value less |
+|                      | `num_bins: uint32;   | than zero indicates  |
+|                      | bin_width: double;`` | the histogram is for |
+|                      | ``fir                | the entire region.`  |
+|                      | st_bin_center: doubl |                      |
+|                      | e;  bins[]: int32;`` |                      |
+|                      | ``m                  |                      |
+|                      | ean: double;  std_de |                      |
+|                      | v: double;``\ ``}``` |                      |
++----------------------+----------------------+----------------------+
 
 .. _h.hts6ule5q5mo:
 
@@ -3101,59 +3327,66 @@ Fields
 Description
            
 
-Data for a spectral profile set for a specific file
+:red:`Data for a spectral profile set for a specific file`
 
 .. _fields-57:
 
 Fields
       
 
-+----------------+-------------------------+-------------------------+
-| Name           | Type                    | Description             |
-+================+=========================+=========================+
-| ``file_id``    | ``int32``               | The file ID that the    |
-|                |                         | spectral profile data   |
-|                |                         | corresponds to          |
-+----------------+-------------------------+-------------------------+
-| ``region_id``  | ``int32``               | The region ID that the  |
-|                |                         | stats data corresponds  |
-|                |                         | to. If the profile      |
-|                |                         | corresponds to the      |
-|                |                         | cursor position, the    |
-|                |                         | region ID has a value   |
-|                |                         | of 0.                   |
-+----------------+-------------------------+-------------------------+
-| ``stokes``     | ``int32``               | The image stokes        |
-|                |                         | parameter used to       |
-|                |                         | generate the profiles   |
-+----------------+-------------------------+-------------------------+
-| ``progress``   | ``float``               | Progress indicator, in  |
-|                |                         | the case of partial     |
-|                |                         | statistics results      |
-|                |                         | being sent. If the      |
-|                |                         | statistics calculations |
-|                |                         | are time-consuming,     |
-|                |                         | regular updates should  |
-|                |                         | be sent to the          |
-|                |                         | frontend. If the data   |
-|                |                         | is complete, progress   |
-|                |                         | >= 1.                   |
-+----------------+-------------------------+-------------------------+
-| ``profiles[]`` | ``SpectralProfile {     | Array of profile sets,  |
-|                |   Coordinate: string;`` | each corresponding to a |
-|                | ``statsTyp              | particular measurement, |
-|                | e: StatsType``\ ``;  ra | such as max, min, mean, |
-|                | w_values_fp32: bytes;`` | etc. Values are stored  |
-|                | ``raw                   | as a byte field, and    |
-|                | _values_fp64: bytes;}`` | converted to a          |
-|                |                         | Float32Array or         |
-|                |                         | Float64Array by the     |
-|                |                         | frontend to avoid the   |
-|                |                         | protocol buffer         |
-|                |                         | decoding overhead when  |
-|                |                         | dealing with large      |
-|                |                         | profiles                |
-+----------------+-------------------------+-------------------------+
++----------------------+----------------------+----------------------+
+| :red:`Name`          | :red:`Type`          | :red:`Description`   |
++======================+======================+======================+
+| :red:```file_id```   | :red:```int32```     | :red:`The file ID    |
+|                      |                      | that the spectral    |
+|                      |                      | profile data         |
+|                      |                      | corresponds to`      |
++----------------------+----------------------+----------------------+
+| :red:```region_id``` | :red:```int32```     | :red:`The region ID  |
+|                      |                      | that the stats data  |
+|                      |                      | corresponds to. If   |
+|                      |                      | the profile          |
+|                      |                      | corresponds to the   |
+|                      |                      | cursor position, the |
+|                      |                      | region ID has a      |
+|                      |                      | value of 0.`         |
++----------------------+----------------------+----------------------+
+| :red:```stokes```    | :red:```int32```     | :red:`The image      |
+|                      |                      | stokes parameter     |
+|                      |                      | used to generate the |
+|                      |                      | profiles`            |
++----------------------+----------------------+----------------------+
+| :red:```progress```  | :red:```float```     | :red:`Progress       |
+|                      |                      | indicator, in the    |
+|                      |                      | case of partial      |
+|                      |                      | statistics results   |
+|                      |                      | being sent. If the   |
+|                      |                      | statistics           |
+|                      |                      | calculations are     |
+|                      |                      | time-consuming,      |
+|                      |                      | regular updates      |
+|                      |                      | should be sent to    |
+|                      |                      | the frontend. If the |
+|                      |                      | data is complete,    |
+|                      |                      | progress >= 1.`      |
++----------------------+----------------------+----------------------+
+| :                    | :red:```             | :red:`Array of       |
+| red:```profiles[]``` | SpectralProfile {  C | profile sets, each   |
+|                      | oordinate: string;`` | corresponding to a   |
+|                      | ``statsType: Sta     | particular           |
+|                      | tsType``\ ``;  raw_v | measurement, such as |
+|                      | alues_fp32: bytes;`` | max, min, mean, etc. |
+|                      | ``raw_val            | Values are stored as |
+|                      | ues_fp64: bytes;}``` | a byte field, and    |
+|                      |                      | converted to a       |
+|                      |                      | Float32Array or      |
+|                      |                      | Float64Array by the  |
+|                      |                      | frontend to avoid    |
+|                      |                      | the protocol buffer  |
+|                      |                      | decoding overhead    |
+|                      |                      | when dealing with    |
+|                      |                      | large profiles`      |
++----------------------+----------------------+----------------------+
 
 .. _h.5x7g8gqf3tl3:
 
@@ -3165,43 +3398,51 @@ Fields
 Description
            
 
-Stream of error/warning/info data. This stream is used to present the
-frontend with additional information on the state of the backend, and is
-not used in place of returning success=false on requests or commands.
+:red:`Stream of error/warning/info data. This stream is used to present
+the frontend with additional information on the state of the backend,
+and is not used in place of returning success=false on requests or
+commands.`
 
 .. _fields-58:
 
 Fields
       
 
-+--------------+--------------------------+--------------------------+
-| Name         | Type                     | Description              |
-+==============+==========================+==========================+
-| ``severity`` | ``Enum Error             | The severity of the      |
-|              | Severity {  DEBUG = 0;`` | error. Critical errors   |
-|              | ``I                      | are reserved for errors  |
-|              | NFO = 1;  WARNING = 2;`` | that would normally      |
-|              | ``ERR                    | require the user to      |
-|              | OR = 3;  CRITICAL = 4;`` | restart the program or   |
-|              | ``}``                    | reload the page.         |
-+--------------+--------------------------+--------------------------+
-| ``tags[]``   | ``string``               | A list of strings        |
-|              |                          | describing the error     |
-|              |                          | type, that the frontend  |
-|              |                          | can interpret and react  |
-|              |                          | to. For example,         |
-|              |                          | “file_io” or “memory”.   |
-+--------------+--------------------------+--------------------------+
-| ``message``  | ``string``               | The error message        |
-+--------------+--------------------------+--------------------------+
-| ``data``     | ``string``               | Accompanying error data. |
-|              |                          | For example, if an error |
-|              |                          | has the “file_io” tag,   |
-|              |                          | the frontend would       |
-|              |                          | expect the data field to |
-|              |                          | contain the file ID of   |
-|              |                          | the offending file.      |
-+--------------+--------------------------+--------------------------+
++---------------------+----------------------+----------------------+
+| :red:`Name`         | :red:`Type`          | :red:`Description`   |
++=====================+======================+======================+
+| :red:```severity``` | :r                   | :red:`The severity   |
+|                     | ed:```Enum ErrorSeve | of the error.        |
+|                     | rity {  DEBUG = 0;`` | Critical errors are  |
+|                     | ``INFO               | reserved for errors  |
+|                     | = 1;  WARNING = 2;`` | that would normally  |
+|                     | ``ERROR =            | require the user to  |
+|                     |  3;  CRITICAL = 4;`` | restart the program  |
+|                     | ``}```               | or reload the page.` |
++---------------------+----------------------+----------------------+
+| :red:```tags[]```   | :red:```string```    | :red:`A list of      |
+|                     |                      | strings describing   |
+|                     |                      | the error type, that |
+|                     |                      | the frontend can     |
+|                     |                      | interpret and react  |
+|                     |                      | to. For example,     |
+|                     |                      | “file_io” or         |
+|                     |                      | “memory”.`           |
++---------------------+----------------------+----------------------+
+| :red:```message```  | :red:```string```    | :red:`The error      |
+|                     |                      | message`             |
++---------------------+----------------------+----------------------+
+| :red:```data```     | :red:```string```    | :red:`Accompanying   |
+|                     |                      | error data. For      |
+|                     |                      | example, if an error |
+|                     |                      | has the “file_io”    |
+|                     |                      | tag, the frontend    |
+|                     |                      | would expect the     |
+|                     |                      | data field to        |
+|                     |                      | contain the file ID  |
+|                     |                      | of the offending     |
+|                     |                      | file.`               |
++---------------------+----------------------+----------------------+
 
 .. _h.y4zql17t73jl:
 
@@ -3213,52 +3454,57 @@ Fields
 Description
            
 
-Data for an image rendered in contour mode
+:red:`Data for an image rendered in contour mode`
 
 .. _fields-59:
 
 Fields
       
 
-+-----------------------+------------------+------------------------+
-| Name                  | Type             | Description            |
-+=======================+==================+========================+
-| ``file_id``           | ``int32``        | The file ID that the   |
-|                       |                  | raster image           |
-|                       |                  | corresponds to         |
-+-----------------------+------------------+------------------------+
-| ``reference_file_id`` | ``int32``        | The file ID of the     |
-|                       |                  | reference image that   |
-|                       |                  | the contour vertices   |
-|                       |                  | are mapped to          |
-+-----------------------+------------------+------------------------+
-| ``image_bounds``      | ``ImageBounds``  | The bounding box in    |
-|                       |                  | the XY plane           |
-|                       |                  | corresponding to the   |
-|                       |                  | image data in pixel    |
-|                       |                  | coordinates            |
-+-----------------------+------------------+------------------------+
-| ``channel``           | ``int32``        | The image channel used |
-|                       |                  | to generate the        |
-|                       |                  | contours               |
-+-----------------------+------------------+------------------------+
-| ``stokes``            | ``int32``        | The image Stokes       |
-|                       |                  | parameter used to      |
-|                       |                  | generate the contours  |
-+-----------------------+------------------+------------------------+
-| ``contour_set``       | ``ContourSet[]`` | Each contour set       |
-|                       |                  | consists of the        |
-|                       |                  | contour level value,   |
-|                       |                  | as well as a list of   |
-|                       |                  | cooridnates            |
-+-----------------------+------------------+------------------------+
-| ``progress``          | ``double``       | Progress of the        |
-|                       |                  | contour sets being     |
-|                       |                  | sent. If this is zero, |
-|                       |                  | the message is assumed |
-|                       |                  | to contain the         |
-|                       |                  | complete contour sets  |
-+-----------------------+------------------+------------------------+
++----------------------+----------------------+----------------------+
+| :red:`Name`          | :red:`Type`          | :red:`Description`   |
++======================+======================+======================+
+| :red:```file_id```   | :red:```int32```     | :red:`The file ID    |
+|                      |                      | that the raster      |
+|                      |                      | image corresponds    |
+|                      |                      | to`                  |
++----------------------+----------------------+----------------------+
+| :red:```             | :red:```int32```     | :red:`The file ID of |
+| reference_file_id``` |                      | the reference image  |
+|                      |                      | that the contour     |
+|                      |                      | vertices are mapped  |
+|                      |                      | to`                  |
++----------------------+----------------------+----------------------+
+| :re                  | ``ImageBounds``      | :red:`The bounding   |
+| d:```image_bounds``` |                      | box in the XY plane  |
+|                      |                      | corresponding to the |
+|                      |                      | image data in pixel  |
+|                      |                      | coordinates`         |
++----------------------+----------------------+----------------------+
+| :red:```channel```   | :red:```int32```     | :red:`The image      |
+|                      |                      | channel used to      |
+|                      |                      | generate the         |
+|                      |                      | contours`            |
++----------------------+----------------------+----------------------+
+| :red:```stokes```    | :red:```int32```     | :red:`The image      |
+|                      |                      | Stokes parameter     |
+|                      |                      | used to generate the |
+|                      |                      | contours`            |
++----------------------+----------------------+----------------------+
+| :r                   | :re                  | :red:`Each contour   |
+| ed:```contour_set``` | d:```ContourSet[]``` | set consists of the  |
+|                      |                      | contour level value, |
+|                      |                      | as well as a list of |
+|                      |                      | cooridnates`         |
++----------------------+----------------------+----------------------+
+| :red:```progress```  | :red:```double```    | :red:`Progress of    |
+|                      |                      | the contour sets     |
+|                      |                      | being sent. If this  |
+|                      |                      | is zero, the message |
+|                      |                      | is assumed to        |
+|                      |                      | contain the complete |
+|                      |                      | contour sets`        |
++----------------------+----------------------+----------------------+
 
 .. _h.tjzxx851tlul:
 
@@ -3270,8 +3516,8 @@ Fields
 Description
            
 
-Returned catalog data and associated file according
-to\ ```CATALOG_FILTER_REQUEST`` <#h.5er8gvmp2ywc>`__
+:red:`Returned catalog data and associated file according
+to`\ ```CATALOG_FILTER_REQUEST`` <#h.5er8gvmp2ywc>`__
 
 .. _fields-60:
 
@@ -3279,61 +3525,64 @@ Fields
       
 
 +----------------------+----------------------+----------------------+
-| Name                 | Type                 | Description          |
+| :red:`Name`          | :red:`Type`          | :red:`Description`   |
 +======================+======================+======================+
-| ``file_id``          | ``int32``            | The file ID that the |
-|                      |                      | catalog data         |
-|                      |                      | corresponds to       |
+| :red:```file_id```   | :red:```int32```     | :red:`The file ID    |
+|                      |                      | that the catalog     |
+|                      |                      | data corresponds to` |
 +----------------------+----------------------+----------------------+
-| ``image_file_id``    | ``int32``            | Catalog_data         |
-|                      |                      | associated image     |
-|                      |                      | file                 |
+| :red                 | :red:```int32```     | :red:`Catalog_data   |
+| :```image_file_id``` |                      | associated image     |
+|                      |                      | file`                |
 +----------------------+----------------------+----------------------+
-| ``region_id``        | ``int32``            | Catalog_data         |
-|                      |                      | associated region    |
+| :red:```region_id``` | :red:```int32```     | :red:`Catalog_data   |
+|                      |                      | associated region`   |
 +----------------------+----------------------+----------------------+
-| ``columns``          | ``map<int32,``\ `    | Map containing all   |
-|                      | `ColumnData``\ ``>`` | column data after    |
-|                      |                      | catalog filter. This |
-|                      |                      | array size and start |
-|                      |                      | point can be         |
-|                      |                      | determined by        |
+| :red:```columns```   | :red:```map          | :red:`Map containing |
+|                      | <int32,```\ :red:``` | all column data      |
+|                      | ColumnData```\ ``>`` | after catalog        |
+|                      |                      | filter. This array   |
+|                      |                      | size and start point |
+|                      |                      | can be determined by |
 |                      |                      | subset_data_size and |
 |                      |                      | subset_start_index   |
 |                      |                      | from                 |
-|                      |                      | ``CATALOG_FILTER.``  |
+|                      |                      | ``CATALOG_FILTER.``` |
 +----------------------+----------------------+----------------------+
-| ``subset_data_size`` | ``int32``            | The number of rows   |
-|                      |                      | in the columns_data. |
+| :red:``              | :red:```int32```     | :red:`The number of  |
+| `subset_data_size``` |                      | rows in the          |
+|                      |                      | columns_data.`       |
 +----------------------+----------------------+----------------------+
-| ``subset_end_index`` | ``int32``            | The end index of the |
-|                      |                      | table row after the  |
-|                      |                      | scan.                |
+| :red:``              | :red:```int32```     | :red:`The end index  |
+| `subset_end_index``` |                      | of the table row     |
+|                      |                      | after the scan.`     |
 +----------------------+----------------------+----------------------+
-| ``progress``         | ``float``            | Progress indicator   |
-|                      |                      | for catalog_data.    |
+| :red:```progress```  | :red:```float```     | :red:`Progress       |
+|                      |                      | indicator for        |
+|                      |                      | catalog_data.        |
 |                      |                      | “progress could be   |
 |                      |                      | determined by how    |
 |                      |                      | much of the file has |
 |                      |                      | been filtered.” If   |
 |                      |                      | the data completes,  |
-|                      |                      | progress >=1.        |
+|                      |                      | progress >=1.`       |
 +----------------------+----------------------+----------------------+
-| ``filter_data_size`` | ``int32``            | Size of the data     |
-|                      |                      | after the filter     |
+| :red:``              | :red:```int32```     | :red:`Size of the    |
+| `filter_data_size``` |                      | data after the       |
+|                      |                      | filter`              |
 +----------------------+----------------------+----------------------+
-| `                    | ``int32``            | Index of the last    |
-| `request_end_index`` |                      | requested row. If    |
-|                      |                      | the entire table is  |
-|                      |                      | requested, this is   |
-|                      |                      | the last entry in    |
-|                      |                      | the table            |
+| :red:```             | :red:```int32```     | :red:`Index of the   |
+| request_end_index``` |                      | last requested row.  |
+|                      |                      | If the entire table  |
+|                      |                      | is requested, this   |
+|                      |                      | is the last entry in |
+|                      |                      | the table`           |
 +----------------------+----------------------+----------------------+
 
 .. _h.ise7tgmgr1et:
 
-``MOMENT_PROGRESS`` (MomentProgress)
-''''''''''''''''''''''''''''''''''''
+:red:```MOMENT_PROGRESS`` (MomentProgress)`
+'''''''''''''''''''''''''''''''''''''''''''
 
 .. _description-61:
 
@@ -3345,12 +3594,13 @@ Description
 Fields
       
 
-+--------------+-----------+-----------------------------------------+
-| Name         | Type      | Description                             |
-+==============+===========+=========================================+
-| ``progress`` | ``float`` | Progress indicator. If the data is      |
-|              |           | complete, progress >= 1.                |
-+--------------+-----------+-----------------------------------------+
++---------------------+------------------+---------------------------+
+| Name                | Type             | Description               |
++=====================+==================+===========================+
+| :red:```progress``` | :red:```float``` | :red:`Progress indicator. |
+|                     |                  | If the data is complete,  |
+|                     |                  | progress >= 1.`           |
++---------------------+------------------+---------------------------+
 
 .. _h.96q7a5njivii:
 
