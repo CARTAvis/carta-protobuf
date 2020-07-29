@@ -3,6 +3,4 @@ docs/convert/CARTABackendFrontendInterfaceControlDocument.html
 docs/convert/downloaded_ICD.zip
 docs/convert/images/
 docs/convert/index.html
-docs/protoc/protoc.html
-docs/protoc/protoc.rst
-
+docs/protoc/*.html

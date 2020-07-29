@@ -342,6 +342,11 @@ for a in soup.find_all("a"):
         elif "1mD9cZri8S25hm6VTPehEXUXA_kDptlcr41ktbEZQv1k" in a["href"]:
             # fix links to catalog doc which are supposed to be anchors
             a["href"] = "#CARTA.%s" % a.text
+            
+# For preview purposes, style the coloured spans
+for s in soup.find_all("span"):
+    if "role" in s.attrs:
+        s["class"] = s["role"]
                 
 with open(sys.argv[2], 'w') as f:
     print(str(soup), file=f)
