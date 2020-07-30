@@ -2,6 +2,7 @@
 
 import re
 import sys
+import subprocess
 from bs4 import BeautifulSoup
 
 with open(sys.argv[1]) as f:
@@ -356,9 +357,33 @@ for a in soup.find_all("a"):
 for s in soup.find_all("span"):
     if "role" in s.attrs:
         s["class"] = s["role"]
+        
+# Rename images
+
+seen = set()
+
+for img in soup.find_all("img"):
+    src = img["src"]
+    plantuml = subprocess.run(["plantuml", "-metadata", src], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    result = plantuml.stdout.decode('ascii')
+    m = re.search("title (.*)", result)
+    if m:
+        new_name = m.group(1).strip()
+        new_name = re.sub("[()]", "", new_name)
+        new_name = new_name.replace(r"\n", " ")
+        new_name = re.sub(",.*", "", new_name)
+        new_name = re.sub("-", "_", new_name)
+        new_name = "_".join(new_name.lower().split())
+        if new_name in seen:
+            new_name += "_2" # we only need this for one image
+        seen.add(new_name)
+        subprocess.run(["cp", src, "../_static/%s.png" % new_name ])
+        img["src"] = "_static/%s.png" % new_name
+    else:
+        print("No metadata for image", src)
+    
                 
 with open(sys.argv[2], 'w') as f:
     print(str(soup), file=f)
 
-# TODO fix heading levels
 # TODO rename images -- use the metadata

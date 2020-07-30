@@ -2,5 +2,6 @@ build/*
 docs/convert/CARTABackendFrontendInterfaceControlDocument.html
 docs/convert/downloaded_ICD.zip
 docs/convert/images/
+docs/convert/_static
 docs/convert/index.html
 docs/protoc/*.html

@@ -124,7 +124,7 @@ frontend and backend both run locally. The backend is run as an
 application that communicates with the frontend, which is presented to
 the user as a desktop application in the form of an Electron-wrapped web
 view
-[`1 <https://www.google.com/url?q=https://electronjs.org/&sa=D&ust=1595980841122000&usg=AOvVaw1T_YFsV40apLmx90pkO8uw>`__].
+[`1 <https://www.google.com/url?q=https://electronjs.org/&sa=D&ust=1596120440105000&usg=AOvVaw25RNAT6AFL3xsj2SiyIRfj>`__].
 
 The second usage scenario is that of a remote viewer, where the backend
 is running on a remote server, while the frontend is loaded in the
@@ -137,10 +137,10 @@ handled through accessing the frontend through a remote URL.`
 
 In both of these scenarios, communication between the frontend and
 backend takes place over a standard WebSocket
-[`2 <https://www.google.com/url?q=https://en.wikipedia.org/wiki/WebSocket&sa=D&ust=1595980841123000&usg=AOvVaw2_2I4xI6j4x8Pz6b8zoIug>`__]
+[`2 <https://www.google.com/url?q=https://en.wikipedia.org/wiki/WebSocket&sa=D&ust=1596120440106000&usg=AOvVaw2ZlLh1OHyoKz8V-BNpFZOW>`__]
 communication channel, with message formats defined using protocol
 buffers
-[`3 <https://www.google.com/url?q=https://developers.google.com/protocol-buffers/&sa=D&ust=1595980841123000&usg=AOvVaw1BHzSVf8KTo-cO-WH_qXJV>`__],
+[`3 <https://www.google.com/url?q=https://developers.google.com/protocol-buffers/&sa=D&ust=1596120440107000&usg=AOvVaw24uJRi19CVaFqiCwFz73mN>`__],
 based on the message structures defined in `Section
 4.1 <Application%20Layer>`__.
 
@@ -149,9 +149,9 @@ floating point data. The frontend can request which type of data is sent
 from the backend, which compression library to use, and what compression
 quality to use. Two lossy floating-point compression libraries are
 supported: ZFP
-[`4 <https://www.google.com/url?q=https://github.com/LLNL/zfp&sa=D&ust=1595980841124000&usg=AOvVaw05URYQ82oXctGj2sTtbMek>`__]
+[`4 <https://www.google.com/url?q=https://github.com/LLNL/zfp&sa=D&ust=1596120440107000&usg=AOvVaw1WlcDXStePYA7a6NmJvTTn>`__]
 and SZ
-[`5 <https://www.google.com/url?q=https://github.com/disheng222/SZ&sa=D&ust=1595980841124000&usg=AOvVaw28cbknTYTzWMg7eKs7-zhO>`__].
+[`5 <https://www.google.com/url?q=https://github.com/disheng222/SZ&sa=D&ust=1596120440108000&usg=AOvVaw3-guKUtEzmB9mWTEoUR62W>`__].
 A general investigation of the compression performance of these two
 libraries shows that ZFP is consistently faster, while SZ offers
 slightly better compression ratios at the expense of compression and
@@ -291,7 +291,7 @@ take.
 
 The frontend can request specific tiles of an image to be delivered.
 Tiles are specified using the widely used a `tiled web
-map <https://www.google.com/url?q=https://en.wikipedia.org/wiki/Tiled_web_map&sa=D&ust=1595980841128000&usg=AOvVaw2G6xBYweYBuo5EVxgyI5Ws>`__
+map <https://www.google.com/url?q=https://en.wikipedia.org/wiki/Tiled_web_map&sa=D&ust=1596120440114000&usg=AOvVaw2AQmAKZszSBjzBjevxXR-M>`__
 convention (commonly used in GIS and online image viewer software). Each
 tile is defined by three coordinates: The layer, x and y coordinates.
 The zeroth layer consists of the entire image, down-sampled until it is
@@ -2390,6 +2390,75 @@ Name                Type              Description
 :blue:```file_id``` :blue:```int32``` :blue:`Image file id`
 =================== ================= =====================
 
+.. _CARTA.SpectralLineRequest:
+
+``SPECTRAL_LINE_REQUEST`` (SpectralLineRequest)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. _description-35:
+
+Description
+'''''''''''
+
+:blue:`Send query to splatalogue to fetch spectral lines`
+
+.. _fields-35:
+
+Fields
+''''''
+
++----------------------+----------------------+----------------------+
+| Name                 | Type                 | Description          |
++======================+======================+======================+
+| :blue:`              | `                    | :blue:`Range of      |
+| ``frequency_range``` | ``DoubleBounds`` <CA | frequency for query, |
+|                      | RTA.DoubleBounds>`__ | in MHz`              |
++----------------------+----------------------+----------------------+
+
+.. _CARTA.SpectralLineResponse:
+
+``SPECTRAL_LINE_RESPONSE`` (SpectralLineResponse)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. _description-36:
+
+Description
+'''''''''''
+
+:blue:`Response of ``SPECTRAL_LINE_REQUEST```
+
+.. _fields-36:
+
+Fields
+''''''
+
++----------------------+----------------------+----------------------+
+| Name                 | Type                 | Description          |
++======================+======================+======================+
+| :red:```success```   | :red:```bool```      | :red:`Defines        |
+|                      |                      | whether the          |
+|                      |                      | ``SPE                |
+|                      |                      | CTRAL_LINE_REQUEST`` |
+|                      |                      | was successful`      |
++----------------------+----------------------+----------------------+
+| :red:```message```   | :red:```string```    | :red:`Error message  |
+|                      |                      | (if applicable)`     |
++----------------------+----------------------+----------------------+
+| :                    | :blue:```int32```    | :blue:`A number      |
+| blue:```data_size``` |                      | specifying how many  |
+|                      |                      | rows fetched to      |
+|                      |                      | return.`             |
++----------------------+----------------------+----------------------+
+| :red:```headers[]``` | ```                  | :red:`Table header   |
+|                      | CatalogHeader`` <CAR | info of fetched      |
+|                      | TA.CatalogHeader>`__ | spectral lines.`     |
++----------------------+----------------------+----------------------+
+| :red:```s            | :red:``              | :red:`Map containing |
+| pectral_line_data``` | `map<int32,```\ ```C | all column data of   |
+|                      | olumnData`` <CARTA.C | fetched spectral     |
+|                      | olumnData>`__\ ``>`` | lines.`              |
++----------------------+----------------------+----------------------+
+
 .. _Request messages:
 
 4.1.2 Request messages
@@ -2400,7 +2469,7 @@ Name                Type              Description
 ``FILE_LIST_REQUEST``
 ^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-35:
+.. _description-37:
 
 Description
 '''''''''''
@@ -2409,7 +2478,7 @@ Description
 Backend responds
 with`\ ```FILE_LIST_RESPONSE`` <CARTA.FileListResponse>`__
 
-.. _fields-35:
+.. _fields-37:
 
 Fields
 ''''''
@@ -2430,7 +2499,7 @@ Fields
 ``FILE_LIST_RESPONSE``
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-36:
+.. _description-38:
 
 Description
 '''''''''''
@@ -2439,7 +2508,7 @@ Description
 for`\ ```FILE_LIST_REQUEST`` <CARTA.FileListRequest>`__\ :red:`. Gives a
 list of available files (and their types), as well as subdirectories`
 
-.. _fields-36:
+.. _fields-38:
 
 Fields
 ''''''
@@ -2481,7 +2550,7 @@ Fields
 ``FILE_INFO_REQUEST``
 ^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-37:
+.. _description-39:
 
 Description
 '''''''''''
@@ -2489,7 +2558,7 @@ Description
 :blue:`Requests file info for a specific file. Backend responds
 with`\ ```FILE_INFO_RESPONSE`` <CARTA.FileInfoResponse>`__
 
-.. _fields-37:
+.. _fields-39:
 
 Fields
 ''''''
@@ -2519,7 +2588,7 @@ Fields
 ``FILE_INFO_RESPONSE``
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-38:
+.. _description-40:
 
 Description
 '''''''''''
@@ -2528,7 +2597,7 @@ Description
 for`\ ```FILE_INFO_REQUEST`` <CARTA.FileInfoRequest>`__\ :red:`. Gives
 information on the requested file.`
 
-.. _fields-38:
+.. _fields-40:
 
 Fields
 ''''''
@@ -2560,7 +2629,7 @@ Fields
 ``REGION_LIST_REQUEST``
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-39:
+.. _description-41:
 
 Description
 '''''''''''
@@ -2568,7 +2637,7 @@ Description
 :blue:`Requests the list of available region files for a given
 directory. Backend responds with`\ :red:```REGION_LIST_RESPONSE```
 
-.. _fields-39:
+.. _fields-41:
 
 Fields
 ''''''
@@ -2589,7 +2658,7 @@ Fields
 ``REGION_LIST_RESPONSE``
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-40:
+.. _description-42:
 
 Description
 '''''''''''
@@ -2597,7 +2666,7 @@ Description
 :red:`Response for`\ ``REGION_LIST_REQUEST``\ :red:`. Gives a list of
 available region files (and their types), as well as subdirectories`
 
-.. _fields-40:
+.. _fields-42:
 
 Fields
 ''''''
@@ -2637,7 +2706,7 @@ Fields
 ``REGION_FILE_INFO_REQUEST``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-41:
+.. _description-43:
 
 Description
 '''''''''''
@@ -2645,7 +2714,7 @@ Description
 :blue:`Requests region info (contents) for a specific region file on the
 server. Backend responds with`\ :red:```REGION_FILE_INFO_RESPONSE```
 
-.. _fields-41:
+.. _fields-43:
 
 Fields
 ''''''
@@ -2669,7 +2738,7 @@ Fields
 ``REGION_FILE_INFO_RESPONSE``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-42:
+.. _description-44:
 
 Description
 '''''''''''
@@ -2677,7 +2746,7 @@ Description
 :red:`Response for`\ :blue:```REGION_FILE_INFO_REQUEST```\ :red:`.
 Returns the contents of the requested region file on the server.`
 
-.. _fields-42:
+.. _fields-44:
 
 Fields
 ''''''
@@ -2708,7 +2777,7 @@ Fields
 ``CATALOG_LIST_REQUEST`` (*CatalogListRequest*)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-43:
+.. _description-45:
 
 Description
 '''''''''''
@@ -2718,7 +2787,7 @@ Description
 directory. Backend responds
 with`\ ```CATALOG_LIST_RESPONSE`` <CARTA.CatalogListResponse>`__
 
-.. _fields-43:
+.. _fields-45:
 
 Fields
 ''''''
@@ -2734,7 +2803,7 @@ Fields
 ``CATALOG_LIST_RESPONSE`` (*CatalogListResponse*)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-44:
+.. _description-46:
 
 Description
 '''''''''''
@@ -2744,7 +2813,7 @@ for`\ ```CATALOG_LIST_REQUEST`` <CARTA.CatalogListRequest>`__\ :red:`\ ​.
 Gives a list of available files (and their types), as well as
 subdirectories`
 
-.. _fields-44:
+.. _fields-46:
 
 Fields
 ''''''
@@ -2785,7 +2854,7 @@ Fields
 ``CATALOG_FILE_INFO_REQUEST`` (*CatalogFileInfoRequest*)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-45:
+.. _description-47:
 
 Description
 '''''''''''
@@ -2793,7 +2862,7 @@ Description
 :blue:`Requests file info for a catalog file. Backend responds
 with`\ ```CATALOG_FILE_INFO_RESPONSE`` <CARTA.CatalogFileInfoResponse>`__
 
-.. _fields-45:
+.. _fields-47:
 
 Fields
 ''''''
@@ -2810,7 +2879,7 @@ Fields
 ``CATALOG_FILE_INFO_RESPONSE`` (*CatalogFileInfoResponse*)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-46:
+.. _description-48:
 
 Description
 '''''''''''
@@ -2819,7 +2888,7 @@ Description
 for`\ ```CATALOG_FILE_INFO_REQUEST`` <CARTA.CatalogFileInfoRequest>`__\ :red:`.
 Gives information on the requested catalog file.`
 
-.. _fields-46:
+.. _fields-48:
 
 Fields
 ''''''
@@ -2850,7 +2919,7 @@ Fields
 ``CATALOG_FILTER_REQUEST`` (*CatalogFilterRequest*)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-47:
+.. _description-49:
 
 Description
 '''''''''''
@@ -2858,7 +2927,7 @@ Description
 :blue:`Return`\ ```CATALOG_FILTER_RESPONSE`` <CARTA.CatalogFilterResponse>`__\ :blue:`according
 to the user filter settings.`
 
-.. _fields-47:
+.. _fields-49:
 
 Fields
 ''''''
@@ -2924,7 +2993,7 @@ Fields
 ``MOMENT_REQUEST`` (MomentRequest)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-48:
+.. _description-50:
 
 Description
 '''''''''''
@@ -2932,7 +3001,7 @@ Description
 :blue:`Response with`\ ```MOMENT_RESPONSE``
 (MomentResponse) <CARTA.MomentResponse>`__
 
-.. _fields-48:
+.. _fields-50:
 
 Fields
 ''''''
@@ -2972,12 +3041,12 @@ Fields
 :red:```MOMENT_RESPONSE`` (MomentResponse)`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-49:
+.. _description-51:
 
 Description
 '''''''''''
 
-.. _fields-49:
+.. _fields-51:
 
 Fields
 ''''''
@@ -3002,14 +3071,14 @@ Fields
 ``SAVE_FILE`` (SaveFile)
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-50:
+.. _description-52:
 
 Description
 '''''''''''
 
 :blue:`Save the image file with different name or type`
 
-.. _fields-50:
+.. _fields-52:
 
 Fields
 ''''''
@@ -3041,12 +3110,12 @@ Fields
 :red:```SAVE_FILE_ACK`` (SaveFileAck)`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-51:
+.. _description-53:
 
 Description
 '''''''''''
 
-.. _fields-51:
+.. _fields-53:
 
 Fields
 ''''''
@@ -3073,14 +3142,14 @@ Fields
 ``RASTER_TILE_SYNC``
 ^^^^^^^^^^^^^^^^^^^^
 
-.. _description-52:
+.. _description-54:
 
 Description
 '''''''''''
 
 :red:`Sync message sent at the start and end of a stream of data tiles`
 
-.. _fields-52:
+.. _fields-54:
 
 Fields
 ''''''
@@ -3113,14 +3182,14 @@ Fields
 ``RASTER_TILE_DATA``
 ^^^^^^^^^^^^^^^^^^^^
 
-.. _description-53:
+.. _description-55:
 
 Description
 '''''''''''
 
 :red:`Data for a single tile or list of tiles rendered in raster mode.`
 
-.. _fields-53:
+.. _fields-55:
 
 Fields
 ''''''
@@ -3161,14 +3230,14 @@ Fields
 ``SPATIAL_PROFILE_DATA``
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-54:
+.. _description-56:
 
 Description
 '''''''''''
 
 :red:`Data for spatial profile set for a specific file`
 
-.. _fields-54:
+.. _fields-56:
 
 Fields
 ''''''
@@ -3249,14 +3318,14 @@ Fields
 ``REGION_STATS_DATA``
 ^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-55:
+.. _description-57:
 
 Description
 '''''''''''
 
 :red:`Simple statistics for a region`
 
-.. _fields-55:
+.. _fields-57:
 
 Fields
 ''''''
@@ -3301,14 +3370,14 @@ Fields
 ``REGION_HISTOGRAM_DATA``
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-56:
+.. _description-58:
 
 Description
 '''''''''''
 
 :red:`Histograms for a region`
 
-.. _fields-56:
+.. _fields-58:
 
 Fields
 ''''''
@@ -3371,14 +3440,14 @@ Fields
 ``SPECTRAL_PROFILE_DATA``
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-57:
+.. _description-59:
 
 Description
 '''''''''''
 
 :red:`Data for a spectral profile set for a specific file`
 
-.. _fields-57:
+.. _fields-59:
 
 Fields
 ''''''
@@ -3442,7 +3511,7 @@ Fields
 ``ERROR_DATA``
 ^^^^^^^^^^^^^^
 
-.. _description-58:
+.. _description-60:
 
 Description
 '''''''''''
@@ -3452,7 +3521,7 @@ the frontend with additional information on the state of the backend,
 and is not used in place of returning success=false on requests or
 commands.`
 
-.. _fields-58:
+.. _fields-60:
 
 Fields
 ''''''
@@ -3498,14 +3567,14 @@ Fields
 ``CONTOUR_IMAGE_DATA``
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-59:
+.. _description-61:
 
 Description
 '''''''''''
 
 :red:`Data for an image rendered in contour mode`
 
-.. _fields-59:
+.. _fields-61:
 
 Fields
 ''''''
@@ -3560,7 +3629,7 @@ Fields
 ``CATALOG_FILTER_RESPONSE`` (*CatalogFilterResponse*)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-60:
+.. _description-62:
 
 Description
 '''''''''''
@@ -3568,7 +3637,7 @@ Description
 :red:`Returned catalog data and associated file according
 to`\ ```CATALOG_FILTER_REQUEST`` <CARTA.CatalogFilterRequest>`__
 
-.. _fields-60:
+.. _fields-62:
 
 Fields
 ''''''
@@ -3633,12 +3702,12 @@ Fields
 :red:```MOMENT_PROGRESS`` (MomentProgress)`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-61:
+.. _description-63:
 
 Description
 '''''''''''
 
-.. _fields-61:
+.. _fields-63:
 
 Fields
 ''''''
@@ -3661,14 +3730,14 @@ Fields
 FileInfo
 ^^^^^^^^
 
-.. _description-62:
+.. _description-64:
 
 Description
 '''''''''''
 
 Basic file info
 
-.. _fields-62:
+.. _fields-64:
 
 Fields
 ''''''
@@ -3694,14 +3763,14 @@ Fields
 FileInfoExtended
 ^^^^^^^^^^^^^^^^
 
-.. _description-63:
+.. _description-65:
 
 Description
 '''''''''''
 
 Basic file info
 
-.. _fields-63:
+.. _fields-65:
 
 Fields
 ''''''
@@ -3746,14 +3815,14 @@ Fields
 HeaderEntry
 ^^^^^^^^^^^
 
-.. _description-64:
+.. _description-66:
 
 Description
 '''''''''''
 
 FITS/CASA header / HDF5 attribute entry
 
-.. _fields-64:
+.. _fields-66:
 
 Fields
 ''''''
@@ -3779,14 +3848,14 @@ Fields
 ImageBounds
 ^^^^^^^^^^^
 
-.. _description-65:
+.. _description-67:
 
 Description
 '''''''''''
 
 Bounds in XY plane (image space)
 
-.. _fields-65:
+.. _fields-67:
 
 Fields
 ''''''
@@ -3805,14 +3874,14 @@ Name      Type      Description
 TileData
 ^^^^^^^^
 
-.. _description-66:
+.. _description-68:
 
 Description
 '''''''''''
 
 Single tile object
 
-.. _fields-66:
+.. _fields-68:
 
 Fields
 ''''''
@@ -3852,14 +3921,14 @@ Fields
 RegionInfo
 ^^^^^^^^^^
 
-.. _description-67:
+.. _description-69:
 
 Description
 '''''''''''
 
 Region parameters
 
-.. _fields-67:
+.. _fields-69:
 
 Fields
 ''''''
@@ -3887,14 +3956,14 @@ Fields
 RegionStyle
 ^^^^^^^^^^^
 
-.. _description-68:
+.. _description-70:
 
 Description
 '''''''''''
 
 Region id and style parameters
 
-.. _fields-68:
+.. _fields-70:
 
 Fields
 ''''''
@@ -3913,7 +3982,7 @@ Name           Type        Description
 ContourSet
 ^^^^^^^^^^
 
-.. _description-69:
+.. _description-71:
 
 Description
 '''''''''''
@@ -3922,7 +3991,7 @@ Each contour set consists of the contour level value, as well as a list
 of coordinates. The start_indices list is used to determine how to
 subdivide the coordinates list into separate poly-lines when rendering.
 
-.. _fields-69:
+.. _fields-71:
 
 Fields
 ''''''
@@ -3959,14 +4028,14 @@ Fields
 ImageProperties
 ^^^^^^^^^^^^^^^
 
-.. _description-70:
+.. _description-72:
 
 Description
 '''''''''''
 
 Requests the opening of a specific file.
 
-.. _fields-70:
+.. _fields-72:
 
 Fields
 ''''''
@@ -4015,14 +4084,14 @@ Fields
 ContourSettings
 ^^^^^^^^^^^^^^^
 
-.. _description-71:
+.. _description-73:
 
 Description
 '''''''''''
 
 Requests the opening of a specific file.
 
-.. _fields-71:
+.. _fields-73:
 
 Fields
 ''''''
@@ -4072,14 +4141,14 @@ Fields
 CatalogHeader
 ^^^^^^^^^^^^^
 
-.. _description-72:
+.. _description-74:
 
 Description
 '''''''''''
 
 Catalog table header entry
 
-.. _fields-72:
+.. _fields-74:
 
 Fields
 ''''''
@@ -4106,14 +4175,14 @@ Fields
 ColumnData
 ^^^^^^^^^^
 
-.. _description-73:
+.. _description-75:
 
 Description
 '''''''''''
 
 Data for a single catalog column
 
-.. _fields-73:
+.. _fields-75:
 
 Fields
 ''''''
@@ -4135,14 +4204,14 @@ Fields
 FilterConfig
 ^^^^^^^^^^^^
 
-.. _description-74:
+.. _description-76:
 
 Description
 '''''''''''
 
 Filter configurations
 
-.. _fields-74:
+.. _fields-76:
 
 Fields
 ''''''
@@ -4175,14 +4244,14 @@ Fields
 CatalogFileInfo
 ^^^^^^^^^^^^^^^
 
-.. _description-75:
+.. _description-77:
 
 Description
 '''''''''''
 
 Catalog file information
 
-.. _fields-75:
+.. _fields-77:
 
 Fields
 ''''''
@@ -4213,14 +4282,14 @@ Fields
 Coosys
 ^^^^^^
 
-.. _description-76:
+.. _description-78:
 
 Description
 '''''''''''
 
 WCS info for catalog file
 
-.. _fields-76:
+.. _fields-78:
 
 Fields
 ''''''
@@ -4238,14 +4307,14 @@ Fields
 CatalogImageBounds
 ^^^^^^^^^^^^^^^^^^
 
-.. _description-77:
+.. _description-79:
 
 Description
 '''''''''''
 
 Catalog image boundary
 
-.. _fields-77:
+.. _fields-79:
 
 Fields
 ''''''
@@ -4268,14 +4337,14 @@ Fields
 IntBounds
 ^^^^^^^^^
 
-.. _description-78:
+.. _description-80:
 
 Description
 '''''''''''
 
 Moment calculation results
 
-.. _fields-78:
+.. _fields-80:
 
 Fields
 ''''''
@@ -4292,14 +4361,14 @@ Name    Type      Description
 FloatBounds
 ^^^^^^^^^^^
 
-.. _description-79:
+.. _description-81:
 
 Description
 '''''''''''
 
 Moment calculation results
 
-.. _fields-79:
+.. _fields-81:
 
 Fields
 ''''''
@@ -4311,6 +4380,30 @@ Name    Type      Description
 ``max`` ``float`` Maximum of the float value
 ======= ========= ==========================
 
+.. _CARTA.DoubleBounds:
+
+DoubleBounds
+^^^^^^^^^^^^
+
+.. _description-82:
+
+Description
+'''''''''''
+
+Moment calculation results
+
+.. _fields-82:
+
+Fields
+''''''
+
+======= ====== ===========================
+Name    Type   Description
+======= ====== ===========================
+``min`` double Minimum of the double value
+``max`` double Maximum of the double value
+======= ====== ===========================
+
 .. _Enums:
 
 4.1.5 Enums
@@ -4321,7 +4414,7 @@ Name    Type      Description
 EventType (Enum)
 ^^^^^^^^^^^^^^^^
 
-.. _description-80:
+.. _description-83:
 
 Description
 '''''''''''
@@ -4471,7 +4564,7 @@ Entries
 FileType (Enum)
 ^^^^^^^^^^^^^^^
 
-.. _description-81:
+.. _description-84:
 
 Description
 '''''''''''
@@ -4500,7 +4593,7 @@ Name        Value
 RegionType (Enum)
 ^^^^^^^^^^^^^^^^^
 
-.. _description-82:
+.. _description-85:
 
 Description
 '''''''''''
@@ -4529,7 +4622,7 @@ Name          Value
 StatsType (Enum)
 ^^^^^^^^^^^^^^^^
 
-.. _description-83:
+.. _description-86:
 
 Description
 '''''''''''
@@ -4569,7 +4662,7 @@ Name            Value
 ClientFeatureFlags (Enum)
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-84:
+.. _description-87:
 
 Description
 '''''''''''
@@ -4600,7 +4693,7 @@ Name                     Value
 ServerFeatureFlags (Enum)
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-85:
+.. _description-88:
 
 Description
 '''''''''''
@@ -4632,7 +4725,7 @@ Name                    Value
 FileFeatureFlags (Enum)
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-86:
+.. _description-89:
 
 Description
 '''''''''''
@@ -4661,7 +4754,7 @@ Name                   Value
 SmoothingMode (Enum)
 ^^^^^^^^^^^^^^^^^^^^
 
-.. _description-87:
+.. _description-90:
 
 Description
 '''''''''''
@@ -4686,7 +4779,7 @@ Name             Value
 ColumnType (Enum)
 ^^^^^^^^^^^^^^^^^
 
-.. _description-88:
+.. _description-91:
 
 Description
 '''''''''''
@@ -4721,7 +4814,7 @@ Name                Value
 ComparisonOperator (Enum)
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-89:
+.. _description-92:
 
 Description
 '''''''''''
@@ -4752,7 +4845,7 @@ Name               Value
 CatalogFileType (Enum)
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. _description-90:
+.. _description-93:
 
 Description
 '''''''''''
@@ -4776,7 +4869,7 @@ Name          Value
 SortingType (Enum)
 ^^^^^^^^^^^^^^^^^^
 
-.. _description-91:
+.. _description-94:
 
 Description
 '''''''''''
@@ -4800,7 +4893,7 @@ Name           Value
 Moment (Enum)
 ^^^^^^^^^^^^^
 
-.. _description-92:
+.. _description-95:
 
 Description
 '''''''''''
@@ -4833,7 +4926,7 @@ Name                                           Value
 MomentAxis (Enum)
 ^^^^^^^^^^^^^^^^^
 
-.. _description-93:
+.. _description-96:
 
 Description
 '''''''''''
@@ -4858,7 +4951,7 @@ Name         Value
 MomentMask (Enum)
 ^^^^^^^^^^^^^^^^^
 
-.. _description-94:
+.. _description-97:
 
 Description
 '''''''''''
@@ -4906,7 +4999,7 @@ incrementing the ICD version number, and a corresponding change to this
 document’s version number.
 
 **Implementation note:** The protocol buffer style guide
-[`6 <https://www.google.com/url?q=https://developers.google.com/protocol-buffers/docs/style&sa=D&ust=1595980842213000&usg=AOvVaw2nsYgwCBiuMFOsjiwQ1V5D>`__]
+[`6 <https://www.google.com/url?q=https://developers.google.com/protocol-buffers/docs/style&sa=D&ust=1596120441262000&usg=AOvVaw227yzAAb6mADmHP-ujYzuU>`__]
 expects snake_case for field names. The protobuf c++ compiler leaves
 names in snake_case, while the javascript compiler leaves field names in
 camelCase. So a field accessed via ``msg.min_val() in c++`` would be
@@ -4934,30 +5027,30 @@ supported.
 The interface will use TCP to communicate. Network layer and below will
 be dependent on the server/client connection and need not be detailed.
 
-.. |image0| image:: images/image7.png
-.. |image1| image:: images/image27.png
-.. |image2| image:: images/image3.png
-.. |image3| image:: images/image5.png
-.. |image4| image:: images/image13.png
-.. |image5| image:: images/image9.png
-.. |image6| image:: images/image8.png
-.. |image7| image:: images/image19.png
-.. |image8| image:: images/image23.png
-.. |image9| image:: images/image4.png
-.. |image10| image:: images/image14.png
-.. |image11| image:: images/image22.png
-.. |image12| image:: images/image10.png
-.. |image13| image:: images/image25.png
-.. |image14| image:: images/image20.png
-.. |image15| image:: images/image15.png
-.. |image16| image:: images/image18.png
-.. |image17| image:: images/image26.png
-.. |image18| image:: images/image6.png
-.. |image19| image:: images/image24.png
-.. |image20| image:: images/image11.png
-.. |image21| image:: images/image16.png
-.. |image22| image:: images/image1.png
-.. |image23| image:: images/image21.png
-.. |image24| image:: images/image12.png
-.. |image25| image:: images/image2.png
-.. |image26| image:: images/image17.png
+.. |image0| image:: _static/initial_connection.png
+.. |image1| image:: _static/reconnection_after_dropped_connection.png
+.. |image2| image:: _static/change_file_browser_sub_directory.png
+.. |image3| image:: _static/fetching_file_info.png
+.. |image4| image:: _static/opening_a_file_as_a_new_frame_appending.png
+.. |image5| image:: _static/opening_a_file_replacing_open_files.png
+.. |image6| image:: _static/altering_image_view.png
+.. |image7| image:: _static/altering_image_channel.png
+.. |image8| image:: _static/animation_playback.png
+.. |image9| image:: _static/updating_contour_parameters.png
+.. |image10| image:: _static/changing_colour_maps.png
+.. |image11| image:: _static/creating_a_region.png
+.. |image12| image:: _static/updating_a_region.png
+.. |image13| image:: _static/updating_cursor_information.png
+.. |image14| image:: _static/adding_a_new_profile_plot.png
+.. |image15| image:: _static/removes_a_profile_plot.png
+.. |image16| image:: _static/updating_profile_plots.png
+.. |image17| image:: _static/closing_a_file.png
+.. |image18| image:: _static/calculating_per_cube_histogram.png
+.. |image19| image:: _static/calculating_per_cube_histogram_2.png
+.. |image20| image:: _static/changing_catalog_file_browser_sub_directory.png
+.. |image21| image:: _static/fetching_catalog_file_info.png
+.. |image22| image:: _static/opening_catalog_file.png
+.. |image23| image:: _static/catalog_data_stream.png
+.. |image24| image:: _static/closing_catalog_file.png
+.. |image25| image:: _static/set_image_moments.png
+.. |image26| image:: _static/stop_image_moments_calculation.png
