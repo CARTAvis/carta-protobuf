@@ -1,7 +1,10 @@
-../index.rst: index.html
-	pandoc $< -o $@
+../index.rst: ICD.rst clean_rst.py
+	./clean_rst.py $< $@
 
-index.html: CARTABackendFrontendInterfaceControlDocument.html clean_html.py
+ICD.rst: ICD.html
+	pandoc $< --wrap=none -o $@
+
+ICD.html: CARTABackendFrontendInterfaceControlDocument.html clean_html.py
 	./clean_html.py $< $@
 
 CARTABackendFrontendInterfaceControlDocument.html: downloaded_ICD.zip

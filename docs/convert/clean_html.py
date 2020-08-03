@@ -23,9 +23,9 @@ mapping_search = {
 
 
 colour_search = {
-    "orange": "#ff9900",
-    "blue": "#0b5394",
-    "red": "#741b47",
+    "comment": "#ff9900",
+    "f2b": "#0b5394",
+    "b2f": "#741b47",
 }
 
 mapping = {}
@@ -42,9 +42,9 @@ for k, v in c_classes:
 # styles (placeholders for legibility)
 soup.style.clear()
 soup.style.append("""
-.orange { color: #ff9900 }
-.blue { color: #0b5394 } 
-.red { color: #741b47 }
+.comment { color: #ff9900 }
+.f2b { color: #0b5394 } 
+.b2f { color: #741b47 }
 td {
     border: solid 1px black;
     padding: 10px;
@@ -57,7 +57,7 @@ table {
 """)
 
 # strip styles
-for tag_name in ("body", "a", "h1", "h2", "h3", "h4", "h5", "h6", "hr", "table", "thead", "tbody", "tr", "td", "th", "ul", "ol", "li"):
+for tag_name in ("body", "a", "h1", "h2", "h3", "h4", "h5", "h6", "table", "thead", "tbody", "tr", "td", "th", "ul", "ol", "li"):
     for tag in soup.find_all(tag_name):
         if "class" in tag.attrs:
             del tag.attrs["class"]
@@ -71,6 +71,10 @@ for tag in soup.find_all("p"):
             tag.name = "h1"
         
         del tag["class"]
+        
+# remove rules
+for hr in soup.find_all("hr"):
+    hr.extract()
 
 # convert old style spans to semantic tags and colours
 for tag in soup.find_all("span"):
@@ -161,21 +165,11 @@ for s in strings:
             else:
                 parent.insert(pos + i, p)
 
-# Strip paragraphs and no-op rowspans and colspans from table cells
-for td in soup.find_all("td"):
-    for child in td.contents:
-        if child.name == 'p':
-            child.unwrap()
-    
-    for span in ("rowspan", "colspan"):
-        if td.attrs.get(span) == "1":
-            del td.attrs[span]
-
 # add colour span parent to <code> or <a> if it is surrounded by the same colour siblings
 
 def colour_of(t):
     if hasattr(t, "attrs") and "role" in t.attrs:
-        has_colour = {"red", "blue", "orange"}.intersection(t["role"]) or None
+        has_colour = {"b2f", "f2b", "comment"}.intersection(t["role"]) or None
         if has_colour:
             return has_colour.pop()
     if t.name == 'html':
@@ -193,15 +187,6 @@ for link in links:
         new_span = soup.new_tag("span")
         new_span["role"] = [c[0]]
         tag.wrap(new_span)
-
-# then merge adjacent colour spans
-cells = soup.find_all("td")
-for cell in cells:
-    children = cell.contents
-    if len(children) > 1 and all(c.name == "span" for c in children) and len(set(c["role"][0] for c in children)) == 1:
-        for c in children[1:]:
-            children[0].extend(c.contents)
-            c.extract()
 
 # merge adjacent code tags; move trailing spaces inside code tags to the outside
 code = soup.find_all("code")
@@ -234,41 +219,6 @@ for c in code:
         last = last.contents[-1]
     last.replace_with(last.rstrip(" "))
 
-# Colspans and rowspans are not supported
-# We can have either multiline or no manual indentation; I'm picking no manual indentation
-
-tables = soup.find_all("table")
-for table in tables:
-    pos = table.parent.index(table)
-    desc_head, desc, field_head, field_names, *fields = table.tbody.contents
-        
-    table.parent.insert(pos, desc_head.td.h5.extract())
-    desc_head.extract()
-    
-    new_desc_head = soup.new_tag("h6")
-    new_desc_head.append("Description")
-    
-    table.parent.insert(pos + 1, new_desc_head)
-        
-    new_desc = soup.new_tag("p")
-    
-    for child in list(desc.find_all("td")[1].contents):
-        new_desc.append(child)
-    
-    table.parent.insert(pos + 2, new_desc)
-    
-    desc.extract()
-    
-    new_field_head = soup.new_tag("h6")
-    new_field_head.append(field_head.text.strip(" :"))
-    
-    table.parent.insert(pos + 3, new_field_head)
-    
-    field_head.extract()
-    
-    for td in field_names.find_all("td"):
-        td.name = "th"
-
 # links outside code
 
 for c in soup.find_all("code"):
@@ -281,7 +231,7 @@ for c in soup.find_all("code"):
 
 # Rename anchors using heading text
 
-anchors = {}
+#anchors = {}
 
 def camel(s):
     return "".join(p.title() for p in s.split("_"))
@@ -293,35 +243,78 @@ anchor_replacements = {
     "[\d.]+ (.*)": r"\1",
     "(.*) \(.*\)": r"\1",
     "^([A-Z_]+)$": lambda m: camel(m.group(1)),
-    "^((?:[A-Z][a-z]+){2,})$": r"CARTA.\1",
+    #"^((?:[A-Z][a-z]+){2,})$": r"CARTA.\1",
 }
 
-anchor_exceptions = {
-    "Coosys": "CARTA.Coosys",
-    "Moment (Enum)": "CARTA.Moment",
+#anchor_exceptions = {
+    #"Coosys": "CARTA.Coosys",
+    #"Moment (Enum)": "CARTA.Moment",
+#}
+
+#for heading in soup.find_all(re.compile("h\d")):
+    #if "id" in heading.attrs:
+        #old_name, new_name = heading["id"], heading.text.strip()
+        ##if new_name in anchor_exceptions:
+            ##new_name = anchor_exceptions[new_name]
+        ##else:
+        #for s, r in anchor_replacements.items():
+            #new_name = re.sub(s, r, new_name)
+        #anchors[old_name] = new_name
+
+#for heading in soup.find_all(re.compile("h\d")):
+    #if "id" in heading.attrs:
+        #hid = heading["id"]
+        #if hid in anchors:
+            #if not anchors[hid]:
+                #heading.extract()
+                #continue
+            #delete heading.attrs["id"]
+            
+            
+# Speed up id:heading text mapping
+anchors = {h["id"]: h.text.strip() for h in soup.find_all(re.compile("h\d")) if "id" in h.attrs}
+
+missing_anchors = {
+    "OPEN_CATALOG_FILE_ACK" : "OpenCatalogFileAck",
+    "OPEN_CATALOG_FILE" : "OpenCatalogFileAck",
 }
 
-for heading in soup.find_all(re.compile("h\d")):
-    if "id" in heading.attrs:
-        old_name, new_name = heading["id"], heading.text.strip()
-        if new_name in anchor_exceptions:
-            new_name = anchor_exceptions[new_name]
-        else:
+for a in soup.find_all("a"):
+    if "href" in a.attrs:
+        if a["href"].startswith("#"):
+            href = a["href"].lstrip("#")
+            
+            heading_text = anchors.get(href)
+            
+            if not heading_text:
+                anchor_fix = missing_anchors.get(href)
+                if anchor_fix:
+                    a["href"] = "#%s" % anchor_fix
+                    print(a)
+                else:
+                    a.unwrap()
+                continue
+            
+            new_name = heading_text
             for s, r in anchor_replacements.items():
                 new_name = re.sub(s, r, new_name)
-        anchors[old_name] = new_name
-        
+            a["href"] = "#%s" % new_name
+                    
+        elif "1mD9cZri8S25hm6VTPehEXUXA_kDptlcr41ktbEZQv1k" in a["href"]:
+            # fix links to catalog doc which are supposed to be anchors
+            a["href"] = "#%s" % a.text
+
+# Strip out the manual protobuf tables
+
+tables = soup.find_all("table")
+for table in tables:
+    table.extract()
+
+# Remove manual section numbering, fix broken heading levels and strip explicit IDs
 for heading in soup.find_all(re.compile("h\d")):
     if "id" in heading.attrs:
-        hid = heading["id"]
-        if hid in anchors:
-            if not anchors[hid]:
-                heading.extract()
-                continue
-            heading["id"] = anchors[hid]
-            
-# also fix broken heading levels
-for heading in soup.find_all(re.compile("h\d")):
+        del heading.attrs["id"]
+    
     if re.match("4\.\d+ ", heading.text):
         heading.name = "h2"
     elif re.match("4\.\d+\.\d+ ", heading.text):
@@ -330,34 +323,17 @@ for heading in soup.find_all(re.compile("h\d")):
         heading.name = "h4"
     elif heading.name == "h6":
         heading.name = "h5"
-
-missing_anchors = {
-    "OPEN_CATALOG_FILE_ACK" : "CARTA.OpenCatalogFileAck",
-    "OPEN_CATALOG_FILE" : "CARTA.OpenCatalogFileAck",
-}
-
-for a in soup.find_all("a"):
-    if "href" in a.attrs:
-        if a["href"].startswith("#"):
-            href = a["href"].lstrip("#")
-            if href in anchors:
-                a["href"] = anchors[href]
-            else:
-                anchor_fix = missing_anchors.get(href)
-                if anchor_fix:
-                    a["href"] = anchor_fix
-                else:
-                    a.unwrap()
-                    
-        elif "1mD9cZri8S25hm6VTPehEXUXA_kDptlcr41ktbEZQv1k" in a["href"]:
-            # fix links to catalog doc which are supposed to be anchors
-            a["href"] = "#CARTA.%s" % a.text
+    
+    if not heading.string:
+        heading.extract()
+    else:
+        heading.string.replace_with(re.sub("[\d.]+ ", "", heading.text))
             
 # For preview purposes, style the coloured spans
 for s in soup.find_all("span"):
     if "role" in s.attrs:
         s["class"] = s["role"]
-        
+
 # Rename images
 
 seen = set()
@@ -386,4 +362,4 @@ for img in soup.find_all("img"):
 with open(sys.argv[2], 'w') as f:
     print(str(soup), file=f)
 
-# TODO rename images -- use the metadata
+# TODO fix the google link redirects

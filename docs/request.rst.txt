@@ -1,7 +1,5 @@
 
 
-.. CARTA.CatalogFileInfoRequest:
-
 CatalogFileInfoRequest
 ^^^^^^^^^^^^^
 
@@ -18,8 +16,6 @@ CatalogFileInfoRequest
 
 
 
-.. CARTA.CatalogFileInfoResponse:
-
 CatalogFileInfoResponse
 ^^^^^^^^^^^^^
 
@@ -33,17 +29,15 @@ CatalogFileInfoResponse
 +-------+------+-------+-------------+
 | message | string |  |  |
 +-------+------+-------+-------------+
-| file_info `CatalogFileInfo <CARTA.CatalogFileInfo>`__  |  |
+| file_info | CatalogFileInfo |  |  |
 +-------+------+-------+-------------+
-| headers `CatalogHeader <CARTA.CatalogHeader>`__ repeated |  |
+| headers | CatalogHeader | repeated |  |
 +-------+------+-------+-------------+
 
 
 
 
 
-
-.. CARTA.CatalogListRequest:
 
 CatalogListRequest
 ^^^^^^^^^^^^^
@@ -58,8 +52,6 @@ CatalogListRequest
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.CatalogListResponse:
 
 CatalogListResponse
 ^^^^^^^^^^^^^
@@ -78,7 +70,7 @@ CatalogListResponse
 +-------+------+-------+-------------+
 | parent | string |  |  |
 +-------+------+-------+-------------+
-| files `CatalogFileInfo <CARTA.CatalogFileInfo>`__ repeated |  |
+| files | CatalogFileInfo | repeated |  |
 +-------+------+-------+-------------+
 | subdirectories | string | repeated |  |
 +-------+------+-------+-------------+
@@ -87,8 +79,6 @@ CatalogListResponse
 
 
 
-
-.. CARTA.FileInfoRequest:
 
 FileInfoRequest
 ^^^^^^^^^^^^^
@@ -110,8 +100,6 @@ Backend responds with FILE_INFO_RESPONSE
 
 
 
-.. CARTA.FileInfoResponse:
-
 FileInfoResponse
 ^^^^^^^^^^^^^
 
@@ -127,17 +115,15 @@ Gives information on the requested file
 +-------+------+-------+-------------+
 | message | string |  | Error message (if applicable) |
 +-------+------+-------+-------------+
-| file_info `FileInfo <CARTA.FileInfo>`__  | Basic file info (type, size) |
+| file_info | FileInfo |  | Basic file info (type, size) |
 +-------+------+-------+-------------+
-| file_info_extended `FileInfoExtended <CARTA.FileInfoExtended>`__  | Extended file info (WCS, header info) |
+| file_info_extended | FileInfoExtended |  | Extended file info (WCS, header info) |
 +-------+------+-------+-------------+
 
 
 
 
 
-
-.. CARTA.FileListRequest:
 
 FileListRequest
 ^^^^^^^^^^^^^
@@ -154,8 +140,6 @@ Backend responds with FILE_LIST_RESPONSE
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.FileListResponse:
 
 FileListResponse
 ^^^^^^^^^^^^^
@@ -176,7 +160,7 @@ Gives a list of available files (and their types), as well as subdirectories
 +-------+------+-------+-------------+
 | parent | string |  | Directory parent (null/empty if top-level) |
 +-------+------+-------+-------------+
-| files `FileInfo <CARTA.FileInfo>`__ repeated | List of available image files, with file type information and size information. |
+| files | FileInfo | repeated | List of available image files, with file type information and size information. |
 +-------+------+-------+-------------+
 | subdirectories | string | repeated | List of available subdirectories |
 +-------+------+-------+-------------+
@@ -185,8 +169,6 @@ Gives a list of available files (and their types), as well as subdirectories
 
 
 
-
-.. CARTA.RegionFileInfoRequest:
 
 RegionFileInfoRequest
 ^^^^^^^^^^^^^
@@ -206,8 +188,6 @@ Backend responds with REGION_FILE_INFO_RESPONSE
 
 
 
-.. CARTA.RegionFileInfoResponse:
-
 RegionFileInfoResponse
 ^^^^^^^^^^^^^
 
@@ -223,7 +203,7 @@ Gives information on the requested file
 +-------+------+-------+-------------+
 | message | string |  | Error message (if applicable) |
 +-------+------+-------+-------------+
-| file_info `FileInfo <CARTA.FileInfo>`__  | Basic info about region file |
+| file_info | FileInfo |  | Basic info about region file |
 +-------+------+-------+-------------+
 | contents | string | repeated | Contents of file; each string is a line |
 +-------+------+-------+-------------+
@@ -232,8 +212,6 @@ Gives information on the requested file
 
 
 
-
-.. CARTA.RegionListRequest:
 
 RegionListRequest
 ^^^^^^^^^^^^^
@@ -250,8 +228,6 @@ Backend responds with REGION_LIST_RESPONSE
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.RegionListResponse:
 
 RegionListResponse
 ^^^^^^^^^^^^^
@@ -272,7 +248,7 @@ Gives a list of available region files (and their types), as well as subdirector
 +-------+------+-------+-------------+
 | parent | string |  | Directory parent (null/empty if top-level) |
 +-------+------+-------+-------------+
-| files `FileInfo <CARTA.FileInfo>`__ repeated | List of available image files, with file type information and size information. |
+| files | FileInfo | repeated | List of available image files, with file type information and size information. |
 +-------+------+-------+-------------+
 | subdirectories | string | repeated | List of available subdirectories |
 +-------+------+-------+-------------+
@@ -281,8 +257,6 @@ Gives a list of available region files (and their types), as well as subdirector
 
 
 
-
-.. CARTA.ScriptingRequest:
 
 ScriptingRequest
 ^^^^^^^^^^^^^
@@ -305,8 +279,6 @@ ScriptingRequest
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.ScriptingResponse:
 
 ScriptingResponse
 ^^^^^^^^^^^^^

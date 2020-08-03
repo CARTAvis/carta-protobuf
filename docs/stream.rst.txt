@@ -1,7 +1,5 @@
 
 
-.. CARTA.CatalogFilterRequest:
-
 CatalogFilterRequest
 ^^^^^^^^^^^^^
 
@@ -15,13 +13,13 @@ CatalogFilterRequest
 +-------+------+-------+-------------+
 | column_indices | int32 | repeated |  |
 +-------+------+-------+-------------+
-| filter_configs `FilterConfig <CARTA.FilterConfig>`__ repeated |  |
+| filter_configs | FilterConfig | repeated |  |
 +-------+------+-------+-------------+
 | subset_data_size | sfixed32 |  |  |
 +-------+------+-------+-------------+
 | subset_start_index | sfixed32 |  |  |
 +-------+------+-------+-------------+
-| image_bounds `CatalogImageBounds <CARTA.CatalogImageBounds>`__  |  |
+| image_bounds | CatalogImageBounds |  |  |
 +-------+------+-------+-------------+
 | image_file_id | sfixed32 |  |  |
 +-------+------+-------+-------------+
@@ -29,12 +27,10 @@ CatalogFilterRequest
 +-------+------+-------+-------------+
 | sort_column | string |  |  |
 +-------+------+-------+-------------+
-| sorting_type `SortingType <CARTA.SortingType>`__  |  |
+| sorting_type | SortingType |  |  |
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.CatalogFilterResponse:
 
 CatalogFilterResponse
 ^^^^^^^^^^^^^
@@ -51,7 +47,7 @@ CatalogFilterResponse
 +-------+------+-------+-------------+
 | region_id | sfixed32 |  |  |
 +-------+------+-------+-------------+
-| columns `CatalogFilterResponse.ColumnsEntry <CARTA.CatalogFilterResponse.ColumnsEntry>`__ repeated |  |
+| columns | ColumnsEntry | repeated |  |
 +-------+------+-------+-------------+
 | subset_data_size | sfixed32 |  |  |
 +-------+------+-------+-------------+
@@ -66,8 +62,6 @@ CatalogFilterResponse
 
 
 
-.. CARTA.CatalogFilterResponse.ColumnsEntry:
-
 CatalogFilterResponse.ColumnsEntry
 ^^^^^^^^^^^^^
 
@@ -79,15 +73,13 @@ CatalogFilterResponse.ColumnsEntry
 +=======+======+=======+=============+
 | key | fixed32 |  |  |
 +-------+------+-------+-------------+
-| value `ColumnData <CARTA.ColumnData>`__  |  |
+| value | ColumnData |  |  |
 +-------+------+-------+-------------+
 
 
 
 
 
-
-.. CARTA.ContourImageData:
 
 ContourImageData
 ^^^^^^^^^^^^^
@@ -103,20 +95,18 @@ Data for an image rendered in contour mode.
 +-------+------+-------+-------------+
 | reference_file_id | fixed32 |  | The file ID of the reference image that the contour vertices are mapped to |
 +-------+------+-------+-------------+
-| image_bounds `ImageBounds <CARTA.ImageBounds>`__  | The bounding box in the XY plane corresponding to the image data in pixel coordinates |
+| image_bounds | ImageBounds |  | The bounding box in the XY plane corresponding to the image data in pixel coordinates |
 +-------+------+-------+-------------+
 | channel | sfixed32 |  | The image channel used to generate the contours |
 +-------+------+-------+-------------+
 | stokes | sfixed32 |  | The image stokes parameter used to generate the contours |
 +-------+------+-------+-------------+
-| contour_sets `ContourSet <CARTA.ContourSet>`__ repeated | Each contour set consists of the contour level value, as well as a list of coordinates. The start_indices list is used to determine how to subdivide the coordinates list into separate poly-lines when rendering. |
+| contour_sets | ContourSet | repeated | Each contour set consists of the contour level value, as well as a list of coordinates. The start_indices list is used to determine how to subdivide the coordinates list into separate poly-lines when rendering. |
 +-------+------+-------+-------------+
 | progress | double |  | Progress of the contour sets being sent. If this is zero, the message is assumed to contain the entire contour sets |
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.ContourSet:
 
 ContourSet
 ^^^^^^^^^^^^^
@@ -143,8 +133,6 @@ ContourSet
 
 
 
-.. CARTA.ErrorData:
-
 ErrorData
 ^^^^^^^^^^^^^
 
@@ -156,7 +144,7 @@ the state of the backend, and is not used in place of returning success=false on
 +-------+------+-------+-------------+
 | Field | Type | Label | Description |
 +=======+======+=======+=============+
-| severity `ErrorSeverity <CARTA.ErrorSeverity>`__  | The severity of the error. Critical errors are reserved for errors that would normally require the user to restart the program or reload the page |
+| severity | ErrorSeverity |  | The severity of the error. Critical errors are reserved for errors that would normally require the user to restart the program or reload the page |
 +-------+------+-------+-------------+
 | tags | string | repeated | A list of strings describing the error type, that the frontend can interpret and react to. For example, “file_io” or “memory”. |
 +-------+------+-------+-------------+
@@ -169,8 +157,6 @@ the state of the backend, and is not used in place of returning success=false on
 
 
 
-
-.. CARTA.RasterTileData:
 
 RasterTileData
 ^^^^^^^^^^^^^
@@ -187,18 +173,16 @@ RasterTileData
 +-------+------+-------+-------------+
 | stokes | sfixed32 |  | The image stokes coordinate |
 +-------+------+-------+-------------+
-| compression_type `CompressionType <CARTA.CompressionType>`__  | The compression algorithm used. |
+| compression_type | CompressionType |  | The compression algorithm used. |
 +-------+------+-------+-------------+
 | compression_quality | float |  | Compression quality switch |
 +-------+------+-------+-------------+
 | animation_id | sfixed32 |  | The ID of the animation (if any) |
 +-------+------+-------+-------------+
-| tiles `TileData <CARTA.TileData>`__ repeated | List of tile data |
+| tiles | TileData | repeated | List of tile data |
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.RasterTileSync:
 
 RasterTileSync
 ^^^^^^^^^^^^^
@@ -221,8 +205,6 @@ RasterTileSync
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.TileData:
 
 TileData
 ^^^^^^^^^^^^^
@@ -253,8 +235,6 @@ TileData
 
 
 
-.. CARTA.RegionHistogramData:
-
 RegionHistogramData
 ^^^^^^^^^^^^^
 
@@ -271,7 +251,7 @@ Stats data for a specific region
 +-------+------+-------+-------------+
 | stokes | sfixed32 |  | The image stokes parameter used to generate the profiles |
 +-------+------+-------+-------------+
-| histograms `Histogram <CARTA.Histogram>`__ repeated | array of histograms of the current region |
+| histograms | Histogram | repeated | array of histograms of the current region |
 +-------+------+-------+-------------+
 | progress | float |  | Progress indicator, in the case of partial histogram results being sent |
 +-------+------+-------+-------------+
@@ -280,8 +260,6 @@ Stats data for a specific region
 
 
 
-
-.. CARTA.RegionStatsData:
 
 RegionStatsData
 ^^^^^^^^^^^^^
@@ -301,15 +279,13 @@ Stats data for a specific region
 +-------+------+-------+-------------+
 | stokes | sfixed32 |  | The image stokes parameter used to generate the profiles |
 +-------+------+-------+-------------+
-| statistics `StatisticsValue <CARTA.StatisticsValue>`__ repeated | Array of statistics values, each corresponding to a particular measurement, such as max, min, mean, etc |
+| statistics | StatisticsValue | repeated | Array of statistics values, each corresponding to a particular measurement, such as max, min, mean, etc |
 +-------+------+-------+-------------+
 
 
 
 
 
-
-.. CARTA.SpatialProfileData:
 
 SpatialProfileData
 ^^^^^^^^^^^^^
@@ -335,15 +311,13 @@ Data for spatial profile set for a specific file
 +-------+------+-------+-------------+
 | value | float |  | The value of the image at the given coordinates |
 +-------+------+-------+-------------+
-| profiles `SpatialProfile <CARTA.SpatialProfile>`__ repeated | Spatial profiles for each required profile type |
+| profiles | SpatialProfile | repeated | Spatial profiles for each required profile type |
 +-------+------+-------+-------------+
 
 
 
 
 
-
-.. CARTA.SpectralProfileData:
 
 SpectralProfileData
 ^^^^^^^^^^^^^
@@ -363,7 +337,7 @@ Data for spectral profile set for a specific file
 +-------+------+-------+-------------+
 | progress | float |  | Progress indicator, in the case of partial profile results being sent. If the profile calculations are time-consuming, regular updates should be sent to the frontend. If the data is complete, progress >= 1. |
 +-------+------+-------+-------------+
-| profiles `SpectralProfile <CARTA.SpectralProfile>`__ repeated | Spatial profiles for each required profile type |
+| profiles | SpectralProfile | repeated | Spatial profiles for each required profile type |
 +-------+------+-------+-------------+
 
 

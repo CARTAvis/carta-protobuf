@@ -1,8 +1,6 @@
 
 
 
-.. CARTA.CatalogFileType:
-
 CatalogFileType
 ^^^^^^^^^^^^^
 
@@ -15,8 +13,6 @@ CatalogFileType
 | VOTable | 1 |  |
 +------+--------+-------------+
 
-
-.. CARTA.ClientFeatureFlags:
 
 ClientFeatureFlags
 ^^^^^^^^^^^^^
@@ -38,8 +34,6 @@ ClientFeatureFlags
 | OFFSCREEN_CANVAS | 16 |  |
 +------+--------+-------------+
 
-
-.. CARTA.ColumnType:
 
 ColumnType
 ^^^^^^^^^^^^^
@@ -76,8 +70,6 @@ ColumnType
 +------+--------+-------------+
 
 
-.. CARTA.ComparisonOperator:
-
 ComparisonOperator
 ^^^^^^^^^^^^^
 
@@ -103,8 +95,6 @@ ComparisonOperator
 +------+--------+-------------+
 
 
-.. CARTA.CompressionType:
-
 CompressionType
 ^^^^^^^^^^^^^
 
@@ -120,8 +110,6 @@ CompressionType
 +------+--------+-------------+
 
 
-.. CARTA.CoordinateType:
-
 CoordinateType
 ^^^^^^^^^^^^^
 
@@ -134,8 +122,6 @@ CoordinateType
 | WORLD | 1 |  |
 +------+--------+-------------+
 
-
-.. CARTA.EntryType:
 
 EntryType
 ^^^^^^^^^^^^^
@@ -151,8 +137,6 @@ EntryType
 | INT | 2 |  |
 +------+--------+-------------+
 
-
-.. CARTA.ErrorSeverity:
 
 ErrorSeverity
 ^^^^^^^^^^^^^
@@ -172,8 +156,6 @@ ErrorSeverity
 | CRITICAL | 4 |  |
 +------+--------+-------------+
 
-
-.. CARTA.EventType:
 
 EventType
 ^^^^^^^^^^^^^
@@ -306,8 +288,6 @@ EventType
 +------+--------+-------------+
 
 
-.. CARTA.FileFeatureFlags:
-
 FileFeatureFlags
 ^^^^^^^^^^^^^
 
@@ -330,8 +310,6 @@ FileFeatureFlags
 | MIP_DATASET | 32 |  |
 +------+--------+-------------+
 
-
-.. CARTA.FileType:
 
 FileType
 ^^^^^^^^^^^^^
@@ -356,8 +334,6 @@ FileType
 +------+--------+-------------+
 
 
-.. CARTA.RegionType:
-
 RegionType
 ^^^^^^^^^^^^^
 
@@ -381,8 +357,6 @@ RegionType
 +------+--------+-------------+
 
 
-.. CARTA.RenderMode:
-
 RenderMode
 ^^^^^^^^^^^^^
 
@@ -395,8 +369,6 @@ RenderMode
 | CONTOUR | 1 |  |
 +------+--------+-------------+
 
-
-.. CARTA.ServerFeatureFlags:
 
 ServerFeatureFlags
 ^^^^^^^^^^^^^
@@ -421,8 +393,6 @@ ServerFeatureFlags
 +------+--------+-------------+
 
 
-.. CARTA.SessionType:
-
 SessionType
 ^^^^^^^^^^^^^
 
@@ -435,8 +405,6 @@ SessionType
 | RESUMED | 1 |  |
 +------+--------+-------------+
 
-
-.. CARTA.SmoothingMode:
 
 SmoothingMode
 ^^^^^^^^^^^^^
@@ -453,8 +421,6 @@ SmoothingMode
 +------+--------+-------------+
 
 
-.. CARTA.SortingType:
-
 SortingType
 ^^^^^^^^^^^^^
 
@@ -467,8 +433,6 @@ SortingType
 | Descending | 1 |  |
 +------+--------+-------------+
 
-
-.. CARTA.StatsType:
 
 StatsType
 ^^^^^^^^^^^^^

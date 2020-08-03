@@ -1,7 +1,5 @@
 
 
-.. CARTA.AnimationFrame:
-
 AnimationFrame
 ^^^^^^^^^^^^^
 
@@ -18,8 +16,6 @@ AnimationFrame
 
 
 
-.. CARTA.CatalogFileInfo:
-
 CatalogFileInfo
 ^^^^^^^^^^^^^
 
@@ -31,20 +27,18 @@ CatalogFileInfo
 +=======+======+=======+=============+
 | name | string |  |  |
 +-------+------+-------+-------------+
-| type `CatalogFileType <CARTA.CatalogFileType>`__  |  |
+| type | CatalogFileType |  |  |
 +-------+------+-------+-------------+
 | file_size | sfixed64 |  |  |
 +-------+------+-------+-------------+
 | description | string |  |  |
 +-------+------+-------+-------------+
-| coosys `Coosys <CARTA.Coosys>`__ repeated |  |
+| coosys | Coosys | repeated |  |
 +-------+------+-------+-------------+
 | date | sfixed64 |  |  |
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.CatalogHeader:
 
 CatalogHeader
 ^^^^^^^^^^^^^
@@ -57,7 +51,7 @@ CatalogHeader
 +=======+======+=======+=============+
 | name | string |  |  |
 +-------+------+-------+-------------+
-| data_type `ColumnType <CARTA.ColumnType>`__  |  |
+| data_type | ColumnType |  |  |
 +-------+------+-------+-------------+
 | column_index | sfixed32 |  |  |
 +-------+------+-------+-------------+
@@ -67,8 +61,6 @@ CatalogHeader
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.CatalogImageBounds:
 
 CatalogImageBounds
 ^^^^^^^^^^^^^
@@ -83,12 +75,10 @@ CatalogImageBounds
 +-------+------+-------+-------------+
 | y_column_name | string |  |  |
 +-------+------+-------+-------------+
-| image_bounds `ImageBounds <CARTA.ImageBounds>`__  |  |
+| image_bounds | ImageBounds |  |  |
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.ColumnData:
 
 ColumnData
 ^^^^^^^^^^^^^
@@ -99,7 +89,7 @@ ColumnData
 +-------+------+-------+-------------+
 | Field | Type | Label | Description |
 +=======+======+=======+=============+
-| data_type `ColumnType <CARTA.ColumnType>`__  |  |
+| data_type | ColumnType |  |  |
 +-------+------+-------+-------------+
 | string_data | string | repeated | All data types other than string sent as binary |
 +-------+------+-------+-------------+
@@ -107,8 +97,6 @@ ColumnData
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.Coosys:
 
 Coosys
 ^^^^^^^^^^^^^
@@ -128,8 +116,6 @@ Coosys
 
 
 
-.. CARTA.DoubleBounds:
-
 DoubleBounds
 ^^^^^^^^^^^^^
 
@@ -146,8 +132,6 @@ DoubleBounds
 
 
 
-.. CARTA.FileInfo:
-
 FileInfo
 ^^^^^^^^^^^^^
 
@@ -159,7 +143,7 @@ File info message structure (internal use only)
 +=======+======+=======+=============+
 | name | string |  |  |
 +-------+------+-------+-------------+
-| type `FileType <CARTA.FileType>`__  |  |
+| type | FileType |  |  |
 +-------+------+-------+-------------+
 | size | sfixed64 |  |  |
 +-------+------+-------+-------------+
@@ -169,8 +153,6 @@ File info message structure (internal use only)
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.FileInfoExtended:
 
 FileInfoExtended
 ^^^^^^^^^^^^^
@@ -193,14 +175,12 @@ FileInfoExtended
 +-------+------+-------+-------------+
 | stokes_vals | string | repeated | List of Stokes parameters contained in the file (if applicable). For files that do not explicitly specify Stokes files, this will be blank. |
 +-------+------+-------+-------------+
-| header_entries `HeaderEntry <CARTA.HeaderEntry>`__ repeated | Header entries from header string or attributes |
+| header_entries | HeaderEntry | repeated | Header entries from header string or attributes |
 +-------+------+-------+-------------+
-| computed_entries `HeaderEntry <CARTA.HeaderEntry>`__ repeated |  |
+| computed_entries | HeaderEntry | repeated |  |
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.FilterConfig:
 
 FilterConfig
 ^^^^^^^^^^^^^
@@ -213,7 +193,7 @@ FilterConfig
 +=======+======+=======+=============+
 | column_name | string |  |  |
 +-------+------+-------+-------------+
-| comparison_operator `ComparisonOperator <CARTA.ComparisonOperator>`__  |  |
+| comparison_operator | ComparisonOperator |  |  |
 +-------+------+-------+-------------+
 | value | double |  |  |
 +-------+------+-------+-------------+
@@ -223,8 +203,6 @@ FilterConfig
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.HeaderEntry:
 
 HeaderEntry
 ^^^^^^^^^^^^^
@@ -239,7 +217,7 @@ HeaderEntry
 +-------+------+-------+-------------+
 | value | string |  |  |
 +-------+------+-------+-------------+
-| entry_type `EntryType <CARTA.EntryType>`__  |  |
+| entry_type | EntryType |  |  |
 +-------+------+-------+-------------+
 | numeric_value | double |  |  |
 +-------+------+-------+-------------+
@@ -247,8 +225,6 @@ HeaderEntry
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.Histogram:
 
 Histogram
 ^^^^^^^^^^^^^
@@ -276,8 +252,6 @@ Histogram
 
 
 
-.. CARTA.ImageBounds:
-
 ImageBounds
 ^^^^^^^^^^^^^
 
@@ -298,8 +272,6 @@ ImageBounds
 
 
 
-.. CARTA.Point:
-
 Point
 ^^^^^^^^^^^^^
 
@@ -316,8 +288,6 @@ Point
 
 
 
-.. CARTA.RegionInfo:
-
 RegionInfo
 ^^^^^^^^^^^^^
 
@@ -327,16 +297,14 @@ RegionInfo
 +-------+------+-------+-------------+
 | Field | Type | Label | Description |
 +=======+======+=======+=============+
-| region_type `RegionType <CARTA.RegionType>`__  | The type of region described by the control points. The meaning of the control points will differ, depending on the type of region being defined. |
+| region_type | RegionType |  | The type of region described by the control points. The meaning of the control points will differ, depending on the type of region being defined. |
 +-------+------+-------+-------------+
-| control_points `Point <CARTA.Point>`__ repeated | Control points for the region |
+| control_points | Point | repeated | Control points for the region |
 +-------+------+-------+-------------+
 | rotation | float |  | (Only applicable for ellipse and rectangle) Rotation of the region in the xy plane (radians). |
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.RegionStyle:
 
 RegionStyle
 ^^^^^^^^^^^^^
@@ -358,8 +326,6 @@ RegionStyle
 
 
 
-.. CARTA.SpatialProfile:
-
 SpatialProfile
 ^^^^^^^^^^^^^
 
@@ -380,8 +346,6 @@ SpatialProfile
 
 
 
-.. CARTA.SpectralProfile:
-
 SpectralProfile
 ^^^^^^^^^^^^^
 
@@ -393,7 +357,7 @@ SpectralProfile
 +=======+======+=======+=============+
 | coordinate | string |  |  |
 +-------+------+-------+-------------+
-| stats_type `StatsType <CARTA.StatsType>`__  |  |
+| stats_type | StatsType |  |  |
 +-------+------+-------+-------------+
 | raw_values_fp32 | bytes |  |  |
 +-------+------+-------+-------------+
@@ -401,8 +365,6 @@ SpectralProfile
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.StatisticsValue:
 
 StatisticsValue
 ^^^^^^^^^^^^^
@@ -413,7 +375,7 @@ StatisticsValue
 +-------+------+-------+-------------+
 | Field | Type | Label | Description |
 +=======+======+=======+=============+
-| stats_type `StatsType <CARTA.StatsType>`__  |  |
+| stats_type | StatsType |  |  |
 +-------+------+-------+-------------+
 | value | double |  |  |
 +-------+------+-------+-------------+

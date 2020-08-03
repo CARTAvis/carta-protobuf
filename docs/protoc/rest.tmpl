@@ -1,7 +1,5 @@
 {{range .Files}}
 {{range .Messages}}
-.. {{.FullName}}:
-
 {{.LongName}}
 ^^^^^^^^^^^^^
 
@@ -12,14 +10,12 @@
 | Field | Type | Label | Description |
 +=======+======+=======+=============+
 {{range .Fields -}}
-| {{.Name}} | {{.FullType}} | {{.Label}} | {{nobr .Description}} |
+| {{.Name}} | {{.Type}} | {{.Label}} | {{nobr .Description}} |
 +-------+------+-------+-------------+
 {{end}}
 {{end}}
 {{end}}
 {{range .Enums}}
-.. {{.FullName}}:
-
 {{.LongName}}
 ^^^^^^^^^^^^^
 

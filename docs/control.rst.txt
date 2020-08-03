@@ -1,7 +1,5 @@
 
 
-.. CARTA.AnimationFlowControl:
-
 AnimationFlowControl
 ^^^^^^^^^^^^^
 
@@ -14,7 +12,7 @@ Used for informing the backend of which frames have been received
 +=======+======+=======+=============+
 | file_id | sfixed32 |  |  |
 +-------+------+-------+-------------+
-| received_frame `AnimationFrame <CARTA.AnimationFrame>`__  | The latest flow control frame received |
+| received_frame | AnimationFrame |  | The latest flow control frame received |
 +-------+------+-------+-------------+
 | animation_id | sfixed32 |  | The animation ID that the flow control message belongs to |
 +-------+------+-------+-------------+
@@ -22,8 +20,6 @@ Used for informing the backend of which frames have been received
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.StartAnimation:
 
 StartAnimation
 ^^^^^^^^^^^^^
@@ -38,13 +34,13 @@ Backend responds with START_ANIMATION_ACK
 +=======+======+=======+=============+
 | file_id | sfixed32 |  | Which file slot the animation describes. |
 +-------+------+-------+-------------+
-| first_frame `AnimationFrame <CARTA.AnimationFrame>`__  | The lower bound of the animation when looping. |
+| first_frame | AnimationFrame |  | The lower bound of the animation when looping. |
 +-------+------+-------+-------------+
-| start_frame `AnimationFrame <CARTA.AnimationFrame>`__  | The starting point of the animation. |
+| start_frame | AnimationFrame |  | The starting point of the animation. |
 +-------+------+-------+-------------+
-| last_frame `AnimationFrame <CARTA.AnimationFrame>`__  | The upper bound of the animation. |
+| last_frame | AnimationFrame |  | The upper bound of the animation. |
 +-------+------+-------+-------------+
-| delta_frame `AnimationFrame <CARTA.AnimationFrame>`__  | The frame change step for the animation. For example, a delta frame of {channel=1, stokes=0} would step through each channel in the file. |
+| delta_frame | AnimationFrame |  | The frame change step for the animation. For example, a delta frame of {channel=1, stokes=0} would step through each channel in the file. |
 +-------+------+-------+-------------+
 | frame_rate | sfixed32 |  | Frame rate per second |
 +-------+------+-------+-------------+
@@ -52,12 +48,10 @@ Backend responds with START_ANIMATION_ACK
 +-------+------+-------+-------------+
 | reverse | bool |  | Whether to reverse the animation direction when endFrame is reached. |
 +-------+------+-------+-------------+
-| required_tiles `AddRequiredTiles <CARTA.AddRequiredTiles>`__  | Required tiles when changing channels |
+| required_tiles | AddRequiredTiles |  | Required tiles when changing channels |
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.StartAnimationAck:
 
 StartAnimationAck
 ^^^^^^^^^^^^^
@@ -78,8 +72,6 @@ Response for START_ANIMATION
 
 
 
-.. CARTA.StopAnimation:
-
 StopAnimation
 ^^^^^^^^^^^^^
 
@@ -92,15 +84,13 @@ Stops the playing animation
 +=======+======+=======+=============+
 | file_id | sfixed32 |  | Which file slot the animation describes. |
 +-------+------+-------+-------------+
-| end_frame `AnimationFrame <CARTA.AnimationFrame>`__  | The ending point of the animation. |
+| end_frame | AnimationFrame |  | The ending point of the animation. |
 +-------+------+-------+-------------+
 
 
 
 
 
-
-.. CARTA.CloseFile:
 
 CloseFile
 ^^^^^^^^^^^^^
@@ -120,8 +110,6 @@ Instructs the backend to close a file with a given file ID
 
 
 
-.. CARTA.SetContourParameters:
-
 SetContourParameters
 ^^^^^^^^^^^^^
 
@@ -136,11 +124,11 @@ Sets the contour parameters for a file
 +-------+------+-------+-------------+
 | reference_file_id | fixed32 |  | The file ID of the reference image that the contour vertices should be mapped to |
 +-------+------+-------+-------------+
-| image_bounds `ImageBounds <CARTA.ImageBounds>`__  | The XY bounds corresponding to the image data in pixel coordinates |
+| image_bounds | ImageBounds |  | The XY bounds corresponding to the image data in pixel coordinates |
 +-------+------+-------+-------------+
 | levels | double | repeated | Contour levels |
 +-------+------+-------+-------------+
-| smoothing_mode `SmoothingMode <CARTA.SmoothingMode>`__  | Pre-contouring smoothing mode |
+| smoothing_mode | SmoothingMode |  | Pre-contouring smoothing mode |
 +-------+------+-------+-------------+
 | smoothing_factor | int32 |  | Contour smoothness factor. For block averaging, this is the block width For Gaussian smoothing, this defines both the Gaussian width, and the kernel size |
 +-------+------+-------+-------------+
@@ -156,8 +144,6 @@ Sets the contour parameters for a file
 
 
 
-.. CARTA.ExportRegion:
-
 ExportRegion
 ^^^^^^^^^^^^^
 
@@ -170,13 +156,13 @@ Backend responds with  EXPORT_REGION_ACK
 +-------+------+-------+-------------+
 | Field | Type | Label | Description |
 +=======+======+=======+=============+
-| type `FileType <CARTA.FileType>`__  | Required file type |
+| type | FileType |  | Required file type |
 +-------+------+-------+-------------+
-| coord_type `CoordinateType <CARTA.CoordinateType>`__  | Required coordinate type pixel/world |
+| coord_type | CoordinateType |  | Required coordinate type pixel/world |
 +-------+------+-------+-------------+
 | file_id | sfixed32 |  | File id for the coordinate system to use |
 +-------+------+-------+-------------+
-| region_styles `ExportRegion.RegionStylesEntry <CARTA.ExportRegion.RegionStylesEntry>`__ repeated | Region ids and style params to export |
+| region_styles | RegionStylesEntry | repeated | Region ids and style params to export |
 +-------+------+-------+-------------+
 | directory | string |  | Optional directory name of server file |
 +-------+------+-------+-------------+
@@ -184,8 +170,6 @@ Backend responds with  EXPORT_REGION_ACK
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.ExportRegion.RegionStylesEntry:
 
 ExportRegion.RegionStylesEntry
 ^^^^^^^^^^^^^
@@ -198,12 +182,10 @@ ExportRegion.RegionStylesEntry
 +=======+======+=======+=============+
 | key | sfixed32 |  |  |
 +-------+------+-------+-------------+
-| value `RegionStyle <CARTA.RegionStyle>`__  |  |
+| value | RegionStyle |  |  |
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.ExportRegionAck:
 
 ExportRegionAck
 ^^^^^^^^^^^^^
@@ -227,8 +209,6 @@ Response for EXPORT_REGION to indicate success and file contents if on client.
 
 
 
-.. CARTA.ImportRegion:
-
 ImportRegion
 ^^^^^^^^^^^^^
 
@@ -242,7 +222,7 @@ Backend responds with  IMPORT_REGION_ACK
 +=======+======+=======+=============+
 | group_id | sfixed32 |  | Required WCS group id (may be a single file id) |
 +-------+------+-------+-------------+
-| type `FileType <CARTA.FileType>`__  | Required file type |
+| type | FileType |  | Required file type |
 +-------+------+-------+-------------+
 | directory | string |  | Optional directory name of server file |
 +-------+------+-------+-------------+
@@ -252,8 +232,6 @@ Backend responds with  IMPORT_REGION_ACK
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.ImportRegionAck:
 
 ImportRegionAck
 ^^^^^^^^^^^^^
@@ -269,14 +247,12 @@ Response for IMPORT_REGION. Also supplies region properties
 +-------+------+-------+-------------+
 | message | string |  | Error message (if applicable) |
 +-------+------+-------+-------------+
-| regions `ImportRegionAck.RegionsEntry <CARTA.ImportRegionAck.RegionsEntry>`__ repeated | Map region id to parameters |
+| regions | RegionsEntry | repeated | Map region id to parameters |
 +-------+------+-------+-------------+
-| region_styles `ImportRegionAck.RegionStylesEntry <CARTA.ImportRegionAck.RegionStylesEntry>`__ repeated | Map region id to style parameters |
+| region_styles | RegionStylesEntry | repeated | Map region id to style parameters |
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.ImportRegionAck.RegionStylesEntry:
 
 ImportRegionAck.RegionStylesEntry
 ^^^^^^^^^^^^^
@@ -289,12 +265,10 @@ ImportRegionAck.RegionStylesEntry
 +=======+======+=======+=============+
 | key | sfixed32 |  |  |
 +-------+------+-------+-------------+
-| value `RegionStyle <CARTA.RegionStyle>`__  |  |
+| value | RegionStyle |  |  |
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.ImportRegionAck.RegionsEntry:
 
 ImportRegionAck.RegionsEntry
 ^^^^^^^^^^^^^
@@ -307,15 +281,13 @@ ImportRegionAck.RegionsEntry
 +=======+======+=======+=============+
 | key | sfixed32 |  |  |
 +-------+------+-------+-------------+
-| value `RegionInfo <CARTA.RegionInfo>`__  |  |
+| value | RegionInfo |  |  |
 +-------+------+-------+-------------+
 
 
 
 
 
-
-.. CARTA.CloseCatalogFile:
 
 CloseCatalogFile
 ^^^^^^^^^^^^^
@@ -330,8 +302,6 @@ CloseCatalogFile
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.OpenCatalogFile:
 
 OpenCatalogFile
 ^^^^^^^^^^^^^
@@ -353,8 +323,6 @@ OpenCatalogFile
 
 
 
-.. CARTA.OpenCatalogFileAck:
-
 OpenCatalogFileAck
 ^^^^^^^^^^^^^
 
@@ -370,18 +338,16 @@ OpenCatalogFileAck
 +-------+------+-------+-------------+
 | file_id | sfixed32 |  |  |
 +-------+------+-------+-------------+
-| file_info `CatalogFileInfo <CARTA.CatalogFileInfo>`__  |  |
+| file_info | CatalogFileInfo |  |  |
 +-------+------+-------+-------------+
 | data_size | sfixed32 |  |  |
 +-------+------+-------+-------------+
-| headers `CatalogHeader <CARTA.CatalogHeader>`__ repeated |  |
+| headers | CatalogHeader | repeated |  |
 +-------+------+-------+-------------+
-| preview_data `OpenCatalogFileAck.PreviewDataEntry <CARTA.OpenCatalogFileAck.PreviewDataEntry>`__ repeated |  |
+| preview_data | PreviewDataEntry | repeated |  |
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.OpenCatalogFileAck.PreviewDataEntry:
 
 OpenCatalogFileAck.PreviewDataEntry
 ^^^^^^^^^^^^^
@@ -394,15 +360,13 @@ OpenCatalogFileAck.PreviewDataEntry
 +=======+======+=======+=============+
 | key | fixed32 |  |  |
 +-------+------+-------+-------------+
-| value `ColumnData <CARTA.ColumnData>`__  |  |
+| value | ColumnData |  |  |
 +-------+------+-------+-------------+
 
 
 
 
 
-
-.. CARTA.OpenFile:
 
 OpenFile
 ^^^^^^^^^^^^^
@@ -423,12 +387,10 @@ Backend responds with  OPEN_FILE_ACK
 +-------+------+-------+-------------+
 | file_id | sfixed32 |  | Which "file" slot to load the file into (when viewing multiple files) |
 +-------+------+-------+-------------+
-| render_mode `RenderMode <CARTA.RenderMode>`__  | The render mode to use. Additional modes will be added in subsequent versions. |
+| render_mode | RenderMode |  | The render mode to use. Additional modes will be added in subsequent versions. |
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.OpenFileAck:
 
 OpenFileAck
 ^^^^^^^^^^^^^
@@ -446,9 +408,9 @@ Response for OPEN_FILE. Also supplies file information
 +-------+------+-------+-------------+
 | message | string |  | Error message (if applicable) |
 +-------+------+-------+-------------+
-| file_info `FileInfo <CARTA.FileInfo>`__  | Basic file info (type, size) |
+| file_info | FileInfo |  | Basic file info (type, size) |
 +-------+------+-------+-------------+
-| file_info_extended `FileInfoExtended <CARTA.FileInfoExtended>`__  | Extended file info (WCS, header info) |
+| file_info_extended | FileInfoExtended |  | Extended file info (WCS, header info) |
 +-------+------+-------+-------------+
 | file_feature_flags | fixed32 |  | Optional bitflags specifying feature flags of the file being opened. |
 +-------+------+-------+-------------+
@@ -457,8 +419,6 @@ Response for OPEN_FILE. Also supplies file information
 
 
 
-
-.. CARTA.RemoveRegion:
 
 RemoveRegion
 ^^^^^^^^^^^^^
@@ -475,8 +435,6 @@ Removes a region
 
 
 
-.. CARTA.SetRegion:
-
 SetRegion
 ^^^^^^^^^^^^^
 
@@ -491,12 +449,10 @@ Creates or updates a region. Backend responds with SET_REGION_ACK
 +-------+------+-------+-------------+
 | region_id | sfixed32 |  | Unique region ID. <=0 if a new region is being created. |
 +-------+------+-------+-------------+
-| region_info `RegionInfo <CARTA.RegionInfo>`__  | Region parameters |
+| region_info | RegionInfo |  | Region parameters |
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.SetRegionAck:
 
 SetRegionAck
 ^^^^^^^^^^^^^
@@ -520,8 +476,6 @@ Response for SET_REGION
 
 
 
-.. CARTA.SetHistogramRequirements:
-
 SetHistogramRequirements
 ^^^^^^^^^^^^^
 
@@ -536,12 +490,10 @@ Sets which histogram data needs to be streamed to the frontend when the region i
 +-------+------+-------+-------------+
 | region_id | sfixed32 |  | ID of the region that is having requirements defined. If a region ID of -1 is given, this corresponds to the entire 2D image. |
 +-------+------+-------+-------------+
-| histograms `SetHistogramRequirements.HistogramConfig <CARTA.SetHistogramRequirements.HistogramConfig>`__ repeated | List of required histograms, along with the number of bins. If the channel is -1, the current channel is used. If the channel is -2, the histogram is constructed over all channels. If the number of bins is less than zero, an automatic bin size is used, based on the number of values. |
+| histograms | HistogramConfig | repeated | List of required histograms, along with the number of bins. If the channel is -1, the current channel is used. If the channel is -2, the histogram is constructed over all channels. If the number of bins is less than zero, an automatic bin size is used, based on the number of values. |
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.SetHistogramRequirements.HistogramConfig:
 
 SetHistogramRequirements.HistogramConfig
 ^^^^^^^^^^^^^
@@ -558,8 +510,6 @@ SetHistogramRequirements.HistogramConfig
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.SetRegionRequirements:
 
 SetRegionRequirements
 ^^^^^^^^^^^^^
@@ -586,8 +536,6 @@ Sets which spatial profile data needs to be streamed to the frontend when the re
 
 
 
-.. CARTA.SetSpatialRequirements:
-
 SetSpatialRequirements
 ^^^^^^^^^^^^^
 
@@ -607,8 +555,6 @@ Sets which information needs to be streamed to the frontend when the region is u
 
 
 
-.. CARTA.SetSpectralRequirements:
-
 SetSpectralRequirements
 ^^^^^^^^^^^^^
 
@@ -623,12 +569,10 @@ Sets which spectral profile data needs to be streamed to the frontend when the r
 +-------+------+-------+-------------+
 | region_id | sfixed32 |  | ID of the region that is having requirements defined. If a region ID of 0 is given, this corresponds to the point region defined by the cursor position. |
 +-------+------+-------+-------------+
-| spectral_profiles `SetSpectralRequirements.SpectralConfig <CARTA.SetSpectralRequirements.SpectralConfig>`__ repeated | List of spectral profiles needed, along with which stats types are needed for each profile. If no Stokes parameter is specified (i.e. just “z”) or if the coordinate is empty, the active Stokes parameter is used. If the region is a point region, the statsTypes field is ignored. |
+| spectral_profiles | SpectralConfig | repeated | List of spectral profiles needed, along with which stats types are needed for each profile. If no Stokes parameter is specified (i.e. just “z”) or if the coordinate is empty, the active Stokes parameter is used. If the region is a point region, the statsTypes field is ignored. |
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.SetSpectralRequirements.SpectralConfig:
 
 SetSpectralRequirements.SpectralConfig
 ^^^^^^^^^^^^^
@@ -641,12 +585,10 @@ SetSpectralRequirements.SpectralConfig
 +=======+======+=======+=============+
 | coordinate | string |  |  |
 +-------+------+-------+-------------+
-| stats_types `StatsType <CARTA.StatsType>`__ repeated |  |
+| stats_types | StatsType | repeated |  |
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.SetStatsRequirements:
 
 SetStatsRequirements
 ^^^^^^^^^^^^^
@@ -662,15 +604,13 @@ Sets which stats data needs to be streamed to the frontend when the region is up
 +-------+------+-------+-------------+
 | region_id | sfixed32 |  | ID of the region that is having requirements defined. If a region ID of -1 is given, this corresponds to the entire 2D image. |
 +-------+------+-------+-------------+
-| stats `StatsType <CARTA.StatsType>`__ repeated | List of required stats |
+| stats | StatsType | repeated | List of required stats |
 +-------+------+-------+-------------+
 
 
 
 
 
-
-.. CARTA.RegisterViewer:
 
 RegisterViewer
 ^^^^^^^^^^^^^
@@ -692,8 +632,6 @@ Responds with REGISTER_VIEWER_ACK
 
 
 
-.. CARTA.RegisterViewerAck:
-
 RegisterViewerAck
 ^^^^^^^^^^^^^
 
@@ -711,18 +649,16 @@ Informs the frontend whether the session was correctly.
 +-------+------+-------+-------------+
 | message | string |  | Error message (if applicable) |
 +-------+------+-------+-------------+
-| session_type `SessionType <CARTA.SessionType>`__  | Defines the type of session established |
+| session_type | SessionType |  | Defines the type of session established |
 +-------+------+-------+-------------+
 | server_feature_flags | fixed32 |  | Optional feature bitflag specifying server-side feature set |
 +-------+------+-------+-------------+
-| user_preferences `RegisterViewerAck.UserPreferencesEntry <CARTA.RegisterViewerAck.UserPreferencesEntry>`__ repeated | Map of user preferences retrieved from the server database. If this is empty and the server does not have the USER_PREFERENCES feature flag set, then the user preferences are read from localStorage instead. |
+| user_preferences | UserPreferencesEntry | repeated | Map of user preferences retrieved from the server database. If this is empty and the server does not have the USER_PREFERENCES feature flag set, then the user preferences are read from localStorage instead. |
 +-------+------+-------+-------------+
-| user_layouts `RegisterViewerAck.UserLayoutsEntry <CARTA.RegisterViewerAck.UserLayoutsEntry>`__ repeated | Map of user layouts retrieved from the server database |
+| user_layouts | UserLayoutsEntry | repeated | Map of user layouts retrieved from the server database |
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.RegisterViewerAck.UserLayoutsEntry:
 
 RegisterViewerAck.UserLayoutsEntry
 ^^^^^^^^^^^^^
@@ -739,8 +675,6 @@ RegisterViewerAck.UserLayoutsEntry
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.RegisterViewerAck.UserPreferencesEntry:
 
 RegisterViewerAck.UserPreferencesEntry
 ^^^^^^^^^^^^^
@@ -761,8 +695,6 @@ RegisterViewerAck.UserPreferencesEntry
 
 
 
-.. CARTA.ImageProperties:
-
 ImageProperties
 ^^^^^^^^^^^^^
 
@@ -780,20 +712,18 @@ ImageProperties
 +-------+------+-------+-------------+
 | file_id | sfixed32 |  |  |
 +-------+------+-------+-------------+
-| render_mode `RenderMode <CARTA.RenderMode>`__  |  |
+| render_mode | RenderMode |  |  |
 +-------+------+-------+-------------+
 | channel | sfixed32 |  |  |
 +-------+------+-------+-------------+
 | stokes | sfixed32 |  |  |
 +-------+------+-------+-------------+
-| regions `ImageProperties.RegionsEntry <CARTA.ImageProperties.RegionsEntry>`__ repeated |  |
+| regions | RegionsEntry | repeated |  |
 +-------+------+-------+-------------+
-| contour_settings `SetContourParameters <CARTA.SetContourParameters>`__  |  |
+| contour_settings | SetContourParameters |  |  |
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.ImageProperties.RegionsEntry:
 
 ImageProperties.RegionsEntry
 ^^^^^^^^^^^^^
@@ -806,12 +736,10 @@ ImageProperties.RegionsEntry
 +=======+======+=======+=============+
 | key | sfixed32 |  |  |
 +-------+------+-------+-------------+
-| value `RegionInfo <CARTA.RegionInfo>`__  |  |
+| value | RegionInfo |  |  |
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.ResumeSession:
 
 ResumeSession
 ^^^^^^^^^^^^^
@@ -822,14 +750,12 @@ ResumeSession
 +-------+------+-------+-------------+
 | Field | Type | Label | Description |
 +=======+======+=======+=============+
-| images `ImageProperties <CARTA.ImageProperties>`__ repeated |  |
+| images | ImageProperties | repeated |  |
 +-------+------+-------+-------------+
-| catalog_files `OpenCatalogFile <CARTA.OpenCatalogFile>`__ repeated |  |
+| catalog_files | OpenCatalogFile | repeated |  |
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.ResumeSessionAck:
 
 ResumeSessionAck
 ^^^^^^^^^^^^^
@@ -850,8 +776,6 @@ ResumeSessionAck
 
 
 
-.. CARTA.SetCursor:
-
 SetCursor
 ^^^^^^^^^^^^^
 
@@ -865,17 +789,15 @@ The cursor defines a special case of a region, with a single control point.
 +=======+======+=======+=============+
 | file_id | sfixed32 |  | Which file slot the cursor is moving over |
 +-------+------+-------+-------------+
-| point `Point <CARTA.Point>`__  | XY-coordinates of cursor in image space |
+| point | Point |  | XY-coordinates of cursor in image space |
 +-------+------+-------+-------------+
-| spatial_requirements `SetSpatialRequirements <CARTA.SetSpatialRequirements>`__  | Optional accompanying spatial requirements message to be processed prior to cursor update |
+| spatial_requirements | SetSpatialRequirements |  | Optional accompanying spatial requirements message to be processed prior to cursor update |
 +-------+------+-------+-------------+
 
 
 
 
 
-
-.. CARTA.SetImageChannels:
 
 SetImageChannels
 ^^^^^^^^^^^^^
@@ -893,15 +815,13 @@ Sets the current image channel and Stokes parameter
 +-------+------+-------+-------------+
 | stokes | sfixed32 |  | The image stokes parameter |
 +-------+------+-------+-------------+
-| required_tiles `AddRequiredTiles <CARTA.AddRequiredTiles>`__  | Required tiles when changing channels |
+| required_tiles | AddRequiredTiles |  | Required tiles when changing channels |
 +-------+------+-------+-------------+
 
 
 
 
 
-
-.. CARTA.SpectralLineRequest:
 
 SpectralLineRequest
 ^^^^^^^^^^^^^
@@ -912,12 +832,10 @@ SpectralLineRequest
 +-------+------+-------+-------------+
 | Field | Type | Label | Description |
 +=======+======+=======+=============+
-| frequency_range `DoubleBounds <CARTA.DoubleBounds>`__  |  |
+| frequency_range | DoubleBounds |  |  |
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.SpectralLineResponse:
 
 SpectralLineResponse
 ^^^^^^^^^^^^^
@@ -934,14 +852,12 @@ SpectralLineResponse
 +-------+------+-------+-------------+
 | data_size | sfixed32 |  |  |
 +-------+------+-------+-------------+
-| headers `CatalogHeader <CARTA.CatalogHeader>`__ repeated |  |
+| headers | CatalogHeader | repeated |  |
 +-------+------+-------+-------------+
-| spectral_line_data `SpectralLineResponse.SpectralLineDataEntry <CARTA.SpectralLineResponse.SpectralLineDataEntry>`__ repeated |  |
+| spectral_line_data | SpectralLineDataEntry | repeated |  |
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.SpectralLineResponse.SpectralLineDataEntry:
 
 SpectralLineResponse.SpectralLineDataEntry
 ^^^^^^^^^^^^^
@@ -954,15 +870,13 @@ SpectralLineResponse.SpectralLineDataEntry
 +=======+======+=======+=============+
 | key | fixed32 |  |  |
 +-------+------+-------+-------------+
-| value `ColumnData <CARTA.ColumnData>`__  |  |
+| value | ColumnData |  |  |
 +-------+------+-------+-------------+
 
 
 
 
 
-
-.. CARTA.AddRequiredTiles:
 
 AddRequiredTiles
 ^^^^^^^^^^^^^
@@ -978,14 +892,12 @@ Provides a list of tiles that are required for the specified file
 +-------+------+-------+-------------+
 | tiles | sfixed32 | repeated | The list of tiles required, in encoded coordinate |
 +-------+------+-------+-------------+
-| compression_type `CompressionType <CARTA.CompressionType>`__  | The compression algorithm used |
+| compression_type | CompressionType |  | The compression algorithm used |
 +-------+------+-------+-------------+
 | compression_quality | float |  | Compression quality switch |
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.RemoveRequiredTiles:
 
 RemoveRequiredTiles
 ^^^^^^^^^^^^^
@@ -1007,8 +919,6 @@ Provides a list of tiles that are required for the specified file
 
 
 
-.. CARTA.SetUserLayout:
-
 SetUserLayout
 ^^^^^^^^^^^^^
 
@@ -1026,8 +936,6 @@ Backend responds with  SET_USER_LAYOUT_ACK
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.SetUserLayoutAck:
 
 SetUserLayoutAck
 ^^^^^^^^^^^^^
@@ -1049,8 +957,6 @@ Error message (if applicable) |
 
 
 
-.. CARTA.SetUserPreferences:
-
 SetUserPreferences
 ^^^^^^^^^^^^^
 
@@ -1062,12 +968,10 @@ Backend responds with  SET_USER_PREFERENCES_ACK
 +-------+------+-------+-------------+
 | Field | Type | Label | Description |
 +=======+======+=======+=============+
-| preference_map `SetUserPreferences.PreferenceMapEntry <CARTA.SetUserPreferences.PreferenceMapEntry>`__ repeated |  |
+| preference_map | PreferenceMapEntry | repeated |  |
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.SetUserPreferences.PreferenceMapEntry:
 
 SetUserPreferences.PreferenceMapEntry
 ^^^^^^^^^^^^^
@@ -1084,8 +988,6 @@ SetUserPreferences.PreferenceMapEntry
 +-------+------+-------+-------------+
 
 
-
-.. CARTA.SetUserPreferencesAck:
 
 SetUserPreferencesAck
 ^^^^^^^^^^^^^
