@@ -56,7 +56,8 @@ protoc = {
 toctree = """
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:"""
+   :caption: Contents:
+"""
 
 file_contents = defaultdict(list)
     
@@ -75,12 +76,12 @@ for line in lines:
             if not has_toctree.get(indexfile, False):
                 file_contents[indexfile].append(toctree)
                 has_toctree[indexfile] = True
-            file_contents[indexfile].append(f'    {filenames[line].replace(".rst", "")}')
+            file_contents[indexfile].append(f'   {filenames[line].replace(".rst", "")}')
         elif line in subsections:
             if not has_toctree.get(sectionfile, False):
                 file_contents[sectionfile].append(toctree)
                 has_toctree[sectionfile] = True
-            file_contents[sectionfile].append(f'    {filenames[line].replace(".rst", "")}')
+            file_contents[sectionfile].append(f'   {filenames[line].replace(".rst", "")}')
     elif line == "**Changelog**":
         file_contents[currentfile].append(f".. include:: {filenames['changelog']}")
         currentfile = filenames["changelog"]

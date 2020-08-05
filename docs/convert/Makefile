@@ -1,8 +1,8 @@
-../index.rst: ICD.rst clean_rst.py
+../index.rst: ICD.rst.ignore clean_rst.py
 	./clean_rst.py $< ..
 
-ICD.rst: ICD.html
-	pandoc $< --wrap=none -o $@
+ICD.rst.ignore: ICD.html
+	pandoc $< --wrap=none --to=rst -o $@
 
 ICD.html: CARTABackendFrontendInterfaceControlDocument.html clean_html.py
 	./clean_html.py $< $@

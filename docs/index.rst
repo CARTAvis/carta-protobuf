@@ -16,7 +16,8 @@ CARTA Target: Version 1.4
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-    introduction
-    context
-    behaviour
-    layer_descriptions
+
+   introduction
+   context
+   behaviour
+   layer_descriptions
