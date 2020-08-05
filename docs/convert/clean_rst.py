@@ -11,13 +11,14 @@ with open(inputname) as icdfile:
     icd = icdfile.read()
 
 # Fix references
+# TODO we need explicit references to use :ref:.
 # TODO add alternate anchors to all the protobuf messages, to simplify these.
 
 def reference(m):
     target = re.sub('%%20', ' ', m.group(2))
     return f':ref:`{m.group(1)} <{target}>`'
 
-icd = re.sub('`([^ <]+) <#([^>]+)>`__', reference, icd)
+icd = re.sub('`([^`<]+) <#([^>]+)>`__', reference, icd)
 
 # inline the inexplicably substituted images
 
@@ -53,9 +54,14 @@ protoc = {
     "Enums": "enums.rst.txt",
 }
 
-toctree = """
+toctree_index = """
 .. toctree::
-   :maxdepth: 2
+   :numbered: 3
+   :caption: Contents:
+"""
+
+toctree_section = """
+.. toctree::
    :caption: Contents:
 """
 
@@ -69,19 +75,22 @@ currentfile = indexfile
 has_toctree = {}
 
 for line in lines:
-    if line in filenames:
-        currentfile = filenames[line]
-        if line in sections:
+    is_anchor = re.match(".. _(.*):", line)
+    anchor = is_anchor.group(1) if is_anchor else None
+    if is_anchor and anchor in filenames:
+        line = f'.. _{anchor.lower().replace(" ", "-")}:'
+        currentfile = filenames[anchor]
+        if anchor in sections:
             sectionfile = currentfile
             if not has_toctree.get(indexfile, False):
-                file_contents[indexfile].append(toctree)
+                file_contents[indexfile].append(toctree_index)
                 has_toctree[indexfile] = True
-            file_contents[indexfile].append(f'   {filenames[line].replace(".rst", "")}')
-        elif line in subsections:
+            file_contents[indexfile].append(f'   {filenames[anchor].replace(".rst", "")}')
+        elif anchor in subsections:
             if not has_toctree.get(sectionfile, False):
-                file_contents[sectionfile].append(toctree)
+                file_contents[sectionfile].append(toctree_section)
                 has_toctree[sectionfile] = True
-            file_contents[sectionfile].append(f'   {filenames[line].replace(".rst", "")}')
+            file_contents[sectionfile].append(f'   {filenames[anchor].replace(".rst", "")}')
     elif line == "**Changelog**":
         file_contents[currentfile].append(f".. include:: {filenames['changelog']}")
         currentfile = filenames["changelog"]

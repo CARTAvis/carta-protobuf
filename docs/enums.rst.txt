@@ -1,11 +1,14 @@
 
 
+.. _catalogfiletype:
 
 CatalogFileType
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 
-.. list-table:: CatalogFileType
+
+.. list-table::
+   :widths: 33 33 33
    :header-rows: 1
 
    * - Name
@@ -17,12 +20,15 @@ CatalogFileType
    * - VOTable
      - 1
      - 
+.. _clientfeatureflags:
 
 ClientFeatureFlags
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 
-.. list-table:: ClientFeatureFlags
+
+.. list-table::
+   :widths: 33 33 33
    :header-rows: 1
 
    * - Name
@@ -46,12 +52,15 @@ ClientFeatureFlags
    * - OFFSCREEN_CANVAS
      - 16
      - 
+.. _columntype:
 
 ColumnType
-^^^^^^^^^^^^^
+^^^^^^^^^^
 
 
-.. list-table:: ColumnType
+
+.. list-table::
+   :widths: 33 33 33
    :header-rows: 1
 
    * - Name
@@ -96,12 +105,15 @@ ColumnType
    * - Bool
      - 12
      - 
+.. _comparisonoperator:
 
 ComparisonOperator
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 
-.. list-table:: ComparisonOperator
+
+.. list-table::
+   :widths: 33 33 33
    :header-rows: 1
 
    * - Name
@@ -131,12 +143,15 @@ ComparisonOperator
    * - RangeClosed
      - 7
      - 
+.. _compressiontype:
 
 CompressionType
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 
-.. list-table:: CompressionType
+
+.. list-table::
+   :widths: 33 33 33
    :header-rows: 1
 
    * - Name
@@ -151,12 +166,15 @@ CompressionType
    * - SZ
      - 2
      - 
+.. _coordinatetype:
 
 CoordinateType
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 
-.. list-table:: CoordinateType
+
+.. list-table::
+   :widths: 33 33 33
    :header-rows: 1
 
    * - Name
@@ -168,12 +186,15 @@ CoordinateType
    * - WORLD
      - 1
      - 
+.. _entrytype:
 
 EntryType
-^^^^^^^^^^^^^
+^^^^^^^^^
 
 
-.. list-table:: EntryType
+
+.. list-table::
+   :widths: 33 33 33
    :header-rows: 1
 
    * - Name
@@ -188,12 +209,15 @@ EntryType
    * - INT
      - 2
      - 
+.. _errorseverity:
 
 ErrorSeverity
 ^^^^^^^^^^^^^
 
 
-.. list-table:: ErrorSeverity
+
+.. list-table::
+   :widths: 33 33 33
    :header-rows: 1
 
    * - Name
@@ -214,12 +238,15 @@ ErrorSeverity
    * - CRITICAL
      - 4
      - 
+.. _eventtype:
 
 EventType
-^^^^^^^^^^^^^
+^^^^^^^^^
 
 
-.. list-table:: EventType
+
+.. list-table::
+   :widths: 33 33 33
    :header-rows: 1
 
    * - Name
@@ -408,12 +435,15 @@ EventType
    * - SPECTRAL_LINE_RESPONSE
      - 68
      - 
+.. _filefeatureflags:
 
 FileFeatureFlags
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 
-.. list-table:: FileFeatureFlags
+
+.. list-table::
+   :widths: 33 33 33
    :header-rows: 1
 
    * - Name
@@ -440,12 +470,15 @@ FileFeatureFlags
    * - MIP_DATASET
      - 32
      - 
+.. _filetype:
 
 FileType
-^^^^^^^^^^^^^
+^^^^^^^^
 
 
-.. list-table:: FileType
+
+.. list-table::
+   :widths: 33 33 33
    :header-rows: 1
 
    * - Name
@@ -472,12 +505,15 @@ FileType
    * - UNKNOWN
      - 6
      - 
+.. _regiontype:
 
 RegionType
-^^^^^^^^^^^^^
+^^^^^^^^^^
 
 
-.. list-table:: RegionType
+
+.. list-table::
+   :widths: 33 33 33
    :header-rows: 1
 
    * - Name
@@ -504,12 +540,15 @@ RegionType
    * - POLYGON
      - 6
      - 
+.. _rendermode:
 
 RenderMode
-^^^^^^^^^^^^^
+^^^^^^^^^^
 
 
-.. list-table:: RenderMode
+
+.. list-table::
+   :widths: 33 33 33
    :header-rows: 1
 
    * - Name
@@ -521,12 +560,15 @@ RenderMode
    * - CONTOUR
      - 1
      - 
+.. _serverfeatureflags:
 
 ServerFeatureFlags
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 
-.. list-table:: ServerFeatureFlags
+
+.. list-table::
+   :widths: 33 33 33
    :header-rows: 1
 
    * - Name
@@ -553,12 +595,15 @@ ServerFeatureFlags
    * - USER_LAYOUTS
      - 32
      - 
+.. _sessiontype:
 
 SessionType
-^^^^^^^^^^^^^
+^^^^^^^^^^^
 
 
-.. list-table:: SessionType
+
+.. list-table::
+   :widths: 33 33 33
    :header-rows: 1
 
    * - Name
@@ -570,12 +615,15 @@ SessionType
    * - RESUMED
      - 1
      - 
+.. _smoothingmode:
 
 SmoothingMode
 ^^^^^^^^^^^^^
 
 
-.. list-table:: SmoothingMode
+
+.. list-table::
+   :widths: 33 33 33
    :header-rows: 1
 
    * - Name
@@ -590,12 +638,15 @@ SmoothingMode
    * - GaussianBlur
      - 2
      - 
+.. _sortingtype:
 
 SortingType
-^^^^^^^^^^^^^
+^^^^^^^^^^^
 
 
-.. list-table:: SortingType
+
+.. list-table::
+   :widths: 33 33 33
    :header-rows: 1
 
    * - Name
@@ -607,12 +658,15 @@ SortingType
    * - Descending
      - 1
      - 
+.. _statstype:
 
 StatsType
-^^^^^^^^^^^^^
+^^^^^^^^^
 
 
-.. list-table:: StatsType
+
+.. list-table::
+   :widths: 33 33 33
    :header-rows: 1
 
    * - Name

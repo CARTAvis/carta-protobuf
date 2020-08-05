@@ -14,7 +14,7 @@ CARTA Target: Version 1.4
 .. include:: changelog.rst.txt
 
 .. toctree::
-   :maxdepth: 2
+   :numbered: 3
    :caption: Contents:
 
    introduction

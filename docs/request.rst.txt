@@ -1,12 +1,14 @@
 
+.. _catalogfileinforequest:
 
 CatalogFileInfoRequest
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 
 
 
-.. list-table:: CatalogFileInfoRequest
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -22,14 +24,16 @@ CatalogFileInfoRequest
      - 
      - 
 
+.. _catalogfileinforesponse:
 
 CatalogFileInfoResponse
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
 
 
 
 
-.. list-table:: CatalogFileInfoResponse
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -56,14 +60,16 @@ CatalogFileInfoResponse
 
 
 
+.. _cataloglistrequest:
 
 CatalogListRequest
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 
 
 
-.. list-table:: CatalogListRequest
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -75,14 +81,16 @@ CatalogListRequest
      - 
      - 
 
+.. _cataloglistresponse:
 
 CatalogListResponse
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
 
 
 
-.. list-table:: CatalogListResponse
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -117,16 +125,18 @@ CatalogListResponse
 
 
 
+.. _fileinforequest:
 
 FileInfoRequest
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 FILE_INFO_REQUEST:
 Requests the file info for a specific file.
 Backend responds with FILE_INFO_RESPONSE
 
 
-.. list-table:: FileInfoRequest
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -146,16 +156,18 @@ Backend responds with FILE_INFO_RESPONSE
      - 
      - Required HDU name (if applicable). If left empty, the first HDU is selected
 
+.. _fileinforesponse:
 
 FileInfoResponse
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 FILE_INFO_RESPONSE
 Response for FILE_INFO_REQUEST.
 Gives information on the requested file
 
 
-.. list-table:: FileInfoResponse
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -182,16 +194,18 @@ Gives information on the requested file
 
 
 
+.. _filelistrequest:
 
 FileListRequest
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 FILE_LIST_REQUEST:
 Requests the list of available files for a given directory.
 Backend responds with FILE_LIST_RESPONSE
 
 
-.. list-table:: FileListRequest
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -203,16 +217,18 @@ Backend responds with FILE_LIST_RESPONSE
      - 
      - Required directory name
 
+.. _filelistresponse:
 
 FileListResponse
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 FILE_LIST_RESPONSE
 Response for FILE_LIST_REQUEST.
 Gives a list of available files (and their types), as well as subdirectories
 
 
-.. list-table:: FileListResponse
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -247,16 +263,18 @@ Gives a list of available files (and their types), as well as subdirectories
 
 
 
+.. _regionfileinforequest:
 
 RegionFileInfoRequest
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
 REGION_FILE_INFO_REQUEST:
 Requests contents for a specific region file on the server
 Backend responds with REGION_FILE_INFO_RESPONSE
 
 
-.. list-table:: RegionFileInfoRequest
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -272,16 +290,18 @@ Backend responds with REGION_FILE_INFO_RESPONSE
      - 
      - Required file name
 
+.. _regionfileinforesponse:
 
 RegionFileInfoResponse
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 REGION_FILE_INFO_RESPONSE
 Response for REGION_FILE_INFO_REQUEST.
 Gives information on the requested file
 
 
-.. list-table:: RegionFileInfoResponse
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -308,16 +328,18 @@ Gives information on the requested file
 
 
 
+.. _regionlistrequest:
 
 RegionListRequest
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 
 REGION_LIST_REQUEST:
 Requests the list of available region files for a given directory.
 Backend responds with REGION_LIST_RESPONSE
 
 
-.. list-table:: RegionListRequest
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -329,16 +351,18 @@ Backend responds with REGION_LIST_RESPONSE
      - 
      - Required directory name
 
+.. _regionlistresponse:
 
 RegionListResponse
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 REGION_LIST_RESPONSE
 Response for REGION_LIST_REQUEST.
 Gives a list of available region files (and their types), as well as subdirectories
 
 
-.. list-table:: RegionListResponse
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -373,14 +397,16 @@ Gives a list of available region files (and their types), as well as subdirector
 
 
 
+.. _scriptingrequest:
 
 ScriptingRequest
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 
 
 
-.. list-table:: ScriptingRequest
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -408,14 +434,16 @@ ScriptingRequest
      - 
      - flag indicating whether the frontend should execute this asynchronously, or only return once the call is complete
 
+.. _scriptingresponse:
 
 ScriptingResponse
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 
 
 
 
-.. list-table:: ScriptingResponse
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field

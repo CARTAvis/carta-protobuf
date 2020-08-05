@@ -1,9 +1,10 @@
+.. _layer-descriptions:
+
 Layer descriptions
 ==================
 
 
 .. toctree::
-   :maxdepth: 2
    :caption: Contents:
 
    application_layer

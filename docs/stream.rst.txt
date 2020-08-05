@@ -1,12 +1,14 @@
 
+.. _catalogfilterrequest:
 
 CatalogFilterRequest
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^
 
 
 
 
-.. list-table:: CatalogFilterRequest
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -54,14 +56,16 @@ CatalogFilterRequest
      - 
      - 
 
+.. _catalogfilterresponse:
 
 CatalogFilterResponse
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^
 
 
 
 
-.. list-table:: CatalogFilterResponse
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -105,14 +109,16 @@ CatalogFilterResponse
      - 
      - 
 
+.. _catalogfilterresponse.columnsentry:
 
 CatalogFilterResponse.ColumnsEntry
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 
 
-.. list-table:: CatalogFilterResponse.ColumnsEntry
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -131,15 +137,17 @@ CatalogFilterResponse.ColumnsEntry
 
 
 
+.. _contourimagedata:
 
 ContourImageData
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 CONTOUR_IMAGE_DATA:
 Data for an image rendered in contour mode.
 
 
-.. list-table:: ContourImageData
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -175,14 +183,16 @@ Data for an image rendered in contour mode.
      - 
      - Progress of the contour sets being sent. If this is zero, the message is assumed to contain the entire contour sets
 
+.. _contourset:
 
 ContourSet
-^^^^^^^^^^^^^
+^^^^^^^^^^
 
 
 
 
-.. list-table:: ContourSet
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -213,16 +223,18 @@ ContourSet
 
 
 
+.. _errordata:
 
 ErrorData
-^^^^^^^^^^^^^
+^^^^^^^^^
 
 ERROR_DATA:
 Stream of error/warning/info data. This stream is used to present the frontend with additional information on
 the state of the backend, and is not used in place of returning success=false on requests or commands.
 
 
-.. list-table:: ErrorData
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -249,14 +261,16 @@ the state of the backend, and is not used in place of returning success=false on
 
 
 
+.. _rastertiledata:
 
 RasterTileData
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 
 
 
-.. list-table:: RasterTileData
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -292,14 +306,16 @@ RasterTileData
      - repeated
      - List of tile data
 
+.. _rastertilesync:
 
 RasterTileSync
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 
 
 
-.. list-table:: RasterTileSync
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -327,14 +343,16 @@ RasterTileSync
      - 
      - Is this a start or end sync message?
 
+.. _tiledata:
 
 TileData
-^^^^^^^^^^^^^
+^^^^^^^^
 
 
 
 
-.. list-table:: TileData
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -373,15 +391,17 @@ TileData
 
 
 
+.. _regionhistogramdata:
 
 RegionHistogramData
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
 REGION_HISTOGRAM_DATA:
 Stats data for a specific region
 
 
-.. list-table:: RegionHistogramData
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -412,15 +432,17 @@ Stats data for a specific region
 
 
 
+.. _regionstatsdata:
 
 RegionStatsData
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 REGION_STATS_DATA:
 Stats data for a specific region
 
 
-.. list-table:: RegionStatsData
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -451,15 +473,17 @@ Stats data for a specific region
 
 
 
+.. _spatialprofiledata:
 
 SpatialProfileData
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 SPATIAL_PROFILE_DATA:
 Data for spatial profile set for a specific file
 
 
-.. list-table:: SpatialProfileData
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -502,15 +526,17 @@ Data for spatial profile set for a specific file
 
 
 
+.. _spectralprofiledata:
 
 SpectralProfileData
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
 SPECTRAL_PROFILE_DATA:
 Data for spectral profile set for a specific file
 
 
-.. list-table:: SpectralProfileData
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field

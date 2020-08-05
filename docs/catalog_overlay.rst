@@ -1,5 +1,9 @@
+.. _catalog-overlay:
+
 Catalog overlay
 ---------------
+
+.. _Sequence Diagrams:
 
 Sequence Diagrams
 ~~~~~~~~~~~~~~~~~

@@ -1,3 +1,5 @@
+.. _changing-view-parameters:
+
 Changing view parameters
 ------------------------
 

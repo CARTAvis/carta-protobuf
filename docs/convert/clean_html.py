@@ -175,7 +175,6 @@ def colour_of(t):
     if t.name == 'html':
         return None
     return colour_of(t.parent)
-        
 
 links = soup.find_all("a")
 for link in links:
@@ -231,8 +230,6 @@ for c in soup.find_all("code"):
 
 # Rename anchors using heading text
 
-#anchors = {}
-
 def camel(s):
     return "".join(p.title() for p in s.split("_"))
 
@@ -243,32 +240,7 @@ anchor_replacements = {
     "[\d.]+ (.*)": r"\1",
     "(.*) \(.*\)": r"\1",
     "^([A-Z_]+)$": lambda m: camel(m.group(1)),
-    #"^((?:[A-Z][a-z]+){2,})$": r"CARTA.\1",
 }
-
-#anchor_exceptions = {
-    #"Coosys": "CARTA.Coosys",
-    #"Moment (Enum)": "CARTA.Moment",
-#}
-
-#for heading in soup.find_all(re.compile("h\d")):
-    #if "id" in heading.attrs:
-        #old_name, new_name = heading["id"], heading.text.strip()
-        ##if new_name in anchor_exceptions:
-            ##new_name = anchor_exceptions[new_name]
-        ##else:
-        #for s, r in anchor_replacements.items():
-            #new_name = re.sub(s, r, new_name)
-        #anchors[old_name] = new_name
-
-#for heading in soup.find_all(re.compile("h\d")):
-    #if "id" in heading.attrs:
-        #hid = heading["id"]
-        #if hid in anchors:
-            #if not anchors[hid]:
-                #heading.extract()
-                #continue
-            #delete heading.attrs["id"]
             
             
 # Speed up id:heading text mapping
@@ -298,11 +270,22 @@ for a in soup.find_all("a"):
             new_name = heading_text
             for s, r in anchor_replacements.items():
                 new_name = re.sub(s, r, new_name)
+            new_name = new_name.lower().replace(" ", "-")
             a["href"] = "#%s" % new_name
                     
         elif "1mD9cZri8S25hm6VTPehEXUXA_kDptlcr41ktbEZQv1k" in a["href"]:
             # fix links to catalog doc which are supposed to be anchors
             a["href"] = "#%s" % a.text
+            
+        else:
+            m = re.match("https://www\.google\.com/url\?q=(.*)&sa=.&ust=.*&usg=.*", a["href"])
+            if m:
+                # Fix Google redirects
+                a["href"] = m.group(1)
+    
+    # strip nested coce formatting from links (this is a rst limitation)
+    if a.contents and a.contents[0].name == "code":
+        a.contents[0].unwrap()
 
 # Strip out the manual protobuf tables
 
@@ -310,10 +293,13 @@ tables = soup.find_all("table")
 for table in tables:
     table.extract()
 
-# Remove manual section numbering, fix broken heading levels and strip explicit IDs
+# Remove manual section numbering, fix broken heading levels and hack in IDs
 for heading in soup.find_all(re.compile("h\d")):
-    if "id" in heading.attrs:
+    if heading.text == "CARTA Interface Control Document":
         del heading.attrs["id"]
+        continue
+    
+    heading["id"] = re.sub("[\d.]+ (.*)", r"\1", heading.text).strip()
     
     if re.match("4\.\d+ ", heading.text):
         heading.name = "h2"
@@ -357,9 +343,7 @@ for img in soup.find_all("img"):
         img["src"] = "images/%s.png" % new_name
     else:
         print("No metadata for image", src)
-    
                 
 with open(sys.argv[2], 'w') as f:
     print(str(soup), file=f)
 
-# TODO fix the google link redirects

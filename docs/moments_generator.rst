@@ -1,3 +1,5 @@
+.. _moments-generator:
+
 Moments generator
 -----------------
 

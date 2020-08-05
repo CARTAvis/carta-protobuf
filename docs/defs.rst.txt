@@ -1,12 +1,14 @@
 
+.. _animationframe:
 
 AnimationFrame
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 
 
 
-.. list-table:: AnimationFrame
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -22,14 +24,16 @@ AnimationFrame
      - 
      - 
 
+.. _catalogfileinfo:
 
 CatalogFileInfo
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 
 
 
-.. list-table:: CatalogFileInfo
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -61,6 +65,7 @@ CatalogFileInfo
      - 
      - 
 
+.. _catalogheader:
 
 CatalogHeader
 ^^^^^^^^^^^^^
@@ -68,7 +73,8 @@ CatalogHeader
 
 
 
-.. list-table:: CatalogHeader
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -96,14 +102,16 @@ CatalogHeader
      - 
      - 
 
+.. _catalogimagebounds:
 
 CatalogImageBounds
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 
 
 
-.. list-table:: CatalogImageBounds
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -123,14 +131,16 @@ CatalogImageBounds
      - 
      - 
 
+.. _columndata:
 
 ColumnData
-^^^^^^^^^^^^^
+^^^^^^^^^^
 
 
 
 
-.. list-table:: ColumnData
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -150,14 +160,16 @@ ColumnData
      - 
      - binary data will get converted to a TypedArray
 
+.. _coosys:
 
 Coosys
-^^^^^^^^^^^^^
+^^^^^^
 
 
 
 
-.. list-table:: Coosys
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -177,14 +189,16 @@ Coosys
      - 
      - 
 
+.. _doublebounds:
 
 DoubleBounds
-^^^^^^^^^^^^^
+^^^^^^^^^^^^
 
 
 
 
-.. list-table:: DoubleBounds
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -200,14 +214,16 @@ DoubleBounds
      - 
      - 
 
+.. _fileinfo:
 
 FileInfo
-^^^^^^^^^^^^^
+^^^^^^^^
 
 File info message structure (internal use only)
 
 
-.. list-table:: FileInfo
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -235,14 +251,16 @@ File info message structure (internal use only)
      - 
      - 
 
+.. _fileinfoextended:
 
 FileInfoExtended
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 
 
 
-.. list-table:: FileInfoExtended
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -282,14 +300,16 @@ FileInfoExtended
      - repeated
      - 
 
+.. _filterconfig:
 
 FilterConfig
-^^^^^^^^^^^^^
+^^^^^^^^^^^^
 
 
 
 
-.. list-table:: FilterConfig
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -317,14 +337,16 @@ FilterConfig
      - 
      - 
 
+.. _headerentry:
 
 HeaderEntry
-^^^^^^^^^^^^^
+^^^^^^^^^^^
 
 
 
 
-.. list-table:: HeaderEntry
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -352,14 +374,16 @@ HeaderEntry
      - 
      - 
 
+.. _histogram:
 
 Histogram
-^^^^^^^^^^^^^
+^^^^^^^^^
 
 
 
 
-.. list-table:: Histogram
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -395,14 +419,16 @@ Histogram
      - 
      - 
 
+.. _imagebounds:
 
 ImageBounds
-^^^^^^^^^^^^^
+^^^^^^^^^^^
 
 
 
 
-.. list-table:: ImageBounds
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -426,14 +452,16 @@ ImageBounds
      - 
      - 
 
+.. _point:
 
 Point
-^^^^^^^^^^^^^
+^^^^^
 
 
 
 
-.. list-table:: Point
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -449,14 +477,16 @@ Point
      - 
      - 
 
+.. _regioninfo:
 
 RegionInfo
-^^^^^^^^^^^^^
+^^^^^^^^^^
 
 
 
 
-.. list-table:: RegionInfo
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -476,14 +506,16 @@ RegionInfo
      - 
      - (Only applicable for ellipse and rectangle) Rotation of the region in the xy plane (radians).
 
+.. _regionstyle:
 
 RegionStyle
-^^^^^^^^^^^^^
+^^^^^^^^^^^
 
 
 
 
-.. list-table:: RegionStyle
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -507,14 +539,16 @@ RegionStyle
      - repeated
      - Dash length: on, off
 
+.. _spatialprofile:
 
 SpatialProfile
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 
 
 
-.. list-table:: SpatialProfile
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -538,14 +572,16 @@ SpatialProfile
      - 
      - 
 
+.. _spectralprofile:
 
 SpectralProfile
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 
 
 
-.. list-table:: SpectralProfile
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -569,14 +605,16 @@ SpectralProfile
      - 
      - 
 
+.. _statisticsvalue:
 
 StatisticsValue
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^
 
 
 
 
-.. list-table:: StatisticsValue
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field

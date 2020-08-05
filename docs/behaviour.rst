@@ -1,9 +1,10 @@
+.. _behaviour:
+
 Behaviour
 =========
 
 
 .. toctree::
-   :maxdepth: 2
    :caption: Contents:
 
    connection

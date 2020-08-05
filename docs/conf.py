@@ -17,9 +17,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'carta-protobuf'
-copyright = '2020, ASIAA, IDIA and NRAO'
-author = 'ASIAA, IDIA and NRAO'
+project = 'CARTA Interface Control Document'
+#copyright = '2020, ASIAA, IDIA and NRAO'
+author = 'Angus Comrie and Rob Simmonds'
 
 
 # -- General configuration ---------------------------------------------------

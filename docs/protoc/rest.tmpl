@@ -1,12 +1,13 @@
 {{range .Files}}
 {{range .Messages}}
 {{.LongName}}
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 {{.Description}}
 
 {{if .HasFields}}
-.. list-table:: {{.LongName}}
+.. list-table::
+   :widths: 25 25 10 40
    :header-rows: 1
 
    * - Field
@@ -23,10 +24,12 @@
 {{end}}
 {{range .Enums}}
 {{.LongName}}
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 {{.Description}}
-.. list-table:: {{.LongName}}
+
+.. list-table::
+   :widths: 33 33 33
    :header-rows: 1
 
    * - Name

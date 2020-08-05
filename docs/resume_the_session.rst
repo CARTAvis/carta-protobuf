@@ -1,7 +1,9 @@
+.. _resume-the-session:
+
 Resume the session
 ------------------
 
-The basic idea is that, when the frontend reconnects to the backend (with :ref:```REGISTER_VIEWER`` <RegisterViewer>`), it would also send some state information, such as:
+The basic idea is that, when the frontend reconnects to the backend (with :ref:`REGISTER_VIEWER <registerviewer>`), it would also send some state information, such as:
 
 -  list of open files, along with their IDs and the current channels and stokes
 -  list of regions for each file, along with all their properties
@@ -12,21 +14,21 @@ There are two use cases for resuming with an existing session ID, and a third wh
 
 #. Backend is restarted, frontend connects, frontend sends state information.
 
-   #. Frontend sends :ref:```REGISTER_VIEWER`` <RegisterViewer>` with session_id > 0.
-   #. Restarted backend has no session_ids, :ref:```REGISTER_VIEWER_ACK`` <RegisterViewerAck>` sets session_type=RESUMED\ *.* Backend creates new Session with given session_id (On Connect).
-   #. Frontend sends state to backend, i.e., sends :ref:```RESUME_SESSION`` <ResumeSession>` message with state information, backend responds with :ref:```RESUME_SESSION_ACK`` <ResumeSessionAck>`.
+   #. Frontend sends :ref:`REGISTER_VIEWER <registerviewer>` with session_id > 0.
+   #. Restarted backend has no session_ids, :ref:`REGISTER_VIEWER_ACK <registerviewerack>` sets session_type=RESUMED\ *.* Backend creates new Session with given session_id (On Connect).
+   #. Frontend sends state to backend, i.e., sends :ref:`RESUME_SESSION <resumesession>` message with state information, backend responds with :ref:`RESUME_SESSION_ACK <resumesessionack>`.
    #. Backend sets state in newly-created Session.
 
 #. Network connection drops, frontend reconnects to backend with existing session id.
 
    #. While the network connection drops. It seems the uWebsocket has a default timeout setting for 15,000 ms (need to verify). For the new version of uWebsocket, we can set the timeout via the variable “\ *.idleTimeout”*. On Disconnect is called after the timeout and then backend deletes Session.
-   #. Frontend sends :ref:```REGISTER_VIEWER`` <RegisterViewer>` with session_id > 0.
-   #. Backend has session_id, :ref:```REGISTER_VIEWER_ACK`` <RegisterViewerAck>` sets session_type=RESUMED. Frontend sends state to backend with :ref:```RESUME_SESSION`` <ResumeSession>`, and backend responses with :ref:```RESUME_SESSION_ACK`` <ResumeSessionAck>`.
+   #. Frontend sends :ref:`REGISTER_VIEWER <registerviewer>` with session_id > 0.
+   #. Backend has session_id, :ref:`REGISTER_VIEWER_ACK <registerviewerack>` sets session_type=RESUMED. Frontend sends state to backend with :ref:`RESUME_SESSION <resumesession>`, and backend responses with :ref:`RESUME_SESSION_ACK <resumesessionack>`.
    #. Backend sets state in existing Session, requirements trigger sending data streams (possibly cached).
 
 #. Frontend is restarted, has no existing session id so cannot resume even though backend continues.
 
-   #. Frontend sends :ref:```REGISTER_VIEWER`` <RegisterViewer>` with session_id = 0.
-   #. Backend creates a new Session, :ref:```REGISTER_VIEWER_ACK`` <RegisterViewerAck>` sets session_type=NEW.
+   #. Frontend sends :ref:`REGISTER_VIEWER <registerviewer>` with session_id = 0.
+   #. Backend creates a new Session, :ref:`REGISTER_VIEWER_ACK <registerviewerack>` sets session_type=NEW.
    #. The Session will be deleted immediately while the frontend is restarted.
 
