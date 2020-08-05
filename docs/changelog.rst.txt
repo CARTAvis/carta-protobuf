@@ -1,0 +1,62 @@
+**Changelog**
+
+``0.1.7  (30/08/18):`` Added optional field ``channel_histogram_data`` to the image view message
+
+``0.1.8  (07/09/18):`` Added ``computed_entries`` map to the File Info Extended message
+
+``0.1.9  (10/09/18): Changed computed_entries`` map to an array of ``HeaderEntry`` messages
+
+``0.1.10 (10/09/18):`` Added optional field ``spatial_requirements`` to the ``SET_CURSOR`` message
+
+``0.1.11 (20/09/18):`` Added ``file_id`` field to ``SET_REGION`` and fixed control points typo
+
+``0.1.12 (18/10/18):`` Deprecated ``channel_vals`` field in ``SPECTRAL_PROFILE_DATA``
+
+``0.1.13 (30/11/18):`` Added details on per-cube histogram calculations
+
+``0.1.14 (07/02/19):`` Added ``$BASE`` folder placeholder
+
+``0.1.15 (05/03/19):`` Added target version info
+
+``0.1.16 (25/03/19):`` Removed ``stokes``, ``channel_min`` and ``channel_max`` fields from ``SET_REGION``, and changed ``StatisticsValue`` ``value`` field to a ``double`` type.
+
+``0.1.17 (27/03/19):`` Added ``NumPixels`` and ``NanCount`` stats types
+
+``0.1.18 (28/03/19):`` Changed rotation units from radians to degrees
+
+``0.2.0  (07/05/19):`` Changed message header information, adjusted stats enum values, added double value support for spectral profile
+
+``0.2.1  (09/05/19):`` Added feature flag enums as well as event type enums. Updated animation information and sequence diagrams to include flow control
+
+``0.2.2  (14/05/19):`` Added information on tiled rendering
+
+``4.0.0  (02/07/19):`` Expanded sequence diagrams and text on tiled rendering and animation. Changed version numbering to match ICD version integer
+
+``4.0.1  (04/07/19):`` Fixed incorrect sequence diagrams for file loading
+
+``5.0.0  (15/07/19):`` Switched to byte fields instead of repeated float/double for efficiency reasons in spatial and spectral profile messages
+
+``6.0.0  (19/07/19):`` Animation ID and timestamps for ACKs
+
+``7.0.0  (23/07/19):`` Region file browser and import/export messages
+
+``7.0.1  (08/08/19):`` Region export coordinate type
+
+``8.0.0  (21/08/19):`` Added messages for retrieving and setting user preferences and layouts
+
+``9.0.0  (17/10/19):`` Added/updated messages for contour parameters and streaming
+
+``10.0.0 (25/10/19):`` Updated messages for contour streaming
+
+``11.0.0 (20/11/19):`` Added messages to resume the session and its ACK
+
+``12.0.0 (18/02/20):`` Updated messages for tiled rendering usage during animation
+
+``13.0.0 (19/05/20):`` Updated messages for scripting service information (WIP)
+
+``14.0.0 (28/05/20):`` Updated messages for catalogs
+
+``15.0.0 (04/07/20):`` Added date field to file info, reordered file types alphabetically
+
+``16.0.0 (??/07/20):`` Added sub-message for region style, replace RegionProperties with map
+

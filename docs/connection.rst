@@ -1,0 +1,15 @@
+Connection
+----------
+
+Connection takes place via the WebSockets protocol, and is initiated as soon as the frontend page is successfully loaded. Upon connection, the frontend registers itself to the backend using the :ref:```REGISTER_VIEWER`` <RegisterViewer>` message and retrieves a new session ID, server capabilities and user preferences through :ref:```REGISTER_VIEWER_ACK`` <RegisterViewerAck>`. It then requests the list of files in the default directory. If the connection is dropped, the frontend re-registers itself to the server, but passes through the original session ID. The server should attempt to resume this session, but if not possible, will generate a new session ID for the client. In addition to the session ID, the frontend can pass through an optional API key, which can be used to determine basic permissions and user-related settings.
+
+A connection heartbeat is established by the server-initiated ping/pong sequence defined by the WebSocket protocol. In addition to this, a client-initiated ping/pong sequence is produced by empty messages being sent by the frontend periodically. The backend keeps track of the time since each connected client last initiated the ping/pong sequence, and makes timeout decisions based on this value.
+
+When the frontend is intentionally closed, by closing the associated app or web page, the frontend closes the WebSocket connection gracefully, and the backend can then remove the associated session. When the frontend is closed in error, or the backend determines that a connection is timed out, the backend should maintain the session for an appropriate period, so that it can be resumed when the frontend reconnects. The frontend should attempt to reconnect with the same session ID when a connection is dropped. If the backend responds with a session type set to ``RESUMED``, the frontend will attempt to resume the session by sending a list of files, along with their associated regions in a :ref:```RESUME_SESSION`` <ResumeSession>` message.
+
+.. image:: images/initial_connection.png
+
+.. image:: images/reconnection_after_dropped_connection.png
+
+A scripting service is available. When enabled, the backend allows for gRPC connections on a specified port. The gRPC connection is used to simply ferry scripting commands from a scripting service, such as a python package, to the frontend. The frontend then parses the scripting commands from the incoming ``SCRIPTING_REQUEST`` message, executes the required code and responds with a ``SCRIPTING_RESPONSE`` message, which indicates the success of the scripting command, as well as the response in JSON format. Each incoming scripting request includes a unique ID, which is passed back in the scripting response, in order to uniquely match scripting requests to their responses.
+

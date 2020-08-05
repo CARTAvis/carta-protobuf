@@ -353,8 +353,8 @@ for img in soup.find_all("img"):
         if new_name in seen:
             new_name += "_2" # we only need this for one image
         seen.add(new_name)
-        subprocess.run(["cp", src, "../_static/%s.png" % new_name ])
-        img["src"] = "_static/%s.png" % new_name
+        subprocess.run(["cp", src, "../images/%s.png" % new_name ])
+        img["src"] = "images/%s.png" % new_name
     else:
         print("No metadata for image", src)
     
