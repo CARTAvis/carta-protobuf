@@ -5,478 +5,672 @@ CatalogFileType
 ^^^^^^^^^^^^^
 
 
-+------+--------+-------------+
-| Name | Number | Description |
-+======+========+=============+
-| FITSTable | 0 |  |
-+------+--------+-------------+
-| VOTable | 1 |  |
-+------+--------+-------------+
+.. list-table:: CatalogFileType
+   :header-rows: 1
 
+   * - Name
+     - Number
+     - Description
+   * - FITSTable
+     - 0
+     - 
+   * - VOTable
+     - 1
+     - 
 
 ClientFeatureFlags
 ^^^^^^^^^^^^^
 
 
-+------+--------+-------------+
-| Name | Number | Description |
-+======+========+=============+
-| CLIENT_FEATURE_NONE | 0 |  |
-+------+--------+-------------+
-| WEB_GL | 1 |  |
-+------+--------+-------------+
-| WEB_GL_2 | 2 |  |
-+------+--------+-------------+
-| WEB_ASSEMBLY | 4 |  |
-+------+--------+-------------+
-| WEB_ASSEMBLY_THREADS | 8 |  |
-+------+--------+-------------+
-| OFFSCREEN_CANVAS | 16 |  |
-+------+--------+-------------+
+.. list-table:: ClientFeatureFlags
+   :header-rows: 1
 
+   * - Name
+     - Number
+     - Description
+   * - CLIENT_FEATURE_NONE
+     - 0
+     - 
+   * - WEB_GL
+     - 1
+     - 
+   * - WEB_GL_2
+     - 2
+     - 
+   * - WEB_ASSEMBLY
+     - 4
+     - 
+   * - WEB_ASSEMBLY_THREADS
+     - 8
+     - 
+   * - OFFSCREEN_CANVAS
+     - 16
+     - 
 
 ColumnType
 ^^^^^^^^^^^^^
 
 
-+------+--------+-------------+
-| Name | Number | Description |
-+======+========+=============+
-| UnsupportedType | 0 |  |
-+------+--------+-------------+
-| String | 1 |  |
-+------+--------+-------------+
-| Uint8 | 2 |  |
-+------+--------+-------------+
-| Int8 | 3 |  |
-+------+--------+-------------+
-| Uint16 | 4 |  |
-+------+--------+-------------+
-| Int16 | 5 |  |
-+------+--------+-------------+
-| Uint32 | 6 |  |
-+------+--------+-------------+
-| Int32 | 7 |  |
-+------+--------+-------------+
-| Uint64 | 8 |  |
-+------+--------+-------------+
-| Int64 | 9 |  |
-+------+--------+-------------+
-| Float | 10 |  |
-+------+--------+-------------+
-| Double | 11 |  |
-+------+--------+-------------+
-| Bool | 12 |  |
-+------+--------+-------------+
+.. list-table:: ColumnType
+   :header-rows: 1
 
+   * - Name
+     - Number
+     - Description
+   * - UnsupportedType
+     - 0
+     - 
+   * - String
+     - 1
+     - 
+   * - Uint8
+     - 2
+     - 
+   * - Int8
+     - 3
+     - 
+   * - Uint16
+     - 4
+     - 
+   * - Int16
+     - 5
+     - 
+   * - Uint32
+     - 6
+     - 
+   * - Int32
+     - 7
+     - 
+   * - Uint64
+     - 8
+     - 
+   * - Int64
+     - 9
+     - 
+   * - Float
+     - 10
+     - 
+   * - Double
+     - 11
+     - 
+   * - Bool
+     - 12
+     - 
 
 ComparisonOperator
 ^^^^^^^^^^^^^
 
 
-+------+--------+-------------+
-| Name | Number | Description |
-+======+========+=============+
-| Equal | 0 |  |
-+------+--------+-------------+
-| NotEqual | 1 |  |
-+------+--------+-------------+
-| Lesser | 2 |  |
-+------+--------+-------------+
-| Greater | 3 |  |
-+------+--------+-------------+
-| LessorOrEqual | 4 |  |
-+------+--------+-------------+
-| GreaterOrEqual | 5 |  |
-+------+--------+-------------+
-| RangeOpen | 6 |  |
-+------+--------+-------------+
-| RangeClosed | 7 |  |
-+------+--------+-------------+
+.. list-table:: ComparisonOperator
+   :header-rows: 1
 
+   * - Name
+     - Number
+     - Description
+   * - Equal
+     - 0
+     - 
+   * - NotEqual
+     - 1
+     - 
+   * - Lesser
+     - 2
+     - 
+   * - Greater
+     - 3
+     - 
+   * - LessorOrEqual
+     - 4
+     - 
+   * - GreaterOrEqual
+     - 5
+     - 
+   * - RangeOpen
+     - 6
+     - 
+   * - RangeClosed
+     - 7
+     - 
 
 CompressionType
 ^^^^^^^^^^^^^
 
 
-+------+--------+-------------+
-| Name | Number | Description |
-+======+========+=============+
-| NONE | 0 |  |
-+------+--------+-------------+
-| ZFP | 1 |  |
-+------+--------+-------------+
-| SZ | 2 |  |
-+------+--------+-------------+
+.. list-table:: CompressionType
+   :header-rows: 1
 
+   * - Name
+     - Number
+     - Description
+   * - NONE
+     - 0
+     - 
+   * - ZFP
+     - 1
+     - 
+   * - SZ
+     - 2
+     - 
 
 CoordinateType
 ^^^^^^^^^^^^^
 
 
-+------+--------+-------------+
-| Name | Number | Description |
-+======+========+=============+
-| PIXEL | 0 |  |
-+------+--------+-------------+
-| WORLD | 1 |  |
-+------+--------+-------------+
+.. list-table:: CoordinateType
+   :header-rows: 1
 
+   * - Name
+     - Number
+     - Description
+   * - PIXEL
+     - 0
+     - 
+   * - WORLD
+     - 1
+     - 
 
 EntryType
 ^^^^^^^^^^^^^
 
 
-+------+--------+-------------+
-| Name | Number | Description |
-+======+========+=============+
-| STRING | 0 |  |
-+------+--------+-------------+
-| FLOAT | 1 |  |
-+------+--------+-------------+
-| INT | 2 |  |
-+------+--------+-------------+
+.. list-table:: EntryType
+   :header-rows: 1
 
+   * - Name
+     - Number
+     - Description
+   * - STRING
+     - 0
+     - 
+   * - FLOAT
+     - 1
+     - 
+   * - INT
+     - 2
+     - 
 
 ErrorSeverity
 ^^^^^^^^^^^^^
 
 
-+------+--------+-------------+
-| Name | Number | Description |
-+======+========+=============+
-| DEBUG | 0 |  |
-+------+--------+-------------+
-| INFO | 1 |  |
-+------+--------+-------------+
-| WARNING | 2 |  |
-+------+--------+-------------+
-| ERROR | 3 |  |
-+------+--------+-------------+
-| CRITICAL | 4 |  |
-+------+--------+-------------+
+.. list-table:: ErrorSeverity
+   :header-rows: 1
 
+   * - Name
+     - Number
+     - Description
+   * - DEBUG
+     - 0
+     - 
+   * - INFO
+     - 1
+     - 
+   * - WARNING
+     - 2
+     - 
+   * - ERROR
+     - 3
+     - 
+   * - CRITICAL
+     - 4
+     - 
 
 EventType
 ^^^^^^^^^^^^^
 
 
-+------+--------+-------------+
-| Name | Number | Description |
-+======+========+=============+
-| EMPTY_EVENT | 0 |  |
-+------+--------+-------------+
-| REGISTER_VIEWER | 1 |  |
-+------+--------+-------------+
-| FILE_LIST_REQUEST | 2 |  |
-+------+--------+-------------+
-| FILE_INFO_REQUEST | 3 |  |
-+------+--------+-------------+
-| OPEN_FILE | 4 |  |
-+------+--------+-------------+
-| SET_IMAGE_CHANNELS | 6 |  |
-+------+--------+-------------+
-| SET_CURSOR | 7 |  |
-+------+--------+-------------+
-| SET_SPATIAL_REQUIREMENTS | 8 |  |
-+------+--------+-------------+
-| SET_HISTOGRAM_REQUIREMENTS | 9 |  |
-+------+--------+-------------+
-| SET_STATS_REQUIREMENTS | 10 |  |
-+------+--------+-------------+
-| SET_REGION | 11 |  |
-+------+--------+-------------+
-| REMOVE_REGION | 12 |  |
-+------+--------+-------------+
-| CLOSE_FILE | 13 |  |
-+------+--------+-------------+
-| SET_SPECTRAL_REQUIREMENTS | 14 |  |
-+------+--------+-------------+
-| START_ANIMATION | 15 |  |
-+------+--------+-------------+
-| START_ANIMATION_ACK | 16 |  |
-+------+--------+-------------+
-| STOP_ANIMATION | 17 |  |
-+------+--------+-------------+
-| REGISTER_VIEWER_ACK | 18 |  |
-+------+--------+-------------+
-| FILE_LIST_RESPONSE | 19 |  |
-+------+--------+-------------+
-| FILE_INFO_RESPONSE | 20 |  |
-+------+--------+-------------+
-| OPEN_FILE_ACK | 21 |  |
-+------+--------+-------------+
-| SET_REGION_ACK | 22 |  |
-+------+--------+-------------+
-| REGION_HISTOGRAM_DATA | 23 |  |
-+------+--------+-------------+
-| SPATIAL_PROFILE_DATA | 25 |  |
-+------+--------+-------------+
-| SPECTRAL_PROFILE_DATA | 26 |  |
-+------+--------+-------------+
-| REGION_STATS_DATA | 27 |  |
-+------+--------+-------------+
-| ERROR_DATA | 28 |  |
-+------+--------+-------------+
-| ANIMATION_FLOW_CONTROL | 29 |  |
-+------+--------+-------------+
-| ADD_REQUIRED_TILES | 30 |  |
-+------+--------+-------------+
-| REMOVE_REQUIRED_TILES | 31 |  |
-+------+--------+-------------+
-| RASTER_TILE_DATA | 32 |  |
-+------+--------+-------------+
-| REGION_LIST_REQUEST | 33 |  |
-+------+--------+-------------+
-| REGION_LIST_RESPONSE | 34 |  |
-+------+--------+-------------+
-| REGION_FILE_INFO_REQUEST | 35 |  |
-+------+--------+-------------+
-| REGION_FILE_INFO_RESPONSE | 36 |  |
-+------+--------+-------------+
-| IMPORT_REGION | 37 |  |
-+------+--------+-------------+
-| IMPORT_REGION_ACK | 38 |  |
-+------+--------+-------------+
-| EXPORT_REGION | 39 |  |
-+------+--------+-------------+
-| EXPORT_REGION_ACK | 40 |  |
-+------+--------+-------------+
-| SET_USER_PREFERENCES | 41 |  |
-+------+--------+-------------+
-| SET_USER_PREFERENCES_ACK | 42 |  |
-+------+--------+-------------+
-| SET_USER_LAYOUT | 43 |  |
-+------+--------+-------------+
-| SET_USER_LAYOUT_ACK | 44 |  |
-+------+--------+-------------+
-| SET_CONTOUR_PARAMETERS | 45 |  |
-+------+--------+-------------+
-| CONTOUR_IMAGE_DATA | 46 |  |
-+------+--------+-------------+
-| RESUME_SESSION | 47 |  |
-+------+--------+-------------+
-| RESUME_SESSION_ACK | 48 |  |
-+------+--------+-------------+
-| RASTER_TILE_SYNC | 49 |  |
-+------+--------+-------------+
-| CATALOG_LIST_REQUEST | 50 |  |
-+------+--------+-------------+
-| CATALOG_LIST_RESPONSE | 51 |  |
-+------+--------+-------------+
-| CATALOG_FILE_INFO_REQUEST | 52 |  |
-+------+--------+-------------+
-| CATALOG_FILE_INFO_RESPONSE | 53 |  |
-+------+--------+-------------+
-| OPEN_CATALOG_FILE | 54 |  |
-+------+--------+-------------+
-| OPEN_CATALOG_FILE_ACK | 55 |  |
-+------+--------+-------------+
-| CLOSE_CATALOG_FILE | 56 |  |
-+------+--------+-------------+
-| CATALOG_FILTER_REQUEST | 57 |  |
-+------+--------+-------------+
-| CATALOG_FILTER_RESPONSE | 58 |  |
-+------+--------+-------------+
-| SCRIPTING_REQUEST | 59 |  |
-+------+--------+-------------+
-| SCRIPTING_RESPONSE | 60 |  |
-+------+--------+-------------+
-| SPECTRAL_LINE_REQUEST | 67 |  |
-+------+--------+-------------+
-| SPECTRAL_LINE_RESPONSE | 68 |  |
-+------+--------+-------------+
+.. list-table:: EventType
+   :header-rows: 1
 
+   * - Name
+     - Number
+     - Description
+   * - EMPTY_EVENT
+     - 0
+     - 
+   * - REGISTER_VIEWER
+     - 1
+     - 
+   * - FILE_LIST_REQUEST
+     - 2
+     - 
+   * - FILE_INFO_REQUEST
+     - 3
+     - 
+   * - OPEN_FILE
+     - 4
+     - 
+   * - SET_IMAGE_CHANNELS
+     - 6
+     - 
+   * - SET_CURSOR
+     - 7
+     - 
+   * - SET_SPATIAL_REQUIREMENTS
+     - 8
+     - 
+   * - SET_HISTOGRAM_REQUIREMENTS
+     - 9
+     - 
+   * - SET_STATS_REQUIREMENTS
+     - 10
+     - 
+   * - SET_REGION
+     - 11
+     - 
+   * - REMOVE_REGION
+     - 12
+     - 
+   * - CLOSE_FILE
+     - 13
+     - 
+   * - SET_SPECTRAL_REQUIREMENTS
+     - 14
+     - 
+   * - START_ANIMATION
+     - 15
+     - 
+   * - START_ANIMATION_ACK
+     - 16
+     - 
+   * - STOP_ANIMATION
+     - 17
+     - 
+   * - REGISTER_VIEWER_ACK
+     - 18
+     - 
+   * - FILE_LIST_RESPONSE
+     - 19
+     - 
+   * - FILE_INFO_RESPONSE
+     - 20
+     - 
+   * - OPEN_FILE_ACK
+     - 21
+     - 
+   * - SET_REGION_ACK
+     - 22
+     - 
+   * - REGION_HISTOGRAM_DATA
+     - 23
+     - 
+   * - SPATIAL_PROFILE_DATA
+     - 25
+     - 
+   * - SPECTRAL_PROFILE_DATA
+     - 26
+     - 
+   * - REGION_STATS_DATA
+     - 27
+     - 
+   * - ERROR_DATA
+     - 28
+     - 
+   * - ANIMATION_FLOW_CONTROL
+     - 29
+     - 
+   * - ADD_REQUIRED_TILES
+     - 30
+     - 
+   * - REMOVE_REQUIRED_TILES
+     - 31
+     - 
+   * - RASTER_TILE_DATA
+     - 32
+     - 
+   * - REGION_LIST_REQUEST
+     - 33
+     - 
+   * - REGION_LIST_RESPONSE
+     - 34
+     - 
+   * - REGION_FILE_INFO_REQUEST
+     - 35
+     - 
+   * - REGION_FILE_INFO_RESPONSE
+     - 36
+     - 
+   * - IMPORT_REGION
+     - 37
+     - 
+   * - IMPORT_REGION_ACK
+     - 38
+     - 
+   * - EXPORT_REGION
+     - 39
+     - 
+   * - EXPORT_REGION_ACK
+     - 40
+     - 
+   * - SET_USER_PREFERENCES
+     - 41
+     - 
+   * - SET_USER_PREFERENCES_ACK
+     - 42
+     - 
+   * - SET_USER_LAYOUT
+     - 43
+     - 
+   * - SET_USER_LAYOUT_ACK
+     - 44
+     - 
+   * - SET_CONTOUR_PARAMETERS
+     - 45
+     - 
+   * - CONTOUR_IMAGE_DATA
+     - 46
+     - 
+   * - RESUME_SESSION
+     - 47
+     - 
+   * - RESUME_SESSION_ACK
+     - 48
+     - 
+   * - RASTER_TILE_SYNC
+     - 49
+     - 
+   * - CATALOG_LIST_REQUEST
+     - 50
+     - 
+   * - CATALOG_LIST_RESPONSE
+     - 51
+     - 
+   * - CATALOG_FILE_INFO_REQUEST
+     - 52
+     - 
+   * - CATALOG_FILE_INFO_RESPONSE
+     - 53
+     - 
+   * - OPEN_CATALOG_FILE
+     - 54
+     - 
+   * - OPEN_CATALOG_FILE_ACK
+     - 55
+     - 
+   * - CLOSE_CATALOG_FILE
+     - 56
+     - 
+   * - CATALOG_FILTER_REQUEST
+     - 57
+     - 
+   * - CATALOG_FILTER_RESPONSE
+     - 58
+     - 
+   * - SCRIPTING_REQUEST
+     - 59
+     - 
+   * - SCRIPTING_RESPONSE
+     - 60
+     - 
+   * - SPECTRAL_LINE_REQUEST
+     - 67
+     - 
+   * - SPECTRAL_LINE_RESPONSE
+     - 68
+     - 
 
 FileFeatureFlags
 ^^^^^^^^^^^^^
 
 
-+------+--------+-------------+
-| Name | Number | Description |
-+======+========+=============+
-| FILE_FEATURE_NONE | 0 |  |
-+------+--------+-------------+
-| ROTATED_DATASET | 1 |  |
-+------+--------+-------------+
-| CHANNEL_HISTOGRAMS | 2 |  |
-+------+--------+-------------+
-| CUBE_HISTOGRAMS | 4 |  |
-+------+--------+-------------+
-| CHANNEL_STATS | 8 |  |
-+------+--------+-------------+
-| MEAN_IMAGE | 16 |  |
-+------+--------+-------------+
-| MIP_DATASET | 32 |  |
-+------+--------+-------------+
+.. list-table:: FileFeatureFlags
+   :header-rows: 1
 
+   * - Name
+     - Number
+     - Description
+   * - FILE_FEATURE_NONE
+     - 0
+     - 
+   * - ROTATED_DATASET
+     - 1
+     - 
+   * - CHANNEL_HISTOGRAMS
+     - 2
+     - 
+   * - CUBE_HISTOGRAMS
+     - 4
+     - 
+   * - CHANNEL_STATS
+     - 8
+     - 
+   * - MEAN_IMAGE
+     - 16
+     - 
+   * - MIP_DATASET
+     - 32
+     - 
 
 FileType
 ^^^^^^^^^^^^^
 
 
-+------+--------+-------------+
-| Name | Number | Description |
-+======+========+=============+
-| CASA | 0 |  |
-+------+--------+-------------+
-| CRTF | 1 |  |
-+------+--------+-------------+
-| DS9_REG | 2 |  |
-+------+--------+-------------+
-| FITS | 3 |  |
-+------+--------+-------------+
-| HDF5 | 4 |  |
-+------+--------+-------------+
-| MIRIAD | 5 |  |
-+------+--------+-------------+
-| UNKNOWN | 6 |  |
-+------+--------+-------------+
+.. list-table:: FileType
+   :header-rows: 1
 
+   * - Name
+     - Number
+     - Description
+   * - CASA
+     - 0
+     - 
+   * - CRTF
+     - 1
+     - 
+   * - DS9_REG
+     - 2
+     - 
+   * - FITS
+     - 3
+     - 
+   * - HDF5
+     - 4
+     - 
+   * - MIRIAD
+     - 5
+     - 
+   * - UNKNOWN
+     - 6
+     - 
 
 RegionType
 ^^^^^^^^^^^^^
 
 
-+------+--------+-------------+
-| Name | Number | Description |
-+======+========+=============+
-| POINT | 0 |  |
-+------+--------+-------------+
-| LINE | 1 |  |
-+------+--------+-------------+
-| POLYLINE | 2 |  |
-+------+--------+-------------+
-| RECTANGLE | 3 |  |
-+------+--------+-------------+
-| ELLIPSE | 4 |  |
-+------+--------+-------------+
-| ANNULUS | 5 |  |
-+------+--------+-------------+
-| POLYGON | 6 |  |
-+------+--------+-------------+
+.. list-table:: RegionType
+   :header-rows: 1
 
+   * - Name
+     - Number
+     - Description
+   * - POINT
+     - 0
+     - 
+   * - LINE
+     - 1
+     - 
+   * - POLYLINE
+     - 2
+     - 
+   * - RECTANGLE
+     - 3
+     - 
+   * - ELLIPSE
+     - 4
+     - 
+   * - ANNULUS
+     - 5
+     - 
+   * - POLYGON
+     - 6
+     - 
 
 RenderMode
 ^^^^^^^^^^^^^
 
 
-+------+--------+-------------+
-| Name | Number | Description |
-+======+========+=============+
-| RASTER | 0 |  |
-+------+--------+-------------+
-| CONTOUR | 1 |  |
-+------+--------+-------------+
+.. list-table:: RenderMode
+   :header-rows: 1
 
+   * - Name
+     - Number
+     - Description
+   * - RASTER
+     - 0
+     - 
+   * - CONTOUR
+     - 1
+     - 
 
 ServerFeatureFlags
 ^^^^^^^^^^^^^
 
 
-+------+--------+-------------+
-| Name | Number | Description |
-+======+========+=============+
-| SERVER_FEATURE_NONE | 0 |  |
-+------+--------+-------------+
-| SZ_COMPRESSION | 1 |  |
-+------+--------+-------------+
-| HEVC_COMPRESSION | 2 |  |
-+------+--------+-------------+
-| NVENC_COMPRESSION | 4 |  |
-+------+--------+-------------+
-| REGION_WRITE_ACCESS | 8 |  |
-+------+--------+-------------+
-| USER_PREFERENCES | 16 |  |
-+------+--------+-------------+
-| USER_LAYOUTS | 32 |  |
-+------+--------+-------------+
+.. list-table:: ServerFeatureFlags
+   :header-rows: 1
 
+   * - Name
+     - Number
+     - Description
+   * - SERVER_FEATURE_NONE
+     - 0
+     - 
+   * - SZ_COMPRESSION
+     - 1
+     - 
+   * - HEVC_COMPRESSION
+     - 2
+     - 
+   * - NVENC_COMPRESSION
+     - 4
+     - 
+   * - REGION_WRITE_ACCESS
+     - 8
+     - 
+   * - USER_PREFERENCES
+     - 16
+     - 
+   * - USER_LAYOUTS
+     - 32
+     - 
 
 SessionType
 ^^^^^^^^^^^^^
 
 
-+------+--------+-------------+
-| Name | Number | Description |
-+======+========+=============+
-| NEW | 0 |  |
-+------+--------+-------------+
-| RESUMED | 1 |  |
-+------+--------+-------------+
+.. list-table:: SessionType
+   :header-rows: 1
 
+   * - Name
+     - Number
+     - Description
+   * - NEW
+     - 0
+     - 
+   * - RESUMED
+     - 1
+     - 
 
 SmoothingMode
 ^^^^^^^^^^^^^
 
 
-+------+--------+-------------+
-| Name | Number | Description |
-+======+========+=============+
-| NoSmoothing | 0 |  |
-+------+--------+-------------+
-| BlockAverage | 1 |  |
-+------+--------+-------------+
-| GaussianBlur | 2 |  |
-+------+--------+-------------+
+.. list-table:: SmoothingMode
+   :header-rows: 1
 
+   * - Name
+     - Number
+     - Description
+   * - NoSmoothing
+     - 0
+     - 
+   * - BlockAverage
+     - 1
+     - 
+   * - GaussianBlur
+     - 2
+     - 
 
 SortingType
 ^^^^^^^^^^^^^
 
 
-+------+--------+-------------+
-| Name | Number | Description |
-+======+========+=============+
-| Ascending | 0 |  |
-+------+--------+-------------+
-| Descending | 1 |  |
-+------+--------+-------------+
+.. list-table:: SortingType
+   :header-rows: 1
 
+   * - Name
+     - Number
+     - Description
+   * - Ascending
+     - 0
+     - 
+   * - Descending
+     - 1
+     - 
 
 StatsType
 ^^^^^^^^^^^^^
 
 
-+------+--------+-------------+
-| Name | Number | Description |
-+======+========+=============+
-| NumPixels | 0 |  |
-+------+--------+-------------+
-| NanCount | 1 |  |
-+------+--------+-------------+
-| Sum | 2 |  |
-+------+--------+-------------+
-| FluxDensity | 3 |  |
-+------+--------+-------------+
-| Mean | 4 |  |
-+------+--------+-------------+
-| RMS | 5 |  |
-+------+--------+-------------+
-| Sigma | 6 |  |
-+------+--------+-------------+
-| SumSq | 7 |  |
-+------+--------+-------------+
-| Min | 8 |  |
-+------+--------+-------------+
-| Max | 9 |  |
-+------+--------+-------------+
-| Blc | 10 |  |
-+------+--------+-------------+
-| Trc | 11 |  |
-+------+--------+-------------+
-| MinPos | 12 |  |
-+------+--------+-------------+
-| MaxPos | 13 |  |
-+------+--------+-------------+
-| Blcf | 14 |  |
-+------+--------+-------------+
-| Trcf | 15 |  |
-+------+--------+-------------+
-| MinPosf | 16 |  |
-+------+--------+-------------+
-| MaxPosf | 17 |  |
-+------+--------+-------------+
+.. list-table:: StatsType
+   :header-rows: 1
 
+   * - Name
+     - Number
+     - Description
+   * - NumPixels
+     - 0
+     - 
+   * - NanCount
+     - 1
+     - 
+   * - Sum
+     - 2
+     - 
+   * - FluxDensity
+     - 3
+     - 
+   * - Mean
+     - 4
+     - 
+   * - RMS
+     - 5
+     - 
+   * - Sigma
+     - 6
+     - 
+   * - SumSq
+     - 7
+     - 
+   * - Min
+     - 8
+     - 
+   * - Max
+     - 9
+     - 
+   * - Blc
+     - 10
+     - 
+   * - Trc
+     - 11
+     - 
+   * - MinPos
+     - 12
+     - 
+   * - MaxPos
+     - 13
+     - 
+   * - Blcf
+     - 14
+     - 
+   * - Trcf
+     - 15
+     - 
+   * - MinPosf
+     - 16
+     - 
+   * - MaxPosf
+     - 17
+     - 
 
 

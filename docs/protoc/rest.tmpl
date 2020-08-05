@@ -6,13 +6,19 @@
 {{.Description}}
 
 {{if .HasFields}}
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-{{range .Fields -}}
-| {{.Name}} | {{.Type}} | {{.Label}} | {{nobr .Description}} |
-+-------+------+-------+-------------+
-{{end}}
+.. list-table:: {{.LongName}}
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+{{- range .Fields}}
+   * - {{.Name}}
+     - {{.Type}}
+     - {{.Label}}
+     - {{nobr .Description}}
+{{- end}}
 {{end}}
 {{end}}
 {{range .Enums}}
@@ -20,12 +26,16 @@
 ^^^^^^^^^^^^^
 
 {{.Description}}
-+------+--------+-------------+
-| Name | Number | Description |
-+======+========+=============+
-{{range .Values -}}
-| {{.Name}} | {{.Number}} | {{nobr .Description}} |
-+------+--------+-------------+
-{{end}}
+.. list-table:: {{.LongName}}
+   :header-rows: 1
+
+   * - Name
+     - Number
+     - Description
+{{- range .Values}}
+   * - {{.Name}}
+     - {{.Number}}
+     - {{nobr .Description}}
+{{- end}}
 {{end}}
 {{end}}

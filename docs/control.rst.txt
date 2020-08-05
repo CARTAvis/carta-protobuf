@@ -7,18 +7,29 @@ ANIMATION_FLOW_CONTROL
 Used for informing the backend of which frames have been received
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| file_id | sfixed32 |  |  |
-+-------+------+-------+-------------+
-| received_frame | AnimationFrame |  | The latest flow control frame received |
-+-------+------+-------+-------------+
-| animation_id | sfixed32 |  | The animation ID that the flow control message belongs to |
-+-------+------+-------+-------------+
-| timestamp | sfixed64 |  | Timestamp at which the frame was received |
-+-------+------+-------+-------------+
+.. list-table:: AnimationFlowControl
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - 
+   * - received_frame
+     - AnimationFrame
+     - 
+     - The latest flow control frame received
+   * - animation_id
+     - sfixed32
+     - 
+     - The animation ID that the flow control message belongs to
+   * - timestamp
+     - sfixed64
+     - 
+     - Timestamp at which the frame was received
 
 
 StartAnimation
@@ -29,28 +40,49 @@ Starts an animation, as defined by the start, stop and step definitions.
 Backend responds with START_ANIMATION_ACK
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| file_id | sfixed32 |  | Which file slot the animation describes. |
-+-------+------+-------+-------------+
-| first_frame | AnimationFrame |  | The lower bound of the animation when looping. |
-+-------+------+-------+-------------+
-| start_frame | AnimationFrame |  | The starting point of the animation. |
-+-------+------+-------+-------------+
-| last_frame | AnimationFrame |  | The upper bound of the animation. |
-+-------+------+-------+-------------+
-| delta_frame | AnimationFrame |  | The frame change step for the animation. For example, a delta frame of {channel=1, stokes=0} would step through each channel in the file. |
-+-------+------+-------+-------------+
-| frame_rate | sfixed32 |  | Frame rate per second |
-+-------+------+-------+-------------+
-| looping | bool |  | Whether to loop the animation indefinitely. |
-+-------+------+-------+-------------+
-| reverse | bool |  | Whether to reverse the animation direction when endFrame is reached. |
-+-------+------+-------+-------------+
-| required_tiles | AddRequiredTiles |  | Required tiles when changing channels |
-+-------+------+-------+-------------+
+.. list-table:: StartAnimation
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - Which file slot the animation describes.
+   * - first_frame
+     - AnimationFrame
+     - 
+     - The lower bound of the animation when looping.
+   * - start_frame
+     - AnimationFrame
+     - 
+     - The starting point of the animation.
+   * - last_frame
+     - AnimationFrame
+     - 
+     - The upper bound of the animation.
+   * - delta_frame
+     - AnimationFrame
+     - 
+     - The frame change step for the animation. For example, a delta frame of {channel=1, stokes=0} would step through each channel in the file.
+   * - frame_rate
+     - sfixed32
+     - 
+     - Frame rate per second
+   * - looping
+     - bool
+     - 
+     - Whether to loop the animation indefinitely.
+   * - reverse
+     - bool
+     - 
+     - Whether to reverse the animation direction when endFrame is reached.
+   * - required_tiles
+     - AddRequiredTiles
+     - 
+     - Required tiles when changing channels
 
 
 StartAnimationAck
@@ -60,16 +92,25 @@ START_ANIMATION_ACK
 Response for START_ANIMATION
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| success | bool |  | Defines whether START_ANIMATION was successful |
-+-------+------+-------+-------------+
-| message | string |  | Error message (if applicable) |
-+-------+------+-------+-------------+
-| animation_id | sfixed32 |  | The animation ID of the new animation |
-+-------+------+-------+-------------+
+.. list-table:: StartAnimationAck
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - success
+     - bool
+     - 
+     - Defines whether START_ANIMATION was successful
+   * - message
+     - string
+     - 
+     - Error message (if applicable)
+   * - animation_id
+     - sfixed32
+     - 
+     - The animation ID of the new animation
 
 
 StopAnimation
@@ -79,14 +120,21 @@ STOP_ANIMATION
 Stops the playing animation
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| file_id | sfixed32 |  | Which file slot the animation describes. |
-+-------+------+-------+-------------+
-| end_frame | AnimationFrame |  | The ending point of the animation. |
-+-------+------+-------+-------------+
+.. list-table:: StopAnimation
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - Which file slot the animation describes.
+   * - end_frame
+     - AnimationFrame
+     - 
+     - The ending point of the animation.
 
 
 
@@ -99,12 +147,17 @@ CLOSE_FILE:
 Instructs the backend to close a file with a given file ID
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| file_id | sfixed32 |  | Which "file" slot to close |
-+-------+------+-------+-------------+
+.. list-table:: CloseFile
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - Which "file" slot to close
 
 
 
@@ -117,28 +170,49 @@ SET_CONTOUR_PARAMETERS
 Sets the contour parameters for a file
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| file_id | fixed32 |  | The file ID that the contour corresponds to |
-+-------+------+-------+-------------+
-| reference_file_id | fixed32 |  | The file ID of the reference image that the contour vertices should be mapped to |
-+-------+------+-------+-------------+
-| image_bounds | ImageBounds |  | The XY bounds corresponding to the image data in pixel coordinates |
-+-------+------+-------+-------------+
-| levels | double | repeated | Contour levels |
-+-------+------+-------+-------------+
-| smoothing_mode | SmoothingMode |  | Pre-contouring smoothing mode |
-+-------+------+-------+-------------+
-| smoothing_factor | int32 |  | Contour smoothness factor. For block averaging, this is the block width For Gaussian smoothing, this defines both the Gaussian width, and the kernel size |
-+-------+------+-------+-------------+
-| decimation_factor | int32 |  | Decimation factor, indicates to what 1/Nth of a pixel the contour vertices should be rounded to |
-+-------+------+-------+-------------+
-| compression_level | int32 |  | Zstd compression level |
-+-------+------+-------+-------------+
-| contour_chunk_size | int32 |  | Size of contour chunks, in number of vertices. If this is set to zero, partial contour results are not used |
-+-------+------+-------+-------------+
+.. list-table:: SetContourParameters
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - fixed32
+     - 
+     - The file ID that the contour corresponds to
+   * - reference_file_id
+     - fixed32
+     - 
+     - The file ID of the reference image that the contour vertices should be mapped to
+   * - image_bounds
+     - ImageBounds
+     - 
+     - The XY bounds corresponding to the image data in pixel coordinates
+   * - levels
+     - double
+     - repeated
+     - Contour levels
+   * - smoothing_mode
+     - SmoothingMode
+     - 
+     - Pre-contouring smoothing mode
+   * - smoothing_factor
+     - int32
+     - 
+     - Contour smoothness factor. For block averaging, this is the block width For Gaussian smoothing, this defines both the Gaussian width, and the kernel size
+   * - decimation_factor
+     - int32
+     - 
+     - Decimation factor, indicates to what 1/Nth of a pixel the contour vertices should be rounded to
+   * - compression_level
+     - int32
+     - 
+     - Zstd compression level
+   * - contour_chunk_size
+     - int32
+     - 
+     - Size of contour chunks, in number of vertices. If this is set to zero, partial contour results are not used
 
 
 
@@ -153,22 +227,37 @@ If directory and file are blank, return file contents for export on client.
 Backend responds with  EXPORT_REGION_ACK
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| type | FileType |  | Required file type |
-+-------+------+-------+-------------+
-| coord_type | CoordinateType |  | Required coordinate type pixel/world |
-+-------+------+-------+-------------+
-| file_id | sfixed32 |  | File id for the coordinate system to use |
-+-------+------+-------+-------------+
-| region_styles | RegionStylesEntry | repeated | Region ids and style params to export |
-+-------+------+-------+-------------+
-| directory | string |  | Optional directory name of server file |
-+-------+------+-------+-------------+
-| file | string |  | Optional file name of server file |
-+-------+------+-------+-------------+
+.. list-table:: ExportRegion
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - type
+     - FileType
+     - 
+     - Required file type
+   * - coord_type
+     - CoordinateType
+     - 
+     - Required coordinate type pixel/world
+   * - file_id
+     - sfixed32
+     - 
+     - File id for the coordinate system to use
+   * - region_styles
+     - RegionStylesEntry
+     - repeated
+     - Region ids and style params to export
+   * - directory
+     - string
+     - 
+     - Optional directory name of server file
+   * - file
+     - string
+     - 
+     - Optional file name of server file
 
 
 ExportRegion.RegionStylesEntry
@@ -177,14 +266,21 @@ ExportRegion.RegionStylesEntry
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| key | sfixed32 |  |  |
-+-------+------+-------+-------------+
-| value | RegionStyle |  |  |
-+-------+------+-------+-------------+
+.. list-table:: ExportRegion.RegionStylesEntry
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - key
+     - sfixed32
+     - 
+     - 
+   * - value
+     - RegionStyle
+     - 
+     - 
 
 
 ExportRegionAck
@@ -194,16 +290,25 @@ EXPORT_REGION_ACK
 Response for EXPORT_REGION to indicate success and file contents if on client.
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| success | bool |  | Defines whether EXPORT_REGION was successful |
-+-------+------+-------+-------------+
-| message | string |  | Error message (if applicable) |
-+-------+------+-------+-------------+
-| contents | string | repeated | File contents for client export (one line per string) |
-+-------+------+-------+-------------+
+.. list-table:: ExportRegionAck
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - success
+     - bool
+     - 
+     - Defines whether EXPORT_REGION was successful
+   * - message
+     - string
+     - 
+     - Error message (if applicable)
+   * - contents
+     - string
+     - repeated
+     - File contents for client export (one line per string)
 
 
 
@@ -217,20 +322,33 @@ Requests the opening and applying of a specific region file.
 Backend responds with  IMPORT_REGION_ACK
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| group_id | sfixed32 |  | Required WCS group id (may be a single file id) |
-+-------+------+-------+-------------+
-| type | FileType |  | Required file type |
-+-------+------+-------+-------------+
-| directory | string |  | Optional directory name of server file |
-+-------+------+-------+-------------+
-| file | string |  | Optional file name of server file |
-+-------+------+-------+-------------+
-| contents | string | repeated | Optional file contents of client file (1 line per string) |
-+-------+------+-------+-------------+
+.. list-table:: ImportRegion
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - group_id
+     - sfixed32
+     - 
+     - Required WCS group id (may be a single file id)
+   * - type
+     - FileType
+     - 
+     - Required file type
+   * - directory
+     - string
+     - 
+     - Optional directory name of server file
+   * - file
+     - string
+     - 
+     - Optional file name of server file
+   * - contents
+     - string
+     - repeated
+     - Optional file contents of client file (1 line per string)
 
 
 ImportRegionAck
@@ -240,18 +358,29 @@ IMPORT_REGION_ACK
 Response for IMPORT_REGION. Also supplies region properties
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| success | bool |  | Defines whether IMPORT_REGION was successful |
-+-------+------+-------+-------------+
-| message | string |  | Error message (if applicable) |
-+-------+------+-------+-------------+
-| regions | RegionsEntry | repeated | Map region id to parameters |
-+-------+------+-------+-------------+
-| region_styles | RegionStylesEntry | repeated | Map region id to style parameters |
-+-------+------+-------+-------------+
+.. list-table:: ImportRegionAck
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - success
+     - bool
+     - 
+     - Defines whether IMPORT_REGION was successful
+   * - message
+     - string
+     - 
+     - Error message (if applicable)
+   * - regions
+     - RegionsEntry
+     - repeated
+     - Map region id to parameters
+   * - region_styles
+     - RegionStylesEntry
+     - repeated
+     - Map region id to style parameters
 
 
 ImportRegionAck.RegionStylesEntry
@@ -260,14 +389,21 @@ ImportRegionAck.RegionStylesEntry
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| key | sfixed32 |  |  |
-+-------+------+-------+-------------+
-| value | RegionStyle |  |  |
-+-------+------+-------+-------------+
+.. list-table:: ImportRegionAck.RegionStylesEntry
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - key
+     - sfixed32
+     - 
+     - 
+   * - value
+     - RegionStyle
+     - 
+     - 
 
 
 ImportRegionAck.RegionsEntry
@@ -276,14 +412,21 @@ ImportRegionAck.RegionsEntry
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| key | sfixed32 |  |  |
-+-------+------+-------+-------------+
-| value | RegionInfo |  |  |
-+-------+------+-------+-------------+
+.. list-table:: ImportRegionAck.RegionsEntry
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - key
+     - sfixed32
+     - 
+     - 
+   * - value
+     - RegionInfo
+     - 
+     - 
 
 
 
@@ -295,12 +438,17 @@ CloseCatalogFile
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| file_id | sfixed32 |  |  |
-+-------+------+-------+-------------+
+.. list-table:: CloseCatalogFile
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - 
 
 
 OpenCatalogFile
@@ -309,18 +457,29 @@ OpenCatalogFile
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| directory | string |  |  |
-+-------+------+-------+-------------+
-| name | string |  |  |
-+-------+------+-------+-------------+
-| file_id | sfixed32 |  |  |
-+-------+------+-------+-------------+
-| preview_data_size | sfixed32 |  |  |
-+-------+------+-------+-------------+
+.. list-table:: OpenCatalogFile
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - directory
+     - string
+     - 
+     - 
+   * - name
+     - string
+     - 
+     - 
+   * - file_id
+     - sfixed32
+     - 
+     - 
+   * - preview_data_size
+     - sfixed32
+     - 
+     - 
 
 
 OpenCatalogFileAck
@@ -329,24 +488,41 @@ OpenCatalogFileAck
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| success | bool |  |  |
-+-------+------+-------+-------------+
-| message | string |  |  |
-+-------+------+-------+-------------+
-| file_id | sfixed32 |  |  |
-+-------+------+-------+-------------+
-| file_info | CatalogFileInfo |  |  |
-+-------+------+-------+-------------+
-| data_size | sfixed32 |  |  |
-+-------+------+-------+-------------+
-| headers | CatalogHeader | repeated |  |
-+-------+------+-------+-------------+
-| preview_data | PreviewDataEntry | repeated |  |
-+-------+------+-------+-------------+
+.. list-table:: OpenCatalogFileAck
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - success
+     - bool
+     - 
+     - 
+   * - message
+     - string
+     - 
+     - 
+   * - file_id
+     - sfixed32
+     - 
+     - 
+   * - file_info
+     - CatalogFileInfo
+     - 
+     - 
+   * - data_size
+     - sfixed32
+     - 
+     - 
+   * - headers
+     - CatalogHeader
+     - repeated
+     - 
+   * - preview_data
+     - PreviewDataEntry
+     - repeated
+     - 
 
 
 OpenCatalogFileAck.PreviewDataEntry
@@ -355,14 +531,21 @@ OpenCatalogFileAck.PreviewDataEntry
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| key | fixed32 |  |  |
-+-------+------+-------+-------------+
-| value | ColumnData |  |  |
-+-------+------+-------+-------------+
+.. list-table:: OpenCatalogFileAck.PreviewDataEntry
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - key
+     - fixed32
+     - 
+     - 
+   * - value
+     - ColumnData
+     - 
+     - 
 
 
 
@@ -376,20 +559,33 @@ Requests the opening of a specific file.
 Backend responds with  OPEN_FILE_ACK
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| directory | string |  | Required directory name |
-+-------+------+-------+-------------+
-| file | string |  | Required file name |
-+-------+------+-------+-------------+
-| hdu | string |  | Which HDU to load (if applicable). If left blank, the first HDU will be used |
-+-------+------+-------+-------------+
-| file_id | sfixed32 |  | Which "file" slot to load the file into (when viewing multiple files) |
-+-------+------+-------+-------------+
-| render_mode | RenderMode |  | The render mode to use. Additional modes will be added in subsequent versions. |
-+-------+------+-------+-------------+
+.. list-table:: OpenFile
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - directory
+     - string
+     - 
+     - Required directory name
+   * - file
+     - string
+     - 
+     - Required file name
+   * - hdu
+     - string
+     - 
+     - Which HDU to load (if applicable). If left blank, the first HDU will be used
+   * - file_id
+     - sfixed32
+     - 
+     - Which "file" slot to load the file into (when viewing multiple files)
+   * - render_mode
+     - RenderMode
+     - 
+     - The render mode to use. Additional modes will be added in subsequent versions.
 
 
 OpenFileAck
@@ -399,22 +595,37 @@ OPEN_FILE_ACK
 Response for OPEN_FILE. Also supplies file information
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| success | bool |  | Defines whether OPEN_FILE was successful |
-+-------+------+-------+-------------+
-| file_id | sfixed32 |  | Which file slot the file was loaded into (when viewing multiple files) |
-+-------+------+-------+-------------+
-| message | string |  | Error message (if applicable) |
-+-------+------+-------+-------------+
-| file_info | FileInfo |  | Basic file info (type, size) |
-+-------+------+-------+-------------+
-| file_info_extended | FileInfoExtended |  | Extended file info (WCS, header info) |
-+-------+------+-------+-------------+
-| file_feature_flags | fixed32 |  | Optional bitflags specifying feature flags of the file being opened. |
-+-------+------+-------+-------------+
+.. list-table:: OpenFileAck
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - success
+     - bool
+     - 
+     - Defines whether OPEN_FILE was successful
+   * - file_id
+     - sfixed32
+     - 
+     - Which file slot the file was loaded into (when viewing multiple files)
+   * - message
+     - string
+     - 
+     - Error message (if applicable)
+   * - file_info
+     - FileInfo
+     - 
+     - Basic file info (type, size)
+   * - file_info_extended
+     - FileInfoExtended
+     - 
+     - Extended file info (WCS, header info)
+   * - file_feature_flags
+     - fixed32
+     - 
+     - Optional bitflags specifying feature flags of the file being opened.
 
 
 
@@ -427,12 +638,17 @@ REMOVE_REGION:
 Removes a region
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| region_id | sfixed32 |  | Unique region ID of the region to be removed |
-+-------+------+-------+-------------+
+.. list-table:: RemoveRegion
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - region_id
+     - sfixed32
+     - 
+     - Unique region ID of the region to be removed
 
 
 SetRegion
@@ -442,16 +658,25 @@ SET_REGION:
 Creates or updates a region. Backend responds with SET_REGION_ACK
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| file_id | sfixed32 |  | File slot of the reference image |
-+-------+------+-------+-------------+
-| region_id | sfixed32 |  | Unique region ID. <=0 if a new region is being created. |
-+-------+------+-------+-------------+
-| region_info | RegionInfo |  | Region parameters |
-+-------+------+-------+-------------+
+.. list-table:: SetRegion
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - File slot of the reference image
+   * - region_id
+     - sfixed32
+     - 
+     - Unique region ID. <=0 if a new region is being created.
+   * - region_info
+     - RegionInfo
+     - 
+     - Region parameters
 
 
 SetRegionAck
@@ -461,16 +686,25 @@ SET_REGION_ACK:
 Response for SET_REGION
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| success | bool |  | Defines whether SET_REGION was successful |
-+-------+------+-------+-------------+
-| message | string |  | Error message (if applicable) |
-+-------+------+-------+-------------+
-| region_id | sfixed32 |  | The unique region ID. If the region is updated, this will be the same as the region ID specified in SET_REGION. If a new region is being created, the ID of the new region will be passed back. |
-+-------+------+-------+-------------+
+.. list-table:: SetRegionAck
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - success
+     - bool
+     - 
+     - Defines whether SET_REGION was successful
+   * - message
+     - string
+     - 
+     - Error message (if applicable)
+   * - region_id
+     - sfixed32
+     - 
+     - The unique region ID. If the region is updated, this will be the same as the region ID specified in SET_REGION. If a new region is being created, the ID of the new region will be passed back.
 
 
 
@@ -483,16 +717,25 @@ SET_HISTOGRAM_REQUIREMENTS:
 Sets which histogram data needs to be streamed to the frontend when the region is updated
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| file_id | sfixed32 |  | Which file slot the requirements describe |
-+-------+------+-------+-------------+
-| region_id | sfixed32 |  | ID of the region that is having requirements defined. If a region ID of -1 is given, this corresponds to the entire 2D image. |
-+-------+------+-------+-------------+
-| histograms | HistogramConfig | repeated | List of required histograms, along with the number of bins. If the channel is -1, the current channel is used. If the channel is -2, the histogram is constructed over all channels. If the number of bins is less than zero, an automatic bin size is used, based on the number of values. |
-+-------+------+-------+-------------+
+.. list-table:: SetHistogramRequirements
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - Which file slot the requirements describe
+   * - region_id
+     - sfixed32
+     - 
+     - ID of the region that is having requirements defined. If a region ID of -1 is given, this corresponds to the entire 2D image.
+   * - histograms
+     - HistogramConfig
+     - repeated
+     - List of required histograms, along with the number of bins. If the channel is -1, the current channel is used. If the channel is -2, the histogram is constructed over all channels. If the number of bins is less than zero, an automatic bin size is used, based on the number of values.
 
 
 SetHistogramRequirements.HistogramConfig
@@ -501,14 +744,21 @@ SetHistogramRequirements.HistogramConfig
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| channel | sfixed32 |  |  |
-+-------+------+-------+-------------+
-| num_bins | sfixed32 |  |  |
-+-------+------+-------+-------------+
+.. list-table:: SetHistogramRequirements.HistogramConfig
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - channel
+     - sfixed32
+     - 
+     - 
+   * - num_bins
+     - sfixed32
+     - 
+     - 
 
 
 SetRegionRequirements
@@ -518,22 +768,37 @@ SET_REGION_REQUIREMENTS:
 Sets which spatial profile data needs to be streamed to the frontend when the region is updated
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| file_id | fixed32 |  |  |
-+-------+------+-------+-------------+
-| region_id | fixed32 |  | ID of the region that is having requirements defined. If a region ID of 0 is given, this corresponds to the point region defined by the cursor position. |
-+-------+------+-------+-------------+
-| x | bool |  | Is the X-profile (of the current Stokes parameter) required? |
-+-------+------+-------+-------------+
-| y | bool |  | Is the Y-profile (of the current Stokes parameter) required? |
-+-------+------+-------+-------------+
-| z | bool |  | Is the Z-profile (of the current Stokes parameter) required? |
-+-------+------+-------+-------------+
-| additional_profiles | string | repeated | List of additional profiles needed (for example, [“Qz”, “Uz”]) will include the Z-profile of the Q and U Stokes cube, regardless of which Stokes parameter is currently in use. |
-+-------+------+-------+-------------+
+.. list-table:: SetRegionRequirements
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - fixed32
+     - 
+     - 
+   * - region_id
+     - fixed32
+     - 
+     - ID of the region that is having requirements defined. If a region ID of 0 is given, this corresponds to the point region defined by the cursor position.
+   * - x
+     - bool
+     - 
+     - Is the X-profile (of the current Stokes parameter) required?
+   * - y
+     - bool
+     - 
+     - Is the Y-profile (of the current Stokes parameter) required?
+   * - z
+     - bool
+     - 
+     - Is the Z-profile (of the current Stokes parameter) required?
+   * - additional_profiles
+     - string
+     - repeated
+     - List of additional profiles needed (for example, [“Qz”, “Uz”]) will include the Z-profile of the Q and U Stokes cube, regardless of which Stokes parameter is currently in use.
 
 
 SetSpatialRequirements
@@ -543,16 +808,25 @@ SET_SPATIAL_REQUIREMENTS:
 Sets which information needs to be streamed to the frontend when the region is updated
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| file_id | sfixed32 |  | Which file slot the requirements describe |
-+-------+------+-------+-------------+
-| region_id | sfixed32 |  | ID of the region that is having requirements defined. If a region ID of 0 is given, this corresponds to the point region defined by the cursor position. |
-+-------+------+-------+-------------+
-| spatial_profiles | string | repeated | List of spatial profiles needed. If no Stokes parameter is specified (i.e. just “x” or “y”), the active Stokes parameter is used. |
-+-------+------+-------+-------------+
+.. list-table:: SetSpatialRequirements
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - Which file slot the requirements describe
+   * - region_id
+     - sfixed32
+     - 
+     - ID of the region that is having requirements defined. If a region ID of 0 is given, this corresponds to the point region defined by the cursor position.
+   * - spatial_profiles
+     - string
+     - repeated
+     - List of spatial profiles needed. If no Stokes parameter is specified (i.e. just “x” or “y”), the active Stokes parameter is used.
 
 
 SetSpectralRequirements
@@ -562,16 +836,25 @@ SET_SPECTRAL_REQUIREMENTS:
 Sets which spectral profile data needs to be streamed to the frontend when the region is updated
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| file_id | sfixed32 |  | Which file slot the requirements describe |
-+-------+------+-------+-------------+
-| region_id | sfixed32 |  | ID of the region that is having requirements defined. If a region ID of 0 is given, this corresponds to the point region defined by the cursor position. |
-+-------+------+-------+-------------+
-| spectral_profiles | SpectralConfig | repeated | List of spectral profiles needed, along with which stats types are needed for each profile. If no Stokes parameter is specified (i.e. just “z”) or if the coordinate is empty, the active Stokes parameter is used. If the region is a point region, the statsTypes field is ignored. |
-+-------+------+-------+-------------+
+.. list-table:: SetSpectralRequirements
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - Which file slot the requirements describe
+   * - region_id
+     - sfixed32
+     - 
+     - ID of the region that is having requirements defined. If a region ID of 0 is given, this corresponds to the point region defined by the cursor position.
+   * - spectral_profiles
+     - SpectralConfig
+     - repeated
+     - List of spectral profiles needed, along with which stats types are needed for each profile. If no Stokes parameter is specified (i.e. just “z”) or if the coordinate is empty, the active Stokes parameter is used. If the region is a point region, the statsTypes field is ignored.
 
 
 SetSpectralRequirements.SpectralConfig
@@ -580,14 +863,21 @@ SetSpectralRequirements.SpectralConfig
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| coordinate | string |  |  |
-+-------+------+-------+-------------+
-| stats_types | StatsType | repeated |  |
-+-------+------+-------+-------------+
+.. list-table:: SetSpectralRequirements.SpectralConfig
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - coordinate
+     - string
+     - 
+     - 
+   * - stats_types
+     - StatsType
+     - repeated
+     - 
 
 
 SetStatsRequirements
@@ -597,16 +887,25 @@ SET_STATS_REQUIREMENTS:
 Sets which stats data needs to be streamed to the frontend when the region is updated
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| file_id | sfixed32 |  | Which file slot the requirements describe |
-+-------+------+-------+-------------+
-| region_id | sfixed32 |  | ID of the region that is having requirements defined. If a region ID of -1 is given, this corresponds to the entire 2D image. |
-+-------+------+-------+-------------+
-| stats | StatsType | repeated | List of required stats |
-+-------+------+-------+-------------+
+.. list-table:: SetStatsRequirements
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - Which file slot the requirements describe
+   * - region_id
+     - sfixed32
+     - 
+     - ID of the region that is having requirements defined. If a region ID of -1 is given, this corresponds to the entire 2D image.
+   * - stats
+     - StatsType
+     - repeated
+     - List of required stats
 
 
 
@@ -620,16 +919,25 @@ Registers the viewer with the backend.
 Responds with REGISTER_VIEWER_ACK
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| session_id | fixed32 |  | Unique session ID parameter (can be generated using UUID libraries). Passing in an existing session ID can be used for resuming sessions |
-+-------+------+-------+-------------+
-| api_key | string |  | Optional user-specific API key to be used for basic authentication. Could be an encrypted JWT for secure authentication. |
-+-------+------+-------+-------------+
-| client_feature_flags | fixed32 |  | Optional feature bitflag specifying client-side feature set |
-+-------+------+-------+-------------+
+.. list-table:: RegisterViewer
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - session_id
+     - fixed32
+     - 
+     - Unique session ID parameter (can be generated using UUID libraries). Passing in an existing session ID can be used for resuming sessions
+   * - api_key
+     - string
+     - 
+     - Optional user-specific API key to be used for basic authentication. Could be an encrypted JWT for secure authentication.
+   * - client_feature_flags
+     - fixed32
+     - 
+     - Optional feature bitflag specifying client-side feature set
 
 
 RegisterViewerAck
@@ -640,24 +948,41 @@ Acknowledgement response for REGISTER_VIEWER.
 Informs the frontend whether the session was correctly.
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| session_id | fixed32 |  | Unique session ID |
-+-------+------+-------+-------------+
-| success | bool |  | Defines whether the REGISTER_VIEWER command was successful |
-+-------+------+-------+-------------+
-| message | string |  | Error message (if applicable) |
-+-------+------+-------+-------------+
-| session_type | SessionType |  | Defines the type of session established |
-+-------+------+-------+-------------+
-| server_feature_flags | fixed32 |  | Optional feature bitflag specifying server-side feature set |
-+-------+------+-------+-------------+
-| user_preferences | UserPreferencesEntry | repeated | Map of user preferences retrieved from the server database. If this is empty and the server does not have the USER_PREFERENCES feature flag set, then the user preferences are read from localStorage instead. |
-+-------+------+-------+-------------+
-| user_layouts | UserLayoutsEntry | repeated | Map of user layouts retrieved from the server database |
-+-------+------+-------+-------------+
+.. list-table:: RegisterViewerAck
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - session_id
+     - fixed32
+     - 
+     - Unique session ID
+   * - success
+     - bool
+     - 
+     - Defines whether the REGISTER_VIEWER command was successful
+   * - message
+     - string
+     - 
+     - Error message (if applicable)
+   * - session_type
+     - SessionType
+     - 
+     - Defines the type of session established
+   * - server_feature_flags
+     - fixed32
+     - 
+     - Optional feature bitflag specifying server-side feature set
+   * - user_preferences
+     - UserPreferencesEntry
+     - repeated
+     - Map of user preferences retrieved from the server database. If this is empty and the server does not have the USER_PREFERENCES feature flag set, then the user preferences are read from localStorage instead.
+   * - user_layouts
+     - UserLayoutsEntry
+     - repeated
+     - Map of user layouts retrieved from the server database
 
 
 RegisterViewerAck.UserLayoutsEntry
@@ -666,14 +991,21 @@ RegisterViewerAck.UserLayoutsEntry
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| key | string |  |  |
-+-------+------+-------+-------------+
-| value | string |  |  |
-+-------+------+-------+-------------+
+.. list-table:: RegisterViewerAck.UserLayoutsEntry
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - key
+     - string
+     - 
+     - 
+   * - value
+     - string
+     - 
+     - 
 
 
 RegisterViewerAck.UserPreferencesEntry
@@ -682,14 +1014,21 @@ RegisterViewerAck.UserPreferencesEntry
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| key | string |  |  |
-+-------+------+-------+-------------+
-| value | string |  |  |
-+-------+------+-------+-------------+
+.. list-table:: RegisterViewerAck.UserPreferencesEntry
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - key
+     - string
+     - 
+     - 
+   * - value
+     - string
+     - 
+     - 
 
 
 
@@ -701,28 +1040,49 @@ ImageProperties
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| directory | string |  |  |
-+-------+------+-------+-------------+
-| file | string |  |  |
-+-------+------+-------+-------------+
-| hdu | string |  |  |
-+-------+------+-------+-------------+
-| file_id | sfixed32 |  |  |
-+-------+------+-------+-------------+
-| render_mode | RenderMode |  |  |
-+-------+------+-------+-------------+
-| channel | sfixed32 |  |  |
-+-------+------+-------+-------------+
-| stokes | sfixed32 |  |  |
-+-------+------+-------+-------------+
-| regions | RegionsEntry | repeated |  |
-+-------+------+-------+-------------+
-| contour_settings | SetContourParameters |  |  |
-+-------+------+-------+-------------+
+.. list-table:: ImageProperties
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - directory
+     - string
+     - 
+     - 
+   * - file
+     - string
+     - 
+     - 
+   * - hdu
+     - string
+     - 
+     - 
+   * - file_id
+     - sfixed32
+     - 
+     - 
+   * - render_mode
+     - RenderMode
+     - 
+     - 
+   * - channel
+     - sfixed32
+     - 
+     - 
+   * - stokes
+     - sfixed32
+     - 
+     - 
+   * - regions
+     - RegionsEntry
+     - repeated
+     - 
+   * - contour_settings
+     - SetContourParameters
+     - 
+     - 
 
 
 ImageProperties.RegionsEntry
@@ -731,14 +1091,21 @@ ImageProperties.RegionsEntry
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| key | sfixed32 |  |  |
-+-------+------+-------+-------------+
-| value | RegionInfo |  |  |
-+-------+------+-------+-------------+
+.. list-table:: ImageProperties.RegionsEntry
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - key
+     - sfixed32
+     - 
+     - 
+   * - value
+     - RegionInfo
+     - 
+     - 
 
 
 ResumeSession
@@ -747,14 +1114,21 @@ ResumeSession
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| images | ImageProperties | repeated |  |
-+-------+------+-------+-------------+
-| catalog_files | OpenCatalogFile | repeated |  |
-+-------+------+-------+-------------+
+.. list-table:: ResumeSession
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - images
+     - ImageProperties
+     - repeated
+     - 
+   * - catalog_files
+     - OpenCatalogFile
+     - repeated
+     - 
 
 
 ResumeSessionAck
@@ -763,14 +1137,21 @@ ResumeSessionAck
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| success | bool |  |  |
-+-------+------+-------+-------------+
-| message | string |  |  |
-+-------+------+-------+-------------+
+.. list-table:: ResumeSessionAck
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - success
+     - bool
+     - 
+     - 
+   * - message
+     - string
+     - 
+     - 
 
 
 
@@ -784,16 +1165,25 @@ Sets the current cursor position in image space coordinates.
 The cursor defines a special case of a region, with a single control point.
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| file_id | sfixed32 |  | Which file slot the cursor is moving over |
-+-------+------+-------+-------------+
-| point | Point |  | XY-coordinates of cursor in image space |
-+-------+------+-------+-------------+
-| spatial_requirements | SetSpatialRequirements |  | Optional accompanying spatial requirements message to be processed prior to cursor update |
-+-------+------+-------+-------------+
+.. list-table:: SetCursor
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - Which file slot the cursor is moving over
+   * - point
+     - Point
+     - 
+     - XY-coordinates of cursor in image space
+   * - spatial_requirements
+     - SetSpatialRequirements
+     - 
+     - Optional accompanying spatial requirements message to be processed prior to cursor update
 
 
 
@@ -806,18 +1196,29 @@ SET_IMAGE_CHANNELS
 Sets the current image channel and Stokes parameter
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| file_id | sfixed32 |  | The file ID that the view corresponds to |
-+-------+------+-------+-------------+
-| channel | sfixed32 |  | The image channel (Z-coordinate) |
-+-------+------+-------+-------------+
-| stokes | sfixed32 |  | The image stokes parameter |
-+-------+------+-------+-------------+
-| required_tiles | AddRequiredTiles |  | Required tiles when changing channels |
-+-------+------+-------+-------------+
+.. list-table:: SetImageChannels
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - The file ID that the view corresponds to
+   * - channel
+     - sfixed32
+     - 
+     - The image channel (Z-coordinate)
+   * - stokes
+     - sfixed32
+     - 
+     - The image stokes parameter
+   * - required_tiles
+     - AddRequiredTiles
+     - 
+     - Required tiles when changing channels
 
 
 
@@ -829,12 +1230,17 @@ SpectralLineRequest
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| frequency_range | DoubleBounds |  |  |
-+-------+------+-------+-------------+
+.. list-table:: SpectralLineRequest
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - frequency_range
+     - DoubleBounds
+     - 
+     - 
 
 
 SpectralLineResponse
@@ -843,20 +1249,33 @@ SpectralLineResponse
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| success | bool |  |  |
-+-------+------+-------+-------------+
-| message | string |  |  |
-+-------+------+-------+-------------+
-| data_size | sfixed32 |  |  |
-+-------+------+-------+-------------+
-| headers | CatalogHeader | repeated |  |
-+-------+------+-------+-------------+
-| spectral_line_data | SpectralLineDataEntry | repeated |  |
-+-------+------+-------+-------------+
+.. list-table:: SpectralLineResponse
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - success
+     - bool
+     - 
+     - 
+   * - message
+     - string
+     - 
+     - 
+   * - data_size
+     - sfixed32
+     - 
+     - 
+   * - headers
+     - CatalogHeader
+     - repeated
+     - 
+   * - spectral_line_data
+     - SpectralLineDataEntry
+     - repeated
+     - 
 
 
 SpectralLineResponse.SpectralLineDataEntry
@@ -865,14 +1284,21 @@ SpectralLineResponse.SpectralLineDataEntry
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| key | fixed32 |  |  |
-+-------+------+-------+-------------+
-| value | ColumnData |  |  |
-+-------+------+-------+-------------+
+.. list-table:: SpectralLineResponse.SpectralLineDataEntry
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - key
+     - fixed32
+     - 
+     - 
+   * - value
+     - ColumnData
+     - 
+     - 
 
 
 
@@ -885,18 +1311,29 @@ ADD_REQUIRED_TILES
 Provides a list of tiles that are required for the specified file
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| file_id | sfixed32 |  | The file ID that the view corresponds to |
-+-------+------+-------+-------------+
-| tiles | sfixed32 | repeated | The list of tiles required, in encoded coordinate |
-+-------+------+-------+-------------+
-| compression_type | CompressionType |  | The compression algorithm used |
-+-------+------+-------+-------------+
-| compression_quality | float |  | Compression quality switch |
-+-------+------+-------+-------------+
+.. list-table:: AddRequiredTiles
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - The file ID that the view corresponds to
+   * - tiles
+     - sfixed32
+     - repeated
+     - The list of tiles required, in encoded coordinate
+   * - compression_type
+     - CompressionType
+     - 
+     - The compression algorithm used
+   * - compression_quality
+     - float
+     - 
+     - Compression quality switch
 
 
 RemoveRequiredTiles
@@ -906,14 +1343,21 @@ REMOVE_REQUIRED_TILES
 Provides a list of tiles that are required for the specified file
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| file_id | sfixed32 |  | The file ID that the view corresponds to |
-+-------+------+-------+-------------+
-| tiles | sfixed32 | repeated | The list of tiles required, in encoded coordinate |
-+-------+------+-------+-------------+
+.. list-table:: RemoveRequiredTiles
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - The file ID that the view corresponds to
+   * - tiles
+     - sfixed32
+     - repeated
+     - The list of tiles required, in encoded coordinate
 
 
 
@@ -927,14 +1371,21 @@ Sets or clears a user layout.
 Backend responds with  SET_USER_LAYOUT_ACK
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| name | string |  | Name of the layout to update. If no layout with the given name is present in the server database, a new layout is created |
-+-------+------+-------+-------------+
-| value | string |  | JSON string representing the layout. If the value is empty, the user layout is cleared from the server database. |
-+-------+------+-------+-------------+
+.. list-table:: SetUserLayout
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - name
+     - string
+     - 
+     - Name of the layout to update. If no layout with the given name is present in the server database, a new layout is created
+   * - value
+     - string
+     - 
+     - JSON string representing the layout. If the value is empty, the user layout is cleared from the server database.
 
 
 SetUserLayoutAck
@@ -944,14 +1395,19 @@ SET_USER_LAYOUT_ACK
 Response for SET_USER_LAYOUT
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| success | bool |  | Defines whether SET_USER_LAYOUT was successful
+.. list-table:: SetUserLayoutAck
+   :header-rows: 1
 
-Error message (if applicable) |
-+-------+------+-------+-------------+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - success
+     - bool
+     - 
+     - Defines whether SET_USER_LAYOUT was successful
 
+Error message (if applicable)
 
 
 
@@ -965,12 +1421,17 @@ Sets or clears one or more user preferences.
 Backend responds with  SET_USER_PREFERENCES_ACK
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| preference_map | PreferenceMapEntry | repeated |  |
-+-------+------+-------+-------------+
+.. list-table:: SetUserPreferences
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - preference_map
+     - PreferenceMapEntry
+     - repeated
+     - 
 
 
 SetUserPreferences.PreferenceMapEntry
@@ -979,14 +1440,21 @@ SetUserPreferences.PreferenceMapEntry
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| key | string |  |  |
-+-------+------+-------+-------------+
-| value | string |  |  |
-+-------+------+-------+-------------+
+.. list-table:: SetUserPreferences.PreferenceMapEntry
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - key
+     - string
+     - 
+     - 
+   * - value
+     - string
+     - 
+     - 
 
 
 SetUserPreferencesAck
@@ -996,14 +1464,19 @@ SET_USER_PREFERENCES_ACK
 Response for SET_USER_PREFERENCES
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| success | bool |  | Defines whether SET_USER_PREFERENCES was successful
+.. list-table:: SetUserPreferencesAck
+   :header-rows: 1
 
-Error message (if applicable) |
-+-------+------+-------+-------------+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - success
+     - bool
+     - 
+     - Defines whether SET_USER_PREFERENCES was successful
 
+Error message (if applicable)
 
 
 

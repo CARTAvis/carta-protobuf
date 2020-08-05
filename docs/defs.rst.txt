@@ -6,14 +6,21 @@ AnimationFrame
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| channel | sfixed32 |  |  |
-+-------+------+-------+-------------+
-| stokes | sfixed32 |  |  |
-+-------+------+-------+-------------+
+.. list-table:: AnimationFrame
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - channel
+     - sfixed32
+     - 
+     - 
+   * - stokes
+     - sfixed32
+     - 
+     - 
 
 
 CatalogFileInfo
@@ -22,22 +29,37 @@ CatalogFileInfo
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| name | string |  |  |
-+-------+------+-------+-------------+
-| type | CatalogFileType |  |  |
-+-------+------+-------+-------------+
-| file_size | sfixed64 |  |  |
-+-------+------+-------+-------------+
-| description | string |  |  |
-+-------+------+-------+-------------+
-| coosys | Coosys | repeated |  |
-+-------+------+-------+-------------+
-| date | sfixed64 |  |  |
-+-------+------+-------+-------------+
+.. list-table:: CatalogFileInfo
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - name
+     - string
+     - 
+     - 
+   * - type
+     - CatalogFileType
+     - 
+     - 
+   * - file_size
+     - sfixed64
+     - 
+     - 
+   * - description
+     - string
+     - 
+     - 
+   * - coosys
+     - Coosys
+     - repeated
+     - 
+   * - date
+     - sfixed64
+     - 
+     - 
 
 
 CatalogHeader
@@ -46,20 +68,33 @@ CatalogHeader
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| name | string |  |  |
-+-------+------+-------+-------------+
-| data_type | ColumnType |  |  |
-+-------+------+-------+-------------+
-| column_index | sfixed32 |  |  |
-+-------+------+-------+-------------+
-| description | string |  |  |
-+-------+------+-------+-------------+
-| units | string |  |  |
-+-------+------+-------+-------------+
+.. list-table:: CatalogHeader
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - name
+     - string
+     - 
+     - 
+   * - data_type
+     - ColumnType
+     - 
+     - 
+   * - column_index
+     - sfixed32
+     - 
+     - 
+   * - description
+     - string
+     - 
+     - 
+   * - units
+     - string
+     - 
+     - 
 
 
 CatalogImageBounds
@@ -68,16 +103,25 @@ CatalogImageBounds
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| x_column_name | string |  |  |
-+-------+------+-------+-------------+
-| y_column_name | string |  |  |
-+-------+------+-------+-------------+
-| image_bounds | ImageBounds |  |  |
-+-------+------+-------+-------------+
+.. list-table:: CatalogImageBounds
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - x_column_name
+     - string
+     - 
+     - 
+   * - y_column_name
+     - string
+     - 
+     - 
+   * - image_bounds
+     - ImageBounds
+     - 
+     - 
 
 
 ColumnData
@@ -86,16 +130,25 @@ ColumnData
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| data_type | ColumnType |  |  |
-+-------+------+-------+-------------+
-| string_data | string | repeated | All data types other than string sent as binary |
-+-------+------+-------+-------------+
-| binary_data | bytes |  | binary data will get converted to a TypedArray |
-+-------+------+-------+-------------+
+.. list-table:: ColumnData
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - data_type
+     - ColumnType
+     - 
+     - 
+   * - string_data
+     - string
+     - repeated
+     - All data types other than string sent as binary
+   * - binary_data
+     - bytes
+     - 
+     - binary data will get converted to a TypedArray
 
 
 Coosys
@@ -104,16 +157,25 @@ Coosys
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| equinox | string |  |  |
-+-------+------+-------+-------------+
-| epoch | string |  |  |
-+-------+------+-------+-------------+
-| system | string |  |  |
-+-------+------+-------+-------------+
+.. list-table:: Coosys
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - equinox
+     - string
+     - 
+     - 
+   * - epoch
+     - string
+     - 
+     - 
+   * - system
+     - string
+     - 
+     - 
 
 
 DoubleBounds
@@ -122,14 +184,21 @@ DoubleBounds
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| min | double |  |  |
-+-------+------+-------+-------------+
-| max | double |  |  |
-+-------+------+-------+-------------+
+.. list-table:: DoubleBounds
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - min
+     - double
+     - 
+     - 
+   * - max
+     - double
+     - 
+     - 
 
 
 FileInfo
@@ -138,20 +207,33 @@ FileInfo
 File info message structure (internal use only)
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| name | string |  |  |
-+-------+------+-------+-------------+
-| type | FileType |  |  |
-+-------+------+-------+-------------+
-| size | sfixed64 |  |  |
-+-------+------+-------+-------------+
-| HDU_list | string | repeated |  |
-+-------+------+-------+-------------+
-| date | sfixed64 |  |  |
-+-------+------+-------+-------------+
+.. list-table:: FileInfo
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - name
+     - string
+     - 
+     - 
+   * - type
+     - FileType
+     - 
+     - 
+   * - size
+     - sfixed64
+     - 
+     - 
+   * - HDU_list
+     - string
+     - repeated
+     - 
+   * - date
+     - sfixed64
+     - 
+     - 
 
 
 FileInfoExtended
@@ -160,26 +242,45 @@ FileInfoExtended
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| dimensions | sfixed32 |  | Number of dimensions of the image file |
-+-------+------+-------+-------------+
-| width | sfixed32 |  | Width of the XY plane |
-+-------+------+-------+-------------+
-| height | sfixed32 |  | Height of the XY plane |
-+-------+------+-------+-------------+
-| depth | sfixed32 |  | Number of channels |
-+-------+------+-------+-------------+
-| stokes | sfixed32 |  | Number of Stokes parameters |
-+-------+------+-------+-------------+
-| stokes_vals | string | repeated | List of Stokes parameters contained in the file (if applicable). For files that do not explicitly specify Stokes files, this will be blank. |
-+-------+------+-------+-------------+
-| header_entries | HeaderEntry | repeated | Header entries from header string or attributes |
-+-------+------+-------+-------------+
-| computed_entries | HeaderEntry | repeated |  |
-+-------+------+-------+-------------+
+.. list-table:: FileInfoExtended
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - dimensions
+     - sfixed32
+     - 
+     - Number of dimensions of the image file
+   * - width
+     - sfixed32
+     - 
+     - Width of the XY plane
+   * - height
+     - sfixed32
+     - 
+     - Height of the XY plane
+   * - depth
+     - sfixed32
+     - 
+     - Number of channels
+   * - stokes
+     - sfixed32
+     - 
+     - Number of Stokes parameters
+   * - stokes_vals
+     - string
+     - repeated
+     - List of Stokes parameters contained in the file (if applicable). For files that do not explicitly specify Stokes files, this will be blank.
+   * - header_entries
+     - HeaderEntry
+     - repeated
+     - Header entries from header string or attributes
+   * - computed_entries
+     - HeaderEntry
+     - repeated
+     - 
 
 
 FilterConfig
@@ -188,20 +289,33 @@ FilterConfig
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| column_name | string |  |  |
-+-------+------+-------+-------------+
-| comparison_operator | ComparisonOperator |  |  |
-+-------+------+-------+-------------+
-| value | double |  |  |
-+-------+------+-------+-------------+
-| secondary_value | double |  |  |
-+-------+------+-------+-------------+
-| sub_string | string |  |  |
-+-------+------+-------+-------------+
+.. list-table:: FilterConfig
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - column_name
+     - string
+     - 
+     - 
+   * - comparison_operator
+     - ComparisonOperator
+     - 
+     - 
+   * - value
+     - double
+     - 
+     - 
+   * - secondary_value
+     - double
+     - 
+     - 
+   * - sub_string
+     - string
+     - 
+     - 
 
 
 HeaderEntry
@@ -210,20 +324,33 @@ HeaderEntry
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| name | string |  |  |
-+-------+------+-------+-------------+
-| value | string |  |  |
-+-------+------+-------+-------------+
-| entry_type | EntryType |  |  |
-+-------+------+-------+-------------+
-| numeric_value | double |  |  |
-+-------+------+-------+-------------+
-| comment | string |  |  |
-+-------+------+-------+-------------+
+.. list-table:: HeaderEntry
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - name
+     - string
+     - 
+     - 
+   * - value
+     - string
+     - 
+     - 
+   * - entry_type
+     - EntryType
+     - 
+     - 
+   * - numeric_value
+     - double
+     - 
+     - 
+   * - comment
+     - string
+     - 
+     - 
 
 
 Histogram
@@ -232,24 +359,41 @@ Histogram
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| channel | sfixed32 |  |  |
-+-------+------+-------+-------------+
-| num_bins | sfixed32 |  |  |
-+-------+------+-------+-------------+
-| bin_width | double |  |  |
-+-------+------+-------+-------------+
-| first_bin_center | double |  |  |
-+-------+------+-------+-------------+
-| bins | sfixed32 | repeated |  |
-+-------+------+-------+-------------+
-| mean | double |  |  |
-+-------+------+-------+-------------+
-| std_dev | double |  |  |
-+-------+------+-------+-------------+
+.. list-table:: Histogram
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - channel
+     - sfixed32
+     - 
+     - 
+   * - num_bins
+     - sfixed32
+     - 
+     - 
+   * - bin_width
+     - double
+     - 
+     - 
+   * - first_bin_center
+     - double
+     - 
+     - 
+   * - bins
+     - sfixed32
+     - repeated
+     - 
+   * - mean
+     - double
+     - 
+     - 
+   * - std_dev
+     - double
+     - 
+     - 
 
 
 ImageBounds
@@ -258,18 +402,29 @@ ImageBounds
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| x_min | sfixed32 |  |  |
-+-------+------+-------+-------------+
-| x_max | sfixed32 |  |  |
-+-------+------+-------+-------------+
-| y_min | sfixed32 |  |  |
-+-------+------+-------+-------------+
-| y_max | sfixed32 |  |  |
-+-------+------+-------+-------------+
+.. list-table:: ImageBounds
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - x_min
+     - sfixed32
+     - 
+     - 
+   * - x_max
+     - sfixed32
+     - 
+     - 
+   * - y_min
+     - sfixed32
+     - 
+     - 
+   * - y_max
+     - sfixed32
+     - 
+     - 
 
 
 Point
@@ -278,14 +433,21 @@ Point
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| x | float |  |  |
-+-------+------+-------+-------------+
-| y | float |  |  |
-+-------+------+-------+-------------+
+.. list-table:: Point
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - x
+     - float
+     - 
+     - 
+   * - y
+     - float
+     - 
+     - 
 
 
 RegionInfo
@@ -294,16 +456,25 @@ RegionInfo
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| region_type | RegionType |  | The type of region described by the control points. The meaning of the control points will differ, depending on the type of region being defined. |
-+-------+------+-------+-------------+
-| control_points | Point | repeated | Control points for the region |
-+-------+------+-------+-------------+
-| rotation | float |  | (Only applicable for ellipse and rectangle) Rotation of the region in the xy plane (radians). |
-+-------+------+-------+-------------+
+.. list-table:: RegionInfo
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - region_type
+     - RegionType
+     - 
+     - The type of region described by the control points. The meaning of the control points will differ, depending on the type of region being defined.
+   * - control_points
+     - Point
+     - repeated
+     - Control points for the region
+   * - rotation
+     - float
+     - 
+     - (Only applicable for ellipse and rectangle) Rotation of the region in the xy plane (radians).
 
 
 RegionStyle
@@ -312,18 +483,29 @@ RegionStyle
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| name | string |  | The name of the region, displayed as an annotation label. |
-+-------+------+-------+-------------+
-| color | string |  | Color as a name ("blue"), RGB string, or hex string |
-+-------+------+-------+-------------+
-| line_width | sfixed32 |  | Width in pixels |
-+-------+------+-------+-------------+
-| dash_list | sfixed32 | repeated | Dash length: on, off |
-+-------+------+-------+-------------+
+.. list-table:: RegionStyle
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - name
+     - string
+     - 
+     - The name of the region, displayed as an annotation label.
+   * - color
+     - string
+     - 
+     - Color as a name ("blue"), RGB string, or hex string
+   * - line_width
+     - sfixed32
+     - 
+     - Width in pixels
+   * - dash_list
+     - sfixed32
+     - repeated
+     - Dash length: on, off
 
 
 SpatialProfile
@@ -332,18 +514,29 @@ SpatialProfile
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| start | sfixed32 |  |  |
-+-------+------+-------+-------------+
-| end | sfixed32 |  |  |
-+-------+------+-------+-------------+
-| raw_values_fp32 | bytes |  |  |
-+-------+------+-------+-------------+
-| coordinate | string |  |  |
-+-------+------+-------+-------------+
+.. list-table:: SpatialProfile
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - start
+     - sfixed32
+     - 
+     - 
+   * - end
+     - sfixed32
+     - 
+     - 
+   * - raw_values_fp32
+     - bytes
+     - 
+     - 
+   * - coordinate
+     - string
+     - 
+     - 
 
 
 SpectralProfile
@@ -352,18 +545,29 @@ SpectralProfile
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| coordinate | string |  |  |
-+-------+------+-------+-------------+
-| stats_type | StatsType |  |  |
-+-------+------+-------+-------------+
-| raw_values_fp32 | bytes |  |  |
-+-------+------+-------+-------------+
-| raw_values_fp64 | bytes |  |  |
-+-------+------+-------+-------------+
+.. list-table:: SpectralProfile
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - coordinate
+     - string
+     - 
+     - 
+   * - stats_type
+     - StatsType
+     - 
+     - 
+   * - raw_values_fp32
+     - bytes
+     - 
+     - 
+   * - raw_values_fp64
+     - bytes
+     - 
+     - 
 
 
 StatisticsValue
@@ -372,14 +576,21 @@ StatisticsValue
 
 
 
-+-------+------+-------+-------------+
-| Field | Type | Label | Description |
-+=======+======+=======+=============+
-| stats_type | StatsType |  |  |
-+-------+------+-------+-------------+
-| value | double |  |  |
-+-------+------+-------+-------------+
+.. list-table:: StatisticsValue
+   :header-rows: 1
 
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - stats_type
+     - StatsType
+     - 
+     - 
+   * - value
+     - double
+     - 
+     - 
 
 
 
