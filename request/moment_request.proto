@@ -23,5 +23,6 @@ message MomentResponse {
 }
 
 message MomentProgress {
-    float progress = 1;
+    sfixed32 file_id = 1;
+    float progress = 2;
 }
