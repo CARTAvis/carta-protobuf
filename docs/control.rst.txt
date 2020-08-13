@@ -1,4 +1,6 @@
 
+.. cssclass:: f2b
+
 .. _animationflowcontrol:
 
 AnimationFlowControl
@@ -32,6 +34,8 @@ Used for informing the backend of which frames have been received
      - sfixed64
      - 
      - Timestamp at which the frame was received
+
+.. cssclass:: f2b
 
 .. _startanimation:
 
@@ -88,6 +92,8 @@ Backend responds with START_ANIMATION_ACK
      - 
      - Required tiles when changing channels
 
+.. cssclass:: b2f
+
 .. _startanimationack:
 
 StartAnimationAck
@@ -118,6 +124,8 @@ Response for START_ANIMATION
      - 
      - The animation ID of the new animation
 
+.. cssclass:: f2b
+
 .. _stopanimation:
 
 StopAnimation
@@ -147,6 +155,8 @@ Stops the playing animation
 
 
 
+.. cssclass:: f2b
+
 .. _closefile:
 
 CloseFile
@@ -171,6 +181,8 @@ Instructs the backend to close a file with a given file ID
 
 
 
+
+.. cssclass:: f2b
 
 .. _setcontourparameters:
 
@@ -228,6 +240,8 @@ Sets the contour parameters for a file
 
 
 
+
+.. cssclass:: f2b
 
 .. _exportregion:
 
@@ -298,6 +312,8 @@ ExportRegion.RegionStylesEntry
      - 
      - 
 
+.. cssclass:: b2f
+
 .. _exportregionack:
 
 ExportRegionAck
@@ -330,6 +346,8 @@ Response for EXPORT_REGION to indicate success and file contents if on client.
 
 
 
+
+.. cssclass:: f2b
 
 .. _importregion:
 
@@ -369,6 +387,8 @@ Backend responds with  IMPORT_REGION_ACK
      - string
      - repeated
      - Optional file contents of client file (1 line per string)
+
+.. cssclass:: b2f
 
 .. _importregionack:
 
@@ -457,6 +477,8 @@ ImportRegionAck.RegionsEntry
 
 
 
+.. cssclass:: f2b
+
 .. _closecatalogfile:
 
 CloseCatalogFile
@@ -477,6 +499,8 @@ CloseCatalogFile
      - sfixed32
      - 
      - 
+
+.. cssclass:: f2b
 
 .. _opencatalogfile:
 
@@ -510,6 +534,8 @@ OpenCatalogFile
      - sfixed32
      - 
      - 
+
+.. cssclass:: b2f
 
 .. _opencatalogfileack:
 
@@ -584,6 +610,8 @@ OpenCatalogFileAck.PreviewDataEntry
 
 
 
+.. cssclass:: f2b
+
 .. _openfile:
 
 OpenFile
@@ -622,6 +650,8 @@ Backend responds with  OPEN_FILE_ACK
      - RenderMode
      - 
      - The render mode to use. Additional modes will be added in subsequent versions.
+
+.. cssclass:: b2f
 
 .. _openfileack:
 
@@ -668,6 +698,8 @@ Response for OPEN_FILE. Also supplies file information
 
 
 
+.. cssclass:: f2b
+
 .. _removeregion:
 
 RemoveRegion
@@ -689,6 +721,8 @@ Removes a region
      - sfixed32
      - 
      - Unique region ID of the region to be removed
+
+.. cssclass:: f2b
 
 .. _setregion:
 
@@ -719,6 +753,8 @@ Creates or updates a region. Backend responds with SET_REGION_ACK
      - RegionInfo
      - 
      - Region parameters
+
+.. cssclass:: b2f
 
 .. _setregionack:
 
@@ -752,6 +788,8 @@ Response for SET_REGION
 
 
 
+
+.. cssclass:: f2b
 
 .. _sethistogramrequirements:
 
@@ -808,6 +846,8 @@ SetHistogramRequirements.HistogramConfig
      - 
      - 
 
+.. cssclass:: f2b
+
 .. _setregionrequirements:
 
 SetRegionRequirements
@@ -850,6 +890,8 @@ Sets which spatial profile data needs to be streamed to the frontend when the re
      - repeated
      - List of additional profiles needed (for example, [“Qz”, “Uz”]) will include the Z-profile of the Q and U Stokes cube, regardless of which Stokes parameter is currently in use.
 
+.. cssclass:: f2b
+
 .. _setspatialrequirements:
 
 SetSpatialRequirements
@@ -879,6 +921,8 @@ Sets which information needs to be streamed to the frontend when the region is u
      - string
      - repeated
      - List of spatial profiles needed. If no Stokes parameter is specified (i.e. just “x” or “y”), the active Stokes parameter is used.
+
+.. cssclass:: f2b
 
 .. _setspectralrequirements:
 
@@ -935,6 +979,8 @@ SetSpectralRequirements.SpectralConfig
      - repeated
      - 
 
+.. cssclass:: f2b
+
 .. _setstatsrequirements:
 
 SetStatsRequirements
@@ -968,6 +1014,8 @@ Sets which stats data needs to be streamed to the frontend when the region is up
 
 
 
+.. cssclass:: f2b
+
 .. _registerviewer:
 
 RegisterViewer
@@ -998,6 +1046,8 @@ Responds with REGISTER_VIEWER_ACK
      - fixed32
      - 
      - Optional feature bitflag specifying client-side feature set
+
+.. cssclass:: b2f
 
 .. _registerviewerack:
 
@@ -1099,6 +1149,8 @@ RegisterViewerAck.UserPreferencesEntry
 
 
 
+.. cssclass:: f2b
+
 .. _imageproperties:
 
 ImageProperties
@@ -1177,6 +1229,8 @@ ImageProperties.RegionsEntry
      - 
      - 
 
+.. cssclass:: f2b
+
 .. _resumesession:
 
 ResumeSession
@@ -1201,6 +1255,8 @@ ResumeSession
      - OpenCatalogFile
      - repeated
      - 
+
+.. cssclass:: b2f
 
 .. _resumesessionack:
 
@@ -1229,6 +1285,8 @@ ResumeSessionAck
 
 
 
+
+.. cssclass:: f2b
 
 .. _setcursor:
 
@@ -1263,6 +1321,8 @@ The cursor defines a special case of a region, with a single control point.
 
 
 
+
+.. cssclass:: f2b
 
 .. _setimagechannels:
 
@@ -1301,6 +1361,8 @@ Sets the current image channel and Stokes parameter
 
 
 
+.. cssclass:: f2b
+
 .. _spectrallinerequest:
 
 SpectralLineRequest
@@ -1321,6 +1383,8 @@ SpectralLineRequest
      - DoubleBounds
      - 
      - 
+
+.. cssclass:: f2b
 
 .. _spectrallineresponse:
 
@@ -1387,6 +1451,8 @@ SpectralLineResponse.SpectralLineDataEntry
 
 
 
+.. cssclass:: f2b
+
 .. _addrequiredtiles:
 
 AddRequiredTiles
@@ -1421,6 +1487,8 @@ Provides a list of tiles that are required for the specified file
      - 
      - Compression quality switch
 
+.. cssclass:: f2b
+
 .. _removerequiredtiles:
 
 RemoveRequiredTiles
@@ -1450,6 +1518,8 @@ Provides a list of tiles that are required for the specified file
 
 
 
+.. cssclass:: f2b
+
 .. _setuserlayout:
 
 SetUserLayout
@@ -1477,6 +1547,8 @@ Backend responds with  SET_USER_LAYOUT_ACK
      - 
      - JSON string representing the layout. If the value is empty, the user layout is cleared from the server database.
 
+.. cssclass:: b2f
+
 .. _setuserlayoutack:
 
 SetUserLayoutAck
@@ -1503,6 +1575,8 @@ Error message (if applicable)
 
 
 
+
+.. cssclass:: f2b
 
 .. _setuserpreferences:
 
@@ -1551,6 +1625,8 @@ SetUserPreferences.PreferenceMapEntry
      - string
      - 
      - 
+
+.. cssclass:: b2f
 
 .. _setuserpreferencesack:
 

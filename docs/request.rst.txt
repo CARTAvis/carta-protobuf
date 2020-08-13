@@ -1,4 +1,6 @@
 
+.. cssclass:: f2b
+
 .. _catalogfileinforequest:
 
 CatalogFileInfoRequest
@@ -23,6 +25,8 @@ CatalogFileInfoRequest
      - string
      - 
      - 
+
+.. cssclass:: b2f
 
 .. _catalogfileinforesponse:
 
@@ -60,6 +64,8 @@ CatalogFileInfoResponse
 
 
 
+.. cssclass:: f2b
+
 .. _cataloglistrequest:
 
 CatalogListRequest
@@ -80,6 +86,8 @@ CatalogListRequest
      - string
      - 
      - 
+
+.. cssclass:: b2f
 
 .. _cataloglistresponse:
 
@@ -125,6 +133,8 @@ CatalogListResponse
 
 
 
+.. cssclass:: f2b
+
 .. _fileinforequest:
 
 FileInfoRequest
@@ -155,6 +165,8 @@ Backend responds with FILE_INFO_RESPONSE
      - string
      - 
      - Required HDU name (if applicable). If left empty, the first HDU is selected
+
+.. cssclass:: b2f
 
 .. _fileinforesponse:
 
@@ -194,6 +206,8 @@ Gives information on the requested file
 
 
 
+.. cssclass:: f2b
+
 .. _filelistrequest:
 
 FileListRequest
@@ -216,6 +230,8 @@ Backend responds with FILE_LIST_RESPONSE
      - string
      - 
      - Required directory name
+
+.. cssclass:: b2f
 
 .. _filelistresponse:
 
@@ -263,6 +279,8 @@ Gives a list of available files (and their types), as well as subdirectories
 
 
 
+.. cssclass:: f2b
+
 .. _regionfileinforequest:
 
 RegionFileInfoRequest
@@ -289,6 +307,8 @@ Backend responds with REGION_FILE_INFO_RESPONSE
      - string
      - 
      - Required file name
+
+.. cssclass:: b2f
 
 .. _regionfileinforesponse:
 
@@ -328,6 +348,8 @@ Gives information on the requested file
 
 
 
+.. cssclass:: f2b
+
 .. _regionlistrequest:
 
 RegionListRequest
@@ -350,6 +372,8 @@ Backend responds with REGION_LIST_RESPONSE
      - string
      - 
      - Required directory name
+
+.. cssclass:: b2f
 
 .. _regionlistresponse:
 
@@ -397,6 +421,8 @@ Gives a list of available region files (and their types), as well as subdirector
 
 
 
+.. cssclass:: f2b
+
 .. _scriptingrequest:
 
 ScriptingRequest
@@ -433,6 +459,8 @@ ScriptingRequest
      - bool
      - 
      - flag indicating whether the frontend should execute this asynchronously, or only return once the call is complete
+
+.. cssclass:: b2f
 
 .. _scriptingresponse:
 

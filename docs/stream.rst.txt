@@ -1,4 +1,6 @@
 
+.. cssclass:: f2b
+
 .. _catalogfilterrequest:
 
 CatalogFilterRequest
@@ -55,6 +57,8 @@ CatalogFilterRequest
      - SortingType
      - 
      - 
+
+.. cssclass:: b2f
 
 .. _catalogfilterresponse:
 
@@ -137,6 +141,8 @@ CatalogFilterResponse.ColumnsEntry
 
 
 
+.. cssclass:: b2f
+
 .. _contourimagedata:
 
 ContourImageData
@@ -183,6 +189,8 @@ Data for an image rendered in contour mode.
      - 
      - Progress of the contour sets being sent. If this is zero, the message is assumed to contain the entire contour sets
 
+.. cssclass:: b2f
+
 .. _contourset:
 
 ContourSet
@@ -223,6 +231,8 @@ ContourSet
 
 
 
+.. cssclass:: b2f
+
 .. _errordata:
 
 ErrorData
@@ -260,6 +270,8 @@ the state of the backend, and is not used in place of returning success=false on
 
 
 
+
+.. cssclass:: b2f
 
 .. _rastertiledata:
 
@@ -306,6 +318,8 @@ RasterTileData
      - repeated
      - List of tile data
 
+.. cssclass:: b2f
+
 .. _rastertilesync:
 
 RasterTileSync
@@ -342,6 +356,8 @@ RasterTileSync
      - bool
      - 
      - Is this a start or end sync message?
+
+.. cssclass:: b2f
 
 .. _tiledata:
 
@@ -391,6 +407,8 @@ TileData
 
 
 
+.. cssclass:: b2f
+
 .. _regionhistogramdata:
 
 RegionHistogramData
@@ -432,6 +450,8 @@ Stats data for a specific region
 
 
 
+.. cssclass:: b2f
+
 .. _regionstatsdata:
 
 RegionStatsData
@@ -472,6 +492,8 @@ Stats data for a specific region
 
 
 
+
+.. cssclass:: b2f
 
 .. _spatialprofiledata:
 
@@ -525,6 +547,8 @@ Data for spatial profile set for a specific file
 
 
 
+
+.. cssclass:: b2f
 
 .. _spectralprofiledata:
 
