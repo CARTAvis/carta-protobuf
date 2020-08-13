@@ -7,5 +7,5 @@ docs/convert/ICD.rst.ignore
 docs/convert/images/
 docs/convert/_static
 docs/convert/index.html
-docs/protoc/*.html
+docs/protoc/protoc.json
 __pycache__/

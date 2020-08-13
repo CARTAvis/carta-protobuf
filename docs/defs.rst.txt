@@ -1,9 +1,9 @@
-
 .. _animationframe:
 
 AnimationFrame
 ^^^^^^^^^^^^^^
 
+Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -29,6 +29,7 @@ AnimationFrame
 CatalogFileInfo
 ^^^^^^^^^^^^^^^
 
+Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -45,7 +46,7 @@ CatalogFileInfo
      - 
      - 
    * - type
-     - :carta:`CatalogFileType`
+     - CatalogFileType
      - 
      - 
    * - file_size
@@ -70,6 +71,7 @@ CatalogFileInfo
 CatalogHeader
 ^^^^^^^^^^^^^
 
+Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -86,7 +88,7 @@ CatalogHeader
      - 
      - 
    * - data_type
-     - :carta:`ColumnType`
+     - ColumnType
      - 
      - 
    * - column_index
@@ -107,6 +109,7 @@ CatalogHeader
 CatalogImageBounds
 ^^^^^^^^^^^^^^^^^^
 
+Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -136,6 +139,7 @@ CatalogImageBounds
 ColumnData
 ^^^^^^^^^^
 
+Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -148,7 +152,7 @@ ColumnData
      - Label
      - Description
    * - data_type
-     - :carta:`ColumnType`
+     - ColumnType
      - 
      - 
    * - string_data
@@ -165,6 +169,7 @@ ColumnData
 Coosys
 ^^^^^^
 
+Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -194,6 +199,7 @@ Coosys
 DoubleBounds
 ^^^^^^^^^^^^
 
+Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -219,8 +225,9 @@ DoubleBounds
 FileInfo
 ^^^^^^^^
 
-File info message structure (internal use only)
+Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
+File info message structure (internal use only)
 
 .. list-table::
    :widths: 25 25 10 40
@@ -235,7 +242,7 @@ File info message structure (internal use only)
      - 
      - 
    * - type
-     - :carta:`FileType`
+     - FileType
      - 
      - 
    * - size
@@ -256,6 +263,7 @@ File info message structure (internal use only)
 FileInfoExtended
 ^^^^^^^^^^^^^^^^
 
+Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -292,11 +300,11 @@ FileInfoExtended
      - repeated
      - List of Stokes parameters contained in the file (if applicable). For files that do not explicitly specify Stokes files, this will be blank.
    * - header_entries
-     - :carta:`HeaderEntry`
+     - HeaderEntry
      - repeated
      - Header entries from header string or attributes
    * - computed_entries
-     - :carta:`HeaderEntry`
+     - HeaderEntry
      - repeated
      - 
 
@@ -305,6 +313,7 @@ FileInfoExtended
 FilterConfig
 ^^^^^^^^^^^^
 
+Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -321,7 +330,7 @@ FilterConfig
      - 
      - 
    * - comparison_operator
-     - :carta:`ComparisonOperator`
+     - ComparisonOperator
      - 
      - 
    * - value
@@ -342,6 +351,7 @@ FilterConfig
 FloatBounds
 ^^^^^^^^^^^
 
+Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -362,48 +372,12 @@ FloatBounds
      - 
      - 
 
-.. _headerentry:
-
-HeaderEntry
-^^^^^^^^^^^
-
-
-
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - name
-     - string
-     - 
-     - 
-   * - value
-     - string
-     - 
-     - 
-   * - entry_type
-     - :carta:`EntryType`
-     - 
-     - 
-   * - numeric_value
-     - double
-     - 
-     - 
-   * - comment
-     - string
-     - 
-     - 
-
 .. _histogram:
 
 Histogram
 ^^^^^^^^^
 
+Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -449,6 +423,7 @@ Histogram
 ImageBounds
 ^^^^^^^^^^^
 
+Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -482,6 +457,7 @@ ImageBounds
 IntBounds
 ^^^^^^^^^
 
+Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -507,6 +483,7 @@ IntBounds
 Point
 ^^^^^
 
+Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -532,6 +509,7 @@ Point
 RegionInfo
 ^^^^^^^^^^
 
+Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -544,7 +522,7 @@ RegionInfo
      - Label
      - Description
    * - region_type
-     - :carta:`RegionType`
+     - RegionType
      - 
      - The type of region described by the control points. The meaning of the control points will differ, depending on the type of region being defined.
    * - control_points
@@ -561,6 +539,7 @@ RegionInfo
 RegionStyle
 ^^^^^^^^^^^
 
+Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -594,6 +573,7 @@ RegionStyle
 SpatialProfile
 ^^^^^^^^^^^^^^
 
+Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -627,6 +607,7 @@ SpatialProfile
 SpectralProfile
 ^^^^^^^^^^^^^^^
 
+Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -643,7 +624,7 @@ SpectralProfile
      - 
      - 
    * - stats_type
-     - :carta:`StatsType`
+     - StatsType
      - 
      - 
    * - raw_values_fp32
@@ -660,6 +641,7 @@ SpectralProfile
 StatisticsValue
 ^^^^^^^^^^^^^^^
 
+Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -672,14 +654,11 @@ StatisticsValue
      - Label
      - Description
    * - stats_type
-     - :carta:`StatsType`
+     - StatsType
      - 
      - 
    * - value
      - double
      - 
      - 
-
-
-
 

@@ -1,11 +1,9 @@
-
-.. cssclass:: f2b
-
 .. _catalogfilterrequest:
 
 CatalogFilterRequest
 ^^^^^^^^^^^^^^^^^^^^
 
+Source file: `catalog_filter.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/catalog_filter.proto>`_
 
 
 
@@ -54,17 +52,16 @@ CatalogFilterRequest
      - 
      - 
    * - sorting_type
-     - :carta:`SortingType`
+     - SortingType
      - 
      - 
-
-.. cssclass:: b2f
 
 .. _catalogfilterresponse:
 
 CatalogFilterResponse
 ^^^^^^^^^^^^^^^^^^^^^
 
+Source file: `catalog_filter.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/catalog_filter.proto>`_
 
 
 
@@ -113,19 +110,15 @@ CatalogFilterResponse
      - 
      - 
 
-
-
-
-.. cssclass:: b2f
-
 .. _contourimagedata:
 
 ContourImageData
 ^^^^^^^^^^^^^^^^
 
+Source file: `contour_image.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/contour_image.proto>`_
+
 CONTOUR_IMAGE_DATA:
 Data for an image rendered in contour mode.
-
 
 .. list-table::
    :widths: 25 25 10 40
@@ -164,13 +157,12 @@ Data for an image rendered in contour mode.
      - 
      - Progress of the contour sets being sent. If this is zero, the message is assumed to contain the entire contour sets
 
-.. cssclass:: b2f
-
 .. _contourset:
 
 ContourSet
 ^^^^^^^^^^
 
+Source file: `contour_image.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/contour_image.proto>`_
 
 
 
@@ -203,20 +195,16 @@ ContourSet
      - 
      - 
 
-
-
-
-.. cssclass:: b2f
-
 .. _errordata:
 
 ErrorData
 ^^^^^^^^^
 
+Source file: `error.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/error.proto>`_
+
 ERROR_DATA:
 Stream of error/warning/info data. This stream is used to present the frontend with additional information on
 the state of the backend, and is not used in place of returning success=false on requests or commands.
-
 
 .. list-table::
    :widths: 25 25 10 40
@@ -227,7 +215,7 @@ the state of the backend, and is not used in place of returning success=false on
      - Label
      - Description
    * - severity
-     - :carta:`ErrorSeverity`
+     - ErrorSeverity
      - 
      - The severity of the error. Critical errors are reserved for errors that would normally require the user to restart the program or reload the page
    * - tags
@@ -243,16 +231,12 @@ the state of the backend, and is not used in place of returning success=false on
      - 
      - Accompanying error data. For example, if an error has the “file_io” tag, the frontend would expect the data field to contain the file ID of the offending file.
 
-
-
-
-.. cssclass:: b2f
-
 .. _rastertiledata:
 
 RasterTileData
 ^^^^^^^^^^^^^^
 
+Source file: `raster_tile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/raster_tile.proto>`_
 
 
 
@@ -277,7 +261,7 @@ RasterTileData
      - 
      - The image stokes coordinate
    * - compression_type
-     - :carta:`CompressionType`
+     - CompressionType
      - 
      - The compression algorithm used.
    * - compression_quality
@@ -293,13 +277,12 @@ RasterTileData
      - repeated
      - List of tile data
 
-.. cssclass:: b2f
-
 .. _rastertilesync:
 
 RasterTileSync
 ^^^^^^^^^^^^^^
 
+Source file: `raster_tile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/raster_tile.proto>`_
 
 
 
@@ -332,13 +315,12 @@ RasterTileSync
      - 
      - Is this a start or end sync message?
 
-.. cssclass:: b2f
-
 .. _tiledata:
 
 TileData
 ^^^^^^^^
 
+Source file: `raster_tile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/raster_tile.proto>`_
 
 
 
@@ -379,19 +361,15 @@ TileData
      - 
      - Run-length encodings of NaN values. These values are used to restore the NaN values after decompression.
 
-
-
-
-.. cssclass:: b2f
-
 .. _regionhistogramdata:
 
 RegionHistogramData
 ^^^^^^^^^^^^^^^^^^^
 
+Source file: `region_histogram.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/region_histogram.proto>`_
+
 REGION_HISTOGRAM_DATA:
 Stats data for a specific region
-
 
 .. list-table::
    :widths: 25 25 10 40
@@ -422,19 +400,15 @@ Stats data for a specific region
      - 
      - Progress indicator, in the case of partial histogram results being sent
 
-
-
-
-.. cssclass:: b2f
-
 .. _regionstatsdata:
 
 RegionStatsData
 ^^^^^^^^^^^^^^^
 
+Source file: `region_stats.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/region_stats.proto>`_
+
 REGION_STATS_DATA:
 Stats data for a specific region
-
 
 .. list-table::
    :widths: 25 25 10 40
@@ -465,19 +439,15 @@ Stats data for a specific region
      - repeated
      - Array of statistics values, each corresponding to a particular measurement, such as max, min, mean, etc
 
-
-
-
-.. cssclass:: b2f
-
 .. _spatialprofiledata:
 
 SpatialProfileData
 ^^^^^^^^^^^^^^^^^^
 
+Source file: `spatial_profile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/spatial_profile.proto>`_
+
 SPATIAL_PROFILE_DATA:
 Data for spatial profile set for a specific file
-
 
 .. list-table::
    :widths: 25 25 10 40
@@ -520,19 +490,15 @@ Data for spatial profile set for a specific file
      - repeated
      - Spatial profiles for each required profile type
 
-
-
-
-.. cssclass:: b2f
-
 .. _spectralprofiledata:
 
 SpectralProfileData
 ^^^^^^^^^^^^^^^^^^^
 
+Source file: `spectral_profile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/spectral_profile.proto>`_
+
 SPECTRAL_PROFILE_DATA:
 Data for spectral profile set for a specific file
-
 
 .. list-table::
    :widths: 25 25 10 40
@@ -562,7 +528,4 @@ Data for spectral profile set for a specific file
      - :carta:`SpectralProfile`
      - repeated
      - Spatial profiles for each required profile type
-
-
-
 

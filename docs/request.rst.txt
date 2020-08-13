@@ -1,11 +1,9 @@
-
-.. cssclass:: f2b
-
 .. _catalogfileinforequest:
 
 CatalogFileInfoRequest
 ^^^^^^^^^^^^^^^^^^^^^^
 
+Source file: `catalog_file_info.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/catalog_file_info.proto>`_
 
 
 
@@ -26,13 +24,12 @@ CatalogFileInfoRequest
      - 
      - 
 
-.. cssclass:: b2f
-
 .. _catalogfileinforesponse:
 
 CatalogFileInfoResponse
 ^^^^^^^^^^^^^^^^^^^^^^^
 
+Source file: `catalog_file_info.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/catalog_file_info.proto>`_
 
 
 
@@ -61,16 +58,12 @@ CatalogFileInfoResponse
      - repeated
      - 
 
-
-
-
-.. cssclass:: f2b
-
 .. _cataloglistrequest:
 
 CatalogListRequest
 ^^^^^^^^^^^^^^^^^^
 
+Source file: `catalog_list.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/catalog_list.proto>`_
 
 
 
@@ -87,13 +80,12 @@ CatalogListRequest
      - 
      - 
 
-.. cssclass:: b2f
-
 .. _cataloglistresponse:
 
 CatalogListResponse
 ^^^^^^^^^^^^^^^^^^^
 
+Source file: `catalog_list.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/catalog_list.proto>`_
 
 
 
@@ -130,20 +122,16 @@ CatalogListResponse
      - repeated
      - 
 
-
-
-
-.. cssclass:: f2b
-
 .. _fileinforequest:
 
 FileInfoRequest
 ^^^^^^^^^^^^^^^
 
+Source file: `file_info.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/file_info.proto>`_
+
 FILE_INFO_REQUEST:
 Requests the file info for a specific file.
 Backend responds with :carta:`FILE_INFO_RESPONSE`
-
 
 .. list-table::
    :widths: 25 25 10 40
@@ -166,17 +154,16 @@ Backend responds with :carta:`FILE_INFO_RESPONSE`
      - 
      - Required HDU name (if applicable). If left empty, the first HDU is selected
 
-.. cssclass:: b2f
-
 .. _fileinforesponse:
 
 FileInfoResponse
 ^^^^^^^^^^^^^^^^
 
+Source file: `file_info.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/file_info.proto>`_
+
 FILE_INFO_RESPONSE
 Response for :carta:`FILE_INFO_REQUEST`.
 Gives information on the requested file
-
 
 .. list-table::
    :widths: 25 25 10 40
@@ -203,20 +190,16 @@ Gives information on the requested file
      - 
      - Extended file info (WCS, header info)
 
-
-
-
-.. cssclass:: f2b
-
 .. _filelistrequest:
 
 FileListRequest
 ^^^^^^^^^^^^^^^
 
+Source file: `file_list.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/file_list.proto>`_
+
 FILE_LIST_REQUEST:
 Requests the list of available files for a given directory.
 Backend responds with :carta:`FILE_LIST_RESPONSE`
-
 
 .. list-table::
    :widths: 25 25 10 40
@@ -231,17 +214,16 @@ Backend responds with :carta:`FILE_LIST_RESPONSE`
      - 
      - Required directory name
 
-.. cssclass:: b2f
-
 .. _filelistresponse:
 
 FileListResponse
 ^^^^^^^^^^^^^^^^
 
+Source file: `file_list.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/file_list.proto>`_
+
 FILE_LIST_RESPONSE
 Response for :carta:`FILE_LIST_REQUEST`.
 Gives a list of available files (and their types), as well as subdirectories
-
 
 .. list-table::
    :widths: 25 25 10 40
@@ -276,16 +258,12 @@ Gives a list of available files (and their types), as well as subdirectories
      - repeated
      - List of available subdirectories
 
-
-
-
-.. cssclass:: f2b
-
 .. _momentprogress:
 
 MomentProgress
 ^^^^^^^^^^^^^^
 
+Source file: `moment_request.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/moment_request.proto>`_
 
 
 
@@ -306,13 +284,12 @@ MomentProgress
      - 
      - 
 
-.. cssclass:: f2b
-
 .. _momentrequest:
 
 MomentRequest
 ^^^^^^^^^^^^^
 
+Source file: `moment_request.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/moment_request.proto>`_
 
 
 
@@ -329,11 +306,11 @@ MomentRequest
      - 
      - 
    * - moments
-     - :carta:`Moment`
+     - Moment
      - repeated
      - 
    * - axis
-     - :carta:`MomentAxis`
+     - MomentAxis
      - 
      - 
    * - region_id
@@ -345,7 +322,7 @@ MomentRequest
      - 
      - 
    * - mask
-     - :carta:`MomentMask`
+     - MomentMask
      - 
      - 
    * - pixel_range
@@ -353,13 +330,12 @@ MomentRequest
      - 
      - 
 
-.. cssclass:: b2f
-
 .. _momentresponse:
 
 MomentResponse
 ^^^^^^^^^^^^^^
 
+Source file: `moment_request.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/moment_request.proto>`_
 
 
 
@@ -384,20 +360,16 @@ MomentResponse
      - repeated
      - 
 
-
-
-
-.. cssclass:: f2b
-
 .. _regionfileinforequest:
 
 RegionFileInfoRequest
 ^^^^^^^^^^^^^^^^^^^^^
 
+Source file: `region_file_info.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/region_file_info.proto>`_
+
 REGION_FILE_INFO_REQUEST:
 Requests contents for a specific region file on the server
 Backend responds with :carta:`REGION_FILE_INFO_RESPONSE`
-
 
 .. list-table::
    :widths: 25 25 10 40
@@ -416,17 +388,16 @@ Backend responds with :carta:`REGION_FILE_INFO_RESPONSE`
      - 
      - Required file name
 
-.. cssclass:: b2f
-
 .. _regionfileinforesponse:
 
 RegionFileInfoResponse
 ^^^^^^^^^^^^^^^^^^^^^^
 
+Source file: `region_file_info.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/region_file_info.proto>`_
+
 REGION_FILE_INFO_RESPONSE
 Response for :carta:`REGION_FILE_INFO_REQUEST`.
 Gives information on the requested file
-
 
 .. list-table::
    :widths: 25 25 10 40
@@ -453,20 +424,16 @@ Gives information on the requested file
      - repeated
      - Contents of file; each string is a line
 
-
-
-
-.. cssclass:: f2b
-
 .. _regionlistrequest:
 
 RegionListRequest
 ^^^^^^^^^^^^^^^^^
 
+Source file: `region_list.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/region_list.proto>`_
+
 REGION_LIST_REQUEST:
 Requests the list of available region files for a given directory.
 Backend responds with :carta:`REGION_LIST_RESPONSE`
-
 
 .. list-table::
    :widths: 25 25 10 40
@@ -481,17 +448,16 @@ Backend responds with :carta:`REGION_LIST_RESPONSE`
      - 
      - Required directory name
 
-.. cssclass:: b2f
-
 .. _regionlistresponse:
 
 RegionListResponse
 ^^^^^^^^^^^^^^^^^^
 
+Source file: `region_list.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/region_list.proto>`_
+
 REGION_LIST_RESPONSE
 Response for :carta:`REGION_LIST_REQUEST`.
 Gives a list of available region files (and their types), as well as subdirectories
-
 
 .. list-table::
    :widths: 25 25 10 40
@@ -526,16 +492,12 @@ Gives a list of available region files (and their types), as well as subdirector
      - repeated
      - List of available subdirectories
 
-
-
-
-.. cssclass:: f2b
-
 .. _savefile:
 
 SaveFile
 ^^^^^^^^
 
+Source file: `save_file.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/save_file.proto>`_
 
 
 
@@ -560,17 +522,16 @@ SaveFile
      - 
      - 
    * - output_file_type
-     - :carta:`FileType`
+     - FileType
      - 
      - 
-
-.. cssclass:: f2b
 
 .. _savefileack:
 
 SaveFileAck
 ^^^^^^^^^^^
 
+Source file: `save_file.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/save_file.proto>`_
 
 
 
@@ -595,16 +556,12 @@ SaveFileAck
      - 
      - 
 
-
-
-
-.. cssclass:: f2b
-
 .. _scriptingrequest:
 
 ScriptingRequest
 ^^^^^^^^^^^^^^^^
 
+Source file: `scripting.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/scripting.proto>`_
 
 
 
@@ -637,13 +594,12 @@ ScriptingRequest
      - 
      - flag indicating whether the frontend should execute this asynchronously, or only return once the call is complete
 
-.. cssclass:: b2f
-
 .. _scriptingresponse:
 
 ScriptingResponse
 ^^^^^^^^^^^^^^^^^
 
+Source file: `scripting.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/scripting.proto>`_
 
 
 
@@ -671,7 +627,4 @@ ScriptingResponse
      - string
      - 
      - JSON-parsable response. e.g. "true", or the base64-encoded string
-
-
-
 
