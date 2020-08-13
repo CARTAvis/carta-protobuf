@@ -37,7 +37,33 @@ Another route for optimisation available to the frontend is :carta:`REMOVE_REQUI
 
 Tile data is delivered by the backend using the :carta:`RASTER_TILE_DATA` stream. This allows the backend to send one or more raster tiles with the same compression format and quality to the frontend. Each time a tile is delivered to the frontend, the image is re-rendered.
 
-.. image:: images/altering_image_view.png
+.. uml::
+    
+    skinparam style strictuml
+    hide footbox
+    title Altering image view
+    
+    actor User
+    box "Client-side" #EDEDED	
+            participant Frontend
+    end box
+    
+    box "Server-side" #lightblue
+    	participant Backend
+    end box
+    User -> Frontend: Pans or zooms image
+    activate Frontend
+    Frontend -> Backend : ADD_REQUIRED_TILES
+    activate Backend
+    Frontend <-- Backend : RASTER_TILE_DATA
+    User <-- Frontend: Displays updated image
+    Frontend <-- Backend : RASTER_TILE_DATA
+    User <-- Frontend: Displays updated image
+    Frontend <-- Backend : RASTER_TILE_DATA
+    User <-- Frontend: Displays updated image
+    deactivate Backend
+    deactivate Frontend
+    
 
 .. _Channel navigation:
 
@@ -48,7 +74,37 @@ When changing channels via a :carta:`SET_IMAGE_CHANNELS` message, the frontend i
 
 In general, one image view command will correspond to a subsequent image data stream message. However, changing the image channel will result in a subsequent image data stream message, as well as any relevant updated statistics, histograms or profile data.
 
-.. image:: images/altering_image_channel.png
+.. uml::
+    
+    skinparam style strictuml
+    hide footbox
+    title Altering image channel
+    
+    actor User
+    box "Client-side" #EDEDED	
+            participant Frontend
+    end box
+    
+    box "Server-side" #lightblue
+    	participant Backend
+    end box
+    User -> Frontend: Changes channel\nor Stokes
+    activate Frontend
+    Frontend -> Backend : SET_IMAGE_CHANNELS
+    activate Backend
+    Backend -> Backend: Calculates which\nanalytics need\nupdates
+    Backend -> Backend: Calculates\nchannel histogram
+    Frontend <-- Backend : REGION_HISTOGRAM_DATA
+    Frontend <-- Backend : RASTER_TILE_DATA
+    Frontend <-- Backend : RASTER_TILE_DATA
+    Frontend <-- Backend : RASTER_TILE_DATA
+    User <-- Frontend: Displays updated\nimage
+    Backend -> Backend: Calculates\nremaining analytics
+    Frontend <-- Backend : SPATIAL_PROFILE_DATA
+    deactivate Backend
+    User <-- Frontend: Displays updated\nplots
+    deactivate Frontend
+    
 
 .. _Animation:
 
@@ -57,7 +113,45 @@ Animation
 
 An animation can be played back by issuing the :carta:`START_ANIMATION` command. This command encapsulates all the different animation stepping and bounds parameters, in order to allow the backend to perform frame calculations and deliver image data to the front. After the the :carta:`START_ANIMATION` command has been issued, the backend sends images and analysis results to the frontend at a regular interval. When the user stops an animation, the frontend sends the :carta:`STOP_ANIMATION` command, which includes information on the current image’s channels, so that the backend can be sure that the frontend channel state is the same as that of the backend. If the last sent frame does match the frontend channel state, the backend adjusts channels again. In order to prevent the backend from sending too many animation frames, some basic flow control is provided through :carta:`ANIMATION_FLOW_CONTROL` message. This is sent from the frontend to the backend to indicate the latest frame received, preventing the backend from queuing up too many frames. The :carta:`START_ANIMATION` command includes an :carta:`ADD_REQUIRED_TILES` sub-message, specifying the required tiles and compression type to be used in the animation. The backend includes an animation ID field in :carta:`START_ANIMATION_ACK` in order to allow the frontend to differentiate between frames of previous animations and the latest animation.
 
-.. image:: images/animation_playback.png
+.. uml::
+    
+    skinparam style strictuml
+    hide footbox
+    title Animation playback
+    
+    actor User
+    box "Client-side" #EDEDED
+            participant Frontend
+    end box
+    
+    box "Server-side" #lightblue
+    	participant Backend
+    end box
+    User -> Frontend: Requests animation\nplayback
+    activate Frontend
+    Frontend -> Backend : START_ANIMATION
+    activate Backend
+    Frontend <-- Backend: START_ANIMATION_ACK
+    Frontend <-- Backend : RASTER_IMAGE_DATA
+    Frontend -> Backend: ANIMATION_FLOW_CONTROL
+    User <-- Frontend: Displays updated image
+    Frontend <-- Backend : RASTER_IMAGE_DATA
+    Frontend -> Backend: ANIMATION_FLOW_CONTROL
+    User <-- Frontend: Displays updated image
+    Frontend <-- Backend : RASTER_IMAGE_DATA
+    Frontend -> Backend: ANIMATION_FLOW_CONTROL
+    User <-- Frontend: Displays updated image
+    Frontend <-- Backend : RASTER_IMAGE_DATA
+    Frontend -> Backend: ANIMATION_FLOW_CONTROL
+    User <-- Frontend: Displays updated image
+    User -> Frontend : Stops playback
+    Frontend -> Backend : STOP_ANIMATION
+    Frontend -> Backend : SET_IMAGE_CHANNELS
+    Frontend <-- Backend: RASTER_TILE_DATA
+    Frontend <-- Backend: RASTER_TILE_DATA
+    deactivate Frontend
+    deactivate Backend
+    
 
 Images are sent as tiled data. In order to keep the image view channel and full image histogram synchronised, the ``RASTER_IMAGE_DATA`` message includes a :carta:`REGION_HISTOGRAM_DATA` object, containing the channel histogram for the new channel. During animation playback, each animation step will result in image data stream messages, as well as any relevant analytics updates. If zooming or panning occurs during animation, a ``SET_IMAGE_VIEW`` message is sent to the backend, updating the view bounds. These new bounds are used in the next frame generated by the backend.
 

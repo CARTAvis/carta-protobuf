@@ -320,9 +320,11 @@ for s in soup.find_all("span"):
     if "role" in s.attrs:
         s["class"] = s["role"]
 
-# Rename images
+# Rename images and also extract uml for later
 
 seen = set()
+
+subprocess.run(["mkdir", "-p", "uml"])
 
 for img in soup.find_all("img"):
     src = img["src"]
@@ -343,6 +345,11 @@ for img in soup.find_all("img"):
         img["src"] = "images/%s.png" % new_name
     else:
         print("No metadata for image", src)
+        
+    m = re.search("@startuml(.*)@enduml", result, re.DOTALL)
+    if m:
+        with open(f"uml/{new_name}.plantuml", "w") as f:
+            f.write(m.group(1))
                 
 with open(sys.argv[2], 'w') as f:
     print(str(soup), file=f)

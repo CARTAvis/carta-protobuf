@@ -26,7 +26,7 @@ icd = re.sub('`([^`<]+) <#([^>]+)>`__', reference, icd)
 icd = re.sub(':f2b:```(.*?)```', r':f2b:`\1`', icd)
 icd = re.sub(':b2f:```(.*?)```', r':b2f:`\1`', icd)
 
-# inline the inexplicably substituted images
+# inline the inexplicably substituted images and replace them with plantuml
 
 icd = re.sub(r'#\. (.*?)\\ (\|image\d+\|)', r'\1\n\n\2\n', icd)
 
@@ -34,10 +34,14 @@ images = re.findall('(\.\. )(\|image\d+\|) (image:: images/.*.png)', icd)
 
 icd = re.sub('\.\. \|image\d+\| image:: images/.*.png\n', "", icd)
 
-for begin, placeholder, end in images:
-    icd = re.sub(re.escape(placeholder), f"{begin}{end}", icd)
-
-# TODO eventually replace the images with embedded plantuml code?
+for begin, placeholder, end in images:    
+    img_name = re.search("images/(.*).png", end).group(1)
+    with open(f"uml/{img_name}.plantuml") as f:
+        uml_block = f.read()
+    uml_block = re.sub(r"\\n", r"\\\\n", uml_block)
+    uml_block = re.sub("^", "    ", uml_block, flags=re.MULTILINE)
+    
+    icd = re.sub(re.escape(placeholder), f".. uml::\n{uml_block}", icd)
 
 # We need a nested toctree -- toctrees in the files for section 3 and 4
 

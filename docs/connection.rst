@@ -9,9 +9,55 @@ A connection heartbeat is established by the server-initiated ping/pong sequence
 
 When the frontend is intentionally closed, by closing the associated app or web page, the frontend closes the WebSocket connection gracefully, and the backend can then remove the associated session. When the frontend is closed in error, or the backend determines that a connection is timed out, the backend should maintain the session for an appropriate period, so that it can be resumed when the frontend reconnects. The frontend should attempt to reconnect with the same session ID when a connection is dropped. If the backend responds with a session type set to ``RESUMED``, the frontend will attempt to resume the session by sending a list of files, along with their associated regions in a :carta:`RESUME_SESSION` message.
 
-.. image:: images/initial_connection.png
+.. uml::
+    
+    skinparam style strictuml
+    hide footbox
+    title Initial connection
+    
+    actor User
+    box "Client-side"
+    participant Frontend
+    end box
+    
+    box "Server-side" #lightblue
+    participant Backend
+    end box
+    User -> Frontend : Loads app/page
+    activate Frontend
+    Frontend -> Backend : Connects to backend (WS)
+    activate Backend
+    Frontend <-- Backend : Connection response (WS)
+    Frontend -> Backend : REGISTER_VIEWER
+    Frontend <-- Backend : REGISTER_VIEWER_ACK
+    User <-- Frontend : Connection info\nupdated
+    deactivate Frontend
+    deactivate Backend
+    
 
-.. image:: images/reconnection_after_dropped_connection.png
+.. uml::
+    
+    skinparam style strictuml
+    hide footbox
+    title Reconnection (after dropped connection)
+    
+    actor User
+    box "Client-side"
+    participant Frontend
+    end box
+    
+    box "Server-side" #lightblue
+    participant Backend
+    end box
+    activate Frontend
+    Frontend -> Backend : Connects to backend (WS)
+    activate Backend
+    Frontend <-- Backend : Connection response (WS)
+    Frontend -> Backend : REGISTER_VIEWER\n(using existing sessionID)
+    Frontend <-- Backend : REGISTER_VIEWER_ACK
+    deactivate Frontend
+    deactivate Backend
+    
 
 A scripting service is available. When enabled, the backend allows for gRPC connections on a specified port. The gRPC connection is used to simply ferry scripting commands from a scripting service, such as a python package, to the frontend. The frontend then parses the scripting commands from the incoming ``SCRIPTING_REQUEST`` message, executes the required code and responds with a ``SCRIPTING_RESPONSE`` message, which indicates the success of the scripting command, as well as the response in JSON format. Each incoming scripting request includes a unique ID, which is passed back in the scripting response, in order to uniquely match scripting requests to their responses.
 

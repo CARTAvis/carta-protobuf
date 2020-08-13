@@ -46,7 +46,94 @@ As image cubes might be extremely large, the moment generator in CARTA should su
 
 Sequence diagrams for setting image moments and stopping moments calculation are shown below:
 
-.. image:: images/set_image_moments.png
+.. uml::
+    
+    title Set image moments
+    
+    actor User
+    
+    box "Client-side" #LightGrey
+    participant Frontend
+    end box
+    
+    box "Server-side" #LightBlue
+    participant Backend
+    end box
+    
+    group Moments calculation
+    
+    User -> Frontend: Set image moments
+    activate Frontend
+    
+    Frontend -> Backend: MOMENT_REQUEST
+    activate Backend
+    
+    Backend --> Frontend: MOMENT_PROGRESS
+    
+    Frontend --> User: Update progress bar
+    
+    Backend -> Backend: OPEN_FILE
+    
+    Backend --> Frontend: OPEN_FILE_ACK
+    
+    Backend --> Frontend: REGION_HISTOGRAM_DATA
+    
+    Backend --> Frontend: MOMENT_RESPONSE
+    deactivate Backend
+    
+    end
+    
+    group Image view(s)
+    
+    Frontend -> Backend: SET_IMAGE_CHANNELS
+    activate Backend
+    
+    Backend --> Frontend: RASTER_TILE_DATA
+    deactivate Backend
+    
+    Frontend --> User: Display image(s)
+    deactivate Frontend
+    
+    end
+    
 
-.. image:: images/stop_image_moments_calculation.png
+.. uml::
+    
+    title Stop image moments calculation
+    
+    actor User
+    
+    box "Client-side" #LightGrey
+    participant Frontend
+    end box
+    
+    box "Server-side" #LightBlue
+    participant Backend
+    end box
+    
+    group Moments calculation
+    
+    User -> Frontend: Set image moments
+    activate Frontend
+    
+    Frontend -> Backend: MOMENT_REQUEST
+    activate Backend
+    
+    Backend --> Frontend: MOMENT_PROGRESS
+    
+    Frontend --> User: Update progress bar
+    
+    User -> Frontend: Cancel image moments
+    
+    Frontend -> Backend: STOP_MOMENT_CALC
+    
+    Backend -> Backend: Interrupt calculation
+    
+    Backend --> Frontend: MOMENT_RESPONSE
+    deactivate Backend
+    
+    deactivate Frontend
+    
+    end
+    
 
