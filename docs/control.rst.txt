@@ -1,3 +1,5 @@
+.. cssclass:: f2b
+
 .. _animationflowcontrol:
 
 AnimationFlowControl
@@ -33,27 +35,7 @@ Used for informing the backend of which frames have been received
      - 
      - Timestamp at which the frame was received
 
-.. _matchedframelist:
-
-MatchedFrameList
-^^^^^^^^^^^^^^^^
-
-Source file: `animation.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/animation.proto>`_
-
-
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - frame_numbers
-     - float
-     - repeated
-     - 
+.. cssclass:: f2b
 
 .. _startanimation:
 
@@ -115,6 +97,8 @@ Backend responds with :carta:`START_ANIMATION_ACK`
      - repeated
      - 
 
+.. cssclass:: b2f
+
 .. _startanimationack:
 
 StartAnimationAck
@@ -146,6 +130,8 @@ Response for :carta:`START_ANIMATION`
      - 
      - The animation ID of the new animation
 
+.. cssclass:: f2b
+
 .. _stopanimation:
 
 StopAnimation
@@ -173,6 +159,8 @@ Stops the playing animation
      - 
      - The ending point of the animation.
 
+.. cssclass:: f2b
+
 .. _closefile:
 
 CloseFile
@@ -195,6 +183,8 @@ Instructs the backend to close a file with a given file ID
      - sfixed32
      - 
      - Which "file" slot to close
+
+.. cssclass:: f2b
 
 .. _setcontourparameters:
 
@@ -251,6 +241,8 @@ Sets the contour parameters for a file
      - 
      - Size of contour chunks, in number of vertices. If this is set to zero, partial contour results are not used
 
+.. cssclass:: f2b
+
 .. _exportregion:
 
 ExportRegion
@@ -296,6 +288,8 @@ Backend responds with  :carta:`EXPORT_REGION_ACK`
      - 
      - Optional file name of server file
 
+.. cssclass:: b2f
+
 .. _exportregionack:
 
 ExportRegionAck
@@ -326,6 +320,8 @@ Response for :carta:`EXPORT_REGION` to indicate success and file contents if on 
      - string
      - repeated
      - File contents for client export (one line per string)
+
+.. cssclass:: f2b
 
 .. _importregion:
 
@@ -367,6 +363,8 @@ Backend responds with  :carta:`IMPORT_REGION_ACK`
      - repeated
      - Optional file contents of client file (1 line per string)
 
+.. cssclass:: b2f
+
 .. _importregionack:
 
 ImportRegionAck
@@ -402,6 +400,8 @@ Response for :carta:`IMPORT_REGION`. Also supplies region properties
      - repeated
      - Map region id to style parameters
 
+.. cssclass:: f2b
+
 .. _closecatalogfile:
 
 CloseCatalogFile
@@ -423,6 +423,8 @@ Source file: `open_catalog_file.proto <https://github.com/CARTAvis/carta-protobu
      - sfixed32
      - 
      - 
+
+.. cssclass:: f2b
 
 .. _opencatalogfile:
 
@@ -457,6 +459,8 @@ Source file: `open_catalog_file.proto <https://github.com/CARTAvis/carta-protobu
      - sfixed32
      - 
      - 
+
+.. cssclass:: b2f
 
 .. _opencatalogfileack:
 
@@ -504,6 +508,8 @@ Source file: `open_catalog_file.proto <https://github.com/CARTAvis/carta-protobu
      - repeated
      - 
 
+.. cssclass:: f2b
+
 .. _openfile:
 
 OpenFile
@@ -543,6 +549,8 @@ Backend responds with  :carta:`OPEN_FILE_ACK`
      - RenderMode
      - 
      - The render mode to use. Additional modes will be added in subsequent versions.
+
+.. cssclass:: b2f
 
 .. _openfileack:
 
@@ -587,6 +595,8 @@ Response for :carta:`OPEN_FILE`. Also supplies file information
      - 
      - Optional bitflags specifying feature flags of the file being opened.
 
+.. cssclass:: f2b
+
 .. _removeregion:
 
 RemoveRegion
@@ -609,6 +619,8 @@ Removes a region
      - sfixed32
      - 
      - Unique region ID of the region to be removed
+
+.. cssclass:: f2b
 
 .. _setregion:
 
@@ -641,6 +653,8 @@ Creates or updates a region. Backend responds with :carta:`SET_REGION_ACK`
      - 
      - Region parameters
 
+.. cssclass:: b2f
+
 .. _setregionack:
 
 SetRegionAck
@@ -671,6 +685,8 @@ Response for :carta:`SET_REGION`
      - sfixed32
      - 
      - The unique region ID. If the region is updated, this will be the same as the region ID specified in :carta:`SET_REGION`. If  a new region is being created, the ID of the new region will be passed back.
+
+.. cssclass:: f2b
 
 .. _sethistogramrequirements:
 
@@ -703,6 +719,8 @@ Sets which histogram data needs to be streamed to the frontend when the region i
      - repeated
      - List of required histograms, along with the number of bins. If the channel is -1, the current channel is used. If the channel is -2, the histogram is constructed over all channels. If the number of bins is less than zero, an automatic bin size is used, based on the number of values.
 
+.. cssclass:: f2b
+
 .. _histogramconfig:
 
 HistogramConfig
@@ -728,6 +746,8 @@ Source file: `region_requirements.proto <https://github.com/CARTAvis/carta-proto
      - sfixed32
      - 
      - 
+
+.. cssclass:: f2b
 
 .. _setregionrequirements:
 
@@ -772,6 +792,8 @@ Sets which spatial profile data needs to be streamed to the frontend when the re
      - repeated
      - List of additional profiles needed (for example, [“Qz”, “Uz”]) will include the Z-profile of the Q and U Stokes cube, regardless of which Stokes parameter is currently in use.
 
+.. cssclass:: f2b
+
 .. _setspatialrequirements:
 
 SetSpatialRequirements
@@ -802,6 +824,8 @@ Sets which information needs to be streamed to the frontend when the region is u
      - string
      - repeated
      - List of spatial profiles needed. If no Stokes parameter is specified (i.e. just “x” or “y”), the active Stokes parameter is used.
+
+.. cssclass:: f2b
 
 .. _setspectralrequirements:
 
@@ -834,6 +858,8 @@ Sets which spectral profile data needs to be streamed to the frontend when the r
      - repeated
      - List of spectral profiles needed, along with which stats types are needed for each profile. If no Stokes parameter is specified (i.e. just “z”) or if the coordinate is empty, the active Stokes parameter is used. If the region is a point region, the statsTypes field is ignored.
 
+.. cssclass:: f2b
+
 .. _spectralconfig:
 
 SpectralConfig
@@ -859,6 +885,8 @@ Source file: `region_requirements.proto <https://github.com/CARTAvis/carta-proto
      - StatsType
      - repeated
      - 
+
+.. cssclass:: f2b
 
 .. _setstatsrequirements:
 
@@ -891,6 +919,8 @@ Sets which stats data needs to be streamed to the frontend when the region is up
      - repeated
      - List of required stats
 
+.. cssclass:: f2b
+
 .. _registerviewer:
 
 RegisterViewer
@@ -922,6 +952,8 @@ Responds with :carta:`REGISTER_VIEWER_ACK`
      - fixed32
      - 
      - Optional feature bitflag specifying client-side feature set
+
+.. cssclass:: b2f
 
 .. _registerviewerack:
 
@@ -970,6 +1002,8 @@ Informs the frontend whether the session was correctly.
      - map<key: string, value: string>
      - repeated
      - Map of user layouts retrieved from the server database
+
+.. cssclass:: f2b
 
 .. _imageproperties:
 
@@ -1025,6 +1059,8 @@ Source file: `resume_session.proto <https://github.com/CARTAvis/carta-protobuf/b
      - 
      - 
 
+.. cssclass:: f2b
+
 .. _resumesession:
 
 ResumeSession
@@ -1051,6 +1087,8 @@ Source file: `resume_session.proto <https://github.com/CARTAvis/carta-protobuf/b
      - repeated
      - 
 
+.. cssclass:: b2f
+
 .. _resumesessionack:
 
 ResumeSessionAck
@@ -1076,6 +1114,8 @@ Source file: `resume_session.proto <https://github.com/CARTAvis/carta-protobuf/b
      - string
      - 
      - 
+
+.. cssclass:: f2b
 
 .. _setcursor:
 
@@ -1108,6 +1148,8 @@ The cursor defines a special case of a region, with a single control point.
      - :carta:`SetSpatialRequirements`
      - 
      - Optional accompanying spatial requirements message to be processed prior to cursor update
+
+.. cssclass:: f2b
 
 .. _setimagechannels:
 
@@ -1144,6 +1186,8 @@ Sets the current image channel and Stokes parameter
      - 
      - Required tiles when changing channels
 
+.. cssclass:: f2b
+
 .. _spectrallinerequest:
 
 SpectralLineRequest
@@ -1169,6 +1213,8 @@ Source file: `spectral_line_request.proto <https://github.com/CARTAvis/carta-pro
      - double
      - 
      - 
+
+.. cssclass:: f2b
 
 .. _spectrallineresponse:
 
@@ -1208,6 +1254,8 @@ Source file: `spectral_line_request.proto <https://github.com/CARTAvis/carta-pro
      - repeated
      - 
 
+.. cssclass:: f2b
+
 .. _stopmomentcalc:
 
 StopMomentCalc
@@ -1229,6 +1277,8 @@ Source file: `stop_moment_calc.proto <https://github.com/CARTAvis/carta-protobuf
      - sfixed32
      - 
      - Stop the moment calculation with respect to the image file id
+
+.. cssclass:: f2b
 
 .. _addrequiredtiles:
 
@@ -1265,6 +1315,8 @@ Provides a list of tiles that are required for the specified file
      - 
      - Compression quality switch
 
+.. cssclass:: f2b
+
 .. _removerequiredtiles:
 
 RemoveRequiredTiles
@@ -1291,6 +1343,8 @@ Provides a list of tiles that are required for the specified file
      - sfixed32
      - repeated
      - The list of tiles required, in encoded coordinate
+
+.. cssclass:: f2b
 
 .. _setuserlayout:
 
@@ -1320,6 +1374,8 @@ Backend responds with  :carta:`SET_USER_LAYOUT_ACK`
      - 
      - JSON string representing the layout. If the value is empty, the user layout is cleared from the server database.
 
+.. cssclass:: b2f
+
 .. _setuserlayoutack:
 
 SetUserLayoutAck
@@ -1342,6 +1398,8 @@ Response for :carta:`SET_USER_LAYOUT`
      - bool
      - 
      - Defines whether :carta:`SET_USER_LAYOUT` was successful  Error message (if applicable)
+
+.. cssclass:: f2b
 
 .. _setuserpreferences:
 
@@ -1366,6 +1424,8 @@ Backend responds with  :carta:`SET_USER_PREFERENCES_ACK`
      - map<key: string, value: string>
      - repeated
      - 
+
+.. cssclass:: b2f
 
 .. _setuserpreferencesack:
 

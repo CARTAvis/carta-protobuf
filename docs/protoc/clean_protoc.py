@@ -40,15 +40,29 @@ for file_ in data["files"]:
         if name.endswith("Entry"):
             continue
         
+        # Message colour
+        
+        parent_dir = proto_dir[file_name]
+        anchor = name.lower()
+        cssclass = None
+        
+        if parent_dir == "control":
+            cssclass = "b2f" if anchor.endswith("ack") else "f2b"
+        elif parent_dir == "request":
+            cssclass = "b2f" if anchor.endswith("response") or anchor.endswith("progress") else "f2b"
+        elif parent_dir == "stream":
+            cssclass = "f2b" if anchor.endswith("request") else "b2f"
+        
+        if cssclass:
+            output.append(f".. cssclass:: {cssclass}\n")
+        
         # Message heading
         
-        anchor = name.lower()
         underline = "^" * len(name)
         output.append(f".. _{anchor}:\n\n{name}\n{underline}\n")
         
         # Link to file on github
         
-        parent_dir = proto_dir[file_name]
         output.append(f"Source file: `{file_name} <https://github.com/CARTAvis/carta-protobuf/blob/dev/{parent_dir}/{file_name}>`_\n")
         
         # Description

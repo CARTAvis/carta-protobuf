@@ -1,3 +1,5 @@
+.. cssclass:: f2b
+
 .. _catalogfilterrequest:
 
 CatalogFilterRequest
@@ -56,6 +58,8 @@ Source file: `catalog_filter.proto <https://github.com/CARTAvis/carta-protobuf/b
      - 
      - 
 
+.. cssclass:: b2f
+
 .. _catalogfilterresponse:
 
 CatalogFilterResponse
@@ -110,6 +114,8 @@ Source file: `catalog_filter.proto <https://github.com/CARTAvis/carta-protobuf/b
      - 
      - 
 
+.. cssclass:: b2f
+
 .. _contourimagedata:
 
 ContourImageData
@@ -157,6 +163,8 @@ Data for an image rendered in contour mode.
      - 
      - Progress of the contour sets being sent. If this is zero, the message is assumed to contain the entire contour sets
 
+.. cssclass:: b2f
+
 .. _contourset:
 
 ContourSet
@@ -195,6 +203,8 @@ Source file: `contour_image.proto <https://github.com/CARTAvis/carta-protobuf/bl
      - 
      - 
 
+.. cssclass:: b2f
+
 .. _errordata:
 
 ErrorData
@@ -230,6 +240,8 @@ the state of the backend, and is not used in place of returning success=false on
      - string
      - 
      - Accompanying error data. For example, if an error has the “file_io” tag, the frontend would expect the data field to contain the file ID of the offending file.
+
+.. cssclass:: b2f
 
 .. _rastertiledata:
 
@@ -277,6 +289,8 @@ Source file: `raster_tile.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - repeated
      - List of tile data
 
+.. cssclass:: b2f
+
 .. _rastertilesync:
 
 RasterTileSync
@@ -314,6 +328,8 @@ Source file: `raster_tile.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - bool
      - 
      - Is this a start or end sync message?
+
+.. cssclass:: b2f
 
 .. _tiledata:
 
@@ -361,6 +377,8 @@ Source file: `raster_tile.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - Run-length encodings of NaN values. These values are used to restore the NaN values after decompression.
 
+.. cssclass:: b2f
+
 .. _regionhistogramdata:
 
 RegionHistogramData
@@ -400,6 +418,8 @@ Stats data for a specific region
      - 
      - Progress indicator, in the case of partial histogram results being sent
 
+.. cssclass:: b2f
+
 .. _regionstatsdata:
 
 RegionStatsData
@@ -438,6 +458,8 @@ Stats data for a specific region
      - :carta:`StatisticsValue`
      - repeated
      - Array of statistics values, each corresponding to a particular measurement, such as max, min, mean, etc
+
+.. cssclass:: b2f
 
 .. _spatialprofiledata:
 
@@ -489,6 +511,8 @@ Data for spatial profile set for a specific file
      - :carta:`SpatialProfile`
      - repeated
      - Spatial profiles for each required profile type
+
+.. cssclass:: b2f
 
 .. _spectralprofiledata:
 

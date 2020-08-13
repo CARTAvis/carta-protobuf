@@ -478,6 +478,28 @@ Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/sh
      - 
      - 
 
+.. _matchedframelist:
+
+MatchedFrameList
+^^^^^^^^^^^^^^^^
+
+Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - frame_numbers
+     - float
+     - repeated
+     - 
+
 .. _point:
 
 Point
