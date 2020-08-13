@@ -31,10 +31,6 @@ message StartAnimation {
     map<sfixed32, MatchedFrameList> matched_frames = 10;
 }
 
-message MatchedFrameList {
-    repeated float frame_numbers = 1;
-}
-
 // START_ANIMATION_ACK
 // Response for START_ANIMATION
 message StartAnimationAck {
