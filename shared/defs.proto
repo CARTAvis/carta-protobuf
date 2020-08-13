@@ -47,6 +47,16 @@ message HeaderEntry {
     string comment = 5;
 }
 
+message IntBounds {
+    sfixed32 min = 1;
+    sfixed32 max = 2;
+}
+
+message FloatBounds {
+    float min = 1;
+    float max = 2;
+}
+
 message DoubleBounds {
     double min = 1;
     double max = 2;

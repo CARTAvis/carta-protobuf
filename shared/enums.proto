@@ -61,6 +61,12 @@ enum EventType {
     CATALOG_FILTER_RESPONSE = 58;
     SCRIPTING_REQUEST = 59;
     SCRIPTING_RESPONSE = 60;
+    MOMENT_REQUEST = 61;
+    MOMENT_RESPONSE = 62;
+    MOMENT_PROGRESS = 63;
+    STOP_MOMENT_CALC = 64;
+    SAVE_FILE = 65;
+    SAVE_FILE_ACK = 66;
     SPECTRAL_LINE_REQUEST = 67;
     SPECTRAL_LINE_RESPONSE = 68;
 }
@@ -123,7 +129,7 @@ enum StatsType {
     MinPos = 12;
     MaxPos = 13;
     Blcf = 14;
-    Trcf =  15;
+    Trcf = 15;
     MinPosf = 16;
     MaxPosf = 17;
 }
@@ -211,4 +217,31 @@ enum ComparisonOperator {
 enum SortingType {
     Ascending = 0;
     Descending = 1;
+}
+
+enum Moment {
+    MEAN_OF_THE_SPECTRUM = 0;
+    INTEGRATED_OF_THE_SPECTRUM = 1;
+    INTENSITY_WEIGHTED_COORD = 2;
+    INTENSITY_WEIGHTED_DISPERSION_OF_THE_COORD = 3;
+    MEDIAN_OF_THE_SPECTRUM = 4;
+    MEDIAN_COORDINATE = 5;
+    STD_ABOUT_THE_MEAN_OF_THE_SPECTRUM = 6;
+    RMS_OF_THE_SPECTRUM = 7;
+    ABS_MEAN_DEVIATION_OF_THE_SPECTRUM = 8;
+    MAX_OF_THE_SPECTRUM = 9;
+    COORD_OF_THE_MAX_OF_THE_SPECTRUM = 10;
+    MIN_OF_THE_SPECTRUM = 11;
+    COORD_OF_THE_MIN_OF_THE_SPECTRUM = 12;
+}
+
+enum MomentAxis {
+    SPECTRAL = 0;
+    STOKES = 1;
+}
+
+enum MomentMask {
+    None = 0;
+    Include = 1;
+    Exclude = 2;
 }
