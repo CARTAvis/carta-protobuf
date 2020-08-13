@@ -8,3 +8,4 @@ docs/convert/images/
 docs/convert/_static
 docs/convert/index.html
 docs/protoc/*.html
+__pycache__/
