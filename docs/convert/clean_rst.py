@@ -15,8 +15,11 @@ with open(inputname) as icdfile:
 # TODO add alternate anchors to all the protobuf messages, to simplify these.
 
 def reference(m):
+    label = m.group(1)
     target = re.sub('%%20', ' ', m.group(2))
-    return f':ref:`{m.group(1)} <{target}>`'
+    if label.lower().replace('_', '') == target.lower():
+        return f':carta:`{label}`'
+    return f':ref:`{label} <{target}>`'
 
 icd = re.sub('`([^`<]+) <#([^>]+)>`__', reference, icd)
 
