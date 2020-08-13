@@ -45,7 +45,7 @@ CatalogFileInfo
      - 
      - 
    * - type
-     - CatalogFileType
+     - :carta:`CatalogFileType`
      - 
      - 
    * - file_size
@@ -57,7 +57,7 @@ CatalogFileInfo
      - 
      - 
    * - coosys
-     - Coosys
+     - :carta:`Coosys`
      - repeated
      - 
    * - date
@@ -86,7 +86,7 @@ CatalogHeader
      - 
      - 
    * - data_type
-     - ColumnType
+     - :carta:`ColumnType`
      - 
      - 
    * - column_index
@@ -127,7 +127,7 @@ CatalogImageBounds
      - 
      - 
    * - image_bounds
-     - ImageBounds
+     - :carta:`ImageBounds`
      - 
      - 
 
@@ -148,7 +148,7 @@ ColumnData
      - Label
      - Description
    * - data_type
-     - ColumnType
+     - :carta:`ColumnType`
      - 
      - 
    * - string_data
@@ -235,7 +235,7 @@ File info message structure (internal use only)
      - 
      - 
    * - type
-     - FileType
+     - :carta:`FileType`
      - 
      - 
    * - size
@@ -292,11 +292,11 @@ FileInfoExtended
      - repeated
      - List of Stokes parameters contained in the file (if applicable). For files that do not explicitly specify Stokes files, this will be blank.
    * - header_entries
-     - HeaderEntry
+     - :carta:`HeaderEntry`
      - repeated
      - Header entries from header string or attributes
    * - computed_entries
-     - HeaderEntry
+     - :carta:`HeaderEntry`
      - repeated
      - 
 
@@ -321,7 +321,7 @@ FilterConfig
      - 
      - 
    * - comparison_operator
-     - ComparisonOperator
+     - :carta:`ComparisonOperator`
      - 
      - 
    * - value
@@ -387,7 +387,7 @@ HeaderEntry
      - 
      - 
    * - entry_type
-     - EntryType
+     - :carta:`EntryType`
      - 
      - 
    * - numeric_value
@@ -544,11 +544,11 @@ RegionInfo
      - Label
      - Description
    * - region_type
-     - RegionType
+     - :carta:`RegionType`
      - 
      - The type of region described by the control points. The meaning of the control points will differ, depending on the type of region being defined.
    * - control_points
-     - Point
+     - :carta:`Point`
      - repeated
      - Control points for the region
    * - rotation
@@ -643,7 +643,7 @@ SpectralProfile
      - 
      - 
    * - stats_type
-     - StatsType
+     - :carta:`StatsType`
      - 
      - 
    * - raw_values_fp32
@@ -672,7 +672,7 @@ StatisticsValue
      - Label
      - Description
    * - stats_type
-     - StatsType
+     - :carta:`StatsType`
      - 
      - 
    * - value

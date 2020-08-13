@@ -23,7 +23,7 @@ Used for informing the backend of which frames have been received
      - 
      - 
    * - received_frame
-     - AnimationFrame
+     - :carta:`AnimationFrame`
      - 
      - The latest flow control frame received
    * - animation_id
@@ -67,7 +67,7 @@ StartAnimation
 
 START_ANIMATION:
 Starts an animation, as defined by the start, stop and step definitions.
-Backend responds with START_ANIMATION_ACK
+Backend responds with :carta:`START_ANIMATION_ACK`
 
 
 .. list-table::
@@ -83,19 +83,19 @@ Backend responds with START_ANIMATION_ACK
      - 
      - Which file slot the animation describes.
    * - first_frame
-     - AnimationFrame
+     - :carta:`AnimationFrame`
      - 
      - The lower bound of the animation when looping.
    * - start_frame
-     - AnimationFrame
+     - :carta:`AnimationFrame`
      - 
      - The starting point of the animation.
    * - last_frame
-     - AnimationFrame
+     - :carta:`AnimationFrame`
      - 
      - The upper bound of the animation.
    * - delta_frame
-     - AnimationFrame
+     - :carta:`AnimationFrame`
      - 
      - The frame change step for the animation. For example, a delta frame of {channel=1, stokes=0} would step through each channel in the file.
    * - frame_rate
@@ -111,37 +111,12 @@ Backend responds with START_ANIMATION_ACK
      - 
      - Whether to reverse the animation direction when endFrame is reached.
    * - required_tiles
-     - AddRequiredTiles
+     - :carta:`AddRequiredTiles`
      - 
      - Required tiles when changing channels
    * - matched_frames
-     - MatchedFramesEntry
+     - map<key: sfixed32, value: :carta:`MatchedFrameList`>
      - repeated
-     - 
-
-.. _startanimation.matchedframesentry:
-
-StartAnimation.MatchedFramesEntry
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - key
-     - sfixed32
-     - 
-     - 
-   * - value
-     - MatchedFrameList
-     - 
      - 
 
 .. cssclass:: b2f
@@ -152,7 +127,7 @@ StartAnimationAck
 ^^^^^^^^^^^^^^^^^
 
 START_ANIMATION_ACK
-Response for START_ANIMATION
+Response for :carta:`START_ANIMATION`
 
 
 .. list-table::
@@ -166,7 +141,7 @@ Response for START_ANIMATION
    * - success
      - bool
      - 
-     - Defines whether START_ANIMATION was successful
+     - Defines whether :carta:`START_ANIMATION` was successful
    * - message
      - string
      - 
@@ -200,7 +175,7 @@ Stops the playing animation
      - 
      - Which file slot the animation describes.
    * - end_frame
-     - AnimationFrame
+     - :carta:`AnimationFrame`
      - 
      - The ending point of the animation.
 
@@ -262,7 +237,7 @@ Sets the contour parameters for a file
      - 
      - The file ID of the reference image that the contour vertices should be mapped to
    * - image_bounds
-     - ImageBounds
+     - :carta:`ImageBounds`
      - 
      - The XY bounds corresponding to the image data in pixel coordinates
    * - levels
@@ -270,7 +245,7 @@ Sets the contour parameters for a file
      - repeated
      - Contour levels
    * - smoothing_mode
-     - SmoothingMode
+     - :carta:`SmoothingMode`
      - 
      - Pre-contouring smoothing mode
    * - smoothing_factor
@@ -303,7 +278,7 @@ ExportRegion
 EXPORT_REGION:
 Requests exporting the specified regions to a file on the server.
 If directory and file are blank, return file contents for export on client.
-Backend responds with  EXPORT_REGION_ACK
+Backend responds with  :carta:`EXPORT_REGION_ACK`
 
 
 .. list-table::
@@ -315,11 +290,11 @@ Backend responds with  EXPORT_REGION_ACK
      - Label
      - Description
    * - type
-     - FileType
+     - :carta:`FileType`
      - 
      - Required file type
    * - coord_type
-     - CoordinateType
+     - :carta:`CoordinateType`
      - 
      - Required coordinate type pixel/world
    * - file_id
@@ -327,7 +302,7 @@ Backend responds with  EXPORT_REGION_ACK
      - 
      - File id for the coordinate system to use
    * - region_styles
-     - RegionStylesEntry
+     - map<key: sfixed32, value: :carta:`RegionStyle`>
      - repeated
      - Region ids and style params to export
    * - directory
@@ -339,31 +314,6 @@ Backend responds with  EXPORT_REGION_ACK
      - 
      - Optional file name of server file
 
-.. _exportregion.regionstylesentry:
-
-ExportRegion.RegionStylesEntry
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - key
-     - sfixed32
-     - 
-     - 
-   * - value
-     - RegionStyle
-     - 
-     - 
-
 .. cssclass:: b2f
 
 .. _exportregionack:
@@ -372,7 +322,7 @@ ExportRegionAck
 ^^^^^^^^^^^^^^^
 
 EXPORT_REGION_ACK
-Response for EXPORT_REGION to indicate success and file contents if on client.
+Response for :carta:`EXPORT_REGION` to indicate success and file contents if on client.
 
 
 .. list-table::
@@ -386,7 +336,7 @@ Response for EXPORT_REGION to indicate success and file contents if on client.
    * - success
      - bool
      - 
-     - Defines whether EXPORT_REGION was successful
+     - Defines whether :carta:`EXPORT_REGION` was successful
    * - message
      - string
      - 
@@ -408,7 +358,7 @@ ImportRegion
 
 IMPORT_REGION:
 Requests the opening and applying of a specific region file.
-Backend responds with  IMPORT_REGION_ACK
+Backend responds with  :carta:`IMPORT_REGION_ACK`
 
 
 .. list-table::
@@ -424,7 +374,7 @@ Backend responds with  IMPORT_REGION_ACK
      - 
      - Required WCS group id (may be a single file id)
    * - type
-     - FileType
+     - :carta:`FileType`
      - 
      - Required file type
    * - directory
@@ -448,7 +398,7 @@ ImportRegionAck
 ^^^^^^^^^^^^^^^
 
 IMPORT_REGION_ACK
-Response for IMPORT_REGION. Also supplies region properties
+Response for :carta:`IMPORT_REGION`. Also supplies region properties
 
 
 .. list-table::
@@ -462,69 +412,19 @@ Response for IMPORT_REGION. Also supplies region properties
    * - success
      - bool
      - 
-     - Defines whether IMPORT_REGION was successful
+     - Defines whether :carta:`IMPORT_REGION` was successful
    * - message
      - string
      - 
      - Error message (if applicable)
    * - regions
-     - RegionsEntry
+     - map<key: sfixed32, value: :carta:`RegionInfo`>
      - repeated
      - Map region id to parameters
    * - region_styles
-     - RegionStylesEntry
+     - map<key: sfixed32, value: :carta:`RegionStyle`>
      - repeated
      - Map region id to style parameters
-
-.. _importregionack.regionstylesentry:
-
-ImportRegionAck.RegionStylesEntry
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - key
-     - sfixed32
-     - 
-     - 
-   * - value
-     - RegionStyle
-     - 
-     - 
-
-.. _importregionack.regionsentry:
-
-ImportRegionAck.RegionsEntry
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - key
-     - sfixed32
-     - 
-     - 
-   * - value
-     - RegionInfo
-     - 
-     - 
 
 
 
@@ -618,7 +518,7 @@ OpenCatalogFileAck
      - 
      - 
    * - file_info
-     - CatalogFileInfo
+     - :carta:`CatalogFileInfo`
      - 
      - 
    * - data_size
@@ -626,37 +526,12 @@ OpenCatalogFileAck
      - 
      - 
    * - headers
-     - CatalogHeader
+     - :carta:`CatalogHeader`
      - repeated
      - 
    * - preview_data
-     - PreviewDataEntry
+     - map<key: fixed32, value: :carta:`ColumnData`>
      - repeated
-     - 
-
-.. _opencatalogfileack.previewdataentry:
-
-OpenCatalogFileAck.PreviewDataEntry
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - key
-     - fixed32
-     - 
-     - 
-   * - value
-     - ColumnData
-     - 
      - 
 
 
@@ -671,7 +546,7 @@ OpenFile
 
 OPEN_FILE:
 Requests the opening of a specific file.
-Backend responds with  OPEN_FILE_ACK
+Backend responds with  :carta:`OPEN_FILE_ACK`
 
 
 .. list-table::
@@ -699,7 +574,7 @@ Backend responds with  OPEN_FILE_ACK
      - 
      - Which "file" slot to load the file into (when viewing multiple files)
    * - render_mode
-     - RenderMode
+     - :carta:`RenderMode`
      - 
      - The render mode to use. Additional modes will be added in subsequent versions.
 
@@ -711,7 +586,7 @@ OpenFileAck
 ^^^^^^^^^^^
 
 OPEN_FILE_ACK
-Response for OPEN_FILE. Also supplies file information
+Response for :carta:`OPEN_FILE`. Also supplies file information
 
 
 .. list-table::
@@ -725,7 +600,7 @@ Response for OPEN_FILE. Also supplies file information
    * - success
      - bool
      - 
-     - Defines whether OPEN_FILE was successful
+     - Defines whether :carta:`OPEN_FILE` was successful
    * - file_id
      - sfixed32
      - 
@@ -735,11 +610,11 @@ Response for OPEN_FILE. Also supplies file information
      - 
      - Error message (if applicable)
    * - file_info
-     - FileInfo
+     - :carta:`FileInfo`
      - 
      - Basic file info (type, size)
    * - file_info_extended
-     - FileInfoExtended
+     - :carta:`FileInfoExtended`
      - 
      - Extended file info (WCS, header info)
    * - file_feature_flags
@@ -782,7 +657,7 @@ SetRegion
 ^^^^^^^^^
 
 SET_REGION:
-Creates or updates a region. Backend responds with SET_REGION_ACK
+Creates or updates a region. Backend responds with :carta:`SET_REGION_ACK`
 
 
 .. list-table::
@@ -802,7 +677,7 @@ Creates or updates a region. Backend responds with SET_REGION_ACK
      - 
      - Unique region ID. <=0 if a new region is being created.
    * - region_info
-     - RegionInfo
+     - :carta:`RegionInfo`
      - 
      - Region parameters
 
@@ -814,7 +689,7 @@ SetRegionAck
 ^^^^^^^^^^^^
 
 SET_REGION_ACK:
-Response for SET_REGION
+Response for :carta:`SET_REGION`
 
 
 .. list-table::
@@ -828,7 +703,7 @@ Response for SET_REGION
    * - success
      - bool
      - 
-     - Defines whether SET_REGION was successful
+     - Defines whether :carta:`SET_REGION` was successful
    * - message
      - string
      - 
@@ -836,7 +711,7 @@ Response for SET_REGION
    * - region_id
      - sfixed32
      - 
-     - The unique region ID. If the region is updated, this will be the same as the region ID specified in SET_REGION. If a new region is being created, the ID of the new region will be passed back.
+     - The unique region ID. If the region is updated, this will be the same as the region ID specified in :carta:`SET_REGION`. If a new region is being created, the ID of the new region will be passed back.
 
 
 
@@ -1027,7 +902,7 @@ SetSpectralRequirements.SpectralConfig
      - 
      - 
    * - stats_types
-     - StatsType
+     - :carta:`StatsType`
      - repeated
      - 
 
@@ -1059,7 +934,7 @@ Sets which stats data needs to be streamed to the frontend when the region is up
      - 
      - ID of the region that is having requirements defined. If a region ID of -1 is given, this corresponds to the entire 2D image.
    * - stats
-     - StatsType
+     - :carta:`StatsType`
      - repeated
      - List of required stats
 
@@ -1075,7 +950,7 @@ RegisterViewer
 
 REGISTER_VIEWER:
 Registers the viewer with the backend.
-Responds with REGISTER_VIEWER_ACK
+Responds with :carta:`REGISTER_VIEWER_ACK`
 
 
 .. list-table::
@@ -1107,7 +982,7 @@ RegisterViewerAck
 ^^^^^^^^^^^^^^^^^
 
 REGISTER_VIEWER_ACK
-Acknowledgement response for REGISTER_VIEWER.
+Acknowledgement response for :carta:`REGISTER_VIEWER`.
 Informs the frontend whether the session was correctly.
 
 
@@ -1126,13 +1001,13 @@ Informs the frontend whether the session was correctly.
    * - success
      - bool
      - 
-     - Defines whether the REGISTER_VIEWER command was successful
+     - Defines whether the :carta:`REGISTER_VIEWER` command was successful
    * - message
      - string
      - 
      - Error message (if applicable)
    * - session_type
-     - SessionType
+     - :carta:`SessionType`
      - 
      - Defines the type of session established
    * - server_feature_flags
@@ -1140,63 +1015,13 @@ Informs the frontend whether the session was correctly.
      - 
      - Optional feature bitflag specifying server-side feature set
    * - user_preferences
-     - UserPreferencesEntry
+     - map<key: string, value: string>
      - repeated
      - Map of user preferences retrieved from the server database. If this is empty and the server does not have the USER_PREFERENCES feature flag set, then the user preferences are read from localStorage instead.
    * - user_layouts
-     - UserLayoutsEntry
+     - map<key: string, value: string>
      - repeated
      - Map of user layouts retrieved from the server database
-
-.. _registerviewerack.userlayoutsentry:
-
-RegisterViewerAck.UserLayoutsEntry
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - key
-     - string
-     - 
-     - 
-   * - value
-     - string
-     - 
-     - 
-
-.. _registerviewerack.userpreferencesentry:
-
-RegisterViewerAck.UserPreferencesEntry
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - key
-     - string
-     - 
-     - 
-   * - value
-     - string
-     - 
-     - 
 
 
 
@@ -1236,7 +1061,7 @@ ImageProperties
      - 
      - 
    * - render_mode
-     - RenderMode
+     - :carta:`RenderMode`
      - 
      - 
    * - channel
@@ -1248,36 +1073,11 @@ ImageProperties
      - 
      - 
    * - regions
-     - RegionsEntry
+     - map<key: sfixed32, value: :carta:`RegionInfo`>
      - repeated
      - 
    * - contour_settings
-     - SetContourParameters
-     - 
-     - 
-
-.. _imageproperties.regionsentry:
-
-ImageProperties.RegionsEntry
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - key
-     - sfixed32
-     - 
-     - 
-   * - value
-     - RegionInfo
+     - :carta:`SetContourParameters`
      - 
      - 
 
@@ -1300,11 +1100,11 @@ ResumeSession
      - Label
      - Description
    * - images
-     - ImageProperties
+     - :carta:`ImageProperties`
      - repeated
      - 
    * - catalog_files
-     - OpenCatalogFile
+     - :carta:`OpenCatalogFile`
      - repeated
      - 
 
@@ -1363,11 +1163,11 @@ The cursor defines a special case of a region, with a single control point.
      - 
      - Which file slot the cursor is moving over
    * - point
-     - Point
+     - :carta:`Point`
      - 
      - XY-coordinates of cursor in image space
    * - spatial_requirements
-     - SetSpatialRequirements
+     - :carta:`SetSpatialRequirements`
      - 
      - Optional accompanying spatial requirements message to be processed prior to cursor update
 
@@ -1406,7 +1206,7 @@ Sets the current image channel and Stokes parameter
      - 
      - The image stokes parameter
    * - required_tiles
-     - AddRequiredTiles
+     - :carta:`AddRequiredTiles`
      - 
      - Required tiles when changing channels
 
@@ -1432,7 +1232,7 @@ SpectralLineRequest
      - Label
      - Description
    * - frequency_range
-     - DoubleBounds
+     - :carta:`DoubleBounds`
      - 
      - 
    * - line_intensity_lower_limit
@@ -1471,37 +1271,12 @@ SpectralLineResponse
      - 
      - 
    * - headers
-     - CatalogHeader
+     - :carta:`CatalogHeader`
      - repeated
      - 
    * - spectral_line_data
-     - SpectralLineDataEntry
+     - map<key: fixed32, value: :carta:`ColumnData`>
      - repeated
-     - 
-
-.. _spectrallineresponse.spectrallinedataentry:
-
-SpectralLineResponse.SpectralLineDataEntry
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - key
-     - fixed32
-     - 
-     - 
-   * - value
-     - ColumnData
-     - 
      - 
 
 
@@ -1561,7 +1336,7 @@ Provides a list of tiles that are required for the specified file
      - repeated
      - The list of tiles required, in encoded coordinate
    * - compression_type
-     - CompressionType
+     - :carta:`CompressionType`
      - 
      - The compression algorithm used
    * - compression_quality
@@ -1609,7 +1384,7 @@ SetUserLayout
 
 SET_USER_LAYOUT:
 Sets or clears a user layout.
-Backend responds with  SET_USER_LAYOUT_ACK
+Backend responds with  :carta:`SET_USER_LAYOUT_ACK`
 
 
 .. list-table::
@@ -1637,7 +1412,7 @@ SetUserLayoutAck
 ^^^^^^^^^^^^^^^^
 
 SET_USER_LAYOUT_ACK
-Response for SET_USER_LAYOUT
+Response for :carta:`SET_USER_LAYOUT`
 
 
 .. list-table::
@@ -1651,7 +1426,7 @@ Response for SET_USER_LAYOUT
    * - success
      - bool
      - 
-     - Defines whether SET_USER_LAYOUT was successful
+     - Defines whether :carta:`SET_USER_LAYOUT` was successful
 
 Error message (if applicable)
 
@@ -1667,7 +1442,7 @@ SetUserPreferences
 
 SET_USER_PREFERENCES:
 Sets or clears one or more user preferences.
-Backend responds with  SET_USER_PREFERENCES_ACK
+Backend responds with  :carta:`SET_USER_PREFERENCES_ACK`
 
 
 .. list-table::
@@ -1679,33 +1454,8 @@ Backend responds with  SET_USER_PREFERENCES_ACK
      - Label
      - Description
    * - preference_map
-     - PreferenceMapEntry
+     - map<key: string, value: string>
      - repeated
-     - 
-
-.. _setuserpreferences.preferencemapentry:
-
-SetUserPreferences.PreferenceMapEntry
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - key
-     - string
-     - 
-     - 
-   * - value
-     - string
-     - 
      - 
 
 .. cssclass:: b2f
@@ -1716,7 +1466,7 @@ SetUserPreferencesAck
 ^^^^^^^^^^^^^^^^^^^^^
 
 SET_USER_PREFERENCES_ACK
-Response for SET_USER_PREFERENCES
+Response for :carta:`SET_USER_PREFERENCES`
 
 
 .. list-table::
@@ -1730,7 +1480,7 @@ Response for SET_USER_PREFERENCES
    * - success
      - bool
      - 
-     - Defines whether SET_USER_PREFERENCES was successful
+     - Defines whether :carta:`SET_USER_PREFERENCES` was successful
 
 Error message (if applicable)
 

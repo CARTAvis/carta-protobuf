@@ -53,11 +53,11 @@ CatalogFileInfoResponse
      - 
      - 
    * - file_info
-     - CatalogFileInfo
+     - :carta:`CatalogFileInfo`
      - 
      - 
    * - headers
-     - CatalogHeader
+     - :carta:`CatalogHeader`
      - repeated
      - 
 
@@ -122,7 +122,7 @@ CatalogListResponse
      - 
      - 
    * - files
-     - CatalogFileInfo
+     - :carta:`CatalogFileInfo`
      - repeated
      - 
    * - subdirectories
@@ -142,7 +142,7 @@ FileInfoRequest
 
 FILE_INFO_REQUEST:
 Requests the file info for a specific file.
-Backend responds with FILE_INFO_RESPONSE
+Backend responds with :carta:`FILE_INFO_RESPONSE`
 
 
 .. list-table::
@@ -174,7 +174,7 @@ FileInfoResponse
 ^^^^^^^^^^^^^^^^
 
 FILE_INFO_RESPONSE
-Response for FILE_INFO_REQUEST.
+Response for :carta:`FILE_INFO_REQUEST`.
 Gives information on the requested file
 
 
@@ -189,17 +189,17 @@ Gives information on the requested file
    * - success
      - bool
      - 
-     - Defines whether the FILE_INFO_REQUEST was successful
+     - Defines whether the :carta:`FILE_INFO_REQUEST` was successful
    * - message
      - string
      - 
      - Error message (if applicable)
    * - file_info
-     - FileInfo
+     - :carta:`FileInfo`
      - 
      - Basic file info (type, size)
    * - file_info_extended
-     - FileInfoExtended
+     - :carta:`FileInfoExtended`
      - 
      - Extended file info (WCS, header info)
 
@@ -215,7 +215,7 @@ FileListRequest
 
 FILE_LIST_REQUEST:
 Requests the list of available files for a given directory.
-Backend responds with FILE_LIST_RESPONSE
+Backend responds with :carta:`FILE_LIST_RESPONSE`
 
 
 .. list-table::
@@ -239,7 +239,7 @@ FileListResponse
 ^^^^^^^^^^^^^^^^
 
 FILE_LIST_RESPONSE
-Response for FILE_LIST_REQUEST.
+Response for :carta:`FILE_LIST_REQUEST`.
 Gives a list of available files (and their types), as well as subdirectories
 
 
@@ -254,7 +254,7 @@ Gives a list of available files (and their types), as well as subdirectories
    * - success
      - bool
      - 
-     - Defines whether the FILE_LIST_REQUEST was successful
+     - Defines whether the :carta:`FILE_LIST_REQUEST` was successful
    * - message
      - string
      - 
@@ -268,7 +268,7 @@ Gives a list of available files (and their types), as well as subdirectories
      - 
      - Directory parent (null/empty if top-level)
    * - files
-     - FileInfo
+     - :carta:`FileInfo`
      - repeated
      - List of available image files, with file type information and size information.
    * - subdirectories
@@ -329,11 +329,11 @@ MomentRequest
      - 
      - 
    * - moments
-     - Moment
+     - :carta:`Moment`
      - repeated
      - 
    * - axis
-     - MomentAxis
+     - :carta:`MomentAxis`
      - 
      - 
    * - region_id
@@ -341,15 +341,15 @@ MomentRequest
      - 
      - 
    * - spectral_range
-     - IntBounds
+     - :carta:`IntBounds`
      - 
      - 
    * - mask
-     - MomentMask
+     - :carta:`MomentMask`
      - 
      - 
    * - pixel_range
-     - FloatBounds
+     - :carta:`FloatBounds`
      - 
      - 
 
@@ -380,7 +380,7 @@ MomentResponse
      - 
      - 
    * - open_file_acks
-     - OpenFileAck
+     - :carta:`OpenFileAck`
      - repeated
      - 
 
@@ -396,7 +396,7 @@ RegionFileInfoRequest
 
 REGION_FILE_INFO_REQUEST:
 Requests contents for a specific region file on the server
-Backend responds with REGION_FILE_INFO_RESPONSE
+Backend responds with :carta:`REGION_FILE_INFO_RESPONSE`
 
 
 .. list-table::
@@ -424,7 +424,7 @@ RegionFileInfoResponse
 ^^^^^^^^^^^^^^^^^^^^^^
 
 REGION_FILE_INFO_RESPONSE
-Response for REGION_FILE_INFO_REQUEST.
+Response for :carta:`REGION_FILE_INFO_REQUEST`.
 Gives information on the requested file
 
 
@@ -445,7 +445,7 @@ Gives information on the requested file
      - 
      - Error message (if applicable)
    * - file_info
-     - FileInfo
+     - :carta:`FileInfo`
      - 
      - Basic info about region file
    * - contents
@@ -465,7 +465,7 @@ RegionListRequest
 
 REGION_LIST_REQUEST:
 Requests the list of available region files for a given directory.
-Backend responds with REGION_LIST_RESPONSE
+Backend responds with :carta:`REGION_LIST_RESPONSE`
 
 
 .. list-table::
@@ -489,7 +489,7 @@ RegionListResponse
 ^^^^^^^^^^^^^^^^^^
 
 REGION_LIST_RESPONSE
-Response for REGION_LIST_REQUEST.
+Response for :carta:`REGION_LIST_REQUEST`.
 Gives a list of available region files (and their types), as well as subdirectories
 
 
@@ -504,7 +504,7 @@ Gives a list of available region files (and their types), as well as subdirector
    * - success
      - bool
      - 
-     - Defines whether the REGION_LIST_REQUEST was successful
+     - Defines whether the :carta:`REGION_LIST_REQUEST` was successful
    * - message
      - string
      - 
@@ -518,7 +518,7 @@ Gives a list of available region files (and their types), as well as subdirector
      - 
      - Directory parent (null/empty if top-level)
    * - files
-     - FileInfo
+     - :carta:`FileInfo`
      - repeated
      - List of available image files, with file type information and size information.
    * - subdirectories
@@ -560,7 +560,7 @@ SaveFile
      - 
      - 
    * - output_file_type
-     - FileType
+     - :carta:`FileType`
      - 
      - 
 

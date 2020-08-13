@@ -26,7 +26,7 @@ CatalogFilterRequest
      - repeated
      - 
    * - filter_configs
-     - FilterConfig
+     - :carta:`FilterConfig`
      - repeated
      - 
    * - subset_data_size
@@ -38,7 +38,7 @@ CatalogFilterRequest
      - 
      - 
    * - image_bounds
-     - CatalogImageBounds
+     - :carta:`CatalogImageBounds`
      - 
      - 
    * - image_file_id
@@ -54,7 +54,7 @@ CatalogFilterRequest
      - 
      - 
    * - sorting_type
-     - SortingType
+     - :carta:`SortingType`
      - 
      - 
 
@@ -89,7 +89,7 @@ CatalogFilterResponse
      - 
      - 
    * - columns
-     - ColumnsEntry
+     - map<key: fixed32, value: :carta:`ColumnData`>
      - repeated
      - 
    * - subset_data_size
@@ -110,31 +110,6 @@ CatalogFilterResponse
      - 
    * - request_end_index
      - sfixed32
-     - 
-     - 
-
-.. _catalogfilterresponse.columnsentry:
-
-CatalogFilterResponse.ColumnsEntry
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - key
-     - fixed32
-     - 
-     - 
-   * - value
-     - ColumnData
      - 
      - 
 
@@ -169,7 +144,7 @@ Data for an image rendered in contour mode.
      - 
      - The file ID of the reference image that the contour vertices are mapped to
    * - image_bounds
-     - ImageBounds
+     - :carta:`ImageBounds`
      - 
      - The bounding box in the XY plane corresponding to the image data in pixel coordinates
    * - channel
@@ -181,7 +156,7 @@ Data for an image rendered in contour mode.
      - 
      - The image stokes parameter used to generate the contours
    * - contour_sets
-     - ContourSet
+     - :carta:`ContourSet`
      - repeated
      - Each contour set consists of the contour level value, as well as a list of coordinates. The start_indices list is used to determine how to subdivide the coordinates list into separate poly-lines when rendering.
    * - progress
@@ -252,7 +227,7 @@ the state of the backend, and is not used in place of returning success=false on
      - Label
      - Description
    * - severity
-     - ErrorSeverity
+     - :carta:`ErrorSeverity`
      - 
      - The severity of the error. Critical errors are reserved for errors that would normally require the user to restart the program or reload the page
    * - tags
@@ -302,7 +277,7 @@ RasterTileData
      - 
      - The image stokes coordinate
    * - compression_type
-     - CompressionType
+     - :carta:`CompressionType`
      - 
      - The compression algorithm used.
    * - compression_quality
@@ -314,7 +289,7 @@ RasterTileData
      - 
      - The ID of the animation (if any)
    * - tiles
-     - TileData
+     - :carta:`TileData`
      - repeated
      - List of tile data
 
@@ -439,7 +414,7 @@ Stats data for a specific region
      - 
      - The image stokes parameter used to generate the profiles
    * - histograms
-     - Histogram
+     - :carta:`Histogram`
      - repeated
      - array of histograms of the current region
    * - progress
@@ -486,7 +461,7 @@ Stats data for a specific region
      - 
      - The image stokes parameter used to generate the profiles
    * - statistics
-     - StatisticsValue
+     - :carta:`StatisticsValue`
      - repeated
      - Array of statistics values, each corresponding to a particular measurement, such as max, min, mean, etc
 
@@ -541,7 +516,7 @@ Data for spatial profile set for a specific file
      - 
      - The value of the image at the given coordinates
    * - profiles
-     - SpatialProfile
+     - :carta:`SpatialProfile`
      - repeated
      - Spatial profiles for each required profile type
 
@@ -584,7 +559,7 @@ Data for spectral profile set for a specific file
      - 
      - Progress indicator, in the case of partial profile results being sent. If the profile calculations are time-consuming, regular updates should be sent to the frontend. If the data is complete, progress >= 1.
    * - profiles
-     - SpectralProfile
+     - :carta:`SpectralProfile`
      - repeated
      - Spatial profiles for each required profile type
 
