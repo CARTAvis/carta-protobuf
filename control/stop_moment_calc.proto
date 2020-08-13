@@ -1,0 +1,7 @@
+syntax = "proto3";
+package CARTA;
+
+message StopMomentCalc {
+    // Stop the moment calculation with respect to the image file id
+    sfixed32 file_id = 1;
+}
