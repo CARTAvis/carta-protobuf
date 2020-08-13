@@ -221,7 +221,7 @@ Sets the contour parameters for a file
      - repeated
      - Contour levels
    * - smoothing_mode
-     - SmoothingMode
+     - :carta:`SmoothingMode`
      - 
      - Pre-contouring smoothing mode
    * - smoothing_factor
@@ -264,11 +264,11 @@ Backend responds with  :carta:`EXPORT_REGION_ACK`
      - Label
      - Description
    * - type
-     - FileType
+     - :carta:`FileType`
      - 
      - Required file type
    * - coord_type
-     - CoordinateType
+     - :carta:`CoordinateType`
      - 
      - Required coordinate type pixel/world
    * - file_id
@@ -347,7 +347,7 @@ Backend responds with  :carta:`IMPORT_REGION_ACK`
      - 
      - Required WCS group id (may be a single file id)
    * - type
-     - FileType
+     - :carta:`FileType`
      - 
      - Required file type
    * - directory
@@ -546,7 +546,7 @@ Backend responds with  :carta:`OPEN_FILE_ACK`
      - 
      - Which "file" slot to load the file into (when viewing multiple files)
    * - render_mode
-     - RenderMode
+     - :carta:`RenderMode`
      - 
      - The render mode to use. Additional modes will be added in subsequent versions.
 
@@ -882,7 +882,7 @@ Source file: `region_requirements.proto <https://github.com/CARTAvis/carta-proto
      - 
      - 
    * - stats_types
-     - StatsType
+     - :carta:`StatsType`
      - repeated
      - 
 
@@ -915,7 +915,7 @@ Sets which stats data needs to be streamed to the frontend when the region is up
      - 
      - ID of the region that is having requirements defined. If a region ID of -1 is given, this corresponds to the entire 2D image.
    * - stats
-     - StatsType
+     - :carta:`StatsType`
      - repeated
      - List of required stats
 
@@ -987,7 +987,7 @@ Informs the frontend whether the session was correctly.
      - 
      - Error message (if applicable)
    * - session_type
-     - SessionType
+     - :carta:`SessionType`
      - 
      - Defines the type of session established
    * - server_feature_flags
@@ -1039,7 +1039,7 @@ Source file: `resume_session.proto <https://github.com/CARTAvis/carta-protobuf/b
      - 
      - 
    * - render_mode
-     - RenderMode
+     - :carta:`RenderMode`
      - 
      - 
    * - channel
@@ -1307,7 +1307,7 @@ Provides a list of tiles that are required for the specified file
      - repeated
      - The list of tiles required, in encoded coordinate
    * - compression_type
-     - CompressionType
+     - :carta:`CompressionType`
      - 
      - The compression algorithm used
    * - compression_quality

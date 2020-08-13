@@ -46,7 +46,7 @@ Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/sh
      - 
      - 
    * - type
-     - CatalogFileType
+     - :carta:`CatalogFileType`
      - 
      - 
    * - file_size
@@ -88,7 +88,7 @@ Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/sh
      - 
      - 
    * - data_type
-     - ColumnType
+     - :carta:`ColumnType`
      - 
      - 
    * - column_index
@@ -152,7 +152,7 @@ Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/sh
      - Label
      - Description
    * - data_type
-     - ColumnType
+     - :carta:`ColumnType`
      - 
      - 
    * - string_data
@@ -242,7 +242,7 @@ File info message structure (internal use only)
      - 
      - 
    * - type
-     - FileType
+     - :carta:`FileType`
      - 
      - 
    * - size
@@ -330,7 +330,7 @@ Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/sh
      - 
      - 
    * - comparison_operator
-     - ComparisonOperator
+     - :carta:`ComparisonOperator`
      - 
      - 
    * - value
@@ -544,7 +544,7 @@ Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/sh
      - Label
      - Description
    * - region_type
-     - RegionType
+     - :carta:`RegionType`
      - 
      - The type of region described by the control points. The meaning of the control points will differ, depending on the type of region being defined.
    * - control_points
@@ -646,7 +646,7 @@ Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/sh
      - 
      - 
    * - stats_type
-     - StatsType
+     - :carta:`StatsType`
      - 
      - 
    * - raw_values_fp32
@@ -676,7 +676,7 @@ Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/sh
      - Label
      - Description
    * - stats_type
-     - StatsType
+     - :carta:`StatsType`
      - 
      - 
    * - value

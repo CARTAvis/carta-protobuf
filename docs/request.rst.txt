@@ -326,11 +326,11 @@ Source file: `moment_request.proto <https://github.com/CARTAvis/carta-protobuf/b
      - 
      - 
    * - moments
-     - Moment
+     - :carta:`Moment`
      - repeated
      - 
    * - axis
-     - MomentAxis
+     - :carta:`MomentAxis`
      - 
      - 
    * - region_id
@@ -342,7 +342,7 @@ Source file: `moment_request.proto <https://github.com/CARTAvis/carta-protobuf/b
      - 
      - 
    * - mask
-     - MomentMask
+     - :carta:`MomentMask`
      - 
      - 
    * - pixel_range
@@ -554,7 +554,7 @@ Source file: `save_file.proto <https://github.com/CARTAvis/carta-protobuf/blob/d
      - 
      - 
    * - output_file_type
-     - FileType
+     - :carta:`FileType`
      - 
      - 
 

@@ -54,7 +54,7 @@ Source file: `catalog_filter.proto <https://github.com/CARTAvis/carta-protobuf/b
      - 
      - 
    * - sorting_type
-     - SortingType
+     - :carta:`SortingType`
      - 
      - 
 
@@ -225,7 +225,7 @@ the state of the backend, and is not used in place of returning success=false on
      - Label
      - Description
    * - severity
-     - ErrorSeverity
+     - :carta:`ErrorSeverity`
      - 
      - The severity of the error. Critical errors are reserved for errors that would normally require the user to restart the program or reload the page
    * - tags
@@ -273,7 +273,7 @@ Source file: `raster_tile.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - The image stokes coordinate
    * - compression_type
-     - CompressionType
+     - :carta:`CompressionType`
      - 
      - The compression algorithm used.
    * - compression_quality

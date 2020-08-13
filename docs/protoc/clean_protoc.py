@@ -18,6 +18,8 @@ for file_ in data["files"]:
             map_info[message["longName"]] = message
         else:
             message_names.add(message["name"])
+    for enum in file_["enums"]:
+        message_names.add(enum["name"])
 
 def to_snake(word):
     parts = re.findall("[A-Z][a-z]+", word)
@@ -125,6 +127,10 @@ for file_ in data["files"]:
         anchor = name.lower()
         underline = "^" * len(name)
         output.append(f".. _{anchor}:\n\n{name}\n{underline}\n")
+        
+        # Link to file on github
+        
+        output.append(f"Source file: `{file_name} <https://github.com/CARTAvis/carta-protobuf/blob/dev/{parent_dir}/{file_name}>`_\n")
         
         # Description
         

@@ -3,6 +3,8 @@
 CatalogFileType
 ^^^^^^^^^^^^^^^
 
+Source file: `enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
 
 
 .. list-table::
@@ -23,6 +25,8 @@ CatalogFileType
 
 ClientFeatureFlags
 ^^^^^^^^^^^^^^^^^^
+
+Source file: `enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
 
 
@@ -56,6 +60,8 @@ ClientFeatureFlags
 
 ColumnType
 ^^^^^^^^^^
+
+Source file: `enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
 
 
@@ -111,6 +117,8 @@ ColumnType
 ComparisonOperator
 ^^^^^^^^^^^^^^^^^^
 
+Source file: `enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
 
 
 .. list-table::
@@ -150,6 +158,8 @@ ComparisonOperator
 CompressionType
 ^^^^^^^^^^^^^^^
 
+Source file: `enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
 
 
 .. list-table::
@@ -174,6 +184,8 @@ CompressionType
 CoordinateType
 ^^^^^^^^^^^^^^
 
+Source file: `enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
 
 
 .. list-table::
@@ -194,6 +206,8 @@ CoordinateType
 
 EntryType
 ^^^^^^^^^
+
+Source file: `enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
 
 
@@ -218,6 +232,8 @@ EntryType
 
 ErrorSeverity
 ^^^^^^^^^^^^^
+
+Source file: `enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
 
 
@@ -248,6 +264,8 @@ ErrorSeverity
 
 EventType
 ^^^^^^^^^
+
+Source file: `enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
 
 
@@ -465,6 +483,8 @@ EventType
 FileFeatureFlags
 ^^^^^^^^^^^^^^^^
 
+Source file: `enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
 
 
 .. list-table::
@@ -501,6 +521,8 @@ FileFeatureFlags
 FileType
 ^^^^^^^^
 
+Source file: `enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
 
 
 .. list-table::
@@ -536,6 +558,8 @@ FileType
 
 Moment
 ^^^^^^
+
+Source file: `enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
 
 
@@ -591,6 +615,8 @@ Moment
 MomentAxis
 ^^^^^^^^^^
 
+Source file: `enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
 
 
 .. list-table::
@@ -611,6 +637,8 @@ MomentAxis
 
 MomentMask
 ^^^^^^^^^^
+
+Source file: `enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
 
 
@@ -635,6 +663,8 @@ MomentMask
 
 RegionType
 ^^^^^^^^^^
+
+Source file: `enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
 
 
@@ -672,6 +702,8 @@ RegionType
 RenderMode
 ^^^^^^^^^^
 
+Source file: `enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
 
 
 .. list-table::
@@ -692,6 +724,8 @@ RenderMode
 
 ServerFeatureFlags
 ^^^^^^^^^^^^^^^^^^
+
+Source file: `enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
 
 
@@ -729,6 +763,8 @@ ServerFeatureFlags
 SessionType
 ^^^^^^^^^^^
 
+Source file: `enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
 
 
 .. list-table::
@@ -749,6 +785,8 @@ SessionType
 
 SmoothingMode
 ^^^^^^^^^^^^^
+
+Source file: `enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
 
 
@@ -774,6 +812,8 @@ SmoothingMode
 SortingType
 ^^^^^^^^^^^
 
+Source file: `enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
 
 
 .. list-table::
@@ -794,6 +834,8 @@ SortingType
 
 StatsType
 ^^^^^^^^^
+
+Source file: `enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
 
 
