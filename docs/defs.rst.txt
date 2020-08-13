@@ -337,6 +337,31 @@ FilterConfig
      - 
      - 
 
+.. _floatbounds:
+
+FloatBounds
+^^^^^^^^^^^
+
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - min
+     - float
+     - 
+     - 
+   * - max
+     - float
+     - 
+     - 
+
 .. _headerentry:
 
 HeaderEntry
@@ -448,6 +473,31 @@ ImageBounds
      - 
      - 
    * - y_max
+     - sfixed32
+     - 
+     - 
+
+.. _intbounds:
+
+IntBounds
+^^^^^^^^^
+
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - min
+     - sfixed32
+     - 
+     - 
+   * - max
      - sfixed32
      - 
      - 

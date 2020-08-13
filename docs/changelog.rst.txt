@@ -4,7 +4,7 @@
 
 ``0.1.8  (07/09/18):`` Added ``computed_entries`` map to the File Info Extended message
 
-``0.1.9  (10/09/18): Changed computed_entries`` map to an array of ``HeaderEntry`` messages
+``0.1.9  (10/09/18):`` Changed ``computed_entries`` map to an array of ``HeaderEntry`` messages
 
 ``0.1.10 (10/09/18):`` Added optional field ``spatial_requirements`` to the ``SET_CURSOR`` message
 
@@ -59,4 +59,8 @@
 ``15.0.0 (04/07/20):`` Added date field to file info, reordered file types alphabetically
 
 ``16.0.0 (??/07/20):`` Added sub-message for region style, replace RegionProperties with map
+
+``16.1.0 (11/08/20):`` Non-breaking change: added map of matched frames for spectral matched animation
+
+``16.2.0 (12/08/20):`` Non-breaking change: added intensity limit field to line ID query
 

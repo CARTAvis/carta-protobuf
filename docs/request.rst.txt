@@ -281,6 +281,114 @@ Gives a list of available files (and their types), as well as subdirectories
 
 .. cssclass:: f2b
 
+.. _momentprogress:
+
+MomentProgress
+^^^^^^^^^^^^^^
+
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - 
+   * - progress
+     - float
+     - 
+     - 
+
+.. cssclass:: f2b
+
+.. _momentrequest:
+
+MomentRequest
+^^^^^^^^^^^^^
+
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - 
+   * - moments
+     - Moment
+     - repeated
+     - 
+   * - axis
+     - MomentAxis
+     - 
+     - 
+   * - region_id
+     - sfixed32
+     - 
+     - 
+   * - spectral_range
+     - IntBounds
+     - 
+     - 
+   * - mask
+     - MomentMask
+     - 
+     - 
+   * - pixel_range
+     - FloatBounds
+     - 
+     - 
+
+.. cssclass:: b2f
+
+.. _momentresponse:
+
+MomentResponse
+^^^^^^^^^^^^^^
+
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - success
+     - bool
+     - 
+     - 
+   * - message
+     - string
+     - 
+     - 
+   * - open_file_acks
+     - OpenFileAck
+     - repeated
+     - 
+
+
+
+
+.. cssclass:: f2b
+
 .. _regionfileinforequest:
 
 RegionFileInfoRequest
@@ -417,6 +525,75 @@ Gives a list of available region files (and their types), as well as subdirector
      - string
      - repeated
      - List of available subdirectories
+
+
+
+
+.. cssclass:: f2b
+
+.. _savefile:
+
+SaveFile
+^^^^^^^^
+
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - 
+   * - output_file_directory
+     - string
+     - 
+     - 
+   * - output_file_name
+     - string
+     - 
+     - 
+   * - output_file_type
+     - FileType
+     - 
+     - 
+
+.. cssclass:: f2b
+
+.. _savefileack:
+
+SaveFileAck
+^^^^^^^^^^^
+
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - 
+   * - success
+     - bool
+     - 
+     - 
+   * - message
+     - string
+     - 
+     - 
 
 
 

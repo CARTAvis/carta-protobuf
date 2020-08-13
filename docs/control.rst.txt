@@ -37,6 +37,29 @@ Used for informing the backend of which frames have been received
 
 .. cssclass:: f2b
 
+.. _matchedframelist:
+
+MatchedFrameList
+^^^^^^^^^^^^^^^^
+
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - frame_numbers
+     - float
+     - repeated
+     - 
+
+.. cssclass:: f2b
+
 .. _startanimation:
 
 StartAnimation
@@ -91,6 +114,35 @@ Backend responds with START_ANIMATION_ACK
      - AddRequiredTiles
      - 
      - Required tiles when changing channels
+   * - matched_frames
+     - MatchedFramesEntry
+     - repeated
+     - 
+
+.. _startanimation.matchedframesentry:
+
+StartAnimation.MatchedFramesEntry
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - key
+     - sfixed32
+     - 
+     - 
+   * - value
+     - MatchedFrameList
+     - 
+     - 
 
 .. cssclass:: b2f
 
@@ -1383,6 +1435,10 @@ SpectralLineRequest
      - DoubleBounds
      - 
      - 
+   * - line_intensity_lower_limit
+     - double
+     - 
+     - 
 
 .. cssclass:: f2b
 
@@ -1447,6 +1503,32 @@ SpectralLineResponse.SpectralLineDataEntry
      - ColumnData
      - 
      - 
+
+
+
+
+.. cssclass:: f2b
+
+.. _stopmomentcalc:
+
+StopMomentCalc
+^^^^^^^^^^^^^^
+
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - Stop the moment calculation with respect to the image file id
 
 
 
