@@ -168,3 +168,7 @@ message CatalogImageBounds {
     string y_column_name = 2;
     ImageBounds image_bounds = 3;
 }
+
+message MatchedFrameList {
+    repeated float frame_numbers = 1;
+}
