@@ -11,8 +11,6 @@ with open(inputname) as icdfile:
     icd = icdfile.read()
 
 # Fix references
-# TODO we need explicit references to use :ref:.
-# TODO add alternate anchors to all the protobuf messages, to simplify these.
 
 def reference(m):
     label = m.group(1)
@@ -22,6 +20,11 @@ def reference(m):
     return f':ref:`{label} <{target}>`'
 
 icd = re.sub('`([^`<]+) <#([^>]+)>`__', reference, icd)
+
+# Remove nested markup from custom colour roles (for now)
+
+icd = re.sub(':f2b:```(.*?)```', r':f2b:`\1`', icd)
+icd = re.sub(':b2f:```(.*?)```', r':b2f:`\1`', icd)
 
 # inline the inexplicably substituted images
 
