@@ -9,6 +9,8 @@ The CARTA Backend/Frontend ICD is automatically generated from this repository u
 
 After a change to the protocol buffer files you must also regenerate the `*.rst.txt` files by running `make` in the `protoc` subdirectory. These files are generated with [protoc-gen-doc](https://github.com/pseudomuto/protoc-gen-doc). Make sure that both the `protoc` and `protoc-gen-doc` executables are in your path.
 
+To make it possible for the automatically generated message documentation to categorise messages correctly, please put all submessages in `shared/defs.proto`, even if they are only used in one file.
+
 [Plantuml](https://plantuml.com/) diagrams are rendered by the [Plantweb](https://plantweb.readthedocs.io/) extension and should be added to the text as UML, not as images. 
 
 To preview the built documentation locally, install the `sphinx` and `plantuml` packages, preferably with `pip3`. Then run `make html` in the `docs` directory.
