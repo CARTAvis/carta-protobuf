@@ -3,11 +3,11 @@
 Data cube navigation
 --------------------
 
-The frontend can change the displayed channel and Stokes parameter by issuing the :carta:`SET_IMAGE_CHANNELS` command. When an image is opened, the frontend will send a :carta:`SET_IMAGE_CHANNELS` with the first channel and Stokes parameter. The frontend subscribes to all :carta:`RASTER_TILE_DATA` messages.
+The frontend can change the displayed channel and Stokes parameter by issuing the :carta:ref:`SET_IMAGE_CHANNELS` command. When an image is opened, the frontend will send a :carta:ref:`SET_IMAGE_CHANNELS` with the first channel and Stokes parameter. The frontend subscribes to all :carta:ref:`RASTER_TILE_DATA` messages.
 
 Tiled rendering splits the image into individual square tiles (defaulting to 256 pixels in width), and renders the image progressively as tiles arrive from the backend. This is more efficient when exploring a large image, as it reuses data when panning and zooming around the image. Images are downsampled by a power of 2.
 
-In addition, contour rendering can be used on files. The contours for an entire channel are generated when the frontend sends the :carta:`SET_CONTOUR_PARAMETERS` command. The frontend subscribes to all :carta:`CONTOUR_IMAGE_DATA` messages. Currently, contour renders are automatically updated when the user changes channel or plays an animation. Contours are delivered in separate chunks by the backend, so that the user can see the contours as they are delivered to the frontend, and can get an idea of how long the contour fetching will take.
+In addition, contour rendering can be used on files. The contours for an entire channel are generated when the frontend sends the :carta:ref:`SET_CONTOUR_PARAMETERS` command. The frontend subscribes to all :carta:ref:`CONTOUR_IMAGE_DATA` messages. Currently, contour renders are automatically updated when the user changes channel or plays an animation. Contours are delivered in separate chunks by the backend, so that the user can see the contours as they are delivered to the frontend, and can get an idea of how long the contour fetching will take.
 
 .. _Zooming and panning:
 
@@ -31,11 +31,11 @@ Encoding and decoding is a simple and lightweight process using some bit shiftin
 
 ``(x, y, layer) => (layer << 24) | (y << 12) | x;``
 
-When a user zooms or pans, the frontend sends the :carta:`ADD_REQUIRED_TILES` command to the backend. The frontend may debounce, throttle or delay sending tiles to the backend, in order to optimise delivery and avoid sending stale tiles. The order of the list of tiles supplied to :carta:`ADD_REQUIRED_TILES` determines the order in which the backend delivers tiles. If subsequent :carta:`ADD_REQUIRED_TILES` messages arrive while the backend is still delivering tiles, the most recent tile list is prioritised.
+When a user zooms or pans, the frontend sends the :carta:ref:`ADD_REQUIRED_TILES` command to the backend. The frontend may debounce, throttle or delay sending tiles to the backend, in order to optimise delivery and avoid sending stale tiles. The order of the list of tiles supplied to :carta:ref:`ADD_REQUIRED_TILES` determines the order in which the backend delivers tiles. If subsequent :carta:ref:`ADD_REQUIRED_TILES` messages arrive while the backend is still delivering tiles, the most recent tile list is prioritised.
 
-Another route for optimisation available to the frontend is :carta:`REMOVE_REQUIRED_TILES`, which allows the frontend to explicitly indicate that certain tiles are no longer required. If any of these tiles are yet to be delivered to the frontend, the backend can optimise tile delivery by removing them from the queue of titles to be delivered.
+Another route for optimisation available to the frontend is :carta:ref:`REMOVE_REQUIRED_TILES`, which allows the frontend to explicitly indicate that certain tiles are no longer required. If any of these tiles are yet to be delivered to the frontend, the backend can optimise tile delivery by removing them from the queue of titles to be delivered.
 
-Tile data is delivered by the backend using the :carta:`RASTER_TILE_DATA` stream. This allows the backend to send one or more raster tiles with the same compression format and quality to the frontend. Each time a tile is delivered to the frontend, the image is re-rendered.
+Tile data is delivered by the backend using the :carta:ref:`RASTER_TILE_DATA` stream. This allows the backend to send one or more raster tiles with the same compression format and quality to the frontend. Each time a tile is delivered to the frontend, the image is re-rendered.
 
 .. uml::
     
@@ -70,7 +70,7 @@ Tile data is delivered by the backend using the :carta:`RASTER_TILE_DATA` stream
 Channel navigation
 ~~~~~~~~~~~~~~~~~~
 
-When changing channels via a :carta:`SET_IMAGE_CHANNELS` message, the frontend includes an initial list of required tiles. These tiles are then delivered individually by the backend. Unlike the case when zooming and panning, the frontend will wait for all required tiles to be delivered before displaying an image when switching channels. When receiving a :carta:`SET_IMAGE_CHANNELS` message, the backend will also send the new channel histogram via the :carta:`REGION_HISTOGRAM_DATA` stream.
+When changing channels via a :carta:ref:`SET_IMAGE_CHANNELS` message, the frontend includes an initial list of required tiles. These tiles are then delivered individually by the backend. Unlike the case when zooming and panning, the frontend will wait for all required tiles to be delivered before displaying an image when switching channels. When receiving a :carta:ref:`SET_IMAGE_CHANNELS` message, the backend will also send the new channel histogram via the :carta:ref:`REGION_HISTOGRAM_DATA` stream.
 
 In general, one image view command will correspond to a subsequent image data stream message. However, changing the image channel will result in a subsequent image data stream message, as well as any relevant updated statistics, histograms or profile data.
 
@@ -111,7 +111,7 @@ In general, one image view command will correspond to a subsequent image data st
 Animation
 ~~~~~~~~~
 
-An animation can be played back by issuing the :carta:`START_ANIMATION` command. This command encapsulates all the different animation stepping and bounds parameters, in order to allow the backend to perform frame calculations and deliver image data to the front. After the the :carta:`START_ANIMATION` command has been issued, the backend sends images and analysis results to the frontend at a regular interval. When the user stops an animation, the frontend sends the :carta:`STOP_ANIMATION` command, which includes information on the current image’s channels, so that the backend can be sure that the frontend channel state is the same as that of the backend. If the last sent frame does match the frontend channel state, the backend adjusts channels again. In order to prevent the backend from sending too many animation frames, some basic flow control is provided through :carta:`ANIMATION_FLOW_CONTROL` message. This is sent from the frontend to the backend to indicate the latest frame received, preventing the backend from queuing up too many frames. The :carta:`START_ANIMATION` command includes an :carta:`ADD_REQUIRED_TILES` sub-message, specifying the required tiles and compression type to be used in the animation. The backend includes an animation ID field in :carta:`START_ANIMATION_ACK` in order to allow the frontend to differentiate between frames of previous animations and the latest animation.
+An animation can be played back by issuing the :carta:ref:`START_ANIMATION` command. This command encapsulates all the different animation stepping and bounds parameters, in order to allow the backend to perform frame calculations and deliver image data to the front. After the the :carta:ref:`START_ANIMATION` command has been issued, the backend sends images and analysis results to the frontend at a regular interval. When the user stops an animation, the frontend sends the :carta:ref:`STOP_ANIMATION` command, which includes information on the current image’s channels, so that the backend can be sure that the frontend channel state is the same as that of the backend. If the last sent frame does match the frontend channel state, the backend adjusts channels again. In order to prevent the backend from sending too many animation frames, some basic flow control is provided through :carta:ref:`ANIMATION_FLOW_CONTROL` message. This is sent from the frontend to the backend to indicate the latest frame received, preventing the backend from queuing up too many frames. The :carta:ref:`START_ANIMATION` command includes an :carta:ref:`ADD_REQUIRED_TILES` sub-message, specifying the required tiles and compression type to be used in the animation. The backend includes an animation ID field in :carta:ref:`START_ANIMATION_ACK` in order to allow the frontend to differentiate between frames of previous animations and the latest animation.
 
 .. uml::
     
@@ -153,5 +153,5 @@ An animation can be played back by issuing the :carta:`START_ANIMATION` command.
     deactivate Backend
     
 
-Images are sent as tiled data. In order to keep the image view channel and full image histogram synchronised, the ``RASTER_IMAGE_DATA`` message includes a :carta:`REGION_HISTOGRAM_DATA` object, containing the channel histogram for the new channel. During animation playback, each animation step will result in image data stream messages, as well as any relevant analytics updates. If zooming or panning occurs during animation, a ``SET_IMAGE_VIEW`` message is sent to the backend, updating the view bounds. These new bounds are used in the next frame generated by the backend.
+Images are sent as tiled data. In order to keep the image view channel and full image histogram synchronised, the ``RASTER_IMAGE_DATA`` message includes a :carta:ref:`REGION_HISTOGRAM_DATA` object, containing the channel histogram for the new channel. During animation playback, each animation step will result in image data stream messages, as well as any relevant analytics updates. If zooming or panning occurs during animation, a ``SET_IMAGE_VIEW`` message is sent to the backend, updating the view bounds. These new bounds are used in the next frame generated by the backend.
 

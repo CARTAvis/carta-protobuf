@@ -28,7 +28,7 @@ Provides a list of tiles that are required for the specified file
      - repeated
      - The list of tiles required, in encoded coordinate
    * - compression_type
-     - :carta:`CompressionType`
+     - :carta:sub:`CompressionType`
      - 
      - The compression algorithm used
    * - compression_quality
@@ -62,7 +62,7 @@ Used for informing the backend of which frames have been received
      - 
      - 
    * - received_frame
-     - :carta:`AnimationFrame`
+     - :carta:sub:`AnimationFrame`
      - 
      - The latest flow control frame received
    * - animation_id
@@ -132,11 +132,11 @@ Source file: `request/catalog_file_info.proto <https://github.com/CARTAvis/carta
      - 
      - 
    * - file_info
-     - :carta:`CatalogFileInfo`
+     - :carta:sub:`CatalogFileInfo`
      - 
      - 
    * - headers
-     - :carta:`CatalogHeader`
+     - :carta:sub:`CatalogHeader`
      - repeated
      - 
 
@@ -169,7 +169,7 @@ Source file: `stream/catalog_filter.proto <https://github.com/CARTAvis/carta-pro
      - repeated
      - 
    * - filter_configs
-     - :carta:`FilterConfig`
+     - :carta:sub:`FilterConfig`
      - repeated
      - 
    * - subset_data_size
@@ -181,7 +181,7 @@ Source file: `stream/catalog_filter.proto <https://github.com/CARTAvis/carta-pro
      - 
      - 
    * - image_bounds
-     - :carta:`CatalogImageBounds`
+     - :carta:sub:`CatalogImageBounds`
      - 
      - 
    * - image_file_id
@@ -197,7 +197,7 @@ Source file: `stream/catalog_filter.proto <https://github.com/CARTAvis/carta-pro
      - 
      - 
    * - sorting_type
-     - :carta:`SortingType`
+     - :carta:sub:`SortingType`
      - 
      - 
 
@@ -234,7 +234,7 @@ Source file: `stream/catalog_filter.proto <https://github.com/CARTAvis/carta-pro
      - 
      - 
    * - columns
-     - map<key: fixed32, value: :carta:`ColumnData`>
+     - map<key: fixed32, value: :carta:sub:`ColumnData`>
      - repeated
      - 
    * - subset_data_size
@@ -320,7 +320,7 @@ Source file: `request/catalog_list.proto <https://github.com/CARTAvis/carta-prot
      - 
      - 
    * - files
-     - :carta:`CatalogFileInfo`
+     - :carta:sub:`CatalogFileInfo`
      - repeated
      - 
    * - subdirectories
@@ -409,7 +409,7 @@ Data for an image rendered in contour mode.
      - 
      - The file ID of the reference image that the contour vertices are mapped to
    * - image_bounds
-     - :carta:`ImageBounds`
+     - :carta:sub:`ImageBounds`
      - 
      - The bounding box in the XY plane corresponding to the image data in pixel coordinates
    * - channel
@@ -421,7 +421,7 @@ Data for an image rendered in contour mode.
      - 
      - The image stokes parameter used to generate the contours
    * - contour_sets
-     - :carta:`ContourSet`
+     - :carta:sub:`ContourSet`
      - repeated
      - Each contour set consists of the contour level value, as well as a list of coordinates. The start_indices list is used to determine how to subdivide the coordinates list into separate poly-lines when rendering.
    * - progress
@@ -493,7 +493,7 @@ the state of the backend, and is not used in place of returning success=false on
      - Label
      - Description
    * - severity
-     - :carta:`ErrorSeverity`
+     - :carta:sub:`ErrorSeverity`
      - 
      - The severity of the error. Critical errors are reserved for errors that would normally require the user to restart the program or reload the page
    * - tags
@@ -521,7 +521,7 @@ Source file: `control/export_region.proto <https://github.com/CARTAvis/carta-pro
 EXPORT_REGION:
 Requests exporting the specified regions to a file on the server.
 If directory and file are blank, return file contents for export on client.
-Backend responds with  :carta:`EXPORT_REGION_ACK`
+Backend responds with  :carta:b2f:`EXPORT_REGION_ACK`
 
 .. list-table::
    :widths: 25 25 10 40
@@ -533,11 +533,11 @@ Backend responds with  :carta:`EXPORT_REGION_ACK`
      - Label
      - Description
    * - type
-     - :carta:`FileType`
+     - :carta:sub:`FileType`
      - 
      - Required file type
    * - coord_type
-     - :carta:`CoordinateType`
+     - :carta:sub:`CoordinateType`
      - 
      - Required coordinate type pixel/world
    * - file_id
@@ -545,7 +545,7 @@ Backend responds with  :carta:`EXPORT_REGION_ACK`
      - 
      - File id for the coordinate system to use
    * - region_styles
-     - map<key: sfixed32, value: :carta:`RegionStyle`>
+     - map<key: sfixed32, value: :carta:sub:`RegionStyle`>
      - repeated
      - Region ids and style params to export
    * - directory
@@ -567,7 +567,7 @@ ExportRegionAck
 Source file: `control/export_region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/export_region.proto>`_
 
 EXPORT_REGION_ACK
-Response for :carta:`EXPORT_REGION` to indicate success and file contents if on client.
+Response for :carta:f2b:`EXPORT_REGION` to indicate success and file contents if on client.
 
 .. list-table::
    :widths: 25 25 10 40
@@ -581,7 +581,7 @@ Response for :carta:`EXPORT_REGION` to indicate success and file contents if on 
    * - success
      - bool
      - 
-     - Defines whether :carta:`EXPORT_REGION` was successful
+     - Defines whether :carta:f2b:`EXPORT_REGION` was successful
    * - message
      - string
      - 
@@ -602,7 +602,7 @@ Source file: `request/file_info.proto <https://github.com/CARTAvis/carta-protobu
 
 FILE_INFO_REQUEST:
 Requests the file info for a specific file.
-Backend responds with :carta:`FILE_INFO_RESPONSE`
+Backend responds with :carta:b2f:`FILE_INFO_RESPONSE`
 
 .. list-table::
    :widths: 25 25 10 40
@@ -636,7 +636,7 @@ FileInfoResponse
 Source file: `request/file_info.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/file_info.proto>`_
 
 FILE_INFO_RESPONSE
-Response for :carta:`FILE_INFO_REQUEST`.
+Response for :carta:f2b:`FILE_INFO_REQUEST`.
 Gives information on the requested file
 
 .. list-table::
@@ -651,17 +651,17 @@ Gives information on the requested file
    * - success
      - bool
      - 
-     - Defines whether the :carta:`FILE_INFO_REQUEST` was successful
+     - Defines whether the :carta:f2b:`FILE_INFO_REQUEST` was successful
    * - message
      - string
      - 
      - Error message (if applicable)
    * - file_info
-     - :carta:`FileInfo`
+     - :carta:sub:`FileInfo`
      - 
      - Basic file info (type, size)
    * - file_info_extended
-     - :carta:`FileInfoExtended`
+     - :carta:sub:`FileInfoExtended`
      - 
      - Extended file info (WCS, header info)
 
@@ -676,7 +676,7 @@ Source file: `request/file_list.proto <https://github.com/CARTAvis/carta-protobu
 
 FILE_LIST_REQUEST:
 Requests the list of available files for a given directory.
-Backend responds with :carta:`FILE_LIST_RESPONSE`
+Backend responds with :carta:b2f:`FILE_LIST_RESPONSE`
 
 .. list-table::
    :widths: 25 25 10 40
@@ -702,7 +702,7 @@ FileListResponse
 Source file: `request/file_list.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/file_list.proto>`_
 
 FILE_LIST_RESPONSE
-Response for :carta:`FILE_LIST_REQUEST`.
+Response for :carta:f2b:`FILE_LIST_REQUEST`.
 Gives a list of available files (and their types), as well as subdirectories
 
 .. list-table::
@@ -717,7 +717,7 @@ Gives a list of available files (and their types), as well as subdirectories
    * - success
      - bool
      - 
-     - Defines whether the :carta:`FILE_LIST_REQUEST` was successful
+     - Defines whether the :carta:f2b:`FILE_LIST_REQUEST` was successful
    * - message
      - string
      - 
@@ -731,7 +731,7 @@ Gives a list of available files (and their types), as well as subdirectories
      - 
      - Directory parent (null/empty if top-level)
    * - files
-     - :carta:`FileInfo`
+     - :carta:sub:`FileInfo`
      - repeated
      - List of available image files, with file type information and size information.
    * - subdirectories
@@ -805,7 +805,7 @@ Source file: `control/resume_session.proto <https://github.com/CARTAvis/carta-pr
      - 
      - 
    * - render_mode
-     - :carta:`RenderMode`
+     - :carta:sub:`RenderMode`
      - 
      - 
    * - channel
@@ -817,11 +817,11 @@ Source file: `control/resume_session.proto <https://github.com/CARTAvis/carta-pr
      - 
      - 
    * - regions
-     - map<key: sfixed32, value: :carta:`RegionInfo`>
+     - map<key: sfixed32, value: :carta:sub:`RegionInfo`>
      - repeated
      - 
    * - contour_settings
-     - :carta:`SetContourParameters`
+     - :carta:sub:`SetContourParameters`
      - 
      - 
 
@@ -836,7 +836,7 @@ Source file: `control/import_region.proto <https://github.com/CARTAvis/carta-pro
 
 IMPORT_REGION:
 Requests the opening and applying of a specific region file.
-Backend responds with  :carta:`IMPORT_REGION_ACK`
+Backend responds with  :carta:b2f:`IMPORT_REGION_ACK`
 
 .. list-table::
    :widths: 25 25 10 40
@@ -852,7 +852,7 @@ Backend responds with  :carta:`IMPORT_REGION_ACK`
      - 
      - Required WCS group id (may be a single file id)
    * - type
-     - :carta:`FileType`
+     - :carta:sub:`FileType`
      - 
      - Required file type
    * - directory
@@ -878,7 +878,7 @@ ImportRegionAck
 Source file: `control/import_region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/import_region.proto>`_
 
 IMPORT_REGION_ACK
-Response for :carta:`IMPORT_REGION`. Also supplies region properties
+Response for :carta:f2b:`IMPORT_REGION`. Also supplies region properties
 
 .. list-table::
    :widths: 25 25 10 40
@@ -892,17 +892,17 @@ Response for :carta:`IMPORT_REGION`. Also supplies region properties
    * - success
      - bool
      - 
-     - Defines whether :carta:`IMPORT_REGION` was successful
+     - Defines whether :carta:f2b:`IMPORT_REGION` was successful
    * - message
      - string
      - 
      - Error message (if applicable)
    * - regions
-     - map<key: sfixed32, value: :carta:`RegionInfo`>
+     - map<key: sfixed32, value: :carta:sub:`RegionInfo`>
      - repeated
      - Map region id to parameters
    * - region_styles
-     - map<key: sfixed32, value: :carta:`RegionStyle`>
+     - map<key: sfixed32, value: :carta:sub:`RegionStyle`>
      - repeated
      - Map region id to style parameters
 
@@ -960,11 +960,11 @@ Source file: `request/moment_request.proto <https://github.com/CARTAvis/carta-pr
      - 
      - 
    * - moments
-     - :carta:`Moment`
+     - :carta:sub:`Moment`
      - repeated
      - 
    * - axis
-     - :carta:`MomentAxis`
+     - :carta:sub:`MomentAxis`
      - 
      - 
    * - region_id
@@ -972,15 +972,15 @@ Source file: `request/moment_request.proto <https://github.com/CARTAvis/carta-pr
      - 
      - 
    * - spectral_range
-     - :carta:`IntBounds`
+     - :carta:sub:`IntBounds`
      - 
      - 
    * - mask
-     - :carta:`MomentMask`
+     - :carta:sub:`MomentMask`
      - 
      - 
    * - pixel_range
-     - :carta:`FloatBounds`
+     - :carta:sub:`FloatBounds`
      - 
      - 
 
@@ -1013,7 +1013,7 @@ Source file: `request/moment_request.proto <https://github.com/CARTAvis/carta-pr
      - 
      - 
    * - open_file_acks
-     - :carta:`OpenFileAck`
+     - :carta:sub:`OpenFileAck`
      - repeated
      - 
 
@@ -1087,7 +1087,7 @@ Source file: `control/open_catalog_file.proto <https://github.com/CARTAvis/carta
      - 
      - 
    * - file_info
-     - :carta:`CatalogFileInfo`
+     - :carta:sub:`CatalogFileInfo`
      - 
      - 
    * - data_size
@@ -1095,11 +1095,11 @@ Source file: `control/open_catalog_file.proto <https://github.com/CARTAvis/carta
      - 
      - 
    * - headers
-     - :carta:`CatalogHeader`
+     - :carta:sub:`CatalogHeader`
      - repeated
      - 
    * - preview_data
-     - map<key: fixed32, value: :carta:`ColumnData`>
+     - map<key: fixed32, value: :carta:sub:`ColumnData`>
      - repeated
      - 
 
@@ -1114,7 +1114,7 @@ Source file: `control/open_file.proto <https://github.com/CARTAvis/carta-protobu
 
 OPEN_FILE:
 Requests the opening of a specific file.
-Backend responds with  :carta:`OPEN_FILE_ACK`
+Backend responds with  :carta:b2f:`OPEN_FILE_ACK`
 
 .. list-table::
    :widths: 25 25 10 40
@@ -1142,7 +1142,7 @@ Backend responds with  :carta:`OPEN_FILE_ACK`
      - 
      - Which "file" slot to load the file into (when viewing multiple files)
    * - render_mode
-     - :carta:`RenderMode`
+     - :carta:sub:`RenderMode`
      - 
      - The render mode to use. Additional modes will be added in subsequent versions.
 
@@ -1156,7 +1156,7 @@ OpenFileAck
 Source file: `control/open_file.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/open_file.proto>`_
 
 OPEN_FILE_ACK
-Response for :carta:`OPEN_FILE`. Also supplies file information
+Response for :carta:f2b:`OPEN_FILE`. Also supplies file information
 
 .. list-table::
    :widths: 25 25 10 40
@@ -1170,7 +1170,7 @@ Response for :carta:`OPEN_FILE`. Also supplies file information
    * - success
      - bool
      - 
-     - Defines whether :carta:`OPEN_FILE` was successful
+     - Defines whether :carta:f2b:`OPEN_FILE` was successful
    * - file_id
      - sfixed32
      - 
@@ -1180,11 +1180,11 @@ Response for :carta:`OPEN_FILE`. Also supplies file information
      - 
      - Error message (if applicable)
    * - file_info
-     - :carta:`FileInfo`
+     - :carta:sub:`FileInfo`
      - 
      - Basic file info (type, size)
    * - file_info_extended
-     - :carta:`FileInfoExtended`
+     - :carta:sub:`FileInfoExtended`
      - 
      - Extended file info (WCS, header info)
    * - file_feature_flags
@@ -1225,7 +1225,7 @@ Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protob
      - 
      - The image stokes coordinate
    * - compression_type
-     - :carta:`CompressionType`
+     - :carta:sub:`CompressionType`
      - 
      - The compression algorithm used.
    * - compression_quality
@@ -1237,7 +1237,7 @@ Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protob
      - 
      - The ID of the animation (if any)
    * - tiles
-     - :carta:`TileData`
+     - :carta:sub:`TileData`
      - repeated
      - List of tile data
 
@@ -1293,7 +1293,7 @@ Source file: `request/region_file_info.proto <https://github.com/CARTAvis/carta-
 
 REGION_FILE_INFO_REQUEST:
 Requests contents for a specific region file on the server
-Backend responds with :carta:`REGION_FILE_INFO_RESPONSE`
+Backend responds with :carta:b2f:`REGION_FILE_INFO_RESPONSE`
 
 .. list-table::
    :widths: 25 25 10 40
@@ -1323,7 +1323,7 @@ RegionFileInfoResponse
 Source file: `request/region_file_info.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/region_file_info.proto>`_
 
 REGION_FILE_INFO_RESPONSE
-Response for :carta:`REGION_FILE_INFO_REQUEST`.
+Response for :carta:f2b:`REGION_FILE_INFO_REQUEST`.
 Gives information on the requested file
 
 .. list-table::
@@ -1344,7 +1344,7 @@ Gives information on the requested file
      - 
      - Error message (if applicable)
    * - file_info
-     - :carta:`FileInfo`
+     - :carta:sub:`FileInfo`
      - 
      - Basic info about region file
    * - contents
@@ -1386,7 +1386,7 @@ Stats data for a specific region
      - 
      - The image stokes parameter used to generate the profiles
    * - histograms
-     - :carta:`Histogram`
+     - :carta:sub:`Histogram`
      - repeated
      - array of histograms of the current region
    * - progress
@@ -1405,7 +1405,7 @@ Source file: `request/region_list.proto <https://github.com/CARTAvis/carta-proto
 
 REGION_LIST_REQUEST:
 Requests the list of available region files for a given directory.
-Backend responds with :carta:`REGION_LIST_RESPONSE`
+Backend responds with :carta:b2f:`REGION_LIST_RESPONSE`
 
 .. list-table::
    :widths: 25 25 10 40
@@ -1431,7 +1431,7 @@ RegionListResponse
 Source file: `request/region_list.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/region_list.proto>`_
 
 REGION_LIST_RESPONSE
-Response for :carta:`REGION_LIST_REQUEST`.
+Response for :carta:f2b:`REGION_LIST_REQUEST`.
 Gives a list of available region files (and their types), as well as subdirectories
 
 .. list-table::
@@ -1446,7 +1446,7 @@ Gives a list of available region files (and their types), as well as subdirector
    * - success
      - bool
      - 
-     - Defines whether the :carta:`REGION_LIST_REQUEST` was successful
+     - Defines whether the :carta:f2b:`REGION_LIST_REQUEST` was successful
    * - message
      - string
      - 
@@ -1460,7 +1460,7 @@ Gives a list of available region files (and their types), as well as subdirector
      - 
      - Directory parent (null/empty if top-level)
    * - files
-     - :carta:`FileInfo`
+     - :carta:sub:`FileInfo`
      - repeated
      - List of available image files, with file type information and size information.
    * - subdirectories
@@ -1506,7 +1506,7 @@ Stats data for a specific region
      - 
      - The image stokes parameter used to generate the profiles
    * - statistics
-     - :carta:`StatisticsValue`
+     - :carta:sub:`StatisticsValue`
      - repeated
      - Array of statistics values, each corresponding to a particular measurement, such as max, min, mean, etc
 
@@ -1521,7 +1521,7 @@ Source file: `control/register_viewer.proto <https://github.com/CARTAvis/carta-p
 
 REGISTER_VIEWER:
 Registers the viewer with the backend.
-Responds with :carta:`REGISTER_VIEWER_ACK`
+Responds with :carta:b2f:`REGISTER_VIEWER_ACK`
 
 .. list-table::
    :widths: 25 25 10 40
@@ -1555,7 +1555,7 @@ RegisterViewerAck
 Source file: `control/register_viewer.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/register_viewer.proto>`_
 
 REGISTER_VIEWER_ACK
-Acknowledgement response for :carta:`REGISTER_VIEWER`.
+Acknowledgement response for :carta:f2b:`REGISTER_VIEWER`.
 Informs the frontend whether the session was correctly.
 
 .. list-table::
@@ -1574,13 +1574,13 @@ Informs the frontend whether the session was correctly.
    * - success
      - bool
      - 
-     - Defines whether the :carta:`REGISTER_VIEWER` command was successful
+     - Defines whether the :carta:f2b:`REGISTER_VIEWER` command was successful
    * - message
      - string
      - 
      - Error message (if applicable)
    * - session_type
-     - :carta:`SessionType`
+     - :carta:sub:`SessionType`
      - 
      - Defines the type of session established
    * - server_feature_flags
@@ -1673,11 +1673,11 @@ Source file: `control/resume_session.proto <https://github.com/CARTAvis/carta-pr
      - Label
      - Description
    * - images
-     - :carta:`ImageProperties`
+     - :carta:sub:`ImageProperties`
      - repeated
      - 
    * - catalog_files
-     - :carta:`OpenCatalogFile`
+     - :carta:sub:`OpenCatalogFile`
      - repeated
      - 
 
@@ -1743,7 +1743,7 @@ Source file: `request/save_file.proto <https://github.com/CARTAvis/carta-protobu
      - 
      - 
    * - output_file_type
-     - :carta:`FileType`
+     - :carta:sub:`FileType`
      - 
      - 
 
@@ -1888,7 +1888,7 @@ Sets the contour parameters for a file
      - 
      - The file ID of the reference image that the contour vertices should be mapped to
    * - image_bounds
-     - :carta:`ImageBounds`
+     - :carta:sub:`ImageBounds`
      - 
      - The XY bounds corresponding to the image data in pixel coordinates
    * - levels
@@ -1896,7 +1896,7 @@ Sets the contour parameters for a file
      - repeated
      - Contour levels
    * - smoothing_mode
-     - :carta:`SmoothingMode`
+     - :carta:sub:`SmoothingMode`
      - 
      - Pre-contouring smoothing mode
    * - smoothing_factor
@@ -1943,11 +1943,11 @@ The cursor defines a special case of a region, with a single control point.
      - 
      - Which file slot the cursor is moving over
    * - point
-     - :carta:`Point`
+     - :carta:sub:`Point`
      - 
      - XY-coordinates of cursor in image space
    * - spatial_requirements
-     - :carta:`SetSpatialRequirements`
+     - :carta:sub:`SetSpatialRequirements`
      - 
      - Optional accompanying spatial requirements message to be processed prior to cursor update
 
@@ -1981,7 +1981,7 @@ Sets which histogram data needs to be streamed to the frontend when the region i
      - 
      - ID of the region that is having requirements defined. If a region ID of -1 is given, this corresponds to the entire 2D image.
    * - histograms
-     - :carta:`HistogramConfig`
+     - :carta:sub:`HistogramConfig`
      - repeated
      - List of required histograms, along with the number of bins. If the channel is -1, the current channel is used. If the channel is -2, the histogram is constructed over all channels. If the number of bins is less than zero, an automatic bin size is used, based on the number of values.
 
@@ -2019,7 +2019,7 @@ Sets the current image channel and Stokes parameter
      - 
      - The image stokes parameter
    * - required_tiles
-     - :carta:`AddRequiredTiles`
+     - :carta:sub:`AddRequiredTiles`
      - 
      - Required tiles when changing channels
 
@@ -2033,7 +2033,7 @@ SetRegion
 Source file: `control/region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region.proto>`_
 
 SET_REGION:
-Creates or updates a region. Backend responds with :carta:`SET_REGION_ACK`
+Creates or updates a region. Backend responds with :carta:b2f:`SET_REGION_ACK`
 
 .. list-table::
    :widths: 25 25 10 40
@@ -2053,7 +2053,7 @@ Creates or updates a region. Backend responds with :carta:`SET_REGION_ACK`
      - 
      - Unique region ID. <=0 if a new region is being created.
    * - region_info
-     - :carta:`RegionInfo`
+     - :carta:sub:`RegionInfo`
      - 
      - Region parameters
 
@@ -2067,7 +2067,7 @@ SetRegionAck
 Source file: `control/region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region.proto>`_
 
 SET_REGION_ACK:
-Response for :carta:`SET_REGION`
+Response for :carta:f2b:`SET_REGION`
 
 .. list-table::
    :widths: 25 25 10 40
@@ -2081,7 +2081,7 @@ Response for :carta:`SET_REGION`
    * - success
      - bool
      - 
-     - Defines whether :carta:`SET_REGION` was successful
+     - Defines whether :carta:f2b:`SET_REGION` was successful
    * - message
      - string
      - 
@@ -2089,7 +2089,7 @@ Response for :carta:`SET_REGION`
    * - region_id
      - sfixed32
      - 
-     - The unique region ID. If the region is updated, this will be the same as the region ID specified in :carta:`SET_REGION`. If  a new region is being created, the ID of the new region will be passed back.
+     - The unique region ID. If the region is updated, this will be the same as the region ID specified in :carta:f2b:`SET_REGION`. If  a new region is being created, the ID of the new region will be passed back.
 
 .. cssclass:: f2b
 
@@ -2201,7 +2201,7 @@ Sets which spectral profile data needs to be streamed to the frontend when the r
      - 
      - ID of the region that is having requirements defined. If a region ID of 0 is given, this corresponds to the point region defined by the cursor position.
    * - spectral_profiles
-     - :carta:`SpectralConfig`
+     - :carta:sub:`SpectralConfig`
      - repeated
      - List of spectral profiles needed, along with which stats types are needed for each profile. If no Stokes parameter is specified (i.e. just “z”) or if the coordinate is empty, the active Stokes parameter is used. If the region is a point region, the statsTypes field is ignored.
 
@@ -2235,7 +2235,7 @@ Sets which stats data needs to be streamed to the frontend when the region is up
      - 
      - ID of the region that is having requirements defined. If a region ID of -1 is given, this corresponds to the entire 2D image.
    * - stats
-     - :carta:`StatsType`
+     - :carta:sub:`StatsType`
      - repeated
      - List of required stats
 
@@ -2250,7 +2250,7 @@ Source file: `control/user_layout.proto <https://github.com/CARTAvis/carta-proto
 
 SET_USER_LAYOUT:
 Sets or clears a user layout.
-Backend responds with  :carta:`SET_USER_LAYOUT_ACK`
+Backend responds with  :carta:b2f:`SET_USER_LAYOUT_ACK`
 
 .. list-table::
    :widths: 25 25 10 40
@@ -2280,7 +2280,7 @@ SetUserLayoutAck
 Source file: `control/user_layout.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/user_layout.proto>`_
 
 SET_USER_LAYOUT_ACK
-Response for :carta:`SET_USER_LAYOUT`
+Response for :carta:f2b:`SET_USER_LAYOUT`
 
 .. list-table::
    :widths: 25 25 10 40
@@ -2294,7 +2294,7 @@ Response for :carta:`SET_USER_LAYOUT`
    * - success
      - bool
      - 
-     - Defines whether :carta:`SET_USER_LAYOUT` was successful  Error message (if applicable)
+     - Defines whether :carta:f2b:`SET_USER_LAYOUT` was successful  Error message (if applicable)
 
 .. cssclass:: f2b
 
@@ -2307,7 +2307,7 @@ Source file: `control/user_preferences.proto <https://github.com/CARTAvis/carta-
 
 SET_USER_PREFERENCES:
 Sets or clears one or more user preferences.
-Backend responds with  :carta:`SET_USER_PREFERENCES_ACK`
+Backend responds with  :carta:b2f:`SET_USER_PREFERENCES_ACK`
 
 .. list-table::
    :widths: 25 25 10 40
@@ -2333,7 +2333,7 @@ SetUserPreferencesAck
 Source file: `control/user_preferences.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/user_preferences.proto>`_
 
 SET_USER_PREFERENCES_ACK
-Response for :carta:`SET_USER_PREFERENCES`
+Response for :carta:f2b:`SET_USER_PREFERENCES`
 
 .. list-table::
    :widths: 25 25 10 40
@@ -2347,7 +2347,7 @@ Response for :carta:`SET_USER_PREFERENCES`
    * - success
      - bool
      - 
-     - Defines whether :carta:`SET_USER_PREFERENCES` was successful  Error message (if applicable)
+     - Defines whether :carta:f2b:`SET_USER_PREFERENCES` was successful  Error message (if applicable)
 
 .. cssclass:: b2f
 
@@ -2399,7 +2399,7 @@ Data for spatial profile set for a specific file
      - 
      - The value of the image at the given coordinates
    * - profiles
-     - :carta:`SpatialProfile`
+     - :carta:sub:`SpatialProfile`
      - repeated
      - Spatial profiles for each required profile type
 
@@ -2428,7 +2428,7 @@ Source file: `control/region_requirements.proto <https://github.com/CARTAvis/car
      - 
      - 
    * - stats_types
-     - :carta:`StatsType`
+     - :carta:sub:`StatsType`
      - repeated
      - 
 
@@ -2453,7 +2453,7 @@ Source file: `control/spectral_line_request.proto <https://github.com/CARTAvis/c
      - Label
      - Description
    * - frequency_range
-     - :carta:`DoubleBounds`
+     - :carta:sub:`DoubleBounds`
      - 
      - 
    * - line_intensity_lower_limit
@@ -2494,11 +2494,11 @@ Source file: `control/spectral_line_request.proto <https://github.com/CARTAvis/c
      - 
      - 
    * - headers
-     - :carta:`CatalogHeader`
+     - :carta:sub:`CatalogHeader`
      - repeated
      - 
    * - spectral_line_data
-     - map<key: fixed32, value: :carta:`ColumnData`>
+     - map<key: fixed32, value: :carta:sub:`ColumnData`>
      - repeated
      - 
 
@@ -2540,7 +2540,7 @@ Data for spectral profile set for a specific file
      - 
      - Progress indicator, in the case of partial profile results being sent. If the profile calculations are time-consuming, regular updates should be sent to the frontend. If the data is complete, progress >= 1.
    * - profiles
-     - :carta:`SpectralProfile`
+     - :carta:sub:`SpectralProfile`
      - repeated
      - Spatial profiles for each required profile type
 
@@ -2555,7 +2555,7 @@ Source file: `control/animation.proto <https://github.com/CARTAvis/carta-protobu
 
 START_ANIMATION:
 Starts an animation, as defined by the start, stop and step definitions.
-Backend responds with :carta:`START_ANIMATION_ACK`
+Backend responds with :carta:b2f:`START_ANIMATION_ACK`
 
 .. list-table::
    :widths: 25 25 10 40
@@ -2571,19 +2571,19 @@ Backend responds with :carta:`START_ANIMATION_ACK`
      - 
      - Which file slot the animation describes.
    * - first_frame
-     - :carta:`AnimationFrame`
+     - :carta:sub:`AnimationFrame`
      - 
      - The lower bound of the animation when looping.
    * - start_frame
-     - :carta:`AnimationFrame`
+     - :carta:sub:`AnimationFrame`
      - 
      - The starting point of the animation.
    * - last_frame
-     - :carta:`AnimationFrame`
+     - :carta:sub:`AnimationFrame`
      - 
      - The upper bound of the animation.
    * - delta_frame
-     - :carta:`AnimationFrame`
+     - :carta:sub:`AnimationFrame`
      - 
      - The frame change step for the animation. For example, a delta frame of {channel=1, stokes=0} would step through each channel in the file.
    * - frame_rate
@@ -2599,11 +2599,11 @@ Backend responds with :carta:`START_ANIMATION_ACK`
      - 
      - Whether to reverse the animation direction when endFrame is reached.
    * - required_tiles
-     - :carta:`AddRequiredTiles`
+     - :carta:sub:`AddRequiredTiles`
      - 
      - Required tiles when changing channels
    * - matched_frames
-     - map<key: sfixed32, value: :carta:`MatchedFrameList`>
+     - map<key: sfixed32, value: :carta:sub:`MatchedFrameList`>
      - repeated
      - 
 
@@ -2617,7 +2617,7 @@ StartAnimationAck
 Source file: `control/animation.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/animation.proto>`_
 
 START_ANIMATION_ACK
-Response for :carta:`START_ANIMATION`
+Response for :carta:f2b:`START_ANIMATION`
 
 .. list-table::
    :widths: 25 25 10 40
@@ -2631,7 +2631,7 @@ Response for :carta:`START_ANIMATION`
    * - success
      - bool
      - 
-     - Defines whether :carta:`START_ANIMATION` was successful
+     - Defines whether :carta:f2b:`START_ANIMATION` was successful
    * - message
      - string
      - 
@@ -2667,7 +2667,7 @@ Stops the playing animation
      - 
      - Which file slot the animation describes.
    * - end_frame
-     - :carta:`AnimationFrame`
+     - :carta:sub:`AnimationFrame`
      - 
      - The ending point of the animation.
 

@@ -48,7 +48,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
    * - type
-     - :carta:`CatalogFileType`
+     - :carta:sub:`CatalogFileType`
      - 
      - 
    * - file_size
@@ -60,7 +60,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
    * - coosys
-     - :carta:`Coosys`
+     - :carta:sub:`Coosys`
      - repeated
      - 
    * - date
@@ -91,7 +91,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
    * - data_type
-     - :carta:`ColumnType`
+     - :carta:sub:`ColumnType`
      - 
      - 
    * - column_index
@@ -134,7 +134,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
    * - image_bounds
-     - :carta:`ImageBounds`
+     - :carta:sub:`ImageBounds`
      - 
      - 
 
@@ -157,7 +157,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - Label
      - Description
    * - data_type
-     - :carta:`ColumnType`
+     - :carta:sub:`ColumnType`
      - 
      - 
    * - string_data
@@ -250,7 +250,7 @@ File info message structure (internal use only)
      - 
      - 
    * - type
-     - :carta:`FileType`
+     - :carta:sub:`FileType`
      - 
      - 
    * - size
@@ -340,7 +340,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
    * - comparison_operator
-     - :carta:`ComparisonOperator`
+     - :carta:sub:`ComparisonOperator`
      - 
      - 
    * - value
@@ -561,11 +561,11 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - Label
      - Description
    * - region_type
-     - :carta:`RegionType`
+     - :carta:sub:`RegionType`
      - 
      - The type of region described by the control points. The meaning of the control points will differ, depending on the type of region being defined.
    * - control_points
-     - :carta:`Point`
+     - :carta:sub:`Point`
      - repeated
      - Control points for the region
    * - rotation
@@ -666,7 +666,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
    * - stats_type
-     - :carta:`StatsType`
+     - :carta:sub:`StatsType`
      - 
      - 
    * - raw_values_fp32
@@ -697,7 +697,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - Label
      - Description
    * - stats_type
-     - :carta:`StatsType`
+     - :carta:sub:`StatsType`
      - 
      - 
    * - value

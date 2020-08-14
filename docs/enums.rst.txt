@@ -288,202 +288,202 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - EMPTY_EVENT
      - 0
      - 
-   * - REGISTER_VIEWER
+   * - :carta:f2b:`REGISTER_VIEWER`
      - 1
      - 
-   * - FILE_LIST_REQUEST
+   * - :carta:f2b:`FILE_LIST_REQUEST`
      - 2
      - 
-   * - FILE_INFO_REQUEST
+   * - :carta:f2b:`FILE_INFO_REQUEST`
      - 3
      - 
-   * - OPEN_FILE
+   * - :carta:f2b:`OPEN_FILE`
      - 4
      - 
-   * - SET_IMAGE_CHANNELS
+   * - :carta:f2b:`SET_IMAGE_CHANNELS`
      - 6
      - 
-   * - SET_CURSOR
+   * - :carta:f2b:`SET_CURSOR`
      - 7
      - 
-   * - SET_SPATIAL_REQUIREMENTS
+   * - :carta:f2b:`SET_SPATIAL_REQUIREMENTS`
      - 8
      - 
-   * - SET_HISTOGRAM_REQUIREMENTS
+   * - :carta:f2b:`SET_HISTOGRAM_REQUIREMENTS`
      - 9
      - 
-   * - SET_STATS_REQUIREMENTS
+   * - :carta:f2b:`SET_STATS_REQUIREMENTS`
      - 10
      - 
-   * - SET_REGION
+   * - :carta:f2b:`SET_REGION`
      - 11
      - 
-   * - REMOVE_REGION
+   * - :carta:f2b:`REMOVE_REGION`
      - 12
      - 
-   * - CLOSE_FILE
+   * - :carta:f2b:`CLOSE_FILE`
      - 13
      - 
-   * - SET_SPECTRAL_REQUIREMENTS
+   * - :carta:f2b:`SET_SPECTRAL_REQUIREMENTS`
      - 14
      - 
-   * - START_ANIMATION
+   * - :carta:f2b:`START_ANIMATION`
      - 15
      - 
-   * - START_ANIMATION_ACK
+   * - :carta:b2f:`START_ANIMATION_ACK`
      - 16
      - 
-   * - STOP_ANIMATION
+   * - :carta:f2b:`STOP_ANIMATION`
      - 17
      - 
-   * - REGISTER_VIEWER_ACK
+   * - :carta:b2f:`REGISTER_VIEWER_ACK`
      - 18
      - 
-   * - FILE_LIST_RESPONSE
+   * - :carta:b2f:`FILE_LIST_RESPONSE`
      - 19
      - 
-   * - FILE_INFO_RESPONSE
+   * - :carta:b2f:`FILE_INFO_RESPONSE`
      - 20
      - 
-   * - OPEN_FILE_ACK
+   * - :carta:b2f:`OPEN_FILE_ACK`
      - 21
      - 
-   * - SET_REGION_ACK
+   * - :carta:b2f:`SET_REGION_ACK`
      - 22
      - 
-   * - REGION_HISTOGRAM_DATA
+   * - :carta:b2f:`REGION_HISTOGRAM_DATA`
      - 23
      - 
-   * - SPATIAL_PROFILE_DATA
+   * - :carta:b2f:`SPATIAL_PROFILE_DATA`
      - 25
      - 
-   * - SPECTRAL_PROFILE_DATA
+   * - :carta:b2f:`SPECTRAL_PROFILE_DATA`
      - 26
      - 
-   * - REGION_STATS_DATA
+   * - :carta:b2f:`REGION_STATS_DATA`
      - 27
      - 
-   * - ERROR_DATA
+   * - :carta:b2f:`ERROR_DATA`
      - 28
      - 
-   * - ANIMATION_FLOW_CONTROL
+   * - :carta:f2b:`ANIMATION_FLOW_CONTROL`
      - 29
      - 
-   * - ADD_REQUIRED_TILES
+   * - :carta:f2b:`ADD_REQUIRED_TILES`
      - 30
      - 
-   * - REMOVE_REQUIRED_TILES
+   * - :carta:f2b:`REMOVE_REQUIRED_TILES`
      - 31
      - 
-   * - RASTER_TILE_DATA
+   * - :carta:b2f:`RASTER_TILE_DATA`
      - 32
      - 
-   * - REGION_LIST_REQUEST
+   * - :carta:f2b:`REGION_LIST_REQUEST`
      - 33
      - 
-   * - REGION_LIST_RESPONSE
+   * - :carta:b2f:`REGION_LIST_RESPONSE`
      - 34
      - 
-   * - REGION_FILE_INFO_REQUEST
+   * - :carta:f2b:`REGION_FILE_INFO_REQUEST`
      - 35
      - 
-   * - REGION_FILE_INFO_RESPONSE
+   * - :carta:b2f:`REGION_FILE_INFO_RESPONSE`
      - 36
      - 
-   * - IMPORT_REGION
+   * - :carta:f2b:`IMPORT_REGION`
      - 37
      - 
-   * - IMPORT_REGION_ACK
+   * - :carta:b2f:`IMPORT_REGION_ACK`
      - 38
      - 
-   * - EXPORT_REGION
+   * - :carta:f2b:`EXPORT_REGION`
      - 39
      - 
-   * - EXPORT_REGION_ACK
+   * - :carta:b2f:`EXPORT_REGION_ACK`
      - 40
      - 
-   * - SET_USER_PREFERENCES
+   * - :carta:f2b:`SET_USER_PREFERENCES`
      - 41
      - 
-   * - SET_USER_PREFERENCES_ACK
+   * - :carta:b2f:`SET_USER_PREFERENCES_ACK`
      - 42
      - 
-   * - SET_USER_LAYOUT
+   * - :carta:f2b:`SET_USER_LAYOUT`
      - 43
      - 
-   * - SET_USER_LAYOUT_ACK
+   * - :carta:b2f:`SET_USER_LAYOUT_ACK`
      - 44
      - 
-   * - SET_CONTOUR_PARAMETERS
+   * - :carta:f2b:`SET_CONTOUR_PARAMETERS`
      - 45
      - 
-   * - CONTOUR_IMAGE_DATA
+   * - :carta:b2f:`CONTOUR_IMAGE_DATA`
      - 46
      - 
-   * - RESUME_SESSION
+   * - :carta:f2b:`RESUME_SESSION`
      - 47
      - 
-   * - RESUME_SESSION_ACK
+   * - :carta:b2f:`RESUME_SESSION_ACK`
      - 48
      - 
-   * - RASTER_TILE_SYNC
+   * - :carta:b2f:`RASTER_TILE_SYNC`
      - 49
      - 
-   * - CATALOG_LIST_REQUEST
+   * - :carta:f2b:`CATALOG_LIST_REQUEST`
      - 50
      - 
-   * - CATALOG_LIST_RESPONSE
+   * - :carta:b2f:`CATALOG_LIST_RESPONSE`
      - 51
      - 
-   * - CATALOG_FILE_INFO_REQUEST
+   * - :carta:f2b:`CATALOG_FILE_INFO_REQUEST`
      - 52
      - 
-   * - CATALOG_FILE_INFO_RESPONSE
+   * - :carta:b2f:`CATALOG_FILE_INFO_RESPONSE`
      - 53
      - 
-   * - OPEN_CATALOG_FILE
+   * - :carta:f2b:`OPEN_CATALOG_FILE`
      - 54
      - 
-   * - OPEN_CATALOG_FILE_ACK
+   * - :carta:b2f:`OPEN_CATALOG_FILE_ACK`
      - 55
      - 
-   * - CLOSE_CATALOG_FILE
+   * - :carta:f2b:`CLOSE_CATALOG_FILE`
      - 56
      - 
-   * - CATALOG_FILTER_REQUEST
+   * - :carta:f2b:`CATALOG_FILTER_REQUEST`
      - 57
      - 
-   * - CATALOG_FILTER_RESPONSE
+   * - :carta:b2f:`CATALOG_FILTER_RESPONSE`
      - 58
      - 
-   * - SCRIPTING_REQUEST
+   * - :carta:f2b:`SCRIPTING_REQUEST`
      - 59
      - 
-   * - SCRIPTING_RESPONSE
+   * - :carta:b2f:`SCRIPTING_RESPONSE`
      - 60
      - 
-   * - MOMENT_REQUEST
+   * - :carta:f2b:`MOMENT_REQUEST`
      - 61
      - 
-   * - MOMENT_RESPONSE
+   * - :carta:b2f:`MOMENT_RESPONSE`
      - 62
      - 
-   * - MOMENT_PROGRESS
+   * - :carta:b2f:`MOMENT_PROGRESS`
      - 63
      - 
-   * - STOP_MOMENT_CALC
+   * - :carta:f2b:`STOP_MOMENT_CALC`
      - 64
      - 
-   * - SAVE_FILE
+   * - :carta:f2b:`SAVE_FILE`
      - 65
      - 
-   * - SAVE_FILE_ACK
+   * - :carta:f2b:`SAVE_FILE_ACK`
      - 66
      - 
-   * - SPECTRAL_LINE_REQUEST
+   * - :carta:f2b:`SPECTRAL_LINE_REQUEST`
      - 67
      - 
-   * - SPECTRAL_LINE_RESPONSE
+   * - :carta:f2b:`SPECTRAL_LINE_RESPONSE`
      - 68
      - 
 

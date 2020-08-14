@@ -6,30 +6,73 @@ import sys
 import glob
 import os
 
-with open(sys.argv[1]) as f:
-    data = json.load(f)
-
-map_info = {}
-message_names = set()
-
-for file_ in data["files"]:
-    for message in file_["messages"]:
-        if message["name"].endswith("Entry"):
-            map_info[message["longName"]] = message
-        else:
-            message_names.add(message["name"])
-    for enum in file_["enums"]:
-        message_names.add(enum["name"])
+# FUNCTIONS
 
 def to_snake(word):
     parts = re.findall("[A-Z][a-z]+", word)
     return "_".join(p.upper() for p in parts)
 
-snake_names = set(to_snake(n) for n in message_names)
+def get_cssclass(parent_dir, anchor):
+    cssclass = None
+        
+    if parent_dir == "control":
+        cssclass = "b2f" if anchor.endswith("ack") else "f2b"
+    elif parent_dir == "request":
+        cssclass = "b2f" if anchor.endswith("response") or anchor.endswith("progress") else "f2b"
+    elif parent_dir == "stream":
+        cssclass = "f2b" if anchor.endswith("request") else "b2f"
+        
+    return cssclass 
 
+def auto_cartaref(s, exclude=None):
+    search = message_names | snake_names
+    if exclude:
+        search -= set([exclude, to_snake(exclude)])
+    for symbol in search:
+        anchor = symbol.lower().replace("_", "")
+        ref = get_cssclass(anchor_parent[anchor], anchor) or "sub"
+        s = re.sub(f"\\b{symbol}\\b", f":carta:{ref}:`{symbol}`", s)
+    return s
+
+# STATE
+
+map_info = {}
+message_names = set()
+anchor_parent = {}
 rst = {}
 
 proto_dir = {os.path.basename(p): os.path.basename(os.path.dirname(p)) for p in glob.glob("../../*/*.proto")}
+
+output_map = {
+    "messages": [os.path.basename(p) for p in glob.glob("../../control/*.proto") + glob.glob("../../request/*.proto") + glob.glob("../../stream/*.proto")],
+    "defs": ["defs.proto"],
+    "enums": ["enums.proto"],
+}
+
+# READ
+
+with open(sys.argv[1]) as f:
+    data = json.load(f)
+
+# FIRST PASS
+
+for file_ in data["files"]:
+    file_name = file_["name"]
+    parent_dir = proto_dir[file_name]
+    
+    for message in file_["messages"]:
+        if message["name"].endswith("Entry"):
+            map_info[message["longName"]] = message
+        else:
+            message_names.add(message["name"])
+            anchor_parent[message["name"].lower()] = parent_dir
+    for enum in file_["enums"]:
+        message_names.add(enum["name"])
+        anchor_parent[enum["name"].lower()] = parent_dir
+
+snake_names = set(to_snake(n) for n in message_names)
+
+# SECOND PASS
 
 for file_ in data["files"]:
     file_name = file_["name"]
@@ -47,14 +90,7 @@ for file_ in data["files"]:
         # Message colour
         
         anchor = name.lower()
-        cssclass = None
-        
-        if parent_dir == "control":
-            cssclass = "b2f" if anchor.endswith("ack") else "f2b"
-        elif parent_dir == "request":
-            cssclass = "b2f" if anchor.endswith("response") or anchor.endswith("progress") else "f2b"
-        elif parent_dir == "stream":
-            cssclass = "f2b" if anchor.endswith("request") else "b2f"
+        cssclass = get_cssclass(parent_dir, anchor)
         
         if cssclass:
             output.append(f".. cssclass:: {cssclass}\n")
@@ -71,8 +107,7 @@ for file_ in data["files"]:
         # Description
         
         description = message["description"]
-        for symbol in message_names | snake_names - set([name, to_snake(name)]):
-            description = re.sub(f"\\b{symbol}\\b", f":carta:`{symbol}`", description)
+        description = auto_cartaref(description, name)
         output.append(description)
         
         # Fields
@@ -102,10 +137,10 @@ for file_ in data["files"]:
                     map_key = map_message["fields"][0]["type"]
                     map_value = map_message["fields"][1]["type"]
                     if map_value in message_names:
-                        map_value = f":carta:`{map_value}`"
+                        map_value = f":carta:sub:`{map_value}`"
                     field_type = f"map<key: {map_key}, value: {map_value}>"
                 elif field["type"] in message_names:
-                    field_type = f":carta:`{field['type']}`"
+                    field_type = f":carta:sub:`{field['type']}`"
                 else:
                     field_type = field["type"]
                 
@@ -114,9 +149,7 @@ for file_ in data["files"]:
                 
                 field_desc = field["description"]
                 field_desc = field_desc.replace("\n", " ")
-                for symbol in message_names | snake_names - set([name, to_snake(name)]):
-                    field_desc = re.sub(f"\\b{symbol}\\b", f":carta:`{symbol}`", field_desc)
-                
+                field_desc = auto_cartaref(field_desc, name)
                 output.append(f"     - {field_desc}")
         
         output.append("")
@@ -139,8 +172,7 @@ for file_ in data["files"]:
         # Description
         
         description = enum["description"]
-        for symbol in message_names | snake_names - set([name, to_snake(name)]):
-            description = re.sub(f"\\b{symbol}\\b", f":carta:`{symbol}`", description)
+        description = auto_cartaref(description, name)
         output.append(description)
         
         # Values
@@ -158,18 +190,17 @@ for file_ in data["files"]:
         output.append(val_header)
         
         for val in enum["values"]:
-            output.append(f"   * - {val['name']}")
+            val_name = val["name"]
+            if name == "EventType":
+                val_name = auto_cartaref(val_name)
+            output.append(f"   * - {val_name}")
             output.append(f"     - {val['number']}")
             output.append(f"     - {val['description']}")
         
         output.append("")
         rst[file_name].append((name, "\n".join(output)))
 
-output_map = {
-    "messages": [os.path.basename(p) for p in glob.glob("../../control/*.proto") + glob.glob("../../request/*.proto") + glob.glob("../../stream/*.proto")],
-    "defs": ["defs.proto"],
-    "enums": ["enums.proto"],
-}
+# WRITE
 
 for section, filenames in output_map.items():
     elements = []

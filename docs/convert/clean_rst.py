@@ -16,7 +16,7 @@ def reference(m):
     label = m.group(1)
     target = re.sub('%%20', ' ', m.group(2))
     if label.lower().replace('_', '') == target.lower():
-        return f':carta:`{label}`'
+        return f':carta:ref:`{label}`'
     return f':ref:`{label} <{target}>`'
 
 icd = re.sub('`([^`<]+) <#([^>]+)>`__', reference, icd)
