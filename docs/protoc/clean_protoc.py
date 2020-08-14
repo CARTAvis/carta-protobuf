@@ -33,6 +33,7 @@ proto_dir = {os.path.basename(p): os.path.basename(os.path.dirname(p)) for p in 
 
 for file_ in data["files"]:
     file_name = file_["name"]
+    parent_dir = proto_dir[file_name]
     output = []
     
     for message in file_["messages"]:
@@ -44,7 +45,6 @@ for file_ in data["files"]:
         
         # Message colour
         
-        parent_dir = proto_dir[file_name]
         anchor = name.lower()
         cssclass = None
         
@@ -65,7 +65,7 @@ for file_ in data["files"]:
         
         # Link to file on github
         
-        output.append(f"Source file: `{file_name} <https://github.com/CARTAvis/carta-protobuf/blob/dev/{parent_dir}/{file_name}>`_\n")
+        output.append(f"Source file: `{parent_dir}/{file_name} <https://github.com/CARTAvis/carta-protobuf/blob/dev/{parent_dir}/{file_name}>`_\n")
         
         # Description
         
@@ -130,7 +130,7 @@ for file_ in data["files"]:
         
         # Link to file on github
         
-        output.append(f"Source file: `{file_name} <https://github.com/CARTAvis/carta-protobuf/blob/dev/{parent_dir}/{file_name}>`_\n")
+        output.append(f"Source file: `{parent_dir}/{file_name} <https://github.com/CARTAvis/carta-protobuf/blob/dev/{parent_dir}/{file_name}>`_\n")
         
         # Description
         

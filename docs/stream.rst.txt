@@ -5,7 +5,7 @@
 CatalogFilterRequest
 ^^^^^^^^^^^^^^^^^^^^
 
-Source file: `catalog_filter.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/catalog_filter.proto>`_
+Source file: `stream/catalog_filter.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/catalog_filter.proto>`_
 
 
 
@@ -65,7 +65,7 @@ Source file: `catalog_filter.proto <https://github.com/CARTAvis/carta-protobuf/b
 CatalogFilterResponse
 ^^^^^^^^^^^^^^^^^^^^^
 
-Source file: `catalog_filter.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/catalog_filter.proto>`_
+Source file: `stream/catalog_filter.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/catalog_filter.proto>`_
 
 
 
@@ -121,7 +121,7 @@ Source file: `catalog_filter.proto <https://github.com/CARTAvis/carta-protobuf/b
 ContourImageData
 ^^^^^^^^^^^^^^^^
 
-Source file: `contour_image.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/contour_image.proto>`_
+Source file: `stream/contour_image.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/contour_image.proto>`_
 
 CONTOUR_IMAGE_DATA:
 Data for an image rendered in contour mode.
@@ -170,7 +170,7 @@ Data for an image rendered in contour mode.
 ContourSet
 ^^^^^^^^^^
 
-Source file: `contour_image.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/contour_image.proto>`_
+Source file: `stream/contour_image.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/contour_image.proto>`_
 
 
 
@@ -210,7 +210,7 @@ Source file: `contour_image.proto <https://github.com/CARTAvis/carta-protobuf/bl
 ErrorData
 ^^^^^^^^^
 
-Source file: `error.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/error.proto>`_
+Source file: `stream/error.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/error.proto>`_
 
 ERROR_DATA:
 Stream of error/warning/info data. This stream is used to present the frontend with additional information on
@@ -248,7 +248,7 @@ the state of the backend, and is not used in place of returning success=false on
 RasterTileData
 ^^^^^^^^^^^^^^
 
-Source file: `raster_tile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/raster_tile.proto>`_
+Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/raster_tile.proto>`_
 
 
 
@@ -296,7 +296,7 @@ Source file: `raster_tile.proto <https://github.com/CARTAvis/carta-protobuf/blob
 RasterTileSync
 ^^^^^^^^^^^^^^
 
-Source file: `raster_tile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/raster_tile.proto>`_
+Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/raster_tile.proto>`_
 
 
 
@@ -336,7 +336,7 @@ Source file: `raster_tile.proto <https://github.com/CARTAvis/carta-protobuf/blob
 TileData
 ^^^^^^^^
 
-Source file: `raster_tile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/raster_tile.proto>`_
+Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/raster_tile.proto>`_
 
 
 
@@ -384,7 +384,7 @@ Source file: `raster_tile.proto <https://github.com/CARTAvis/carta-protobuf/blob
 RegionHistogramData
 ^^^^^^^^^^^^^^^^^^^
 
-Source file: `region_histogram.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/region_histogram.proto>`_
+Source file: `stream/region_histogram.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/region_histogram.proto>`_
 
 REGION_HISTOGRAM_DATA:
 Stats data for a specific region
@@ -425,7 +425,7 @@ Stats data for a specific region
 RegionStatsData
 ^^^^^^^^^^^^^^^
 
-Source file: `region_stats.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/region_stats.proto>`_
+Source file: `stream/region_stats.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/region_stats.proto>`_
 
 REGION_STATS_DATA:
 Stats data for a specific region
@@ -466,7 +466,7 @@ Stats data for a specific region
 SpatialProfileData
 ^^^^^^^^^^^^^^^^^^
 
-Source file: `spatial_profile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/spatial_profile.proto>`_
+Source file: `stream/spatial_profile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/spatial_profile.proto>`_
 
 SPATIAL_PROFILE_DATA:
 Data for spatial profile set for a specific file
@@ -519,7 +519,7 @@ Data for spatial profile set for a specific file
 SpectralProfileData
 ^^^^^^^^^^^^^^^^^^^
 
-Source file: `spectral_profile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/spectral_profile.proto>`_
+Source file: `stream/spectral_profile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/spectral_profile.proto>`_
 
 SPECTRAL_PROFILE_DATA:
 Data for spectral profile set for a specific file

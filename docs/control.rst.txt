@@ -5,7 +5,7 @@
 AnimationFlowControl
 ^^^^^^^^^^^^^^^^^^^^
 
-Source file: `animation.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/animation.proto>`_
+Source file: `control/animation.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/animation.proto>`_
 
 ANIMATION_FLOW_CONTROL
 Used for informing the backend of which frames have been received
@@ -42,7 +42,7 @@ Used for informing the backend of which frames have been received
 StartAnimation
 ^^^^^^^^^^^^^^
 
-Source file: `animation.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/animation.proto>`_
+Source file: `control/animation.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/animation.proto>`_
 
 START_ANIMATION:
 Starts an animation, as defined by the start, stop and step definitions.
@@ -104,7 +104,7 @@ Backend responds with :carta:`START_ANIMATION_ACK`
 StartAnimationAck
 ^^^^^^^^^^^^^^^^^
 
-Source file: `animation.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/animation.proto>`_
+Source file: `control/animation.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/animation.proto>`_
 
 START_ANIMATION_ACK
 Response for :carta:`START_ANIMATION`
@@ -137,7 +137,7 @@ Response for :carta:`START_ANIMATION`
 StopAnimation
 ^^^^^^^^^^^^^
 
-Source file: `animation.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/animation.proto>`_
+Source file: `control/animation.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/animation.proto>`_
 
 STOP_ANIMATION
 Stops the playing animation
@@ -166,7 +166,7 @@ Stops the playing animation
 CloseFile
 ^^^^^^^^^
 
-Source file: `close_file.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/close_file.proto>`_
+Source file: `control/close_file.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/close_file.proto>`_
 
 CLOSE_FILE:
 Instructs the backend to close a file with a given file ID
@@ -191,7 +191,7 @@ Instructs the backend to close a file with a given file ID
 SetContourParameters
 ^^^^^^^^^^^^^^^^^^^^
 
-Source file: `contour.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/contour.proto>`_
+Source file: `control/contour.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/contour.proto>`_
 
 SET_CONTOUR_PARAMETERS
 Sets the contour parameters for a file
@@ -248,7 +248,7 @@ Sets the contour parameters for a file
 ExportRegion
 ^^^^^^^^^^^^
 
-Source file: `export_region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/export_region.proto>`_
+Source file: `control/export_region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/export_region.proto>`_
 
 EXPORT_REGION:
 Requests exporting the specified regions to a file on the server.
@@ -295,7 +295,7 @@ Backend responds with  :carta:`EXPORT_REGION_ACK`
 ExportRegionAck
 ^^^^^^^^^^^^^^^
 
-Source file: `export_region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/export_region.proto>`_
+Source file: `control/export_region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/export_region.proto>`_
 
 EXPORT_REGION_ACK
 Response for :carta:`EXPORT_REGION` to indicate success and file contents if on client.
@@ -328,7 +328,7 @@ Response for :carta:`EXPORT_REGION` to indicate success and file contents if on 
 ImportRegion
 ^^^^^^^^^^^^
 
-Source file: `import_region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/import_region.proto>`_
+Source file: `control/import_region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/import_region.proto>`_
 
 IMPORT_REGION:
 Requests the opening and applying of a specific region file.
@@ -370,7 +370,7 @@ Backend responds with  :carta:`IMPORT_REGION_ACK`
 ImportRegionAck
 ^^^^^^^^^^^^^^^
 
-Source file: `import_region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/import_region.proto>`_
+Source file: `control/import_region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/import_region.proto>`_
 
 IMPORT_REGION_ACK
 Response for :carta:`IMPORT_REGION`. Also supplies region properties
@@ -407,7 +407,7 @@ Response for :carta:`IMPORT_REGION`. Also supplies region properties
 CloseCatalogFile
 ^^^^^^^^^^^^^^^^
 
-Source file: `open_catalog_file.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/open_catalog_file.proto>`_
+Source file: `control/open_catalog_file.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/open_catalog_file.proto>`_
 
 
 
@@ -431,7 +431,7 @@ Source file: `open_catalog_file.proto <https://github.com/CARTAvis/carta-protobu
 OpenCatalogFile
 ^^^^^^^^^^^^^^^
 
-Source file: `open_catalog_file.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/open_catalog_file.proto>`_
+Source file: `control/open_catalog_file.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/open_catalog_file.proto>`_
 
 
 
@@ -467,7 +467,7 @@ Source file: `open_catalog_file.proto <https://github.com/CARTAvis/carta-protobu
 OpenCatalogFileAck
 ^^^^^^^^^^^^^^^^^^
 
-Source file: `open_catalog_file.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/open_catalog_file.proto>`_
+Source file: `control/open_catalog_file.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/open_catalog_file.proto>`_
 
 
 
@@ -515,7 +515,7 @@ Source file: `open_catalog_file.proto <https://github.com/CARTAvis/carta-protobu
 OpenFile
 ^^^^^^^^
 
-Source file: `open_file.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/open_file.proto>`_
+Source file: `control/open_file.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/open_file.proto>`_
 
 OPEN_FILE:
 Requests the opening of a specific file.
@@ -557,7 +557,7 @@ Backend responds with  :carta:`OPEN_FILE_ACK`
 OpenFileAck
 ^^^^^^^^^^^
 
-Source file: `open_file.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/open_file.proto>`_
+Source file: `control/open_file.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/open_file.proto>`_
 
 OPEN_FILE_ACK
 Response for :carta:`OPEN_FILE`. Also supplies file information
@@ -602,7 +602,7 @@ Response for :carta:`OPEN_FILE`. Also supplies file information
 RemoveRegion
 ^^^^^^^^^^^^
 
-Source file: `region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region.proto>`_
+Source file: `control/region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region.proto>`_
 
 REMOVE_REGION:
 Removes a region
@@ -627,7 +627,7 @@ Removes a region
 SetRegion
 ^^^^^^^^^
 
-Source file: `region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region.proto>`_
+Source file: `control/region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region.proto>`_
 
 SET_REGION:
 Creates or updates a region. Backend responds with :carta:`SET_REGION_ACK`
@@ -660,7 +660,7 @@ Creates or updates a region. Backend responds with :carta:`SET_REGION_ACK`
 SetRegionAck
 ^^^^^^^^^^^^
 
-Source file: `region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region.proto>`_
+Source file: `control/region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region.proto>`_
 
 SET_REGION_ACK:
 Response for :carta:`SET_REGION`
@@ -693,7 +693,7 @@ Response for :carta:`SET_REGION`
 SetHistogramRequirements
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Source file: `region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
+Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
 
 SET_HISTOGRAM_REQUIREMENTS:
 Sets which histogram data needs to be streamed to the frontend when the region is updated
@@ -726,7 +726,7 @@ Sets which histogram data needs to be streamed to the frontend when the region i
 HistogramConfig
 ^^^^^^^^^^^^^^^
 
-Source file: `region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
+Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
 
 
 
@@ -754,7 +754,7 @@ Source file: `region_requirements.proto <https://github.com/CARTAvis/carta-proto
 SetRegionRequirements
 ^^^^^^^^^^^^^^^^^^^^^
 
-Source file: `region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
+Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
 
 SET_REGION_REQUIREMENTS:
 Sets which spatial profile data needs to be streamed to the frontend when the region is updated
@@ -799,7 +799,7 @@ Sets which spatial profile data needs to be streamed to the frontend when the re
 SetSpatialRequirements
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Source file: `region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
+Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
 
 SET_SPATIAL_REQUIREMENTS:
 Sets which information needs to be streamed to the frontend when the region is updated
@@ -832,7 +832,7 @@ Sets which information needs to be streamed to the frontend when the region is u
 SetSpectralRequirements
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Source file: `region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
+Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
 
 SET_SPECTRAL_REQUIREMENTS:
 Sets which spectral profile data needs to be streamed to the frontend when the region is updated
@@ -865,7 +865,7 @@ Sets which spectral profile data needs to be streamed to the frontend when the r
 SpectralConfig
 ^^^^^^^^^^^^^^
 
-Source file: `region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
+Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
 
 
 
@@ -893,7 +893,7 @@ Source file: `region_requirements.proto <https://github.com/CARTAvis/carta-proto
 SetStatsRequirements
 ^^^^^^^^^^^^^^^^^^^^
 
-Source file: `region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
+Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
 
 SET_STATS_REQUIREMENTS:
 Sets which stats data needs to be streamed to the frontend when the region is updated
@@ -926,7 +926,7 @@ Sets which stats data needs to be streamed to the frontend when the region is up
 RegisterViewer
 ^^^^^^^^^^^^^^
 
-Source file: `register_viewer.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/register_viewer.proto>`_
+Source file: `control/register_viewer.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/register_viewer.proto>`_
 
 REGISTER_VIEWER:
 Registers the viewer with the backend.
@@ -960,7 +960,7 @@ Responds with :carta:`REGISTER_VIEWER_ACK`
 RegisterViewerAck
 ^^^^^^^^^^^^^^^^^
 
-Source file: `register_viewer.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/register_viewer.proto>`_
+Source file: `control/register_viewer.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/register_viewer.proto>`_
 
 REGISTER_VIEWER_ACK
 Acknowledgement response for :carta:`REGISTER_VIEWER`.
@@ -1010,7 +1010,7 @@ Informs the frontend whether the session was correctly.
 ImageProperties
 ^^^^^^^^^^^^^^^
 
-Source file: `resume_session.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/resume_session.proto>`_
+Source file: `control/resume_session.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/resume_session.proto>`_
 
 
 
@@ -1066,7 +1066,7 @@ Source file: `resume_session.proto <https://github.com/CARTAvis/carta-protobuf/b
 ResumeSession
 ^^^^^^^^^^^^^
 
-Source file: `resume_session.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/resume_session.proto>`_
+Source file: `control/resume_session.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/resume_session.proto>`_
 
 
 
@@ -1094,7 +1094,7 @@ Source file: `resume_session.proto <https://github.com/CARTAvis/carta-protobuf/b
 ResumeSessionAck
 ^^^^^^^^^^^^^^^^
 
-Source file: `resume_session.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/resume_session.proto>`_
+Source file: `control/resume_session.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/resume_session.proto>`_
 
 
 
@@ -1122,7 +1122,7 @@ Source file: `resume_session.proto <https://github.com/CARTAvis/carta-protobuf/b
 SetCursor
 ^^^^^^^^^
 
-Source file: `set_cursor.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/set_cursor.proto>`_
+Source file: `control/set_cursor.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/set_cursor.proto>`_
 
 SET_CURSOR:
 Sets the current cursor position in image space coordinates.
@@ -1156,7 +1156,7 @@ The cursor defines a special case of a region, with a single control point.
 SetImageChannels
 ^^^^^^^^^^^^^^^^
 
-Source file: `set_image_channels.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/set_image_channels.proto>`_
+Source file: `control/set_image_channels.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/set_image_channels.proto>`_
 
 SET_IMAGE_CHANNELS
 Sets the current image channel and Stokes parameter
@@ -1193,7 +1193,7 @@ Sets the current image channel and Stokes parameter
 SpectralLineRequest
 ^^^^^^^^^^^^^^^^^^^
 
-Source file: `spectral_line_request.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/spectral_line_request.proto>`_
+Source file: `control/spectral_line_request.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/spectral_line_request.proto>`_
 
 
 
@@ -1221,7 +1221,7 @@ Source file: `spectral_line_request.proto <https://github.com/CARTAvis/carta-pro
 SpectralLineResponse
 ^^^^^^^^^^^^^^^^^^^^
 
-Source file: `spectral_line_request.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/spectral_line_request.proto>`_
+Source file: `control/spectral_line_request.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/spectral_line_request.proto>`_
 
 
 
@@ -1261,7 +1261,7 @@ Source file: `spectral_line_request.proto <https://github.com/CARTAvis/carta-pro
 StopMomentCalc
 ^^^^^^^^^^^^^^
 
-Source file: `stop_moment_calc.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/stop_moment_calc.proto>`_
+Source file: `control/stop_moment_calc.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/stop_moment_calc.proto>`_
 
 
 
@@ -1285,7 +1285,7 @@ Source file: `stop_moment_calc.proto <https://github.com/CARTAvis/carta-protobuf
 AddRequiredTiles
 ^^^^^^^^^^^^^^^^
 
-Source file: `tiles.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/tiles.proto>`_
+Source file: `control/tiles.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/tiles.proto>`_
 
 ADD_REQUIRED_TILES
 Provides a list of tiles that are required for the specified file
@@ -1322,7 +1322,7 @@ Provides a list of tiles that are required for the specified file
 RemoveRequiredTiles
 ^^^^^^^^^^^^^^^^^^^
 
-Source file: `tiles.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/tiles.proto>`_
+Source file: `control/tiles.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/tiles.proto>`_
 
 REMOVE_REQUIRED_TILES
 Provides a list of tiles that are required for the specified file
@@ -1351,7 +1351,7 @@ Provides a list of tiles that are required for the specified file
 SetUserLayout
 ^^^^^^^^^^^^^
 
-Source file: `user_layout.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/user_layout.proto>`_
+Source file: `control/user_layout.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/user_layout.proto>`_
 
 SET_USER_LAYOUT:
 Sets or clears a user layout.
@@ -1381,7 +1381,7 @@ Backend responds with  :carta:`SET_USER_LAYOUT_ACK`
 SetUserLayoutAck
 ^^^^^^^^^^^^^^^^
 
-Source file: `user_layout.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/user_layout.proto>`_
+Source file: `control/user_layout.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/user_layout.proto>`_
 
 SET_USER_LAYOUT_ACK
 Response for :carta:`SET_USER_LAYOUT`
@@ -1406,7 +1406,7 @@ Response for :carta:`SET_USER_LAYOUT`
 SetUserPreferences
 ^^^^^^^^^^^^^^^^^^
 
-Source file: `user_preferences.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/user_preferences.proto>`_
+Source file: `control/user_preferences.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/user_preferences.proto>`_
 
 SET_USER_PREFERENCES:
 Sets or clears one or more user preferences.
@@ -1432,7 +1432,7 @@ Backend responds with  :carta:`SET_USER_PREFERENCES_ACK`
 SetUserPreferencesAck
 ^^^^^^^^^^^^^^^^^^^^^
 
-Source file: `user_preferences.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/user_preferences.proto>`_
+Source file: `control/user_preferences.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/user_preferences.proto>`_
 
 SET_USER_PREFERENCES_ACK
 Response for :carta:`SET_USER_PREFERENCES`

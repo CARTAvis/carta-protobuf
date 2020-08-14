@@ -3,7 +3,7 @@
 AnimationFrame
 ^^^^^^^^^^^^^^
 
-Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -29,7 +29,7 @@ Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/sh
 CatalogFileInfo
 ^^^^^^^^^^^^^^^
 
-Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -71,7 +71,7 @@ Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/sh
 CatalogHeader
 ^^^^^^^^^^^^^
 
-Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -109,7 +109,7 @@ Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/sh
 CatalogImageBounds
 ^^^^^^^^^^^^^^^^^^
 
-Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -139,7 +139,7 @@ Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/sh
 ColumnData
 ^^^^^^^^^^
 
-Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -169,7 +169,7 @@ Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/sh
 Coosys
 ^^^^^^
 
-Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -199,7 +199,7 @@ Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/sh
 DoubleBounds
 ^^^^^^^^^^^^
 
-Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -225,7 +225,7 @@ Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/sh
 FileInfo
 ^^^^^^^^
 
-Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 File info message structure (internal use only)
 
@@ -263,7 +263,7 @@ File info message structure (internal use only)
 FileInfoExtended
 ^^^^^^^^^^^^^^^^
 
-Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -313,7 +313,7 @@ Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/sh
 FilterConfig
 ^^^^^^^^^^^^
 
-Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -351,7 +351,7 @@ Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/sh
 FloatBounds
 ^^^^^^^^^^^
 
-Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -377,7 +377,7 @@ Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/sh
 Histogram
 ^^^^^^^^^
 
-Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -423,7 +423,7 @@ Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/sh
 ImageBounds
 ^^^^^^^^^^^
 
-Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -457,7 +457,7 @@ Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/sh
 IntBounds
 ^^^^^^^^^
 
-Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -483,7 +483,7 @@ Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/sh
 MatchedFrameList
 ^^^^^^^^^^^^^^^^
 
-Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -505,7 +505,7 @@ Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/sh
 Point
 ^^^^^
 
-Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -531,7 +531,7 @@ Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/sh
 RegionInfo
 ^^^^^^^^^^
 
-Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -561,7 +561,7 @@ Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/sh
 RegionStyle
 ^^^^^^^^^^^
 
-Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -595,7 +595,7 @@ Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/sh
 SpatialProfile
 ^^^^^^^^^^^^^^
 
-Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -629,7 +629,7 @@ Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/sh
 SpectralProfile
 ^^^^^^^^^^^^^^^
 
-Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
@@ -663,7 +663,7 @@ Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/sh
 StatisticsValue
 ^^^^^^^^^^^^^^^
 
-Source file: `defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
 
 
