@@ -1,5 +1,42 @@
 .. cssclass:: f2b
 
+.. _addrequiredtiles:
+
+AddRequiredTiles
+^^^^^^^^^^^^^^^^
+
+Source file: `control/tiles.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/tiles.proto>`_
+
+ADD_REQUIRED_TILES
+Provides a list of tiles that are required for the specified file
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - The file ID that the view corresponds to
+   * - tiles
+     - sfixed32
+     - repeated
+     - The list of tiles required, in encoded coordinate
+   * - compression_type
+     - :carta:`CompressionType`
+     - 
+     - The compression algorithm used
+   * - compression_quality
+     - float
+     - 
+     - Compression quality switch
+
+.. cssclass:: f2b
+
 .. _animationflowcontrol:
 
 AnimationFlowControl
@@ -34,130 +71,6 @@ Used for informing the backend of which frames have been received
      - sfixed64
      - 
      - Timestamp at which the frame was received
-
-.. cssclass:: f2b
-
-.. _startanimation:
-
-StartAnimation
-^^^^^^^^^^^^^^
-
-Source file: `control/animation.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/animation.proto>`_
-
-START_ANIMATION:
-Starts an animation, as defined by the start, stop and step definitions.
-Backend responds with :carta:`START_ANIMATION_ACK`
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - file_id
-     - sfixed32
-     - 
-     - Which file slot the animation describes.
-   * - first_frame
-     - :carta:`AnimationFrame`
-     - 
-     - The lower bound of the animation when looping.
-   * - start_frame
-     - :carta:`AnimationFrame`
-     - 
-     - The starting point of the animation.
-   * - last_frame
-     - :carta:`AnimationFrame`
-     - 
-     - The upper bound of the animation.
-   * - delta_frame
-     - :carta:`AnimationFrame`
-     - 
-     - The frame change step for the animation. For example, a delta frame of {channel=1, stokes=0} would step through each channel in the file.
-   * - frame_rate
-     - sfixed32
-     - 
-     - Frame rate per second
-   * - looping
-     - bool
-     - 
-     - Whether to loop the animation indefinitely.
-   * - reverse
-     - bool
-     - 
-     - Whether to reverse the animation direction when endFrame is reached.
-   * - required_tiles
-     - :carta:`AddRequiredTiles`
-     - 
-     - Required tiles when changing channels
-   * - matched_frames
-     - map<key: sfixed32, value: :carta:`MatchedFrameList`>
-     - repeated
-     - 
-
-.. cssclass:: b2f
-
-.. _startanimationack:
-
-StartAnimationAck
-^^^^^^^^^^^^^^^^^
-
-Source file: `control/animation.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/animation.proto>`_
-
-START_ANIMATION_ACK
-Response for :carta:`START_ANIMATION`
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - success
-     - bool
-     - 
-     - Defines whether :carta:`START_ANIMATION` was successful
-   * - message
-     - string
-     - 
-     - Error message (if applicable)
-   * - animation_id
-     - sfixed32
-     - 
-     - The animation ID of the new animation
-
-.. cssclass:: f2b
-
-.. _stopanimation:
-
-StopAnimation
-^^^^^^^^^^^^^
-
-Source file: `control/animation.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/animation.proto>`_
-
-STOP_ANIMATION
-Stops the playing animation
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - file_id
-     - sfixed32
-     - 
-     - Which file slot the animation describes.
-   * - end_frame
-     - :carta:`AnimationFrame`
-     - 
-     - The ending point of the animation.
 
 .. cssclass:: f2b
 
@@ -409,6 +322,30 @@ Source file: `request/catalog_list.proto <https://github.com/CARTAvis/carta-prot
 
 .. cssclass:: f2b
 
+.. _closecatalogfile:
+
+CloseCatalogFile
+^^^^^^^^^^^^^^^^
+
+Source file: `control/open_catalog_file.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/open_catalog_file.proto>`_
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - 
+
+.. cssclass:: f2b
+
 .. _closefile:
 
 CloseFile
@@ -431,63 +368,6 @@ Instructs the backend to close a file with a given file ID
      - sfixed32
      - 
      - Which "file" slot to close
-
-.. cssclass:: f2b
-
-.. _setcontourparameters:
-
-SetContourParameters
-^^^^^^^^^^^^^^^^^^^^
-
-Source file: `control/contour.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/contour.proto>`_
-
-SET_CONTOUR_PARAMETERS
-Sets the contour parameters for a file
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - file_id
-     - fixed32
-     - 
-     - The file ID that the contour corresponds to
-   * - reference_file_id
-     - fixed32
-     - 
-     - The file ID of the reference image that the contour vertices should be mapped to
-   * - image_bounds
-     - :carta:`ImageBounds`
-     - 
-     - The XY bounds corresponding to the image data in pixel coordinates
-   * - levels
-     - double
-     - repeated
-     - Contour levels
-   * - smoothing_mode
-     - :carta:`SmoothingMode`
-     - 
-     - Pre-contouring smoothing mode
-   * - smoothing_factor
-     - int32
-     - 
-     - Contour smoothness factor. For block averaging, this is the block width For Gaussian smoothing, this defines both the Gaussian width, and the kernel size
-   * - decimation_factor
-     - int32
-     - 
-     - Decimation factor, indicates to what 1/Nth of a pixel the contour vertices should be rounded to
-   * - compression_level
-     - int32
-     - 
-     - Zstd compression level
-   * - contour_chunk_size
-     - int32
-     - 
-     - Size of contour chunks, in number of vertices. If this is set to zero, partial contour results are not used
 
 .. cssclass:: b2f
 
@@ -842,6 +722,90 @@ Gives a list of available files (and their types), as well as subdirectories
 
 .. cssclass:: f2b
 
+.. _histogramconfig:
+
+HistogramConfig
+^^^^^^^^^^^^^^^
+
+Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - channel
+     - sfixed32
+     - 
+     - 
+   * - num_bins
+     - sfixed32
+     - 
+     - 
+
+.. cssclass:: f2b
+
+.. _imageproperties:
+
+ImageProperties
+^^^^^^^^^^^^^^^
+
+Source file: `control/resume_session.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/resume_session.proto>`_
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - directory
+     - string
+     - 
+     - 
+   * - file
+     - string
+     - 
+     - 
+   * - hdu
+     - string
+     - 
+     - 
+   * - file_id
+     - sfixed32
+     - 
+     - 
+   * - render_mode
+     - :carta:`RenderMode`
+     - 
+     - 
+   * - channel
+     - sfixed32
+     - 
+     - 
+   * - stokes
+     - sfixed32
+     - 
+     - 
+   * - regions
+     - map<key: sfixed32, value: :carta:`RegionInfo`>
+     - repeated
+     - 
+   * - contour_settings
+     - :carta:`SetContourParameters`
+     - 
+     - 
+
+.. cssclass:: f2b
+
 .. _importregion:
 
 ImportRegion
@@ -1025,30 +989,6 @@ Source file: `request/moment_request.proto <https://github.com/CARTAvis/carta-pr
    * - open_file_acks
      - :carta:`OpenFileAck`
      - repeated
-     - 
-
-.. cssclass:: f2b
-
-.. _closecatalogfile:
-
-CloseCatalogFile
-^^^^^^^^^^^^^^^^
-
-Source file: `control/open_catalog_file.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/open_catalog_file.proto>`_
-
-
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - file_id
-     - sfixed32
-     - 
      - 
 
 .. cssclass:: f2b
@@ -1310,145 +1250,6 @@ Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protob
      - 
      - Is this a start or end sync message?
 
-.. cssclass:: b2f
-
-.. _tiledata:
-
-TileData
-^^^^^^^^
-
-Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/raster_tile.proto>`_
-
-
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - layer
-     - sfixed32
-     - 
-     - Tile layer coordinate
-   * - x
-     - sfixed32
-     - 
-     - Tile x coordinate
-   * - y
-     - sfixed32
-     - 
-     - Tile y coordinate
-   * - width
-     - sfixed32
-     - 
-     - Width of the tile data. If this is left as zero, the default tile size should be used
-   * - height
-     - sfixed32
-     - 
-     - Height of the tile data. If this is left as zero, the default tile size should be used
-   * - image_data
-     - bytes
-     - 
-     - Image data. For uncompressed data, this is converted into FP32, while for compressed data, this is passed to the compression library for decompression.
-   * - nan_encodings
-     - bytes
-     - 
-     - Run-length encodings of NaN values. These values are used to restore the NaN values after decompression.
-
-.. cssclass:: f2b
-
-.. _removeregion:
-
-RemoveRegion
-^^^^^^^^^^^^
-
-Source file: `control/region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region.proto>`_
-
-REMOVE_REGION:
-Removes a region
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - region_id
-     - sfixed32
-     - 
-     - Unique region ID of the region to be removed
-
-.. cssclass:: f2b
-
-.. _setregion:
-
-SetRegion
-^^^^^^^^^
-
-Source file: `control/region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region.proto>`_
-
-SET_REGION:
-Creates or updates a region. Backend responds with :carta:`SET_REGION_ACK`
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - file_id
-     - sfixed32
-     - 
-     - File slot of the reference image
-   * - region_id
-     - sfixed32
-     - 
-     - Unique region ID. <=0 if a new region is being created.
-   * - region_info
-     - :carta:`RegionInfo`
-     - 
-     - Region parameters
-
-.. cssclass:: b2f
-
-.. _setregionack:
-
-SetRegionAck
-^^^^^^^^^^^^
-
-Source file: `control/region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region.proto>`_
-
-SET_REGION_ACK:
-Response for :carta:`SET_REGION`
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - success
-     - bool
-     - 
-     - Defines whether :carta:`SET_REGION` was successful
-   * - message
-     - string
-     - 
-     - Error message (if applicable)
-   * - region_id
-     - sfixed32
-     - 
-     - The unique region ID. If the region is updated, this will be the same as the region ID specified in :carta:`SET_REGION`. If  a new region is being created, the ID of the new region will be passed back.
-
 .. cssclass:: f2b
 
 .. _regionfileinforequest:
@@ -1630,239 +1431,6 @@ Gives a list of available region files (and their types), as well as subdirector
      - repeated
      - List of available subdirectories
 
-.. cssclass:: f2b
-
-.. _sethistogramrequirements:
-
-SetHistogramRequirements
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
-
-SET_HISTOGRAM_REQUIREMENTS:
-Sets which histogram data needs to be streamed to the frontend when the region is updated
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - file_id
-     - sfixed32
-     - 
-     - Which file slot the requirements describe
-   * - region_id
-     - sfixed32
-     - 
-     - ID of the region that is having requirements defined. If a region ID of -1 is given, this corresponds to the entire 2D image.
-   * - histograms
-     - :carta:`HistogramConfig`
-     - repeated
-     - List of required histograms, along with the number of bins. If the channel is -1, the current channel is used. If the channel is -2, the histogram is constructed over all channels. If the number of bins is less than zero, an automatic bin size is used, based on the number of values.
-
-.. cssclass:: f2b
-
-.. _histogramconfig:
-
-HistogramConfig
-^^^^^^^^^^^^^^^
-
-Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
-
-
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - channel
-     - sfixed32
-     - 
-     - 
-   * - num_bins
-     - sfixed32
-     - 
-     - 
-
-.. cssclass:: f2b
-
-.. _setregionrequirements:
-
-SetRegionRequirements
-^^^^^^^^^^^^^^^^^^^^^
-
-Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
-
-SET_REGION_REQUIREMENTS:
-Sets which spatial profile data needs to be streamed to the frontend when the region is updated
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - file_id
-     - fixed32
-     - 
-     - 
-   * - region_id
-     - fixed32
-     - 
-     - ID of the region that is having requirements defined. If a region ID of 0 is given, this corresponds to the point region defined by the cursor position.
-   * - x
-     - bool
-     - 
-     - Is the X-profile (of the current Stokes parameter) required?
-   * - y
-     - bool
-     - 
-     - Is the Y-profile (of the current Stokes parameter) required?
-   * - z
-     - bool
-     - 
-     - Is the Z-profile (of the current Stokes parameter) required?
-   * - additional_profiles
-     - string
-     - repeated
-     - List of additional profiles needed (for example, [“Qz”, “Uz”]) will include the Z-profile of the Q and U Stokes cube, regardless of which Stokes parameter is currently in use.
-
-.. cssclass:: f2b
-
-.. _setspatialrequirements:
-
-SetSpatialRequirements
-^^^^^^^^^^^^^^^^^^^^^^
-
-Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
-
-SET_SPATIAL_REQUIREMENTS:
-Sets which information needs to be streamed to the frontend when the region is updated
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - file_id
-     - sfixed32
-     - 
-     - Which file slot the requirements describe
-   * - region_id
-     - sfixed32
-     - 
-     - ID of the region that is having requirements defined. If a region ID of 0 is given, this corresponds to the point region defined by the cursor position.
-   * - spatial_profiles
-     - string
-     - repeated
-     - List of spatial profiles needed. If no Stokes parameter is specified (i.e. just “x” or “y”), the active Stokes parameter is used.
-
-.. cssclass:: f2b
-
-.. _setspectralrequirements:
-
-SetSpectralRequirements
-^^^^^^^^^^^^^^^^^^^^^^^
-
-Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
-
-SET_SPECTRAL_REQUIREMENTS:
-Sets which spectral profile data needs to be streamed to the frontend when the region is updated
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - file_id
-     - sfixed32
-     - 
-     - Which file slot the requirements describe
-   * - region_id
-     - sfixed32
-     - 
-     - ID of the region that is having requirements defined. If a region ID of 0 is given, this corresponds to the point region defined by the cursor position.
-   * - spectral_profiles
-     - :carta:`SpectralConfig`
-     - repeated
-     - List of spectral profiles needed, along with which stats types are needed for each profile. If no Stokes parameter is specified (i.e. just “z”) or if the coordinate is empty, the active Stokes parameter is used. If the region is a point region, the statsTypes field is ignored.
-
-.. cssclass:: f2b
-
-.. _spectralconfig:
-
-SpectralConfig
-^^^^^^^^^^^^^^
-
-Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
-
-
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - coordinate
-     - string
-     - 
-     - 
-   * - stats_types
-     - :carta:`StatsType`
-     - repeated
-     - 
-
-.. cssclass:: f2b
-
-.. _setstatsrequirements:
-
-SetStatsRequirements
-^^^^^^^^^^^^^^^^^^^^
-
-Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
-
-SET_STATS_REQUIREMENTS:
-Sets which stats data needs to be streamed to the frontend when the region is updated
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - file_id
-     - sfixed32
-     - 
-     - Which file slot the requirements describe
-   * - region_id
-     - sfixed32
-     - 
-     - ID of the region that is having requirements defined. If a region ID of -1 is given, this corresponds to the entire 2D image.
-   * - stats
-     - :carta:`StatsType`
-     - repeated
-     - List of required stats
-
 .. cssclass:: b2f
 
 .. _regionstatsdata:
@@ -1990,14 +1558,15 @@ Informs the frontend whether the session was correctly.
 
 .. cssclass:: f2b
 
-.. _imageproperties:
+.. _removeregion:
 
-ImageProperties
-^^^^^^^^^^^^^^^
+RemoveRegion
+^^^^^^^^^^^^
 
-Source file: `control/resume_session.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/resume_session.proto>`_
+Source file: `control/region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region.proto>`_
 
-
+REMOVE_REGION:
+Removes a region
 
 .. list-table::
    :widths: 25 25 10 40
@@ -2007,42 +1576,39 @@ Source file: `control/resume_session.proto <https://github.com/CARTAvis/carta-pr
      - Type
      - Label
      - Description
-   * - directory
-     - string
+   * - region_id
+     - sfixed32
      - 
-     - 
-   * - file
-     - string
-     - 
-     - 
-   * - hdu
-     - string
-     - 
-     - 
+     - Unique region ID of the region to be removed
+
+.. cssclass:: f2b
+
+.. _removerequiredtiles:
+
+RemoveRequiredTiles
+^^^^^^^^^^^^^^^^^^^
+
+Source file: `control/tiles.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/tiles.proto>`_
+
+REMOVE_REQUIRED_TILES
+Provides a list of tiles that are required for the specified file
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
    * - file_id
      - sfixed32
      - 
-     - 
-   * - render_mode
-     - :carta:`RenderMode`
-     - 
-     - 
-   * - channel
+     - The file ID that the view corresponds to
+   * - tiles
      - sfixed32
-     - 
-     - 
-   * - stokes
-     - sfixed32
-     - 
-     - 
-   * - regions
-     - map<key: sfixed32, value: :carta:`RegionInfo`>
      - repeated
-     - 
-   * - contour_settings
-     - :carta:`SetContourParameters`
-     - 
-     - 
+     - The list of tiles required, in encoded coordinate
 
 .. cssclass:: f2b
 
@@ -2246,6 +1812,63 @@ Source file: `request/scripting.proto <https://github.com/CARTAvis/carta-protobu
 
 .. cssclass:: f2b
 
+.. _setcontourparameters:
+
+SetContourParameters
+^^^^^^^^^^^^^^^^^^^^
+
+Source file: `control/contour.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/contour.proto>`_
+
+SET_CONTOUR_PARAMETERS
+Sets the contour parameters for a file
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - fixed32
+     - 
+     - The file ID that the contour corresponds to
+   * - reference_file_id
+     - fixed32
+     - 
+     - The file ID of the reference image that the contour vertices should be mapped to
+   * - image_bounds
+     - :carta:`ImageBounds`
+     - 
+     - The XY bounds corresponding to the image data in pixel coordinates
+   * - levels
+     - double
+     - repeated
+     - Contour levels
+   * - smoothing_mode
+     - :carta:`SmoothingMode`
+     - 
+     - Pre-contouring smoothing mode
+   * - smoothing_factor
+     - int32
+     - 
+     - Contour smoothness factor. For block averaging, this is the block width For Gaussian smoothing, this defines both the Gaussian width, and the kernel size
+   * - decimation_factor
+     - int32
+     - 
+     - Decimation factor, indicates to what 1/Nth of a pixel the contour vertices should be rounded to
+   * - compression_level
+     - int32
+     - 
+     - Zstd compression level
+   * - contour_chunk_size
+     - int32
+     - 
+     - Size of contour chunks, in number of vertices. If this is set to zero, partial contour results are not used
+
+.. cssclass:: f2b
+
 .. _setcursor:
 
 SetCursor
@@ -2277,6 +1900,39 @@ The cursor defines a special case of a region, with a single control point.
      - :carta:`SetSpatialRequirements`
      - 
      - Optional accompanying spatial requirements message to be processed prior to cursor update
+
+.. cssclass:: f2b
+
+.. _sethistogramrequirements:
+
+SetHistogramRequirements
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
+
+SET_HISTOGRAM_REQUIREMENTS:
+Sets which histogram data needs to be streamed to the frontend when the region is updated
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - Which file slot the requirements describe
+   * - region_id
+     - sfixed32
+     - 
+     - ID of the region that is having requirements defined. If a region ID of -1 is given, this corresponds to the entire 2D image.
+   * - histograms
+     - :carta:`HistogramConfig`
+     - repeated
+     - List of required histograms, along with the number of bins. If the channel is -1, the current channel is used. If the channel is -2, the histogram is constructed over all channels. If the number of bins is less than zero, an automatic bin size is used, based on the number of values.
 
 .. cssclass:: f2b
 
@@ -2314,6 +1970,322 @@ Sets the current image channel and Stokes parameter
      - :carta:`AddRequiredTiles`
      - 
      - Required tiles when changing channels
+
+.. cssclass:: f2b
+
+.. _setregion:
+
+SetRegion
+^^^^^^^^^
+
+Source file: `control/region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region.proto>`_
+
+SET_REGION:
+Creates or updates a region. Backend responds with :carta:`SET_REGION_ACK`
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - File slot of the reference image
+   * - region_id
+     - sfixed32
+     - 
+     - Unique region ID. <=0 if a new region is being created.
+   * - region_info
+     - :carta:`RegionInfo`
+     - 
+     - Region parameters
+
+.. cssclass:: b2f
+
+.. _setregionack:
+
+SetRegionAck
+^^^^^^^^^^^^
+
+Source file: `control/region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region.proto>`_
+
+SET_REGION_ACK:
+Response for :carta:`SET_REGION`
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - success
+     - bool
+     - 
+     - Defines whether :carta:`SET_REGION` was successful
+   * - message
+     - string
+     - 
+     - Error message (if applicable)
+   * - region_id
+     - sfixed32
+     - 
+     - The unique region ID. If the region is updated, this will be the same as the region ID specified in :carta:`SET_REGION`. If  a new region is being created, the ID of the new region will be passed back.
+
+.. cssclass:: f2b
+
+.. _setregionrequirements:
+
+SetRegionRequirements
+^^^^^^^^^^^^^^^^^^^^^
+
+Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
+
+SET_REGION_REQUIREMENTS:
+Sets which spatial profile data needs to be streamed to the frontend when the region is updated
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - fixed32
+     - 
+     - 
+   * - region_id
+     - fixed32
+     - 
+     - ID of the region that is having requirements defined. If a region ID of 0 is given, this corresponds to the point region defined by the cursor position.
+   * - x
+     - bool
+     - 
+     - Is the X-profile (of the current Stokes parameter) required?
+   * - y
+     - bool
+     - 
+     - Is the Y-profile (of the current Stokes parameter) required?
+   * - z
+     - bool
+     - 
+     - Is the Z-profile (of the current Stokes parameter) required?
+   * - additional_profiles
+     - string
+     - repeated
+     - List of additional profiles needed (for example, [“Qz”, “Uz”]) will include the Z-profile of the Q and U Stokes cube, regardless of which Stokes parameter is currently in use.
+
+.. cssclass:: f2b
+
+.. _setspatialrequirements:
+
+SetSpatialRequirements
+^^^^^^^^^^^^^^^^^^^^^^
+
+Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
+
+SET_SPATIAL_REQUIREMENTS:
+Sets which information needs to be streamed to the frontend when the region is updated
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - Which file slot the requirements describe
+   * - region_id
+     - sfixed32
+     - 
+     - ID of the region that is having requirements defined. If a region ID of 0 is given, this corresponds to the point region defined by the cursor position.
+   * - spatial_profiles
+     - string
+     - repeated
+     - List of spatial profiles needed. If no Stokes parameter is specified (i.e. just “x” or “y”), the active Stokes parameter is used.
+
+.. cssclass:: f2b
+
+.. _setspectralrequirements:
+
+SetSpectralRequirements
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
+
+SET_SPECTRAL_REQUIREMENTS:
+Sets which spectral profile data needs to be streamed to the frontend when the region is updated
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - Which file slot the requirements describe
+   * - region_id
+     - sfixed32
+     - 
+     - ID of the region that is having requirements defined. If a region ID of 0 is given, this corresponds to the point region defined by the cursor position.
+   * - spectral_profiles
+     - :carta:`SpectralConfig`
+     - repeated
+     - List of spectral profiles needed, along with which stats types are needed for each profile. If no Stokes parameter is specified (i.e. just “z”) or if the coordinate is empty, the active Stokes parameter is used. If the region is a point region, the statsTypes field is ignored.
+
+.. cssclass:: f2b
+
+.. _setstatsrequirements:
+
+SetStatsRequirements
+^^^^^^^^^^^^^^^^^^^^
+
+Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
+
+SET_STATS_REQUIREMENTS:
+Sets which stats data needs to be streamed to the frontend when the region is updated
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - Which file slot the requirements describe
+   * - region_id
+     - sfixed32
+     - 
+     - ID of the region that is having requirements defined. If a region ID of -1 is given, this corresponds to the entire 2D image.
+   * - stats
+     - :carta:`StatsType`
+     - repeated
+     - List of required stats
+
+.. cssclass:: f2b
+
+.. _setuserlayout:
+
+SetUserLayout
+^^^^^^^^^^^^^
+
+Source file: `control/user_layout.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/user_layout.proto>`_
+
+SET_USER_LAYOUT:
+Sets or clears a user layout.
+Backend responds with  :carta:`SET_USER_LAYOUT_ACK`
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - name
+     - string
+     - 
+     - Name of the layout to update. If no layout with the given name is present in the server database, a new layout is created
+   * - value
+     - string
+     - 
+     - JSON string representing the layout. If the value is empty, the user layout is cleared from the server database.
+
+.. cssclass:: b2f
+
+.. _setuserlayoutack:
+
+SetUserLayoutAck
+^^^^^^^^^^^^^^^^
+
+Source file: `control/user_layout.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/user_layout.proto>`_
+
+SET_USER_LAYOUT_ACK
+Response for :carta:`SET_USER_LAYOUT`
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - success
+     - bool
+     - 
+     - Defines whether :carta:`SET_USER_LAYOUT` was successful  Error message (if applicable)
+
+.. cssclass:: f2b
+
+.. _setuserpreferences:
+
+SetUserPreferences
+^^^^^^^^^^^^^^^^^^
+
+Source file: `control/user_preferences.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/user_preferences.proto>`_
+
+SET_USER_PREFERENCES:
+Sets or clears one or more user preferences.
+Backend responds with  :carta:`SET_USER_PREFERENCES_ACK`
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - preference_map
+     - map<key: string, value: string>
+     - repeated
+     - 
+
+.. cssclass:: b2f
+
+.. _setuserpreferencesack:
+
+SetUserPreferencesAck
+^^^^^^^^^^^^^^^^^^^^^
+
+Source file: `control/user_preferences.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/user_preferences.proto>`_
+
+SET_USER_PREFERENCES_ACK
+Response for :carta:`SET_USER_PREFERENCES`
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - success
+     - bool
+     - 
+     - Defines whether :carta:`SET_USER_PREFERENCES` was successful  Error message (if applicable)
 
 .. cssclass:: b2f
 
@@ -2367,6 +2339,34 @@ Data for spatial profile set for a specific file
      - :carta:`SpatialProfile`
      - repeated
      - Spatial profiles for each required profile type
+
+.. cssclass:: f2b
+
+.. _spectralconfig:
+
+SpectralConfig
+^^^^^^^^^^^^^^
+
+Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - coordinate
+     - string
+     - 
+     - 
+   * - stats_types
+     - :carta:`StatsType`
+     - repeated
+     - 
 
 .. cssclass:: f2b
 
@@ -2479,6 +2479,130 @@ Data for spectral profile set for a specific file
 
 .. cssclass:: f2b
 
+.. _startanimation:
+
+StartAnimation
+^^^^^^^^^^^^^^
+
+Source file: `control/animation.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/animation.proto>`_
+
+START_ANIMATION:
+Starts an animation, as defined by the start, stop and step definitions.
+Backend responds with :carta:`START_ANIMATION_ACK`
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - Which file slot the animation describes.
+   * - first_frame
+     - :carta:`AnimationFrame`
+     - 
+     - The lower bound of the animation when looping.
+   * - start_frame
+     - :carta:`AnimationFrame`
+     - 
+     - The starting point of the animation.
+   * - last_frame
+     - :carta:`AnimationFrame`
+     - 
+     - The upper bound of the animation.
+   * - delta_frame
+     - :carta:`AnimationFrame`
+     - 
+     - The frame change step for the animation. For example, a delta frame of {channel=1, stokes=0} would step through each channel in the file.
+   * - frame_rate
+     - sfixed32
+     - 
+     - Frame rate per second
+   * - looping
+     - bool
+     - 
+     - Whether to loop the animation indefinitely.
+   * - reverse
+     - bool
+     - 
+     - Whether to reverse the animation direction when endFrame is reached.
+   * - required_tiles
+     - :carta:`AddRequiredTiles`
+     - 
+     - Required tiles when changing channels
+   * - matched_frames
+     - map<key: sfixed32, value: :carta:`MatchedFrameList`>
+     - repeated
+     - 
+
+.. cssclass:: b2f
+
+.. _startanimationack:
+
+StartAnimationAck
+^^^^^^^^^^^^^^^^^
+
+Source file: `control/animation.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/animation.proto>`_
+
+START_ANIMATION_ACK
+Response for :carta:`START_ANIMATION`
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - success
+     - bool
+     - 
+     - Defines whether :carta:`START_ANIMATION` was successful
+   * - message
+     - string
+     - 
+     - Error message (if applicable)
+   * - animation_id
+     - sfixed32
+     - 
+     - The animation ID of the new animation
+
+.. cssclass:: f2b
+
+.. _stopanimation:
+
+StopAnimation
+^^^^^^^^^^^^^
+
+Source file: `control/animation.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/animation.proto>`_
+
+STOP_ANIMATION
+Stops the playing animation
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - Which file slot the animation describes.
+   * - end_frame
+     - :carta:`AnimationFrame`
+     - 
+     - The ending point of the animation.
+
+.. cssclass:: f2b
+
 .. _stopmomentcalc:
 
 StopMomentCalc
@@ -2501,139 +2625,16 @@ Source file: `control/stop_moment_calc.proto <https://github.com/CARTAvis/carta-
      - 
      - Stop the moment calculation with respect to the image file id
 
-.. cssclass:: f2b
-
-.. _addrequiredtiles:
-
-AddRequiredTiles
-^^^^^^^^^^^^^^^^
-
-Source file: `control/tiles.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/tiles.proto>`_
-
-ADD_REQUIRED_TILES
-Provides a list of tiles that are required for the specified file
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - file_id
-     - sfixed32
-     - 
-     - The file ID that the view corresponds to
-   * - tiles
-     - sfixed32
-     - repeated
-     - The list of tiles required, in encoded coordinate
-   * - compression_type
-     - :carta:`CompressionType`
-     - 
-     - The compression algorithm used
-   * - compression_quality
-     - float
-     - 
-     - Compression quality switch
-
-.. cssclass:: f2b
-
-.. _removerequiredtiles:
-
-RemoveRequiredTiles
-^^^^^^^^^^^^^^^^^^^
-
-Source file: `control/tiles.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/tiles.proto>`_
-
-REMOVE_REQUIRED_TILES
-Provides a list of tiles that are required for the specified file
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - file_id
-     - sfixed32
-     - 
-     - The file ID that the view corresponds to
-   * - tiles
-     - sfixed32
-     - repeated
-     - The list of tiles required, in encoded coordinate
-
-.. cssclass:: f2b
-
-.. _setuserlayout:
-
-SetUserLayout
-^^^^^^^^^^^^^
-
-Source file: `control/user_layout.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/user_layout.proto>`_
-
-SET_USER_LAYOUT:
-Sets or clears a user layout.
-Backend responds with  :carta:`SET_USER_LAYOUT_ACK`
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - name
-     - string
-     - 
-     - Name of the layout to update. If no layout with the given name is present in the server database, a new layout is created
-   * - value
-     - string
-     - 
-     - JSON string representing the layout. If the value is empty, the user layout is cleared from the server database.
-
 .. cssclass:: b2f
 
-.. _setuserlayoutack:
+.. _tiledata:
 
-SetUserLayoutAck
-^^^^^^^^^^^^^^^^
+TileData
+^^^^^^^^
 
-Source file: `control/user_layout.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/user_layout.proto>`_
+Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/raster_tile.proto>`_
 
-SET_USER_LAYOUT_ACK
-Response for :carta:`SET_USER_LAYOUT`
 
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - success
-     - bool
-     - 
-     - Defines whether :carta:`SET_USER_LAYOUT` was successful  Error message (if applicable)
-
-.. cssclass:: f2b
-
-.. _setuserpreferences:
-
-SetUserPreferences
-^^^^^^^^^^^^^^^^^^
-
-Source file: `control/user_preferences.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/user_preferences.proto>`_
-
-SET_USER_PREFERENCES:
-Sets or clears one or more user preferences.
-Backend responds with  :carta:`SET_USER_PREFERENCES_ACK`
 
 .. list-table::
    :widths: 25 25 10 40
@@ -2643,33 +2644,32 @@ Backend responds with  :carta:`SET_USER_PREFERENCES_ACK`
      - Type
      - Label
      - Description
-   * - preference_map
-     - map<key: string, value: string>
-     - repeated
+   * - layer
+     - sfixed32
      - 
-
-.. cssclass:: b2f
-
-.. _setuserpreferencesack:
-
-SetUserPreferencesAck
-^^^^^^^^^^^^^^^^^^^^^
-
-Source file: `control/user_preferences.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/user_preferences.proto>`_
-
-SET_USER_PREFERENCES_ACK
-Response for :carta:`SET_USER_PREFERENCES`
-
-.. list-table::
-   :widths: 25 25 10 40
-   :header-rows: 1
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - success
-     - bool
+     - Tile layer coordinate
+   * - x
+     - sfixed32
      - 
-     - Defines whether :carta:`SET_USER_PREFERENCES` was successful  Error message (if applicable)
+     - Tile x coordinate
+   * - y
+     - sfixed32
+     - 
+     - Tile y coordinate
+   * - width
+     - sfixed32
+     - 
+     - Width of the tile data. If this is left as zero, the default tile size should be used
+   * - height
+     - sfixed32
+     - 
+     - Height of the tile data. If this is left as zero, the default tile size should be used
+   * - image_data
+     - bytes
+     - 
+     - Image data. For uncompressed data, this is converted into FP32, while for compressed data, this is passed to the compression library for decompression.
+   * - nan_encodings
+     - bytes
+     - 
+     - Run-length encodings of NaN values. These values are used to restore the NaN values after decompression.
 

@@ -34,9 +34,10 @@ proto_dir = {os.path.basename(p): os.path.basename(os.path.dirname(p)) for p in 
 for file_ in data["files"]:
     file_name = file_["name"]
     parent_dir = proto_dir[file_name]
-    output = []
+    rst[file_name] = []
     
     for message in file_["messages"]:
+        output = []
         name = message["name"]
         # Skip map entries
         
@@ -117,9 +118,11 @@ for file_ in data["files"]:
                 
                 output.append(f"     - {field_desc}")
         
-            output.append("")
+        output.append("")
+        rst[file_name].append((name, "\n".join(output)))
         
     for enum in file_["enums"]:
+        output = []
         name = enum["name"]
         
         # Enum heading
@@ -158,8 +161,7 @@ for file_ in data["files"]:
             output.append(f"     - {val['description']}")
         
         output.append("")
-        
-    rst[file_name] = "\n".join(output)
+        rst[file_name].append((name, "\n".join(output)))
 
 output_map = {
     "messages": [os.path.basename(p) for p in glob.glob("../../control/*.proto") + glob.glob("../../request/*.proto") + glob.glob("../../stream/*.proto")],
@@ -168,6 +170,11 @@ output_map = {
 }
 
 for section, filenames in output_map.items():
+    elements = []
+    
+    for filename in sorted(filenames):
+        elements.extend(rst[filename])
+    
     with open(f"../{section}.rst.txt", "w") as f:
-        for filename in sorted(filenames):
-            print(rst[filename], file=f)
+        for name, element in sorted(elements):
+            print(element, file=f)
