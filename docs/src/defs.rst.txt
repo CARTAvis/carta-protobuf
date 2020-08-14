@@ -309,11 +309,11 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - repeated
      - List of Stokes parameters contained in the file (if applicable). For files that do not explicitly specify Stokes files, this will be blank.
    * - header_entries
-     - HeaderEntry
+     - :carta:sub:`HeaderEntry`
      - repeated
      - Header entries from header string or attributes
    * - computed_entries
-     - HeaderEntry
+     - :carta:sub:`HeaderEntry`
      - repeated
      - 
 
@@ -380,6 +380,45 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
    * - max
      - float
+     - 
+     - 
+
+.. _headerentry:
+
+HeaderEntry
+~~~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - name
+     - string
+     - 
+     - 
+   * - value
+     - string
+     - 
+     - 
+   * - entry_type
+     - :carta:sub:`EntryType`
+     - 
+     - 
+   * - numeric_value
+     - double
+     - 
+     - 
+   * - comment
+     - string
      - 
      - 
 

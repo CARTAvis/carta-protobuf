@@ -53,6 +53,8 @@ output_map = {
 
 with open(sys.argv[1]) as f:
     data = json.load(f)
+    
+output_dir = sys.argv[2]
 
 # FIRST PASS
 
@@ -61,7 +63,7 @@ for file_ in data["files"]:
     parent_dir = proto_dir[file_name]
     
     for message in file_["messages"]:
-        if message["name"].endswith("Entry"):
+        if message["name"].endswith("Entry") and "." in message["longName"]:
             map_info[message["longName"]] = message
         else:
             message_names.add(message["name"])
@@ -84,7 +86,7 @@ for file_ in data["files"]:
         name = message["name"]
         # Skip map entries
         
-        if name.endswith("Entry"):
+        if name.endswith("Entry") and "." in message["longName"]:
             continue
         
         # Message colour
@@ -208,6 +210,6 @@ for section, filenames in output_map.items():
     for filename in sorted(filenames):
         elements.extend(rst[filename])
     
-    with open(f"../{section}.rst.txt", "w") as f:
+    with open(f"{output_dir}/{section}.rst.txt", "w") as f:
         for name, element in sorted(elements):
             print(element, file=f)
