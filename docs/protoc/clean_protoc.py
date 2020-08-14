@@ -162,9 +162,7 @@ for file_ in data["files"]:
     rst[file_name] = "\n".join(output)
 
 output_map = {
-    "control": [os.path.basename(p) for p in glob.glob("../../control/*.proto")],
-    "request": [os.path.basename(p) for p in glob.glob("../../request/*.proto")],
-    "stream": [os.path.basename(p) for p in glob.glob("../../stream/*.proto")],
+    "messages": [os.path.basename(p) for p in glob.glob("../../control/*.proto") + glob.glob("../../request/*.proto") + glob.glob("../../stream/*.proto")],
     "defs": ["defs.proto"],
     "enums": ["enums.proto"],
 }

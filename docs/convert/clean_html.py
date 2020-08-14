@@ -314,6 +314,12 @@ for heading in soup.find_all(re.compile("h\d")):
         heading.extract()
     else:
         heading.string.replace_with(re.sub("[\d.]+ ", "", heading.text))
+        
+    if heading.text == "Control messages":
+        heading.string.replace_with("Messages")
+        heading["id"] = "Messages"
+    elif heading.text in ("Request messages", "Data stream messages"):
+        heading.extract()
             
 # For preview purposes, style the coloured spans
 for s in soup.find_all("span"):

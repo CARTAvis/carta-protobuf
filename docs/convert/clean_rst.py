@@ -57,9 +57,7 @@ filenames["changelog"] = "changelog.rst.txt"
 # special includes for the protoc files
 
 protoc = {
-    "Control messages": "control.rst.txt",
-    "Request messages": "request.rst.txt",
-    "Data stream messages": "stream.rst.txt",
+    "Messages": "messages.rst.txt",
     "Sub-messages": "defs.rst.txt",
     "Enums": "enums.rst.txt",
 }

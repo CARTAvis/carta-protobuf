@@ -1,5 +1,5 @@
 PROTODIRS=control request stream shared
-PROTOSECTIONS=control request stream defs enums
+PROTOSECTIONS=messages defs enums
 PROTOFILES=$(shell find ../.. -type f -name '*.proto')
 INCLUDES=$(patsubst %,-I../../%,$(PROTODIRS))
 PROTODOCS=$(patsubst %,../%.rst.txt,$(PROTOSECTIONS))

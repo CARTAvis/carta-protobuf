@@ -13,26 +13,12 @@ Interface communication messages fall into three overall categories:
 
 **Message definitions shown in** :f2b:`blue`\ **are used for frontend ->backend communication. Message definitions shown in** :b2f:`red` **are used for backend->frontend communication.**
 
-.. _Control messages:
+.. _Messages:
 
-Control messages
-~~~~~~~~~~~~~~~~
+Messages
+~~~~~~~~
 
-.. include:: control.rst.txt
-
-.. _Request messages:
-
-Request messages
-~~~~~~~~~~~~~~~~
-
-.. include:: request.rst.txt
-
-.. _Data stream messages:
-
-Data stream messages
-~~~~~~~~~~~~~~~~~~~~
-
-.. include:: stream.rst.txt
+.. include:: messages.rst.txt
 
 .. _Sub-messages:
 

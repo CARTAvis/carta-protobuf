@@ -161,6 +161,254 @@ Stops the playing animation
 
 .. cssclass:: f2b
 
+.. _catalogfileinforequest:
+
+CatalogFileInfoRequest
+^^^^^^^^^^^^^^^^^^^^^^
+
+Source file: `request/catalog_file_info.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/catalog_file_info.proto>`_
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - directory
+     - string
+     - 
+     - 
+   * - name
+     - string
+     - 
+     - 
+
+.. cssclass:: b2f
+
+.. _catalogfileinforesponse:
+
+CatalogFileInfoResponse
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Source file: `request/catalog_file_info.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/catalog_file_info.proto>`_
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - success
+     - bool
+     - 
+     - 
+   * - message
+     - string
+     - 
+     - 
+   * - file_info
+     - :carta:`CatalogFileInfo`
+     - 
+     - 
+   * - headers
+     - :carta:`CatalogHeader`
+     - repeated
+     - 
+
+.. cssclass:: f2b
+
+.. _catalogfilterrequest:
+
+CatalogFilterRequest
+^^^^^^^^^^^^^^^^^^^^
+
+Source file: `stream/catalog_filter.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/catalog_filter.proto>`_
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - 
+   * - column_indices
+     - int32
+     - repeated
+     - 
+   * - filter_configs
+     - :carta:`FilterConfig`
+     - repeated
+     - 
+   * - subset_data_size
+     - sfixed32
+     - 
+     - 
+   * - subset_start_index
+     - sfixed32
+     - 
+     - 
+   * - image_bounds
+     - :carta:`CatalogImageBounds`
+     - 
+     - 
+   * - image_file_id
+     - sfixed32
+     - 
+     - 
+   * - region_id
+     - sfixed32
+     - 
+     - 
+   * - sort_column
+     - string
+     - 
+     - 
+   * - sorting_type
+     - :carta:`SortingType`
+     - 
+     - 
+
+.. cssclass:: b2f
+
+.. _catalogfilterresponse:
+
+CatalogFilterResponse
+^^^^^^^^^^^^^^^^^^^^^
+
+Source file: `stream/catalog_filter.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/catalog_filter.proto>`_
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - 
+   * - image_file_id
+     - sfixed32
+     - 
+     - 
+   * - region_id
+     - sfixed32
+     - 
+     - 
+   * - columns
+     - map<key: fixed32, value: :carta:`ColumnData`>
+     - repeated
+     - 
+   * - subset_data_size
+     - sfixed32
+     - 
+     - 
+   * - subset_end_index
+     - sfixed32
+     - 
+     - 
+   * - progress
+     - float
+     - 
+     - 
+   * - filter_data_size
+     - sfixed32
+     - 
+     - 
+   * - request_end_index
+     - sfixed32
+     - 
+     - 
+
+.. cssclass:: f2b
+
+.. _cataloglistrequest:
+
+CatalogListRequest
+^^^^^^^^^^^^^^^^^^
+
+Source file: `request/catalog_list.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/catalog_list.proto>`_
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - directory
+     - string
+     - 
+     - 
+
+.. cssclass:: b2f
+
+.. _cataloglistresponse:
+
+CatalogListResponse
+^^^^^^^^^^^^^^^^^^^
+
+Source file: `request/catalog_list.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/catalog_list.proto>`_
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - success
+     - bool
+     - 
+     - 
+   * - message
+     - string
+     - 
+     - 
+   * - directory
+     - string
+     - 
+     - 
+   * - parent
+     - string
+     - 
+     - 
+   * - files
+     - :carta:`CatalogFileInfo`
+     - repeated
+     - 
+   * - subdirectories
+     - string
+     - repeated
+     - 
+
+.. cssclass:: f2b
+
 .. _closefile:
 
 CloseFile
@@ -240,6 +488,133 @@ Sets the contour parameters for a file
      - int32
      - 
      - Size of contour chunks, in number of vertices. If this is set to zero, partial contour results are not used
+
+.. cssclass:: b2f
+
+.. _contourimagedata:
+
+ContourImageData
+^^^^^^^^^^^^^^^^
+
+Source file: `stream/contour_image.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/contour_image.proto>`_
+
+CONTOUR_IMAGE_DATA:
+Data for an image rendered in contour mode.
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - The file ID that the contour image corresponds to
+   * - reference_file_id
+     - fixed32
+     - 
+     - The file ID of the reference image that the contour vertices are mapped to
+   * - image_bounds
+     - :carta:`ImageBounds`
+     - 
+     - The bounding box in the XY plane corresponding to the image data in pixel coordinates
+   * - channel
+     - sfixed32
+     - 
+     - The image channel used to generate the contours
+   * - stokes
+     - sfixed32
+     - 
+     - The image stokes parameter used to generate the contours
+   * - contour_sets
+     - :carta:`ContourSet`
+     - repeated
+     - Each contour set consists of the contour level value, as well as a list of coordinates. The start_indices list is used to determine how to subdivide the coordinates list into separate poly-lines when rendering.
+   * - progress
+     - double
+     - 
+     - Progress of the contour sets being sent. If this is zero, the message is assumed to contain the entire contour sets
+
+.. cssclass:: b2f
+
+.. _contourset:
+
+ContourSet
+^^^^^^^^^^
+
+Source file: `stream/contour_image.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/contour_image.proto>`_
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - level
+     - double
+     - 
+     - 
+   * - decimation_factor
+     - int32
+     - 
+     - 
+   * - raw_coordinates
+     - bytes
+     - 
+     - 
+   * - raw_start_indices
+     - bytes
+     - 
+     - 
+   * - uncompressed_coordinates_size
+     - int32
+     - 
+     - 
+
+.. cssclass:: b2f
+
+.. _errordata:
+
+ErrorData
+^^^^^^^^^
+
+Source file: `stream/error.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/error.proto>`_
+
+ERROR_DATA:
+Stream of error/warning/info data. This stream is used to present the frontend with additional information on
+the state of the backend, and is not used in place of returning success=false on requests or commands.
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - severity
+     - :carta:`ErrorSeverity`
+     - 
+     - The severity of the error. Critical errors are reserved for errors that would normally require the user to restart the program or reload the page
+   * - tags
+     - string
+     - repeated
+     - A list of strings describing the error type, that the frontend can interpret and react to. For example, “file_io” or “memory”.
+   * - message
+     - string
+     - 
+     - The error message
+   * - data
+     - string
+     - 
+     - Accompanying error data. For example, if an error has the “file_io” tag, the frontend would expect the data field to contain the file ID of the offending file.
 
 .. cssclass:: f2b
 
@@ -323,6 +698,150 @@ Response for :carta:`EXPORT_REGION` to indicate success and file contents if on 
 
 .. cssclass:: f2b
 
+.. _fileinforequest:
+
+FileInfoRequest
+^^^^^^^^^^^^^^^
+
+Source file: `request/file_info.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/file_info.proto>`_
+
+FILE_INFO_REQUEST:
+Requests the file info for a specific file.
+Backend responds with :carta:`FILE_INFO_RESPONSE`
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - directory
+     - string
+     - 
+     - Required directory name
+   * - file
+     - string
+     - 
+     - Required file name
+   * - hdu
+     - string
+     - 
+     - Required HDU name (if applicable). If left empty, the first HDU is selected
+
+.. cssclass:: b2f
+
+.. _fileinforesponse:
+
+FileInfoResponse
+^^^^^^^^^^^^^^^^
+
+Source file: `request/file_info.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/file_info.proto>`_
+
+FILE_INFO_RESPONSE
+Response for :carta:`FILE_INFO_REQUEST`.
+Gives information on the requested file
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - success
+     - bool
+     - 
+     - Defines whether the :carta:`FILE_INFO_REQUEST` was successful
+   * - message
+     - string
+     - 
+     - Error message (if applicable)
+   * - file_info
+     - :carta:`FileInfo`
+     - 
+     - Basic file info (type, size)
+   * - file_info_extended
+     - :carta:`FileInfoExtended`
+     - 
+     - Extended file info (WCS, header info)
+
+.. cssclass:: f2b
+
+.. _filelistrequest:
+
+FileListRequest
+^^^^^^^^^^^^^^^
+
+Source file: `request/file_list.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/file_list.proto>`_
+
+FILE_LIST_REQUEST:
+Requests the list of available files for a given directory.
+Backend responds with :carta:`FILE_LIST_RESPONSE`
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - directory
+     - string
+     - 
+     - Required directory name
+
+.. cssclass:: b2f
+
+.. _filelistresponse:
+
+FileListResponse
+^^^^^^^^^^^^^^^^
+
+Source file: `request/file_list.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/file_list.proto>`_
+
+FILE_LIST_RESPONSE
+Response for :carta:`FILE_LIST_REQUEST`.
+Gives a list of available files (and their types), as well as subdirectories
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - success
+     - bool
+     - 
+     - Defines whether the :carta:`FILE_LIST_REQUEST` was successful
+   * - message
+     - string
+     - 
+     - Error message (if applicable)
+   * - directory
+     - string
+     - 
+     - Directory of listing
+   * - parent
+     - string
+     - 
+     - Directory parent (null/empty if top-level)
+   * - files
+     - :carta:`FileInfo`
+     - repeated
+     - List of available image files, with file type information and size information.
+   * - subdirectories
+     - string
+     - repeated
+     - List of available subdirectories
+
+.. cssclass:: f2b
+
 .. _importregion:
 
 ImportRegion
@@ -399,6 +918,114 @@ Response for :carta:`IMPORT_REGION`. Also supplies region properties
      - map<key: sfixed32, value: :carta:`RegionStyle`>
      - repeated
      - Map region id to style parameters
+
+.. cssclass:: b2f
+
+.. _momentprogress:
+
+MomentProgress
+^^^^^^^^^^^^^^
+
+Source file: `request/moment_request.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/moment_request.proto>`_
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - 
+   * - progress
+     - float
+     - 
+     - 
+
+.. cssclass:: f2b
+
+.. _momentrequest:
+
+MomentRequest
+^^^^^^^^^^^^^
+
+Source file: `request/moment_request.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/moment_request.proto>`_
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - 
+   * - moments
+     - :carta:`Moment`
+     - repeated
+     - 
+   * - axis
+     - :carta:`MomentAxis`
+     - 
+     - 
+   * - region_id
+     - sfixed32
+     - 
+     - 
+   * - spectral_range
+     - :carta:`IntBounds`
+     - 
+     - 
+   * - mask
+     - :carta:`MomentMask`
+     - 
+     - 
+   * - pixel_range
+     - :carta:`FloatBounds`
+     - 
+     - 
+
+.. cssclass:: b2f
+
+.. _momentresponse:
+
+MomentResponse
+^^^^^^^^^^^^^^
+
+Source file: `request/moment_request.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/moment_request.proto>`_
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - success
+     - bool
+     - 
+     - 
+   * - message
+     - string
+     - 
+     - 
+   * - open_file_acks
+     - :carta:`OpenFileAck`
+     - repeated
+     - 
 
 .. cssclass:: f2b
 
@@ -595,6 +1222,142 @@ Response for :carta:`OPEN_FILE`. Also supplies file information
      - 
      - Optional bitflags specifying feature flags of the file being opened.
 
+.. cssclass:: b2f
+
+.. _rastertiledata:
+
+RasterTileData
+^^^^^^^^^^^^^^
+
+Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/raster_tile.proto>`_
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - The file ID that the raster image corresponds to
+   * - channel
+     - sfixed32
+     - 
+     - The image channel (z-coordinate)
+   * - stokes
+     - sfixed32
+     - 
+     - The image stokes coordinate
+   * - compression_type
+     - :carta:`CompressionType`
+     - 
+     - The compression algorithm used.
+   * - compression_quality
+     - float
+     - 
+     - Compression quality switch
+   * - animation_id
+     - sfixed32
+     - 
+     - The ID of the animation (if any)
+   * - tiles
+     - :carta:`TileData`
+     - repeated
+     - List of tile data
+
+.. cssclass:: b2f
+
+.. _rastertilesync:
+
+RasterTileSync
+^^^^^^^^^^^^^^
+
+Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/raster_tile.proto>`_
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - The file ID that the raster image corresponds to
+   * - channel
+     - sfixed32
+     - 
+     - The image channel (z-coordinate)
+   * - stokes
+     - sfixed32
+     - 
+     - The image stokes coordinate
+   * - animation_id
+     - sfixed32
+     - 
+     - The ID of the animation (if any)
+   * - end_sync
+     - bool
+     - 
+     - Is this a start or end sync message?
+
+.. cssclass:: b2f
+
+.. _tiledata:
+
+TileData
+^^^^^^^^
+
+Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/raster_tile.proto>`_
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - layer
+     - sfixed32
+     - 
+     - Tile layer coordinate
+   * - x
+     - sfixed32
+     - 
+     - Tile x coordinate
+   * - y
+     - sfixed32
+     - 
+     - Tile y coordinate
+   * - width
+     - sfixed32
+     - 
+     - Width of the tile data. If this is left as zero, the default tile size should be used
+   * - height
+     - sfixed32
+     - 
+     - Height of the tile data. If this is left as zero, the default tile size should be used
+   * - image_data
+     - bytes
+     - 
+     - Image data. For uncompressed data, this is converted into FP32, while for compressed data, this is passed to the compression library for decompression.
+   * - nan_encodings
+     - bytes
+     - 
+     - Run-length encodings of NaN values. These values are used to restore the NaN values after decompression.
+
 .. cssclass:: f2b
 
 .. _removeregion:
@@ -685,6 +1448,187 @@ Response for :carta:`SET_REGION`
      - sfixed32
      - 
      - The unique region ID. If the region is updated, this will be the same as the region ID specified in :carta:`SET_REGION`. If  a new region is being created, the ID of the new region will be passed back.
+
+.. cssclass:: f2b
+
+.. _regionfileinforequest:
+
+RegionFileInfoRequest
+^^^^^^^^^^^^^^^^^^^^^
+
+Source file: `request/region_file_info.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/region_file_info.proto>`_
+
+REGION_FILE_INFO_REQUEST:
+Requests contents for a specific region file on the server
+Backend responds with :carta:`REGION_FILE_INFO_RESPONSE`
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - directory
+     - string
+     - 
+     - Required directory name
+   * - file
+     - string
+     - 
+     - Required file name
+
+.. cssclass:: b2f
+
+.. _regionfileinforesponse:
+
+RegionFileInfoResponse
+^^^^^^^^^^^^^^^^^^^^^^
+
+Source file: `request/region_file_info.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/region_file_info.proto>`_
+
+REGION_FILE_INFO_RESPONSE
+Response for :carta:`REGION_FILE_INFO_REQUEST`.
+Gives information on the requested file
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - success
+     - bool
+     - 
+     - Defines whether the REGION_INFO_REQUEST was successful
+   * - message
+     - string
+     - 
+     - Error message (if applicable)
+   * - file_info
+     - :carta:`FileInfo`
+     - 
+     - Basic info about region file
+   * - contents
+     - string
+     - repeated
+     - Contents of file; each string is a line
+
+.. cssclass:: b2f
+
+.. _regionhistogramdata:
+
+RegionHistogramData
+^^^^^^^^^^^^^^^^^^^
+
+Source file: `stream/region_histogram.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/region_histogram.proto>`_
+
+REGION_HISTOGRAM_DATA:
+Stats data for a specific region
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - The file ID that the profile corresponds to
+   * - region_id
+     - sfixed32
+     - 
+     - The region_id corresponding to these histograms. If the histograms correspond to the entire current 2D image, the region ID has a value of -1.
+   * - stokes
+     - sfixed32
+     - 
+     - The image stokes parameter used to generate the profiles
+   * - histograms
+     - :carta:`Histogram`
+     - repeated
+     - array of histograms of the current region
+   * - progress
+     - float
+     - 
+     - Progress indicator, in the case of partial histogram results being sent
+
+.. cssclass:: f2b
+
+.. _regionlistrequest:
+
+RegionListRequest
+^^^^^^^^^^^^^^^^^
+
+Source file: `request/region_list.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/region_list.proto>`_
+
+REGION_LIST_REQUEST:
+Requests the list of available region files for a given directory.
+Backend responds with :carta:`REGION_LIST_RESPONSE`
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - directory
+     - string
+     - 
+     - Required directory name
+
+.. cssclass:: b2f
+
+.. _regionlistresponse:
+
+RegionListResponse
+^^^^^^^^^^^^^^^^^^
+
+Source file: `request/region_list.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/region_list.proto>`_
+
+REGION_LIST_RESPONSE
+Response for :carta:`REGION_LIST_REQUEST`.
+Gives a list of available region files (and their types), as well as subdirectories
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - success
+     - bool
+     - 
+     - Defines whether the :carta:`REGION_LIST_REQUEST` was successful
+   * - message
+     - string
+     - 
+     - Error message (if applicable)
+   * - directory
+     - string
+     - 
+     - Directory of listing
+   * - parent
+     - string
+     - 
+     - Directory parent (null/empty if top-level)
+   * - files
+     - :carta:`FileInfo`
+     - repeated
+     - List of available image files, with file type information and size information.
+   * - subdirectories
+     - string
+     - repeated
+     - List of available subdirectories
 
 .. cssclass:: f2b
 
@@ -919,6 +1863,47 @@ Sets which stats data needs to be streamed to the frontend when the region is up
      - repeated
      - List of required stats
 
+.. cssclass:: b2f
+
+.. _regionstatsdata:
+
+RegionStatsData
+^^^^^^^^^^^^^^^
+
+Source file: `stream/region_stats.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/region_stats.proto>`_
+
+REGION_STATS_DATA:
+Stats data for a specific region
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - The file ID that the profile corresponds to
+   * - region_id
+     - sfixed32
+     - 
+     - The region_id corresponding to this profile. If the statistics data corresponds to the entire current 2D image, the region ID has a value of -1.
+   * - channel
+     - sfixed32
+     - 
+     - The image channel used to generate the statistics
+   * - stokes
+     - sfixed32
+     - 
+     - The image stokes parameter used to generate the profiles
+   * - statistics
+     - :carta:`StatisticsValue`
+     - repeated
+     - Array of statistics values, each corresponding to a particular measurement, such as max, min, mean, etc
+
 .. cssclass:: f2b
 
 .. _registerviewer:
@@ -1117,6 +2102,150 @@ Source file: `control/resume_session.proto <https://github.com/CARTAvis/carta-pr
 
 .. cssclass:: f2b
 
+.. _savefile:
+
+SaveFile
+^^^^^^^^
+
+Source file: `request/save_file.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/save_file.proto>`_
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - 
+   * - output_file_directory
+     - string
+     - 
+     - 
+   * - output_file_name
+     - string
+     - 
+     - 
+   * - output_file_type
+     - :carta:`FileType`
+     - 
+     - 
+
+.. cssclass:: f2b
+
+.. _savefileack:
+
+SaveFileAck
+^^^^^^^^^^^
+
+Source file: `request/save_file.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/save_file.proto>`_
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - 
+   * - success
+     - bool
+     - 
+     - 
+   * - message
+     - string
+     - 
+     - 
+
+.. cssclass:: f2b
+
+.. _scriptingrequest:
+
+ScriptingRequest
+^^^^^^^^^^^^^^^^
+
+Source file: `request/scripting.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/scripting.proto>`_
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - scripting_request_id
+     - sfixed32
+     - 
+     - Used to connect a single scripting request to its response
+   * - target
+     - string
+     - 
+     - the path of the target object. e.g. activeFrame.renderConfig
+   * - action
+     - string
+     - 
+     - the name of the function to call. e.g. setColorMap
+   * - parameters
+     - string
+     - 
+     - JSON array of paramters. e.g. '["viridis"]'
+   * - async
+     - bool
+     - 
+     - flag indicating whether the frontend should execute this asynchronously, or only return once the call is complete
+
+.. cssclass:: b2f
+
+.. _scriptingresponse:
+
+ScriptingResponse
+^^^^^^^^^^^^^^^^^
+
+Source file: `request/scripting.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/scripting.proto>`_
+
+
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - scripting_request_id
+     - sfixed32
+     - 
+     - should match the incoming request ID
+   * - success
+     - bool
+     - 
+     - indicates whether the call was correctly executed
+   * - message
+     - string
+     - 
+     - optional error message
+   * - response
+     - string
+     - 
+     - JSON-parsable response. e.g. "true", or the base64-encoded string
+
+.. cssclass:: f2b
+
 .. _setcursor:
 
 SetCursor
@@ -1186,6 +2315,59 @@ Sets the current image channel and Stokes parameter
      - 
      - Required tiles when changing channels
 
+.. cssclass:: b2f
+
+.. _spatialprofiledata:
+
+SpatialProfileData
+^^^^^^^^^^^^^^^^^^
+
+Source file: `stream/spatial_profile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/spatial_profile.proto>`_
+
+SPATIAL_PROFILE_DATA:
+Data for spatial profile set for a specific file
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - The file ID that the profile corresponds to
+   * - region_id
+     - sfixed32
+     - 
+     - The region_id corresponding to this profile. If the profile corresponds to the cursor position, the region ID is zero.
+   * - x
+     - sfixed32
+     - 
+     - The pixel X-coordinate of the profile set
+   * - y
+     - sfixed32
+     - 
+     - The pixel Y-coordinate of the profile set
+   * - channel
+     - sfixed32
+     - 
+     - The image channel used to generate the profiles
+   * - stokes
+     - sfixed32
+     - 
+     - The image stokes parameter used to generate the profiles
+   * - value
+     - float
+     - 
+     - The value of the image at the given coordinates
+   * - profiles
+     - :carta:`SpatialProfile`
+     - repeated
+     - Spatial profiles for each required profile type
+
 .. cssclass:: f2b
 
 .. _spectrallinerequest:
@@ -1253,6 +2435,47 @@ Source file: `control/spectral_line_request.proto <https://github.com/CARTAvis/c
      - map<key: fixed32, value: :carta:`ColumnData`>
      - repeated
      - 
+
+.. cssclass:: b2f
+
+.. _spectralprofiledata:
+
+SpectralProfileData
+^^^^^^^^^^^^^^^^^^^
+
+Source file: `stream/spectral_profile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/spectral_profile.proto>`_
+
+SPECTRAL_PROFILE_DATA:
+Data for spectral profile set for a specific file
+
+.. list-table::
+   :widths: 25 25 10 40
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - The file ID that the profile corresponds to
+   * - region_id
+     - sfixed32
+     - 
+     - The region ID that the stats data corresponds to. If the profile corresponds to the cursor position, the region ID has a value of 0.
+   * - stokes
+     - sfixed32
+     - 
+     - The image stokes parameter used to generate the profiles
+   * - progress
+     - float
+     - 
+     - Progress indicator, in the case of partial profile results being sent. If the profile calculations are time-consuming, regular updates should be sent to the frontend. If the data is complete, progress >= 1.
+   * - profiles
+     - :carta:`SpectralProfile`
+     - repeated
+     - Spatial profiles for each required profile type
 
 .. cssclass:: f2b
 
