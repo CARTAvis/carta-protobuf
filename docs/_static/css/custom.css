@@ -9,3 +9,9 @@
 .b2f {
     color: #741b47
 }
+
+table {
+    width: 100%;
+    font-family: monospace;
+    font-size: 0.9em;
+}
