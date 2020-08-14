@@ -1,7 +1,7 @@
 .. _animationframe:
 
 AnimationFrame
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
@@ -10,6 +10,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -27,7 +28,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. _catalogfileinfo:
 
 CatalogFileInfo
-^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
@@ -36,6 +37,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -69,7 +71,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. _catalogheader:
 
 CatalogHeader
-^^^^^^^^^^^^^
+~~~~~~~~~~~~~
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
@@ -78,6 +80,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -107,7 +110,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. _catalogimagebounds:
 
 CatalogImageBounds
-^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
@@ -116,6 +119,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -137,7 +141,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. _columndata:
 
 ColumnData
-^^^^^^^^^^
+~~~~~~~~~~
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
@@ -146,6 +150,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -167,7 +172,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. _coosys:
 
 Coosys
-^^^^^^
+~~~~~~
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
@@ -176,6 +181,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -197,7 +203,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. _doublebounds:
 
 DoubleBounds
-^^^^^^^^^^^^
+~~~~~~~~~~~~
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
@@ -206,6 +212,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -223,7 +230,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. _fileinfo:
 
 FileInfo
-^^^^^^^^
+~~~~~~~~
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
@@ -232,6 +239,7 @@ File info message structure (internal use only)
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -261,7 +269,7 @@ File info message structure (internal use only)
 .. _fileinfoextended:
 
 FileInfoExtended
-^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
@@ -270,6 +278,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -311,7 +320,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. _filterconfig:
 
 FilterConfig
-^^^^^^^^^^^^
+~~~~~~~~~~~~
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
@@ -320,6 +329,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -349,7 +359,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. _floatbounds:
 
 FloatBounds
-^^^^^^^^^^^
+~~~~~~~~~~~
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
@@ -358,6 +368,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -375,7 +386,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. _histogram:
 
 Histogram
-^^^^^^^^^
+~~~~~~~~~
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
@@ -384,6 +395,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -421,7 +433,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. _imagebounds:
 
 ImageBounds
-^^^^^^^^^^^
+~~~~~~~~~~~
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
@@ -430,6 +442,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -455,7 +468,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. _intbounds:
 
 IntBounds
-^^^^^^^^^
+~~~~~~~~~
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
@@ -464,6 +477,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -481,7 +495,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. _matchedframelist:
 
 MatchedFrameList
-^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
@@ -490,6 +504,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -503,7 +518,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. _point:
 
 Point
-^^^^^
+~~~~~
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
@@ -512,6 +527,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -529,7 +545,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. _regioninfo:
 
 RegionInfo
-^^^^^^^^^^
+~~~~~~~~~~
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
@@ -538,6 +554,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -559,7 +576,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. _regionstyle:
 
 RegionStyle
-^^^^^^^^^^^
+~~~~~~~~~~~
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
@@ -568,6 +585,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -593,7 +611,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. _spatialprofile:
 
 SpatialProfile
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
@@ -602,6 +620,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -627,7 +646,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. _spectralprofile:
 
 SpectralProfile
-^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
@@ -636,6 +655,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -661,7 +681,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. _statisticsvalue:
 
 StatisticsValue
-^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
@@ -670,6 +690,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type

@@ -1,7 +1,7 @@
 .. _catalogfiletype:
 
 CatalogFileType
-^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~
 
 Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
@@ -10,6 +10,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. list-table::
    :widths: 33 33 33
    :header-rows: 1
+   :class: proto
 
    * - Name
      - Number
@@ -24,7 +25,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. _clientfeatureflags:
 
 ClientFeatureFlags
-^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~
 
 Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
@@ -33,6 +34,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. list-table::
    :widths: 33 33 33
    :header-rows: 1
+   :class: proto
 
    * - Name
      - Number
@@ -59,7 +61,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. _columntype:
 
 ColumnType
-^^^^^^^^^^
+~~~~~~~~~~
 
 Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
@@ -68,6 +70,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. list-table::
    :widths: 33 33 33
    :header-rows: 1
+   :class: proto
 
    * - Name
      - Number
@@ -115,7 +118,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. _comparisonoperator:
 
 ComparisonOperator
-^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~
 
 Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
@@ -124,6 +127,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. list-table::
    :widths: 33 33 33
    :header-rows: 1
+   :class: proto
 
    * - Name
      - Number
@@ -156,7 +160,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. _compressiontype:
 
 CompressionType
-^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~
 
 Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
@@ -165,6 +169,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. list-table::
    :widths: 33 33 33
    :header-rows: 1
+   :class: proto
 
    * - Name
      - Number
@@ -182,7 +187,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. _coordinatetype:
 
 CoordinateType
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~
 
 Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
@@ -191,6 +196,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. list-table::
    :widths: 33 33 33
    :header-rows: 1
+   :class: proto
 
    * - Name
      - Number
@@ -205,7 +211,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. _entrytype:
 
 EntryType
-^^^^^^^^^
+~~~~~~~~~
 
 Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
@@ -214,6 +220,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. list-table::
    :widths: 33 33 33
    :header-rows: 1
+   :class: proto
 
    * - Name
      - Number
@@ -231,7 +238,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. _errorseverity:
 
 ErrorSeverity
-^^^^^^^^^^^^^
+~~~~~~~~~~~~~
 
 Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
@@ -240,6 +247,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. list-table::
    :widths: 33 33 33
    :header-rows: 1
+   :class: proto
 
    * - Name
      - Number
@@ -263,7 +271,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. _eventtype:
 
 EventType
-^^^^^^^^^
+~~~~~~~~~
 
 Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
@@ -272,6 +280,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. list-table::
    :widths: 33 33 33
    :header-rows: 1
+   :class: proto
 
    * - Name
      - Number
@@ -481,7 +490,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. _filefeatureflags:
 
 FileFeatureFlags
-^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
@@ -490,6 +499,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. list-table::
    :widths: 33 33 33
    :header-rows: 1
+   :class: proto
 
    * - Name
      - Number
@@ -519,7 +529,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. _filetype:
 
 FileType
-^^^^^^^^
+~~~~~~~~
 
 Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
@@ -528,6 +538,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. list-table::
    :widths: 33 33 33
    :header-rows: 1
+   :class: proto
 
    * - Name
      - Number
@@ -557,7 +568,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. _moment:
 
 Moment
-^^^^^^
+~~~~~~
 
 Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
@@ -566,6 +577,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. list-table::
    :widths: 33 33 33
    :header-rows: 1
+   :class: proto
 
    * - Name
      - Number
@@ -613,7 +625,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. _momentaxis:
 
 MomentAxis
-^^^^^^^^^^
+~~~~~~~~~~
 
 Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
@@ -622,6 +634,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. list-table::
    :widths: 33 33 33
    :header-rows: 1
+   :class: proto
 
    * - Name
      - Number
@@ -636,7 +649,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. _momentmask:
 
 MomentMask
-^^^^^^^^^^
+~~~~~~~~~~
 
 Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
@@ -645,6 +658,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. list-table::
    :widths: 33 33 33
    :header-rows: 1
+   :class: proto
 
    * - Name
      - Number
@@ -662,7 +676,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. _regiontype:
 
 RegionType
-^^^^^^^^^^
+~~~~~~~~~~
 
 Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
@@ -671,6 +685,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. list-table::
    :widths: 33 33 33
    :header-rows: 1
+   :class: proto
 
    * - Name
      - Number
@@ -700,7 +715,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. _rendermode:
 
 RenderMode
-^^^^^^^^^^
+~~~~~~~~~~
 
 Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
@@ -709,6 +724,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. list-table::
    :widths: 33 33 33
    :header-rows: 1
+   :class: proto
 
    * - Name
      - Number
@@ -723,7 +739,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. _serverfeatureflags:
 
 ServerFeatureFlags
-^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~
 
 Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
@@ -732,6 +748,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. list-table::
    :widths: 33 33 33
    :header-rows: 1
+   :class: proto
 
    * - Name
      - Number
@@ -761,7 +778,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. _sessiontype:
 
 SessionType
-^^^^^^^^^^^
+~~~~~~~~~~~
 
 Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
@@ -770,6 +787,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. list-table::
    :widths: 33 33 33
    :header-rows: 1
+   :class: proto
 
    * - Name
      - Number
@@ -784,7 +802,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. _smoothingmode:
 
 SmoothingMode
-^^^^^^^^^^^^^
+~~~~~~~~~~~~~
 
 Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
@@ -793,6 +811,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. list-table::
    :widths: 33 33 33
    :header-rows: 1
+   :class: proto
 
    * - Name
      - Number
@@ -810,7 +829,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. _sortingtype:
 
 SortingType
-^^^^^^^^^^^
+~~~~~~~~~~~
 
 Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
@@ -819,6 +838,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. list-table::
    :widths: 33 33 33
    :header-rows: 1
+   :class: proto
 
    * - Name
      - Number
@@ -833,7 +853,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. _statstype:
 
 StatsType
-^^^^^^^^^
+~~~~~~~~~
 
 Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
@@ -842,6 +862,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. list-table::
    :widths: 33 33 33
    :header-rows: 1
+   :class: proto
 
    * - Name
      - Number

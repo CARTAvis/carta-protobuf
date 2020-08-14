@@ -21,3 +21,4 @@ CARTA Target: Version 1.4
    context
    behaviour
    layer_descriptions
+   protocol_buffer_reference

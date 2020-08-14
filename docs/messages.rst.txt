@@ -3,7 +3,7 @@
 .. _addrequiredtiles:
 
 AddRequiredTiles
-^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 Source file: `control/tiles.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/tiles.proto>`_
 
@@ -13,6 +13,7 @@ Provides a list of tiles that are required for the specified file
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -40,7 +41,7 @@ Provides a list of tiles that are required for the specified file
 .. _animationflowcontrol:
 
 AnimationFlowControl
-^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~
 
 Source file: `control/animation.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/animation.proto>`_
 
@@ -50,6 +51,7 @@ Used for informing the backend of which frames have been received
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -77,7 +79,7 @@ Used for informing the backend of which frames have been received
 .. _catalogfileinforequest:
 
 CatalogFileInfoRequest
-^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~
 
 Source file: `request/catalog_file_info.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/catalog_file_info.proto>`_
 
@@ -86,6 +88,7 @@ Source file: `request/catalog_file_info.proto <https://github.com/CARTAvis/carta
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -105,7 +108,7 @@ Source file: `request/catalog_file_info.proto <https://github.com/CARTAvis/carta
 .. _catalogfileinforesponse:
 
 CatalogFileInfoResponse
-^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Source file: `request/catalog_file_info.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/catalog_file_info.proto>`_
 
@@ -114,6 +117,7 @@ Source file: `request/catalog_file_info.proto <https://github.com/CARTAvis/carta
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -141,7 +145,7 @@ Source file: `request/catalog_file_info.proto <https://github.com/CARTAvis/carta
 .. _catalogfilterrequest:
 
 CatalogFilterRequest
-^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~
 
 Source file: `stream/catalog_filter.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/catalog_filter.proto>`_
 
@@ -150,6 +154,7 @@ Source file: `stream/catalog_filter.proto <https://github.com/CARTAvis/carta-pro
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -201,7 +206,7 @@ Source file: `stream/catalog_filter.proto <https://github.com/CARTAvis/carta-pro
 .. _catalogfilterresponse:
 
 CatalogFilterResponse
-^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~
 
 Source file: `stream/catalog_filter.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/catalog_filter.proto>`_
 
@@ -210,6 +215,7 @@ Source file: `stream/catalog_filter.proto <https://github.com/CARTAvis/carta-pro
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -257,7 +263,7 @@ Source file: `stream/catalog_filter.proto <https://github.com/CARTAvis/carta-pro
 .. _cataloglistrequest:
 
 CatalogListRequest
-^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~
 
 Source file: `request/catalog_list.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/catalog_list.proto>`_
 
@@ -266,6 +272,7 @@ Source file: `request/catalog_list.proto <https://github.com/CARTAvis/carta-prot
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -281,7 +288,7 @@ Source file: `request/catalog_list.proto <https://github.com/CARTAvis/carta-prot
 .. _cataloglistresponse:
 
 CatalogListResponse
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 Source file: `request/catalog_list.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/catalog_list.proto>`_
 
@@ -290,6 +297,7 @@ Source file: `request/catalog_list.proto <https://github.com/CARTAvis/carta-prot
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -325,7 +333,7 @@ Source file: `request/catalog_list.proto <https://github.com/CARTAvis/carta-prot
 .. _closecatalogfile:
 
 CloseCatalogFile
-^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 Source file: `control/open_catalog_file.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/open_catalog_file.proto>`_
 
@@ -334,6 +342,7 @@ Source file: `control/open_catalog_file.proto <https://github.com/CARTAvis/carta
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -349,7 +358,7 @@ Source file: `control/open_catalog_file.proto <https://github.com/CARTAvis/carta
 .. _closefile:
 
 CloseFile
-^^^^^^^^^
+~~~~~~~~~
 
 Source file: `control/close_file.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/close_file.proto>`_
 
@@ -359,6 +368,7 @@ Instructs the backend to close a file with a given file ID
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -374,7 +384,7 @@ Instructs the backend to close a file with a given file ID
 .. _contourimagedata:
 
 ContourImageData
-^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 Source file: `stream/contour_image.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/contour_image.proto>`_
 
@@ -384,6 +394,7 @@ Data for an image rendered in contour mode.
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -423,7 +434,7 @@ Data for an image rendered in contour mode.
 .. _contourset:
 
 ContourSet
-^^^^^^^^^^
+~~~~~~~~~~
 
 Source file: `stream/contour_image.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/contour_image.proto>`_
 
@@ -432,6 +443,7 @@ Source file: `stream/contour_image.proto <https://github.com/CARTAvis/carta-prot
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -463,7 +475,7 @@ Source file: `stream/contour_image.proto <https://github.com/CARTAvis/carta-prot
 .. _errordata:
 
 ErrorData
-^^^^^^^^^
+~~~~~~~~~
 
 Source file: `stream/error.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/error.proto>`_
 
@@ -474,6 +486,7 @@ the state of the backend, and is not used in place of returning success=false on
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -501,7 +514,7 @@ the state of the backend, and is not used in place of returning success=false on
 .. _exportregion:
 
 ExportRegion
-^^^^^^^^^^^^
+~~~~~~~~~~~~
 
 Source file: `control/export_region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/export_region.proto>`_
 
@@ -513,6 +526,7 @@ Backend responds with  :carta:`EXPORT_REGION_ACK`
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -548,7 +562,7 @@ Backend responds with  :carta:`EXPORT_REGION_ACK`
 .. _exportregionack:
 
 ExportRegionAck
-^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~
 
 Source file: `control/export_region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/export_region.proto>`_
 
@@ -558,6 +572,7 @@ Response for :carta:`EXPORT_REGION` to indicate success and file contents if on 
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -581,7 +596,7 @@ Response for :carta:`EXPORT_REGION` to indicate success and file contents if on 
 .. _fileinforequest:
 
 FileInfoRequest
-^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~
 
 Source file: `request/file_info.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/file_info.proto>`_
 
@@ -592,6 +607,7 @@ Backend responds with :carta:`FILE_INFO_RESPONSE`
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -615,7 +631,7 @@ Backend responds with :carta:`FILE_INFO_RESPONSE`
 .. _fileinforesponse:
 
 FileInfoResponse
-^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 Source file: `request/file_info.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/file_info.proto>`_
 
@@ -626,6 +642,7 @@ Gives information on the requested file
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -653,7 +670,7 @@ Gives information on the requested file
 .. _filelistrequest:
 
 FileListRequest
-^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~
 
 Source file: `request/file_list.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/file_list.proto>`_
 
@@ -664,6 +681,7 @@ Backend responds with :carta:`FILE_LIST_RESPONSE`
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -679,7 +697,7 @@ Backend responds with :carta:`FILE_LIST_RESPONSE`
 .. _filelistresponse:
 
 FileListResponse
-^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 Source file: `request/file_list.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/file_list.proto>`_
 
@@ -690,6 +708,7 @@ Gives a list of available files (and their types), as well as subdirectories
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -725,7 +744,7 @@ Gives a list of available files (and their types), as well as subdirectories
 .. _histogramconfig:
 
 HistogramConfig
-^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~
 
 Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
 
@@ -734,6 +753,7 @@ Source file: `control/region_requirements.proto <https://github.com/CARTAvis/car
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -753,7 +773,7 @@ Source file: `control/region_requirements.proto <https://github.com/CARTAvis/car
 .. _imageproperties:
 
 ImageProperties
-^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~
 
 Source file: `control/resume_session.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/resume_session.proto>`_
 
@@ -762,6 +782,7 @@ Source file: `control/resume_session.proto <https://github.com/CARTAvis/carta-pr
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -809,7 +830,7 @@ Source file: `control/resume_session.proto <https://github.com/CARTAvis/carta-pr
 .. _importregion:
 
 ImportRegion
-^^^^^^^^^^^^
+~~~~~~~~~~~~
 
 Source file: `control/import_region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/import_region.proto>`_
 
@@ -820,6 +841,7 @@ Backend responds with  :carta:`IMPORT_REGION_ACK`
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -851,7 +873,7 @@ Backend responds with  :carta:`IMPORT_REGION_ACK`
 .. _importregionack:
 
 ImportRegionAck
-^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~
 
 Source file: `control/import_region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/import_region.proto>`_
 
@@ -861,6 +883,7 @@ Response for :carta:`IMPORT_REGION`. Also supplies region properties
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -888,7 +911,7 @@ Response for :carta:`IMPORT_REGION`. Also supplies region properties
 .. _momentprogress:
 
 MomentProgress
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~
 
 Source file: `request/moment_request.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/moment_request.proto>`_
 
@@ -897,6 +920,7 @@ Source file: `request/moment_request.proto <https://github.com/CARTAvis/carta-pr
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -916,7 +940,7 @@ Source file: `request/moment_request.proto <https://github.com/CARTAvis/carta-pr
 .. _momentrequest:
 
 MomentRequest
-^^^^^^^^^^^^^
+~~~~~~~~~~~~~
 
 Source file: `request/moment_request.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/moment_request.proto>`_
 
@@ -925,6 +949,7 @@ Source file: `request/moment_request.proto <https://github.com/CARTAvis/carta-pr
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -964,7 +989,7 @@ Source file: `request/moment_request.proto <https://github.com/CARTAvis/carta-pr
 .. _momentresponse:
 
 MomentResponse
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~
 
 Source file: `request/moment_request.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/moment_request.proto>`_
 
@@ -973,6 +998,7 @@ Source file: `request/moment_request.proto <https://github.com/CARTAvis/carta-pr
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -996,7 +1022,7 @@ Source file: `request/moment_request.proto <https://github.com/CARTAvis/carta-pr
 .. _opencatalogfile:
 
 OpenCatalogFile
-^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~
 
 Source file: `control/open_catalog_file.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/open_catalog_file.proto>`_
 
@@ -1005,6 +1031,7 @@ Source file: `control/open_catalog_file.proto <https://github.com/CARTAvis/carta
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -1032,7 +1059,7 @@ Source file: `control/open_catalog_file.proto <https://github.com/CARTAvis/carta
 .. _opencatalogfileack:
 
 OpenCatalogFileAck
-^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~
 
 Source file: `control/open_catalog_file.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/open_catalog_file.proto>`_
 
@@ -1041,6 +1068,7 @@ Source file: `control/open_catalog_file.proto <https://github.com/CARTAvis/carta
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -1080,7 +1108,7 @@ Source file: `control/open_catalog_file.proto <https://github.com/CARTAvis/carta
 .. _openfile:
 
 OpenFile
-^^^^^^^^
+~~~~~~~~
 
 Source file: `control/open_file.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/open_file.proto>`_
 
@@ -1091,6 +1119,7 @@ Backend responds with  :carta:`OPEN_FILE_ACK`
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -1122,7 +1151,7 @@ Backend responds with  :carta:`OPEN_FILE_ACK`
 .. _openfileack:
 
 OpenFileAck
-^^^^^^^^^^^
+~~~~~~~~~~~
 
 Source file: `control/open_file.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/open_file.proto>`_
 
@@ -1132,6 +1161,7 @@ Response for :carta:`OPEN_FILE`. Also supplies file information
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -1167,7 +1197,7 @@ Response for :carta:`OPEN_FILE`. Also supplies file information
 .. _rastertiledata:
 
 RasterTileData
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~
 
 Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/raster_tile.proto>`_
 
@@ -1176,6 +1206,7 @@ Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protob
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -1215,7 +1246,7 @@ Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protob
 .. _rastertilesync:
 
 RasterTileSync
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~
 
 Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/raster_tile.proto>`_
 
@@ -1224,6 +1255,7 @@ Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protob
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -1255,7 +1287,7 @@ Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protob
 .. _regionfileinforequest:
 
 RegionFileInfoRequest
-^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~
 
 Source file: `request/region_file_info.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/region_file_info.proto>`_
 
@@ -1266,6 +1298,7 @@ Backend responds with :carta:`REGION_FILE_INFO_RESPONSE`
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -1285,7 +1318,7 @@ Backend responds with :carta:`REGION_FILE_INFO_RESPONSE`
 .. _regionfileinforesponse:
 
 RegionFileInfoResponse
-^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~
 
 Source file: `request/region_file_info.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/region_file_info.proto>`_
 
@@ -1296,6 +1329,7 @@ Gives information on the requested file
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -1323,7 +1357,7 @@ Gives information on the requested file
 .. _regionhistogramdata:
 
 RegionHistogramData
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 Source file: `stream/region_histogram.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/region_histogram.proto>`_
 
@@ -1333,6 +1367,7 @@ Stats data for a specific region
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -1364,7 +1399,7 @@ Stats data for a specific region
 .. _regionlistrequest:
 
 RegionListRequest
-^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~
 
 Source file: `request/region_list.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/region_list.proto>`_
 
@@ -1375,6 +1410,7 @@ Backend responds with :carta:`REGION_LIST_RESPONSE`
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -1390,7 +1426,7 @@ Backend responds with :carta:`REGION_LIST_RESPONSE`
 .. _regionlistresponse:
 
 RegionListResponse
-^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~
 
 Source file: `request/region_list.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/region_list.proto>`_
 
@@ -1401,6 +1437,7 @@ Gives a list of available region files (and their types), as well as subdirector
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -1436,7 +1473,7 @@ Gives a list of available region files (and their types), as well as subdirector
 .. _regionstatsdata:
 
 RegionStatsData
-^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~
 
 Source file: `stream/region_stats.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/region_stats.proto>`_
 
@@ -1446,6 +1483,7 @@ Stats data for a specific region
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -1477,7 +1515,7 @@ Stats data for a specific region
 .. _registerviewer:
 
 RegisterViewer
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~
 
 Source file: `control/register_viewer.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/register_viewer.proto>`_
 
@@ -1488,6 +1526,7 @@ Responds with :carta:`REGISTER_VIEWER_ACK`
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -1511,7 +1550,7 @@ Responds with :carta:`REGISTER_VIEWER_ACK`
 .. _registerviewerack:
 
 RegisterViewerAck
-^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~
 
 Source file: `control/register_viewer.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/register_viewer.proto>`_
 
@@ -1522,6 +1561,7 @@ Informs the frontend whether the session was correctly.
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -1561,7 +1601,7 @@ Informs the frontend whether the session was correctly.
 .. _removeregion:
 
 RemoveRegion
-^^^^^^^^^^^^
+~~~~~~~~~~~~
 
 Source file: `control/region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region.proto>`_
 
@@ -1571,6 +1611,7 @@ Removes a region
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -1586,7 +1627,7 @@ Removes a region
 .. _removerequiredtiles:
 
 RemoveRequiredTiles
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 Source file: `control/tiles.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/tiles.proto>`_
 
@@ -1596,6 +1637,7 @@ Provides a list of tiles that are required for the specified file
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -1615,7 +1657,7 @@ Provides a list of tiles that are required for the specified file
 .. _resumesession:
 
 ResumeSession
-^^^^^^^^^^^^^
+~~~~~~~~~~~~~
 
 Source file: `control/resume_session.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/resume_session.proto>`_
 
@@ -1624,6 +1666,7 @@ Source file: `control/resume_session.proto <https://github.com/CARTAvis/carta-pr
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -1643,7 +1686,7 @@ Source file: `control/resume_session.proto <https://github.com/CARTAvis/carta-pr
 .. _resumesessionack:
 
 ResumeSessionAck
-^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 Source file: `control/resume_session.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/resume_session.proto>`_
 
@@ -1652,6 +1695,7 @@ Source file: `control/resume_session.proto <https://github.com/CARTAvis/carta-pr
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -1671,7 +1715,7 @@ Source file: `control/resume_session.proto <https://github.com/CARTAvis/carta-pr
 .. _savefile:
 
 SaveFile
-^^^^^^^^
+~~~~~~~~
 
 Source file: `request/save_file.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/save_file.proto>`_
 
@@ -1680,6 +1724,7 @@ Source file: `request/save_file.proto <https://github.com/CARTAvis/carta-protobu
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -1707,7 +1752,7 @@ Source file: `request/save_file.proto <https://github.com/CARTAvis/carta-protobu
 .. _savefileack:
 
 SaveFileAck
-^^^^^^^^^^^
+~~~~~~~~~~~
 
 Source file: `request/save_file.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/save_file.proto>`_
 
@@ -1716,6 +1761,7 @@ Source file: `request/save_file.proto <https://github.com/CARTAvis/carta-protobu
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -1739,7 +1785,7 @@ Source file: `request/save_file.proto <https://github.com/CARTAvis/carta-protobu
 .. _scriptingrequest:
 
 ScriptingRequest
-^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 Source file: `request/scripting.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/scripting.proto>`_
 
@@ -1748,6 +1794,7 @@ Source file: `request/scripting.proto <https://github.com/CARTAvis/carta-protobu
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -1779,7 +1826,7 @@ Source file: `request/scripting.proto <https://github.com/CARTAvis/carta-protobu
 .. _scriptingresponse:
 
 ScriptingResponse
-^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~
 
 Source file: `request/scripting.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/scripting.proto>`_
 
@@ -1788,6 +1835,7 @@ Source file: `request/scripting.proto <https://github.com/CARTAvis/carta-protobu
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -1815,7 +1863,7 @@ Source file: `request/scripting.proto <https://github.com/CARTAvis/carta-protobu
 .. _setcontourparameters:
 
 SetContourParameters
-^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~
 
 Source file: `control/contour.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/contour.proto>`_
 
@@ -1825,6 +1873,7 @@ Sets the contour parameters for a file
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -1872,7 +1921,7 @@ Sets the contour parameters for a file
 .. _setcursor:
 
 SetCursor
-^^^^^^^^^
+~~~~~~~~~
 
 Source file: `control/set_cursor.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/set_cursor.proto>`_
 
@@ -1883,6 +1932,7 @@ The cursor defines a special case of a region, with a single control point.
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -1906,7 +1956,7 @@ The cursor defines a special case of a region, with a single control point.
 .. _sethistogramrequirements:
 
 SetHistogramRequirements
-^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
 
@@ -1916,6 +1966,7 @@ Sets which histogram data needs to be streamed to the frontend when the region i
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -1939,7 +1990,7 @@ Sets which histogram data needs to be streamed to the frontend when the region i
 .. _setimagechannels:
 
 SetImageChannels
-^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 Source file: `control/set_image_channels.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/set_image_channels.proto>`_
 
@@ -1949,6 +2000,7 @@ Sets the current image channel and Stokes parameter
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -1976,7 +2028,7 @@ Sets the current image channel and Stokes parameter
 .. _setregion:
 
 SetRegion
-^^^^^^^^^
+~~~~~~~~~
 
 Source file: `control/region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region.proto>`_
 
@@ -1986,6 +2038,7 @@ Creates or updates a region. Backend responds with :carta:`SET_REGION_ACK`
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -2009,7 +2062,7 @@ Creates or updates a region. Backend responds with :carta:`SET_REGION_ACK`
 .. _setregionack:
 
 SetRegionAck
-^^^^^^^^^^^^
+~~~~~~~~~~~~
 
 Source file: `control/region.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region.proto>`_
 
@@ -2019,6 +2072,7 @@ Response for :carta:`SET_REGION`
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -2042,7 +2096,7 @@ Response for :carta:`SET_REGION`
 .. _setregionrequirements:
 
 SetRegionRequirements
-^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~
 
 Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
 
@@ -2052,6 +2106,7 @@ Sets which spatial profile data needs to be streamed to the frontend when the re
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -2087,7 +2142,7 @@ Sets which spatial profile data needs to be streamed to the frontend when the re
 .. _setspatialrequirements:
 
 SetSpatialRequirements
-^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~
 
 Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
 
@@ -2097,6 +2152,7 @@ Sets which information needs to be streamed to the frontend when the region is u
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -2120,7 +2176,7 @@ Sets which information needs to be streamed to the frontend when the region is u
 .. _setspectralrequirements:
 
 SetSpectralRequirements
-^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
 
@@ -2130,6 +2186,7 @@ Sets which spectral profile data needs to be streamed to the frontend when the r
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -2153,7 +2210,7 @@ Sets which spectral profile data needs to be streamed to the frontend when the r
 .. _setstatsrequirements:
 
 SetStatsRequirements
-^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~
 
 Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
 
@@ -2163,6 +2220,7 @@ Sets which stats data needs to be streamed to the frontend when the region is up
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -2186,7 +2244,7 @@ Sets which stats data needs to be streamed to the frontend when the region is up
 .. _setuserlayout:
 
 SetUserLayout
-^^^^^^^^^^^^^
+~~~~~~~~~~~~~
 
 Source file: `control/user_layout.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/user_layout.proto>`_
 
@@ -2197,6 +2255,7 @@ Backend responds with  :carta:`SET_USER_LAYOUT_ACK`
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -2216,7 +2275,7 @@ Backend responds with  :carta:`SET_USER_LAYOUT_ACK`
 .. _setuserlayoutack:
 
 SetUserLayoutAck
-^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~
 
 Source file: `control/user_layout.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/user_layout.proto>`_
 
@@ -2226,6 +2285,7 @@ Response for :carta:`SET_USER_LAYOUT`
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -2241,7 +2301,7 @@ Response for :carta:`SET_USER_LAYOUT`
 .. _setuserpreferences:
 
 SetUserPreferences
-^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~
 
 Source file: `control/user_preferences.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/user_preferences.proto>`_
 
@@ -2252,6 +2312,7 @@ Backend responds with  :carta:`SET_USER_PREFERENCES_ACK`
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -2267,7 +2328,7 @@ Backend responds with  :carta:`SET_USER_PREFERENCES_ACK`
 .. _setuserpreferencesack:
 
 SetUserPreferencesAck
-^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~
 
 Source file: `control/user_preferences.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/user_preferences.proto>`_
 
@@ -2277,6 +2338,7 @@ Response for :carta:`SET_USER_PREFERENCES`
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -2292,7 +2354,7 @@ Response for :carta:`SET_USER_PREFERENCES`
 .. _spatialprofiledata:
 
 SpatialProfileData
-^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~
 
 Source file: `stream/spatial_profile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/spatial_profile.proto>`_
 
@@ -2302,6 +2364,7 @@ Data for spatial profile set for a specific file
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -2345,7 +2408,7 @@ Data for spatial profile set for a specific file
 .. _spectralconfig:
 
 SpectralConfig
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~
 
 Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
 
@@ -2354,6 +2417,7 @@ Source file: `control/region_requirements.proto <https://github.com/CARTAvis/car
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -2373,7 +2437,7 @@ Source file: `control/region_requirements.proto <https://github.com/CARTAvis/car
 .. _spectrallinerequest:
 
 SpectralLineRequest
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 Source file: `control/spectral_line_request.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/spectral_line_request.proto>`_
 
@@ -2382,6 +2446,7 @@ Source file: `control/spectral_line_request.proto <https://github.com/CARTAvis/c
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -2401,7 +2466,7 @@ Source file: `control/spectral_line_request.proto <https://github.com/CARTAvis/c
 .. _spectrallineresponse:
 
 SpectralLineResponse
-^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~
 
 Source file: `control/spectral_line_request.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/spectral_line_request.proto>`_
 
@@ -2410,6 +2475,7 @@ Source file: `control/spectral_line_request.proto <https://github.com/CARTAvis/c
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -2441,7 +2507,7 @@ Source file: `control/spectral_line_request.proto <https://github.com/CARTAvis/c
 .. _spectralprofiledata:
 
 SpectralProfileData
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~
 
 Source file: `stream/spectral_profile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/spectral_profile.proto>`_
 
@@ -2451,6 +2517,7 @@ Data for spectral profile set for a specific file
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -2482,7 +2549,7 @@ Data for spectral profile set for a specific file
 .. _startanimation:
 
 StartAnimation
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~
 
 Source file: `control/animation.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/animation.proto>`_
 
@@ -2493,6 +2560,7 @@ Backend responds with :carta:`START_ANIMATION_ACK`
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -2544,7 +2612,7 @@ Backend responds with :carta:`START_ANIMATION_ACK`
 .. _startanimationack:
 
 StartAnimationAck
-^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~
 
 Source file: `control/animation.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/animation.proto>`_
 
@@ -2554,6 +2622,7 @@ Response for :carta:`START_ANIMATION`
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -2577,7 +2646,7 @@ Response for :carta:`START_ANIMATION`
 .. _stopanimation:
 
 StopAnimation
-^^^^^^^^^^^^^
+~~~~~~~~~~~~~
 
 Source file: `control/animation.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/animation.proto>`_
 
@@ -2587,6 +2656,7 @@ Stops the playing animation
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -2606,7 +2676,7 @@ Stops the playing animation
 .. _stopmomentcalc:
 
 StopMomentCalc
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~
 
 Source file: `control/stop_moment_calc.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/stop_moment_calc.proto>`_
 
@@ -2615,6 +2685,7 @@ Source file: `control/stop_moment_calc.proto <https://github.com/CARTAvis/carta-
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -2630,7 +2701,7 @@ Source file: `control/stop_moment_calc.proto <https://github.com/CARTAvis/carta-
 .. _tiledata:
 
 TileData
-^^^^^^^^
+~~~~~~~~
 
 Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/raster_tile.proto>`_
 
@@ -2639,6 +2710,7 @@ Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protob
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type

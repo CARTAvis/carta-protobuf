@@ -309,18 +309,33 @@ for heading in soup.find_all(re.compile("h\d")):
         heading.name = "h4"
     elif heading.name == "h6":
         heading.name = "h5"
+        
+    if re.match(r"4\.1\.\d", heading.text):
+        heading.extract()
     
     if not heading.string:
         heading.extract()
     else:
         heading.string.replace_with(re.sub("[\d.]+ ", "", heading.text))
         
-    if heading.text == "Control messages":
-        heading.string.replace_with("Messages")
-        heading["id"] = "Messages"
-    elif heading.text in ("Request messages", "Data stream messages"):
-        heading.extract()
-            
+    #if heading.text == "Control messages":
+        #heading.string.replace_with("Messages")
+        #heading["id"] = "Messages"
+    #elif heading.text in ("Request messages", "Data stream messages"):
+        #heading.extract()
+
+# Put protobuf definitions in new section
+body = soup.find("body")
+newsection = soup.new_tag("h1")
+newsection.string = "Protocol buffer reference"
+newsection["id"] = newsection.string
+for title in ("Messages", "Sub-messages", "Enums"):
+    newsubsection = soup.new_tag("h2")
+    newsubsection.string = title
+    newsubsection["id"] = title
+    newsection.append(newsubsection)
+body.append(newsection)
+
 # For preview purposes, style the coloured spans
 for s in soup.find_all("span"):
     if "role" in s.attrs:

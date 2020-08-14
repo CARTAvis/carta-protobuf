@@ -61,7 +61,7 @@ for file_ in data["files"]:
         
         # Message heading
         
-        underline = "^" * len(name)
+        underline = "~" * len(name)
         output.append(f".. _{anchor}:\n\n{name}\n{underline}\n")
         
         # Link to file on github
@@ -83,6 +83,7 @@ for file_ in data["files"]:
 .. list-table::
    :widths: 25 25 10 40
    :header-rows: 1
+   :class: proto
 
    * - Field
      - Type
@@ -128,7 +129,7 @@ for file_ in data["files"]:
         # Enum heading
         
         anchor = name.lower()
-        underline = "^" * len(name)
+        underline = "~" * len(name)
         output.append(f".. _{anchor}:\n\n{name}\n{underline}\n")
         
         # Link to file on github
@@ -148,6 +149,7 @@ for file_ in data["files"]:
 .. list-table::
    :widths: 33 33 33
    :header-rows: 1
+   :class: proto
 
    * - Name
      - Number
