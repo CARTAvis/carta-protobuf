@@ -13,4 +13,4 @@ To make it possible for the automatically generated message documentation to cat
 
 [Plantuml](https://plantuml.com/) diagrams are rendered by the [Plantweb](https://plantweb.readthedocs.io/) extension and should be added to the text as UML, not as images. 
 
-To preview the built documentation locally, install the `sphinx` and `plantuml` packages, preferably with `pip3`. Then run `make html` in the `docs` directory.
+To preview the built documentation locally, install the `sphinx` and `plantuml` packages (install the latest versions with `pip3` or a similar tool -- the Ubuntu Sphinx package is very far behind, and Plantweb is not packaged). Then run `make html` in the `docs` directory.
