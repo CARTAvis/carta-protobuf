@@ -1,3 +1,5 @@
+.. carta:class:: carta-sub catalogfiletype
+
 .. _catalogfiletype:
 
 CatalogFileType
@@ -21,6 +23,8 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - VOTable
      - 1
      - 
+
+.. carta:class:: carta-sub clientfeatureflags
 
 .. _clientfeatureflags:
 
@@ -57,6 +61,8 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - OFFSCREEN_CANVAS
      - 16
      - 
+
+.. carta:class:: carta-sub columntype
 
 .. _columntype:
 
@@ -115,6 +121,8 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
      - 12
      - 
 
+.. carta:class:: carta-sub comparisonoperator
+
 .. _comparisonoperator:
 
 ComparisonOperator
@@ -157,6 +165,8 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
      - 7
      - 
 
+.. carta:class:: carta-sub compressiontype
+
 .. _compressiontype:
 
 CompressionType
@@ -184,6 +194,8 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
      - 2
      - 
 
+.. carta:class:: carta-sub coordinatetype
+
 .. _coordinatetype:
 
 CoordinateType
@@ -207,6 +219,8 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - WORLD
      - 1
      - 
+
+.. carta:class:: carta-sub entrytype
 
 .. _entrytype:
 
@@ -234,6 +248,8 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - INT
      - 2
      - 
+
+.. carta:class:: carta-sub errorseverity
 
 .. _errorseverity:
 
@@ -268,6 +284,8 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
      - 4
      - 
 
+.. carta:class:: carta-sub eventtype
+
 .. _eventtype:
 
 EventType
@@ -288,204 +306,206 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - EMPTY_EVENT
      - 0
      - 
-   * - :carta:f2b:`REGISTER_VIEWER`
+   * - :carta:refc:`REGISTER_VIEWER`
      - 1
      - 
-   * - :carta:f2b:`FILE_LIST_REQUEST`
+   * - :carta:refc:`FILE_LIST_REQUEST`
      - 2
      - 
-   * - :carta:f2b:`FILE_INFO_REQUEST`
+   * - :carta:refc:`FILE_INFO_REQUEST`
      - 3
      - 
-   * - :carta:f2b:`OPEN_FILE`
+   * - :carta:refc:`OPEN_FILE`
      - 4
      - 
-   * - :carta:f2b:`SET_IMAGE_CHANNELS`
+   * - :carta:refc:`SET_IMAGE_CHANNELS`
      - 6
      - 
-   * - :carta:f2b:`SET_CURSOR`
+   * - :carta:refc:`SET_CURSOR`
      - 7
      - 
-   * - :carta:f2b:`SET_SPATIAL_REQUIREMENTS`
+   * - :carta:refc:`SET_SPATIAL_REQUIREMENTS`
      - 8
      - 
-   * - :carta:f2b:`SET_HISTOGRAM_REQUIREMENTS`
+   * - :carta:refc:`SET_HISTOGRAM_REQUIREMENTS`
      - 9
      - 
-   * - :carta:f2b:`SET_STATS_REQUIREMENTS`
+   * - :carta:refc:`SET_STATS_REQUIREMENTS`
      - 10
      - 
-   * - :carta:f2b:`SET_REGION`
+   * - :carta:refc:`SET_REGION`
      - 11
      - 
-   * - :carta:f2b:`REMOVE_REGION`
+   * - :carta:refc:`REMOVE_REGION`
      - 12
      - 
-   * - :carta:f2b:`CLOSE_FILE`
+   * - :carta:refc:`CLOSE_FILE`
      - 13
      - 
-   * - :carta:f2b:`SET_SPECTRAL_REQUIREMENTS`
+   * - :carta:refc:`SET_SPECTRAL_REQUIREMENTS`
      - 14
      - 
-   * - :carta:f2b:`START_ANIMATION`
+   * - :carta:refc:`START_ANIMATION`
      - 15
      - 
-   * - :carta:b2f:`START_ANIMATION_ACK`
+   * - :carta:refc:`START_ANIMATION_ACK`
      - 16
      - 
-   * - :carta:f2b:`STOP_ANIMATION`
+   * - :carta:refc:`STOP_ANIMATION`
      - 17
      - 
-   * - :carta:b2f:`REGISTER_VIEWER_ACK`
+   * - :carta:refc:`REGISTER_VIEWER_ACK`
      - 18
      - 
-   * - :carta:b2f:`FILE_LIST_RESPONSE`
+   * - :carta:refc:`FILE_LIST_RESPONSE`
      - 19
      - 
-   * - :carta:b2f:`FILE_INFO_RESPONSE`
+   * - :carta:refc:`FILE_INFO_RESPONSE`
      - 20
      - 
-   * - :carta:b2f:`OPEN_FILE_ACK`
+   * - :carta:refc:`OPEN_FILE_ACK`
      - 21
      - 
-   * - :carta:b2f:`SET_REGION_ACK`
+   * - :carta:refc:`SET_REGION_ACK`
      - 22
      - 
-   * - :carta:b2f:`REGION_HISTOGRAM_DATA`
+   * - :carta:refc:`REGION_HISTOGRAM_DATA`
      - 23
      - 
-   * - :carta:b2f:`SPATIAL_PROFILE_DATA`
+   * - :carta:refc:`SPATIAL_PROFILE_DATA`
      - 25
      - 
-   * - :carta:b2f:`SPECTRAL_PROFILE_DATA`
+   * - :carta:refc:`SPECTRAL_PROFILE_DATA`
      - 26
      - 
-   * - :carta:b2f:`REGION_STATS_DATA`
+   * - :carta:refc:`REGION_STATS_DATA`
      - 27
      - 
-   * - :carta:b2f:`ERROR_DATA`
+   * - :carta:refc:`ERROR_DATA`
      - 28
      - 
-   * - :carta:f2b:`ANIMATION_FLOW_CONTROL`
+   * - :carta:refc:`ANIMATION_FLOW_CONTROL`
      - 29
      - 
-   * - :carta:f2b:`ADD_REQUIRED_TILES`
+   * - :carta:refc:`ADD_REQUIRED_TILES`
      - 30
      - 
-   * - :carta:f2b:`REMOVE_REQUIRED_TILES`
+   * - :carta:refc:`REMOVE_REQUIRED_TILES`
      - 31
      - 
-   * - :carta:b2f:`RASTER_TILE_DATA`
+   * - :carta:refc:`RASTER_TILE_DATA`
      - 32
      - 
-   * - :carta:f2b:`REGION_LIST_REQUEST`
+   * - :carta:refc:`REGION_LIST_REQUEST`
      - 33
      - 
-   * - :carta:b2f:`REGION_LIST_RESPONSE`
+   * - :carta:refc:`REGION_LIST_RESPONSE`
      - 34
      - 
-   * - :carta:f2b:`REGION_FILE_INFO_REQUEST`
+   * - :carta:refc:`REGION_FILE_INFO_REQUEST`
      - 35
      - 
-   * - :carta:b2f:`REGION_FILE_INFO_RESPONSE`
+   * - :carta:refc:`REGION_FILE_INFO_RESPONSE`
      - 36
      - 
-   * - :carta:f2b:`IMPORT_REGION`
+   * - :carta:refc:`IMPORT_REGION`
      - 37
      - 
-   * - :carta:b2f:`IMPORT_REGION_ACK`
+   * - :carta:refc:`IMPORT_REGION_ACK`
      - 38
      - 
-   * - :carta:f2b:`EXPORT_REGION`
+   * - :carta:refc:`EXPORT_REGION`
      - 39
      - 
-   * - :carta:b2f:`EXPORT_REGION_ACK`
+   * - :carta:refc:`EXPORT_REGION_ACK`
      - 40
      - 
-   * - :carta:f2b:`SET_USER_PREFERENCES`
+   * - :carta:refc:`SET_USER_PREFERENCES`
      - 41
      - 
-   * - :carta:b2f:`SET_USER_PREFERENCES_ACK`
+   * - :carta:refc:`SET_USER_PREFERENCES_ACK`
      - 42
      - 
-   * - :carta:f2b:`SET_USER_LAYOUT`
+   * - :carta:refc:`SET_USER_LAYOUT`
      - 43
      - 
-   * - :carta:b2f:`SET_USER_LAYOUT_ACK`
+   * - :carta:refc:`SET_USER_LAYOUT_ACK`
      - 44
      - 
-   * - :carta:f2b:`SET_CONTOUR_PARAMETERS`
+   * - :carta:refc:`SET_CONTOUR_PARAMETERS`
      - 45
      - 
-   * - :carta:b2f:`CONTOUR_IMAGE_DATA`
+   * - :carta:refc:`CONTOUR_IMAGE_DATA`
      - 46
      - 
-   * - :carta:f2b:`RESUME_SESSION`
+   * - :carta:refc:`RESUME_SESSION`
      - 47
      - 
-   * - :carta:b2f:`RESUME_SESSION_ACK`
+   * - :carta:refc:`RESUME_SESSION_ACK`
      - 48
      - 
-   * - :carta:b2f:`RASTER_TILE_SYNC`
+   * - :carta:refc:`RASTER_TILE_SYNC`
      - 49
      - 
-   * - :carta:f2b:`CATALOG_LIST_REQUEST`
+   * - :carta:refc:`CATALOG_LIST_REQUEST`
      - 50
      - 
-   * - :carta:b2f:`CATALOG_LIST_RESPONSE`
+   * - :carta:refc:`CATALOG_LIST_RESPONSE`
      - 51
      - 
-   * - :carta:f2b:`CATALOG_FILE_INFO_REQUEST`
+   * - :carta:refc:`CATALOG_FILE_INFO_REQUEST`
      - 52
      - 
-   * - :carta:b2f:`CATALOG_FILE_INFO_RESPONSE`
+   * - :carta:refc:`CATALOG_FILE_INFO_RESPONSE`
      - 53
      - 
-   * - :carta:f2b:`OPEN_CATALOG_FILE`
+   * - :carta:refc:`OPEN_CATALOG_FILE`
      - 54
      - 
-   * - :carta:b2f:`OPEN_CATALOG_FILE_ACK`
+   * - :carta:refc:`OPEN_CATALOG_FILE_ACK`
      - 55
      - 
-   * - :carta:f2b:`CLOSE_CATALOG_FILE`
+   * - :carta:refc:`CLOSE_CATALOG_FILE`
      - 56
      - 
-   * - :carta:f2b:`CATALOG_FILTER_REQUEST`
+   * - :carta:refc:`CATALOG_FILTER_REQUEST`
      - 57
      - 
-   * - :carta:b2f:`CATALOG_FILTER_RESPONSE`
+   * - :carta:refc:`CATALOG_FILTER_RESPONSE`
      - 58
      - 
-   * - :carta:f2b:`SCRIPTING_REQUEST`
+   * - :carta:refc:`SCRIPTING_REQUEST`
      - 59
      - 
-   * - :carta:b2f:`SCRIPTING_RESPONSE`
+   * - :carta:refc:`SCRIPTING_RESPONSE`
      - 60
      - 
-   * - :carta:f2b:`MOMENT_REQUEST`
+   * - :carta:refc:`MOMENT_REQUEST`
      - 61
      - 
-   * - :carta:b2f:`MOMENT_RESPONSE`
+   * - :carta:refc:`MOMENT_RESPONSE`
      - 62
      - 
-   * - :carta:b2f:`MOMENT_PROGRESS`
+   * - :carta:refc:`MOMENT_PROGRESS`
      - 63
      - 
-   * - :carta:f2b:`STOP_MOMENT_CALC`
+   * - :carta:refc:`STOP_MOMENT_CALC`
      - 64
      - 
-   * - :carta:f2b:`SAVE_FILE`
+   * - :carta:refc:`SAVE_FILE`
      - 65
      - 
-   * - :carta:f2b:`SAVE_FILE_ACK`
+   * - :carta:refc:`SAVE_FILE_ACK`
      - 66
      - 
-   * - :carta:f2b:`SPECTRAL_LINE_REQUEST`
+   * - :carta:refc:`SPECTRAL_LINE_REQUEST`
      - 67
      - 
-   * - :carta:f2b:`SPECTRAL_LINE_RESPONSE`
+   * - :carta:refc:`SPECTRAL_LINE_RESPONSE`
      - 68
      - 
+
+.. carta:class:: carta-sub filefeatureflags
 
 .. _filefeatureflags:
 
@@ -526,6 +546,8 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
      - 32
      - 
 
+.. carta:class:: carta-sub filetype
+
 .. _filetype:
 
 FileType
@@ -564,6 +586,8 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - UNKNOWN
      - 6
      - 
+
+.. carta:class:: carta-sub moment
 
 .. _moment:
 
@@ -622,6 +646,8 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
      - 12
      - 
 
+.. carta:class:: carta-sub momentaxis
+
 .. _momentaxis:
 
 MomentAxis
@@ -645,6 +671,8 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - STOKES
      - 1
      - 
+
+.. carta:class:: carta-sub momentmask
 
 .. _momentmask:
 
@@ -672,6 +700,8 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - Exclude
      - 2
      - 
+
+.. carta:class:: carta-sub regiontype
 
 .. _regiontype:
 
@@ -712,6 +742,8 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
      - 6
      - 
 
+.. carta:class:: carta-sub rendermode
+
 .. _rendermode:
 
 RenderMode
@@ -735,6 +767,8 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - CONTOUR
      - 1
      - 
+
+.. carta:class:: carta-sub serverfeatureflags
 
 .. _serverfeatureflags:
 
@@ -775,6 +809,8 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
      - 32
      - 
 
+.. carta:class:: carta-sub sessiontype
+
 .. _sessiontype:
 
 SessionType
@@ -798,6 +834,8 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - RESUMED
      - 1
      - 
+
+.. carta:class:: carta-sub smoothingmode
 
 .. _smoothingmode:
 
@@ -826,6 +864,8 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
      - 2
      - 
 
+.. carta:class:: carta-sub sortingtype
+
 .. _sortingtype:
 
 SortingType
@@ -849,6 +889,8 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - Descending
      - 1
      - 
+
+.. carta:class:: carta-sub statstype
 
 .. _statstype:
 

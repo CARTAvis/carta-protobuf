@@ -14,12 +14,12 @@
     color: black;
 }
 
-.carta-ref, .carta-f2b, .carta-b2f, .carta-sub {
+.carta-ref {
     font-family: monospace;
     font-size: 0.9em;
 }
 
-table {
+table.proto {
     width: 100%;
     font-family: monospace;
     font-size: 0.9em;

@@ -13,7 +13,7 @@ def to_snake(word):
     return "_".join(p.upper() for p in parts)
 
 def get_cssclass(parent_dir, anchor):
-    cssclass = None
+    cssclass = "sub"
         
     if parent_dir == "control":
         cssclass = "b2f" if anchor.endswith("ack") else "f2b"
@@ -29,9 +29,7 @@ def auto_cartaref(s, exclude=None):
     if exclude:
         search -= set([exclude, to_snake(exclude)])
     for symbol in search:
-        anchor = symbol.lower().replace("_", "")
-        ref = get_cssclass(anchor_parent[anchor], anchor) or "sub"
-        s = re.sub(f"\\b{symbol}\\b", f":carta:{ref}:`{symbol}`", s)
+        s = re.sub(f"\\b{symbol}\\b", f":carta:refc:`{symbol}`", s)
     return s
 
 # STATE
@@ -93,9 +91,7 @@ for file_ in data["files"]:
         
         anchor = name.lower()
         cssclass = get_cssclass(parent_dir, anchor)
-        
-        if cssclass:
-            output.append(f".. cssclass:: {cssclass}\n")
+        output.append(f".. carta:class:: carta-{cssclass} {anchor}\n")
         
         # Message heading
         
@@ -139,10 +135,10 @@ for file_ in data["files"]:
                     map_key = map_message["fields"][0]["type"]
                     map_value = map_message["fields"][1]["type"]
                     if map_value in message_names:
-                        map_value = f":carta:sub:`{map_value}`"
+                        map_value = f":carta:refc:`{map_value}`"
                     field_type = f"map<key: {map_key}, value: {map_value}>"
                 elif field["type"] in message_names:
-                    field_type = f":carta:sub:`{field['type']}`"
+                    field_type = f":carta:refc:`{field['type']}`"
                 else:
                     field_type = field["type"]
                 
@@ -160,6 +156,12 @@ for file_ in data["files"]:
     for enum in file_["enums"]:
         output = []
         name = enum["name"]
+        
+        # Enum colour
+        
+        anchor = name.lower()
+        cssclass = get_cssclass(parent_dir, anchor)
+        output.append(f".. carta:class:: carta-{cssclass} {anchor}\n")
         
         # Enum heading
         

@@ -1,3 +1,5 @@
+.. carta:class:: carta-sub animationframe
+
 .. _animationframe:
 
 AnimationFrame
@@ -25,6 +27,8 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
 
+.. carta:class:: carta-sub catalogfileinfo
+
 .. _catalogfileinfo:
 
 CatalogFileInfo
@@ -48,7 +52,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
    * - type
-     - :carta:sub:`CatalogFileType`
+     - :carta:refc:`CatalogFileType`
      - 
      - 
    * - file_size
@@ -60,13 +64,15 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
    * - coosys
-     - :carta:sub:`Coosys`
+     - :carta:refc:`Coosys`
      - repeated
      - 
    * - date
      - sfixed64
      - 
      - 
+
+.. carta:class:: carta-sub catalogheader
 
 .. _catalogheader:
 
@@ -91,7 +97,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
    * - data_type
-     - :carta:sub:`ColumnType`
+     - :carta:refc:`ColumnType`
      - 
      - 
    * - column_index
@@ -106,6 +112,8 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - string
      - 
      - 
+
+.. carta:class:: carta-sub catalogimagebounds
 
 .. _catalogimagebounds:
 
@@ -134,9 +142,11 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
    * - image_bounds
-     - :carta:sub:`ImageBounds`
+     - :carta:refc:`ImageBounds`
      - 
      - 
+
+.. carta:class:: carta-sub columndata
 
 .. _columndata:
 
@@ -157,7 +167,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - Label
      - Description
    * - data_type
-     - :carta:sub:`ColumnType`
+     - :carta:refc:`ColumnType`
      - 
      - 
    * - string_data
@@ -168,6 +178,8 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - bytes
      - 
      - binary data will get converted to a TypedArray
+
+.. carta:class:: carta-sub coosys
 
 .. _coosys:
 
@@ -200,6 +212,8 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
 
+.. carta:class:: carta-sub doublebounds
+
 .. _doublebounds:
 
 DoubleBounds
@@ -227,6 +241,8 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
 
+.. carta:class:: carta-sub fileinfo
+
 .. _fileinfo:
 
 FileInfo
@@ -250,7 +266,7 @@ File info message structure (internal use only)
      - 
      - 
    * - type
-     - :carta:sub:`FileType`
+     - :carta:refc:`FileType`
      - 
      - 
    * - size
@@ -265,6 +281,8 @@ File info message structure (internal use only)
      - sfixed64
      - 
      - 
+
+.. carta:class:: carta-sub fileinfoextended
 
 .. _fileinfoextended:
 
@@ -309,13 +327,15 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - repeated
      - List of Stokes parameters contained in the file (if applicable). For files that do not explicitly specify Stokes files, this will be blank.
    * - header_entries
-     - :carta:sub:`HeaderEntry`
+     - :carta:refc:`HeaderEntry`
      - repeated
      - Header entries from header string or attributes
    * - computed_entries
-     - :carta:sub:`HeaderEntry`
+     - :carta:refc:`HeaderEntry`
      - repeated
      - 
+
+.. carta:class:: carta-sub filterconfig
 
 .. _filterconfig:
 
@@ -340,7 +360,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
    * - comparison_operator
-     - :carta:sub:`ComparisonOperator`
+     - :carta:refc:`ComparisonOperator`
      - 
      - 
    * - value
@@ -355,6 +375,8 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - string
      - 
      - 
+
+.. carta:class:: carta-sub floatbounds
 
 .. _floatbounds:
 
@@ -383,6 +405,8 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
 
+.. carta:class:: carta-sub headerentry
+
 .. _headerentry:
 
 HeaderEntry
@@ -410,7 +434,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
    * - entry_type
-     - :carta:sub:`EntryType`
+     - :carta:refc:`EntryType`
      - 
      - 
    * - numeric_value
@@ -421,6 +445,8 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - string
      - 
      - 
+
+.. carta:class:: carta-sub histogram
 
 .. _histogram:
 
@@ -469,6 +495,8 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
 
+.. carta:class:: carta-sub imagebounds
+
 .. _imagebounds:
 
 ImageBounds
@@ -504,6 +532,8 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
 
+.. carta:class:: carta-sub intbounds
+
 .. _intbounds:
 
 IntBounds
@@ -531,6 +561,8 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
 
+.. carta:class:: carta-sub matchedframelist
+
 .. _matchedframelist:
 
 MatchedFrameList
@@ -553,6 +585,8 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - float
      - repeated
      - 
+
+.. carta:class:: carta-sub point
 
 .. _point:
 
@@ -581,6 +615,8 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
 
+.. carta:class:: carta-sub regioninfo
+
 .. _regioninfo:
 
 RegionInfo
@@ -600,17 +636,19 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - Label
      - Description
    * - region_type
-     - :carta:sub:`RegionType`
+     - :carta:refc:`RegionType`
      - 
      - The type of region described by the control points. The meaning of the control points will differ, depending on the type of region being defined.
    * - control_points
-     - :carta:sub:`Point`
+     - :carta:refc:`Point`
      - repeated
      - Control points for the region
    * - rotation
      - float
      - 
      - (Only applicable for ellipse and rectangle) Rotation of the region in the xy plane (radians).
+
+.. carta:class:: carta-sub regionstyle
 
 .. _regionstyle:
 
@@ -647,6 +685,8 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - repeated
      - Dash length: on, off
 
+.. carta:class:: carta-sub spatialprofile
+
 .. _spatialprofile:
 
 SpatialProfile
@@ -682,6 +722,8 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
 
+.. carta:class:: carta-sub spectralprofile
+
 .. _spectralprofile:
 
 SpectralProfile
@@ -705,7 +747,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
    * - stats_type
-     - :carta:sub:`StatsType`
+     - :carta:refc:`StatsType`
      - 
      - 
    * - raw_values_fp32
@@ -716,6 +758,8 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - bytes
      - 
      - 
+
+.. carta:class:: carta-sub statisticsvalue
 
 .. _statisticsvalue:
 
@@ -736,7 +780,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - Label
      - Description
    * - stats_type
-     - :carta:sub:`StatsType`
+     - :carta:refc:`StatsType`
      - 
      - 
    * - value
