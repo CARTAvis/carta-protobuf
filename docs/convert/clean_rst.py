@@ -116,3 +116,25 @@ for filename, contents in file_contents.items():
     with open(os.path.join(destdir, filename), "w") as f:
         for line in contents:
             print(line, file=f)
+
+# Fix the preamble
+
+with open(os.path.join(destdir, "index.rst")) as f:
+    data = f.read()
+
+data = re.sub("\n(Date|Authors|Version|ICD Version Integer|CARTA Target): (.+)", r":\1: \2", data)
+data = re.sub(":Date:", "\n:Date:", data)
+    
+with open(os.path.join(destdir, "index.rst"), "w") as f:
+    f.write(data)
+
+# Fix the changelog
+
+with open(os.path.join(destdir, "changelog.rst.txt")) as f:
+    data = f.read()
+
+data = re.sub("\*\*Changelog\*\*\n", "**Changelog**\n\n.. list-table::\n   :widths: 10 10 80\n   :header-rows: 1\n   :class: changelog\n\n   * - Version\n     - Date\n     - Description", data)
+data = re.sub("``(\d+\.\d+\.\d+) +\(([\d?][\d?]/\d\d/\d\d)\):`` (.*)\n\n", r"   * - ``\1``\n     - \2\n     - \3\n", data)
+    
+with open(os.path.join(destdir, "changelog.rst.txt"), "w") as f:
+    f.write(data)

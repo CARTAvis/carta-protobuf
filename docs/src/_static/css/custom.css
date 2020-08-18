@@ -24,3 +24,7 @@ table.proto {
     font-family: monospace;
     font-size: 0.9em;
 }
+
+table.changelog {
+    width: 100%;
+}

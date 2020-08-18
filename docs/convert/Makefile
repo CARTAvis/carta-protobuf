@@ -1,5 +1,5 @@
 ../index.rst: ICD.rst.ignore clean_rst.py
-	./clean_rst.py $< ..
+	./clean_rst.py $< ../src
 
 ICD.rst.ignore: ICD.html
 	pandoc $< --wrap=none --to=rst -o $@
