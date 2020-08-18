@@ -7,7 +7,7 @@ Protocol buffer message definitions for CARTA frontend/backend interface
 
 The CARTA Backend/Frontend ICD is automatically generated from this repository using [Sphinx](https://www.sphinx-doc.org), and published on [ReadTheDocs](https://readthedocs.org/). *Link will be added here when setup is complete.* To update this document, edit the [reStructuredText](https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html) documents in `docs`. 
 
-After a change to the protocol buffer files you must also regenerate the `*.rst.txt` files by running `make` in the `protoc` subdirectory. These files are generated with [protoc-gen-doc](https://github.com/pseudomuto/protoc-gen-doc). Make sure that both the `protoc` and `protoc-gen-doc` executables are in your path.
+After a change to the protocol buffer files you must also regenerate the `*.rst.txt` files by running `make` in the `protoc` subdirectory. These files are generated with [protoc-gen-doc](https://github.com/pseudomuto/protoc-gen-doc). Make sure that both the `protoc` and `protoc-gen-doc` executables are in your path. `protoc` is provided by [`protobuf`](https://github.com/protocolbuffers/protobuf), which you should already have installed as a dependency of gRPC.
 
 To make it possible for the automatically generated message documentation to categorise messages correctly, please put all submessages in `shared/defs.proto`, even if they are only used in one file.
 
