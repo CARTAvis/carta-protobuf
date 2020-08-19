@@ -31,6 +31,7 @@ author = 'Angus Comrie and Rob Simmonds'
 extensions = [
     'cartaref',
     'plantweb.directive',
+    'sphinxcontrib.rsvgconverter',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
