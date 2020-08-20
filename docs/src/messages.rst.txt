@@ -11,7 +11,7 @@ ADD_REQUIRED_TILES
 Provides a list of tiles that are required for the specified file
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -49,7 +49,7 @@ ANIMATION_FLOW_CONTROL
 Used for informing the backend of which frames have been received
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -86,7 +86,7 @@ Source file: `request/catalog_file_info.proto <https://github.com/CARTAvis/carta
 
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -115,7 +115,7 @@ Source file: `request/catalog_file_info.proto <https://github.com/CARTAvis/carta
 
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -152,7 +152,7 @@ Source file: `stream/catalog_filter.proto <https://github.com/CARTAvis/carta-pro
 
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -213,7 +213,7 @@ Source file: `stream/catalog_filter.proto <https://github.com/CARTAvis/carta-pro
 
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -270,7 +270,7 @@ Source file: `request/catalog_list.proto <https://github.com/CARTAvis/carta-prot
 
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -295,7 +295,7 @@ Source file: `request/catalog_list.proto <https://github.com/CARTAvis/carta-prot
 
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -340,7 +340,7 @@ Source file: `control/open_catalog_file.proto <https://github.com/CARTAvis/carta
 
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -366,7 +366,7 @@ CLOSE_FILE:
 Instructs the backend to close a file with a given file ID
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -392,7 +392,7 @@ CONTOUR_IMAGE_DATA:
 Data for an image rendered in contour mode.
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -441,7 +441,7 @@ Source file: `stream/contour_image.proto <https://github.com/CARTAvis/carta-prot
 
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -484,7 +484,7 @@ Stream of error/warning/info data. This stream is used to present the frontend w
 the state of the backend, and is not used in place of returning success=false on requests or commands.
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -524,7 +524,7 @@ If directory and file are blank, return file contents for export on client.
 Backend responds with  :carta:refc:`EXPORT_REGION_ACK`
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -570,7 +570,7 @@ EXPORT_REGION_ACK
 Response for :carta:refc:`EXPORT_REGION` to indicate success and file contents if on client.
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -605,7 +605,7 @@ Requests the file info for a specific file.
 Backend responds with :carta:refc:`FILE_INFO_RESPONSE`
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -640,7 +640,7 @@ Response for :carta:refc:`FILE_INFO_REQUEST`.
 Gives information on the requested file
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -679,7 +679,7 @@ Requests the list of available files for a given directory.
 Backend responds with :carta:refc:`FILE_LIST_RESPONSE`
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -706,7 +706,7 @@ Response for :carta:refc:`FILE_LIST_REQUEST`.
 Gives a list of available files (and their types), as well as subdirectories
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -751,7 +751,7 @@ Source file: `control/region_requirements.proto <https://github.com/CARTAvis/car
 
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -780,7 +780,7 @@ Source file: `control/resume_session.proto <https://github.com/CARTAvis/carta-pr
 
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -839,7 +839,7 @@ Requests the opening and applying of a specific region file.
 Backend responds with  :carta:refc:`IMPORT_REGION_ACK`
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -881,7 +881,7 @@ IMPORT_REGION_ACK
 Response for :carta:refc:`IMPORT_REGION`. Also supplies region properties
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -918,7 +918,7 @@ Source file: `request/moment_request.proto <https://github.com/CARTAvis/carta-pr
 
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -947,7 +947,7 @@ Source file: `request/moment_request.proto <https://github.com/CARTAvis/carta-pr
 
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -996,7 +996,7 @@ Source file: `request/moment_request.proto <https://github.com/CARTAvis/carta-pr
 
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -1029,7 +1029,7 @@ Source file: `control/open_catalog_file.proto <https://github.com/CARTAvis/carta
 
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -1066,7 +1066,7 @@ Source file: `control/open_catalog_file.proto <https://github.com/CARTAvis/carta
 
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -1117,7 +1117,7 @@ Requests the opening of a specific file.
 Backend responds with  :carta:refc:`OPEN_FILE_ACK`
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -1159,7 +1159,7 @@ OPEN_FILE_ACK
 Response for :carta:refc:`OPEN_FILE`. Also supplies file information
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -1204,7 +1204,7 @@ Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protob
 
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -1253,7 +1253,7 @@ Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protob
 
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -1296,7 +1296,7 @@ Requests contents for a specific region file on the server
 Backend responds with :carta:refc:`REGION_FILE_INFO_RESPONSE`
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -1327,7 +1327,7 @@ Response for :carta:refc:`REGION_FILE_INFO_REQUEST`.
 Gives information on the requested file
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -1365,7 +1365,7 @@ REGION_HISTOGRAM_DATA:
 Stats data for a specific region
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -1408,7 +1408,7 @@ Requests the list of available region files for a given directory.
 Backend responds with :carta:refc:`REGION_LIST_RESPONSE`
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -1435,7 +1435,7 @@ Response for :carta:refc:`REGION_LIST_REQUEST`.
 Gives a list of available region files (and their types), as well as subdirectories
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -1481,7 +1481,7 @@ REGION_STATS_DATA:
 Stats data for a specific region
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -1524,7 +1524,7 @@ Registers the viewer with the backend.
 Responds with :carta:refc:`REGISTER_VIEWER_ACK`
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -1559,7 +1559,7 @@ Acknowledgement response for :carta:refc:`REGISTER_VIEWER`.
 Informs the frontend whether the session was correctly.
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -1609,7 +1609,7 @@ REMOVE_REGION:
 Removes a region
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -1635,7 +1635,7 @@ REMOVE_REQUIRED_TILES
 Provides a list of tiles that are required for the specified file
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -1664,7 +1664,7 @@ Source file: `control/resume_session.proto <https://github.com/CARTAvis/carta-pr
 
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -1693,7 +1693,7 @@ Source file: `control/resume_session.proto <https://github.com/CARTAvis/carta-pr
 
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -1722,7 +1722,7 @@ Source file: `request/save_file.proto <https://github.com/CARTAvis/carta-protobu
 
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -1759,7 +1759,7 @@ Source file: `request/save_file.proto <https://github.com/CARTAvis/carta-protobu
 
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -1792,7 +1792,7 @@ Source file: `request/scripting.proto <https://github.com/CARTAvis/carta-protobu
 
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -1833,7 +1833,7 @@ Source file: `request/scripting.proto <https://github.com/CARTAvis/carta-protobu
 
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -1871,7 +1871,7 @@ SET_CONTOUR_PARAMETERS
 Sets the contour parameters for a file
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -1930,7 +1930,7 @@ Sets the current cursor position in image space coordinates.
 The cursor defines a special case of a region, with a single control point.
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -1964,7 +1964,7 @@ SET_HISTOGRAM_REQUIREMENTS:
 Sets which histogram data needs to be streamed to the frontend when the region is updated
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -1998,7 +1998,7 @@ SET_IMAGE_CHANNELS
 Sets the current image channel and Stokes parameter
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -2036,7 +2036,7 @@ SET_REGION:
 Creates or updates a region. Backend responds with :carta:refc:`SET_REGION_ACK`
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -2070,7 +2070,7 @@ SET_REGION_ACK:
 Response for :carta:refc:`SET_REGION`
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -2104,7 +2104,7 @@ SET_REGION_REQUIREMENTS:
 Sets which spatial profile data needs to be streamed to the frontend when the region is updated
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -2150,7 +2150,7 @@ SET_SPATIAL_REQUIREMENTS:
 Sets which information needs to be streamed to the frontend when the region is updated
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -2184,7 +2184,7 @@ SET_SPECTRAL_REQUIREMENTS:
 Sets which spectral profile data needs to be streamed to the frontend when the region is updated
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -2218,7 +2218,7 @@ SET_STATS_REQUIREMENTS:
 Sets which stats data needs to be streamed to the frontend when the region is updated
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -2253,7 +2253,7 @@ Sets or clears a user layout.
 Backend responds with  :carta:refc:`SET_USER_LAYOUT_ACK`
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -2283,7 +2283,7 @@ SET_USER_LAYOUT_ACK
 Response for :carta:refc:`SET_USER_LAYOUT`
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -2310,7 +2310,7 @@ Sets or clears one or more user preferences.
 Backend responds with  :carta:refc:`SET_USER_PREFERENCES_ACK`
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -2336,7 +2336,7 @@ SET_USER_PREFERENCES_ACK
 Response for :carta:refc:`SET_USER_PREFERENCES`
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -2362,7 +2362,7 @@ SPATIAL_PROFILE_DATA:
 Data for spatial profile set for a specific file
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -2415,7 +2415,7 @@ Source file: `control/region_requirements.proto <https://github.com/CARTAvis/car
 
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -2444,7 +2444,7 @@ Source file: `control/spectral_line_request.proto <https://github.com/CARTAvis/c
 
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -2473,7 +2473,7 @@ Source file: `control/spectral_line_request.proto <https://github.com/CARTAvis/c
 
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -2515,7 +2515,7 @@ SPECTRAL_PROFILE_DATA:
 Data for spectral profile set for a specific file
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -2558,7 +2558,7 @@ Starts an animation, as defined by the start, stop and step definitions.
 Backend responds with :carta:refc:`START_ANIMATION_ACK`
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -2620,7 +2620,7 @@ START_ANIMATION_ACK
 Response for :carta:refc:`START_ANIMATION`
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -2654,7 +2654,7 @@ STOP_ANIMATION
 Stops the playing animation
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -2683,7 +2683,7 @@ Source file: `control/stop_moment_calc.proto <https://github.com/CARTAvis/carta-
 
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 
@@ -2708,7 +2708,7 @@ Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protob
 
 
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 

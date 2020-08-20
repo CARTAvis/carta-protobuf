@@ -114,7 +114,7 @@ for file_ in data["files"]:
         
             field_header = """
 .. list-table::
-   :widths: 25 25 10 40
+   :widths: 20 20 20 40
    :header-rows: 1
    :class: proto
 

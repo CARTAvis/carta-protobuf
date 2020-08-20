@@ -133,7 +133,7 @@ with open(os.path.join(destdir, "index.rst"), "w") as f:
 with open(os.path.join(destdir, "changelog.rst.txt")) as f:
     data = f.read()
 
-data = re.sub("\*\*Changelog\*\*\n", "**Changelog**\n\n.. list-table::\n   :widths: 10 10 80\n   :header-rows: 1\n   :class: changelog\n\n   * - Version\n     - Date\n     - Description", data)
+data = re.sub("\*\*Changelog\*\*\n", "**Changelog**\n\n.. list-table::\n   :widths: 15 15 70\n   :header-rows: 1\n   :class: changelog\n\n   * - Version\n     - Date\n     - Description", data)
 data = re.sub("``(\d+\.\d+\.\d+) +\(([\d?][\d?]/\d\d/\d\d)\):`` (.*)\n\n", r"   * - ``\1``\n     - \2\n     - \3\n", data)
     
 with open(os.path.join(destdir, "changelog.rst.txt"), "w") as f:
