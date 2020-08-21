@@ -2,7 +2,6 @@ syntax = "proto3";
 package CARTA;
 
 import "enums.proto";
-import "defs.proto";
 
 // SET_STATS_REQUIREMENTS:
 // Sets which stats data needs to be streamed to the frontend when the region is updated
