@@ -67,3 +67,25 @@ rst_prolog = """
 
 .. role:: b2f
 """
+
+# LaTeX / PDF options
+
+latex_elements = {
+    'preamble': r'''
+\definecolor{commentorange}{RGB}{255, 153, 0}
+\definecolor{f2b}{RGB}{11, 83, 148}
+\definecolor{b2f}{RGB}{116, 27, 71}
+\newcommand{\DUrolecomment}{\textcolor{commentorange}}
+\newcommand{\ttsub}[1]{\textcolor{black}{\texttt{#1}}}
+\newcommand{\ttftob}[1]{\textcolor{f2b}{\texttt{#1}}}
+\newcommand{\ttbtof}[1]{\textcolor{b2f}{\texttt{#1}}}
+\makeatletter
+\@namedef{DUrolef2b}{\textcolor{f2b}}
+\@namedef{DUroleb2f}{\textcolor{b2f}}
+\@namedef{DUrolecarta,carta-ref}{\texttt}
+\@namedef{DUrolecarta,carta-ref,carta-sub}{\ttsub}
+\@namedef{DUrolecarta,carta-ref,carta-f2b}{\ttftob}
+\@namedef{DUrolecarta,carta-ref,carta-b2f}{\ttbtof}
+\makeatother
+''',
+}
