@@ -1,0 +1,790 @@
+.. carta:class:: carta-sub animationframe
+
+.. _animationframe:
+
+AnimationFrame
+~~~~~~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - channel
+     - sfixed32
+     - 
+     - 
+   * - stokes
+     - sfixed32
+     - 
+     - 
+
+.. carta:class:: carta-sub catalogfileinfo
+
+.. _catalogfileinfo:
+
+CatalogFileInfo
+~~~~~~~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - name
+     - string
+     - 
+     - 
+   * - type
+     - :carta:refc:`CatalogFileType`
+     - 
+     - 
+   * - file_size
+     - sfixed64
+     - 
+     - 
+   * - description
+     - string
+     - 
+     - 
+   * - coosys
+     - :carta:refc:`Coosys`
+     - repeated
+     - 
+   * - date
+     - sfixed64
+     - 
+     - 
+
+.. carta:class:: carta-sub catalogheader
+
+.. _catalogheader:
+
+CatalogHeader
+~~~~~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - name
+     - string
+     - 
+     - 
+   * - data_type
+     - :carta:refc:`ColumnType`
+     - 
+     - 
+   * - column_index
+     - sfixed32
+     - 
+     - 
+   * - description
+     - string
+     - 
+     - 
+   * - units
+     - string
+     - 
+     - 
+
+.. carta:class:: carta-sub catalogimagebounds
+
+.. _catalogimagebounds:
+
+CatalogImageBounds
+~~~~~~~~~~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - x_column_name
+     - string
+     - 
+     - 
+   * - y_column_name
+     - string
+     - 
+     - 
+   * - image_bounds
+     - :carta:refc:`ImageBounds`
+     - 
+     - 
+
+.. carta:class:: carta-sub columndata
+
+.. _columndata:
+
+ColumnData
+~~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - data_type
+     - :carta:refc:`ColumnType`
+     - 
+     - 
+   * - string_data
+     - string
+     - repeated
+     - All data types other than string sent as binary
+   * - binary_data
+     - bytes
+     - 
+     - binary data will get converted to a TypedArray
+
+.. carta:class:: carta-sub coosys
+
+.. _coosys:
+
+Coosys
+~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - equinox
+     - string
+     - 
+     - 
+   * - epoch
+     - string
+     - 
+     - 
+   * - system
+     - string
+     - 
+     - 
+
+.. carta:class:: carta-sub doublebounds
+
+.. _doublebounds:
+
+DoubleBounds
+~~~~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - min
+     - double
+     - 
+     - 
+   * - max
+     - double
+     - 
+     - 
+
+.. carta:class:: carta-sub fileinfo
+
+.. _fileinfo:
+
+FileInfo
+~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+File info message structure (internal use only)
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - name
+     - string
+     - 
+     - 
+   * - type
+     - :carta:refc:`FileType`
+     - 
+     - 
+   * - size
+     - sfixed64
+     - 
+     - 
+   * - HDU_list
+     - string
+     - repeated
+     - 
+   * - date
+     - sfixed64
+     - 
+     - 
+
+.. carta:class:: carta-sub fileinfoextended
+
+.. _fileinfoextended:
+
+FileInfoExtended
+~~~~~~~~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - dimensions
+     - sfixed32
+     - 
+     - Number of dimensions of the image file
+   * - width
+     - sfixed32
+     - 
+     - Width of the XY plane
+   * - height
+     - sfixed32
+     - 
+     - Height of the XY plane
+   * - depth
+     - sfixed32
+     - 
+     - Number of channels
+   * - stokes
+     - sfixed32
+     - 
+     - Number of Stokes parameters
+   * - stokes_vals
+     - string
+     - repeated
+     - List of Stokes parameters contained in the file (if applicable). For files that do not explicitly specify Stokes files, this will be blank.
+   * - header_entries
+     - :carta:refc:`HeaderEntry`
+     - repeated
+     - Header entries from header string or attributes
+   * - computed_entries
+     - :carta:refc:`HeaderEntry`
+     - repeated
+     - 
+
+.. carta:class:: carta-sub filterconfig
+
+.. _filterconfig:
+
+FilterConfig
+~~~~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - column_name
+     - string
+     - 
+     - 
+   * - comparison_operator
+     - :carta:refc:`ComparisonOperator`
+     - 
+     - 
+   * - value
+     - double
+     - 
+     - 
+   * - secondary_value
+     - double
+     - 
+     - 
+   * - sub_string
+     - string
+     - 
+     - 
+
+.. carta:class:: carta-sub floatbounds
+
+.. _floatbounds:
+
+FloatBounds
+~~~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - min
+     - float
+     - 
+     - 
+   * - max
+     - float
+     - 
+     - 
+
+.. carta:class:: carta-sub headerentry
+
+.. _headerentry:
+
+HeaderEntry
+~~~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - name
+     - string
+     - 
+     - 
+   * - value
+     - string
+     - 
+     - 
+   * - entry_type
+     - :carta:refc:`EntryType`
+     - 
+     - 
+   * - numeric_value
+     - double
+     - 
+     - 
+   * - comment
+     - string
+     - 
+     - 
+
+.. carta:class:: carta-sub histogram
+
+.. _histogram:
+
+Histogram
+~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - channel
+     - sfixed32
+     - 
+     - 
+   * - num_bins
+     - sfixed32
+     - 
+     - 
+   * - bin_width
+     - double
+     - 
+     - 
+   * - first_bin_center
+     - double
+     - 
+     - 
+   * - bins
+     - sfixed32
+     - repeated
+     - 
+   * - mean
+     - double
+     - 
+     - 
+   * - std_dev
+     - double
+     - 
+     - 
+
+.. carta:class:: carta-sub imagebounds
+
+.. _imagebounds:
+
+ImageBounds
+~~~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - x_min
+     - sfixed32
+     - 
+     - 
+   * - x_max
+     - sfixed32
+     - 
+     - 
+   * - y_min
+     - sfixed32
+     - 
+     - 
+   * - y_max
+     - sfixed32
+     - 
+     - 
+
+.. carta:class:: carta-sub intbounds
+
+.. _intbounds:
+
+IntBounds
+~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - min
+     - sfixed32
+     - 
+     - 
+   * - max
+     - sfixed32
+     - 
+     - 
+
+.. carta:class:: carta-sub matchedframelist
+
+.. _matchedframelist:
+
+MatchedFrameList
+~~~~~~~~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - frame_numbers
+     - float
+     - repeated
+     - 
+
+.. carta:class:: carta-sub point
+
+.. _point:
+
+Point
+~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - x
+     - float
+     - 
+     - 
+   * - y
+     - float
+     - 
+     - 
+
+.. carta:class:: carta-sub regioninfo
+
+.. _regioninfo:
+
+RegionInfo
+~~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - region_type
+     - :carta:refc:`RegionType`
+     - 
+     - The type of region described by the control points. The meaning of the control points will differ, depending on the type of region being defined.
+   * - control_points
+     - :carta:refc:`Point`
+     - repeated
+     - Control points for the region
+   * - rotation
+     - float
+     - 
+     - (Only applicable for ellipse and rectangle) Rotation of the region in the xy plane (radians).
+
+.. carta:class:: carta-sub regionstyle
+
+.. _regionstyle:
+
+RegionStyle
+~~~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - name
+     - string
+     - 
+     - The name of the region, displayed as an annotation label.
+   * - color
+     - string
+     - 
+     - Color as a name ("blue"), RGB string, or hex string
+   * - line_width
+     - sfixed32
+     - 
+     - Width in pixels
+   * - dash_list
+     - sfixed32
+     - repeated
+     - Dash length: on, off
+
+.. carta:class:: carta-sub spatialprofile
+
+.. _spatialprofile:
+
+SpatialProfile
+~~~~~~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - start
+     - sfixed32
+     - 
+     - 
+   * - end
+     - sfixed32
+     - 
+     - 
+   * - raw_values_fp32
+     - bytes
+     - 
+     - 
+   * - coordinate
+     - string
+     - 
+     - 
+
+.. carta:class:: carta-sub spectralprofile
+
+.. _spectralprofile:
+
+SpectralProfile
+~~~~~~~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - coordinate
+     - string
+     - 
+     - 
+   * - stats_type
+     - :carta:refc:`StatsType`
+     - 
+     - 
+   * - raw_values_fp32
+     - bytes
+     - 
+     - 
+   * - raw_values_fp64
+     - bytes
+     - 
+     - 
+
+.. carta:class:: carta-sub statisticsvalue
+
+.. _statisticsvalue:
+
+StatisticsValue
+~~~~~~~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - stats_type
+     - :carta:refc:`StatsType`
+     - 
+     - 
+   * - value
+     - double
+     - 
+     - 
+

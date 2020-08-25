@@ -1,0 +1,30 @@
+.comment {
+    color: #ff9900;
+}
+
+.f2b, .carta-f2b {
+    color: #0b5394;
+}
+
+.b2f, .carta-b2f {
+    color: #741b47;
+}
+
+.carta-sub {
+    color: black;
+}
+
+.carta-ref {
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+table.proto {
+    width: 100%;
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+table.changelog {
+    width: 100%;
+}

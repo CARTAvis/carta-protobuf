@@ -1,0 +1,966 @@
+.. carta:class:: carta-sub catalogfiletype
+
+.. _catalogfiletype:
+
+CatalogFileType
+~~~~~~~~~~~~~~~
+
+Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
+
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+   :class: proto
+
+   * - Name
+     - Number
+     - Description
+   * - FITSTable
+     - 0
+     - 
+   * - VOTable
+     - 1
+     - 
+
+.. carta:class:: carta-sub clientfeatureflags
+
+.. _clientfeatureflags:
+
+ClientFeatureFlags
+~~~~~~~~~~~~~~~~~~
+
+Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
+
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+   :class: proto
+
+   * - Name
+     - Number
+     - Description
+   * - CLIENT_FEATURE_NONE
+     - 0
+     - 
+   * - WEB_GL
+     - 1
+     - 
+   * - WEB_GL_2
+     - 2
+     - 
+   * - WEB_ASSEMBLY
+     - 4
+     - 
+   * - WEB_ASSEMBLY_THREADS
+     - 8
+     - 
+   * - OFFSCREEN_CANVAS
+     - 16
+     - 
+
+.. carta:class:: carta-sub columntype
+
+.. _columntype:
+
+ColumnType
+~~~~~~~~~~
+
+Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
+
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+   :class: proto
+
+   * - Name
+     - Number
+     - Description
+   * - UnsupportedType
+     - 0
+     - 
+   * - String
+     - 1
+     - 
+   * - Uint8
+     - 2
+     - 
+   * - Int8
+     - 3
+     - 
+   * - Uint16
+     - 4
+     - 
+   * - Int16
+     - 5
+     - 
+   * - Uint32
+     - 6
+     - 
+   * - Int32
+     - 7
+     - 
+   * - Uint64
+     - 8
+     - 
+   * - Int64
+     - 9
+     - 
+   * - Float
+     - 10
+     - 
+   * - Double
+     - 11
+     - 
+   * - Bool
+     - 12
+     - 
+
+.. carta:class:: carta-sub comparisonoperator
+
+.. _comparisonoperator:
+
+ComparisonOperator
+~~~~~~~~~~~~~~~~~~
+
+Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
+
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+   :class: proto
+
+   * - Name
+     - Number
+     - Description
+   * - Equal
+     - 0
+     - 
+   * - NotEqual
+     - 1
+     - 
+   * - Lesser
+     - 2
+     - 
+   * - Greater
+     - 3
+     - 
+   * - LessorOrEqual
+     - 4
+     - 
+   * - GreaterOrEqual
+     - 5
+     - 
+   * - RangeOpen
+     - 6
+     - 
+   * - RangeClosed
+     - 7
+     - 
+
+.. carta:class:: carta-sub compressiontype
+
+.. _compressiontype:
+
+CompressionType
+~~~~~~~~~~~~~~~
+
+Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
+
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+   :class: proto
+
+   * - Name
+     - Number
+     - Description
+   * - NONE
+     - 0
+     - 
+   * - ZFP
+     - 1
+     - 
+   * - SZ
+     - 2
+     - 
+
+.. carta:class:: carta-sub coordinatetype
+
+.. _coordinatetype:
+
+CoordinateType
+~~~~~~~~~~~~~~
+
+Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
+
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+   :class: proto
+
+   * - Name
+     - Number
+     - Description
+   * - PIXEL
+     - 0
+     - 
+   * - WORLD
+     - 1
+     - 
+
+.. carta:class:: carta-sub entrytype
+
+.. _entrytype:
+
+EntryType
+~~~~~~~~~
+
+Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
+
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+   :class: proto
+
+   * - Name
+     - Number
+     - Description
+   * - STRING
+     - 0
+     - 
+   * - FLOAT
+     - 1
+     - 
+   * - INT
+     - 2
+     - 
+
+.. carta:class:: carta-sub errorseverity
+
+.. _errorseverity:
+
+ErrorSeverity
+~~~~~~~~~~~~~
+
+Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
+
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+   :class: proto
+
+   * - Name
+     - Number
+     - Description
+   * - DEBUG
+     - 0
+     - 
+   * - INFO
+     - 1
+     - 
+   * - WARNING
+     - 2
+     - 
+   * - ERROR
+     - 3
+     - 
+   * - CRITICAL
+     - 4
+     - 
+
+.. carta:class:: carta-sub eventtype
+
+.. _eventtype:
+
+EventType
+~~~~~~~~~
+
+Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
+
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+   :class: proto
+
+   * - Name
+     - Number
+     - Description
+   * - EMPTY_EVENT
+     - 0
+     - 
+   * - :carta:refc:`REGISTER_VIEWER`
+     - 1
+     - 
+   * - :carta:refc:`FILE_LIST_REQUEST`
+     - 2
+     - 
+   * - :carta:refc:`FILE_INFO_REQUEST`
+     - 3
+     - 
+   * - :carta:refc:`OPEN_FILE`
+     - 4
+     - 
+   * - :carta:refc:`SET_IMAGE_CHANNELS`
+     - 6
+     - 
+   * - :carta:refc:`SET_CURSOR`
+     - 7
+     - 
+   * - :carta:refc:`SET_SPATIAL_REQUIREMENTS`
+     - 8
+     - 
+   * - :carta:refc:`SET_HISTOGRAM_REQUIREMENTS`
+     - 9
+     - 
+   * - :carta:refc:`SET_STATS_REQUIREMENTS`
+     - 10
+     - 
+   * - :carta:refc:`SET_REGION`
+     - 11
+     - 
+   * - :carta:refc:`REMOVE_REGION`
+     - 12
+     - 
+   * - :carta:refc:`CLOSE_FILE`
+     - 13
+     - 
+   * - :carta:refc:`SET_SPECTRAL_REQUIREMENTS`
+     - 14
+     - 
+   * - :carta:refc:`START_ANIMATION`
+     - 15
+     - 
+   * - :carta:refc:`START_ANIMATION_ACK`
+     - 16
+     - 
+   * - :carta:refc:`STOP_ANIMATION`
+     - 17
+     - 
+   * - :carta:refc:`REGISTER_VIEWER_ACK`
+     - 18
+     - 
+   * - :carta:refc:`FILE_LIST_RESPONSE`
+     - 19
+     - 
+   * - :carta:refc:`FILE_INFO_RESPONSE`
+     - 20
+     - 
+   * - :carta:refc:`OPEN_FILE_ACK`
+     - 21
+     - 
+   * - :carta:refc:`SET_REGION_ACK`
+     - 22
+     - 
+   * - :carta:refc:`REGION_HISTOGRAM_DATA`
+     - 23
+     - 
+   * - :carta:refc:`SPATIAL_PROFILE_DATA`
+     - 25
+     - 
+   * - :carta:refc:`SPECTRAL_PROFILE_DATA`
+     - 26
+     - 
+   * - :carta:refc:`REGION_STATS_DATA`
+     - 27
+     - 
+   * - :carta:refc:`ERROR_DATA`
+     - 28
+     - 
+   * - :carta:refc:`ANIMATION_FLOW_CONTROL`
+     - 29
+     - 
+   * - :carta:refc:`ADD_REQUIRED_TILES`
+     - 30
+     - 
+   * - :carta:refc:`REMOVE_REQUIRED_TILES`
+     - 31
+     - 
+   * - :carta:refc:`RASTER_TILE_DATA`
+     - 32
+     - 
+   * - :carta:refc:`REGION_LIST_REQUEST`
+     - 33
+     - 
+   * - :carta:refc:`REGION_LIST_RESPONSE`
+     - 34
+     - 
+   * - :carta:refc:`REGION_FILE_INFO_REQUEST`
+     - 35
+     - 
+   * - :carta:refc:`REGION_FILE_INFO_RESPONSE`
+     - 36
+     - 
+   * - :carta:refc:`IMPORT_REGION`
+     - 37
+     - 
+   * - :carta:refc:`IMPORT_REGION_ACK`
+     - 38
+     - 
+   * - :carta:refc:`EXPORT_REGION`
+     - 39
+     - 
+   * - :carta:refc:`EXPORT_REGION_ACK`
+     - 40
+     - 
+   * - :carta:refc:`SET_USER_PREFERENCES`
+     - 41
+     - 
+   * - :carta:refc:`SET_USER_PREFERENCES_ACK`
+     - 42
+     - 
+   * - :carta:refc:`SET_USER_LAYOUT`
+     - 43
+     - 
+   * - :carta:refc:`SET_USER_LAYOUT_ACK`
+     - 44
+     - 
+   * - :carta:refc:`SET_CONTOUR_PARAMETERS`
+     - 45
+     - 
+   * - :carta:refc:`CONTOUR_IMAGE_DATA`
+     - 46
+     - 
+   * - :carta:refc:`RESUME_SESSION`
+     - 47
+     - 
+   * - :carta:refc:`RESUME_SESSION_ACK`
+     - 48
+     - 
+   * - :carta:refc:`RASTER_TILE_SYNC`
+     - 49
+     - 
+   * - :carta:refc:`CATALOG_LIST_REQUEST`
+     - 50
+     - 
+   * - :carta:refc:`CATALOG_LIST_RESPONSE`
+     - 51
+     - 
+   * - :carta:refc:`CATALOG_FILE_INFO_REQUEST`
+     - 52
+     - 
+   * - :carta:refc:`CATALOG_FILE_INFO_RESPONSE`
+     - 53
+     - 
+   * - :carta:refc:`OPEN_CATALOG_FILE`
+     - 54
+     - 
+   * - :carta:refc:`OPEN_CATALOG_FILE_ACK`
+     - 55
+     - 
+   * - :carta:refc:`CLOSE_CATALOG_FILE`
+     - 56
+     - 
+   * - :carta:refc:`CATALOG_FILTER_REQUEST`
+     - 57
+     - 
+   * - :carta:refc:`CATALOG_FILTER_RESPONSE`
+     - 58
+     - 
+   * - :carta:refc:`SCRIPTING_REQUEST`
+     - 59
+     - 
+   * - :carta:refc:`SCRIPTING_RESPONSE`
+     - 60
+     - 
+   * - :carta:refc:`MOMENT_REQUEST`
+     - 61
+     - 
+   * - :carta:refc:`MOMENT_RESPONSE`
+     - 62
+     - 
+   * - :carta:refc:`MOMENT_PROGRESS`
+     - 63
+     - 
+   * - :carta:refc:`STOP_MOMENT_CALC`
+     - 64
+     - 
+   * - :carta:refc:`SAVE_FILE`
+     - 65
+     - 
+   * - :carta:refc:`SAVE_FILE_ACK`
+     - 66
+     - 
+   * - :carta:refc:`SPECTRAL_LINE_REQUEST`
+     - 67
+     - 
+   * - :carta:refc:`SPECTRAL_LINE_RESPONSE`
+     - 68
+     - 
+
+.. carta:class:: carta-sub filefeatureflags
+
+.. _filefeatureflags:
+
+FileFeatureFlags
+~~~~~~~~~~~~~~~~
+
+Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
+
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+   :class: proto
+
+   * - Name
+     - Number
+     - Description
+   * - FILE_FEATURE_NONE
+     - 0
+     - 
+   * - ROTATED_DATASET
+     - 1
+     - 
+   * - CHANNEL_HISTOGRAMS
+     - 2
+     - 
+   * - CUBE_HISTOGRAMS
+     - 4
+     - 
+   * - CHANNEL_STATS
+     - 8
+     - 
+   * - MEAN_IMAGE
+     - 16
+     - 
+   * - MIP_DATASET
+     - 32
+     - 
+
+.. carta:class:: carta-sub filetype
+
+.. _filetype:
+
+FileType
+~~~~~~~~
+
+Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
+
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+   :class: proto
+
+   * - Name
+     - Number
+     - Description
+   * - CASA
+     - 0
+     - 
+   * - CRTF
+     - 1
+     - 
+   * - DS9_REG
+     - 2
+     - 
+   * - FITS
+     - 3
+     - 
+   * - HDF5
+     - 4
+     - 
+   * - MIRIAD
+     - 5
+     - 
+   * - UNKNOWN
+     - 6
+     - 
+
+.. carta:class:: carta-sub moment
+
+.. _moment:
+
+Moment
+~~~~~~
+
+Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
+
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+   :class: proto
+
+   * - Name
+     - Number
+     - Description
+   * - MEAN_OF_THE_SPECTRUM
+     - 0
+     - 
+   * - INTEGRATED_OF_THE_SPECTRUM
+     - 1
+     - 
+   * - INTENSITY_WEIGHTED_COORD
+     - 2
+     - 
+   * - INTENSITY_WEIGHTED_DISPERSION_OF_THE_COORD
+     - 3
+     - 
+   * - MEDIAN_OF_THE_SPECTRUM
+     - 4
+     - 
+   * - MEDIAN_COORDINATE
+     - 5
+     - 
+   * - STD_ABOUT_THE_MEAN_OF_THE_SPECTRUM
+     - 6
+     - 
+   * - RMS_OF_THE_SPECTRUM
+     - 7
+     - 
+   * - ABS_MEAN_DEVIATION_OF_THE_SPECTRUM
+     - 8
+     - 
+   * - MAX_OF_THE_SPECTRUM
+     - 9
+     - 
+   * - COORD_OF_THE_MAX_OF_THE_SPECTRUM
+     - 10
+     - 
+   * - MIN_OF_THE_SPECTRUM
+     - 11
+     - 
+   * - COORD_OF_THE_MIN_OF_THE_SPECTRUM
+     - 12
+     - 
+
+.. carta:class:: carta-sub momentaxis
+
+.. _momentaxis:
+
+MomentAxis
+~~~~~~~~~~
+
+Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
+
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+   :class: proto
+
+   * - Name
+     - Number
+     - Description
+   * - SPECTRAL
+     - 0
+     - 
+   * - STOKES
+     - 1
+     - 
+
+.. carta:class:: carta-sub momentmask
+
+.. _momentmask:
+
+MomentMask
+~~~~~~~~~~
+
+Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
+
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+   :class: proto
+
+   * - Name
+     - Number
+     - Description
+   * - None
+     - 0
+     - 
+   * - Include
+     - 1
+     - 
+   * - Exclude
+     - 2
+     - 
+
+.. carta:class:: carta-sub regiontype
+
+.. _regiontype:
+
+RegionType
+~~~~~~~~~~
+
+Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
+
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+   :class: proto
+
+   * - Name
+     - Number
+     - Description
+   * - POINT
+     - 0
+     - 
+   * - LINE
+     - 1
+     - 
+   * - POLYLINE
+     - 2
+     - 
+   * - RECTANGLE
+     - 3
+     - 
+   * - ELLIPSE
+     - 4
+     - 
+   * - ANNULUS
+     - 5
+     - 
+   * - POLYGON
+     - 6
+     - 
+
+.. carta:class:: carta-sub rendermode
+
+.. _rendermode:
+
+RenderMode
+~~~~~~~~~~
+
+Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
+
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+   :class: proto
+
+   * - Name
+     - Number
+     - Description
+   * - RASTER
+     - 0
+     - 
+   * - CONTOUR
+     - 1
+     - 
+
+.. carta:class:: carta-sub serverfeatureflags
+
+.. _serverfeatureflags:
+
+ServerFeatureFlags
+~~~~~~~~~~~~~~~~~~
+
+Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
+
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+   :class: proto
+
+   * - Name
+     - Number
+     - Description
+   * - SERVER_FEATURE_NONE
+     - 0
+     - 
+   * - SZ_COMPRESSION
+     - 1
+     - 
+   * - HEVC_COMPRESSION
+     - 2
+     - 
+   * - NVENC_COMPRESSION
+     - 4
+     - 
+   * - REGION_WRITE_ACCESS
+     - 8
+     - 
+   * - USER_PREFERENCES
+     - 16
+     - 
+   * - USER_LAYOUTS
+     - 32
+     - 
+
+.. carta:class:: carta-sub sessiontype
+
+.. _sessiontype:
+
+SessionType
+~~~~~~~~~~~
+
+Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
+
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+   :class: proto
+
+   * - Name
+     - Number
+     - Description
+   * - NEW
+     - 0
+     - 
+   * - RESUMED
+     - 1
+     - 
+
+.. carta:class:: carta-sub smoothingmode
+
+.. _smoothingmode:
+
+SmoothingMode
+~~~~~~~~~~~~~
+
+Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
+
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+   :class: proto
+
+   * - Name
+     - Number
+     - Description
+   * - NoSmoothing
+     - 0
+     - 
+   * - BlockAverage
+     - 1
+     - 
+   * - GaussianBlur
+     - 2
+     - 
+
+.. carta:class:: carta-sub sortingtype
+
+.. _sortingtype:
+
+SortingType
+~~~~~~~~~~~
+
+Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
+
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+   :class: proto
+
+   * - Name
+     - Number
+     - Description
+   * - Ascending
+     - 0
+     - 
+   * - Descending
+     - 1
+     - 
+
+.. carta:class:: carta-sub statstype
+
+.. _statstype:
+
+StatsType
+~~~~~~~~~
+
+Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
+
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+   :class: proto
+
+   * - Name
+     - Number
+     - Description
+   * - NumPixels
+     - 0
+     - 
+   * - NanCount
+     - 1
+     - 
+   * - Sum
+     - 2
+     - 
+   * - FluxDensity
+     - 3
+     - 
+   * - Mean
+     - 4
+     - 
+   * - RMS
+     - 5
+     - 
+   * - Sigma
+     - 6
+     - 
+   * - SumSq
+     - 7
+     - 
+   * - Min
+     - 8
+     - 
+   * - Max
+     - 9
+     - 
+   * - Blc
+     - 10
+     - 
+   * - Trc
+     - 11
+     - 
+   * - MinPos
+     - 12
+     - 
+   * - MaxPos
+     - 13
+     - 
+   * - Blcf
+     - 14
+     - 
+   * - Trcf
+     - 15
+     - 
+   * - MinPosf
+     - 16
+     - 
+   * - MaxPosf
+     - 17
+     - 
+
