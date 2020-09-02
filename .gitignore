@@ -1,1 +1,10 @@
 build/*
+docs/_build
+docs/convert/CARTABackendFrontendInterfaceControlDocument.html
+docs/convert/downloaded_ICD.zip
+docs/convert/ICD.html
+docs/convert/ICD.rst.ignore
+docs/convert/images/
+docs/convert/uml/
+docs/protoc/protoc.json
+__pycache__/
