@@ -19,7 +19,7 @@ message MomentResponse {
     bool success = 1;
     string message = 2;
     repeated OpenFileAck open_file_acks = 3;
-
+    bool cancel = 4;
 }
 
 message MomentProgress {
