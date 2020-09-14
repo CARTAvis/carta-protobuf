@@ -14,8 +14,8 @@ message SetStatsRequirements {
     repeated StatsConfig stats_configs = 3;
 
     message StatsConfig {
-        StatsType stats = 1;
-        sfixed32 stokes = 2;
+        string coordinate = 1;
+        repeated StatsType stats_types = 2;
     }
 }
 
@@ -31,9 +31,9 @@ message SetHistogramRequirements {
     repeated HistogramConfig histograms = 3;
 
     message HistogramConfig {
-        sfixed32 channel = 1;
-        sfixed32 num_bins = 2;
-        sfixed32 stokes = 3;
+        string coordinate = 1;
+        sfixed32 channel = 2;
+        sfixed32 num_bins = 3;
     }
 }
 
