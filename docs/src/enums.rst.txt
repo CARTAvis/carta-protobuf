@@ -808,6 +808,9 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - USER_LAYOUTS
      - 32
      - 
+   * - GRPC_SCRIPTING
+     - 64
+     - 
 
 .. carta:class:: carta-sub sessiontype
 
