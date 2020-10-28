@@ -1016,6 +1016,10 @@ Source file: `request/moment_request.proto <https://github.com/CARTAvis/carta-pr
      - :carta:refc:`OpenFileAck`
      - repeated
      - 
+   * - cancel
+     - bool
+     - 
+     - 
 
 .. carta:class:: carta-f2b opencatalogfile
 
@@ -1595,6 +1599,10 @@ Informs the frontend whether the session was correctly.
      - map<key: string, value: string>
      - repeated
      - Map of user layouts retrieved from the server database
+   * - grpc_port
+     - fixed32
+     - 
+     - The server's scripting gRPC port, if it is enabled
 
 .. carta:class:: carta-f2b removeregion
 
