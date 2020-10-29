@@ -104,3 +104,6 @@
    * - ``16.2.0``
      - 12/08/20
      - Non-breaking change: added intensity limit field to line ID query
+   * - ``17.0.0``
+     - 29/10/20
+     - Added ``SpatialConfig`` submessage with fields for spatial profile mip and range, and added mip field to ``SpatialProfile``. Updated comments for ``SpatialConfig`` and ``SpectralConfig``.

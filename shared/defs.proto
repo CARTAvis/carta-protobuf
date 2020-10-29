@@ -79,6 +79,7 @@ message SpatialProfile {
     sfixed32 end = 2;
     bytes raw_values_fp32 = 3;
     string coordinate = 4;
+    sfixed32 mip = 5;
 }
 
 message SpectralProfile {
