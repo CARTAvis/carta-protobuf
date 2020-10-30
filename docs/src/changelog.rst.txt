@@ -16,16 +16,16 @@
      - Added ``computed_entries`` map to the File Info Extended message
    * - ``0.1.9``
      - 10/09/18
-     - Changed ``computed_entries`` map to an array of ``HeaderEntry`` messages
+     - Changed ``computed_entries`` map to an array of :carta:ref:`HeaderEntry` messages
    * - ``0.1.10``
      - 10/09/18
-     - Added optional field ``spatial_requirements`` to the ``SET_CURSOR`` message
+     - Added optional field ``spatial_requirements`` to the :carta:ref:`SET_CURSOR` message
    * - ``0.1.11``
      - 20/09/18
-     - Added ``file_id`` field to ``SET_REGION`` and fixed control points typo
+     - Added ``file_id`` field to :carta:ref:`SET_REGION` and fixed control points typo
    * - ``0.1.12``
      - 18/10/18
-     - Deprecated ``channel_vals`` field in ``SPECTRAL_PROFILE_DATA``
+     - Deprecated ``channel_vals`` field in :carta:ref:`SPECTRAL_PROFILE_DATA`
    * - ``0.1.13``
      - 30/11/18
      - Added details on per-cube histogram calculations
@@ -37,7 +37,7 @@
      - Added target version info
    * - ``0.1.16``
      - 25/03/19
-     - Removed ``stokes``, ``channel_min`` and ``channel_max`` fields from ``SET_REGION``, and changed ``StatisticsValue`` ``value`` field to a ``double`` type.
+     - Removed ``stokes``, ``channel_min`` and ``channel_max`` fields from :carta:ref:`SET_REGION`, and changed :carta:ref:`StatisticsValue` ``value`` field to a ``double`` type.
    * - ``0.1.17``
      - 27/03/19
      - Added ``NumPixels`` and ``NanCount`` stats types
@@ -97,7 +97,7 @@
      - Added date field to file info, reordered file types alphabetically
    * - ``16.0.0``
      - ??/07/20
-     - Added sub-message for region style, replace RegionProperties with map
+     - Added sub-message for region style, replace ``RegionProperties`` with map
    * - ``16.1.0``
      - 11/08/20
      - Non-breaking change: added map of matched frames for spectral matched animation
@@ -106,4 +106,4 @@
      - Non-breaking change: added intensity limit field to line ID query
    * - ``17.0.0``
      - 29/10/20
-     - Added ``SpatialConfig`` submessage with fields for spatial profile mip and range, and added mip field to ``SpatialProfile``. Updated comments for ``SpatialConfig`` and ``SpectralConfig``.
+     - Added :carta:ref:`SpatialConfig` submessage with fields for spatial profile mip and range, and added mip field to :carta:ref:`SpatialProfile`. Updated comments for :carta:ref:`SpatialConfig` and :carta:ref:`SpectralConfig`.
