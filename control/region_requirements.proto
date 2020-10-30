@@ -44,9 +44,9 @@ message SetSpatialRequirements {
     message SpatialConfig {
         // The required spatial coordinate (“x” or “y”), optionally preceded by a Stokes parameter (“I”, “Q”, “U” or “V”) If no Stokes parameter is present, the active Stokes parameter is used.
         string coordinate = 1;
-        // The start of the required range. By default 0 is used.
+        // The start of the required range. If the start and end are the same (i.e. the range is empty), the default of 0 is used.
         sfixed32 start = 2;
-        // The end of the required range. If this is unset or 0, the height or width of the image is used.
+        // The end of the required range. If the start and end are the same (i.e. the range is empty), the height or width of the image is used.
         sfixed32 end = 3;
         // The required mip. If this is unset or 0, the full-resolution data is used.
         sfixed32 mip = 4;
