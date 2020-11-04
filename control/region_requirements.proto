@@ -42,7 +42,7 @@ message SetSpatialRequirements {
     repeated SpatialConfig spatial_profiles = 3;
     
     message SpatialConfig {
-        // The required spatial coordinate (“x” or “y”), optionally preceded by a Stokes parameter (“I”, “Q”, “U” or “V”) If no Stokes parameter is present, the active Stokes parameter is used.
+        // The required spatial coordinate (“x” or “y”).
         string coordinate = 1;
         // The start of the required range. If the start and end are the same (i.e. the range is empty), the default of 0 is used.
         sfixed32 start = 2;

@@ -2380,7 +2380,7 @@ Source file: `control/region_requirements.proto <https://github.com/CARTAvis/car
    * - coordinate
      - string
      - 
-     - The required spatial coordinate (“x” or “y”), optionally preceded by a Stokes parameter (“I”, “Q”, “U” or “V”) If no Stokes parameter is present, the active Stokes parameter is used.
+     - The required spatial coordinate (“x” or “y”).
    * - start
      - sfixed32
      - 
