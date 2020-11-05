@@ -9,6 +9,7 @@ import "open_file.proto";
 // Requests to concatenate individual stokes images as one and open it.
 // Backend responds with CONCAT_STOKES_FILES_ACK
 message ConcatStokesFiles {
+    // Stokes files to be concatenated
     repeated StokesFile stokes_files = 1;
     // Which "file" slot to load the unified file into (when viewing multiple files)
     sfixed32 file_id = 2;
@@ -28,7 +29,10 @@ message StokesFile {
 }
 
 message ConcatStokesFilesAck {
+    // Concatenation is successful or not
     bool success = 1;
+    // Error message if not successful
     string message = 2;
+    // Open file acknowledgement for the concatenate file
     OpenFileAck open_file_ack = 3;
 }
