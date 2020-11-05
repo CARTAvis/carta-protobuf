@@ -11,7 +11,7 @@ import "open_file.proto";
 message ConcatStokesFiles {
     // Stokes files to be concatenated
     repeated StokesFile stokes_files = 1;
-    // Which "file" slot to load the unified file into (when viewing multiple files)
+    // File ID for the concatenate image
     sfixed32 file_id = 2;
     // The render mode to use. Additional modes will be added in subsequent versions.
     RenderMode render_mode = 3;

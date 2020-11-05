@@ -503,7 +503,13 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
      - 
    * - :carta:refc:`SPECTRAL_LINE_RESPONSE`
      - 68
-     - 
+     -
+   * - :carta:refc:`CONCAT_STOKES_FILES`
+     - 69
+     -
+   * - :carta:refc:`CONCAT_STOKES_FILES_ACK`
+     - 70
+     -
 
 .. carta:class:: carta-sub filefeatureflags
 

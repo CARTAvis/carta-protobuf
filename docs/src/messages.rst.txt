@@ -2801,7 +2801,9 @@ ConcatStokesFiles
 
 Source file: `control/concat_stokes_files.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/concat_stokes_files.proto>`_
 
-
+CONCAT_STOKES_FILES:
+Requests the concatenating of stokes files.
+Backend responds with :carta:refc:`CONCAT_STOKES_FILES_ACK`
 
 .. list-table::
    :widths: 20 20 20 40
@@ -2819,7 +2821,7 @@ Source file: `control/concat_stokes_files.proto <https://github.com/CARTAvis/car
    * - file_id
      - sfixed32
      -
-     - Which "file" slot to load the file into (when viewing multiple files)
+     - File ID for the concatenate image
    * - render_mode
      - :carta:refc:`RenderMode`
      -
@@ -2835,7 +2837,8 @@ ConcatStokesFilesAck
 
 Source file: `control/concat_stokes_files.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/concat_stokes_files.proto>`_
 
-
+CONCAT_STOKES_FILES_ACK
+Response for :carta:refc:`CONCAT_STOKES_FILES`. Also supplies file information
 
 .. list-table::
    :widths: 20 20 20 40
