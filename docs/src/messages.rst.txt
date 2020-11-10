@@ -759,6 +759,10 @@ Source file: `control/region_requirements.proto <https://github.com/CARTAvis/car
      - Type
      - Label
      - Description
+   * - coordinate
+     - string
+     -
+     -
    * - channel
      - sfixed32
      - 
@@ -767,6 +771,35 @@ Source file: `control/region_requirements.proto <https://github.com/CARTAvis/car
      - sfixed32
      - 
      - 
+
+.. carta:class:: carta-f2b statsconfig
+
+.. _statsconfig:
+
+StatsConfig
+~~~~~~~~~~~
+
+Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - coordinate
+     - string
+     -
+     -
+   * - stats_type
+     - :carta:refc:`StatsType`
+     - repeated
+     -
 
 .. carta:class:: carta-f2b imageproperties
 
@@ -2242,8 +2275,8 @@ Sets which stats data needs to be streamed to the frontend when the region is up
      - sfixed32
      - 
      - ID of the region that is having requirements defined. If a region ID of -1 is given, this corresponds to the entire 2D image.
-   * - stats
-     - :carta:refc:`StatsType`
+   * - stats_configs
+     - :carta:refc:`StatsConfig`
      - repeated
      - List of required stats
 
