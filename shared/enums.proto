@@ -165,6 +165,7 @@ enum ServerFeatureFlags {
     REGION_WRITE_ACCESS = 8;
     USER_PREFERENCES = 16;
     USER_LAYOUTS = 32;
+    GRPC_SCRIPTING = 64;
 }
 
 enum FileFeatureFlags {
