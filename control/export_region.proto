@@ -15,8 +15,8 @@ message ExportRegion {
     CoordinateType coord_type = 2;
     // File id for the coordinate system to use
     sfixed32 file_id = 3;
-    // Region ids to export
-    repeated sfixed32 region_id = 4;
+    // Region ids and style params to export
+    map<sfixed32, RegionStyle> region_styles = 4;
     // Optional directory name of server file
     string directory = 5;
     // Optional file name of server file

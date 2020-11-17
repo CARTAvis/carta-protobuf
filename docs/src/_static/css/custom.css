@@ -1,0 +1,47 @@
+.comment {
+    color: #ff9900;
+}
+
+.f2b, .carta-f2b {
+    color: #0b5394;
+}
+
+.b2f, .carta-b2f {
+    color: #741b47;
+}
+
+.carta-sub {
+    color: black;
+}
+
+.carta-ref {
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+table.proto {
+    width: 100%;
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+table.changelog {
+    width: 100%;
+}
+
+/* override table width restrictions -- this is needed for the Read The Docs theme */
+@media screen and (min-width: 767px) {
+
+   .wy-nav-content {
+        max-width: 100% !important;
+    }
+
+    .wy-table-responsive table td, .wy-table-responsive table th {
+        white-space: normal !important;;
+    }
+
+    .wy-table-responsive {
+        overflow: visible !important;
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,25 @@
+syntax = "proto3";
+package CARTA;
+
+import "defs.proto";
+
+message OpenCatalogFile {
+    string directory = 1;
+    string name = 2;
+    sfixed32 file_id = 3;
+    sfixed32 preview_data_size = 4;
+}
+
+message OpenCatalogFileAck {
+    bool success = 1;
+    string message = 2;
+    sfixed32 file_id = 3;
+    CatalogFileInfo file_info = 4;
+    sfixed32 data_size = 5;
+    repeated CatalogHeader headers = 6;
+    map<fixed32, ColumnData> preview_data = 7;
+}
+
+message CloseCatalogFile {
+    sfixed32 file_id = 1;
+}

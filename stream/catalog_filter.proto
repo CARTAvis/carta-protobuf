@@ -1,0 +1,30 @@
+syntax = "proto3";
+package CARTA;
+
+import "enums.proto";
+import "defs.proto";
+
+message CatalogFilterRequest {
+    sfixed32 file_id = 1;
+    repeated int32 column_indices = 2;
+    repeated FilterConfig filter_configs = 3;
+    sfixed32 subset_data_size = 4;
+    sfixed32 subset_start_index = 5;
+    CatalogImageBounds image_bounds = 6;
+    sfixed32 image_file_id = 7;
+    sfixed32 region_id = 8;
+    string sort_column = 9;
+    SortingType sorting_type = 10;
+}
+
+message CatalogFilterResponse {
+    sfixed32 file_id = 1;
+    sfixed32 image_file_id = 2;
+    sfixed32 region_id = 3;
+    map<fixed32, ColumnData> columns= 4;
+    sfixed32 subset_data_size = 5;
+    sfixed32 subset_end_index = 6;
+    float progress = 7;
+    sfixed32 filter_data_size = 8;
+    sfixed32 request_end_index = 9;
+}
