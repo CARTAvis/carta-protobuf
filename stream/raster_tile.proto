@@ -3,6 +3,19 @@ package CARTA;
 
 import "enums.proto";
 
+message RasterTileSync {
+    // The file ID that the raster image corresponds to
+    sfixed32 file_id = 1;
+    // The image channel (z-coordinate)
+    sfixed32 channel = 2;
+    // The image stokes coordinate
+    sfixed32 stokes = 3;
+    // The ID of the animation (if any)
+    sfixed32 animation_id = 4;
+    // Is this a start or end sync message?
+    bool end_sync = 5;
+}
+
 message RasterTileData {
     // The file ID that the raster image corresponds to
     sfixed32 file_id = 1;
@@ -14,8 +27,10 @@ message RasterTileData {
     CompressionType compression_type = 4;
     // Compression quality switch
     float compression_quality = 5;
+    // The ID of the animation (if any)
+    sfixed32 animation_id = 6;
     // List of tile data
-    repeated TileData tiles = 6;
+    repeated TileData tiles = 7;
 }
 
 message TileData {

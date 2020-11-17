@@ -1,0 +1,28 @@
+syntax = "proto3";
+package CARTA;
+
+import "defs.proto";
+import "enums.proto";
+import "open_file.proto";
+
+message MomentRequest {
+    sfixed32 file_id = 1;
+    repeated Moment moments = 2;
+    MomentAxis axis = 3;
+    sfixed32 region_id = 4;
+    IntBounds spectral_range = 5;
+    MomentMask mask = 6;
+    FloatBounds pixel_range = 7;
+}
+
+message MomentResponse {
+    bool success = 1;
+    string message = 2;
+    repeated OpenFileAck open_file_acks = 3;
+    bool cancel = 4;
+}
+
+message MomentProgress {
+    sfixed32 file_id = 1;
+    float progress = 2;
+}

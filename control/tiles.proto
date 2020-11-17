@@ -2,7 +2,6 @@ syntax = "proto3";
 package CARTA;
 
 import "enums.proto";
-import "defs.proto";
 
 // ADD_REQUIRED_TILES
 // Provides a list of tiles that are required for the specified file

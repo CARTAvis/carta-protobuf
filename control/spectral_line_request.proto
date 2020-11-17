@@ -1,0 +1,17 @@
+syntax = "proto3";
+package CARTA;
+
+import "defs.proto";
+
+message SpectralLineRequest {
+    DoubleBounds frequency_range = 1;
+    double line_intensity_lower_limit = 2;
+}
+
+message SpectralLineResponse {
+    bool success = 1;
+    string message = 2;
+    sfixed32 data_size = 3;
+    repeated CatalogHeader headers = 4;
+    map<fixed32, ColumnData> spectral_line_data = 5;
+}

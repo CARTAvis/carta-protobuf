@@ -1,8 +1,6 @@
 syntax = "proto3";
 package CARTA;
 
-import "enums.proto";
-import "defs.proto";
 import "tiles.proto";
 
 // SET_IMAGE_CHANNELS

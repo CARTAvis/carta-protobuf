@@ -2,8 +2,7 @@ syntax = "proto3";
 package CARTA;
 
 import "defs.proto";
-import "enums.proto";
-import "set_image_view.proto";
+import "tiles.proto";
 
 // START_ANIMATION:
 // Starts an animation, as defined by the start, stop and step definitions.
@@ -26,8 +25,9 @@ message StartAnimation {
     bool looping = 7;
     // Whether to reverse the animation direction when endFrame is reached.
     bool reverse = 8;
-    // Image view of the animation, defining the compression settings, bounds and mip
-    SetImageView imageView = 9;
+    // Required tiles when changing channels
+    AddRequiredTiles required_tiles = 9;
+    map<sfixed32, MatchedFrameList> matched_frames = 10;
 }
 
 // START_ANIMATION_ACK
