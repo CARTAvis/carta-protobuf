@@ -48,7 +48,7 @@ message SetSpatialRequirements {
         sfixed32 start = 2;
         // The end of the required range. If the start and end are the same (i.e. the range is empty), the height or width of the image is used.
         sfixed32 end = 3;
-        // The required mip. If this is unset or 0, the full-resolution data is used.
+        // The maximum required mip. The backend must return data of at least this resolution, but may return a higher resolution. If this is unset or 0, the full-resolution data is used.
         sfixed32 mip = 4;
     }
 }

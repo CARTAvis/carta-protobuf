@@ -2392,7 +2392,7 @@ Source file: `control/region_requirements.proto <https://github.com/CARTAvis/car
    * - mip
      - sfixed32
      - 
-     - The required mip. If this is unset or 0, the full-resolution data is used.
+     - The maximum required mip. The backend must return data of at least this resolution, but may return a higher resolution. If this is unset or 0, the full-resolution data is used.
 
 .. carta:class:: carta-b2f spatialprofiledata
 
