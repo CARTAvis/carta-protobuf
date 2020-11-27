@@ -104,6 +104,6 @@
    * - ``16.2.0``
      - 12/08/20
      - Non-breaking change: added intensity limit field to line ID query
-   * - ``17.0.0``
+   * - ``18.0.0``
      - 29/10/20
      - Added :carta:ref:`SpatialConfig` submessage with fields for spatial profile mip and range, and added mip field to :carta:ref:`SpatialProfile`. Updated comments for :carta:ref:`SpatialConfig` and :carta:ref:`SpectralConfig`.
