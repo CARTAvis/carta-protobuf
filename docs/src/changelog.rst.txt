@@ -109,4 +109,4 @@
      - Non-breaking change: added intensity limit field to line ID query
    * - ``18.0.0``
      - 11/12/20
-     - Added ``extrema`` enum value to :carta:ref:`StatsType`
+     - Added ``extrema`` enum value to :carta:ref:`StatsType`. Removed deprecated messages: ``SetUserLayout``, ``SetUserLayoutAck``, ``SetUserPreferences``, ``SetUserPreferencesAck``, and ``SetRegionRequirements``.

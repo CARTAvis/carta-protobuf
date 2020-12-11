@@ -420,18 +420,6 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - :carta:refc:`EXPORT_REGION_ACK`
      - 40
      - 
-   * - SET_USER_PREFERENCES
-     - 41
-     - 
-   * - SET_USER_PREFERENCES_ACK
-     - 42
-     - 
-   * - SET_USER_LAYOUT
-     - 43
-     - 
-   * - SET_USER_LAYOUT_ACK
-     - 44
-     - 
    * - :carta:refc:`SET_CONTOUR_PARAMETERS`
      - 45
      - 
