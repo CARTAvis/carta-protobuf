@@ -420,18 +420,6 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - :carta:refc:`EXPORT_REGION_ACK`
      - 40
      - 
-   * - SET_USER_PREFERENCES
-     - 41
-     - 
-   * - SET_USER_PREFERENCES_ACK
-     - 42
-     - 
-   * - SET_USER_LAYOUT
-     - 43
-     - 
-   * - SET_USER_LAYOUT_ACK
-     - 44
-     - 
    * - :carta:refc:`SET_CONTOUR_PARAMETERS`
      - 45
      - 
@@ -942,28 +930,31 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - Max
      - 9
      - 
-   * - Blc
+   * - Extrema
      - 10
      - 
-   * - Trc
+   * - Blc
      - 11
      - 
-   * - MinPos
+   * - Trc
      - 12
      - 
-   * - MaxPos
+   * - MinPos
      - 13
      - 
-   * - Blcf
+   * - MaxPos
      - 14
      - 
-   * - Trcf
+   * - Blcf
      - 15
      - 
-   * - MinPosf
+   * - Trcf
      - 16
      - 
-   * - MaxPosf
+   * - MinPosf
      - 17
+     - 
+   * - MaxPosf
+     - 18
      - 
 

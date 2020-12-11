@@ -108,5 +108,8 @@
      - 12/08/20
      - Non-breaking change: added intensity limit field to line ID query
    * - ``18.0.0``
-     - 29/10/20
-     - Added :carta:ref:`SpatialConfig` submessage with fields for spatial profile mip and range, and added mip field to :carta:ref:`SpatialProfile`. Updated comments for :carta:ref:`SpatialConfig` and :carta:ref:`SpectralConfig`. Removed deprecated messages: ``SetUserLayout``, ``SetUserLayoutAck``, ``SetUserPreferences``, ``SetUserPreferencesAck``, and ``SetRegionRequirements``.
+     - 11/12/20
+     - Added ``extrema`` enum value to :carta:ref:`StatsType`. Removed deprecated messages: ``SetUserLayout``, ``SetUserLayoutAck``, ``SetUserPreferences``, ``SetUserPreferencesAck``, and ``SetRegionRequirements``.
+   * - ``19.0.0``
+     - 11/12/20
+     - Added :carta:ref:`SpatialConfig` submessage with fields for spatial profile mip and range, and added mip field to :carta:ref:`SpatialProfile`. Updated comments for :carta:ref:`SpatialConfig` and :carta:ref:`SpectralConfig`.
