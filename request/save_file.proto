@@ -8,6 +8,9 @@ message SaveFile {
     string output_file_directory = 2;
     string output_file_name = 3;
     FileType output_file_type = 4;
+    sfixed32 region_id = 5;
+    repeated sfixed32 channels = 6;
+    repeated sfixed32 stokes = 7;
 }
 
 message SaveFileAck {
