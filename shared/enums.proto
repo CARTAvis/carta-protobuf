@@ -41,10 +41,6 @@ enum EventType {
     IMPORT_REGION_ACK = 38;
     EXPORT_REGION = 39;
     EXPORT_REGION_ACK = 40;
-    SET_USER_PREFERENCES = 41;
-    SET_USER_PREFERENCES_ACK = 42;
-    SET_USER_LAYOUT = 43;
-    SET_USER_LAYOUT_ACK = 44;
     SET_CONTOUR_PARAMETERS = 45;
     CONTOUR_IMAGE_DATA = 46;
     RESUME_SESSION = 47;
@@ -126,14 +122,15 @@ enum StatsType {
     SumSq = 7;
     Min = 8;
     Max = 9;
-    Blc = 10;
-    Trc = 11;
-    MinPos = 12;
-    MaxPos = 13;
-    Blcf = 14;
-    Trcf = 15;
-    MinPosf = 16;
-    MaxPosf = 17;
+    Extrema = 10;
+    Blc = 11;
+    Trc = 12;
+    MinPos = 13;
+    MaxPos = 14;
+    Blcf = 15;
+    Trcf = 16;
+    MinPosf = 17;
+    MaxPosf = 18;
 }
 
 enum ErrorSeverity {
