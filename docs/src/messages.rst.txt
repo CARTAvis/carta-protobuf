@@ -1753,7 +1753,19 @@ Source file: `request/save_file.proto <https://github.com/CARTAvis/carta-protobu
    * - output_file_type
      - :carta:refc:`FileType`
      - 
+     - The format of a new image file
+   * - region_id
+     - sfixed32
      - 
+     - 
+   * - channels
+     - sfixed32
+     - retpeated
+     - Set image channels: [start, length, stride]
+   * - stokes
+     - sfixed32
+     - retpeated
+     - Set image stokes: [start, length, stride]
 
 .. carta:class:: carta-f2b savefileack
 
