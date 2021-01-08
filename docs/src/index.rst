@@ -1,9 +1,9 @@
 CARTA Interface Control Document
 ================================
 
-:Date: 11 Dec 2020
+:Date: 8 Jan 2021
 :Authors: Angus Comrie, Rob Simmonds and the CARTA development team
-:Version: 18.0.0
+:Version: 18.1.0
 :ICD Version Integer: 18
 :CARTA Target: Version 2.0
 

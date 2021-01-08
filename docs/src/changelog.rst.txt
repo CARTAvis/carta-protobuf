@@ -110,3 +110,7 @@
    * - ``18.0.0``
      - 11/12/20
      - Added ``extrema`` enum value to :carta:ref:`StatsType`. Removed deprecated messages: ``SetUserLayout``, ``SetUserLayoutAck``, ``SetUserPreferences``, ``SetUserPreferencesAck``, and ``SetRegionRequirements``.
+   * - ``18.1.0``
+     - 08/01/21
+     - Non-breaking change: added ``beam_table`` (of type :carta:ref:`Beam`) to :carta:ref:`OpenFileAck`.
+
