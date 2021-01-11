@@ -173,3 +173,12 @@ message CatalogImageBounds {
 message MatchedFrameList {
     repeated float frame_numbers = 1;
 }
+
+// describe each beam for multi-beam images
+message Beam {
+    sfixed32 channel = 1;
+    sfixed32 stokes = 2;
+    float major_axis = 3;
+    float minor_axis = 4;
+    float pa = 5;
+}
