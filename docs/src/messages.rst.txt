@@ -661,8 +661,8 @@ Gives information on the requested file
      - 
      - Basic file info (type, size)
    * - file_info_extended
-     - :carta:refc:`FileInfoExtended`
-     - 
+     - map<key: string, value: :carta:refc:`FileInfoExtended`>
+     - repeated
      - Extended file info (WCS, header info)
 
 .. carta:class:: carta-f2b filelistrequest
