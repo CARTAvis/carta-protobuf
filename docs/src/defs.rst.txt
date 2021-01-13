@@ -27,6 +27,47 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
 
+.. carta:class:: carta-sub beam
+
+.. _beam:
+
+Beam
+~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+describe each beam for multi-beam images
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - channel
+     - sfixed32
+     - 
+     - 
+   * - stokes
+     - sfixed32
+     - 
+     - 
+   * - major_axis
+     - float
+     - 
+     - 
+   * - minor_axis
+     - float
+     - 
+     - 
+   * - pa
+     - float
+     - 
+     - 
+
 .. carta:class:: carta-sub catalogfileinfo
 
 .. _catalogfileinfo:

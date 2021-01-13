@@ -661,8 +661,8 @@ Gives information on the requested file
      - 
      - Basic file info (type, size)
    * - file_info_extended
-     - :carta:refc:`FileInfoExtended`
-     - 
+     - map<key: string, value: :carta:refc:`FileInfoExtended`>
+     - repeated
      - Extended file info (WCS, header info)
 
 .. carta:class:: carta-f2b filelistrequest
@@ -1195,6 +1195,10 @@ Response for :carta:refc:`OPEN_FILE`. Also supplies file information
      - fixed32
      - 
      - Optional bitflags specifying feature flags of the file being opened.
+   * - beam_table
+     - :carta:refc:`Beam`
+     - repeated
+     - :carta:refc:`Beam` table for multiple-beam images
 
 .. carta:class:: carta-b2f rastertiledata
 
