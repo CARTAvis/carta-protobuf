@@ -16,16 +16,16 @@
      - Added ``computed_entries`` map to the File Info Extended message
    * - ``0.1.9``
      - 10/09/18
-     - Changed ``computed_entries`` map to an array of ``HeaderEntry`` messages
+     - Changed ``computed_entries`` map to an array of :carta:ref:`HeaderEntry` messages
    * - ``0.1.10``
      - 10/09/18
-     - Added optional field ``spatial_requirements`` to the ``SET_CURSOR`` message
+     - Added optional field ``spatial_requirements`` to the :carta:ref:`SET_CURSOR` message
    * - ``0.1.11``
      - 20/09/18
-     - Added ``file_id`` field to ``SET_REGION`` and fixed control points typo
+     - Added ``file_id`` field to :carta:ref:`SET_REGION` and fixed control points typo
    * - ``0.1.12``
      - 18/10/18
-     - Deprecated ``channel_vals`` field in ``SPECTRAL_PROFILE_DATA``
+     - Deprecated ``channel_vals`` field in :carta:ref:`SPECTRAL_PROFILE_DATA`
    * - ``0.1.13``
      - 30/11/18
      - Added details on per-cube histogram calculations
@@ -37,7 +37,7 @@
      - Added target version info
    * - ``0.1.16``
      - 25/03/19
-     - Removed ``stokes``, ``channel_min`` and ``channel_max`` fields from ``SET_REGION``, and changed ``StatisticsValue`` ``value`` field to a ``double`` type.
+     - Removed ``stokes``, ``channel_min`` and ``channel_max`` fields from :carta:ref:`SET_REGION`, and changed :carta:ref:`StatisticsValue` ``value`` field to a ``double`` type.
    * - ``0.1.17``
      - 27/03/19
      - Added ``NumPixels`` and ``NanCount`` stats types
@@ -96,11 +96,23 @@
      - 04/07/20
      - Added date field to file info, reordered file types alphabetically
    * - ``16.0.0``
-     - ??/07/20
-     - Added sub-message for region style, replace RegionProperties with map
-   * - ``16.1.0``
+     - 23/07/20
+     - Added sub-message for region style, replace ``RegionProperties`` with map
+   * - ``17.0``
+     - 27/07/20
+     - Added spectral line request and response
+   * - ``17.1.0``
      - 11/08/20
      - Non-breaking change: added map of matched frames for spectral matched animation
-   * - ``16.2.0``
+   * - ``17.2.0``
      - 12/08/20
      - Non-breaking change: added intensity limit field to line ID query
+   * - ``18.0.0``
+     - 11/12/20
+     - Added ``extrema`` enum value to :carta:ref:`StatsType`. Removed deprecated messages: ``SetUserLayout``, ``SetUserLayoutAck``, ``SetUserPreferences``, ``SetUserPreferencesAck``, and ``SetRegionRequirements``.
+   * - ``18.1.0``
+     - 08/01/21
+     - Non-breaking change: added ``beam_table`` (of type :carta:ref:`Beam`) to :carta:ref:`OpenFileAck`.
+   * - ``19.0.0``
+     - 07/01/21
+     - Adjusted ``FileInfoResponse`` to include map of extended file info messages

@@ -65,22 +65,3 @@ message SetSpectralRequirements {
         repeated StatsType stats_types = 2;
     }
 }
-
-
-// SET_REGION_REQUIREMENTS:
-// Sets which spatial profile data needs to be streamed to the frontend when the region is updated
-message SetRegionRequirements {
-    fixed32 file_id = 1;
-    // ID of the region that is having requirements defined. If a region ID of 0 is given,
-    // this corresponds to the point region defined by the cursor position.
-    fixed32 region_id = 2;
-    // Is the X-profile (of the current Stokes parameter) required?
-    bool x = 3;
-    // Is the Y-profile (of the current Stokes parameter) required?
-    bool y = 4;
-    // Is the Z-profile (of the current Stokes parameter) required?
-    bool z = 5;
-    // List of additional profiles needed (for example, [“Qz”, “Uz”]) will include the Z-profile of the
-    // Q and U Stokes cube, regardless of which Stokes parameter is currently in use.
-    repeated string additional_profiles = 6;
-}
