@@ -1769,7 +1769,11 @@ Source file: `request/save_file.proto <https://github.com/CARTAvis/carta-protobu
    * - stokes
      - sfixed32
      - retpeated
-     - Set image stokes: [start, length, stride]
+     - Set image stokes: []
+   * - keep_degenerate
+     - bool
+     - 
+     - 
 
 .. carta:class:: carta-f2b savefileack
 

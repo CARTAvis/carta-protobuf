@@ -11,6 +11,7 @@ message SaveFile {
     sfixed32 region_id = 5;
     repeated sfixed32 channels = 6;
     repeated sfixed32 stokes = 7;
+    bool keep_degenerate = 8;
 }
 
 message SaveFileAck {
