@@ -739,6 +739,33 @@ Gives a list of available files (and their types), as well as subdirectories
      - repeated
      - List of available subdirectories
 
+.. carta:class:: carta-b2f filelistprogress
+
+.. _filelistprogress:
+
+FileListProgress
+~~~~~~~~~~~~~~~~
+
+Source file: `request/file_list.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/file_list.proto>`_
+
+FILE_LIST_PROGRESS
+Response for :carta:refc:`FILE_LIST_PROGRESS`.
+Report the progress of getting a file list
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - progress
+     - float
+     -
+     - Progress of getting a file list (from 0 to 1)
+
 .. carta:class:: carta-f2b histogramconfig
 
 .. _histogramconfig:
@@ -1475,6 +1502,33 @@ Gives a list of available region files (and their types), as well as subdirector
      - string
      - repeated
      - List of available subdirectories
+
+.. carta:class:: carta-b2f regionlistprogress
+
+.. _regionlistprogress:
+
+RegionListProgress
+~~~~~~~~~~~~~~~~
+
+Source file: `request/region_list.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/region_list.proto>`_
+
+REGION_LIST_PROGRESS
+Response for :carta:refc:`REGION_LIST_PROGRESS`.
+Report the progress of getting a region list
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - progress
+     - float
+     -
+     - Progress of getting a region list (from 0 to 1)
 
 .. carta:class:: carta-b2f regionstatsdata
 

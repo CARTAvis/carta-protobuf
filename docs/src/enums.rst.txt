@@ -491,7 +491,16 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
      - 
    * - :carta:refc:`SPECTRAL_LINE_RESPONSE`
      - 68
-     - 
+     -
+   * - :carta:refc:`STOP_FILE_LIST`
+     - 69
+     -
+   * - :carta:refc:`FILE_LIST_PROGRESS`
+     - 70
+     -
+   * - :carta:refc:`REGION_LIST_PROGRESS`
+     - 71
+     -
 
 .. carta:class:: carta-sub filefeatureflags
 
