@@ -24,6 +24,9 @@ The file browser displays a list of files in the selected directory, along with 
     Frontend -> Backend : FILE_LIST_REQUEST
     activate Backend
     Backend -> Backend : Finds file in sub-directory
+    Frontend <-- Backend : FILE_LIST_PROGRESS
+    User -> Frontend : (Cancels the file list)
+    Frontend -> Backend : (STOP_FILE_LIST)
     Frontend <-- Backend : FILE_LIST_RESPONSE
     deactivate Backend
     User <-- Frontend : Displays updated\n file browser
