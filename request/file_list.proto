@@ -30,5 +30,5 @@ message FileListResponse {
 }
 
 message FileListProgress {
-    float progress = 1;
+    Progress progress = 1;
 }

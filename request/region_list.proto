@@ -30,5 +30,5 @@ message RegionListResponse {
 }
 
 message RegionListProgress {
-    float progress = 1;
+    Progress progress = 1;
 }
