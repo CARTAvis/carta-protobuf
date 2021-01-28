@@ -28,7 +28,3 @@ message RegionListResponse {
     // List of available subdirectories
     repeated string subdirectories = 6;
 }
-
-message RegionListProgress {
-    Progress progress = 1;
-}

@@ -28,7 +28,3 @@ message FileListResponse {
     // List of available subdirectories
     repeated string subdirectories = 6;
 }
-
-message FileListProgress {
-    Progress progress = 1;
-}
