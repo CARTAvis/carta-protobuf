@@ -495,11 +495,17 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - :carta:refc:`STOP_FILE_LIST`
      - 69
      -
-   * - :carta:refc:`FILE_LIST_PROGRESS`
+   * - :carta:refc:`STOP_CATALOG_LIST`
      - 70
      -
-   * - :carta:refc:`REGION_LIST_PROGRESS`
+   * - :carta:refc:`FILE_LIST_PROGRESS`
      - 71
+     -
+   * - :carta:refc:`REGION_LIST_PROGRESS`
+     - 72
+     -
+   * - :carta:refc:`CATALOG_LIST_PROGRESS`
+     - 73
      -
 
 .. carta:class:: carta-sub filefeatureflags
