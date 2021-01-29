@@ -326,7 +326,11 @@ Source file: `request/catalog_list.proto <https://github.com/CARTAvis/carta-prot
    * - subdirectories
      - string
      - repeated
-     - 
+     -
+   * - cancel
+     - bool
+     -
+     - Whether the Catalog list process is canceled or not
 
 .. carta:class:: carta-f2b closecatalogfile
 
@@ -738,6 +742,10 @@ Gives a list of available files (and their types), as well as subdirectories
      - string
      - repeated
      - List of available subdirectories
+   * - cancel
+     - bool
+     -
+     - Whether the file list process is canceled or not
 
 .. carta:class:: carta-f2b histogramconfig
 
@@ -1475,6 +1483,10 @@ Gives a list of available region files (and their types), as well as subdirector
      - string
      - repeated
      - List of available subdirectories
+   * - cancel
+     - bool
+     -
+     - Whether the region list process is canceled or not
 
 .. carta:class:: carta-b2f regionstatsdata
 

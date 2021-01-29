@@ -27,4 +27,5 @@ message FileListResponse {
     repeated FileInfo files = 5;
     // List of available subdirectories
     repeated string subdirectories = 6;
+    bool cancel = 7;
 }
