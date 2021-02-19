@@ -1765,11 +1765,11 @@ Source file: `request/save_file.proto <https://github.com/CARTAvis/carta-protobu
    * - channels
      - sfixed32
      - retpeated
-     - Set image channels: [start, length, stride]
+     - Set image channels: [start, end, stride]
    * - stokes
      - sfixed32
      - retpeated
-     - Set image stokes: []
+     - Set image stokes: [start, end, stride]
    * - keep_degenerate
      - bool
      - 
