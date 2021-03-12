@@ -823,7 +823,11 @@ Source file: `control/resume_session.proto <https://github.com/CARTAvis/carta-pr
    * - contour_settings
      - :carta:refc:`SetContourParameters`
      - 
-     - 
+     -
+   * - stokes_files
+     - :carta:refc:`StokesFile`
+     - repeated
+     -
 
 .. carta:class:: carta-f2b importregion
 
