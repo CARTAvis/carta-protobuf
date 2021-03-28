@@ -49,4 +49,8 @@ message TileData {
     bytes image_data = 6;
     // Run-length encodings of NaN values. These values are used to restore the NaN values after decompression.
     bytes nan_encodings = 7;
+    // Minimum value of the tile
+    float min_value = 8;
+    // Maximum value of the tile
+    float max_value = 9;
 }
