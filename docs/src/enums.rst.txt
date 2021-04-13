@@ -491,7 +491,13 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
      - 
    * - :carta:refc:`SPECTRAL_LINE_RESPONSE`
      - 68
-     - 
+     -
+   * - :carta:refc:`CONCAT_STOKES_FILES`
+     - 69
+     -
+   * - :carta:refc:`CONCAT_STOKES_FILES_ACK`
+     - 70
+     -
 
 .. carta:class:: carta-sub filefeatureflags
 
@@ -958,3 +964,38 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
      - 18
      - 
 
+
+.. carta:class:: carta-sub stokestype
+
+.. _stokestype:
+
+StokesType
+~~~~~~~~~~
+
+Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
+
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+   :class: proto
+
+   * - Name
+     - Number
+     - Description
+   * - STOKES_TYPE_NONE
+     - 0
+     -
+   * - I
+     - 1
+     -
+   * - Q
+     - 2
+     -
+   * - U
+     - 3
+     -
+   * - V
+     - 4
+     -
