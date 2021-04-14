@@ -5,6 +5,7 @@ import "defs.proto";
 import "enums.proto";
 import "open_catalog_file.proto";
 import "contour.proto";
+import "concat_stokes_files.proto";
 
 message ImageProperties {
     string directory = 1;
@@ -16,6 +17,7 @@ message ImageProperties {
     sfixed32 stokes = 7;
     map<sfixed32, RegionInfo> regions = 8;
     SetContourParameters contour_settings = 9;
+    repeated StokesFile stokes_files = 10;
 }
 
 message ResumeSession {
