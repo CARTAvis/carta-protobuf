@@ -65,11 +65,13 @@ enum EventType {
     SAVE_FILE_ACK = 66;
     SPECTRAL_LINE_REQUEST = 67;
     SPECTRAL_LINE_RESPONSE = 68;
-    STOP_FILE_LIST = 69;
-    STOP_CATALOG_LIST = 70;
-    FILE_LIST_PROGRESS = 71;
-    REGION_LIST_PROGRESS = 72;
-    CATALOG_LIST_PROGRESS = 73;
+    CONCAT_STOKES_FILES = 69;
+    CONCAT_STOKES_FILES_ACK = 70;
+    STOP_FILE_LIST = 71;
+    STOP_CATALOG_LIST = 72;
+    FILE_LIST_PROGRESS = 73;
+    REGION_LIST_PROGRESS = 74;
+    CATALOG_LIST_PROGRESS = 75;
 }
 
 enum SessionType {
@@ -247,4 +249,12 @@ enum MomentMask {
     None = 0;
     Include = 1;
     Exclude = 2;
+}
+
+enum StokesType {
+    STOKES_TYPE_NONE = 0;
+    I = 1;
+    Q = 2;
+    U = 3;
+    V = 4;
 }
