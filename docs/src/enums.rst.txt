@@ -793,7 +793,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - NVENC_COMPRESSION
      - 4
      - 
-   * - REGION_WRITE_ACCESS
+   * - READ_ONLY
      - 8
      - 
    * - USER_PREFERENCES
