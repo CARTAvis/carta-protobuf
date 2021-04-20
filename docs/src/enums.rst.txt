@@ -795,7 +795,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
      - 
    * - READ_ONLY
      - 8
-     - 
+     - Disables write requests, including saving files and exporting regions.
    * - USER_PREFERENCES
      - 16
      - 
