@@ -119,3 +119,6 @@
    * - ``20.0.0``
      - 13/04/21
      - Added ``ConcatStokesFiles`` messages
+   * - ``20.1.0``
+     - 23/04/21
+     - Renamed ``REGION_WRITE_ACCESS`` to ``READ_ONLY`` in  :carta:ref:`ServerFeatureFlags`.
