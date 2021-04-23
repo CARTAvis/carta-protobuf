@@ -65,6 +65,8 @@ enum EventType {
     SAVE_FILE_ACK = 66;
     SPECTRAL_LINE_REQUEST = 67;
     SPECTRAL_LINE_RESPONSE = 68;
+    CONCAT_STOKES_FILES = 69;
+    CONCAT_STOKES_FILES_ACK = 70;
 }
 
 enum SessionType {
@@ -242,4 +244,12 @@ enum MomentMask {
     None = 0;
     Include = 1;
     Exclude = 2;
+}
+
+enum StokesType {
+    STOKES_TYPE_NONE = 0;
+    I = 1;
+    Q = 2;
+    U = 3;
+    V = 4;
 }
