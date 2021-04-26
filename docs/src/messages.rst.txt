@@ -1830,6 +1830,22 @@ Source file: `request/save_file.proto <https://github.com/CARTAvis/carta-protobu
      - :carta:refc:`FileType`
      - 
      - 
+   * - region_id
+     - sfixed32
+     - 
+     - 
+   * - channels
+     - sfixed32
+     - repeated
+     - 
+   * - stokes
+     - sfixed32
+     - repeated
+     - 
+   * - keep_degenerate
+     - bool
+     - 
+     - 
 
 .. carta:class:: carta-f2b savefileack
 

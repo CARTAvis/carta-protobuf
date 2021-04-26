@@ -119,6 +119,12 @@
    * - ``20.0.0``
      - 13/04/21
      - Added ``ConcatStokesFiles`` messages
-   * - ``21.0.0``
+   * - ``20.1.0``
      - 23/04/21
+     - Renamed ``REGION_WRITE_ACCESS`` to ``READ_ONLY`` in  :carta:ref:`ServerFeatureFlags`.
+   * - ``20.2.0``
+     - 26/04/21
+     - Added additional fields to :carta:ref:`SaveFile` for sub-image support.
+   * - ``21.0.0``
+     - 26/04/21
      - Added :carta:ref:`SpatialConfig` submessage with fields for spatial profile mip and range, and added mip field to :carta:ref:`SpatialProfile`. Updated comments for :carta:ref:`SpatialConfig` and :carta:ref:`SpectralConfig`.
