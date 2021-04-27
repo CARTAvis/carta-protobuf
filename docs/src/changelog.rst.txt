@@ -122,3 +122,6 @@
    * - ``20.1.0``
      - 23/04/21
      - Renamed ``REGION_WRITE_ACCESS`` to ``READ_ONLY`` in  :carta:ref:`ServerFeatureFlags`.
+   * - ``20.2.0``
+     - 26/04/21
+     - Added additional fields to :carta:ref:`SaveFile` for sub-image support.
