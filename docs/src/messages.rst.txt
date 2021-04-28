@@ -2320,11 +2320,11 @@ Source file: `control/region_requirements.proto <https://github.com/CARTAvis/car
    * - start
      - sfixed32
      - 
-     - The start of the required range. If the start and end are the same (i.e. the range is empty), the default of 0 is used.
+     - The start of the required range (inclusive). If the start and end are the same (i.e. the range is empty), the default of 0 is used.
    * - end
      - sfixed32
      - 
-     - The end of the required range. If the start and end are the same (i.e. the range is empty), the height or width of the image is used.
+     - The end of the required range (exclusive). If the start and end are the same (i.e. the range is empty), the height or width of the image is used.
    * - mip
      - sfixed32
      - 
