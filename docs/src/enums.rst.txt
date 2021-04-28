@@ -793,9 +793,9 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - NVENC_COMPRESSION
      - 4
      - 
-   * - REGION_WRITE_ACCESS
+   * - READ_ONLY
      - 8
-     - 
+     - Disables write requests, including saving files, exporting regions, and writing preferences and layouts files.
    * - USER_PREFERENCES
      - 16
      - 
