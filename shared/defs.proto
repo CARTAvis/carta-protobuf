@@ -182,7 +182,7 @@ message Beam {
     float pa = 5;
 }
 
-message Progress {
+message ListProgress {
     float percentage = 1;
     sfixed32 checked_count = 2;
     sfixed32 total_count = 3;
