@@ -326,11 +326,11 @@ Source file: `request/catalog_list.proto <https://github.com/CARTAvis/carta-prot
    * - subdirectories
      - string
      - repeated
-     -
+     - 
    * - cancel
      - bool
-     -
-     - Whether the Catalog list process is canceled or not
+     - 
+     - 
 
 .. carta:class:: carta-f2b closecatalogfile
 
@@ -382,6 +382,74 @@ Instructs the backend to close a file with a given file ID
      - sfixed32
      - 
      - Which "file" slot to close
+
+.. carta:class:: carta-f2b concatstokesfiles
+
+.. _concatstokesfiles:
+
+ConcatStokesFiles
+~~~~~~~~~~~~~~~~~
+
+Source file: `control/concat_stokes_files.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/concat_stokes_files.proto>`_
+
+CONCAT_STOKES_FILES:
+Requests to concatenate individual stokes images as one and open it.
+Backend responds with :carta:refc:`CONCAT_STOKES_FILES_ACK`
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - stokes_files
+     - :carta:refc:`StokesFile`
+     - repeated
+     - Stokes files to be concatenated
+   * - file_id
+     - sfixed32
+     - 
+     - File ID for the concatenate image
+   * - render_mode
+     - :carta:refc:`RenderMode`
+     - 
+     - The render mode to use. Additional modes will be added in subsequent versions.
+
+.. carta:class:: carta-b2f concatstokesfilesack
+
+.. _concatstokesfilesack:
+
+ConcatStokesFilesAck
+~~~~~~~~~~~~~~~~~~~~
+
+Source file: `control/concat_stokes_files.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/concat_stokes_files.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - success
+     - bool
+     - 
+     - Concatenation is successful or not
+   * - message
+     - string
+     - 
+     - Error message if not successful
+   * - open_file_ack
+     - :carta:refc:`OpenFileAck`
+     - 
+     - Open file acknowledgement for the concatenate file
 
 .. carta:class:: carta-b2f contourimagedata
 
@@ -744,8 +812,8 @@ Gives a list of available files (and their types), as well as subdirectories
      - List of available subdirectories
    * - cancel
      - bool
-     -
-     - Whether the file list process is canceled or not
+     - 
+     - 
 
 .. carta:class:: carta-f2b histogramconfig
 
@@ -831,11 +899,11 @@ Source file: `control/resume_session.proto <https://github.com/CARTAvis/carta-pr
    * - contour_settings
      - :carta:refc:`SetContourParameters`
      - 
-     -
+     - 
    * - stokes_files
      - :carta:refc:`StokesFile`
      - repeated
-     -
+     - 
 
 .. carta:class:: carta-f2b importregion
 
@@ -1489,8 +1557,8 @@ Gives a list of available region files (and their types), as well as subdirector
      - List of available subdirectories
    * - cancel
      - bool
-     -
-     - Whether the region list process is canceled or not
+     - 
+     - 
 
 .. carta:class:: carta-b2f regionstatsdata
 
@@ -1773,7 +1841,7 @@ Source file: `request/save_file.proto <https://github.com/CARTAvis/carta-protobu
    * - output_file_type
      - :carta:refc:`FileType`
      - 
-     - The format of a new image file
+     - 
    * - region_id
      - sfixed32
      - 
@@ -1781,11 +1849,11 @@ Source file: `request/save_file.proto <https://github.com/CARTAvis/carta-protobu
    * - channels
      - sfixed32
      - repeated
-     - Set image channels: [start, end, stride]
+     - 
    * - stokes
      - sfixed32
      - repeated
-     - Set image stokes: [start, end, stride]
+     - 
    * - keep_degenerate
      - bool
      - 
@@ -2529,6 +2597,43 @@ Response for :carta:refc:`START_ANIMATION`
      - 
      - The animation ID of the new animation
 
+.. carta:class:: carta-f2b stokesfile
+
+.. _stokesfile:
+
+StokesFile
+~~~~~~~~~~
+
+Source file: `control/concat_stokes_files.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/concat_stokes_files.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - directory
+     - string
+     - 
+     - Required directory name
+   * - file
+     - string
+     - 
+     - Required file name
+   * - hdu
+     - string
+     - 
+     - Which HDU to load (if applicable). If left blank, the first HDU will be used
+   * - stokes_type
+     - :carta:refc:`StokesType`
+     - 
+     - Stokes type
+
 .. carta:class:: carta-f2b stopanimation
 
 .. _stopanimation:
@@ -2558,6 +2663,31 @@ Stops the playing animation
      - :carta:refc:`AnimationFrame`
      - 
      - The ending point of the animation.
+
+.. carta:class:: carta-f2b stopfilelist
+
+.. _stopfilelist:
+
+StopFileList
+~~~~~~~~~~~~
+
+Source file: `request/file_list.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/file_list.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_list_type
+     - :carta:refc:`FileListType`
+     - 
+     - 
 
 .. carta:class:: carta-f2b stopmomentcalc
 
@@ -2633,111 +2763,3 @@ Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protob
      - 
      - Run-length encodings of NaN values. These values are used to restore the NaN values after decompression.
 
-
-.. carta:class:: carta-f2b stokesfile
-
-.. _stokesfile:
-
-StokesFile
-~~~~~~~~~~
-
-Source file: `control/concat_stokes_files.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/concat_stokes_files.proto>`_
-
-
-
-.. list-table::
-   :widths: 20 20 20 40
-   :header-rows: 1
-   :class: proto
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - directory
-     - string
-     -
-     - Required directory name
-   * - file
-     - string
-     -
-     - Required file name
-   * - hdu
-     - string
-     -
-     - Which HDU to load (if applicable). If left blank, the first HDU will be used
-   * - stokes_type
-     - :carta:refc:`StokesType`
-     -
-     - The stokes type of this file
-
-
-.. carta:class:: carta-f2b concatstokesfiles
-
-.. _concatstokesfiles:
-
-ConcatStokesFiles
-~~~~~~~~~~~~~~~~~
-
-Source file: `control/concat_stokes_files.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/concat_stokes_files.proto>`_
-
-CONCAT_STOKES_FILES:
-Requests the concatenating of stokes files.
-Backend responds with :carta:refc:`CONCAT_STOKES_FILES_ACK`
-
-.. list-table::
-   :widths: 20 20 20 40
-   :header-rows: 1
-   :class: proto
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - stokes_files
-     - :carta:refc:`StokesFile`
-     - repeated
-     - Stokes files to be concatenated
-   * - file_id
-     - sfixed32
-     -
-     - File ID for the concatenate image
-   * - render_mode
-     - :carta:refc:`RenderMode`
-     -
-     - The render mode to use. Additional modes will be added in subsequent versions.
-
-
-.. carta:class:: carta-b2f concatstokesfilesack
-
-.. _concatstokesfilesack:
-
-ConcatStokesFilesAck
-~~~~~~~~~~~~~~~~~~~~
-
-Source file: `control/concat_stokes_files.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/concat_stokes_files.proto>`_
-
-CONCAT_STOKES_FILES_ACK
-Response for :carta:refc:`CONCAT_STOKES_FILES`. Also supplies file information
-
-.. list-table::
-   :widths: 20 20 20 40
-   :header-rows: 1
-   :class: proto
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - success
-     - bool
-     -
-     - Concatenation is successful or not
-   * - message
-     - string
-     -
-     - Error message if not successful
-   * - open_file_ack
-     - :carta:refc:`OpenFileAck`
-     -
-     - Open file acknowledgement for the concatenate file

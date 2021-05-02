@@ -491,28 +491,19 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
      - 
    * - :carta:refc:`SPECTRAL_LINE_RESPONSE`
      - 68
-     -
+     - 
    * - :carta:refc:`CONCAT_STOKES_FILES`
      - 69
-     -
+     - 
    * - :carta:refc:`CONCAT_STOKES_FILES_ACK`
      - 70
-     -
-   * - :carta:refc:`STOP_FILE_LIST`
+     - 
+   * - FILE_LIST_PROGRESS
      - 71
-     -
-   * - :carta:refc:`STOP_CATALOG_LIST`
+     - 
+   * - :carta:refc:`STOP_FILE_LIST`
      - 72
-     -
-   * - :carta:refc:`FILE_LIST_PROGRESS`
-     - 73
-     -
-   * - :carta:refc:`REGION_LIST_PROGRESS`
-     - 74
-     -
-   * - :carta:refc:`CATALOG_LIST_PROGRESS`
-     - 75
-     -
+     - 
 
 .. carta:class:: carta-sub filefeatureflags
 
@@ -553,6 +544,32 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
      - 
    * - MIP_DATASET
      - 32
+     - 
+
+.. carta:class:: carta-sub filelisttype
+
+.. _filelisttype:
+
+FileListType
+~~~~~~~~~~~~
+
+Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
+
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+   :class: proto
+
+   * - Name
+     - Number
+     - Description
+   * - Image
+     - 0
+     - 
+   * - Catalog
+     - 1
      - 
 
 .. carta:class:: carta-sub filetype
@@ -810,7 +827,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
      - 
    * - READ_ONLY
      - 8
-     - Disables write requests, including saving files, exporting regions, and writing preferences and layouts files.
+     - 
    * - USER_PREFERENCES
      - 16
      - 
@@ -979,7 +996,6 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
      - 18
      - 
 
-
 .. carta:class:: carta-sub stokestype
 
 .. _stokestype:
@@ -1001,16 +1017,17 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
      - Description
    * - STOKES_TYPE_NONE
      - 0
-     -
+     - 
    * - I
      - 1
-     -
+     - 
    * - Q
      - 2
-     -
+     - 
    * - U
      - 3
-     -
+     - 
    * - V
      - 4
-     -
+     - 
+
