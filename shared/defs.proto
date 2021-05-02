@@ -183,7 +183,8 @@ message Beam {
 }
 
 message ListProgress {
-    float percentage = 1;
-    sfixed32 checked_count = 2;
-    sfixed32 total_count = 3;
+    FileListType file_list_type = 1;
+    float percentage = 2;
+    sfixed32 checked_count = 3;
+    sfixed32 total_count = 4;
 }

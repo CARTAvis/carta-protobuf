@@ -67,11 +67,8 @@ enum EventType {
     SPECTRAL_LINE_RESPONSE = 68;
     CONCAT_STOKES_FILES = 69;
     CONCAT_STOKES_FILES_ACK = 70;
-    STOP_FILE_LIST = 71;
-    STOP_CATALOG_LIST = 72;
-    FILE_LIST_PROGRESS = 73;
-    REGION_LIST_PROGRESS = 74;
-    CATALOG_LIST_PROGRESS = 75;
+    FILE_LIST_PROGRESS = 71;
+    STOP_FILE_LIST = 72;
 }
 
 enum SessionType {
@@ -257,4 +254,9 @@ enum StokesType {
     Q = 2;
     U = 3;
     V = 4;
+}
+
+enum FileListType {
+    Image = 0;
+    Catalog = 1;
 }
