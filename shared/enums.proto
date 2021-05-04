@@ -163,6 +163,7 @@ enum ServerFeatureFlags {
     SZ_COMPRESSION = 1;
     HEVC_COMPRESSION = 2;
     NVENC_COMPRESSION = 4;
+    // Disables write requests, including saving files, exporting regions, and writing preferences and layouts files.
     READ_ONLY = 8;
     USER_PREFERENCES = 16;
     USER_LAYOUTS = 32;
