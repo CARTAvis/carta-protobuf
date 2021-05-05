@@ -125,3 +125,6 @@
    * - ``20.2.0``
      - 26/04/21
      - Added additional fields to :carta:ref:`SaveFile` for sub-image support.
+   * - ``21.0.0``
+     - 05/05/21
+     - Added :carta:ref:`ListProgress` and :carta:ref:`StopFileList` messages

@@ -14,4 +14,5 @@ message CatalogListResponse {
     string parent = 4;
     repeated CatalogFileInfo files = 5;
     repeated string subdirectories = 6;
+    bool cancel = 7;
 }

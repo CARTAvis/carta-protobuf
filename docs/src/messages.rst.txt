@@ -327,6 +327,10 @@ Source file: `request/catalog_list.proto <https://github.com/CARTAvis/carta-prot
      - string
      - repeated
      - 
+   * - cancel
+     - bool
+     - 
+     - 
 
 .. carta:class:: carta-f2b closecatalogfile
 
@@ -806,6 +810,10 @@ Gives a list of available files (and their types), as well as subdirectories
      - string
      - repeated
      - List of available subdirectories
+   * - cancel
+     - bool
+     - 
+     - 
 
 .. carta:class:: carta-f2b histogramconfig
 
@@ -1547,6 +1555,10 @@ Gives a list of available region files (and their types), as well as subdirector
      - string
      - repeated
      - List of available subdirectories
+   * - cancel
+     - bool
+     - 
+     - 
 
 .. carta:class:: carta-b2f regionstatsdata
 
@@ -2651,6 +2663,31 @@ Stops the playing animation
      - :carta:refc:`AnimationFrame`
      - 
      - The ending point of the animation.
+
+.. carta:class:: carta-f2b stopfilelist
+
+.. _stopfilelist:
+
+StopFileList
+~~~~~~~~~~~~
+
+Source file: `request/file_list.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/file_list.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_list_type
+     - :carta:refc:`FileListType`
+     - 
+     - 
 
 .. carta:class:: carta-f2b stopmomentcalc
 

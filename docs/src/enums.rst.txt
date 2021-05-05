@@ -498,6 +498,12 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - :carta:refc:`CONCAT_STOKES_FILES_ACK`
      - 70
      - 
+   * - FILE_LIST_PROGRESS
+     - 71
+     - 
+   * - :carta:refc:`STOP_FILE_LIST`
+     - 72
+     - 
 
 .. carta:class:: carta-sub filefeatureflags
 
@@ -538,6 +544,32 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
      - 
    * - MIP_DATASET
      - 32
+     - 
+
+.. carta:class:: carta-sub filelisttype
+
+.. _filelisttype:
+
+FileListType
+~~~~~~~~~~~~
+
+Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
+
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+   :class: proto
+
+   * - Name
+     - Number
+     - Description
+   * - Image
+     - 0
+     - 
+   * - Catalog
+     - 1
      - 
 
 .. carta:class:: carta-sub filetype
