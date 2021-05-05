@@ -126,5 +126,8 @@
      - 26/04/21
      - Added additional fields to :carta:ref:`SaveFile` for sub-image support.
    * - ``21.0.0``
-     - 26/04/21
+     - 05/05/21
+     - Added :carta:ref:`ListProgress` and :carta:ref:`StopFileList` messages
+   * - ``22.0.0``
+     - 05/05/21
      - Added :carta:ref:`SpatialConfig` submessage with fields for spatial profile mip and range, and added mip field to :carta:ref:`SpatialProfile`. Updated comments for :carta:ref:`SpatialConfig` and :carta:ref:`SpectralConfig`.

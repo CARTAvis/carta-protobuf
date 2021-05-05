@@ -29,6 +29,9 @@ Catalog file list
     Frontend -> Backend : CATALOG_FILE_LIST_REQUEST
     activate Backend
     Backend -> Backend : Finds file in \n sub-directory
+    Frontend <-- Backend : CATALOG_LIST_PROGRESS
+    User -> Frontend : (Cancels the Catalog file list)
+    Frontend -> Backend : (STOP_CATALOG_LIST)
     Frontend <-- Backend : CATALOG_FILE_LIST_RESPONSE
     deactivate Backend
     User <-- Frontend : Displays updated \n file browser
