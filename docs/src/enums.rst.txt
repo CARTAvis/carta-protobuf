@@ -491,13 +491,13 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
      - 
    * - :carta:refc:`SPECTRAL_LINE_RESPONSE`
      - 68
-     -
+     - 
    * - :carta:refc:`CONCAT_STOKES_FILES`
      - 69
-     -
+     - 
    * - :carta:refc:`CONCAT_STOKES_FILES_ACK`
      - 70
-     -
+     - 
 
 .. carta:class:: carta-sub filefeatureflags
 
@@ -795,7 +795,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
      - 
    * - READ_ONLY
      - 8
-     - Disables write requests, including saving files, exporting regions, and writing preferences and layouts files.
+     - 
    * - USER_PREFERENCES
      - 16
      - 
@@ -964,7 +964,6 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
      - 18
      - 
 
-
 .. carta:class:: carta-sub stokestype
 
 .. _stokestype:
@@ -986,16 +985,17 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
      - Description
    * - STOKES_TYPE_NONE
      - 0
-     -
+     - 
    * - I
      - 1
-     -
+     - 
    * - Q
      - 2
-     -
+     - 
    * - U
      - 3
-     -
+     - 
    * - V
      - 4
-     -
+     - 
+
