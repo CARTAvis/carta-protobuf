@@ -1,7 +1,6 @@
 syntax = "proto3";
 package CARTA;
 
-import "defs.proto";
 import "enums.proto";
 import "open_file.proto";
 

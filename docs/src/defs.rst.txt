@@ -602,6 +602,43 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
 
+.. carta:class:: carta-sub listprogress
+
+.. _listprogress:
+
+ListProgress
+~~~~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_list_type
+     - :carta:refc:`FileListType`
+     - 
+     - 
+   * - percentage
+     - float
+     - 
+     - 
+   * - checked_count
+     - sfixed32
+     - 
+     - 
+   * - total_count
+     - sfixed32
+     - 
+     - 
+
 .. carta:class:: carta-sub matchedframelist
 
 .. _matchedframelist:
