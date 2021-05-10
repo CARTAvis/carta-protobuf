@@ -507,10 +507,6 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - Type
      - Label
      - Description
-   * - channel
-     - sfixed32
-     - 
-     - 
    * - num_bins
      - sfixed32
      - 
