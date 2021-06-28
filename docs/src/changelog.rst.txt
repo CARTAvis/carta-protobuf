@@ -129,5 +129,8 @@
      - 05/05/21
      - Added :carta:ref:`ListProgress` and :carta:ref:`StopFileList` messages
    * - ``22.0.0``
-     - 05/05/21
+     - 28/06/21
+     - Added :carta:ref:`DirectoryInfo` message.
+   * - ``23.0.0``
+     - 28/06/21
      - Added :carta:ref:`SpatialConfig` submessage with fields for spatial profile mip and range, and added mip field to :carta:ref:`SpatialProfile`. Updated comments for :carta:ref:`SpatialConfig` and :carta:ref:`SpectralConfig`.
