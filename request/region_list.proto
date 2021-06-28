@@ -25,7 +25,7 @@ message RegionListResponse {
     string parent = 4;
     // List of available image files, with file type information and size information.
     repeated FileInfo files = 5;
-    // List of available subdirectories
-    repeated string subdirectories = 6;
+    // List of available subdirectories, with number of items and modified date
+    repeated DirectoryInfo subdirectories = 6;
     bool cancel = 7;
 }
