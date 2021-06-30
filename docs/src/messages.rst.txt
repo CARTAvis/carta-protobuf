@@ -324,7 +324,7 @@ Source file: `request/catalog_list.proto <https://github.com/CARTAvis/carta-prot
      - repeated
      - 
    * - subdirectories
-     - string
+     - :carta:refc:`DirectoryInfo`
      - repeated
      - 
    * - cancel
@@ -807,9 +807,9 @@ Gives a list of available files (and their types), as well as subdirectories
      - repeated
      - List of available image files, with file type information and size information.
    * - subdirectories
-     - string
+     - :carta:refc:`DirectoryInfo`
      - repeated
-     - List of available subdirectories
+     - List of available subdirectories, with number of items and modified date
    * - cancel
      - bool
      - 
@@ -1560,9 +1560,9 @@ Gives a list of available region files (and their types), as well as subdirector
      - repeated
      - List of available image files, with file type information and size information.
    * - subdirectories
-     - string
+     - :carta:refc:`DirectoryInfo`
      - repeated
-     - List of available subdirectories
+     - List of available subdirectories, with number of items and modified date
    * - cancel
      - bool
      - 
