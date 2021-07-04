@@ -7,7 +7,14 @@ message SaveFile {
     sfixed32 file_id = 1;
     string output_file_directory = 2;
     string output_file_name = 3;
+    // The format of a new image file
     FileType output_file_type = 4;
+    sfixed32 region_id = 5;
+    // Set image channels: [start, end, stride]
+    repeated sfixed32 channels = 6;
+    // Set image stokes: [start, end, stride]
+    repeated sfixed32 stokes = 7;
+    bool keep_degenerate = 8;
 }
 
 message SaveFileAck {

@@ -21,10 +21,13 @@ The file browser displays a list of files in the selected directory, along with 
     end box
     activate Frontend
     User -> Frontend : Selects sub-directory
-    Frontend -> Backend : FILE_LIST_REQUEST
+    Frontend -> Backend : FILE_LIST_REQUEST/ \n REGION_LIST_REQUEST
     activate Backend
     Backend -> Backend : Finds file in sub-directory
-    Frontend <-- Backend : FILE_LIST_RESPONSE
+    Frontend <-- Backend : FILE_LIST_PROGRESS
+    User -> Frontend : (Cancels the file/region list)
+    Frontend -> Backend : (STOP_FILE_LIST)
+    Frontend <-- Backend : FILE_LIST_RESPONSE/ \n REGION_LIST_RESPONSE
     deactivate Backend
     User <-- Frontend : Displays updated\n file browser
     deactivate Frontend

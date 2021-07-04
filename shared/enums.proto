@@ -63,10 +63,14 @@ enum EventType {
     STOP_MOMENT_CALC = 64;
     SAVE_FILE = 65;
     SAVE_FILE_ACK = 66;
-    SPLATALOGUE_PING = 67;
-    SPLATALOGUE_PONG = 68;
-    SPECTRAL_LINE_REQUEST = 69;
-    SPECTRAL_LINE_RESPONSE = 70;
+    SPECTRAL_LINE_REQUEST = 67;
+    SPECTRAL_LINE_RESPONSE = 68;
+    CONCAT_STOKES_FILES = 69;
+    CONCAT_STOKES_FILES_ACK = 70;
+    FILE_LIST_PROGRESS = 71;
+    STOP_FILE_LIST = 72;
+    SPLATALOGUE_PING = 73;
+    SPLATALOGUE_PONG = 74;
 }
 
 enum SessionType {
@@ -161,7 +165,8 @@ enum ServerFeatureFlags {
     SZ_COMPRESSION = 1;
     HEVC_COMPRESSION = 2;
     NVENC_COMPRESSION = 4;
-    REGION_WRITE_ACCESS = 8;
+    // Disables write requests, including saving files, exporting regions, and writing preferences and layouts files.
+    READ_ONLY = 8;
     USER_PREFERENCES = 16;
     USER_LAYOUTS = 32;
     GRPC_SCRIPTING = 64;
@@ -244,4 +249,17 @@ enum MomentMask {
     None = 0;
     Include = 1;
     Exclude = 2;
+}
+
+enum StokesType {
+    STOKES_TYPE_NONE = 0;
+    I = 1;
+    Q = 2;
+    U = 3;
+    V = 4;
+}
+
+enum FileListType {
+    Image = 0;
+    Catalog = 1;
 }

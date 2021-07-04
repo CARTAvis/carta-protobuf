@@ -1,0 +1,37 @@
+syntax = "proto3";
+package CARTA;
+
+import "enums.proto";
+import "open_file.proto";
+
+// CONCAT_STOKES_FILES:
+// Requests to concatenate individual stokes images as one and open it.
+// Backend responds with CONCAT_STOKES_FILES_ACK
+message ConcatStokesFiles {
+    // Stokes files to be concatenated
+    repeated StokesFile stokes_files = 1;
+    // File ID for the concatenate image
+    sfixed32 file_id = 2;
+    // The render mode to use. Additional modes will be added in subsequent versions.
+    RenderMode render_mode = 3;
+}
+
+message StokesFile {
+    // Required directory name
+    string directory = 1;
+    // Required file name
+    string file = 2;
+    // Which HDU to load (if applicable). If left blank, the first HDU will be used
+    string hdu = 3;
+    // Stokes type
+    StokesType stokes_type = 4;
+}
+
+message ConcatStokesFilesAck {
+    // Concatenation is successful or not
+    bool success = 1;
+    // Error message if not successful
+    string message = 2;
+    // Open file acknowledgement for the concatenate file
+    OpenFileAck open_file_ack = 3;
+}

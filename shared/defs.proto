@@ -21,6 +21,13 @@ message FileInfo {
     sfixed64 date = 5;
 }
 
+// Directory info message structure (internal use only)
+message DirectoryInfo {
+    string name = 1;
+    sfixed32 item_count = 2;
+    sfixed64 date = 3;
+}
+
 message FileInfoExtended {
     // Number of dimensions of the image file
     sfixed32 dimensions = 1;
@@ -180,4 +187,11 @@ message Beam {
     float major_axis = 3;
     float minor_axis = 4;
     float pa = 5;
+}
+
+message ListProgress {
+    FileListType file_list_type = 1;
+    float percentage = 2;
+    sfixed32 checked_count = 3;
+    sfixed32 total_count = 4;
 }

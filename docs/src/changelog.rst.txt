@@ -116,3 +116,18 @@
    * - ``19.0.0``
      - 07/01/21
      - Adjusted ``FileInfoResponse`` to include map of extended file info messages
+   * - ``20.0.0``
+     - 13/04/21
+     - Added ``ConcatStokesFiles`` messages
+   * - ``20.1.0``
+     - 23/04/21
+     - Renamed ``REGION_WRITE_ACCESS`` to ``READ_ONLY`` in  :carta:ref:`ServerFeatureFlags`.
+   * - ``20.2.0``
+     - 26/04/21
+     - Added additional fields to :carta:ref:`SaveFile` for sub-image support.
+   * - ``21.0.0``
+     - 05/05/21
+     - Added :carta:ref:`ListProgress` and :carta:ref:`StopFileList` messages
+   * - ``22.0.0``
+     - 28/06/21
+     - Added :carta:ref:`DirectoryInfo` message.

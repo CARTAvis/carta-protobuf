@@ -13,5 +13,6 @@ message CatalogListResponse {
     string directory = 3;
     string parent = 4;
     repeated CatalogFileInfo files = 5;
-    repeated string subdirectories = 6;
+    repeated DirectoryInfo subdirectories = 6;
+    bool cancel = 7;
 }
