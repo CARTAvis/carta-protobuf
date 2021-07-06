@@ -828,6 +828,10 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - string
      - 
      - 
+   * - mip
+     - sfixed32
+     - 
+     - 
 
 .. carta:class:: carta-sub spectralprofile
 

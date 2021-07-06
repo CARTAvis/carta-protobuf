@@ -2241,9 +2241,9 @@ Sets which information needs to be streamed to the frontend when the region is u
      - 
      - ID of the region that is having requirements defined. If a region ID of 0 is given, this corresponds to the point region defined by the cursor position.
    * - spatial_profiles
-     - string
+     - :carta:refc:`SpatialConfig`
      - repeated
-     - List of spatial profiles needed. If no Stokes parameter is specified (i.e. just “x” or “y”), the active Stokes parameter is used.
+     - List of spatial profiles needed.
 
 .. carta:class:: carta-f2b setspectralrequirements
 
@@ -2277,7 +2277,7 @@ Sets which spectral profile data needs to be streamed to the frontend when the r
    * - spectral_profiles
      - :carta:refc:`SpectralConfig`
      - repeated
-     - List of spectral profiles needed, along with which stats types are needed for each profile. If no Stokes parameter is specified (i.e. just “z”) or if the coordinate is empty, the active Stokes parameter is used. If the region is a point region, the statsTypes field is ignored.
+     - List of spectral profiles needed, along with which stats types are needed for each profile.
 
 .. carta:class:: carta-f2b setstatsrequirements
 
@@ -2312,6 +2312,43 @@ Sets which stats data needs to be streamed to the frontend when the region is up
      - :carta:refc:`StatsConfig`
      - repeated
      - List of required stats
+
+.. carta:class:: carta-f2b spatialconfig
+
+.. _spatialconfig:
+
+SpatialConfig
+~~~~~~~~~~~~~
+
+Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - coordinate
+     - string
+     - 
+     - The required spatial coordinate (“x” or “y”).
+   * - start
+     - sfixed32
+     - 
+     - The start of the required range (inclusive). If the start and end are the same (i.e. the range is empty), the default of 0 is used.
+   * - end
+     - sfixed32
+     - 
+     - The end of the required range (exclusive). If the start and end are the same (i.e. the range is empty), the height or width of the image is used.
+   * - mip
+     - sfixed32
+     - 
+     - The maximum required mip. The backend must return data of at least this resolution, but may return a higher resolution. If this is unset or 0, the full-resolution data is used.
 
 .. carta:class:: carta-b2f spatialprofiledata
 
@@ -2390,11 +2427,11 @@ Source file: `control/region_requirements.proto <https://github.com/CARTAvis/car
    * - coordinate
      - string
      - 
-     - 
+     - The required spectral coordinate (“z”), optionally preceded by a Stokes parameter (“I”, “Q”, “U” or “V”) If no Stokes parameter is present, or if the coordinate is empty, the active Stokes parameter is used.
    * - stats_types
      - :carta:refc:`StatsType`
      - repeated
-     - 
+     - The required stats type. If the region is a point region, this field is ignored.
 
 .. carta:class:: carta-f2b spectrallinerequest
 
