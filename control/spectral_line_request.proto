@@ -3,6 +3,14 @@ package CARTA;
 
 import "defs.proto";
 
+message SplataloguePing {
+}
+
+message SplataloguePong {
+    bool success = 1;
+    string message = 2;
+}
+
 message SpectralLineRequest {
     DoubleBounds frequency_range = 1;
     double line_intensity_lower_limit = 2;
