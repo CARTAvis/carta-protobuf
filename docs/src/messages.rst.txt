@@ -2537,6 +2537,46 @@ Data for spectral profile set for a specific file
      - repeated
      - Spatial profiles for each required profile type
 
+.. carta:class:: carta-f2b splatalogueping
+
+.. _splatalogueping:
+
+SplataloguePing
+~~~~~~~~~~~~~~~
+
+Source file: `control/spectral_line_request.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/spectral_line_request.proto>`_
+
+
+
+.. carta:class:: carta-f2b splataloguepong
+
+.. _splataloguepong:
+
+SplataloguePong
+~~~~~~~~~~~~~~~
+
+Source file: `control/spectral_line_request.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/spectral_line_request.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - success
+     - bool
+     - 
+     - 
+   * - message
+     - string
+     - 
+     - 
+
 .. carta:class:: carta-f2b startanimation
 
 .. _startanimation:
