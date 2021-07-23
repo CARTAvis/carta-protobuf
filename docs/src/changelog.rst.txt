@@ -134,3 +134,6 @@
    * - ``23.0.0``
      - 28/06/21
      - Added :carta:ref:`SpatialConfig` submessage with fields for spatial profile mip and range, and added mip field to :carta:ref:`SpatialProfile`. Updated comments for :carta:ref:`SpatialConfig` and :carta:ref:`SpectralConfig`.
+   * - ``23.1.0``
+     - 23/07/21
+     - Added :carta:ref:`SplataloguePing` and :carta:ref:`SplataloguePong` messages.
