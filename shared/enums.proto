@@ -69,6 +69,8 @@ enum EventType {
     CONCAT_STOKES_FILES_ACK = 70;
     FILE_LIST_PROGRESS = 71;
     STOP_FILE_LIST = 72;
+    SPLATALOGUE_PING = 73;
+    SPLATALOGUE_PONG = 74;
 }
 
 enum SessionType {
