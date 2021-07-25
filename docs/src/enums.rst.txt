@@ -504,6 +504,12 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - :carta:refc:`STOP_FILE_LIST`
      - 72
      - 
+   * - :carta:refc:`SPLATALOGUE_PING`
+     - 73
+     - 
+   * - :carta:refc:`SPLATALOGUE_PONG`
+     - 74
+     - 
 
 .. carta:class:: carta-sub filefeatureflags
 
