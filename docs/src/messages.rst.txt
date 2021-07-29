@@ -1927,11 +1927,15 @@ Source file: `request/scripting.proto <https://github.com/CARTAvis/carta-protobu
    * - parameters
      - string
      - 
-     - JSON array of paramters. e.g. '["viridis"]'
+     - JSON array of parameters. e.g. '["viridis"]'
    * - async
      - bool
      - 
      - flag indicating whether the frontend should execute this asynchronously, or only return once the call is complete
+   * - response_field
+     - string
+     - 
+     - optional string indicating which field of the response to return. If this is empty, the entire response will be returned.
 
 .. carta:class:: carta-b2f scriptingresponse
 

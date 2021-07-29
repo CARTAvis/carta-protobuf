@@ -2,16 +2,18 @@ syntax = "proto3";
 package CARTA;
 
 message ScriptingRequest {
-    // Used to connect a single scripting request to its response
-    sfixed32 scripting_request_id = 1;
-    // the path of the target object. e.g. activeFrame.renderConfig
-    string target = 2;
-    // the name of the function to call. e.g. setColorMap
-    string action = 3;
-    // JSON array of paramters. e.g. '["viridis"]'
-    string parameters = 4;
-    // flag indicating whether the frontend should execute this asynchronously, or only return once the call is complete
-    bool async = 5;
+  // Used to connect a single scripting request to its response
+  sfixed32 scripting_request_id = 1;
+  // the path of the target object. e.g. activeFrame.renderConfig
+  string target = 2;
+  // the name of the function to call. e.g. setColorMap
+  string action = 3;
+  // JSON array of parameters. e.g. '["viridis"]'
+  string parameters = 4;
+  // flag indicating whether the frontend should execute this asynchronously, or only return once the call is complete
+  bool async = 5;
+  // optional string indicating which field of the response to return. If this is empty, the entire response will be returned.
+  string response_field = 6;
 }
 
 message ScriptingResponse {
