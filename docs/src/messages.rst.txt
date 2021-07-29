@@ -1932,10 +1932,10 @@ Source file: `request/scripting.proto <https://github.com/CARTAvis/carta-protobu
      - bool
      - 
      - flag indicating whether the frontend should execute this asynchronously, or only return once the call is complete
-   * - response_field
+   * - return_path
      - string
      - 
-     - optional string indicating which field of the response to return. If this is empty, the entire response will be returned.
+     - optional string indicating the path of the response sub-object to return. If this is empty, the entire response will be returned.
 
 .. carta:class:: carta-b2f scriptingresponse
 
