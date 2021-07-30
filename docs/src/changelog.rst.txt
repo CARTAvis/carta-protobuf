@@ -140,3 +140,6 @@
    * - ``23.1.1``
      - 29/07/21
      - Added ``return_path`` to :carta:ref:`ScriptingRequest` message.
+   * - ``24.0.0``
+     - 30/07/21
+     - Added a stokes information to :carta:ref:`SetStatsRequirements`, :carta:ref:`HistogramConfig`, and :carta:ref:`RegionHistogramData` messages. Removed a channel information from :carta:ref:`Histogram`.
