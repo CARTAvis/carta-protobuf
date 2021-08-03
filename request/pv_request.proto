@@ -1,0 +1,24 @@
+syntax = "proto3";
+package CARTA;
+
+import "defs.proto";
+import "enums.proto";
+import "open_file.proto";
+
+message PvRequest {
+    sfixed32 file_id = 1;
+    sfixed32 region_id = 2;
+    sfixed32 width = 2;
+}
+
+message PvResponse {
+    bool success = 1;
+    string message = 2;
+    OpenFileAck open_file_ack = 3;
+    bool cancel = 4;
+}
+
+message PvProgress {
+    sfixed32 file_id = 1;
+    float progress = 2;
+}
