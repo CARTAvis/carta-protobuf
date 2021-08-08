@@ -11,7 +11,12 @@ message SetStatsRequirements {
     // ID of the region that is having requirements defined. If a region ID of -1 is given, this corresponds to the entire 2D image.
     sfixed32 region_id = 2;
     // List of required stats
-    repeated StatsType stats = 3;
+    repeated StatsConfig stats_configs = 3;
+
+    message StatsConfig {
+        string coordinate = 1;
+        repeated StatsType stats_types = 2;
+    }
 }
 
 // SET_HISTOGRAM_REQUIREMENTS:
@@ -26,8 +31,9 @@ message SetHistogramRequirements {
     repeated HistogramConfig histograms = 3;
 
     message HistogramConfig {
-        sfixed32 channel = 1;
-        sfixed32 num_bins = 2;
+        string coordinate = 1;
+        sfixed32 channel = 2;
+        sfixed32 num_bins = 3;
     }
 }
 
