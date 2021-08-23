@@ -2431,7 +2431,7 @@ Source file: `control/region_requirements.proto <https://github.com/CARTAvis/car
    * - coordinate
      - string
      - 
-     - The required spectral coordinate (“z”), optionally preceded by a Stokes parameter (“I”, “Q”, “U” or “V”) If no Stokes parameter is present, or if the coordinate is empty, the active Stokes parameter is used.
+     - The required spectral coordinate (“z”), optionally preceded by a Stokes parameter. If no Stokes parameter is present, or if the coordinate is empty, the active Stokes parameter is used.
    * - stats_types
      - :carta:refc:`StatsType`
      - repeated
