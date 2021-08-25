@@ -1011,7 +1011,7 @@ StokesType
 
 Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
-
+polarization parameters including the Stokes parameters, circular correlations, and linear correlations (the Stokes axis defined by the FITS standard)
 
 .. list-table::
    :widths: 33 33 33

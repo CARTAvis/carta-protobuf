@@ -251,6 +251,7 @@ enum MomentMask {
     Exclude = 2;
 }
 
+// polarization parameters including the Stokes parameters, circular correlations, and linear correlations (the Stokes axis defined by the FITS standard)
 enum StokesType {
     STOKES_TYPE_NONE = 0;
     I = 1;
