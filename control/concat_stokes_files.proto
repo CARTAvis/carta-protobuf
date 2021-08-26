@@ -24,7 +24,7 @@ message StokesFile {
     // Which HDU to load (if applicable). If left blank, the first HDU will be used
     string hdu = 3;
     // Polarization type
-    PolarizationType stokes_type = 4;
+    PolarizationType polarization_type = 4;
 }
 
 message ConcatStokesFilesAck {

@@ -2747,7 +2747,7 @@ Source file: `control/concat_stokes_files.proto <https://github.com/CARTAvis/car
      - string
      - 
      - Which HDU to load (if applicable). If left blank, the first HDU will be used
-   * - stokes_type
+   * - polarization_type
      - :carta:refc:`PolarizationType`
      - 
      - Polarization type
