@@ -1002,11 +1002,11 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
      - 18
      - 
 
-.. carta:class:: carta-sub stokestype
+.. carta:class:: carta-sub polarizationtype
 
-.. _stokestype:
+.. _polarizationtype:
 
-StokesType
+PolarizationType
 ~~~~~~~~~~
 
 Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
@@ -1021,7 +1021,7 @@ polarization parameters including the Stokes parameters, circular correlations, 
    * - Name
      - Number
      - Description
-   * - STOKES_TYPE_NONE
+   * - POLARIZATION_TYPE_NONE
      - 0
      - 
    * - I

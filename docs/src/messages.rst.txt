@@ -2748,9 +2748,9 @@ Source file: `control/concat_stokes_files.proto <https://github.com/CARTAvis/car
      - 
      - Which HDU to load (if applicable). If left blank, the first HDU will be used
    * - stokes_type
-     - :carta:refc:`StokesType`
+     - :carta:refc:`PolarizationType`
      - 
-     - Stokes type
+     - Polarization type
 
 .. carta:class:: carta-f2b stopanimation
 
