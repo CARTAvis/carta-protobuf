@@ -102,13 +102,12 @@ message StatisticsValue {
 }
 
 message Histogram {
-    sfixed32 channel = 1;
-    sfixed32 num_bins = 2;
-    double bin_width = 3;
-    double first_bin_center = 4;
-    repeated sfixed32 bins = 5;
-    double mean = 6;
-    double std_dev = 7;
+    sfixed32 num_bins = 1;
+    double bin_width = 2;
+    double first_bin_center = 3;
+    repeated sfixed32 bins = 4;
+    double mean = 5;
+    double std_dev = 6;
 }
 
 message RegionInfo {

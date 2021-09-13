@@ -835,6 +835,10 @@ Source file: `control/region_requirements.proto <https://github.com/CARTAvis/car
      - Type
      - Label
      - Description
+   * - coordinate
+     - string
+     - 
+     - 
    * - channel
      - sfixed32
      - 
@@ -1464,19 +1468,23 @@ Stats data for a specific region
    * - file_id
      - sfixed32
      - 
-     - The file ID that the profile corresponds to
+     - The file ID that the histogram corresponds to
    * - region_id
      - sfixed32
      - 
-     - The region_id corresponding to these histograms. If the histograms correspond to the entire current 2D image, the region ID has a value of -1.
+     - The region ID corresponding to the histogram. If the histogram corresponds to the entire current 2D image, the region ID has a value of -1.
+   * - channel
+     - sfixed32
+     - 
+     - The image channel corresponding to the histogram
    * - stokes
      - sfixed32
      - 
-     - The image stokes parameter used to generate the profiles
+     - The image stokes corresponding to the histogram
    * - histograms
      - :carta:refc:`Histogram`
-     - repeated
-     - array of histograms of the current region
+     - 
+     - Array of histograms of the current file, region, channel and stokes
    * - progress
      - float
      - 
@@ -2304,8 +2312,8 @@ Sets which stats data needs to be streamed to the frontend when the region is up
      - sfixed32
      - 
      - ID of the region that is having requirements defined. If a region ID of -1 is given, this corresponds to the entire 2D image.
-   * - stats
-     - :carta:refc:`StatsType`
+   * - stats_configs
+     - :carta:refc:`StatsConfig`
      - repeated
      - List of required stats
 
@@ -2677,6 +2685,35 @@ Response for :carta:refc:`START_ANIMATION`
      - sfixed32
      - 
      - The animation ID of the new animation
+
+.. carta:class:: carta-f2b statsconfig
+
+.. _statsconfig:
+
+StatsConfig
+~~~~~~~~~~~
+
+Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - coordinate
+     - string
+     - 
+     - 
+   * - stats_types
+     - :carta:refc:`StatsType`
+     - repeated
+     - 
 
 .. carta:class:: carta-f2b stokesfile
 
