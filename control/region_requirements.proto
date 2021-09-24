@@ -70,7 +70,7 @@ message SetSpectralRequirements {
     repeated SpectralConfig spectral_profiles = 3;
 
     message SpectralConfig {
-        // The required spectral coordinate (“z”), optionally preceded by a Stokes parameter (“I”, “Q”, “U” or “V”) If no Stokes parameter is present, or if the coordinate is empty, the active Stokes parameter is used.
+        // The required spectral coordinate (“z”), optionally preceded by a polarization parameter. If no polarization parameter is present, or if the coordinate is empty, the active polarization parameter is used.
         string coordinate = 1;
         // The required stats type. If the region is a point region, this field is ignored.
         repeated StatsType stats_types = 2;

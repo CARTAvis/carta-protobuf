@@ -2431,7 +2431,7 @@ Source file: `control/region_requirements.proto <https://github.com/CARTAvis/car
    * - coordinate
      - string
      - 
-     - The required spectral coordinate (“z”), optionally preceded by a Stokes parameter (“I”, “Q”, “U” or “V”) If no Stokes parameter is present, or if the coordinate is empty, the active Stokes parameter is used.
+     - The required spectral coordinate (“z”), optionally preceded by a polarization parameter. If no polarization parameter is present, or if the coordinate is empty, the active polarization parameter is used.
    * - stats_types
      - :carta:refc:`StatsType`
      - repeated
@@ -2747,10 +2747,10 @@ Source file: `control/concat_stokes_files.proto <https://github.com/CARTAvis/car
      - string
      - 
      - Which HDU to load (if applicable). If left blank, the first HDU will be used
-   * - stokes_type
-     - :carta:refc:`StokesType`
+   * - polarization_type
+     - :carta:refc:`PolarizationType`
      - 
-     - Stokes type
+     - Polarization type
 
 .. carta:class:: carta-f2b stopanimation
 
