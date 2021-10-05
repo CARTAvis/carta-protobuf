@@ -733,6 +733,80 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
      - 2
      - 
 
+.. carta:class:: carta-sub polarizationtype
+
+.. _polarizationtype:
+
+PolarizationType
+~~~~~~~~~~~~~~~~
+
+Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
+polarization parameters including the Stokes parameters, circular correlations, and linear correlations (the Stokes axis defined by the FITS standard)
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+   :class: proto
+
+   * - Name
+     - Number
+     - Description
+   * - POLARIZATION_TYPE_NONE
+     - 0
+     - 
+   * - I
+     - 1
+     - 
+   * - Q
+     - 2
+     - 
+   * - U
+     - 3
+     - 
+   * - V
+     - 4
+     - 
+   * - RR
+     - 5
+     - 
+   * - LL
+     - 6
+     - 
+   * - RL
+     - 7
+     - 
+   * - LR
+     - 8
+     - 
+   * - XX
+     - 9
+     - 
+   * - YY
+     - 10
+     - 
+   * - XY
+     - 11
+     - 
+   * - YX
+     - 12
+     - 
+   * - LINEAR_POLARIZED_INTENSITY
+     - 13
+     - 
+   * - FULL_POLARIZED_INTENSITY
+     - 14
+     - 
+   * - FRACTIONAL_LINEAR_POLARIZED_INTENSITY
+     - 15
+     - 
+   * - FRACTIONAL_FULL_POLARIZED_INTENSITY
+     - 16
+     - 
+   * - LINEAR_POLARIZED_ANGLE
+     - 17
+     - 
+
 .. carta:class:: carta-sub regiontype
 
 .. _regiontype:
@@ -1000,64 +1074,5 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
      - 
    * - MaxPosf
      - 18
-     - 
-
-.. carta:class:: carta-sub polarizationtype
-
-.. _polarizationtype:
-
-PolarizationType
-~~~~~~~~~~
-
-Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
-
-polarization parameters including the Stokes parameters, circular correlations, and linear correlations (the Stokes axis defined by the FITS standard)
-
-.. list-table::
-   :widths: 33 33 33
-   :header-rows: 1
-   :class: proto
-
-   * - Name
-     - Number
-     - Description
-   * - POLARIZATION_TYPE_NONE
-     - 0
-     - 
-   * - I
-     - 1
-     - 
-   * - Q
-     - 2
-     - 
-   * - U
-     - 3
-     - 
-   * - V
-     - 4
-     - 
-   * - RR
-     - 5
-     - 
-   * - LL
-     - 6
-     - 
-   * - RL
-     - 7
-     - 
-   * - LR
-     - 8
-     - 
-   * - XX
-     - 9
-     - 
-   * - YY
-     - 10
-     - 
-   * - XY
-     - 11
-     - 
-   * - YX
-     - 12
      - 
 
