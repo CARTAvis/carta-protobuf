@@ -791,21 +791,21 @@ polarization parameters including the Stokes parameters, circular correlations, 
    * - YX
      - 12
      - 
-   * - LINEAR_POLARIZED_INTENSITY
+   * - Ptotal
      - 13
-     - 
-   * - FULL_POLARIZED_INTENSITY
+     - Polarized intensity ((Q^2+U^2+V^2)^(1/2))
+   * - Plinear
      - 14
-     - 
-   * - FRACTIONAL_LINEAR_POLARIZED_INTENSITY
+     - Linearly Polarized intensity ((Q^2+U^2)^(1/2))
+   * - PFtotal
      - 15
-     - 
-   * - FRACTIONAL_FULL_POLARIZED_INTENSITY
+     - Polarization Fraction (Ptotal/I)
+   * - PFlinear
      - 16
-     - 
-   * - LINEAR_POLARIZED_ANGLE
+     - Linear Polarization Fraction (Plinear/I)
+   * - Pangle
      - 17
-     - 
+     - Linear Polarization Angle (0.5 arctan(U/Q)) (in radians)
 
 .. carta:class:: carta-sub regiontype
 
