@@ -1007,7 +1007,7 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
 .. _polarizationtype:
 
 PolarizationType
-~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
 Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
 
