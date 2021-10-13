@@ -1699,6 +1699,10 @@ Informs the frontend whether the session was correctly.
      - fixed32
      - 
      - The server's scripting gRPC port, if it is enabled
+   * - platform_strings
+     - map<key: string, value: string>
+     - repeated
+     - Map of server-generated platform information strings
 
 .. carta:class:: carta-f2b removeregion
 
