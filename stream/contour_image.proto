@@ -22,6 +22,8 @@ message ContourImageData {
     repeated ContourSet contour_sets = 6;
     // Progress of the contour sets being sent. If this is zero, the message is assumed to contain the entire contour sets
     double progress = 7;
+    // Bool variable is true if the estimated process time exceeds 1 second
+    bool is_long_task = 8;
 }
 
 message ContourSet {

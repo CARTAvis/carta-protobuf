@@ -500,6 +500,10 @@ Data for an image rendered in contour mode.
      - double
      - 
      - Progress of the contour sets being sent. If this is zero, the message is assumed to contain the entire contour sets
+   * - is_long_task
+     - bool
+     - 
+     - Bool variable is true if the estimated process time exceeds 1 second
 
 .. carta:class:: carta-b2f contourset
 
@@ -1699,6 +1703,10 @@ Informs the frontend whether the session was correctly.
      - fixed32
      - 
      - The server's scripting gRPC port, if it is enabled
+   * - platform_strings
+     - map<key: string, value: string>
+     - repeated
+     - Map of server-generated platform information strings
 
 .. carta:class:: carta-f2b removeregion
 
