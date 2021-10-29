@@ -146,3 +146,6 @@
    * - ``24.1.0``
      - 12/10/21
      - Added ``platform_strings`` to :carta:ref:`RegisterViewerAck` message.
+   * - ``24.2.0``
+     - 29/10/21
+     - Added :carta:ref:`PvRequest`, :carta:ref:`PvResponse`, :carta:ref:`PvProgress`, and :carta:ref:`StopPvCalc` messages for PV generator.
