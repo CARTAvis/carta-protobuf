@@ -147,6 +147,9 @@ Changelog
    * - ``24.1.0``
      - 12/10/21
      - Added ``platform_strings`` to :carta:ref:`RegisterViewerAck` message.
+   * - ``24.1.1``
+     - 30/10/21
+     - Added ``is_long_task`` to :carta:ref:`ContourImageData` message.
 
 Versioning
 ----------
