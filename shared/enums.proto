@@ -272,3 +272,9 @@ enum FileListType {
     Image = 0;
     Catalog = 1;
 }
+
+enum FileListFilterMode {
+    Content = 0;
+    Extension = 1;
+    AllFiles = 2;
+}
