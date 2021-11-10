@@ -71,6 +71,8 @@ enum EventType {
     STOP_FILE_LIST = 72;
     SPLATALOGUE_PING = 73;
     SPLATALOGUE_PONG = 74;
+    RANDOM_DATA_REQUEST = 75;
+    RANDOM_DATA_RESPONSE = 76;
 }
 
 enum SessionType {

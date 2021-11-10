@@ -1,0 +1,24 @@
+syntax = "proto3";
+package CARTA;
+
+// RANDOM_DATA_REQUEST:
+// Requests a random string of data, for bandwidth monitoring
+// Backend responds with RANDOM_DATA_RESPONSE
+message RandomDataRequest {
+  // Minimum length of returned data in bytes
+  int32 min_bytes = 1;
+  // Maximum length of returned data in bytes
+  int32 max_bytes = 2;
+}
+
+// RANDOM_DATA_RESPONSE
+// Response for RANDOM_DATA_REQUEST.
+// Gives information on the requested file
+message RandomDataResponse {
+  // Defines whether the RANDOM_DATA_REQUEST was successful
+  bool success = 1;
+  // Error message (if applicable)
+  string message = 2;
+  // Random data
+  bytes data = 3;
+}
