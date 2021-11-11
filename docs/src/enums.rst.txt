@@ -23,6 +23,9 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - VOTable
      - 1
      - 
+   * - Unknown
+     - 2
+     - 
 
 .. carta:class:: carta-sub clientfeatureflags
 
