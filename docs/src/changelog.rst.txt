@@ -147,6 +147,9 @@ Changelog
    * - ``24.1.0``
      - 12/10/21
      - Added ``platform_strings`` to :carta:ref:`RegisterViewerAck` message.
+   * - ``24.2.0``
+     - 11/11/21
+     - Added ``filter_mode`` to :carta:ref:`FileListRequest`, :carta:ref:`CatalogListRequest` and :carta:ref:`RegionListRequest` messages; Added ``Unknown`` to :carta:ref:`CatalogFileType`.
 
 Versioning
 ----------
