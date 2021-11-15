@@ -2,9 +2,12 @@ syntax = "proto3";
 package CARTA;
 
 import "defs.proto";
+import "enums.proto";
 
 message CatalogListRequest {
     string directory = 1;
+    // Filter mode to use when showing the file list
+    FileListFilterMode filter_mode = 2;
 }
 
 message CatalogListResponse {

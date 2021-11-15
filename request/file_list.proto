@@ -10,6 +10,8 @@ import "enums.proto";
 message FileListRequest {
     // Required directory name
     string directory = 1;
+    // Filter mode to use when showing the file list
+    FileListFilterMode filter_mode = 2;
 }
 
 // FILE_LIST_RESPONSE

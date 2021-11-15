@@ -190,6 +190,7 @@ enum CoordinateType {
 enum CatalogFileType {
     FITSTable = 0;
     VOTable = 1;
+    Unknown = 2;
 }
 
 enum ColumnType {
@@ -271,4 +272,10 @@ enum PolarizationType {
 enum FileListType {
     Image = 0;
     Catalog = 1;
+}
+
+enum FileListFilterMode {
+    Content = 0;
+    Extension = 1;
+    AllFiles = 2;
 }
