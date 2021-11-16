@@ -148,7 +148,10 @@ Changelog
      - 12/10/21
      - Added ``platform_strings`` to :carta:ref:`RegisterViewerAck` message.
    * - ``24.2.0``
-     - 29/10/21
+     - 11/11/21
+     - Added ``filter_mode`` to :carta:ref:`FileListRequest`, :carta:ref:`CatalogListRequest` and :carta:ref:`RegionListRequest` messages; Added ``Unknown`` to :carta:ref:`CatalogFileType`.
+   * - ``24.3.0``
+     - Date TBD
      - Added :carta:ref:`PvRequest`, :carta:ref:`PvResponse`, :carta:ref:`PvProgress`, and :carta:ref:`StopPvCalc` messages for PV generator.
 
 Versioning
