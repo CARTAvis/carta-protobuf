@@ -2,6 +2,7 @@ syntax = "proto3";
 package CARTA;
 
 import "defs.proto";
+import "enums.proto";
 
 // REGION_LIST_REQUEST:
 // Requests the list of available region files for a given directory.
@@ -9,6 +10,8 @@ import "defs.proto";
 message RegionListRequest {
     // Required directory name
     string directory = 1;
+    // Filter mode to use when showing the file list
+    FileListFilterMode filter_mode = 2;
 }
 
 // REGION_LIST_RESPONSE

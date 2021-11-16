@@ -23,6 +23,9 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - VOTable
      - 1
      - 
+   * - Unknown
+     - 2
+     - 
 
 .. carta:class:: carta-sub clientfeatureflags
 
@@ -550,6 +553,35 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
      - 
    * - MIP_DATASET
      - 32
+     - 
+
+.. carta:class:: carta-sub filelistfiltermode
+
+.. _filelistfiltermode:
+
+FileListFilterMode
+~~~~~~~~~~~~~~~~~~
+
+Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
+
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+   :class: proto
+
+   * - Name
+     - Number
+     - Description
+   * - Content
+     - 0
+     - 
+   * - Extension
+     - 1
+     - 
+   * - AllFiles
+     - 2
      - 
 
 .. carta:class:: carta-sub filelisttype

@@ -282,6 +282,10 @@ Source file: `request/catalog_list.proto <https://github.com/CARTAvis/carta-prot
      - string
      - 
      - 
+   * - filter_mode
+     - :carta:refc:`FileListFilterMode`
+     - 
+     - Filter mode to use when showing the file list
 
 .. carta:class:: carta-b2f cataloglistresponse
 
@@ -763,6 +767,10 @@ Backend responds with :carta:refc:`FILE_LIST_RESPONSE`
      - string
      - 
      - Required directory name
+   * - filter_mode
+     - :carta:refc:`FileListFilterMode`
+     - 
+     - Filter mode to use when showing the file list
 
 .. carta:class:: carta-b2f filelistresponse
 
@@ -1516,6 +1524,10 @@ Backend responds with :carta:refc:`REGION_LIST_RESPONSE`
      - string
      - 
      - Required directory name
+   * - filter_mode
+     - :carta:refc:`FileListFilterMode`
+     - 
+     - Filter mode to use when showing the file list
 
 .. carta:class:: carta-b2f regionlistresponse
 
