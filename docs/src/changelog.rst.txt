@@ -151,7 +151,7 @@ Changelog
      - 11/11/21
      - Added ``filter_mode`` to :carta:ref:`FileListRequest`, :carta:ref:`CatalogListRequest` and :carta:ref:`RegionListRequest` messages; Added ``Unknown`` to :carta:ref:`CatalogFileType`.
    * - ``24.3.0``
-     - Date TBD
+     - 30/11/21
      - Added :carta:ref:`PvRequest`, :carta:ref:`PvResponse`, :carta:ref:`PvProgress`, and :carta:ref:`StopPvCalc` messages for PV generator.
 
 Versioning
