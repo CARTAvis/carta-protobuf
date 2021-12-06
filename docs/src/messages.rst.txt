@@ -1292,6 +1292,105 @@ Response for :carta:refc:`OPEN_FILE`. Also supplies file information
      - repeated
      - :carta:refc:`Beam` table for multiple-beam images
 
+.. carta:class:: carta-b2f pvprogress
+
+.. _pvprogress:
+
+PvProgress
+~~~~~~~~~~
+
+Source file: `request/pv_request.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/pv_request.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - 
+   * - progress
+     - float
+     - 
+     - 
+
+.. carta:class:: carta-f2b pvrequest
+
+.. _pvrequest:
+
+PvRequest
+~~~~~~~~~
+
+Source file: `request/pv_request.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/pv_request.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - 
+   * - region_id
+     - sfixed32
+     - 
+     - 
+   * - width
+     - sfixed32
+     - 
+     - 
+
+.. carta:class:: carta-b2f pvresponse
+
+.. _pvresponse:
+
+PvResponse
+~~~~~~~~~~
+
+Source file: `request/pv_request.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/pv_request.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - success
+     - bool
+     - 
+     - 
+   * - message
+     - string
+     - 
+     - 
+   * - open_file_ack
+     - :carta:refc:`OpenFileAck`
+     - 
+     - 
+   * - cancel
+     - bool
+     - 
+     - 
+
 .. carta:class:: carta-b2f rastertiledata
 
 .. _rastertiledata:
@@ -2847,6 +2946,31 @@ Source file: `control/stop_moment_calc.proto <https://github.com/CARTAvis/carta-
      - sfixed32
      - 
      - Stop the moment calculation with respect to the image file id
+
+.. carta:class:: carta-f2b stoppvcalc
+
+.. _stoppvcalc:
+
+StopPvCalc
+~~~~~~~~~~
+
+Source file: `control/stop_pv_calc.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/stop_pv_calc.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - Stop the PV image calculation with respect to the image file id
 
 .. carta:class:: carta-b2f tiledata
 
