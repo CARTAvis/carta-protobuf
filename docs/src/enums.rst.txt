@@ -513,6 +513,18 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - :carta:refc:`SPLATALOGUE_PONG`
      - 74
      - 
+   * - :carta:refc:`PV_REQUEST`
+     - 75
+     - 
+   * - :carta:refc:`PV_RESPONSE`
+     - 76
+     - 
+   * - :carta:refc:`PV_PROGRESS`
+     - 77
+     - 
+   * - :carta:refc:`STOP_PV_CALC`
+     - 78
+     - 
 
 .. carta:class:: carta-sub filefeatureflags
 
