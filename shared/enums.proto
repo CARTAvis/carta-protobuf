@@ -71,6 +71,10 @@ enum EventType {
     STOP_FILE_LIST = 72;
     SPLATALOGUE_PING = 73;
     SPLATALOGUE_PONG = 74;
+    PV_REQUEST = 75;
+    PV_RESPONSE = 76;
+    PV_PROGRESS = 77;
+    STOP_PV_CALC = 78;
 }
 
 enum SessionType {
