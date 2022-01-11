@@ -75,6 +75,8 @@ enum EventType {
     PV_RESPONSE = 76;
     PV_PROGRESS = 77;
     STOP_PV_CALC = 78;
+    FITTING_REQUEST = 79;
+    FITTING_RESPONSE = 80;
 }
 
 enum SessionType {

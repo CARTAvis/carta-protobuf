@@ -1,0 +1,16 @@
+syntax = "proto3";
+package CARTA;
+
+//import "open_file.proto";
+
+message FittingRequest {
+    sfixed32 file_id = 1;
+    sfixed32 region_id = 2;
+    string estimates = 3;
+}
+
+message FittingResponse {
+    bool success = 1;
+    string message = 2;
+    string result = 3;
+}
