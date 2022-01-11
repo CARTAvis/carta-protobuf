@@ -1,8 +1,6 @@
 syntax = "proto3";
 package CARTA;
 
-//import "open_file.proto";
-
 message FittingRequest {
     sfixed32 file_id = 1;
     sfixed32 region_id = 2;
