@@ -195,3 +195,18 @@ message ListProgress {
     sfixed32 checked_count = 3;
     sfixed32 total_count = 4;
 }
+
+message GaussianComponent {
+    double amp = 1;
+    double center_x = 2;
+    double center_y = 3;
+    double fwhm_x = 4;
+    double fwhm_y  = 5;
+    double pa = 6;
+    bool fixed_amp = 7;
+    bool fixed_center_x = 8;
+    bool fixed_center_y = 9;
+    bool fixed_fwhm_x = 10;
+    bool fixed_fwhm_y  = 11;
+    bool fixed_pa = 12;
+}
