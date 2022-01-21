@@ -195,3 +195,23 @@ message ListProgress {
     sfixed32 checked_count = 3;
     sfixed32 total_count = 4;
 }
+
+message TileData {
+  // Tile layer coordinate. If this is < 0, the ``mip`` value is used for coordinates instead
+  sfixed32 layer = 1;
+  // Tile x coordinate
+  sfixed32 x = 2;
+  // Tile y coordinate
+  sfixed32 y = 3;
+  // Width of the tile data. If this is left as zero, the default tile size should be used
+  sfixed32 width = 4;
+  // Height of the tile data. If this is left as zero, the default tile size should be used
+  sfixed32 height = 5;
+  // Image data. For uncompressed data, this is converted into FP32, while for compressed data,
+  // this is passed to the compression library for decompression.
+  bytes image_data = 6;
+  // Run-length encodings of NaN values. These values are used to restore the NaN values after decompression.
+  bytes nan_encodings = 7;
+  // Mip coordinate. Ignored if ``layer`` >= 0
+  sfixed32 mip = 8;
+}

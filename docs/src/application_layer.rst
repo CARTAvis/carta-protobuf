@@ -11,5 +11,5 @@ Interface communication messages fall into three overall categories:
 
 **Implementation note:** The backend should implement a command queue for control messages, so that high priority messages are executed first, and cause the backend to disregard any queued-up control messages that are no longer relevant. As an example: moving the cursor across the image will result in a large number of control messages being sent to the backend. Each of these control messages could result in a data flow message with new cursor and profile information, which may take some time to calculate. If a file is closed by the frontend, the backend no longer needs to process any remaining cursor messages relating to this file, and those messages should be removed from the queue.
 
-**Message definitions shown in** :f2b:`blue`\ **are used for frontend ->backend communication. Message definitions shown in** :b2f:`red` **are used for backend->frontend communication.**
+**Message definitions shown in** :f2b:`blue` **are used for frontend ->backend communication. Message definitions shown in** :b2f:`red` **are used for backend->frontend communication.**
 

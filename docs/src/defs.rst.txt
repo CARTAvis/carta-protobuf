@@ -899,3 +899,56 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
 
+.. carta:class:: carta-sub tiledata
+
+.. _tiledata:
+
+TileData
+~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - layer
+     - sfixed32
+     - 
+     - Tile layer coordinate. If this is < 0, the ``mip`` value is used for coordinates instead
+   * - x
+     - sfixed32
+     - 
+     - Tile x coordinate
+   * - y
+     - sfixed32
+     - 
+     - Tile y coordinate
+   * - width
+     - sfixed32
+     - 
+     - Width of the tile data. If this is left as zero, the default tile size should be used
+   * - height
+     - sfixed32
+     - 
+     - Height of the tile data. If this is left as zero, the default tile size should be used
+   * - image_data
+     - bytes
+     - 
+     - Image data. For uncompressed data, this is converted into FP32, while for compressed data, this is passed to the compression library for decompression.
+   * - nan_encodings
+     - bytes
+     - 
+     - Run-length encodings of NaN values. These values are used to restore the NaN values after decompression.
+   * - mip
+     - sfixed32
+     - 
+     - Mip coordinate. Ignored if ``layer`` >= 0
+
