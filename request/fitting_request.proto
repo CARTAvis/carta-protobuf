@@ -5,8 +5,7 @@ import "defs.proto";
 
 message FittingRequest {
     sfixed32 file_id = 1;
-    sfixed32 region_id = 2;
-    repeated GaussianComponent initial_values = 3;
+    repeated GaussianComponent initial_values = 2;
 }
 
 message FittingResponse {
