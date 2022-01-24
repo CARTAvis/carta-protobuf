@@ -2461,6 +2461,10 @@ Sets the contour parameters for a file
      - :carta:refc:`ImageBounds`
      - 
      - The XY bounds corresponding to the image data in pixel coordinates. Currently unused
+   * - smoothing_factor
+     - fixed32
+     - 
+     - Block smoothing factor to use. Must be an even integer, corresponds to the ``mip`` coordinate.
    * - fractional
      - bool
      - 
