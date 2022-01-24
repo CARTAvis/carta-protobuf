@@ -2461,10 +2461,26 @@ Sets the contour parameters for a file
      - :carta:refc:`ImageBounds`
      - 
      - The XY bounds corresponding to the image data in pixel coordinates. Currently unused
+   * - fractional
+     - bool
+     - 
+     - Whether to use fractional polarization intensity
    * - threshold
      - double
      - 
      - Threshold value to use. If this is set to NaN, no threshold is applied.
+   * - debiasing
+     - bool
+     - 
+     - Whether to use debiasing
+   * - q_error
+     - double
+     - 
+     - Stokes Q error when debiasing
+   * - u_error
+     - double
+     - 
+     - Stokes U error when debiasing
    * - stokes_intensity
      - sfixed32
      - 
