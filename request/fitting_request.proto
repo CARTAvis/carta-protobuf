@@ -11,6 +11,6 @@ message FittingRequest {
 message FittingResponse {
     bool success = 1;
     string message = 2;
-    repeated GaussianComponent results = 3;
+    string results = 3;
     string log = 4;
 }
