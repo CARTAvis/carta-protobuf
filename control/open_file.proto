@@ -18,6 +18,8 @@ message OpenFile {
     sfixed32 file_id = 4;
     // The render mode to use. Additional modes will be added in subsequent versions.
     RenderMode render_mode = 5;
+    // Optional LEL expression
+    string lel_expr = 6;
 }
 
 // OPEN_FILE_ACK
