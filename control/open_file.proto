@@ -10,7 +10,7 @@ import "enums.proto";
 message OpenFile {
     // Required directory name
     string directory = 1;
-    // Required file name
+    // File name or LEL expression
     string file = 2;
     // Which HDU to load (if applicable). If left blank, the first HDU will be used
     string hdu = 3;
@@ -18,8 +18,8 @@ message OpenFile {
     sfixed32 file_id = 4;
     // The render mode to use. Additional modes will be added in subsequent versions.
     RenderMode render_mode = 5;
-    // Optional LEL expression
-    string lel_expr = 6;
+    // Defines whether file is LEL expression
+    bool lel_expr = 6;
 }
 
 // OPEN_FILE_ACK
