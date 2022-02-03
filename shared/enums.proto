@@ -75,6 +75,8 @@ enum EventType {
     PV_RESPONSE = 76;
     PV_PROGRESS = 77;
     STOP_PV_CALC = 78;
+    SET_VECTOR_OVERLAY_PARAMETERS = 79;
+    VECTOR_OVERLAY_TILE_DATA = 80;
 }
 
 enum SessionType {
