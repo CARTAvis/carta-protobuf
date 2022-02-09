@@ -2464,14 +2464,14 @@ Source file: `control/region_requirements.proto <https://github.com/CARTAvis/car
      - sfixed32
      - 
      - The end of the required range (exclusive). If the start and end are the same (i.e. the range is empty), the height or width of the image is used.
-   * - width
-     - sfixed32
-     - 
-     - Width of line region for line profile.  Not used for point region.
    * - mip
      - sfixed32
      - 
      - The maximum required mip. The backend must return data of at least this resolution, but may return a higher resolution. If this is unset or 0, the full-resolution data is used.
+   * - width
+     - sfixed32
+     - 
+     - Width of line region for line profile.  Not used for point region.
 
 .. carta:class:: carta-b2f spatialprofiledata
 
