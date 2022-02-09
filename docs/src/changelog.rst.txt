@@ -153,6 +153,9 @@ Changelog
    * - ``25.0.0``
      - 06/12/21
      - Added :carta:ref:`PvRequest`, :carta:ref:`PvResponse`, :carta:ref:`PvProgress`, and :carta:ref:`StopPvCalc` messages for PV generator.
+   * - ``25.1.0``
+     - 09/02/22
+     - Added ``width`` to :carta:ref:`SpatialConfig` submessage for line spatial profile.
 
 Versioning
 ----------

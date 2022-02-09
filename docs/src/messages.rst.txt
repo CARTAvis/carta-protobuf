@@ -2464,6 +2464,10 @@ Source file: `control/region_requirements.proto <https://github.com/CARTAvis/car
      - sfixed32
      - 
      - The end of the required range (exclusive). If the start and end are the same (i.e. the range is empty), the height or width of the image is used.
+   * - width
+     - sfixed32
+     - 
+     - Width of line region for line profile.  Not used for point region.
    * - mip
      - sfixed32
      - 
