@@ -37,8 +37,6 @@ message RegisterViewerAck {
     map<string, string> user_preferences = 6;
     // Map of user layouts retrieved from the server database
     map<string, string> user_layouts = 7;
-    // The server's scripting gRPC port, if it is enabled
-    fixed32 grpc_port = 8;
     // Map of server-generated platform information strings
-    map<string, string> platform_strings = 9;
+    map<string, string> platform_strings = 8;
 }
