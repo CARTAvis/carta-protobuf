@@ -1810,10 +1810,6 @@ Informs the frontend whether the session was correctly.
      - map<key: string, value: string>
      - repeated
      - Map of user layouts retrieved from the server database
-   * - grpc_port
-     - fixed32
-     - 
-     - The server's scripting gRPC port, if it is enabled
    * - platform_strings
      - map<key: string, value: string>
      - repeated

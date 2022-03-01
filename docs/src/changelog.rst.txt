@@ -153,8 +153,11 @@ Changelog
    * - ``25.0.0``
      - 06/12/21
      - Added :carta:ref:`PvRequest`, :carta:ref:`PvResponse`, :carta:ref:`PvProgress`, and :carta:ref:`StopPvCalc` messages for PV generator.
-   * - ``25.1.0``
-     - 27/01/22
+   * - ``26.0.0``
+     - 13/01/22
+     - Removed ``grpc_port`` from :carta:ref:`RegisterViewerAck` message. Renamed ``GRPC_SCRIPTING`` to ``SCRIPTING`` in :carta:ref:`ServerFeatureFlags`. Removed all references to gRPC in docs.
+   * - ``26.1.0``
+     - 01/03/22
      - Added ``lel_expr`` to :carta:ref:`OpenFile` message.
 
 Versioning
