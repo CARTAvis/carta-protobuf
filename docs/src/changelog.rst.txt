@@ -154,6 +154,9 @@ Changelog
      - 06/12/21
      - Added :carta:ref:`PvRequest`, :carta:ref:`PvResponse`, :carta:ref:`PvProgress`, and :carta:ref:`StopPvCalc` messages for PV generator.
    * - ``26.0.0``
+     - 13/01/22
+     - Removed ``grpc_port`` from :carta:ref:`RegisterViewerAck` message. Renamed ``GRPC_SCRIPTING`` to ``SCRIPTING`` in :carta:ref:`ServerFeatureFlags`. Removed all references to gRPC in docs.
+   * - ``27.0.0``
      - 21/01/22
      - Added :carta:ref:`SetVectorOverlayParameters` and :carta:ref:`VectorOverlayTileData` messages. Moved :carta:ref:`TileData` to ``shared``
 
