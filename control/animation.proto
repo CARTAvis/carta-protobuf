@@ -28,6 +28,8 @@ message StartAnimation {
     // Required tiles when changing channels
     AddRequiredTiles required_tiles = 9;
     map<sfixed32, MatchedFrameList> matched_frames = 10;
+    // Required stokes frames with respect to stokes types
+    map<sfixed32, sfixed32> matched_stokes = 11;
 }
 
 // START_ANIMATION_ACK
