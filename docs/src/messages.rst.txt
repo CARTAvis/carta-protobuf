@@ -1228,7 +1228,7 @@ Backend responds with  :carta:refc:`OPEN_FILE_ACK`
    * - file
      - string
      - 
-     - Required file name
+     - File name or LEL expression
    * - hdu
      - string
      - 
@@ -1241,6 +1241,10 @@ Backend responds with  :carta:refc:`OPEN_FILE_ACK`
      - :carta:refc:`RenderMode`
      - 
      - The render mode to use. Additional modes will be added in subsequent versions.
+   * - lel_expr
+     - bool
+     - 
+     - Defines whether file is LEL expression
 
 .. carta:class:: carta-b2f openfileack
 
