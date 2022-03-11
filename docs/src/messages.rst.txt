@@ -2442,7 +2442,7 @@ SetVectorOverlayParameters
 Source file: `control/vector_overlay.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/vector_overlay.proto>`_
 
 SET_VECTOR_OVERLAY_PARAMETERS
-Sets the contour parameters for a file
+Sets the overlay parameters for a file
 
 .. list-table::
    :widths: 20 20 20 40
@@ -2456,7 +2456,7 @@ Sets the contour parameters for a file
    * - file_id
      - fixed32
      - 
-     - The file ID that the contour corresponds to
+     - The file ID that the overlay corresponds to
    * - image_bounds
      - :carta:refc:`ImageBounds`
      - 
