@@ -823,6 +823,76 @@ Gives a list of available files (and their types), as well as subdirectories
      - 
      - 
 
+.. carta:class:: carta-f2b fittingrequest
+
+.. _fittingrequest:
+
+FittingRequest
+~~~~~~~~~~~~~~
+
+Source file: `request/fitting_request.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/fitting_request.proto>`_
+
+FITTING_REQUEST:
+Requests 2D Gaussian image fitting with given initial values.
+Backend responds with :carta:refc:`FITTING_RESPONSE`
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - File ID of the image to be fit
+   * - initial_values
+     - :carta:refc:`GaussianComponent`
+     - repeated
+     - initial values for 2D Gaussian fitting
+
+.. carta:class:: carta-b2f fittingresponse
+
+.. _fittingresponse:
+
+FittingResponse
+~~~~~~~~~~~~~~~
+
+Source file: `request/fitting_request.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/fitting_request.proto>`_
+
+FITTING_RESPONSE:
+Response for :carta:refc:`FITTING_REQUEST`.
+Gives results and log of 2D Gaussian image fitting.
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - success
+     - bool
+     - 
+     - Defines whether the :carta:refc:`FITTING_REQUEST` was successful
+   * - message
+     - string
+     - 
+     - Error message (if applicable)
+   * - results
+     - string
+     - 
+     - Fitting results
+   * - log
+     - string
+     - 
+     - Fitting log
+
 .. carta:class:: carta-f2b histogramconfig
 
 .. _histogramconfig:

@@ -3,14 +3,26 @@ package CARTA;
 
 import "defs.proto";
 
+// FITTING_REQUEST:
+// Requests 2D Gaussian image fitting with given initial values.
+// Backend responds with FITTING_RESPONSE
 message FittingRequest {
+    // File ID of the image to be fit
     sfixed32 file_id = 1;
+    // initial values for 2D Gaussian fitting
     repeated GaussianComponent initial_values = 2;
 }
 
+// FITTING_RESPONSE:
+// Response for FITTING_REQUEST.
+// Gives results and log of 2D Gaussian image fitting.
 message FittingResponse {
+    // Defines whether the FITTING_REQUEST was successful
     bool success = 1;
+    // Error message (if applicable)
     string message = 2;
+    // Fitting results
     string results = 3;
+    // Fitting log
     string log = 4;
 }

@@ -479,6 +479,75 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
 
+.. carta:class:: carta-sub gaussiancomponent
+
+.. _gaussiancomponent:
+
+GaussianComponent
+~~~~~~~~~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+parameters of a 2D Gaussian component for image fitting
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - center_x
+     - double
+     - 
+     - x coordinate of the center in pixels
+   * - center_y
+     - double
+     - 
+     - y coordinate of the center in pixels
+   * - amp
+     - double
+     - 
+     - amplitude of the component
+   * - fwhm_x
+     - double
+     - 
+     - full width at half maximum along x coordinate in pixels
+   * - fwhm_y
+     - double
+     - 
+     - full width at half maximum along y coordinate in pixels
+   * - pa
+     - double
+     - 
+     - position angle in degrees
+   * - fixed_center_x
+     - bool
+     - 
+     - whether the value should be fixed when fitting
+   * - fixed_center_y
+     - bool
+     - 
+     - whether the value should be fixed when fitting
+   * - fixed_amp
+     - bool
+     - 
+     - whether the value should be fixed when fitting
+   * - fixed_fwhm_x
+     - bool
+     - 
+     - whether the value should be fixed when fitting
+   * - fixed_fwhm_y
+     - bool
+     - 
+     - whether the value should be fixed when fitting
+   * - fixed_pa
+     - bool
+     - 
+     - whether the value should be fixed when fitting
+
 .. carta:class:: carta-sub headerentry
 
 .. _headerentry:
