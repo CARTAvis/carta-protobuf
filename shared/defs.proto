@@ -198,28 +198,24 @@ message ListProgress {
 
 // parameters of a 2D Gaussian component for image fitting
 message GaussianComponent {
-    // x coordinate of the center in pixels
-    double center_x = 1;
-    // y coordinate of the center in pixels
-    double center_y = 2;
+    // x/y coordinate of the center in pixels
+    Point center = 1;
     // amplitude of the component
-    double amp = 3;
-    // full width at half maximum along x coordinate in pixels
-    double fwhm_x = 4;
-    // full width at half maximum along y coordinate in pixels
-    double fwhm_y  = 5;
+    float amp = 2;
+    // full width at half maximum along x/y coordinate in pixels
+    Point fwhm = 3;
     // position angle in degrees
-    double pa = 6;
+    float pa = 4;
     // whether the value should be fixed when fitting
-    bool fixed_center_x = 7;
+    bool fixed_center_x = 5;
     // whether the value should be fixed when fitting
-    bool fixed_center_y = 8;
+    bool fixed_center_y = 6;
     // whether the value should be fixed when fitting
-    bool fixed_amp = 9;
+    bool fixed_amp = 7;
     // whether the value should be fixed when fitting
-    bool fixed_fwhm_x = 10;
+    bool fixed_fwhm_x = 8;
     // whether the value should be fixed when fitting
-    bool fixed_fwhm_y  = 11;
+    bool fixed_fwhm_y = 9;
     // whether the value should be fixed when fitting
-    bool fixed_pa = 12;
+    bool fixed_pa = 10;
 }

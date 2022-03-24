@@ -499,28 +499,20 @@ parameters of a 2D Gaussian component for image fitting
      - Type
      - Label
      - Description
-   * - center_x
-     - double
+   * - center
+     - :carta:refc:`Point`
      - 
-     - x coordinate of the center in pixels
-   * - center_y
-     - double
-     - 
-     - y coordinate of the center in pixels
+     - x/y coordinate of the center in pixels
    * - amp
-     - double
+     - float
      - 
      - amplitude of the component
-   * - fwhm_x
-     - double
+   * - fwhm
+     - :carta:refc:`Point`
      - 
-     - full width at half maximum along x coordinate in pixels
-   * - fwhm_y
-     - double
-     - 
-     - full width at half maximum along y coordinate in pixels
+     - full width at half maximum along x/y coordinate in pixels
    * - pa
-     - double
+     - float
      - 
      - position angle in degrees
    * - fixed_center_x
