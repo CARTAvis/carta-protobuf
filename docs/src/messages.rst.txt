@@ -852,7 +852,7 @@ Backend responds with :carta:refc:`FITTING_RESPONSE`
    * - initial_values
      - :carta:refc:`GaussianComponent`
      - repeated
-     - initial values for 2D Gaussian fitting
+     - Initial values for 2D Gaussian fitting
 
 .. carta:class:: carta-b2f fittingresponse
 

@@ -9,7 +9,7 @@ import "defs.proto";
 message FittingRequest {
     // File ID of the image to be fit
     sfixed32 file_id = 1;
-    // initial values for 2D Gaussian fitting
+    // Initial values for 2D Gaussian fitting
     repeated GaussianComponent initial_values = 2;
 }
 
