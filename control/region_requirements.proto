@@ -34,6 +34,8 @@ message SetHistogramRequirements {
         string coordinate = 1;
         sfixed32 channel = 2;
         sfixed32 num_bins = 3;
+        float min_value = 4;
+        float max_value = 5;
     }
 }
 
