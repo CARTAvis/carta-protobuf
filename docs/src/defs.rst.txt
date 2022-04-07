@@ -515,30 +515,6 @@ parameters of a 2D Gaussian component for image fitting
      - float
      - 
      - position angle in degrees
-   * - fixed_center_x
-     - bool
-     - 
-     - whether the value should be fixed when fitting
-   * - fixed_center_y
-     - bool
-     - 
-     - whether the value should be fixed when fitting
-   * - fixed_amp
-     - bool
-     - 
-     - whether the value should be fixed when fitting
-   * - fixed_fwhm_x
-     - bool
-     - 
-     - whether the value should be fixed when fitting
-   * - fixed_fwhm_y
-     - bool
-     - 
-     - whether the value should be fixed when fitting
-   * - fixed_pa
-     - bool
-     - 
-     - whether the value should be fixed when fitting
 
 .. carta:class:: carta-sub headerentry
 

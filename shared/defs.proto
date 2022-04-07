@@ -206,16 +206,4 @@ message GaussianComponent {
     Point fwhm = 3;
     // position angle in degrees
     float pa = 4;
-    // whether the value should be fixed when fitting
-    bool fixed_center_x = 5;
-    // whether the value should be fixed when fitting
-    bool fixed_center_y = 6;
-    // whether the value should be fixed when fitting
-    bool fixed_amp = 7;
-    // whether the value should be fixed when fitting
-    bool fixed_fwhm_x = 8;
-    // whether the value should be fixed when fitting
-    bool fixed_fwhm_y = 9;
-    // whether the value should be fixed when fitting
-    bool fixed_pa = 10;
 }

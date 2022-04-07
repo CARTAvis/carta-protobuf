@@ -853,6 +853,10 @@ Backend responds with :carta:refc:`FITTING_RESPONSE`
      - :carta:refc:`GaussianComponent`
      - repeated
      - Initial values for 2D Gaussian fitting
+   * - fixed_params
+     - bool
+     - repeated
+     - Whether each parameter (in the order of center, amplitude, FWHM, and p.a.) should be fixed when fitting
 
 .. carta:class:: carta-b2f fittingresponse
 
@@ -879,15 +883,19 @@ Gives results and log of 2D Gaussian image fitting.
    * - success
      - bool
      - 
-     - Defines whether the :carta:refc:`FITTING_REQUEST` was successful
+     - Defines whether :carta:refc:`FITTING_REQUEST` was successful
    * - message
      - string
      - 
      - Error message (if applicable)
-   * - results
-     - string
-     - 
-     - Fitting results
+   * - result_values
+     - :carta:refc:`GaussianComponent`
+     - repeated
+     - Fitting result: values of the fitted parameters
+   * - result_errors
+     - :carta:refc:`GaussianComponent`
+     - repeated
+     - Fitting result: errors of the fitted parameters
    * - log
      - string
      - 
