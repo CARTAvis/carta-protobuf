@@ -16,7 +16,7 @@ message SaveFile {
     repeated sfixed32 stokes = 7;
     bool keep_degenerate = 8;
     // Set the rest frequency (Hz) of the image
-    float rest_freq = 9;
+    double rest_freq = 9;
 }
 
 message SaveFileAck {

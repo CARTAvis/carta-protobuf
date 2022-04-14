@@ -1982,7 +1982,7 @@ Source file: `request/save_file.proto <https://github.com/CARTAvis/carta-protobu
      - 
      - 
    * - rest_freq
-     - float
+     - double
      - 
      - Set the rest frequency (Hz) of the image
 
