@@ -2522,6 +2522,10 @@ Data for spatial profile set for a specific file
      - float
      - 
      - The value of the image at the given coordinates
+   * - progress
+     - float
+     - 
+     - The profile progress
    * - profiles
      - :carta:refc:`SpatialProfile`
      - repeated

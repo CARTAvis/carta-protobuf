@@ -836,6 +836,32 @@ polarization parameters including the Stokes parameters, circular correlations, 
      - 12
      - 
 
+.. carta:class:: carta-sub profileaxistype
+
+.. _profileaxistype:
+
+ProfileAxisType
+~~~~~~~~~~~~~~~
+
+Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/enums.proto>`_
+
+
+
+.. list-table::
+   :widths: 33 33 33
+   :header-rows: 1
+   :class: proto
+
+   * - Name
+     - Number
+     - Description
+   * - Offset
+     - 0
+     - 
+   * - Distance
+     - 1
+     - 
+
 .. carta:class:: carta-sub regiontype
 
 .. _regiontype:

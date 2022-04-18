@@ -87,6 +87,13 @@ message SpatialProfile {
     bytes raw_values_fp32 = 3;
     string coordinate = 4;
     sfixed32 mip = 5;
+    LineProfileAxis line_axis = 6;
+}
+
+message LineProfileAxis {
+    ProfileAxisType axis_type = 1;
+    bytes raw_values_fp32 = 2;
+    string unit = 3;
 }
 
 message SpectralProfile {

@@ -160,8 +160,8 @@ Changelog
      - 01/03/22
      - Added ``lel_expr`` to :carta:ref:`OpenFile` message.
    * - ``26.2.0``
-     - 10/03/22
-     - Added ``width`` to :carta:ref:`SetSpatialRequirements` message.
+     - 18/04/22
+     - Added ``width`` to :carta:ref:`SetSpatialRequirements`, ``progress`` to :carta:ref:`SpatialProfileData`, and :carta:ref:`LineProfileAxis` to :carta:ref:`SpatialProfile`.
 
 Versioning
 ----------

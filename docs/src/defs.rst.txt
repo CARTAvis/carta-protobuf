@@ -631,6 +631,39 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
 
+.. carta:class:: carta-sub lineprofileaxis
+
+.. _lineprofileaxis:
+
+LineProfileAxis
+~~~~~~~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - axis_type
+     - :carta:refc:`ProfileAxisType`
+     - 
+     - 
+   * - raw_values_fp32
+     - bytes
+     - 
+     - 
+   * - unit
+     - string
+     - 
+     - 
+
 .. carta:class:: carta-sub listprogress
 
 .. _listprogress:
@@ -830,6 +863,10 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
    * - mip
      - sfixed32
+     - 
+     - 
+   * - line_axis
+     - :carta:refc:`LineProfileAxis`
      - 
      - 
 

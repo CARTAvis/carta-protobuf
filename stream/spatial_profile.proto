@@ -21,6 +21,8 @@ message SpatialProfileData {
     sfixed32 stokes = 6;
     // The value of the image at the given coordinates
     float value = 7;
+    // The profile progress
+    float progress = 8;
     // Spatial profiles for each required profile type
-    repeated SpatialProfile profiles = 8;
+    repeated SpatialProfile profiles = 9;
 }
