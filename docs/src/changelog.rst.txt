@@ -159,6 +159,9 @@ Changelog
    * - ``26.1.0``
      - 01/03/22
      - Added ``lel_expr`` to :carta:ref:`OpenFile` message.
+   * - ``26.2.0``
+     - 19/04/22
+     - Added ``Ptotal``, ``Plinear``, ``PFtotal``, ``PFlinear``, and ``Pangle`` to :carta:ref:`PolarizationType` enum. Added ``stokes_indices`` to :carta:ref:`StartAnimation` message.
 
 Versioning
 ----------
