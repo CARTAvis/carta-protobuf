@@ -160,8 +160,11 @@ Changelog
      - 01/03/22
      - Added ``lel_expr`` to :carta:ref:`OpenFile` message.
    * - ``26.2.0``
-     - 18/04/22
-     - Added ``width`` to :carta:ref:`SetSpatialRequirements`, ``progress`` to :carta:ref:`SpatialProfileData`, and :carta:ref:`LineProfileAxis` to :carta:ref:`SpatialProfile`.
+     - 19/04/22
+     - Added ``rest_freq`` to :carta:ref:`SaveFile` message.
+   * - ``26.3.0``
+     - 20/04/22
+     - Added ``width`` to :carta:ref:`SetSpatialRequirements` and :carta:ref:`LineProfileAxis` to :carta:ref:`SpatialProfile`.
 
 Versioning
 ----------
