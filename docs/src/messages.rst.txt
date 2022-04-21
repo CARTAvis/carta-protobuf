@@ -2059,6 +2059,10 @@ Source file: `request/save_file.proto <https://github.com/CARTAvis/carta-protobu
      - bool
      - 
      - 
+   * - rest_freq
+     - double
+     - 
+     - Set the rest frequency (Hz) of the image
 
 .. carta:class:: carta-f2b savefileack
 

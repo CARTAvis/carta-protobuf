@@ -159,8 +159,11 @@ Changelog
    * - ``26.1.0``
      - 01/03/22
      - Added ``lel_expr`` to :carta:ref:`OpenFile` message.
-   * - ``27.0.0``
+   * - ``26.2.0``
      - 19/04/22
+     - Added ``rest_freq`` to :carta:ref:`SaveFile` message.
+   * - ``27.0.0``
+     - 21/04/22
      - Added :carta:ref:`FittingRequest` and :carta:ref:`FittingResponse` messages for image fitting.
 
 Versioning
