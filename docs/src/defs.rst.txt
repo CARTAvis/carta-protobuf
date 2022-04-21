@@ -655,8 +655,16 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - :carta:refc:`ProfileAxisType`
      - 
      - 
-   * - raw_values_fp32
-     - bytes
+   * - crpix
+     - float
+     - 
+     - 
+   * - crval
+     - float
+     - 
+     - 
+   * - cdelt
+     - float
      - 
      - 
    * - unit
