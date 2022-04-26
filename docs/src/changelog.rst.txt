@@ -162,8 +162,11 @@ Changelog
    * - ``26.2.0``
      - 19/04/22
      - Added ``rest_freq`` to :carta:ref:`SaveFile` message.
-   * - ``26.3.0``
-     - 20/04/22
+   * - ``27.0.0``
+     - 21/04/22
+     - Added :carta:ref:`FittingRequest` and :carta:ref:`FittingResponse` messages for image fitting.
+   * - ``27.1.0``
+     - 20/04/26
      - Added ``width`` to :carta:ref:`SetSpatialRequirements` and :carta:ref:`LineProfileAxis` to :carta:ref:`SpatialProfile`.
 
 Versioning

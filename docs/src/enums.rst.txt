@@ -525,6 +525,12 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - :carta:refc:`STOP_PV_CALC`
      - 78
      - 
+   * - :carta:refc:`FITTING_REQUEST`
+     - 79
+     - 
+   * - :carta:refc:`FITTING_RESPONSE`
+     - 80
+     - 
 
 .. carta:class:: carta-sub filefeatureflags
 

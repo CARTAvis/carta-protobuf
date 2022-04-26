@@ -12,6 +12,11 @@ message Point {
     float y = 2;
 }
 
+message DoublePoint {
+    double x = 1;
+    double y = 2;
+}
+
 // File info message structure (internal use only)
 message FileInfo {
     string name = 1;
@@ -203,4 +208,16 @@ message ListProgress {
     float percentage = 2;
     sfixed32 checked_count = 3;
     sfixed32 total_count = 4;
+}
+
+// parameters of a 2D Gaussian component for image fitting
+message GaussianComponent {
+    // x/y coordinate of the center in pixels
+    DoublePoint center = 1;
+    // amplitude of the component
+    double amp = 2;
+    // full width at half maximum along x/y coordinate in pixels
+    DoublePoint fwhm = 3;
+    // position angle in degrees
+    double pa = 4;
 }
