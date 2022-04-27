@@ -12,6 +12,11 @@ message Point {
     float y = 2;
 }
 
+message DoublePoint {
+    double x = 1;
+    double y = 2;
+}
+
 // File info message structure (internal use only)
 message FileInfo {
     string name = 1;
@@ -214,4 +219,16 @@ message TileData {
   bytes nan_encodings = 7;
   // Mip coordinate. Ignored if ``layer`` >= 0
   sfixed32 mip = 8;
+}
+
+// parameters of a 2D Gaussian component for image fitting
+message GaussianComponent {
+    // x/y coordinate of the center in pixels
+    DoublePoint center = 1;
+    // amplitude of the component
+    double amp = 2;
+    // full width at half maximum along x/y coordinate in pixels
+    DoublePoint fwhm = 3;
+    // position angle in degrees
+    double pa = 4;
 }

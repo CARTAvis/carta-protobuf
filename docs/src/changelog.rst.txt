@@ -164,6 +164,9 @@ Changelog
      - Added ``rest_freq`` to :carta:ref:`SaveFile` message.
    * - ``27.0.0``
      - 21/04/22
+     - Added :carta:ref:`FittingRequest` and :carta:ref:`FittingResponse` messages for image fitting.
+   * - ``27.1.0``
+     - 28/04/22
      - Added :carta:ref:`SetVectorOverlayParameters` and :carta:ref:`VectorOverlayTileData` messages. Moved :carta:ref:`TileData` to ``shared``
 
 Versioning

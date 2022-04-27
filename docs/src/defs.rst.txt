@@ -315,6 +315,35 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
 
+.. carta:class:: carta-sub doublepoint
+
+.. _doublepoint:
+
+DoublePoint
+~~~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - x
+     - double
+     - 
+     - 
+   * - y
+     - double
+     - 
+     - 
+
 .. carta:class:: carta-sub fileinfo
 
 .. _fileinfo:
@@ -478,6 +507,43 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - float
      - 
      - 
+
+.. carta:class:: carta-sub gaussiancomponent
+
+.. _gaussiancomponent:
+
+GaussianComponent
+~~~~~~~~~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+parameters of a 2D Gaussian component for image fitting
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - center
+     - :carta:refc:`DoublePoint`
+     - 
+     - x/y coordinate of the center in pixels
+   * - amp
+     - double
+     - 
+     - amplitude of the component
+   * - fwhm
+     - :carta:refc:`DoublePoint`
+     - 
+     - full width at half maximum along x/y coordinate in pixels
+   * - pa
+     - double
+     - 
+     - position angle in degrees
 
 .. carta:class:: carta-sub headerentry
 

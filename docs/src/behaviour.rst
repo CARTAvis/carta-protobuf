@@ -17,3 +17,4 @@ Behaviour
    resume_the_session
    catalog_overlay
    moments_generator
+   image_fitting
