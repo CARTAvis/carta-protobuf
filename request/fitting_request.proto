@@ -1,0 +1,32 @@
+syntax = "proto3";
+package CARTA;
+
+import "defs.proto";
+
+// FITTING_REQUEST:
+// Requests 2D Gaussian image fitting with given initial values.
+// Backend responds with FITTING_RESPONSE
+message FittingRequest {
+    // File ID of the image to be fit
+    sfixed32 file_id = 1;
+    // Initial values for 2D Gaussian fitting
+    repeated GaussianComponent initial_values = 2;
+    // Whether each parameter (in the order of center, amplitude, FWHM, and p.a.) should be fixed when fitting
+    repeated bool fixed_params = 3;
+}
+
+// FITTING_RESPONSE:
+// Response for FITTING_REQUEST.
+// Gives results and log of 2D Gaussian image fitting.
+message FittingResponse {
+    // Defines whether FITTING_REQUEST was successful
+    bool success = 1;
+    // Error message (if applicable)
+    string message = 2;
+    // Fitting result: values of the fitted parameters
+    repeated GaussianComponent result_values = 3;
+    // Fitting result: errors of the fitted parameters
+    repeated GaussianComponent result_errors = 4;
+    // Fitting log
+    string log = 5;
+}
