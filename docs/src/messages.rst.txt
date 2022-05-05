@@ -2848,6 +2848,10 @@ Backend responds with :carta:refc:`START_ANIMATION_ACK`
      - map<key: sfixed32, value: :carta:refc:`MatchedFrameList`>
      - repeated
      - 
+   * - stokes_indices
+     - sfixed32
+     - repeated
+     - Required stokes frames with respect to stokes types
 
 .. carta:class:: carta-b2f startanimationack
 

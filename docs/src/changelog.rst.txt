@@ -165,6 +165,9 @@ Changelog
    * - ``27.0.0``
      - 21/04/22
      - Added :carta:ref:`FittingRequest` and :carta:ref:`FittingResponse` messages for image fitting.
+   * - ``27.1.0``
+     - 27/04/22
+     - Added ``Ptotal``, ``Plinear``, ``PFtotal``, ``PFlinear``, and ``Pangle`` to :carta:ref:`PolarizationType` enum. Added ``stokes_indices`` to :carta:ref:`StartAnimation` message.
 
 Versioning
 ----------
