@@ -273,6 +273,16 @@ enum PolarizationType {
     YY = 10;
     XY = 11;
     YX = 12;
+    // Polarized intensity: sqrt(Q^2 + U^2 + V^2)
+    Ptotal = 13;
+    // Linearly Polarized intensity: sqrt(Q^2 + U^2)
+    Plinear = 14;
+    // Polarization Fraction: Ptotal / I
+    PFtotal = 15;
+    // Linear Polarization Fraction: Plinear / I
+    PFlinear = 16;
+    // Linear Polarization Angle: arctan(U/Q) / 2
+    Pangle = 17;
 }
 
 enum FileListType {

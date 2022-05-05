@@ -841,6 +841,21 @@ polarization parameters including the Stokes parameters, circular correlations, 
    * - YX
      - 12
      - 
+   * - Ptotal
+     - 13
+     - Polarized intensity: sqrt(Q^2 + U^2 + V^2)
+   * - Plinear
+     - 14
+     - Linearly Polarized intensity: sqrt(Q^2 + U^2)
+   * - PFtotal
+     - 15
+     - Polarization Fraction: Ptotal / I
+   * - PFlinear
+     - 16
+     - Linear Polarization Fraction: Plinear / I
+   * - Pangle
+     - 17
+     - Linear Polarization Angle: arctan(U/Q) / 2
 
 .. carta:class:: carta-sub profileaxistype
 
