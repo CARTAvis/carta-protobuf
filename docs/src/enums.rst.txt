@@ -531,6 +531,12 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - :carta:refc:`FITTING_RESPONSE`
      - 80
      - 
+   * - :carta:refc:`SET_VECTOR_OVERLAY_PARAMETERS`
+     - 81
+     - 
+   * - :carta:refc:`VECTOR_OVERLAY_TILE_DATA`
+     - 82
+     - 
 
 .. carta:class:: carta-sub filefeatureflags
 

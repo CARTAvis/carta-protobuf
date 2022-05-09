@@ -2514,6 +2514,76 @@ Sets which stats data needs to be streamed to the frontend when the region is up
      - repeated
      - List of required stats
 
+.. carta:class:: carta-f2b setvectoroverlayparameters
+
+.. _setvectoroverlayparameters:
+
+SetVectorOverlayParameters
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Source file: `control/vector_overlay.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/vector_overlay.proto>`_
+
+SET_VECTOR_OVERLAY_PARAMETERS
+Sets the overlay parameters for a file
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - fixed32
+     - 
+     - The file ID that the overlay corresponds to
+   * - image_bounds
+     - :carta:refc:`ImageBounds`
+     - 
+     - The XY bounds corresponding to the image data in pixel coordinates. Currently unused
+   * - smoothing_factor
+     - fixed32
+     - 
+     - Block smoothing factor to use. Must be an even integer, corresponds to the ``mip`` coordinate.
+   * - fractional
+     - bool
+     - 
+     - Whether to use fractional polarization intensity
+   * - threshold
+     - double
+     - 
+     - Threshold value to use. If this is set to NaN, no threshold is applied.
+   * - debiasing
+     - bool
+     - 
+     - Whether to use debiasing
+   * - q_error
+     - double
+     - 
+     - Stokes Q error when debiasing
+   * - u_error
+     - double
+     - 
+     - Stokes U error when debiasing
+   * - stokes_intensity
+     - sfixed32
+     - 
+     - The Stokes coordinate to use when generating vector intensity. If this is < 0, uniform intensity is used. If both this and ``stokes_angle`` are < 0, the overlay requirement is cleared
+   * - stokes_angle
+     - sfixed32
+     - 
+     - The Stokes coordinate to use when generating vector angle. If this is < 0, uniform angle is used (e.g. when rendering block markers)
+   * - compression_type
+     - :carta:refc:`CompressionType`
+     - 
+     - The compression algorithm to use.
+   * - compression_quality
+     - float
+     - 
+     - Compression quality switch
+
 .. carta:class:: carta-f2b spatialconfig
 
 .. _spatialconfig:
@@ -3058,14 +3128,14 @@ Source file: `control/stop_pv_calc.proto <https://github.com/CARTAvis/carta-prot
      - 
      - Stop the PV image calculation with respect to the image file id
 
-.. carta:class:: carta-b2f tiledata
+.. carta:class:: carta-b2f vectoroverlaytiledata
 
-.. _tiledata:
+.. _vectoroverlaytiledata:
 
-TileData
-~~~~~~~~
+VectorOverlayTileData
+~~~~~~~~~~~~~~~~~~~~~
 
-Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/raster_tile.proto>`_
+Source file: `stream/vector_overlay_tile.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/vector_overlay_tile.proto>`_
 
 
 
@@ -3078,32 +3148,40 @@ Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protob
      - Type
      - Label
      - Description
-   * - layer
+   * - file_id
      - sfixed32
      - 
-     - Tile layer coordinate
-   * - x
+     - The file ID that the vector overlay image corresponds to
+   * - channel
      - sfixed32
      - 
-     - Tile x coordinate
-   * - y
+     - The image channel (z-coordinate)
+   * - stokes_intensity
      - sfixed32
      - 
-     - Tile y coordinate
-   * - width
+     - The Stokes coordinate that was used to generate vector intensity. If this is < 0, uniform intensity is used
+   * - stokes_angle
      - sfixed32
      - 
-     - Width of the tile data. If this is left as zero, the default tile size should be used
-   * - height
-     - sfixed32
+     - The Stokes coordinate that was used to generate vector angle. If this is < 0, uniform angle is used (e.g. when rendering block markers)
+   * - compression_type
+     - :carta:refc:`CompressionType`
      - 
-     - Height of the tile data. If this is left as zero, the default tile size should be used
-   * - image_data
-     - bytes
+     - The compression algorithm used.
+   * - compression_quality
+     - float
      - 
-     - Image data. For uncompressed data, this is converted into FP32, while for compressed data, this is passed to the compression library for decompression.
-   * - nan_encodings
-     - bytes
+     - Compression quality switch
+   * - intensity_tiles
+     - :carta:refc:`TileData`
+     - repeated
+     - List of tile data for vector intensity. The length of this list must match that of ``angle_tiles``, or be zero
+   * - angle_tiles
+     - :carta:refc:`TileData`
+     - repeated
+     - List of tile data for vector angle. The length of this list must match that of ``intensity_tiles``, or be zero
+   * - progress
+     - double
      - 
-     - Run-length encodings of NaN values. These values are used to restore the NaN values after decompression.
+     - Progress of the vector overlay being sent. If this is zero, the message is assumed to contain the entire contour sets
 
