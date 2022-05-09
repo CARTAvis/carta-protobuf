@@ -1,0 +1,34 @@
+syntax = "proto3";
+package CARTA;
+
+import "enums.proto";
+import "defs.proto";
+
+// SET_VECTOR_OVERLAY_PARAMETERS
+// Sets the overlay parameters for a file
+message SetVectorOverlayParameters {
+  // The file ID that the overlay corresponds to
+  fixed32 file_id = 1;
+  // The XY bounds corresponding to the image data in pixel coordinates. Currently unused
+  ImageBounds image_bounds = 3;
+  // Block smoothing factor to use. Must be an even integer, corresponds to the ``mip`` coordinate.
+  fixed32 smoothing_factor = 4;
+  // Whether to use fractional polarization intensity
+    bool fractional = 5;
+  // Threshold value to use. If this is set to NaN, no threshold is applied.
+  double threshold = 6;
+  // Whether to use debiasing
+  bool debiasing = 7;
+  // Stokes Q error when debiasing
+  double q_error = 8;
+  // Stokes U error when debiasing
+  double u_error = 9;
+  // The Stokes coordinate to use when generating vector intensity. If this is < 0, uniform intensity is used. If both this and ``stokes_angle`` are < 0, the overlay requirement is cleared
+  sfixed32 stokes_intensity = 10;
+  // The Stokes coordinate to use when generating vector angle. If this is < 0, uniform angle is used (e.g. when rendering block markers)
+  sfixed32 stokes_angle = 11;
+  // The compression algorithm to use.
+  CompressionType compression_type = 12;
+  // Compression quality switch
+  float compression_quality = 13;
+}

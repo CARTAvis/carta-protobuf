@@ -170,6 +170,9 @@ Changelog
      - Added ``Ptotal``, ``Plinear``, ``PFtotal``, ``PFlinear``, and ``Pangle`` to :carta:ref:`PolarizationType` enum. Added ``stokes_indices`` to :carta:ref:`StartAnimation` message.
    * - ``27.2.0``
      - 05/05/22
+     - Added :carta:ref:`SetVectorOverlayParameters` and :carta:ref:`VectorOverlayTileData` messages. Moved :carta:ref:`TileData` to ``shared``
+   * - ``27.3.0``
+     - 05/09/22
      - Added ``width`` to :carta:ref:`SetSpatialRequirements` and :carta:ref:`LineProfileAxis` to :carta:ref:`SpatialProfile`.
 
 Versioning

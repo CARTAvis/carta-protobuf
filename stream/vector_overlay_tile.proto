@@ -1,0 +1,26 @@
+syntax = "proto3";
+package CARTA;
+
+import "enums.proto";
+import "defs.proto";
+
+message VectorOverlayTileData {
+  // The file ID that the vector overlay image corresponds to
+  sfixed32 file_id = 1;
+  // The image channel (z-coordinate)
+  sfixed32 channel = 2;
+  // The Stokes coordinate that was used to generate vector intensity. If this is < 0, uniform intensity is used
+  sfixed32 stokes_intensity = 3;
+  // The Stokes coordinate that was used to generate vector angle. If this is < 0, uniform angle is used (e.g. when rendering block markers)
+  sfixed32 stokes_angle = 4;
+  // The compression algorithm used.
+  CompressionType compression_type = 5;
+  // Compression quality switch
+  float compression_quality = 6;
+  // List of tile data for vector intensity. The length of this list must match that of ``angle_tiles``, or be zero
+  repeated TileData intensity_tiles = 7;
+  // List of tile data for vector angle. The length of this list must match that of ``intensity_tiles``, or be zero
+  repeated TileData angle_tiles = 8;
+  // Progress of the vector overlay being sent. If this is zero, the message is assumed to contain the entire contour sets
+  double progress = 9;
+}

@@ -2,6 +2,7 @@ syntax = "proto3";
 package CARTA;
 
 import "enums.proto";
+import "defs.proto";
 
 message RasterTileSync {
     // The file ID that the raster image corresponds to
@@ -31,22 +32,4 @@ message RasterTileData {
     sfixed32 animation_id = 6;
     // List of tile data
     repeated TileData tiles = 7;
-}
-
-message TileData {
-    // Tile layer coordinate
-    sfixed32 layer = 1;
-    // Tile x coordinate
-    sfixed32 x = 2;
-    // Tile y coordinate
-    sfixed32 y = 3;
-    // Width of the tile data. If this is left as zero, the default tile size should be used
-    sfixed32 width = 4;
-    // Height of the tile data. If this is left as zero, the default tile size should be used
-    sfixed32 height = 5;
-    // Image data. For uncompressed data, this is converted into FP32, while for compressed data,
-    // this is passed to the compression library for decompression.
-    bytes image_data = 6;
-    // Run-length encodings of NaN values. These values are used to restore the NaN values after decompression.
-    bytes nan_encodings = 7;
 }
