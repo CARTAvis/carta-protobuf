@@ -56,6 +56,8 @@ message SetSpatialRequirements {
         sfixed32 end = 3;
         // The maximum required mip. The backend must return data of at least this resolution, but may return a higher resolution. If this is unset or 0, the full-resolution data is used.
         sfixed32 mip = 4;
+        // Width of line region for line profile.  Not used for point region.
+        sfixed32 width = 5;
     }
 }
 

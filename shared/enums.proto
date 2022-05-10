@@ -297,3 +297,8 @@ enum FileListFilterMode {
     Extension = 1;
     AllFiles = 2;
 }
+
+enum ProfileAxisType {
+    Offset = 0;
+    Distance = 1;
+}
