@@ -857,6 +857,14 @@ Backend responds with :carta:refc:`FITTING_RESPONSE`
      - bool
      - repeated
      - Whether each parameter (in the order of center, amplitude, FWHM, and p.a.) should be fixed when fitting
+   * - region_id
+     - sfixed32
+     - 
+     - Region ID. Apply field of view if the id is 0; apply the entire image if the id is -1
+   * - fov_info
+     - :carta:refc:`RegionInfo`
+     - 
+     - Field of view parameters
 
 .. carta:class:: carta-b2f fittingresponse
 

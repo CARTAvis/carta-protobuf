@@ -3,7 +3,7 @@
 Image fitting
 -----------------
 
-Users can fit multiple 2D Gaussian components to the selected file with the image fitting widget. Frontend sends :carta:ref:`FITTING_REQUEST` with ``file_id`` and initial values. Backend fits the current channel and polarization of the file and responds with :carta:ref:`FITTING_RESPONSE`. The sequence diagram is shown below:
+Users can fit multiple 2D Gaussian components to the selected file with the image fitting widget. Frontend sends :carta:ref:`FITTING_REQUEST` with ``file_id``, ``region_id``, and initial values. Backend fits the current channel and polarization of the file and responds with :carta:ref:`FITTING_RESPONSE`. The sequence diagram is shown below:
 
 .. uml::
     
