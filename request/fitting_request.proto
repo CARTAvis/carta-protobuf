@@ -13,6 +13,10 @@ message FittingRequest {
     repeated GaussianComponent initial_values = 2;
     // Whether each parameter (in the order of center, amplitude, FWHM, and p.a.) should be fixed when fitting
     repeated bool fixed_params = 3;
+    // Region ID. Apply field of view if the id is 0; apply the entire image if the id is -1
+    sfixed32 region_id = 4;
+    // Field of view parameters
+    RegionInfo fov_info = 5;
 }
 
 // FITTING_RESPONSE:

@@ -170,13 +170,16 @@ Changelog
      - Added ``Ptotal``, ``Plinear``, ``PFtotal``, ``PFlinear``, and ``Pangle`` to :carta:ref:`PolarizationType` enum. Added ``stokes_indices`` to :carta:ref:`StartAnimation` message.
    * - ``27.2.0``
      - 05/05/22
-     - Added :carta:ref:`SetVectorOverlayParameters` and :carta:ref:`VectorOverlayTileData` messages. Moved :carta:ref:`TileData` to ``shared``
+     - Added :carta:ref:`SetVectorOverlayParameters` and :carta:ref:`VectorOverlayTileData` messages. Moved :carta:ref:`TileData` to ``shared``.
    * - ``27.3.0``
-     - 05/09/22
+     - 09/05/22
      - Added ``width`` to :carta:ref:`SetSpatialRequirements` and :carta:ref:`LineProfileAxis` to :carta:ref:`SpatialProfile`.
    * - ``28.0.0``
      - 07/06/22
-     - Removed spectral line request/response and Splatalogue ping/pong messages
+     - Removed spectral line request/response and Splatalogue ping/pong messages.
+   * - ``28.1.0``
+     - 17/06/22
+     - Added ``region_id`` and ``fov_info`` to :carta:ref:`FittingRequest` message.
 
 Versioning
 ----------
