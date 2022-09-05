@@ -1,6 +1,7 @@
 syntax = "proto3";
 package CARTA;
 
+import "open_file.proto";
 import "defs.proto";
 
 // FITTING_REQUEST:
@@ -17,6 +18,10 @@ message FittingRequest {
     sfixed32 region_id = 4;
     // Field of view parameters
     RegionInfo fov_info = 5;
+    // Whether to create a model image of the fitting result
+    bool create_model_image = 6;
+    // Whether to create a residual image of the fitting result
+    bool create_residual_image = 7;
 }
 
 // FITTING_RESPONSE:
@@ -33,4 +38,8 @@ message FittingResponse {
     repeated GaussianComponent result_errors = 4;
     // Fitting log
     string log = 5;
+    // Fitting result: model image
+    OpenFileAck model_image = 6;
+    // Fitting result: residual image
+    OpenFileAck residual_image = 7;
 }
