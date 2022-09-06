@@ -1443,6 +1443,10 @@ Source file: `request/pv_request.proto <https://github.com/CARTAvis/carta-protob
      - sfixed32
      - 
      - 
+   * - spectral_range
+     - :carta:refc:`IntBounds`
+     - 
+     - 
 
 .. carta:class:: carta-b2f pvresponse
 
