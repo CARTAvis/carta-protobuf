@@ -9,6 +9,8 @@ message PvRequest {
     sfixed32 region_id = 2;
     sfixed32 width = 3;
     IntBounds spectral_range = 4;
+    bool reverse = 5;
+    bool overwrite = 6;
 }
 
 message PvResponse {

@@ -1447,6 +1447,14 @@ Source file: `request/pv_request.proto <https://github.com/CARTAvis/carta-protob
      - :carta:refc:`IntBounds`
      - 
      - 
+   * - reverse
+     - bool
+     - 
+     - 
+   * - overwrite
+     - bool
+     - 
+     - 
 
 .. carta:class:: carta-b2f pvresponse
 

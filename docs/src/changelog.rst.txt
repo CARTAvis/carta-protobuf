@@ -181,8 +181,8 @@ Changelog
      - 17/06/22
      - Added ``region_id`` and ``fov_info`` to :carta:ref:`FittingRequest` message.
    * - ``28.2.0``
-     - 06/09/22
-     - Added ``spectral_range`` to :carta:ref:`PvRequest` message.
+     - 07/09/22
+     - Added ``spectral_range``, ``reverse``, and ``overwrite`` to :carta:ref:`PvRequest` message.
 
 Versioning
 ----------
