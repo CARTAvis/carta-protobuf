@@ -49,6 +49,8 @@ message FileInfoExtended {
     // Header entries from header string or attributes
     repeated HeaderEntry header_entries = 7;
     repeated HeaderEntry computed_entries = 8;
+    // Axes numbers for directions, spectral, and stokes
+    AxesNumbers axes_numbers = 9;
 }
 
 message HeaderEntry {
@@ -57,6 +59,12 @@ message HeaderEntry {
     EntryType entry_type = 3;
     double numeric_value = 4;
     string comment = 5;
+}
+
+message AxesNumbers {
+    repeated sfixed32 directions = 1;
+    sfixed32 spectral = 2;
+    sfixed32 stokes = 3;
 }
 
 message IntBounds {
