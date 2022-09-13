@@ -62,9 +62,16 @@ message HeaderEntry {
 }
 
 message AxesNumbers {
-    repeated sfixed32 directions = 1;
-    sfixed32 spectral = 2;
-    sfixed32 stokes = 3;
+    // Direction X axis number
+    sfixed32 dir_x = 1;
+    // Direction Y axis number
+    sfixed32 dir_y = 2;
+    // Spectral axis number
+    sfixed32 spectral = 3;
+    // Stokes axis number
+    sfixed32 stokes = 4;
+    // Depth axis is non-render axis that is not stokes (if any)
+    sfixed32 depth = 5;
 }
 
 message IntBounds {

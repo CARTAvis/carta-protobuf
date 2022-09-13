@@ -47,18 +47,26 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - Type
      - Label
      - Description
-   * - directions
+   * - dir_x
      - sfixed32
-     - repeated
      - 
+     - Direction X axis number
+   * - dir_y
+     - sfixed32
+     - 
+     - Direction Y axis number
    * - spectral
      - sfixed32
      - 
-     - 
+     - Spectral axis number
    * - stokes
      - sfixed32
      - 
+     - Stokes axis number
+   * - depth
+     - sfixed32
      - 
+     - Depth axis is non-render axis that is not stokes (if any)
 
 .. carta:class:: carta-sub beam
 
