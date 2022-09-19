@@ -43,3 +43,15 @@ message FittingResponse {
     // Fitting result: residual image
     OpenFileAck residual_image = 7;
 }
+
+message FittingProgress {
+    // File ID of the image to be fit
+    sfixed32 file_id = 1;
+    // Progess of the fitting procedure, ranging from 0 to 1
+    float progress = 2;
+}
+
+message StopFitting {
+    // Stop image fitting with respect to the image file id
+    sfixed32 file_id = 1;
+}

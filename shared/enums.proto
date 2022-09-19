@@ -75,6 +75,8 @@ enum EventType {
     FITTING_RESPONSE = 80;
     SET_VECTOR_OVERLAY_PARAMETERS = 81;
     VECTOR_OVERLAY_TILE_DATA = 82;
+    FITTING_PROGRESS = 83;
+    STOP_FITTING = 84;
 }
 
 enum SessionType {
