@@ -111,6 +111,16 @@ enum RegionType {
     ELLIPSE = 4;
     ANNULUS = 5;
     POLYGON = 6;
+    ANNPOINT = 7;
+    ANNLINE = 8;
+    ANNPOLYLINE = 9;
+    ANNRECTANGLE = 10;
+    ANNELLIPSE = 11;
+    ANNPOLYGON = 12;
+    ANNVECTOR = 13;
+    ANNRULER = 14;
+    ANNTEXT = 15;
+    ANNCOMPASS = 16;
 }
 
 enum SmoothingMode {
