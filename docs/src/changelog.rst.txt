@@ -180,6 +180,9 @@ Changelog
    * - ``28.1.0``
      - 17/06/22
      - Added ``region_id`` and ``fov_info`` to :carta:ref:`FittingRequest` message.
+   * - ``28.2.0``
+     - 08/09/22
+     - Added ``spectral_range``, ``reverse``, and ``keep`` to :carta:ref:`PvRequest` message.
 
 Versioning
 ----------
