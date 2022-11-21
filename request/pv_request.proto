@@ -1,12 +1,16 @@
 syntax = "proto3";
 package CARTA;
 
+import "defs.proto";
 import "open_file.proto";
 
 message PvRequest {
     sfixed32 file_id = 1;
     sfixed32 region_id = 2;
     sfixed32 width = 3;
+    IntBounds spectral_range = 4;
+    bool reverse = 5;
+    bool keep = 6;
 }
 
 message PvResponse {
