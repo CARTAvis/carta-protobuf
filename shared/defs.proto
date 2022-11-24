@@ -143,6 +143,28 @@ message RegionStyle {
     sfixed32 line_width = 3;
     // Dash length: on, off
     repeated sfixed32 dash_list = 4;
+    // Point annotation shape
+    PointAnnotationShape pointShape = 5;
+    // Point annotation width
+    sfixed32 pointWidth = 6;
+    // Text annotation text
+    string textAnnotationText = 7;
+    // Compass annotation north label
+    string compassNorthLabel = 8;
+    // Compass annotation east label
+    string compassEastLabel = 9;
+    // Compass coordinate sytem
+    string compassCoordinate = 10;
+    // Compass annotation north arrowhead
+    bool isCompassNorthArrow = 11;
+    // Compass annotation east arrowhead
+    bool isCompassEastArrow = 12;
+    // Ruler annotation unit?
+    RulerAnnotationUnit rulerUnit= 13;
+    // Vector annotation angle?
+    // Vector annotation arrow?
+
+
 }
 
 message CatalogFileInfo {

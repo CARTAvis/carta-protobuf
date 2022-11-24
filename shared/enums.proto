@@ -308,3 +308,21 @@ enum ProfileAxisType {
     Offset = 0;
     Distance = 1;
 }
+
+enum PointAnnotationShape {
+    SQUARE = 0;
+    BOX = 1;
+    CIRCLE = 2;
+    CIRCLE_LINED = 3;
+    DIAMOND = 4;
+    DIAMOND_LINED = 5;
+    CROSS = 6;
+    X = 7;
+}
+
+enum RulerAnnotationUnit {
+    PIXELS = 0;
+    DEGREES = 1;
+    ARCMIN = 2;
+    ARCSEC = 3;
+}
