@@ -143,28 +143,33 @@ message RegionStyle {
     sfixed32 line_width = 3;
     // Dash length: on, off
     repeated sfixed32 dash_list = 4;
+    // Annotation Styles
+    AnnotationStyle annotation_style = 5;
+}
+
+message AnnotationStyle {
     // Point annotation shape
-    PointAnnotationShape pointShape = 5;
+    PointAnnotationShape point_shape = 1;
     // Point annotation width
-    sfixed32 pointWidth = 6;
-    // Text annotation text
-    string textAnnotationText = 7;
-    // Compass annotation north label
-    string compassNorthLabel = 8;
+    sfixed32 point_width = 2;
+    // Text annotation text / Compass annotation north label
+    string text_label0 = 3;
     // Compass annotation east label
-    string compassEastLabel = 9;
+    string text_label1 = 4;
     // Compass coordinate sytem
-    optional string compassCoordinate = 10;
+    string compass_coordinate = 5;
     // Compass annotation north arrowhead
-    bool isCompassNorthArrow = 11;
+    bool is_arrow0 = 6;
     // Compass annotation east arrowhead
-    bool isCompassEastArrow = 12;
+    bool is_arrow1 = 7;
     // Ruler annotation unit?
-    optional RulerAnnotationUnit rulerUnit= 13;
-    // Vector annotation angle?
-    // Vector annotation arrow?
-
-
+    RulerAnnotationUnit ruler_unit= 8;
+    // Font style (bold, italic, bold_italic)
+    string font_style = 9;
+    // Font (Times / Helvetica / Courier)
+    string font = 10;
+    // Font size for Text, Compass, Ruler
+    sfixed32 font_size = 11;
 }
 
 message CatalogFileInfo {
