@@ -3,6 +3,7 @@ package CARTA;
 
 import "open_file.proto";
 import "defs.proto";
+import "enums.proto";
 
 // FITTING_REQUEST:
 // Requests 2D Gaussian image fitting with given initial values.
@@ -22,6 +23,10 @@ message FittingRequest {
     bool create_model_image = 6;
     // Whether to create a residual image of the fitting result
     bool create_residual_image = 7;
+    // Background level offset
+    float offset = 8;
+    // Solver of the linear least squares system in the fitting
+    FittingSolverType solver = 9;
 }
 
 // FITTING_RESPONSE:
@@ -44,6 +49,8 @@ message FittingResponse {
     OpenFileAck residual_image = 7;
 }
 
+// FITTING_PROGRESS:
+// Updates the progress of the requested fitting.
 message FittingProgress {
     // File ID of the image to be fit
     sfixed32 file_id = 1;
@@ -51,6 +58,8 @@ message FittingProgress {
     float progress = 2;
 }
 
+// STOP_FITTING:
+// Cancels the requested fitting.
 message StopFitting {
     // Stop image fitting with respect to the image file id
     sfixed32 file_id = 1;

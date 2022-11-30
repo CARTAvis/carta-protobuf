@@ -300,3 +300,11 @@ enum ProfileAxisType {
     Offset = 0;
     Distance = 1;
 }
+
+// Types of solvers for the linear least squares system in image fittings
+enum FittingSolverType {
+    Qr = 0; // Uses a rank revealing QR decomposition
+    Cholesky = 1; // Uses a Cholesky decomposition
+    Mcholesky = 2; // Uses a modified Cholesky decomposition
+    Svd = 3; // Uses a singular value decomposition
+}
