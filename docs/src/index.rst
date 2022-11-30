@@ -5,7 +5,7 @@ CARTA Interface Control Document
 :Authors: Angus Comrie, Rob Simmonds and the CARTA development team
 :Version: 28.3.0
 :ICD Version Integer: 28
-:CARTA Target: Version 3.0
+:CARTA Target: Version 4.0
 
 .. include:: changelog.rst.txt
 
