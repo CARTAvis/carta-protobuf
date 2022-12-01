@@ -156,8 +156,8 @@ message AnnotationStyle {
     string text_label0 = 3;
     // Compass annotation east label
     string text_label1 = 4;
-    // Compass coordinate sytem
-    string compass_coordinate = 5;
+    // Compass and Ruler coordinate sytem
+    string coordinate_system = 5;
     // Compass annotation north arrowhead
     bool is_arrow0 = 6;
     // Compass annotation east arrowhead
