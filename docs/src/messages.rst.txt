@@ -1215,6 +1215,10 @@ Source file: `request/moment_request.proto <https://github.com/CARTAvis/carta-pr
      - :carta:refc:`FloatBounds`
      - 
      - 
+   * - keep
+     - bool
+     - 
+     - 
 
 .. carta:class:: carta-b2f momentresponse
 
