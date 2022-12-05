@@ -183,6 +183,9 @@ Changelog
    * - ``28.2.0``
      - 08/09/22
      - Added ``spectral_range``, ``reverse``, and ``keep`` to :carta:ref:`PvRequest` message.
+   * - ``28.3.0``
+     - 30/11/22
+     - Added ``keep`` to :carta:ref:`MomentRequest` message.
 
 Versioning
 ----------
