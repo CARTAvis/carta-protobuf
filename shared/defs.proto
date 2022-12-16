@@ -159,17 +159,15 @@ message AnnotationStyle {
     // Compass and Ruler coordinate sytem
     string coordinate_system = 5;
     // Compass annotation north arrowhead
-    bool is_arrow0 = 6;
+    bool is_north_arrow = 6;
     // Compass annotation east arrowhead
-    bool is_arrow1 = 7;
-    // Ruler annotation unit?
-    RulerAnnotationUnit ruler_unit= 8;
+    bool is_east_arrow = 7;
     // Font style (bold, italic, bold_italic)
-    string font_style = 9;
+    string font_style = 8;
     // Font (Times / Helvetica / Courier)
-    string font = 10;
+    string font = 9;
     // Font size for Text, Compass, Ruler
-    sfixed32 font_size = 11;
+    sfixed32 font_size = 10;
 }
 
 message CatalogFileInfo {

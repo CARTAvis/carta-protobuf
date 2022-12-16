@@ -319,10 +319,3 @@ enum PointAnnotationShape {
     CROSS = 6;
     X = 7;
 }
-
-enum RulerAnnotationUnit {
-    PIXELS = 0;
-    DEGREES = 1;
-    ARCMIN = 2;
-    ARCSEC = 3;
-}
