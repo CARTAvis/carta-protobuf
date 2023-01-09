@@ -186,6 +186,9 @@ Changelog
    * - ``28.3.0``
      - 30/11/22
      - Added ``keep`` to :carta:ref:`MomentRequest` message.
+   * - ``28.4.0``
+     - 05/12/22
+     - Added additional fields to :carta:ref:`FittingRequest` and :carta:ref:`FittingResponse` for generating model and residual images. Added :carta:ref:`FittingProgress` and :carta:ref:`StopFitting` messages for updaing progress and canceling tasks.
 
 Versioning
 ----------
