@@ -823,6 +823,36 @@ Gives a list of available files (and their types), as well as subdirectories
      - 
      - 
 
+.. carta:class:: carta-b2f fittingprogress
+
+.. _fittingprogress:
+
+FittingProgress
+~~~~~~~~~~~~~~~
+
+Source file: `request/fitting_request.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/fitting_request.proto>`_
+
+FITTING_PROGRESS:
+Updates the progress of the requested fitting.
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - File ID of the image to be fit
+   * - progress
+     - float
+     - 
+     - Progess of the fitting procedure, ranging from 0 to 1
+
 .. carta:class:: carta-f2b fittingrequest
 
 .. _fittingrequest:
@@ -865,6 +895,22 @@ Backend responds with :carta:refc:`FITTING_RESPONSE`
      - :carta:refc:`RegionInfo`
      - 
      - Field of view parameters
+   * - create_model_image
+     - bool
+     - 
+     - Whether to create a model image of the fitting result
+   * - create_residual_image
+     - bool
+     - 
+     - Whether to create a residual image of the fitting result
+   * - offset
+     - float
+     - 
+     - Background level offset
+   * - solver
+     - :carta:refc:`FittingSolverType`
+     - 
+     - Solver of the linear least squares system in the fitting
 
 .. carta:class:: carta-b2f fittingresponse
 
@@ -908,6 +954,14 @@ Gives results and log of 2D Gaussian image fitting.
      - string
      - 
      - Fitting log
+   * - model_image
+     - :carta:refc:`OpenFileAck`
+     - 
+     - Fitting result: model image
+   * - residual_image
+     - :carta:refc:`OpenFileAck`
+     - 
+     - Fitting result: residual image
 
 .. carta:class:: carta-f2b histogramconfig
 
@@ -2995,6 +3049,32 @@ Source file: `request/file_list.proto <https://github.com/CARTAvis/carta-protobu
      - :carta:refc:`FileListType`
      - 
      - 
+
+.. carta:class:: carta-f2b stopfitting
+
+.. _stopfitting:
+
+StopFitting
+~~~~~~~~~~~
+
+Source file: `request/fitting_request.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/fitting_request.proto>`_
+
+STOP_FITTING:
+Cancels the requested fitting.
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - Stop image fitting with respect to the image file id
 
 .. carta:class:: carta-f2b stopmomentcalc
 
