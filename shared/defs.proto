@@ -162,12 +162,14 @@ message AnnotationStyle {
     bool is_north_arrow = 6;
     // Compass annotation east arrowhead
     bool is_east_arrow = 7;
+    // Text annotation position
+    TextAnnotationPosition text_position = 8;
     // Font style (bold, italic, bold_italic)
-    string font_style = 8;
+    string font_style = 9;
     // Font (Times / Helvetica / Courier)
-    string font = 9;
+    string font = 10;
     // Font size for Text, Compass, Ruler
-    sfixed32 font_size = 10;
+    sfixed32 font_size = 11;
 }
 
 message CatalogFileInfo {

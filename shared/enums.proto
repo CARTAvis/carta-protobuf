@@ -321,6 +321,19 @@ enum PointAnnotationShape {
     CROSS = 6;
     X = 7;
 }
+
+enum TextAnnotationPosition {
+    CENTER = 0;
+    UPPER_LEFT = 1;
+    UPPER_RIGHT = 2;
+    LOWER_LEFT = 3;
+    LOWER_RIGHT = 4;
+    TOP = 5;
+    BOTTOM = 6;
+    LEFT = 7;
+    RIGHT = 8;
+}
+
 // Types of solvers for the linear least squares system in image fittings
 enum FittingSolverType {
     Qr = 0; // Uses a rank revealing QR decomposition
