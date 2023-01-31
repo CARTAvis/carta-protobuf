@@ -189,6 +189,9 @@ Changelog
    * - ``28.4.0``
      - 05/12/22
      - Added additional fields to :carta:ref:`FittingRequest` and :carta:ref:`FittingResponse` for generating model and residual images. Added :carta:ref:`FittingProgress` and :carta:ref:`StopFitting` messages for updaing progress and canceling tasks.
+   * - ``28.5.0``
+     - 31/01/23
+     - Added ``rebin_xy`` and ``rebin_z`` fields to :carta:ref:`PvRequest` for generating a PV preview image.
 
 Versioning
 ----------

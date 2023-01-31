@@ -1463,11 +1463,11 @@ Source file: `request/pv_request.proto <https://github.com/CARTAvis/carta-protob
    * - file_id
      - sfixed32
      - 
-     - 
+     - File ID of the source image for the PV generator
    * - progress
      - float
      - 
-     - 
+     - Progress indicator, ranging from 0 to 1
 
 .. carta:class:: carta-f2b pvrequest
 
@@ -1492,27 +1492,35 @@ Source file: `request/pv_request.proto <https://github.com/CARTAvis/carta-protob
    * - file_id
      - sfixed32
      - 
-     - 
+     - File ID of the source image for the PV generator
    * - region_id
      - sfixed32
      - 
-     - 
+     - Region ID of the PV cut in the source image
    * - width
      - sfixed32
      - 
-     - 
+     - Averaging width along PV cut
    * - spectral_range
      - :carta:refc:`IntBounds`
      - 
-     - 
+     - Range of channels to be used in velocity axis
    * - reverse
      - bool
      - 
-     - 
+     - Flag whether to generate [Offset, Freq] image or the reverse
    * - keep
      - bool
      - 
+     - Flag whether to keep or replace previously-generated images
+   * - rebin_xy
+     - sfixed32
      - 
+     - Downsampling in xy axes; 0 generate, > 0 preview
+   * - rebin_z
+     - sfixed32
+     - 
+     - Downsampling in z axis; 0 generate, > 0 preview
 
 .. carta:class:: carta-b2f pvresponse
 
@@ -1537,19 +1545,19 @@ Source file: `request/pv_request.proto <https://github.com/CARTAvis/carta-protob
    * - success
      - bool
      - 
-     - 
+     - Defines whether :carta:refc:`PV_REQUEST` was successful
    * - message
      - string
      - 
-     - 
+     - Error message (if applicable)
    * - open_file_ack
      - :carta:refc:`OpenFileAck`
      - 
-     - 
+     - :carta:refc:`PvRequest` result: generated PV image
    * - cancel
      - bool
      - 
-     - 
+     - Defines whether :carta:refc:`PV_REQUEST` was canceled
 
 .. carta:class:: carta-b2f rastertiledata
 
