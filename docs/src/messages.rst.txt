@@ -1508,11 +1508,15 @@ Source file: `request/pv_request.proto <https://github.com/CARTAvis/carta-protob
    * - reverse
      - bool
      - 
-     - Flag whether to generate [Offset, Freq] image or the reverse
+     - Flag whether to generate [Spatial, Spectral] image or reverse
    * - keep
      - bool
      - 
      - Flag whether to keep or replace previously-generated images
+   * - sub_region_id
+     - sfixed32
+     - 
+     - Region ID for the subimage in the xy plane; 0 generate, > 0 preview
    * - rebin_xy
      - sfixed32
      - 

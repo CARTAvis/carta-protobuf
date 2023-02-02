@@ -13,14 +13,16 @@ message PvRequest {
     sfixed32 width = 3;
     // Range of channels to be used in velocity axis
     IntBounds spectral_range = 4;
-    // Flag whether to generate [Offset, Freq] image or the reverse
+    // Flag whether to generate [Spatial, Spectral] image or reverse
     bool reverse = 5;
     // Flag whether to keep or replace previously-generated images
     bool keep = 6;
+    // Region ID for the subimage in the xy plane; 0 generate, > 0 preview
+    sfixed32 sub_region_id = 7;
     // Downsampling in xy axes; 0 generate, > 0 preview
-    sfixed32 rebin_xy = 7;
+    sfixed32 rebin_xy = 8;
     // Downsampling in z axis; 0 generate, > 0 preview
-    sfixed32 rebin_z = 8;
+    sfixed32 rebin_z = 9;
 }
 
 message PvResponse {
