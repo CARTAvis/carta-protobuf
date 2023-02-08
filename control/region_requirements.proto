@@ -1,6 +1,7 @@
 syntax = "proto3";
 package CARTA;
 
+import "defs.proto";
 import "enums.proto";
 
 // SET_STATS_REQUIREMENTS:
@@ -34,6 +35,8 @@ message SetHistogramRequirements {
         string coordinate = 1;
         sfixed32 channel = 2;
         sfixed32 num_bins = 3;
+        bool fixed_bounds = 4;
+        FloatBounds bounds = 5;
     }
 }
 
