@@ -838,7 +838,7 @@ PvPreviewImage
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
-Response to a :carta:refc:`PvRequest` in preview mode
+Response to a :carta:refc:`PV_REQUEST` in preview mode
 
 .. list-table::
    :widths: 20 20 20 40
@@ -867,7 +867,7 @@ PvPreviewSettings
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
-Parameters of a :carta:refc:`PvRequest` in preview mode
+Parameters of a :carta:refc:`PV_REQUEST` in preview mode
 
 .. list-table::
    :widths: 20 20 20 40

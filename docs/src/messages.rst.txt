@@ -1463,7 +1463,7 @@ Source file: `request/pv_request.proto <https://github.com/CARTAvis/carta-protob
    * - file_id
      - sfixed32
      - 
-     - File ID of the source image for the PV generator
+     - File ID of the source image
    * - progress
      - float
      - 
@@ -1492,7 +1492,7 @@ Source file: `request/pv_request.proto <https://github.com/CARTAvis/carta-protob
    * - file_id
      - sfixed32
      - 
-     - File ID of the source image for the PV generator
+     - File ID of the source image
    * - region_id
      - sfixed32
      - 
@@ -1549,11 +1549,11 @@ Source file: `request/pv_request.proto <https://github.com/CARTAvis/carta-protob
    * - open_file_ack
      - :carta:refc:`OpenFileAck`
      - 
-     - :carta:refc:`PvRequest` generator result: generated PV image
+     - :carta:refc:`PV_REQUEST` generator result: generated PV image
    * - preview_image
      - :carta:refc:`PvPreviewImage`
      - 
-     - :carta:refc:`PvRequest` preview result: generated PV image
+     - :carta:refc:`PV_REQUEST` preview result: generated PV image
    * - cancel
      - bool
      - 

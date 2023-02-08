@@ -242,7 +242,7 @@ message GaussianComponent {
     double pa = 4;
 }
 
-// Parameters of a PvRequest in preview mode
+// Parameters of a PV_REQUEST in preview mode
 message PvPreviewSettings {
     // Region ID for the subimage in the xy plane
     sfixed32 region_id = 1;
@@ -252,7 +252,7 @@ message PvPreviewSettings {
     sfixed32 rebin_z = 3;
 }
 
-// Response to a PvRequest in preview mode
+// Response to a PV_REQUEST in preview mode
 message PvPreviewImage {
     // Extended file info (WCS, header info)
     FileInfoExtended file_info_extended = 1;

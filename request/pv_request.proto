@@ -5,7 +5,7 @@ import "defs.proto";
 import "open_file.proto";
 
 message PvRequest {
-    // File ID of the source image for the PV generator
+    // File ID of the source image
     sfixed32 file_id = 1;
     // Region ID of the PV cut in the source image
     sfixed32 region_id = 2;
@@ -26,16 +26,16 @@ message PvResponse {
     bool success = 1;
     // Error message (if applicable)
     string message = 2;
-    // PvRequest generator result: generated PV image
+    // PV_REQUEST generator result: generated PV image
     OpenFileAck open_file_ack = 3;
-    // PvRequest preview result: generated PV image
+    // PV_REQUEST preview result: generated PV image
     PvPreviewImage preview_image = 4;
     // Defines whether PV_REQUEST was canceled
     bool cancel = 5;
 }
 
 message PvProgress {
-    // File ID of the source image for the PV generator
+    // File ID of the source image
     sfixed32 file_id = 1;
     // Progress indicator, ranging from 0 to 1
     float progress = 2;
