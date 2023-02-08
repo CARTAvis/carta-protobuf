@@ -17,12 +17,8 @@ message PvRequest {
     bool reverse = 5;
     // Flag whether to keep or replace previously-generated images
     bool keep = 6;
-    // Region ID for the subimage in the xy plane; 0 generate, > 0 preview
-    sfixed32 sub_region_id = 7;
-    // Downsampling in xy axes; 0 generate, > 0 preview
-    sfixed32 rebin_xy = 8;
-    // Downsampling in z axis; 0 generate, > 0 preview
-    sfixed32 rebin_z = 9;
+    // Parameters for preview mode
+    PvPreviewSettings preview_settings = 7;
 }
 
 message PvResponse {
@@ -30,10 +26,12 @@ message PvResponse {
     bool success = 1;
     // Error message (if applicable)
     string message = 2;
-    // PvRequest result: generated PV image
+    // PvRequest generator result: generated PV image
     OpenFileAck open_file_ack = 3;
+    // PvRequest preview result: generated PV image
+    PvPreviewImage preview_image = 4;
     // Defines whether PV_REQUEST was canceled
-    bool cancel = 4;
+    bool cancel = 5;
 }
 
 message PvProgress {

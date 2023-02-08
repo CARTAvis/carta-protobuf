@@ -2,6 +2,11 @@ syntax = "proto3";
 package CARTA;
 
 message StopPvCalc {
-    // Stop the PV image calculation with respect to the image file id
+    // Cancel the PV image/preview calculation for the image file id
+    sfixed32 file_id = 1;
+}
+
+message StopPvPreview {
+    // Stop the PV preview for the image file id to release resources
     sfixed32 file_id = 1;
 }

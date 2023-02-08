@@ -1513,18 +1513,10 @@ Source file: `request/pv_request.proto <https://github.com/CARTAvis/carta-protob
      - bool
      - 
      - Flag whether to keep or replace previously-generated images
-   * - sub_region_id
-     - sfixed32
+   * - preview_settings
+     - :carta:refc:`PvPreviewSettings`
      - 
-     - Region ID for the subimage in the xy plane; 0 generate, > 0 preview
-   * - rebin_xy
-     - sfixed32
-     - 
-     - Downsampling in xy axes; 0 generate, > 0 preview
-   * - rebin_z
-     - sfixed32
-     - 
-     - Downsampling in z axis; 0 generate, > 0 preview
+     - Parameters for preview mode
 
 .. carta:class:: carta-b2f pvresponse
 
@@ -1557,7 +1549,11 @@ Source file: `request/pv_request.proto <https://github.com/CARTAvis/carta-protob
    * - open_file_ack
      - :carta:refc:`OpenFileAck`
      - 
-     - :carta:refc:`PvRequest` result: generated PV image
+     - :carta:refc:`PvRequest` generator result: generated PV image
+   * - preview_image
+     - :carta:refc:`PvPreviewImage`
+     - 
+     - :carta:refc:`PvRequest` preview result: generated PV image
    * - cancel
      - bool
      - 
@@ -3136,7 +3132,32 @@ Source file: `control/stop_pv_calc.proto <https://github.com/CARTAvis/carta-prot
    * - file_id
      - sfixed32
      - 
-     - Stop the PV image calculation with respect to the image file id
+     - Cancel the PV image/preview calculation for the image file id
+
+.. carta:class:: carta-f2b stoppvpreview
+
+.. _stoppvpreview:
+
+StopPvPreview
+~~~~~~~~~~~~~
+
+Source file: `control/stop_pv_calc.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/stop_pv_calc.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - Stop the PV preview for the image file id to release resources
 
 .. carta:class:: carta-b2f vectoroverlaytiledata
 
