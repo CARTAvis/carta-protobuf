@@ -35,8 +35,10 @@ message PvResponse {
 }
 
 message PvProgress {
-    // File ID of the source image
+    // File ID of the source image for the PV generator
     sfixed32 file_id = 1;
+    // Preview ID of the PV preview viewer
+    sfixed32 preview_id = 2;
     // Progress indicator, ranging from 0 to 1
-    float progress = 2;
+    float progress = 3;
 }

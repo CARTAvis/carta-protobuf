@@ -838,7 +838,7 @@ PvPreviewImage
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
-Response to a :carta:refc:`PV_REQUEST` in preview mode
+Image returned for a :carta:refc:`PV_REQUEST` in preview mode
 
 .. list-table::
    :widths: 20 20 20 40
@@ -849,6 +849,10 @@ Response to a :carta:refc:`PV_REQUEST` in preview mode
      - Type
      - Label
      - Description
+   * - preview_id
+     - sfixed32
+     - 
+     - Preview ID for the PV preview viewer
    * - file_info_extended
      - :carta:refc:`FileInfoExtended`
      - 
@@ -856,7 +860,7 @@ Response to a :carta:refc:`PV_REQUEST` in preview mode
    * - raw_values_fp32
      - bytes
      - 
-     - Downsampled PV image data
+     - PV preview image data
 
 .. carta:class:: carta-sub pvpreviewsettings
 
@@ -867,7 +871,7 @@ PvPreviewSettings
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
-Parameters of a :carta:refc:`PV_REQUEST` in preview mode
+Preview parameters of a :carta:refc:`PV_REQUEST`
 
 .. list-table::
    :widths: 20 20 20 40
@@ -878,6 +882,10 @@ Parameters of a :carta:refc:`PV_REQUEST` in preview mode
      - Type
      - Label
      - Description
+   * - preview_id
+     - sfixed32
+     - 
+     - Preview ID for the PV preview viewer
    * - region_id
      - sfixed32
      - 

@@ -242,20 +242,24 @@ message GaussianComponent {
     double pa = 4;
 }
 
-// Parameters of a PV_REQUEST in preview mode
+// Preview parameters of a PV_REQUEST
 message PvPreviewSettings {
+    // Preview ID for the PV preview viewer
+    sfixed32 preview_id = 1;
     // Region ID for the subimage in the xy plane
-    sfixed32 region_id = 1;
+    sfixed32 region_id = 2;
     // Downsampling in xy axes
-    sfixed32 rebin_xy = 2;
+    sfixed32 rebin_xy = 3;
     // Downsampling in z axis
-    sfixed32 rebin_z = 3;
+    sfixed32 rebin_z = 4;
 }
 
-// Response to a PV_REQUEST in preview mode
+// Image returned for a PV_REQUEST in preview mode
 message PvPreviewImage {
+    // Preview ID for the PV preview viewer
+    sfixed32 preview_id = 1;
     // Extended file info (WCS, header info)
-    FileInfoExtended file_info_extended = 1;
-    // Downsampled PV image data
+    FileInfoExtended file_info_extended = 2;
+    // PV preview image data
     bytes raw_values_fp32 = 3;
-}    
+}

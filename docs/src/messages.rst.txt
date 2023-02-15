@@ -387,6 +387,31 @@ Instructs the backend to close a file with a given file ID
      - 
      - Which "file" slot to close
 
+.. carta:class:: carta-f2b closepvpreview
+
+.. _closepvpreview:
+
+ClosePvPreview
+~~~~~~~~~~~~~~
+
+Source file: `control/stop_pv_calc.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/stop_pv_calc.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - preview_id
+     - sfixed32
+     - 
+     - Close the PV preview for the preview viewer id
+
 .. carta:class:: carta-f2b concatstokesfiles
 
 .. _concatstokesfiles:
@@ -1463,7 +1488,11 @@ Source file: `request/pv_request.proto <https://github.com/CARTAvis/carta-protob
    * - file_id
      - sfixed32
      - 
-     - File ID of the source image
+     - File ID of the source image for the PV generator
+   * - preview_id
+     - sfixed32
+     - 
+     - Preview ID of the PV preview viewer
    * - progress
      - float
      - 
@@ -3132,7 +3161,7 @@ Source file: `control/stop_pv_calc.proto <https://github.com/CARTAvis/carta-prot
    * - file_id
      - sfixed32
      - 
-     - Cancel the PV image/preview calculation for the image file id
+     - Stop the PV image calculation for the image file id
 
 .. carta:class:: carta-f2b stoppvpreview
 
@@ -3154,10 +3183,10 @@ Source file: `control/stop_pv_calc.proto <https://github.com/CARTAvis/carta-prot
      - Type
      - Label
      - Description
-   * - file_id
+   * - preview_id
      - sfixed32
      - 
-     - Stop the PV preview for the image file id to release resources
+     - Stop the PV preview for the preview viewer id
 
 .. carta:class:: carta-b2f vectoroverlaytiledata
 
