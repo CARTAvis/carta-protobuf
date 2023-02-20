@@ -24,7 +24,7 @@ message FittingRequest {
     // Whether to create a residual image of the fitting result
     bool create_residual_image = 7;
     // Background level offset
-    float offset = 8;
+    double offset = 8;
     // Solver of the linear least squares system in the fitting
     FittingSolverType solver = 9;
 }
