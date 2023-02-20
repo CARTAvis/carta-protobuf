@@ -13,7 +13,7 @@ message FittingRequest {
     sfixed32 file_id = 1;
     // Initial values for 2D Gaussian fitting
     repeated GaussianComponent initial_values = 2;
-    // Whether each parameter (in the order of center, amplitude, FWHM, and p.a.) should be fixed when fitting
+    // Whether each parameter (in the order of center, amplitude, FWHM, and p.a., and with background offset at the end) should be fixed when fitting
     repeated bool fixed_params = 3;
     // Region ID. Apply field of view if the id is 0; apply the entire image if the id is -1
     sfixed32 region_id = 4;
