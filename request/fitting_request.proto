@@ -47,6 +47,10 @@ message FittingResponse {
     OpenFileAck model_image = 6;
     // Fitting result: residual image
     OpenFileAck residual_image = 7;
+    // Fitting result: background level offset
+    double offset_value = 8;
+    // Fitting result: error of background level offset
+    double offset_error = 9;
 }
 
 // FITTING_PROGRESS:
