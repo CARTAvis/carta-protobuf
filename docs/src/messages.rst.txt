@@ -1465,6 +1465,39 @@ Response for :carta:refc:`OPEN_FILE`. Also supplies file information
      - repeated
      - :carta:refc:`Beam` table for multiple-beam images
 
+.. carta:class:: carta-b2f pvpreviewdata
+
+.. _pvpreviewdata:
+
+PvPreviewData
+~~~~~~~~~~~~~
+
+Source file: `stream/pv_preview.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/pv_preview.proto>`_
+
+Data stream for PV preview image
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - preview_id
+     - sfixed32
+     - 
+     - Preview ID for the PV preview viewer
+   * - image_info
+     - :carta:refc:`FileInfoExtended`
+     - 
+     - PV preview image extended file info
+   * - image_data
+     - bytes
+     - 
+     - PV preview image data (uncompressed FP32)
+
 .. carta:class:: carta-b2f pvprogress
 
 .. _pvprogress:
@@ -1578,11 +1611,11 @@ Source file: `request/pv_request.proto <https://github.com/CARTAvis/carta-protob
    * - open_file_ack
      - :carta:refc:`OpenFileAck`
      - 
-     - :carta:refc:`PV_REQUEST` generator result: generated PV image
-   * - preview_image
-     - :carta:refc:`PvPreviewImage`
+     - PV generator result: generated PV image
+   * - preview_data
+     - :carta:refc:`PvPreviewData`
      - 
-     - :carta:refc:`PV_REQUEST` preview result: generated PV image
+     - PV preview result: generated PV image
    * - cancel
      - bool
      - 

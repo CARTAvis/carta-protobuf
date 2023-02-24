@@ -3,6 +3,7 @@ package CARTA;
 
 import "defs.proto";
 import "open_file.proto";
+import "pv_preview.proto";
 
 message PvRequest {
     // File ID of the source image
@@ -26,10 +27,10 @@ message PvResponse {
     bool success = 1;
     // Error message (if applicable)
     string message = 2;
-    // PV_REQUEST generator result: generated PV image
+    // PV generator result: generated PV image
     OpenFileAck open_file_ack = 3;
-    // PV_REQUEST preview result: generated PV image
-    PvPreviewImage preview_image = 4;
+    // PV preview result: generated PV image
+    PvPreviewData preview_data = 4;
     // Defines whether PV_REQUEST was canceled
     bool cancel = 5;
 }

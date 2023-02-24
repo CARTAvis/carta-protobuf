@@ -77,8 +77,9 @@ enum EventType {
     VECTOR_OVERLAY_TILE_DATA = 82;
     FITTING_PROGRESS = 83;
     STOP_FITTING = 84;
-    STOP_PV_PREVIEW = 85;
-    CLOSE_PV_PREVIEW = 86;
+    PV_PREVIEW_DATA = 85;
+    STOP_PV_PREVIEW = 86;
+    CLOSE_PV_PREVIEW = 87;
 }
 
 enum SessionType {

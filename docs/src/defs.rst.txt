@@ -829,39 +829,6 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
 
-.. carta:class:: carta-sub pvpreviewimage
-
-.. _pvpreviewimage:
-
-PvPreviewImage
-~~~~~~~~~~~~~~
-
-Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
-
-Image returned for a :carta:refc:`PV_REQUEST` in preview mode
-
-.. list-table::
-   :widths: 20 20 20 40
-   :header-rows: 1
-   :class: proto
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - preview_id
-     - sfixed32
-     - 
-     - Preview ID for the PV preview viewer
-   * - file_info_extended
-     - :carta:refc:`FileInfoExtended`
-     - 
-     - Extended file info (WCS, header info)
-   * - raw_values_fp32
-     - bytes
-     - 
-     - PV preview image data
-
 .. carta:class:: carta-sub pvpreviewsettings
 
 .. _pvpreviewsettings:

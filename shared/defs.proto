@@ -253,13 +253,3 @@ message PvPreviewSettings {
     // Downsampling in z axis
     sfixed32 rebin_z = 4;
 }
-
-// Image returned for a PV_REQUEST in preview mode
-message PvPreviewImage {
-    // Preview ID for the PV preview viewer
-    sfixed32 preview_id = 1;
-    // Extended file info (WCS, header info)
-    FileInfoExtended file_info_extended = 2;
-    // PV preview image data
-    bytes raw_values_fp32 = 3;
-}

@@ -1,0 +1,14 @@
+syntax = "proto3";
+package CARTA;
+
+import "defs.proto";
+
+// Data stream for PV preview image
+message PvPreviewData {
+    // Preview ID for the PV preview viewer
+    sfixed32 preview_id = 1;
+    // PV preview image extended file info
+    FileInfoExtended image_info = 2;
+    // PV preview image data (uncompressed FP32)
+    bytes image_data = 3;
+}
