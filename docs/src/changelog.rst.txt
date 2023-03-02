@@ -190,7 +190,7 @@ Changelog
      - 05/12/22
      - Added additional fields to :carta:ref:`FittingRequest` and :carta:ref:`FittingResponse` for generating model and residual images. Added :carta:ref:`FittingProgress` and :carta:ref:`StopFitting` messages for updating progress and canceling tasks.
    * - ``28.5.0``
-     - 23/02/23
+     - 23/03/02
      - Added sub-message :carta:ref:`PvPreviewSettings` to :carta:ref:`PvRequest` and message :carta:ref:`PvPreviewData` to :carta:ref:`PvResponse` for generating a PV preview image. Added :carta:ref:`StopPvPreview` to cancel preview image and :carta:ref:`ClosePvPreview` to release preview resources.
 
 Versioning

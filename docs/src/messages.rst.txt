@@ -1497,6 +1497,18 @@ Data stream for PV preview image
      - bytes
      - 
      - PV preview image data (uncompressed FP32)
+   * - width
+     - sfixed32
+     - 
+     - Dimensions of data
+   * - height
+     - sfixed32
+     - 
+     - 
+   * - histogram_bounds
+     - :carta:refc:`FloatBounds`
+     - 
+     - :carta:refc:`Histogram` min/max, for rendering
 
 .. carta:class:: carta-b2f pvprogress
 

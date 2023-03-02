@@ -11,4 +11,9 @@ message PvPreviewData {
     FileInfoExtended image_info = 2;
     // PV preview image data (uncompressed FP32)
     bytes image_data = 3;
+    // Dimensions of data
+    sfixed32 width = 4;
+    sfixed32 height = 5;
+    // Histogram min/max, for rendering
+    FloatBounds histogram_bounds = 6;
 }
