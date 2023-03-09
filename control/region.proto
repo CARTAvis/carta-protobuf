@@ -12,6 +12,8 @@ message SetRegion {
     sfixed32 region_id = 2;
     // Region parameters
     RegionInfo region_info = 3;
+    // Update region for pv preview only
+    bool preview_region = 4;
 }
 
 
