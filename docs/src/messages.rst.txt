@@ -2537,6 +2537,10 @@ Creates or updates a region. Backend responds with :carta:refc:`SET_REGION_ACK`
      - :carta:refc:`RegionInfo`
      - 
      - Region parameters
+   * - preview_region
+     - bool
+     - 
+     - Update region for pv preview only
 
 .. carta:class:: carta-b2f setregionack
 
