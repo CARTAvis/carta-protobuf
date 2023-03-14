@@ -62,10 +62,10 @@ message HeaderEntry {
 }
 
 message AxesNumbers {
-    // Direction X axis number
-    sfixed32 dir_x = 1;
-    // Direction Y axis number
-    sfixed32 dir_y = 2;
+    // Spatial X axis number
+    sfixed32 spatial_x = 1;
+    // Spatial Y axis number
+    sfixed32 spatial_y = 2;
     // Spectral axis number
     sfixed32 spectral = 3;
     // Stokes axis number

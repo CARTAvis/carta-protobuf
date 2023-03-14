@@ -47,14 +47,14 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - Type
      - Label
      - Description
-   * - dir_x
+   * - spatial_x
      - sfixed32
      - 
-     - Direction X axis number
-   * - dir_y
+     - Spatial X axis number
+   * - spatial_y
      - sfixed32
      - 
-     - Direction Y axis number
+     - Spatial Y axis number
    * - spectral
      - sfixed32
      - 
