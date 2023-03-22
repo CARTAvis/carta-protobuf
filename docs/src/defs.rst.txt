@@ -27,6 +27,47 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
 
+.. carta:class:: carta-sub axesnumbers
+
+.. _axesnumbers:
+
+AxesNumbers
+~~~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - spatial_x
+     - sfixed32
+     - 
+     - Spatial X axis number
+   * - spatial_y
+     - sfixed32
+     - 
+     - Spatial Y axis number
+   * - spectral
+     - sfixed32
+     - 
+     - Spectral axis number
+   * - stokes
+     - sfixed32
+     - 
+     - Stokes axis number
+   * - depth
+     - sfixed32
+     - 
+     - Depth axis is non-render axis that is not stokes (if any)
+
 .. carta:class:: carta-sub beam
 
 .. _beam:
@@ -437,6 +478,10 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - :carta:refc:`HeaderEntry`
      - repeated
      - 
+   * - axes_numbers
+     - :carta:refc:`AxesNumbers`
+     - 
+     - Axes numbers for directions, spectral, and stokes
 
 .. carta:class:: carta-sub filterconfig
 
