@@ -190,7 +190,10 @@ Changelog
      - 05/12/22
      - Added additional fields to :carta:ref:`FittingRequest` and :carta:ref:`FittingResponse` for generating model and residual images. Added :carta:ref:`FittingProgress` and :carta:ref:`StopFitting` messages for updaing progress and canceling tasks.
    * - ``28.5.0``
-     - 21/02/23
+     - 10/01/23
+     - Added axes numbers to :carta:ref:`FileInfoExtended` message for dealing with swapped axes image cubes.
+   * - ``28.6.0``
+     - 22/03/23
      - Added annotation regions to :carta:ref:`RegionType` and added additional style parameters in :carta:ref:`AnnotationStyle` to :carta:ref:`RegionStyle`.
 
 Versioning

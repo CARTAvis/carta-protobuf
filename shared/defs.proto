@@ -49,6 +49,8 @@ message FileInfoExtended {
     // Header entries from header string or attributes
     repeated HeaderEntry header_entries = 7;
     repeated HeaderEntry computed_entries = 8;
+    // Axes numbers for directions, spectral, and stokes
+    AxesNumbers axes_numbers = 9;
 }
 
 message HeaderEntry {
@@ -57,6 +59,19 @@ message HeaderEntry {
     EntryType entry_type = 3;
     double numeric_value = 4;
     string comment = 5;
+}
+
+message AxesNumbers {
+    // Spatial X axis number
+    sfixed32 spatial_x = 1;
+    // Spatial Y axis number
+    sfixed32 spatial_y = 2;
+    // Spectral axis number
+    sfixed32 spectral = 3;
+    // Stokes axis number
+    sfixed32 stokes = 4;
+    // Depth axis is non-render axis that is not stokes (if any)
+    sfixed32 depth = 5;
 }
 
 message IntBounds {
