@@ -13,7 +13,7 @@ message FittingRequest {
     sfixed32 file_id = 1;
     // Initial values for 2D Gaussian fitting
     repeated GaussianComponent initial_values = 2;
-    // Whether each parameter (in the order of center, amplitude, FWHM, and p.a.) should be fixed when fitting
+    // Whether each parameter (in the order of center, amplitude, FWHM, and p.a., and with background offset at the end) should be fixed when fitting
     repeated bool fixed_params = 3;
     // Region ID. Apply field of view if the id is 0; apply the entire image if the id is -1
     sfixed32 region_id = 4;
@@ -24,7 +24,7 @@ message FittingRequest {
     // Whether to create a residual image of the fitting result
     bool create_residual_image = 7;
     // Background level offset
-    float offset = 8;
+    double offset = 8;
     // Solver of the linear least squares system in the fitting
     FittingSolverType solver = 9;
 }
@@ -47,6 +47,10 @@ message FittingResponse {
     OpenFileAck model_image = 6;
     // Fitting result: residual image
     OpenFileAck residual_image = 7;
+    // Fitting result: background level offset
+    double offset_value = 8;
+    // Fitting result: error of background level offset
+    double offset_error = 9;
 }
 
 // FITTING_PROGRESS:

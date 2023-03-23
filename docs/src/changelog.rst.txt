@@ -192,6 +192,9 @@ Changelog
    * - ``28.5.0``
      - 10/01/23
      - Added axes numbers to :carta:ref:`FileInfoExtended` message for dealing with swapped axes image cubes.
+   * - ``28.6.0``
+     - 17/03/23
+     - Added additional fields to :carta:ref:`FittingResponse` for image fitting background offset as a free parameter.
 
 Versioning
 ----------
