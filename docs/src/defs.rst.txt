@@ -27,6 +27,71 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
 
+.. carta:class:: carta-sub annotationstyle
+
+.. _annotationstyle:
+
+AnnotationStyle
+~~~~~~~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - point_shape
+     - :carta:refc:`PointAnnotationShape`
+     - 
+     - :carta:refc:`Point` annotation shape
+   * - point_width
+     - sfixed32
+     - 
+     - :carta:refc:`Point` annotation width
+   * - text_label0
+     - string
+     - 
+     - Text annotation text / Compass annotation north label
+   * - text_label1
+     - string
+     - 
+     - Compass annotation east label
+   * - coordinate_system
+     - string
+     - 
+     - Compass and Ruler coordinate sytem
+   * - is_north_arrow
+     - bool
+     - 
+     - Compass annotation north arrowhead
+   * - is_east_arrow
+     - bool
+     - 
+     - Compass annotation east arrowhead
+   * - text_position
+     - :carta:refc:`TextAnnotationPosition`
+     - 
+     - Text annotation position
+   * - font_style
+     - string
+     - 
+     - Font style (bold, italic, bold_italic)
+   * - font
+     - string
+     - 
+     - Font (Times / Helvetica / Courier)
+   * - font_size
+     - sfixed32
+     - 
+     - Font size for Text, Compass, Ruler
+
 .. carta:class:: carta-sub axesnumbers
 
 .. _axesnumbers:
@@ -943,6 +1008,10 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - sfixed32
      - repeated
      - Dash length: on, off
+   * - annotation_style
+     - :carta:refc:`AnnotationStyle`
+     - 
+     - Annotation Styles
 
 .. carta:class:: carta-sub spatialprofile
 

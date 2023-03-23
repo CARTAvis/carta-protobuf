@@ -195,6 +195,9 @@ Changelog
    * - ``28.6.0``
      - 17/03/23
      - Added additional fields to :carta:ref:`FittingResponse` for image fitting background offset as a free parameter.
+   * - ``28.7.0``
+     - 23/03/23
+     - Added annotation regions to :carta:ref:`RegionType` and added additional style parameters in :carta:ref:`AnnotationStyle` to :carta:ref:`RegionStyle`.
 
 Versioning
 ----------
