@@ -116,6 +116,16 @@ enum RegionType {
     ELLIPSE = 4;
     ANNULUS = 5;
     POLYGON = 6;
+    ANNPOINT = 7;
+    ANNLINE = 8;
+    ANNPOLYLINE = 9;
+    ANNRECTANGLE = 10;
+    ANNELLIPSE = 11;
+    ANNPOLYGON = 12;
+    ANNVECTOR = 13;
+    ANNRULER = 14;
+    ANNTEXT = 15;
+    ANNCOMPASS = 16;
 }
 
 enum SmoothingMode {
@@ -302,6 +312,29 @@ enum FileListFilterMode {
 enum ProfileAxisType {
     Offset = 0;
     Distance = 1;
+}
+
+enum PointAnnotationShape {
+    SQUARE = 0;
+    BOX = 1;
+    CIRCLE = 2;
+    CIRCLE_LINED = 3;
+    DIAMOND = 4;
+    DIAMOND_LINED = 5;
+    CROSS = 6;
+    X = 7;
+}
+
+enum TextAnnotationPosition {
+    CENTER = 0;
+    UPPER_LEFT = 1;
+    UPPER_RIGHT = 2;
+    LOWER_LEFT = 3;
+    LOWER_RIGHT = 4;
+    TOP = 5;
+    BOTTOM = 6;
+    LEFT = 7;
+    RIGHT = 8;
 }
 
 // Types of solvers for the linear least squares system in image fittings

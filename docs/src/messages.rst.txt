@@ -911,7 +911,7 @@ Backend responds with :carta:refc:`FITTING_RESPONSE`
    * - fixed_params
      - bool
      - repeated
-     - Whether each parameter (in the order of center, amplitude, FWHM, and p.a.) should be fixed when fitting
+     - Whether each parameter (in the order of center, amplitude, FWHM, and p.a., and with background offset at the end) should be fixed when fitting
    * - region_id
      - sfixed32
      - 
@@ -929,7 +929,7 @@ Backend responds with :carta:refc:`FITTING_RESPONSE`
      - 
      - Whether to create a residual image of the fitting result
    * - offset
-     - float
+     - double
      - 
      - Background level offset
    * - solver
@@ -987,6 +987,14 @@ Gives results and log of 2D Gaussian image fitting.
      - :carta:refc:`OpenFileAck`
      - 
      - Fitting result: residual image
+   * - offset_value
+     - double
+     - 
+     - Fitting result: background level offset
+   * - offset_error
+     - double
+     - 
+     - Fitting result: error of background level offset
 
 .. carta:class:: carta-f2b histogramconfig
 
