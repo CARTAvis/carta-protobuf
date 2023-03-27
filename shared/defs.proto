@@ -139,6 +139,16 @@ message Histogram {
     double std_dev = 6;
 }
 
+message HistogramConfig {
+    string coordinate = 1;
+    sfixed32 channel = 2;
+    bool fixed_num_bins = 3;
+    sfixed32 num_bins = 4;
+    double bin_width = 5;
+    bool fixed_bounds = 6;
+    FloatBounds bounds = 7;
+}
+
 message RegionInfo {
     // The type of region described by the control points. The meaning of the control points will differ,
     // depending on the type of region being defined.

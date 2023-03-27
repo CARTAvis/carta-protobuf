@@ -741,6 +741,55 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
 
+.. carta:class:: carta-sub histogramconfig
+
+.. _histogramconfig:
+
+HistogramConfig
+~~~~~~~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - coordinate
+     - string
+     - 
+     - 
+   * - channel
+     - sfixed32
+     - 
+     - 
+   * - fixed_num_bins
+     - bool
+     - 
+     - 
+   * - num_bins
+     - sfixed32
+     - 
+     - 
+   * - bin_width
+     - double
+     - 
+     - 
+   * - fixed_bounds
+     - bool
+     - 
+     - 
+   * - bounds
+     - :carta:refc:`FloatBounds`
+     - 
+     - 
+
 .. carta:class:: carta-sub imagebounds
 
 .. _imagebounds:
