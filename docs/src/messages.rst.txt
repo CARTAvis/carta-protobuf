@@ -1003,6 +1003,14 @@ Source file: `control/region_requirements.proto <https://github.com/CARTAvis/car
      - sfixed32
      - 
      - 
+   * - fixed_bounds
+     - bool
+     - 
+     - 
+   * - bounds
+     - :carta:refc:`FloatBounds`
+     - 
+     - 
 
 .. carta:class:: carta-f2b imageproperties
 
