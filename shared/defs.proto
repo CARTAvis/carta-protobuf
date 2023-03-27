@@ -49,6 +49,8 @@ message FileInfoExtended {
     // Header entries from header string or attributes
     repeated HeaderEntry header_entries = 7;
     repeated HeaderEntry computed_entries = 8;
+    // Axes numbers for directions, spectral, and stokes
+    AxesNumbers axes_numbers = 9;
 }
 
 message HeaderEntry {
@@ -57,6 +59,19 @@ message HeaderEntry {
     EntryType entry_type = 3;
     double numeric_value = 4;
     string comment = 5;
+}
+
+message AxesNumbers {
+    // Spatial X axis number
+    sfixed32 spatial_x = 1;
+    // Spatial Y axis number
+    sfixed32 spatial_y = 2;
+    // Spectral axis number
+    sfixed32 spectral = 3;
+    // Stokes axis number
+    sfixed32 stokes = 4;
+    // Depth axis is non-render axis that is not stokes (if any)
+    sfixed32 depth = 5;
 }
 
 message IntBounds {
@@ -143,6 +158,33 @@ message RegionStyle {
     sfixed32 line_width = 3;
     // Dash length: on, off
     repeated sfixed32 dash_list = 4;
+    // Annotation Styles
+    AnnotationStyle annotation_style = 5;
+}
+
+message AnnotationStyle {
+    // Point annotation shape
+    PointAnnotationShape point_shape = 1;
+    // Point annotation width
+    sfixed32 point_width = 2;
+    // Text annotation text / Compass annotation north label
+    string text_label0 = 3;
+    // Compass annotation east label
+    string text_label1 = 4;
+    // Compass and Ruler coordinate sytem
+    string coordinate_system = 5;
+    // Compass annotation north arrowhead
+    bool is_north_arrow = 6;
+    // Compass annotation east arrowhead
+    bool is_east_arrow = 7;
+    // Text annotation position
+    TextAnnotationPosition text_position = 8;
+    // Font style (bold, italic, bold_italic)
+    string font_style = 9;
+    // Font (Times / Helvetica / Courier)
+    string font = 10;
+    // Font size for Text, Compass, Ruler
+    sfixed32 font_size = 11;
 }
 
 message CatalogFileInfo {
