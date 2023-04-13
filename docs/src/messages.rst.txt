@@ -1517,6 +1517,10 @@ Data stream for PV preview image
      - :carta:refc:`FloatBounds`
      - 
      - :carta:refc:`Histogram` min/max, for rendering
+   * - histogram
+     - :carta:refc:`Histogram`
+     - 
+     - :carta:refc:`Histogram`, to tune rendering
 
 .. carta:class:: carta-b2f pvprogress
 
