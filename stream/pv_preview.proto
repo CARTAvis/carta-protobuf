@@ -16,4 +16,6 @@ message PvPreviewData {
     sfixed32 height = 5;
     // Histogram min/max, for rendering
     FloatBounds histogram_bounds = 6;
+    // Histogram, to tune rendering
+    Histogram histogram = 7;
 }
