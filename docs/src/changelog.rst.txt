@@ -198,6 +198,9 @@ Changelog
    * - ``28.7.0``
      - 23/03/23
      - Added annotation regions to :carta:ref:`RegionType` and added additional style parameters in :carta:ref:`AnnotationStyle` to :carta:ref:`RegionStyle`.
+   * - ``28.8.0``
+     - 14/04/23
+     - Added number of bins and pixel bounds to :carta:ref:`HistogramConfig` in :carta:ref:`SetHistogramRequirements` message. Added :carta:ref:`HistogramConfig` to :carta:ref:`RegionHistogramData` message.
 
 Versioning
 ----------
