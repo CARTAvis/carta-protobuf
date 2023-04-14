@@ -777,10 +777,6 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - sfixed32
      - 
      - 
-   * - bin_width
-     - double
-     - 
-     - 
    * - fixed_bounds
      - bool
      - 
