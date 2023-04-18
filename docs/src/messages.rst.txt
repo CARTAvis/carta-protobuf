@@ -1500,11 +1500,15 @@ Data stream for PV preview image
    * - image_info
      - :carta:refc:`FileInfoExtended`
      - 
-     - PV preview image extended file info
+     - Image extended file info
    * - image_data
      - bytes
      - 
-     - PV preview image data (uncompressed FP32)
+     - Image data. For uncompressed data, this is converted into FP32, while for compressed data, this is passed to the compression library for decompression.
+   * - nan_encodings
+     - bytes
+     - 
+     - Run-length encodings of NaN values used to restore the NaN values after decompression.
    * - width
      - sfixed32
      - 
