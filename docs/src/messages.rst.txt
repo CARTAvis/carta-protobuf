@@ -1513,6 +1513,14 @@ Data stream for PV preview image
      - sfixed32
      - 
      - 
+   * - compression_type
+     - :carta:refc:`CompressionType`
+     - 
+     - The compression algorithm used
+   * - compression_quality
+     - float
+     - 
+     - Compression quality switch
    * - histogram_bounds
      - :carta:refc:`FloatBounds`
      - 

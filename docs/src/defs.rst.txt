@@ -975,6 +975,14 @@ Preview parameters of a :carta:refc:`PV_REQUEST`
      - sfixed32
      - 
      - Downsampling in z axis
+   * - compression_type
+     - :carta:refc:`CompressionType`
+     - 
+     - The compression algorithm to use
+   * - compression_quality
+     - float
+     - 
+     - Compression quality switch
 
 .. carta:class:: carta-sub regioninfo
 

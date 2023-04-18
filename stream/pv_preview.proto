@@ -2,6 +2,7 @@ syntax = "proto3";
 package CARTA;
 
 import "defs.proto";
+import "enums.proto";
 
 // Data stream for PV preview image
 message PvPreviewData {
@@ -14,8 +15,12 @@ message PvPreviewData {
     // Dimensions of data
     sfixed32 width = 4;
     sfixed32 height = 5;
+    // The compression algorithm used
+    CompressionType compression_type = 6;
+    // Compression quality switch
+    float compression_quality = 7;
     // Histogram min/max, for rendering
-    FloatBounds histogram_bounds = 6;
+    FloatBounds histogram_bounds = 8;
     // Histogram, to tune rendering
-    Histogram histogram = 7;
+    Histogram histogram = 9;
 }

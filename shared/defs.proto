@@ -294,4 +294,8 @@ message PvPreviewSettings {
     sfixed32 rebin_xy = 3;
     // Downsampling in z axis
     sfixed32 rebin_z = 4;
+    // The compression algorithm to use
+    CompressionType compression_type = 5;
+    // Compression quality switch
+    float compression_quality = 6;
 }
