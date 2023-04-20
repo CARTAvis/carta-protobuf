@@ -979,10 +979,14 @@ Preview parameters of a :carta:refc:`PV_REQUEST`
      - :carta:refc:`CompressionType`
      - 
      - The compression algorithm to use
-   * - compression_quality
+   * - image_compression_quality
      - float
      - 
-     - Compression quality switch
+     - Compression quality from frontend performance preferences
+   * - animation_compression_quality
+     - float
+     - 
+     - 
 
 .. carta:class:: carta-sub regioninfo
 

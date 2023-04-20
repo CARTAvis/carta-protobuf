@@ -296,6 +296,7 @@ message PvPreviewSettings {
     sfixed32 rebin_z = 4;
     // The compression algorithm to use
     CompressionType compression_type = 5;
-    // Compression quality switch
-    float compression_quality = 6;
+    // Compression quality from frontend performance preferences
+    float image_compression_quality = 6;
+    float animation_compression_quality = 7;
 }
