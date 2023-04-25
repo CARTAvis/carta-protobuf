@@ -782,7 +782,7 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
    * - bounds
-     - :carta:refc:`FloatBounds`
+     - :carta:refc:`DoubleBounds`
      - 
      - 
 
