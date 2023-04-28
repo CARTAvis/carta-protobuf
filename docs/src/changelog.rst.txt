@@ -190,17 +190,17 @@ Changelog
      - 05/12/22
      - Added additional fields to :carta:ref:`FittingRequest` and :carta:ref:`FittingResponse` for generating model and residual images. Added :carta:ref:`FittingProgress` and :carta:ref:`StopFitting` messages for updating progress and canceling tasks.
    * - ``28.5.0``
-     - 23/03/02
-     - Added sub-message :carta:ref:`PvPreviewSettings` to :carta:ref:`PvRequest` and message :carta:ref:`PvPreviewData` to :carta:ref:`PvResponse` for generating a PV preview image. Added :carta:ref:`StopPvPreview` to cancel preview image and :carta:ref:`ClosePvPreview` to release preview resources.
-   * - ``28.6.0``
      - 10/01/23
      - Added axes numbers to :carta:ref:`FileInfoExtended` message for dealing with swapped axes image cubes.
-   * - ``28.7.0``
+   * - ``28.6.0``
      - 17/03/23
      - Added additional fields to :carta:ref:`FittingResponse` for image fitting background offset as a free parameter.
-   * - ``28.8.0``
+   * - ``28.7.0``
      - 23/03/23
      - Added annotation regions to :carta:ref:`RegionType` and added additional style parameters in :carta:ref:`AnnotationStyle` to :carta:ref:`RegionStyle`.
+   * - ``28.8.0``
+     - 28/04/23
+     - Added sub-message :carta:ref:`PvPreviewSettings` to :carta:ref:`PvRequest` and message :carta:ref:`PvPreviewData` to :carta:ref:`PvResponse` for generating a PV preview image. Added :carta:ref:`StopPvPreview` to cancel preview image and :carta:ref:`ClosePvPreview` to release preview resources.
 
 Versioning
 ----------
