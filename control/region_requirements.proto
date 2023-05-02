@@ -1,6 +1,7 @@
 syntax = "proto3";
 package CARTA;
 
+import "defs.proto";
 import "enums.proto";
 
 // SET_STATS_REQUIREMENTS:
@@ -29,12 +30,6 @@ message SetHistogramRequirements {
     // List of required histograms, along with the number of bins. If the channel is -1, the current channel is used. If the channel is -2,
     // the histogram is constructed over all channels. If the number of bins is less than zero, an automatic bin size is used, based on the number of values.
     repeated HistogramConfig histograms = 3;
-
-    message HistogramConfig {
-        string coordinate = 1;
-        sfixed32 channel = 2;
-        sfixed32 num_bins = 3;
-    }
 }
 
 // SET_SPATIAL_REQUIREMENTS:
