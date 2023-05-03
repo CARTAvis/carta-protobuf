@@ -199,6 +199,9 @@ Changelog
      - 23/03/23
      - Added annotation regions to :carta:ref:`RegionType` and added additional style parameters in :carta:ref:`AnnotationStyle` to :carta:ref:`RegionStyle`.
    * - ``28.8.0``
+     - 14/04/23
+     - Added number of bins and pixel bounds to :carta:ref:`HistogramConfig` in :carta:ref:`SetHistogramRequirements` message. Added :carta:ref:`HistogramConfig` to :carta:ref:`RegionHistogramData` message.
+   * - ``28.9.0``
      - 28/04/23
      - Added sub-message :carta:ref:`PvPreviewSettings` to :carta:ref:`PvRequest` and message :carta:ref:`PvPreviewData` to :carta:ref:`PvResponse` for generating a PV preview image. Added :carta:ref:`StopPvPreview` to cancel preview image and :carta:ref:`ClosePvPreview` to release preview resources.
 

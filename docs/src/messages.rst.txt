@@ -996,39 +996,6 @@ Gives results and log of 2D Gaussian image fitting.
      - 
      - Fitting result: error of background level offset
 
-.. carta:class:: carta-f2b histogramconfig
-
-.. _histogramconfig:
-
-HistogramConfig
-~~~~~~~~~~~~~~~
-
-Source file: `control/region_requirements.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/region_requirements.proto>`_
-
-
-
-.. list-table::
-   :widths: 20 20 20 40
-   :header-rows: 1
-   :class: proto
-
-   * - Field
-     - Type
-     - Label
-     - Description
-   * - coordinate
-     - string
-     - 
-     - 
-   * - channel
-     - sfixed32
-     - 
-     - 
-   * - num_bins
-     - sfixed32
-     - 
-     - 
-
 .. carta:class:: carta-f2b imageproperties
 
 .. _imageproperties:
@@ -1862,6 +1829,10 @@ Stats data for a specific region
      - float
      - 
      - Progress indicator, in the case of partial histogram results being sent
+   * - config
+     - :carta:refc:`HistogramConfig`
+     - 
+     - :carta:refc:`Histogram` configuration from the frontend
 
 .. carta:class:: carta-f2b regionlistrequest
 

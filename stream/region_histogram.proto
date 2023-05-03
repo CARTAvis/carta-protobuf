@@ -18,4 +18,6 @@ message RegionHistogramData {
     Histogram histograms = 5;
     // Progress indicator, in the case of partial histogram results being sent
     float progress = 6;
+    // Histogram configuration from the frontend
+    HistogramConfig config = 7;
 }
