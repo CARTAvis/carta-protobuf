@@ -531,6 +531,15 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - :carta:refc:`STOP_FITTING`
      - 84
      - 
+   * - :carta:refc:`PV_PREVIEW_DATA`
+     - 85
+     - 
+   * - :carta:refc:`STOP_PV_PREVIEW`
+     - 86
+     - 
+   * - :carta:refc:`CLOSE_PV_PREVIEW`
+     - 87
+     - 
 
 .. carta:class:: carta-sub filefeatureflags
 

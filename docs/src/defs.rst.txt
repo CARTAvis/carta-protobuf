@@ -984,6 +984,55 @@ Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob
      - 
      - 
 
+.. carta:class:: carta-sub pvpreviewsettings
+
+.. _pvpreviewsettings:
+
+PvPreviewSettings
+~~~~~~~~~~~~~~~~~
+
+Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
+
+Preview parameters of a :carta:refc:`PV_REQUEST`
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - preview_id
+     - sfixed32
+     - 
+     - Preview ID for the PV preview viewer
+   * - region_id
+     - sfixed32
+     - 
+     - Region ID for the subimage in the xy plane
+   * - rebin_xy
+     - sfixed32
+     - 
+     - Downsampling in xy axes
+   * - rebin_z
+     - sfixed32
+     - 
+     - Downsampling in z axis
+   * - compression_type
+     - :carta:refc:`CompressionType`
+     - 
+     - The compression algorithm to use
+   * - image_compression_quality
+     - float
+     - 
+     - Compression quality from frontend performance preferences
+   * - animation_compression_quality
+     - float
+     - 
+     - 
+
 .. carta:class:: carta-sub regioninfo
 
 .. _regioninfo:

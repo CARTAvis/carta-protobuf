@@ -292,3 +292,20 @@ message GaussianComponent {
     // position angle in degrees
     double pa = 4;
 }
+
+// Preview parameters of a PV_REQUEST
+message PvPreviewSettings {
+    // Preview ID for the PV preview viewer
+    sfixed32 preview_id = 1;
+    // Region ID for the subimage in the xy plane
+    sfixed32 region_id = 2;
+    // Downsampling in xy axes
+    sfixed32 rebin_xy = 3;
+    // Downsampling in z axis
+    sfixed32 rebin_z = 4;
+    // The compression algorithm to use
+    CompressionType compression_type = 5;
+    // Compression quality from frontend performance preferences
+    float image_compression_quality = 6;
+    float animation_compression_quality = 7;
+}

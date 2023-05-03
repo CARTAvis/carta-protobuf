@@ -387,6 +387,31 @@ Instructs the backend to close a file with a given file ID
      - 
      - Which "file" slot to close
 
+.. carta:class:: carta-f2b closepvpreview
+
+.. _closepvpreview:
+
+ClosePvPreview
+~~~~~~~~~~~~~~
+
+Source file: `control/stop_pv_calc.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/stop_pv_calc.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - preview_id
+     - sfixed32
+     - 
+     - Close the PV preview for the preview viewer id
+
 .. carta:class:: carta-f2b concatstokesfiles
 
 .. _concatstokesfiles:
@@ -1415,6 +1440,67 @@ Response for :carta:refc:`OPEN_FILE`. Also supplies file information
      - repeated
      - :carta:refc:`Beam` table for multiple-beam images
 
+.. carta:class:: carta-b2f pvpreviewdata
+
+.. _pvpreviewdata:
+
+PvPreviewData
+~~~~~~~~~~~~~
+
+Source file: `stream/pv_preview.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/stream/pv_preview.proto>`_
+
+Data stream for PV preview image
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - preview_id
+     - sfixed32
+     - 
+     - Preview ID for the PV preview viewer
+   * - image_info
+     - :carta:refc:`FileInfoExtended`
+     - 
+     - Image extended file info
+   * - image_data
+     - bytes
+     - 
+     - Image data. For uncompressed data, this is converted into FP32, while for compressed data, this is passed to the compression library for decompression.
+   * - nan_encodings
+     - bytes
+     - 
+     - Run-length encodings of NaN values used to restore the NaN values after decompression.
+   * - width
+     - sfixed32
+     - 
+     - Dimensions of data
+   * - height
+     - sfixed32
+     - 
+     - 
+   * - compression_type
+     - :carta:refc:`CompressionType`
+     - 
+     - The compression algorithm used
+   * - compression_quality
+     - float
+     - 
+     - Compression quality switch
+   * - histogram_bounds
+     - :carta:refc:`FloatBounds`
+     - 
+     - :carta:refc:`Histogram` min/max, for rendering
+   * - histogram
+     - :carta:refc:`Histogram`
+     - 
+     - :carta:refc:`Histogram`, to tune rendering
+
 .. carta:class:: carta-b2f pvprogress
 
 .. _pvprogress:
@@ -1438,11 +1524,15 @@ Source file: `request/pv_request.proto <https://github.com/CARTAvis/carta-protob
    * - file_id
      - sfixed32
      - 
+     - File ID of the source image for the PV generator
+   * - preview_id
+     - sfixed32
      - 
+     - Preview ID of the PV preview viewer
    * - progress
      - float
      - 
-     - 
+     - Progress indicator, ranging from 0 to 1
 
 .. carta:class:: carta-f2b pvrequest
 
@@ -1467,27 +1557,31 @@ Source file: `request/pv_request.proto <https://github.com/CARTAvis/carta-protob
    * - file_id
      - sfixed32
      - 
-     - 
+     - File ID of the source image
    * - region_id
      - sfixed32
      - 
-     - 
+     - Region ID of the PV cut in the source image
    * - width
      - sfixed32
      - 
-     - 
+     - Averaging width along PV cut
    * - spectral_range
      - :carta:refc:`IntBounds`
      - 
-     - 
+     - Range of channels to be used in velocity axis
    * - reverse
      - bool
      - 
-     - 
+     - Flag whether to generate [Spatial, Spectral] image or reverse
    * - keep
      - bool
      - 
+     - Flag whether to keep or replace previously-generated images
+   * - preview_settings
+     - :carta:refc:`PvPreviewSettings`
      - 
+     - Parameters for preview mode
 
 .. carta:class:: carta-b2f pvresponse
 
@@ -1512,19 +1606,23 @@ Source file: `request/pv_request.proto <https://github.com/CARTAvis/carta-protob
    * - success
      - bool
      - 
-     - 
+     - Defines whether :carta:refc:`PV_REQUEST` was successful
    * - message
      - string
      - 
-     - 
+     - Error message (if applicable)
    * - open_file_ack
      - :carta:refc:`OpenFileAck`
      - 
+     - PV generator result: generated PV image
+   * - preview_data
+     - :carta:refc:`PvPreviewData`
      - 
+     - PV preview result: generated PV image
    * - cancel
      - bool
      - 
-     - 
+     - Defines whether :carta:refc:`PV_REQUEST` was canceled
 
 .. carta:class:: carta-b2f rastertiledata
 
@@ -2434,6 +2532,10 @@ Creates or updates a region. Backend responds with :carta:refc:`SET_REGION_ACK`
      - :carta:refc:`RegionInfo`
      - 
      - Region parameters
+   * - preview_region
+     - bool
+     - 
+     - Update region for pv preview only
 
 .. carta:class:: carta-b2f setregionack
 
@@ -3103,7 +3205,32 @@ Source file: `control/stop_pv_calc.proto <https://github.com/CARTAvis/carta-prot
    * - file_id
      - sfixed32
      - 
-     - Stop the PV image calculation with respect to the image file id
+     - Stop the PV image calculation for the image file id
+
+.. carta:class:: carta-f2b stoppvpreview
+
+.. _stoppvpreview:
+
+StopPvPreview
+~~~~~~~~~~~~~
+
+Source file: `control/stop_pv_calc.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/stop_pv_calc.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - preview_id
+     - sfixed32
+     - 
+     - Stop the PV preview for the preview viewer id
 
 .. carta:class:: carta-b2f vectoroverlaytiledata
 

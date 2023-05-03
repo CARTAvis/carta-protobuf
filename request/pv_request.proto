@@ -3,24 +3,43 @@ package CARTA;
 
 import "defs.proto";
 import "open_file.proto";
+import "pv_preview.proto";
 
 message PvRequest {
+    // File ID of the source image
     sfixed32 file_id = 1;
+    // Region ID of the PV cut in the source image
     sfixed32 region_id = 2;
+    // Averaging width along PV cut
     sfixed32 width = 3;
+    // Range of channels to be used in velocity axis
     IntBounds spectral_range = 4;
+    // Flag whether to generate [Spatial, Spectral] image or reverse
     bool reverse = 5;
+    // Flag whether to keep or replace previously-generated images
     bool keep = 6;
+    // Parameters for preview mode
+    PvPreviewSettings preview_settings = 7;
 }
 
 message PvResponse {
+    // Defines whether PV_REQUEST was successful
     bool success = 1;
+    // Error message (if applicable)
     string message = 2;
+    // PV generator result: generated PV image
     OpenFileAck open_file_ack = 3;
-    bool cancel = 4;
+    // PV preview result: generated PV image
+    PvPreviewData preview_data = 4;
+    // Defines whether PV_REQUEST was canceled
+    bool cancel = 5;
 }
 
 message PvProgress {
+    // File ID of the source image for the PV generator
     sfixed32 file_id = 1;
-    float progress = 2;
+    // Preview ID of the PV preview viewer
+    sfixed32 preview_id = 2;
+    // Progress indicator, ranging from 0 to 1
+    float progress = 3;
 }
