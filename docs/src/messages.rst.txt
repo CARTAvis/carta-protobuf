@@ -1024,6 +1024,10 @@ Source file: `control/resume_session.proto <https://github.com/CARTAvis/carta-pr
      - string
      - 
      - 
+   * - lel_expr
+     - bool
+     - 
+     - 
    * - hdu
      - string
      - 
