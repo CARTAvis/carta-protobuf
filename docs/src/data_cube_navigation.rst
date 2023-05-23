@@ -111,7 +111,7 @@ In general, one image view command will correspond to a subsequent image data st
 Animation
 ~~~~~~~~~
 
-An animation can be played back by issuing the :carta:ref:`START_ANIMATION` command. This command encapsulates all the different animation stepping and bounds parameters, in order to allow the backend to perform frame calculations and deliver image data to the front. After the the :carta:ref:`START_ANIMATION` command has been issued, the backend sends required images and analysis results of the active and spatially matched images to the frontend at a regular interval. When the user stops an animation, the frontend sends the :carta:ref:`STOP_ANIMATION` command, which includes information on the current image’s channels, so that the backend can be sure that the frontend channel state is the same as that of the backend. If the last sent frame does match the frontend channel state, the backend adjusts channels again. In order to prevent the backend from sending too many animation frames, some basic flow control is provided through :carta:ref:`ANIMATION_FLOW_CONTROL` message. This is sent from the frontend to the backend to indicate the latest frame of the active image received, preventing the backend from queuing up too many frames. The :carta:ref:`START_ANIMATION` command includes an :carta:ref:`ADD_REQUIRED_TILES` sub-message, specifying the required tiles and compression type to be used in the animation. The backend includes an animation ID field in :carta:ref:`START_ANIMATION_ACK` in order to allow the frontend to differentiate between frames of previous animations and the latest animation.
+An animation can be played back by issuing the :carta:ref:`START_ANIMATION` command. This command encapsulates all the different animation stepping and bounds parameters, in order to allow the backend to perform frame calculations and deliver image data to the front. After the the :carta:ref:`START_ANIMATION` command has been issued, the backend sends required images and analysis results of the active and spectrally matched images to the frontend at a regular interval. When the user stops an animation, the frontend sends the :carta:ref:`STOP_ANIMATION` command, which includes information on the current image’s channels, so that the backend can be sure that the frontend channel state is the same as that of the backend. If the last sent frame does match the frontend channel state, the backend adjusts channels again. In order to prevent the backend from sending too many animation frames, some basic flow control is provided through :carta:ref:`ANIMATION_FLOW_CONTROL` message. This is sent from the frontend to the backend to indicate the latest frame of the active image received, preventing the backend from queuing up too many frames. The :carta:ref:`START_ANIMATION` command includes an :carta:ref:`ADD_REQUIRED_TILES` sub-message, specifying the required tiles and compression type to be used in the animation. The backend includes an animation ID field in :carta:ref:`START_ANIMATION_ACK` in order to allow the frontend to differentiate between frames of previous animations and the latest animation.
 
 .. uml::
     
@@ -133,7 +133,7 @@ An animation can be played back by issuing the :carta:ref:`START_ANIMATION` comm
     activate Backend
     Frontend <-- Backend : START_ANIMATION_ACK
     Group For each image
-        Frontend <-- Backend : Updates for required contours, vectors, ...
+        Frontend <-- Backend : Required contours, vectors, analytics...
         alt Visible image
             Frontend <-- Backend : RASTER_TILE_SYNC
             Frontend <-- Backend : RASTER_TILE_DATA
@@ -143,7 +143,7 @@ An animation can be played back by issuing the :carta:ref:`START_ANIMATION` comm
     Frontend -> Backend: ANIMATION_FLOW_CONTROL (active image)
     User <-- Frontend: Displays updated image
     Group For each image
-        Frontend <-- Backend : Updates for required contours, vectors, ...
+        Frontend <-- Backend : Required contours, vectors, analytics...
         alt Visible image
             Frontend <-- Backend : RASTER_TILE_SYNC
             Frontend <-- Backend : RASTER_TILE_DATA
@@ -153,7 +153,7 @@ An animation can be played back by issuing the :carta:ref:`START_ANIMATION` comm
     Frontend -> Backend: ANIMATION_FLOW_CONTROL (active image)
     User <-- Frontend: Displays updated image
     Group For each image
-        Frontend <-- Backend : Updates for required contours, vectors, ...
+        Frontend <-- Backend : Required contours, vectors, analytics...
         alt Visible image
             Frontend <-- Backend : RASTER_TILE_SYNC
             Frontend <-- Backend : RASTER_TILE_DATA
@@ -171,5 +171,5 @@ An animation can be played back by issuing the :carta:ref:`START_ANIMATION` comm
     deactivate Backend
     
 
-Active and visible spatially matched images are sent as tiled data. For each image, the backend first sends the :carta:ref:`RASTER_TILE_SYNC` message with `end_sync` false. Tiled data are then sent with :carta:ref:`RASTER_TILE_DATA`. After all the tiles are sent, the backend sends the :carta:ref:`RASTER_TILE_SYNC` message again with `end_sync` true. In order to keep the image view channel and full image histogram synchronised, :carta:ref:`REGION_HISTOGRAM_DATA` messages are sent to the frontend, containing the channel histogram for the new channel. During animation playback, each animation step will result in image data stream messages, as well as any relevant analytics updates, including :carta:ref:`SPATIAL_PROFILE_DATA`, :carta:ref:`REGION_STATS_DATA`, :carta:ref:`CONTOUR_IMAGE_DATA`, and :carta:ref:`VECTOR_OVERLAY_TILE_DATA`. If zooming or panning occurs during animation, or if an image becomes visible or invisible in the image view panel, :carta:ref:`ADD_REQUIRED_TILES` messages of the frames are sent to the backend, updating the requirements. These new requirements are used in the next frame generated by the backend.
+Active and visible spectrally matched images are sent as tiled data. For each image, the backend first sends the :carta:ref:`RASTER_TILE_SYNC` message with `end_sync` false. Tiled data are then sent with :carta:ref:`RASTER_TILE_DATA`. After all the tiles are sent, the backend sends the :carta:ref:`RASTER_TILE_SYNC` message again with `end_sync` true. In order to keep the image view channel and full image histogram synchronised, :carta:ref:`REGION_HISTOGRAM_DATA` messages are sent to the frontend, containing the channel histogram for the new channel. During animation playback, each animation step will result in image data stream messages, as well as any relevant analytics updates, including :carta:ref:`SPATIAL_PROFILE_DATA`, :carta:ref:`REGION_STATS_DATA`, :carta:ref:`CONTOUR_IMAGE_DATA`, and :carta:ref:`VECTOR_OVERLAY_TILE_DATA`. If zooming or panning occurs during animation, or if an image becomes visible or invisible in the image view panel, :carta:ref:`ADD_REQUIRED_TILES` messages of the frames are sent to the backend, updating the requirements. These new requirements are used in the next frame generated by the backend.
 
