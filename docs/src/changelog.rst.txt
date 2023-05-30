@@ -204,6 +204,9 @@ Changelog
    * - ``28.9.0``
      - 28/04/23
      - Added sub-message :carta:ref:`PvPreviewSettings` to :carta:ref:`PvRequest` and message :carta:ref:`PvPreviewData` to :carta:ref:`PvResponse` for generating a PV preview image. Added :carta:ref:`StopPvPreview` to cancel preview image and :carta:ref:`ClosePvPreview` to release preview resources.
+   * - ``28.10.0``
+     - 18/05/23
+     - Added ``lel_expr`` to :carta:ref:`ImageProperties` message.
 
 Versioning
 ----------
