@@ -1393,6 +1393,10 @@ Backend responds with  :carta:refc:`OPEN_FILE_ACK`
      - bool
      - 
      - Defines whether file is LEL expression
+   * - support_aips_beam
+     - bool
+     - 
+     - Defines whether to support AIPS beam in FITS history headers
 
 .. carta:class:: carta-b2f openfileack
 
