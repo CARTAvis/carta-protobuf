@@ -726,6 +726,10 @@ Backend responds with :carta:refc:`FILE_INFO_RESPONSE`
      - string
      - 
      - Required HDU name (if applicable). If left empty, the first HDU is selected
+   * - support_aips_beam
+     - bool
+     - 
+     - Defines whether to support AIPS beam in FITS history headers
 
 .. carta:class:: carta-b2f fileinforesponse
 
