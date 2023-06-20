@@ -1064,6 +1064,10 @@ Source file: `control/resume_session.proto <https://github.com/CARTAvis/carta-pr
      - :carta:refc:`StokesFile`
      - repeated
      - 
+   * - support_aips_beam
+     - bool
+     - 
+     - 
 
 .. carta:class:: carta-f2b importregion
 
