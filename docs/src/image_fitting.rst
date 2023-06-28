@@ -27,10 +27,10 @@ The sequence diagram is shown below:
     Frontend -> Backend : FITTING_REQUEST
     activate Backend
     Backend -> Backend : Setup 2D Gaussian fitting
-loop
-    Backend -> Backend : One fitting iteration
-    Frontend <-- Backend : FITTING_PROGRESS
-end
+    loop
+        Backend -> Backend : One fitting iteration
+        Frontend <-- Backend : FITTING_PROGRESS
+    end
     User -> Frontend : (Cancels the requested fitting)
     Frontend -> Backend : (STOP_FITTING)
     Frontend <-- Backend : FITTING_RESPONSE
