@@ -1668,6 +1668,10 @@ Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protob
      - float
      - 
      - Compression quality switch
+   * - sync_id
+     - sfixed32
+     - 
+     - The ID of the sync sequence
    * - animation_id
      - sfixed32
      - 
@@ -1709,6 +1713,10 @@ Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protob
      - sfixed32
      - 
      - The image stokes coordinate
+   * - sync_id
+     - sfixed32
+     - 
+     - The ID of the sync sequence
    * - animation_id
      - sfixed32
      - 

@@ -207,6 +207,9 @@ Changelog
    * - ``28.10.0``
      - 18/05/23
      - Added ``lel_expr`` to :carta:ref:`ImageProperties` message.
+   * - ``28.11.0``
+     - 26/07/23
+     - Added ``sync_id`` to :carta:ref:`RasterTileSync` and :carta:ref:`RasterTileData` messages.
 
 Versioning
 ----------

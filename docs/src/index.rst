@@ -3,7 +3,7 @@ CARTA Interface Control Document
 
 :Date: 18 May 2023
 :Authors: Angus Comrie, Rob Simmonds and the CARTA development team
-:Version: 28.10.0
+:Version: 28.11.0
 :ICD Version Integer: 28
 :CARTA Target: Version 4.0
 
