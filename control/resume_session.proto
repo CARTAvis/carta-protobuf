@@ -19,6 +19,7 @@ message ImageProperties {
     map<sfixed32, RegionInfo> regions = 9;
     SetContourParameters contour_settings = 10;
     repeated StokesFile stokes_files = 11;
+    bool support_aips_beam = 12;
 }
 
 message ResumeSession {

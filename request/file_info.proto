@@ -13,6 +13,8 @@ message FileInfoRequest {
     string file = 2;
     // Required HDU name (if applicable). If left empty, the first HDU is selected
     string hdu = 3;
+    // Defines whether to support AIPS beam in FITS history headers
+    bool support_aips_beam = 4;
 }
 
 // FILE_INFO_RESPONSE
