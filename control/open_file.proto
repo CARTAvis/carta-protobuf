@@ -20,6 +20,8 @@ message OpenFile {
     RenderMode render_mode = 5;
     // Defines whether file is LEL expression
     bool lel_expr = 6;
+    // Defines whether to support AIPS beam in FITS history headers
+    bool support_aips_beam = 7;
 }
 
 // OPEN_FILE_ACK
