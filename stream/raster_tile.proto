@@ -11,10 +11,14 @@ message RasterTileSync {
     sfixed32 channel = 2;
     // The image stokes coordinate
     sfixed32 stokes = 3;
+    // The ID of the sync sequence
+    sfixed32 sync_id = 4;
     // The ID of the animation (if any)
-    sfixed32 animation_id = 4;
+    sfixed32 animation_id = 5;
+    // The number of tiles in a sync group
+    sfixed32 tile_count = 6;
     // Is this a start or end sync message?
-    bool end_sync = 5;
+    bool end_sync = 7;
 }
 
 message RasterTileData {
@@ -28,8 +32,10 @@ message RasterTileData {
     CompressionType compression_type = 4;
     // Compression quality switch
     float compression_quality = 5;
+    // The ID of the sync sequence
+    sfixed32 sync_id = 6;
     // The ID of the animation (if any)
-    sfixed32 animation_id = 6;
+    sfixed32 animation_id = 7;
     // List of tile data
-    repeated TileData tiles = 7;
+    repeated TileData tiles = 8;
 }
