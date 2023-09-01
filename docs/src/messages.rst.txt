@@ -999,6 +999,14 @@ Gives results and log of 2D Gaussian image fitting.
      - double
      - 
      - Fitting result: error of background level offset
+   * - integrated_flux_values
+     - double
+     - repeated
+     - Fitting result: values of integrated flux of each component
+   * - integrated_flux_errors
+     - double
+     - repeated
+     - Fitting result: errors of integrated flux of each component
 
 .. carta:class:: carta-f2b imageproperties
 

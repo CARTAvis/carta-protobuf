@@ -210,9 +210,12 @@ Changelog
    * - ``28.11.0``
      - 20/06/23
      - Added ``support_aips_beam`` to :carta:ref:`FileInfoRequest`, :carta:ref:`OpenFile`, and :carta:ref:`ImageProperties` messages.
-   * - ``28.12.0``
+   * - ``28.12.0``     
      - 15/08/23
      - Added ``sync_id`` and ``tile_count`` to :carta:ref:`RasterTileSync` and :carta:ref:`RasterTileData` messages.
+   * - ``28.13.0``
+     - 23/08/23
+     - Added integrated flux to :carta:ref:`FittingResponse` message.
 
 Versioning
 ----------
