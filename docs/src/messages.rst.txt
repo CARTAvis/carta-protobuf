@@ -1692,10 +1692,6 @@ Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protob
      - sfixed32
      - 
      - The ID of the sync sequence
-   * - tile_count
-     - sfixed32
-     - 
-     - The number of tiles in a sync group
    * - animation_id
      - sfixed32
      - 
@@ -1745,6 +1741,10 @@ Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protob
      - sfixed32
      - 
      - The ID of the animation (if any)
+   * - tile_count
+     - sfixed32
+     - 
+     - The number of tiles in a sync group
    * - end_sync
      - bool
      - 
@@ -2020,6 +2020,10 @@ Responds with :carta:refc:`REGISTER_VIEWER_ACK`
      - fixed32
      - 
      - Unique session ID parameter (can be generated using UUID libraries). Passing in an existing session ID can be used for resuming sessions
+   * - version
+     - string
+     - 
+     - Frontend version used to check if it matches the backend.
    * - api_key
      - string
      - 

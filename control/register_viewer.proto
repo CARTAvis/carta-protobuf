@@ -10,11 +10,13 @@ message RegisterViewer {
     // Unique session ID parameter (can be generated using UUID libraries).
     // Passing in an existing session ID can be used for resuming sessions
     fixed32 session_id = 1;
+    // Frontend version used to check if it matches the backend.
+    string version = 2;
     // Optional user-specific API key to be used for basic authentication.
     // Could be an encrypted JWT for secure authentication.
-    string api_key = 2;
+    string api_key = 3;
     // Optional feature bitflag specifying client-side feature set
-    fixed32 client_feature_flags = 3;
+    fixed32 client_feature_flags = 4;
 }
 
 // REGISTER_VIEWER_ACK
