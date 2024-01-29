@@ -1692,10 +1692,6 @@ Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protob
      - sfixed32
      - 
      - The ID of the sync sequence
-   * - tile_count
-     - sfixed32
-     - 
-     - The number of tiles in a sync group
    * - animation_id
      - sfixed32
      - 
@@ -1745,6 +1741,10 @@ Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protob
      - sfixed32
      - 
      - The ID of the animation (if any)
+   * - tile_count
+     - sfixed32
+     - 
+     - The number of tiles in a sync group
    * - end_sync
      - bool
      - 
@@ -2534,6 +2534,10 @@ Sets the current image channel and Stokes parameter
      - :carta:refc:`AddRequiredTiles`
      - 
      - Required tiles when changing channels
+   * - channel_range
+     - :carta:refc:`IntBounds`
+     - 
+     - Optional channels for channel map view
 
 .. carta:class:: carta-f2b setregion
 
