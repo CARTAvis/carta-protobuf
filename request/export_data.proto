@@ -1,0 +1,21 @@
+syntax = "proto3";
+package CARTA;
+
+import "enums.proto";
+
+message ExportData {
+    // File directory
+    string directory = 1;
+    // File name
+    string name = 2;
+    // Comments (spatial/spectral/histogram profiles, x-label, y-label, region box coordinates, etc.)
+    repeated string comments = 3;
+    // Data (x, y)
+    repeated string data = 5;
+}
+
+message ExportDataAck {
+    bool success = 1;
+    // Error message if not success
+    string message = 2;
+}

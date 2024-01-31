@@ -610,6 +610,72 @@ the state of the backend, and is not used in place of returning success=false on
      - 
      - Accompanying error data. For example, if an error has the “file_io” tag, the frontend would expect the data field to contain the file ID of the offending file.
 
+.. carta:class:: carta-f2b exportdata
+
+.. _exportdata:
+
+ExportData
+~~~~~~~~~~
+
+Source file: `request/export_data.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/export_data.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - directory
+     - string
+     - 
+     - File directory
+   * - name
+     - string
+     - 
+     - File name
+   * - comments
+     - string
+     - repeated
+     - Comments (spatial/spectral/histogram profiles, x-label, y-label, region box coordinates, etc.)
+   * - data
+     - string
+     - repeated
+     - Data (x, y)
+
+.. carta:class:: carta-f2b exportdataack
+
+.. _exportdataack:
+
+ExportDataAck
+~~~~~~~~~~~~~
+
+Source file: `request/export_data.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/export_data.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - success
+     - bool
+     - 
+     - 
+   * - message
+     - string
+     - 
+     - Error message if not success
+
 .. carta:class:: carta-f2b exportregion
 
 .. _exportregion:
@@ -1692,10 +1758,6 @@ Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protob
      - sfixed32
      - 
      - The ID of the sync sequence
-   * - tile_count
-     - sfixed32
-     - 
-     - The number of tiles in a sync group
    * - animation_id
      - sfixed32
      - 
@@ -1745,6 +1807,10 @@ Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protob
      - sfixed32
      - 
      - The ID of the animation (if any)
+   * - tile_count
+     - sfixed32
+     - 
+     - The number of tiles in a sync group
    * - end_sync
      - bool
      - 

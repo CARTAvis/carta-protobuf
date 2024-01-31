@@ -80,6 +80,8 @@ enum EventType {
     PV_PREVIEW_DATA = 85;
     STOP_PV_PREVIEW = 86;
     CLOSE_PV_PREVIEW = 87;
+    EXPORT_DATA = 88;
+    EXPORT_DATA_ACK = 89;
 }
 
 enum SessionType {
