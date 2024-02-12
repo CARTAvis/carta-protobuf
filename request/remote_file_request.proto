@@ -1,0 +1,43 @@
+syntax = "proto3";
+package CARTA;
+
+import "defs.proto";
+import "enums.proto";
+import "open_file.proto";
+
+message RemoteFileRequest {
+  // File ID
+  sfixed32 file_id = 1;
+  // ID or keyword identifying the HiPS to use
+  string hips = 2;
+  // The WCS definition of the cutout, defined as a key-value dictionary JSON string
+  string wcs = 3;
+  // Width in pixels of the output image
+  int32 width = 4;
+  // Height in pixels of the output image
+  int32 height = 5;
+  // Name of the requested projection, eg: SIN, TAN, MOL, AIT, CAR, CEA, STG
+  string projection = 6;
+  // Size (FoV) of the cutout on the sky, in decimal degrees
+  float fov = 7;
+  // Right ascension in decimal degrees of the center of the output image
+  float ra = 8;
+  // Declination in decimal degrees of the center of the output image
+  float dec = 9;
+  // coordsys	Coordinate frame system to be used for the projection
+  string coordsys = 10;
+  // Angle value (in decimal degrees) to be applied to the projection
+  float rotation_angle = 11;
+  // Name of the object the output image will be centered on.
+  // The name will be resolved to coordinated by the Sesame service.
+  string object = 12;
+}
+
+message RemoteFileResponse {
+  // Defines whether the remote file was opened successfully
+  bool success = 1;
+  // Error message (if applicable)
+  string message = 2;
+  // Opened file information
+  OpenFileAck open_file_ack = 3;
+}

@@ -80,6 +80,8 @@ enum EventType {
     PV_PREVIEW_DATA = 85;
     STOP_PV_PREVIEW = 86;
     CLOSE_PV_PREVIEW = 87;
+    REMOTE_FILE_REQUEST = 88;
+    REMOTE_FILE_RESPONSE = 89;
 }
 
 enum SessionType {
