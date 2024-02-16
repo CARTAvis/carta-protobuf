@@ -21,7 +21,7 @@ CARTA should provide the following kinds of moments (sensible name in bold) as s
 -  moments = 10 - **minimum value of the spectrum**
 -  moments = 11 - **coordinate of the minimum value of the spectrum**
 
-The newly generated moment images (multiple moments can be generated at the same time) should be loaded and appended (and match spatially) in CARTA. CARTA should also support the capability to export the images as files in the following formats:
+The newly generated moment images (multiple moments can be generated at the same time) should be loaded and appended (and match spatially) in CARTA. The new file IDs are incremented from the last opened image. CARTA should also support the capability to export the images as files in the following formats:
 
 -  CASA image format
 -  FITS image format
