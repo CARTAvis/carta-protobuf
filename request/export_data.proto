@@ -1,8 +1,6 @@
 syntax = "proto3";
 package CARTA;
 
-import "enums.proto";
-
 message ExportData {
     // File directory
     string directory = 1;
