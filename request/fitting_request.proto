@@ -45,16 +45,18 @@ message FittingResponse {
     string log = 5;
     // Fitting result: model image
     OpenFileAck model_image = 6;
+    // Fitting result: beam deconvolved model image
+    OpenFileAck deconvolved_model_image = 7;
     // Fitting result: residual image
-    OpenFileAck residual_image = 7;
+    OpenFileAck residual_image = 8;
     // Fitting result: background level offset
-    double offset_value = 8;
+    double offset_value = 9;
     // Fitting result: error of background level offset
-    double offset_error = 9;
+    double offset_error = 10;
     // Fitting result: values of integrated flux of each component
-    repeated double integrated_flux_values = 10;
+    repeated double integrated_flux_values = 11;
     // Fitting result: errors of integrated flux of each component
-    repeated double integrated_flux_errors = 11;
+    repeated double integrated_flux_errors = 12;
 }
 
 // FITTING_PROGRESS:
