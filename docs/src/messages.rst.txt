@@ -979,6 +979,14 @@ Gives results and log of 2D Gaussian image fitting.
      - :carta:refc:`GaussianComponent`
      - repeated
      - Fitting result: errors of the fitted parameters
+   * - result_decon_values
+     - :carta:refc:`GaussianComponent`
+     - repeated
+     - Fitting result: values of the deconvolved fitted parameters
+   * - result_decon_errors
+     - :carta:refc:`GaussianComponent`
+     - repeated
+     - Fitting result: errors of the deconvolved fitted parameters
    * - log
      - string
      - 

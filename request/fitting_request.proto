@@ -41,22 +41,26 @@ message FittingResponse {
     repeated GaussianComponent result_values = 3;
     // Fitting result: errors of the fitted parameters
     repeated GaussianComponent result_errors = 4;
+    // Fitting result: values of the deconvolved fitted parameters
+    repeated GaussianComponent result_decon_values = 5;
+    // Fitting result: errors of the deconvolved fitted parameters
+    repeated GaussianComponent result_decon_errors = 6;
     // Fitting log
-    string log = 5;
+    string log = 7;
     // Fitting result: model image
-    OpenFileAck model_image = 6;
+    OpenFileAck model_image = 8;
     // Fitting result: beam deconvolved model image
-    OpenFileAck deconvolved_model_image = 7;
+    OpenFileAck deconvolved_model_image = 9;
     // Fitting result: residual image
-    OpenFileAck residual_image = 8;
+    OpenFileAck residual_image = 10;
     // Fitting result: background level offset
-    double offset_value = 9;
+    double offset_value = 11;
     // Fitting result: error of background level offset
-    double offset_error = 10;
+    double offset_error = 12;
     // Fitting result: values of integrated flux of each component
-    repeated double integrated_flux_values = 11;
+    repeated double integrated_flux_values = 13;
     // Fitting result: errors of integrated flux of each component
-    repeated double integrated_flux_errors = 12;
+    repeated double integrated_flux_errors = 14;
 }
 
 // FITTING_PROGRESS:
