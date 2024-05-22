@@ -21,12 +21,14 @@ message FittingRequest {
     RegionInfo fov_info = 5;
     // Whether to create a model image of the fitting result
     bool create_model_image = 6;
+    // Whether to create a beam deconvolved model image from the fitting result
+    bool create_decon_model_image = 7;
     // Whether to create a residual image of the fitting result
-    bool create_residual_image = 7;
+    bool create_residual_image = 8;
     // Background level offset
-    double offset = 8;
+    double offset = 9;
     // Solver of the linear least squares system in the fitting
-    FittingSolverType solver = 9;
+    FittingSolverType solver = 10;
 }
 
 // FITTING_RESPONSE:
