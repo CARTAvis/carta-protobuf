@@ -17,6 +17,8 @@ message SaveFile {
     bool keep_degenerate = 8;
     // Set the rest frequency (Hz) of the image
     double rest_freq = 9;
+    // Overwrite existing image
+    bool overwrite = 10;
 }
 
 message SaveFileAck {

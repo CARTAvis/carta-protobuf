@@ -1692,10 +1692,6 @@ Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protob
      - sfixed32
      - 
      - The ID of the sync sequence
-   * - tile_count
-     - sfixed32
-     - 
-     - The number of tiles in a sync group
    * - animation_id
      - sfixed32
      - 
@@ -1745,6 +1741,10 @@ Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protob
      - sfixed32
      - 
      - The ID of the animation (if any)
+   * - tile_count
+     - sfixed32
+     - 
+     - The number of tiles in a sync group
    * - end_sync
      - bool
      - 
@@ -2254,6 +2254,10 @@ Source file: `request/save_file.proto <https://github.com/CARTAvis/carta-protobu
      - double
      - 
      - Set the rest frequency (Hz) of the image
+   * - overwrite
+     - bool
+     - 
+     - Overwrite existing image
 
 .. carta:class:: carta-f2b savefileack
 
