@@ -928,10 +928,6 @@ Backend responds with :carta:refc:`FITTING_RESPONSE`
      - bool
      - 
      - Whether to create a model image of the fitting result
-   * - create_decon_model_image
-     - bool
-     - 
-     - Whether to create a beam deconvolved model image from the fitting result
    * - create_residual_image
      - bool
      - 
