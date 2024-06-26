@@ -21,6 +21,8 @@ message ExportRegion {
     string directory = 5;
     // Optional file name of server file
     string file = 6;
+    // Optional overwrite existing file
+    bool overwrite = 7;
 }
 
 // EXPORT_REGION_ACK

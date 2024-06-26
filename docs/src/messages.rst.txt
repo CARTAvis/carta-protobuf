@@ -657,6 +657,10 @@ Backend responds with  :carta:refc:`EXPORT_REGION_ACK`
      - string
      - 
      - Optional file name of server file
+   * - overwrite
+     - bool
+     - 
+     - Optional overwrite existing file
 
 .. carta:class:: carta-b2f exportregionack
 
