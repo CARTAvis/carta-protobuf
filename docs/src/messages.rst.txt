@@ -1242,7 +1242,7 @@ Source file: `request/moment_request.proto <https://github.com/CARTAvis/carta-pr
    * - rest_freq
      - double
      - 
-     - 
+     - Set the rest frequency (Hz) of the image
 
 .. carta:class:: carta-b2f momentresponse
 
