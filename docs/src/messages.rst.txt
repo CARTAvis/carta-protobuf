@@ -1239,6 +1239,10 @@ Source file: `request/moment_request.proto <https://github.com/CARTAvis/carta-pr
      - bool
      - 
      - 
+   * - rest_freq
+     - double
+     - 
+     - 
 
 .. carta:class:: carta-b2f momentresponse
 
@@ -1692,10 +1696,6 @@ Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protob
      - sfixed32
      - 
      - The ID of the sync sequence
-   * - tile_count
-     - sfixed32
-     - 
-     - The number of tiles in a sync group
    * - animation_id
      - sfixed32
      - 
@@ -1745,6 +1745,10 @@ Source file: `stream/raster_tile.proto <https://github.com/CARTAvis/carta-protob
      - sfixed32
      - 
      - The ID of the animation (if any)
+   * - tile_count
+     - sfixed32
+     - 
+     - The number of tiles in a sync group
    * - end_sync
      - bool
      - 
