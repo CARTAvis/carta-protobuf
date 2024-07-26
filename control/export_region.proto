@@ -34,4 +34,6 @@ message ExportRegionAck {
     string message = 2;
     // File contents for client export (one line per string)
     repeated string contents = 3;
+    // Request for overwrite confirmation
+    bool overwrite_confirmation_required = 4;
 }
