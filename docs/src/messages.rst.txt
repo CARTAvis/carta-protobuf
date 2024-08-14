@@ -2092,6 +2092,108 @@ Informs the frontend whether the session was correctly.
      - repeated
      - Map of server-generated platform information strings
 
+.. carta:class:: carta-f2b remotefilerequest
+
+.. _remotefilerequest:
+
+RemoteFileRequest
+~~~~~~~~~~~~~~~~~
+
+Source file: `request/remote_file_request.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/remote_file_request.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - File ID
+   * - hips
+     - string
+     - 
+     - ID or keyword identifying the HiPS to use
+   * - wcs
+     - string
+     - 
+     - The WCS definition of the cutout, defined as a key-value dictionary JSON string
+   * - width
+     - int32
+     - 
+     - Width in pixels of the output image
+   * - height
+     - int32
+     - 
+     - Height in pixels of the output image
+   * - projection
+     - string
+     - 
+     - Name of the requested projection, eg: SIN, TAN, MOL, AIT, CAR, CEA, STG
+   * - fov
+     - float
+     - 
+     - Size (FoV) of the cutout on the sky, in decimal degrees
+   * - ra
+     - float
+     - 
+     - Right ascension in decimal degrees of the center of the output image
+   * - dec
+     - float
+     - 
+     - Declination in decimal degrees of the center of the output image
+   * - coordsys
+     - string
+     - 
+     - coordsys	Coordinate frame system to be used for the projection
+   * - rotation_angle
+     - float
+     - 
+     - Angle value (in decimal degrees) to be applied to the projection
+   * - object
+     - string
+     - 
+     - Name of the object the output image will be centered on. The name will be resolved to coordinated by the Sesame service.
+
+.. carta:class:: carta-b2f remotefileresponse
+
+.. _remotefileresponse:
+
+RemoteFileResponse
+~~~~~~~~~~~~~~~~~~
+
+Source file: `request/remote_file_request.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/request/remote_file_request.proto>`_
+
+
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - success
+     - bool
+     - 
+     - Defines whether the remote file was opened successfully
+   * - message
+     - string
+     - 
+     - Error message (if applicable)
+   * - open_file_ack
+     - :carta:refc:`OpenFileAck`
+     - 
+     - Opened file information
+
 .. carta:class:: carta-f2b removeregion
 
 .. _removeregion:
