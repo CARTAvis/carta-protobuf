@@ -222,6 +222,9 @@ Changelog
    * - ``28.15.0``
      - 23/05/24
      - Added :carta:ref:`RemoteFileRequest` and :carta:ref:`RemoteFileResponse` messages.
+   * - ``29.0.0``
+     - 26/06/24
+     - Added ``overwrite`` to :carta:ref:`SaveFile` and :carta:ref:`ExportRegion` messages.
 
 Versioning
 ----------

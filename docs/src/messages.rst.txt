@@ -657,6 +657,10 @@ Backend responds with  :carta:refc:`EXPORT_REGION_ACK`
      - string
      - 
      - Optional file name of server file
+   * - overwrite
+     - bool
+     - 
+     - Optional overwrite existing file
 
 .. carta:class:: carta-b2f exportregionack
 
@@ -691,6 +695,10 @@ Response for :carta:refc:`EXPORT_REGION` to indicate success and file contents i
      - string
      - repeated
      - File contents for client export (one line per string)
+   * - overwrite_confirmation_required
+     - bool
+     - 
+     - Request for overwrite confirmation
 
 .. carta:class:: carta-f2b fileinforequest
 
@@ -2356,6 +2364,10 @@ Source file: `request/save_file.proto <https://github.com/CARTAvis/carta-protobu
      - double
      - 
      - Set the rest frequency (Hz) of the image
+   * - overwrite
+     - bool
+     - 
+     - Overwrite existing image
 
 .. carta:class:: carta-f2b savefileack
 
@@ -2389,6 +2401,10 @@ Source file: `request/save_file.proto <https://github.com/CARTAvis/carta-protobu
      - string
      - 
      - 
+   * - overwrite_confirmation_required
+     - bool
+     - 
+     - Request for overwrite confirmation
 
 .. carta:class:: carta-f2b scriptingrequest
 

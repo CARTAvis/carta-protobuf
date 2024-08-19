@@ -21,6 +21,8 @@ message ExportRegion {
     string directory = 5;
     // Optional file name of server file
     string file = 6;
+    // Optional overwrite existing file
+    bool overwrite = 7;
 }
 
 // EXPORT_REGION_ACK
@@ -32,4 +34,6 @@ message ExportRegionAck {
     string message = 2;
     // File contents for client export (one line per string)
     repeated string contents = 3;
+    // Request for overwrite confirmation
+    bool overwrite_confirmation_required = 4;
 }
