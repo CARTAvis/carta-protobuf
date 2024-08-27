@@ -220,6 +220,12 @@ Changelog
      - 27/10/23
      - Adjusted file ID generation.
    * - ``28.15.0``
+     - 23/05/24
+     - Added :carta:ref:`RemoteFileRequest` and :carta:ref:`RemoteFileResponse` messages.
+   * - ``29.0.0``
+     - 26/06/24
+     - Added ``overwrite`` to :carta:ref:`SaveFile` and :carta:ref:`ExportRegion` messages.
+   * - ``29.1.0``
      - 23/07/24
      - Added ``rest_freq`` to :carta:ref:`MomentRequest` message.
 
