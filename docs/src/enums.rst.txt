@@ -540,6 +540,12 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - :carta:refc:`CLOSE_PV_PREVIEW`
      - 87
      - 
+   * - :carta:refc:`REMOTE_FILE_REQUEST`
+     - 88
+     - 
+   * - :carta:refc:`REMOTE_FILE_RESPONSE`
+     - 89
+     - 
 
 .. carta:class:: carta-sub filefeatureflags
 
