@@ -14,6 +14,8 @@ message MomentRequest {
     MomentMask mask = 6;
     FloatBounds pixel_range = 7;
     bool keep = 8;
+    // Set the rest frequency (Hz) of the image
+    double rest_freq = 9;
 }
 
 message MomentResponse {
