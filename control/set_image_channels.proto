@@ -15,6 +15,8 @@ message SetImageChannels {
     sfixed32 stokes = 3;
     // Required tiles when changing channels
     AddRequiredTiles required_tiles = 4;
-    // Optional channels for channel map view
+    // Optional requested channels for channel map view
     IntBounds channel_range = 5;
+    // Optional range of channels for channel map view
+    IntBounds current_range = 6;
 }
