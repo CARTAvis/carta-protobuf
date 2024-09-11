@@ -2549,6 +2549,10 @@ Sets the contour parameters for a file
      - int32
      - 
      - Size of contour chunks, in number of vertices. If this is set to zero, partial contour results are not used
+   * - channel_range
+     - :carta:refc:`IntBounds`
+     - 
+     - Channel range for channel map
 
 .. carta:class:: carta-f2b setcursor
 
@@ -2656,6 +2660,14 @@ Sets the current image channel and Stokes parameter
      - :carta:refc:`AddRequiredTiles`
      - 
      - Required tiles when changing channels
+   * - channel_range
+     - :carta:refc:`IntBounds`
+     - 
+     - Optional requested channels for channel map view
+   * - current_range
+     - :carta:refc:`IntBounds`
+     - 
+     - Optional range of channels for channel map view
 
 .. carta:class:: carta-f2b setregion
 

@@ -228,6 +228,9 @@ Changelog
    * - ``29.1.0``
      - 27/08/24
      - Added ``rest_freq`` to :carta:ref:`MomentRequest` message.
+   * - ``29.2.0``
+     - 10/09/24
+     - Added optional ``channel_range`` and ``current_range`` to :carta:ref:`SetImageChannels` message.
 
 Versioning
 ----------
