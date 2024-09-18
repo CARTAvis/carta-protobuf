@@ -1,0 +1,30 @@
+syntax = "proto3";
+package CARTA;
+
+import "defs.proto";
+import "enums.proto";
+
+// Data stream for PV preview image
+message Render3DData {
+    // Preview ID for the Render3D viewer
+    sfixed32 render3D_id = 1;
+    // Image extended file info
+    FileInfoExtended image_info = 2;
+    // Image data. For uncompressed data, this is converted into FP32, while for compressed data,
+    // this is passed to the compression library for decompression.
+    bytes image_data = 3;
+    // Run-length encodings of NaN values used to restore the NaN values after decompression.
+    bytes nan_encodings = 4;
+    // Dimensions of data
+    sfixed32 width = 5;
+    sfixed32 height = 6;
+    sfixed32 depth = 7;
+    // The compression algorithm used
+    CompressionType compression_type = 8;
+    // Compression quality switch
+    float compression_quality = 9;
+    // Histogram min/max, for rendering
+    FloatBounds histogram_bounds = 10;
+    // Histogram, to tune rendering
+    Histogram histogram = 11;
+}

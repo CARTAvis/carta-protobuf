@@ -1,0 +1,40 @@
+syntax = "proto3";
+package CARTA;
+
+import "defs.proto";
+import "open_file.proto";
+import "render3d.proto";
+
+message Render3DRequest {
+    // File ID of the source image
+    sfixed32 file_id = 1;
+    // Region ID of the PV cut in the source image
+    sfixed32 region_id = 2;
+    // The bounding box in the XY plane corresponding to the image data in pixel coordinates
+    ImageBounds image_bounds = 3;
+    // Range of channels to be used in velocity axis
+    IntBounds spectral_range = 4;
+
+    // Flag whether to keep or replace previously-generated images
+    bool keep = 6;
+}
+
+message Render3DResponse {
+    // Defines whether RENDER3D_REQUEST was successful
+    bool success = 1;
+    // Error message (if applicable)
+    string message = 2;
+    // Render3D result: generated 3D image
+    Render3DData render3d_data = 4;
+    // Defines whether RENDER3D_REQUEST was canceled
+    bool cancel = 5;
+}
+
+message Render3DProgress {
+    // File ID of the source image for the Render3D generator
+    sfixed32 file_id = 1;
+    // Preview ID of the Render3D viewer
+    sfixed32 render3D_id = 2;
+    // Progress indicator, ranging from 0 to 1
+    float progress = 3;
+}
