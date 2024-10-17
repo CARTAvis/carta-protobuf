@@ -4,7 +4,7 @@ package CARTA;
 import "defs.proto";
 import "enums.proto";
 
-// Data stream for PV preview image
+// Data stream for Render3D cube
 message Render3DData {
     // Preview ID for the Render3D viewer
     sfixed32 render3D_id = 1;

@@ -10,13 +10,23 @@ message Render3DRequest {
     sfixed32 file_id = 1;
     // Region ID of the PV cut in the source image
     sfixed32 region_id = 2;
+    // Viewr ID for the 3D rendering viewer
+    sfixed32 viewer_id = 3;
     // The bounding box in the XY plane corresponding to the image data in pixel coordinates
-    ImageBounds image_bounds = 3;
+    // Is already given by frame/file_id/region_id
+    // ImageBounds image_bounds = 4;
     // Range of channels to be used in velocity axis
     IntBounds spectral_range = 4;
-
+    // Downsampling in xy axes
+    sfixed32 rebin_xy = 5;
+    // Downsampling in z axis
+    sfixed32 rebin_z = 6;
+    // The compression algorithm to use
+    CompressionType compression_type = 7;
+    // Compression quality from frontend performance preferences
+    float image_compression_quality = 8;
     // Flag whether to keep or replace previously-generated images
-    bool keep = 6;
+    bool keep = 9;
 }
 
 message Render3DResponse {
