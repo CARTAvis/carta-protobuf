@@ -14,6 +14,8 @@ message AddRequiredTiles {
     CompressionType compression_type = 3;
     // Compression quality switch
     float compression_quality = 4;
+    // Optional list of all tiles in channel map view
+    repeated sfixed32 current_tiles = 5;
 }
 
 // REMOVE_REQUIRED_TILES
