@@ -35,6 +35,10 @@ Provides a list of tiles that are required for the specified file
      - float
      - 
      - Compression quality switch
+   * - current_tiles
+     - sfixed32
+     - repeated
+     - Optional list of all tiles in channel map view
 
 .. carta:class:: carta-f2b animationflowcontrol
 
@@ -335,6 +339,36 @@ Source file: `request/catalog_list.proto <https://github.com/CARTAvis/carta-prot
      - bool
      - 
      - 
+
+.. carta:class:: carta-f2b channelmapflowcontrol
+
+.. _channelmapflowcontrol:
+
+ChannelMapFlowControl
+~~~~~~~~~~~~~~~~~~~~~
+
+Source file: `control/channel_map.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/control/channel_map.proto>`_
+
+CHANNEL_MAP_FLOW_CONTROL
+Used for informing the backend of which frames have been received
+
+.. list-table::
+   :widths: 20 20 20 40
+   :header-rows: 1
+   :class: proto
+
+   * - Field
+     - Type
+     - Label
+     - Description
+   * - file_id
+     - sfixed32
+     - 
+     - The file ID that the channel map view corresponds to
+   * - received_channel
+     - sfixed32
+     - 
+     - The latest flow control channel received
 
 .. carta:class:: carta-f2b closecatalogfile
 
@@ -2549,6 +2583,10 @@ Sets the contour parameters for a file
      - int32
      - 
      - Size of contour chunks, in number of vertices. If this is set to zero, partial contour results are not used
+   * - channel_range
+     - :carta:refc:`IntBounds`
+     - 
+     - Channel range for channel map
 
 .. carta:class:: carta-f2b setcursor
 
@@ -2656,6 +2694,14 @@ Sets the current image channel and Stokes parameter
      - :carta:refc:`AddRequiredTiles`
      - 
      - Required tiles when changing channels
+   * - channel_range
+     - :carta:refc:`IntBounds`
+     - 
+     - Optional requested channels for channel map view
+   * - current_range
+     - :carta:refc:`IntBounds`
+     - 
+     - Optional range of channels for channel map view
 
 .. carta:class:: carta-f2b setregion
 

@@ -228,6 +228,9 @@ Changelog
    * - ``29.1.0``
      - 27/08/24
      - Added ``rest_freq`` to :carta:ref:`MomentRequest` message.
+   * - ``30.0.0``
+     - 23/10/24
+     - Added optional ``channel_range`` and ``current_range`` to :carta:ref:`SetImageChannels` message, optional ``current_tiles`` to :carta:ref:`AddRequiredTiles` message, and new message :carta:ref:`ChannelMapFlowControl` to support channel map view.
 
 Versioning
 ----------

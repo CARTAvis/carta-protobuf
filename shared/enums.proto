@@ -82,6 +82,7 @@ enum EventType {
     CLOSE_PV_PREVIEW = 87;
     REMOTE_FILE_REQUEST = 88;
     REMOTE_FILE_RESPONSE = 89;
+    CHANNEL_MAP_FLOW_CONTROL = 90;
 }
 
 enum SessionType {
