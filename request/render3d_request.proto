@@ -4,6 +4,7 @@ package CARTA;
 import "defs.proto";
 import "open_file.proto";
 import "render3d.proto";
+import "enums.proto";
 
 message Render3DRequest {
     // File ID of the source image

@@ -1,7 +1,12 @@
 syntax = "proto3";
 package CARTA;
 
+message StopRender3D {
+    // Stop the PV preview for the preview viewer id
+    sfixed32 viewer_id = 1;
+}
+
 message CloseRender3D {
     // Close the 3D rendering for the render3d viewer id
-    sfixed32 render3D_id = 1;
+    sfixed32 viewer_id = 1;
 }
