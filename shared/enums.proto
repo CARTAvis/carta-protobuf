@@ -86,7 +86,8 @@ enum EventType {
     RENDER3D_RESPONSE = 91;
     RENDER3D_PROGRESS = 92;
     RENDER3D_DATA = 93;
-    CLOSE_RENDER3D = 94;
+    STOP_RENDER3D = 94;
+    CLOSE_RENDER3D = 95;
 }
 
 enum SessionType {
