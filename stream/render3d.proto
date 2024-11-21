@@ -13,6 +13,8 @@ message Render3DData {
     // Image data. For uncompressed data, this is converted into FP32, while for compressed data,
     // this is passed to the compression library for decompression.
     bytes image_data = 3;
+    // SubImage with (partial) slices of the 3D cube
+    repeated SubImage slices = 5;
     // Run-length encodings of NaN values used to restore the NaN values after decompression.
     bytes nan_encodings = 4;
     // Dimensions of data
@@ -23,8 +25,7 @@ message Render3DData {
     CompressionType compression_type = 8;
     // Compression quality switch
     float compression_quality = 9;
-    // Histogram min/max, for rendering
-    FloatBounds histogram_bounds = 10;
-    // Histogram, to tune rendering
-    Histogram histogram = 11;
+    // Progress indicator, in the case of partial SubImage being sent. If there are many SubImages to be sent,
+    // time-consuming, regular updates should be sent to the frontend. If the data is complete, progress >= 1.
+    float progress = 10;
 }

@@ -36,16 +36,16 @@ message Render3DResponse {
     // Error message (if applicable)
     string message = 2;
     // Render3D result: generated 3D image
-    Render3DData render3d_data = 4;
+    // Render3DData render3d_data = 4;
     // Defines whether RENDER3D_REQUEST was canceled
-    bool cancel = 5;
+    bool cancel = 4;
 }
 
 message Render3DProgress {
     // File ID of the source image for the Render3D generator
     sfixed32 file_id = 1;
     // Preview ID of the Render3D viewer
-    sfixed32 render3D_id = 2;
+    sfixed32 viewer_id = 2;
     // Progress indicator, ranging from 0 to 1
     float progress = 3;
 }
