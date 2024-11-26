@@ -25,8 +25,6 @@ message Render3DRequest {
     float image_compression_quality = 8;
     // Flag whether to keep or replace previously-generated images
     bool keep = 9;
-    // Flag whether to generate [Spatial, Spectral] image or reverse
-    bool reverse = 10;
 }
 
 message Render3DResponse {
