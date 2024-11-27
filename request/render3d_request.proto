@@ -2,8 +2,6 @@ syntax = "proto3";
 package CARTA;
 
 import "defs.proto";
-import "open_file.proto";
-import "render3d.proto";
 import "enums.proto";
 
 message Render3DRequest {
@@ -22,7 +20,7 @@ message Render3DRequest {
     // The compression algorithm to use
     CompressionType compression_type = 7;
     // Compression quality from frontend performance preferences
-    float image_compression_quality = 8;
+    float compression_quality = 8;
     // Flag whether to keep or replace previously-generated images
     bool keep = 9;
 }
