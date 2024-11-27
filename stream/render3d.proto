@@ -14,14 +14,14 @@ message Render3DData {
     // Run-length encodings of NaN values used to restore the NaN values after decompression.
     bytes nan_encodings = 3;
     // Dimensions of data
-    // sfixed32 width = 4;
-    // sfixed32 height = 5;
-    // sfixed32 depth = 6;
+    sfixed32 width = 4;
+    sfixed32 height = 5;
+    sfixed32 depth = 6;
     // The compression algorithm used
-    CompressionType compression_type = 4;
+    CompressionType compression_type = 7;
     // Compression quality switch
-    float compression_quality = 5;
+    float compression_quality = 8;
     // Progress indicator, in the case of partial data being sent.
     // Time-consuming, regular updates should be sent to the frontend. If the data is complete, progress >= 1.
-    float progress = 6;
+    float progress = 9;
 }
