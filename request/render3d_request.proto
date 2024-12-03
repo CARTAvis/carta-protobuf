@@ -26,12 +26,12 @@ message Render3DRequest {
 }
 
 message Render3DResponse {
-    // Defines whether RENDER3D_REQUEST was successful
+    // Defines whether RENDER3D_REQUEST completed checks
     bool success = 1;
     // Error message (if applicable)
     string message = 2;
     // Defines whether RENDER3D_REQUEST was canceled
-    bool cancel = 4;
+    bool cancel = 3;
 }
 
 
