@@ -19,4 +19,6 @@ message SetImageChannels {
     IntBounds channel_range = 5;
     // Optional range of channels for channel map view
     IntBounds current_range = 6;
+    // Set current image channel during channel map
+    bool channel_map_enabled = 7;
 }

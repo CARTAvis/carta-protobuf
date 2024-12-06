@@ -2702,6 +2702,10 @@ Sets the current image channel and Stokes parameter
      - :carta:refc:`IntBounds`
      - 
      - Optional range of channels for channel map view
+   * - channel_map_enabled
+     - bool
+     - 
+     - Set current image channel during channel map
 
 .. carta:class:: carta-f2b setregion
 
