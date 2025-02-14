@@ -1,0 +1,11 @@
+syntax = "proto3";
+package CARTA;
+
+// CHANNEL_MAP_FLOW_CONTROL
+// Used for informing the backend of which frames have been received
+message ChannelMapFlowControl {
+    // The file ID that the channel map view corresponds to
+    sfixed32 file_id = 1;
+    // The latest flow control channel received
+    sfixed32 received_channel = 2;
+}
