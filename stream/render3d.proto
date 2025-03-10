@@ -6,22 +6,26 @@ import "enums.proto";
 
 // Data stream for Render3D cube
 message Render3DData {
+    // File ID for the Render3D cube
+    sfixed32 file_id = 1;
+    // Region ID for the Render3D cube
+    sfixed32 region_id = 2;
     // ID for the Render3D viewer
-    sfixed32 viewer_id = 1;
+    sfixed32 viewer_id = 3;
     // Image data. For uncompressed data, this is converted into FP32, while for compressed data,
     // this is passed to the compression library for decompression.
-    bytes image_data = 2;
+    bytes image_data = 4;
     // Run-length encodings of NaN values used to restore the NaN values after decompression.
-    bytes nan_encodings = 3;
+    bytes nan_encodings = 5;
     // Dimensions of data
-    sfixed32 width = 4;
-    sfixed32 height = 5;
-    sfixed32 depth = 6;
+    sfixed32 width = 6;
+    sfixed32 height = 7;
+    sfixed32 depth = 8;
     // The compression algorithm used
-    CompressionType compression_type = 7;
+    CompressionType compression_type = 9;
     // Compression quality switch
-    float compression_quality = 8;
+    float compression_quality = 10;
     // Progress indicator, in the case of partial data being sent.
     // Time-consuming, regular updates should be sent to the frontend. If the data is complete, progress >= 1.
-    float progress = 9;
+    float progress = 11;
 }
