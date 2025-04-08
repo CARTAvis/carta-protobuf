@@ -20,13 +20,14 @@ message Render3DData {
     // Dimensions of data
     sfixed32 width = 6;
     sfixed32 height = 7;
-    // this is the depth of the subcube to be rendered, not the depth of the original cube.
     sfixed32 depth = 8;
+    // slice index
+    sfixed32 slice = 9;
     // The compression algorithm used
-    CompressionType compression_type = 9;
+    CompressionType compression_type = 10;
     // Compression quality switch
-    float compression_quality = 10;
+    float compression_quality = 11;
     // Progress indicator, in the case of partial data being sent.
     // Time-consuming, regular updates should be sent to the frontend. If the data is complete, progress >= 1.
-    float progress = 11;
+    float progress = 12;
 }
