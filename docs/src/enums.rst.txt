@@ -546,6 +546,9 @@ Source file: `shared/enums.proto <https://github.com/CARTAvis/carta-protobuf/blo
    * - :carta:refc:`REMOTE_FILE_RESPONSE`
      - 89
      - 
+   * - :carta:refc:`CHANNEL_MAP_FLOW_CONTROL`
+     - 90
+     - 
 
 .. carta:class:: carta-sub filefeatureflags
 
