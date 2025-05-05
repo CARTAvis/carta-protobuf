@@ -31,4 +31,6 @@ message SetVectorOverlayParameters {
   CompressionType compression_type = 12;
   // Compression quality switch
   float compression_quality = 13;
+  // Threshold option
+  int32 threshold_option = 14;
 }

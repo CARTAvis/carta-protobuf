@@ -2950,6 +2950,10 @@ Sets the overlay parameters for a file
      - float
      - 
      - Compression quality switch
+   * - threshold_option
+     - int32
+     - 
+     - Threshold option
 
 .. carta:class:: carta-f2b spatialconfig
 
