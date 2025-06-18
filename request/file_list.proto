@@ -16,7 +16,11 @@ message FileListRequest {
 
 // FILE_LIST_RESPONSE
 // Response for FILE_LIST_REQUEST.
-// Gives a list of available files (and their types), as well as subdirectories
+// If FileListFilterMode is NOT "All", 
+// gives a list of available files (and their types), as well as subdirectories.
+// If FileListFilterMode is "All", 
+// FileInfo and DirectoryInfo just sends a list of available files and subdirectories,
+// and file type will be sent when request. 
 message FileListResponse {
     // Defines whether the FILE_LIST_REQUEST was successful
     bool success = 1;
@@ -26,9 +30,11 @@ message FileListResponse {
     string directory = 3;
     // Directory parent (null/empty if top-level)
     string parent = 4;
-    // List of available image files, with file type information and size information.
+    // If FileListFilterMode is NOT "All": List of available image files, with file type information and size information.
+    // If FileListFilterMode is "All": List of available image files. Other information when request.
     repeated FileInfo files = 5;
-    // List of available subdirectories, with number of items and modified date
+    // If FileListFilterMode is NOT "All": List of available subdirectories, with number of items and modified date.
+    // If FileListFilterMode is "All": List of available subdirectories.
     repeated DirectoryInfo subdirectories = 6;
     bool cancel = 7;
 }

@@ -854,7 +854,11 @@ Source file: `request/file_list.proto <https://github.com/CARTAvis/carta-protobu
 
 FILE_LIST_RESPONSE
 Response for :carta:refc:`FILE_LIST_REQUEST`.
-Gives a list of available files (and their types), as well as subdirectories
+If :carta:refc:`FileListFilterMode` is NOT "All", 
+gives a list of available files (and their types), as well as subdirectories.
+If :carta:refc:`FileListFilterMode` is "All", 
+:carta:refc:`FileInfo` and :carta:refc:`DirectoryInfo` just sends a list of available files and subdirectories,
+and file type will be sent when request.
 
 .. list-table::
    :widths: 20 20 20 40
@@ -884,11 +888,11 @@ Gives a list of available files (and their types), as well as subdirectories
    * - files
      - :carta:refc:`FileInfo`
      - repeated
-     - List of available image files, with file type information and size information.
+     - If :carta:refc:`FileListFilterMode` is NOT "All": List of available image files, with file type information and size information. If :carta:refc:`FileListFilterMode` is "All": List of available image files. Other information when request.
    * - subdirectories
      - :carta:refc:`DirectoryInfo`
      - repeated
-     - List of available subdirectories, with number of items and modified date
+     - If :carta:refc:`FileListFilterMode` is NOT "All": List of available subdirectories, with number of items and modified date. If :carta:refc:`FileListFilterMode` is "All": List of available subdirectories.
    * - cancel
      - bool
      - 
