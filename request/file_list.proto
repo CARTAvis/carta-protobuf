@@ -16,11 +16,7 @@ message FileListRequest {
 
 // FILE_LIST_RESPONSE
 // Response for FILE_LIST_REQUEST.
-// If FileListFilterMode is NOT "All", 
-// gives a list of available files (and their types), as well as subdirectories.
-// If FileListFilterMode is "All", 
-// FileInfo and DirectoryInfo just sends a list of available files and subdirectories,
-// and file type will be sent when request. 
+Gives a list of available files, as well as subdirectories. If FileListFilterMode is set to "AllFiles", the file types of files and the item number of subdirectories will not be included, and CASA files will be treated as subdirectories. If FileListFilterMode is set to "AllFiles" and the requested directory is a CASA file, the list of files will contain only the file itself, and the list of subdirectories will be empty.
 message FileListResponse {
     // Defines whether the FILE_LIST_REQUEST was successful
     bool success = 1;
@@ -30,11 +26,11 @@ message FileListResponse {
     string directory = 3;
     // Directory parent (null/empty if top-level)
     string parent = 4;
-    // If FileListFilterMode is NOT "All": List of available image files, with file type information and size information.
-    // If FileListFilterMode is "All": List of available image files. Other information when request.
+    // If FileListFilterMode is NOT "AllFiles": List of available image files with file type and size information.
+    // If FileListFilterMode is "AllFiles": List of available image files. File size and type information are sent when requested.
     repeated FileInfo files = 5;
-    // If FileListFilterMode is NOT "All": List of available subdirectories, with number of items and modified date.
-    // If FileListFilterMode is "All": List of available subdirectories.
+    // If FileListFilterMode is NOT "AllFiles": List of subdirectories including item number in these subdirectories.
+    // If FileListFilterMode is "AllFiles": List of subdirectories with modified data.
     repeated DirectoryInfo subdirectories = 6;
     bool cancel = 7;
 }

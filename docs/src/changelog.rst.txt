@@ -233,7 +233,7 @@ Changelog
      - Added optional ``channel_range`` and ``current_range`` to :carta:ref:`SetImageChannels` message, optional ``current_tiles`` to :carta:ref:`AddRequiredTiles` message, and new message :carta:ref:`ChannelMapFlowControl` to support channel map view.
    * - ``30.0.1``
      - 18/06/25
-     - Modified descriptions of :carta:refc:`FILE_LIST_RESPONSE`, :carta:refc:`FileInfo`, and :carta:refc:`DirectoryInfo` for addressing the new behavior of the All Files mode.
+     - Modified descriptions of :carta:refc:`FileListResponse`, :carta:refc:`FileInfo`, and :carta:refc:`DirectoryInfo` for addressing the new behavior of "AllFiles" mode.
 
 Versioning
 ----------
