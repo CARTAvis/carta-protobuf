@@ -26,11 +26,11 @@ message FileListResponse {
     string directory = 3;
     // Directory parent (null/empty if top-level)
     string parent = 4;
-    // If FileListFilterMode is NOT "AllFiles": List of available image files with file type and size information.
-    // If FileListFilterMode is "AllFiles": List of available image files. File size and type information are sent when requested.
+    // If FileListFilterMode is NOT "AllFiles": List of available image files with file type, size, and modified date information.  
+    // If FileListFilterMode is "AllFiles": List of available image files with size and modified date information. Type information are sent when requested.  
     repeated FileInfo files = 5;
-    // If FileListFilterMode is NOT "AllFiles": List of subdirectories including item number in these subdirectories.
-    // If FileListFilterMode is "AllFiles": List of subdirectories with modified data.
+    // If FileListFilterMode is NOT "AllFiles": List of subdirectories, with number of items and modified date.  
+    // If FileListFilterMode is "AllFiles": List of subdirectories, with modified date.  
     repeated DirectoryInfo subdirectories = 6;
     bool cancel = 7;
 }
