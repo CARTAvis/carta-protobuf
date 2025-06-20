@@ -854,11 +854,7 @@ Source file: `request/file_list.proto <https://github.com/CARTAvis/carta-protobu
 
 FILE_LIST_RESPONSE
 Response for :carta:refc:`FILE_LIST_REQUEST`.
-If :carta:refc:`FileListFilterMode` is NOT "AllFiles", 
-gives a list of available files (and their types), as well as subdirectories.
-If :carta:refc:`FileListFilterMode` is "AllFiles", 
-:carta:refc:`FileInfo` and :carta:refc:`DirectoryInfo` just sends a list of available files and subdirectories,
-and file type will be sent when requested.
+Gives a list of available files, as well as subdirectories. If :carta:refc:`FileListFilterMode` is set to "AllFiles", the file types of files and the item number of subdirectories will not be included, and CASA files will be treated as subdirectories. If :carta:refc:`FileListFilterMode` is set to "AllFiles" and the requested directory is a CASA file, the list of files will contain only the file itself, and the list of subdirectories will be empty.
 
 .. list-table::
    :widths: 20 20 20 40
@@ -888,11 +884,11 @@ and file type will be sent when requested.
    * - files
      - :carta:refc:`FileInfo`
      - repeated
-     - If :carta:refc:`FileListFilterMode` is NOT "All": List of available image files, with file type information and size information. If :carta:refc:`FileListFilterMode` is "All": List of available image files. Other information when request.
+     - If :carta:refc:`FileListFilterMode` is NOT "AllFiles": List of available image files with file type, size, and modified date information.   If :carta:refc:`FileListFilterMode` is "AllFiles": List of available image files with size and modified date information. Type information are sent when requested.
    * - subdirectories
      - :carta:refc:`DirectoryInfo`
      - repeated
-     - If :carta:refc:`FileListFilterMode` is NOT "All": List of available subdirectories, with number of items and modified date. If :carta:refc:`FileListFilterMode` is "All": List of available subdirectories.
+     - If :carta:refc:`FileListFilterMode` is NOT "AllFiles": List of subdirectories, with number of items and modified date.   If :carta:refc:`FileListFilterMode` is "AllFiles": List of subdirectories, with modified date.
    * - cancel
      - bool
      - 
