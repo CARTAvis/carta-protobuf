@@ -382,15 +382,15 @@ Directory info message structure (internal use only)
    * - name
      - string
      - 
-     - 
+     - Directory name
    * - item_count
      - sfixed32
      - 
-     - 
+     - Item number in the directory. This will be blank if :carta:refc:`FileListFilterMode` set to be "AllFiles"
    * - date
      - sfixed64
      - 
-     - 
+     - Modification date
 
 .. carta:class:: carta-sub doublebounds
 
@@ -473,23 +473,23 @@ File info message structure (internal use only)
    * - name
      - string
      - 
-     - 
+     - File name
    * - type
      - :carta:refc:`FileType`
      - 
-     - 
+     - File type. This will be blank or "Unknown" before clicking the file if :carta:refc:`FileListFilterMode` set to be "AllFiles"
    * - size
      - sfixed64
      - 
-     - 
+     - File size
    * - HDU_list
      - string
      - repeated
-     - 
+     - HDU list
    * - date
      - sfixed64
      - 
-     - 
+     - Modification date
 
 .. carta:class:: carta-sub fileinfoextended
 

@@ -884,11 +884,11 @@ Gives a list of available files, as well as subdirectories. If :carta:refc:`File
    * - files
      - :carta:refc:`FileInfo`
      - repeated
-     - If :carta:refc:`FileListFilterMode` is NOT "AllFiles": List of available image files with file type, size, and modified date information.   If :carta:refc:`FileListFilterMode` is "AllFiles": List of available image files with size and modified date information. Type information are sent when requested.
+     - List of available image files with sizes and modification dates. If :carta:refc:`FileListFilterMode` is not "AllFiles", file types are also included.
    * - subdirectories
      - :carta:refc:`DirectoryInfo`
      - repeated
-     - If :carta:refc:`FileListFilterMode` is NOT "AllFiles": List of subdirectories, with number of items and modified date.   If :carta:refc:`FileListFilterMode` is "AllFiles": List of subdirectories, with modified date.
+     - List of subdirectories with modification dates. If :carta:refc:`FileListFilterMode` is not "AllFiles", item counts are also included.
    * - cancel
      - bool
      - 
