@@ -854,7 +854,7 @@ Source file: `request/file_list.proto <https://github.com/CARTAvis/carta-protobu
 
 FILE_LIST_RESPONSE
 Response for :carta:refc:`FILE_LIST_REQUEST`.
-Gives a list of available files, as well as subdirectories. If :carta:refc:`FileListFilterMode` is set to "AllFiles", the file types of files and the item number of subdirectories will not be included, and CASA files will be treated as subdirectories. If :carta:refc:`FileListFilterMode` is set to "AllFiles" and the requested directory is a CASA file, the list of files will contain only the file itself, and the list of subdirectories will be empty.
+Gives a list of available files, as well as subdirectories. If :carta:refc:`FileListFilterMode` is set to AllFiles, the file types of files and the item number of subdirectories will not be included, and CASA files will be treated as subdirectories. If :carta:refc:`FileListFilterMode` is set to AllFiles and the requested directory is a CASA file, the list of files will contain only the file itself, and the list of subdirectories will be empty.
 
 .. list-table::
    :widths: 20 20 20 40
@@ -884,11 +884,11 @@ Gives a list of available files, as well as subdirectories. If :carta:refc:`File
    * - files
      - :carta:refc:`FileInfo`
      - repeated
-     - List of available image files with sizes and modification dates. If :carta:refc:`FileListFilterMode` is not "AllFiles", file types are also included.
+     - List of available image files with sizes and modification dates. File types are included if :carta:refc:`FileListFilterMode` is not AllFiles, or if the requested directory in AllFiles mode is a single CASA file.
    * - subdirectories
      - :carta:refc:`DirectoryInfo`
      - repeated
-     - List of subdirectories with modification dates. If :carta:refc:`FileListFilterMode` is not "AllFiles", item counts are also included.
+     - List of subdirectories with modification dates. If :carta:refc:`FileListFilterMode` is not AllFiles, item counts are also included.
    * - cancel
      - bool
      - 

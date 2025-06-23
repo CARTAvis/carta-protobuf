@@ -17,11 +17,11 @@ message DoublePoint {
     double y = 2;
 }
 
-// File info message structure (internal use only), submessage of FileListResponse
+// File info message structure, sub-message of FileListResponse
 message FileInfo {
     // File name
     string name = 1;
-    // File type. This will be blank or "Unknown" before clicking the file if FileListFilterMode set to be "AllFiles"
+    // File type. This field may be unused (and set to UNKNOWN) if FileListFilterMode is AllFiles
     FileType type = 2;
     // File size
     sfixed64 size = 3;
@@ -31,11 +31,11 @@ message FileInfo {
     sfixed64 date = 5;
 }
 
-// Directory info message structure (internal use only), submessage of FileListResponse
+// Directory info message structure, sub-message of FileListResponse
 message DirectoryInfo {
     // Directory name
     string name = 1;
-    // Item number in the directory. This will be blank if FileListFilterMode set to be "AllFiles"
+    // Number of items in the directory. This field is always unused (and left as zero) if FileListFilterMode is AllFiles.
     sfixed32 item_count = 2;
     // Modification date
     sfixed64 date = 3;

@@ -16,7 +16,7 @@ message FileListRequest {
 
 // FILE_LIST_RESPONSE
 // Response for FILE_LIST_REQUEST.
-// Gives a list of available files, as well as subdirectories. If FileListFilterMode is set to "AllFiles", the file types of files and the item number of subdirectories will not be included, and CASA files will be treated as subdirectories. If FileListFilterMode is set to "AllFiles" and the requested directory is a CASA file, the list of files will contain only the file itself, and the list of subdirectories will be empty.
+// Gives a list of available files, as well as subdirectories. If FileListFilterMode is set to AllFiles, the file types of files and the item number of subdirectories will not be included, and CASA files will be treated as subdirectories. If FileListFilterMode is set to AllFiles and the requested directory is a CASA file, the list of files will contain only the file itself, and the list of subdirectories will be empty.
 message FileListResponse {
     // Defines whether the FILE_LIST_REQUEST was successful
     bool success = 1;
@@ -26,9 +26,9 @@ message FileListResponse {
     string directory = 3;
     // Directory parent (null/empty if top-level)
     string parent = 4;
-    // List of available image files with sizes and modification dates. If FileListFilterMode is not "AllFiles", file types are also included. 
+    // List of available image files with sizes and modification dates. File types are included if FileListFilterMode is not AllFiles, or if the requested directory in AllFiles mode is a single CASA file.
     repeated FileInfo files = 5;
-    // List of subdirectories with modification dates. If FileListFilterMode is not "AllFiles", item counts are also included.
+    // List of subdirectories with modification dates. If FileListFilterMode is not AllFiles, item counts are also included.
     repeated DirectoryInfo subdirectories = 6;
     bool cancel = 7;
 }

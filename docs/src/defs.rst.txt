@@ -368,7 +368,7 @@ DirectoryInfo
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
-Directory info message structure (internal use only), sub-message of :carta:refc:`FileListResponse`
+Directory info message structure, sub-message of :carta:refc:`FileListResponse`
 
 .. list-table::
    :widths: 20 20 20 40
@@ -386,7 +386,7 @@ Directory info message structure (internal use only), sub-message of :carta:refc
    * - item_count
      - sfixed32
      - 
-     - Item number in the directory. This will be blank if :carta:refc:`FileListFilterMode` set to be "AllFiles"
+     - Number of items in the directory. This field is always unused (and left as zero) if :carta:refc:`FileListFilterMode` is AllFiles.
    * - date
      - sfixed64
      - 
@@ -459,7 +459,7 @@ FileInfo
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
-File info message structure (internal use only), sub-message of :carta:refc:`FileListResponse`
+File info message structure, sub-message of :carta:refc:`FileListResponse`
 
 .. list-table::
    :widths: 20 20 20 40
@@ -477,7 +477,7 @@ File info message structure (internal use only), sub-message of :carta:refc:`Fil
    * - type
      - :carta:refc:`FileType`
      - 
-     - File type. This will be blank or "Unknown" before clicking the file if :carta:refc:`FileListFilterMode` set to be "AllFiles"
+     - File type. This field may be unused (and set to UNKNOWN) if :carta:refc:`FileListFilterMode` is AllFiles
    * - size
      - sfixed64
      - 
