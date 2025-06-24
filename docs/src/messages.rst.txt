@@ -2950,6 +2950,10 @@ Sets the overlay parameters for a file
      - float
      - 
      - Compression quality switch
+   * - threshold_option
+     - :carta:refc:`PolarizationType`
+     - 
+     - Polarization type for threshold which is :carta:refc:`PolarizationType`:I or :carta:refc:`PolarizationType`:Plinear
 
 .. carta:class:: carta-f2b spatialconfig
 
