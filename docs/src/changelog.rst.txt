@@ -234,6 +234,9 @@ Changelog
    * - ``30.1.0``
      - 05/05/25
      - Added ``threshold_option`` to :carta:ref:`SetVectorOverlayParameters` message.
+   * - ``30.1.1``
+     - 18/06/25
+     - Modified descriptions of :carta:refc:`FileListResponse`, :carta:refc:`FileInfo`, and :carta:refc:`DirectoryInfo` for addressing the new behavior of AllFiles mode.
 
 Versioning
 ----------

@@ -368,7 +368,7 @@ DirectoryInfo
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
-Directory info message structure (internal use only)
+Directory info message structure, sub-message of :carta:refc:`FileListResponse`
 
 .. list-table::
    :widths: 20 20 20 40
@@ -382,15 +382,15 @@ Directory info message structure (internal use only)
    * - name
      - string
      - 
-     - 
+     - Directory name
    * - item_count
      - sfixed32
      - 
-     - 
+     - Number of items in the directory. This field is always unused (and left as zero) if :carta:refc:`FileListFilterMode` is AllFiles.
    * - date
      - sfixed64
      - 
-     - 
+     - Modification date
 
 .. carta:class:: carta-sub doublebounds
 
@@ -459,7 +459,7 @@ FileInfo
 
 Source file: `shared/defs.proto <https://github.com/CARTAvis/carta-protobuf/blob/dev/shared/defs.proto>`_
 
-File info message structure (internal use only)
+File info message structure, sub-message of :carta:refc:`FileListResponse`
 
 .. list-table::
    :widths: 20 20 20 40
@@ -473,23 +473,23 @@ File info message structure (internal use only)
    * - name
      - string
      - 
-     - 
+     - File name
    * - type
      - :carta:refc:`FileType`
      - 
-     - 
+     - File type. This field may be unused (and set to UNKNOWN) if :carta:refc:`FileListFilterMode` is AllFiles
    * - size
      - sfixed64
      - 
-     - 
+     - File size
    * - HDU_list
      - string
      - repeated
-     - 
+     - HDU list
    * - date
      - sfixed64
      - 
-     - 
+     - Modification date
 
 .. carta:class:: carta-sub fileinfoextended
 
