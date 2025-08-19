@@ -1,5 +1,7 @@
 syntax = "proto3";
 package CARTA;
+// Required for go generation
+option go_package = "./cartaDefinitions";
 
 import "open_file.proto";
 

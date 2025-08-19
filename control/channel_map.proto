@@ -1,5 +1,7 @@
 syntax = "proto3";
 package CARTA;
+// Required for go generation
+option go_package = "./cartaDefinitions";
 
 // CHANNEL_MAP_FLOW_CONTROL
 // Used for informing the backend of which frames have been received

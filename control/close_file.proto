@@ -1,5 +1,7 @@
 syntax = "proto3";
 package CARTA;
+// Required for go generation
+option go_package = "./cartaDefinitions";
 
 // CLOSE_FILE:
 // Instructs the backend to close a file with a given file ID
