@@ -146,6 +146,7 @@ message HistogramConfig {
     sfixed32 num_bins = 4;
     bool fixed_bounds = 5;
     DoubleBounds bounds = 6;
+    sfixed32 channel_end = 7;
 }
 
 message RegionInfo {
