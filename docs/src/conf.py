@@ -19,8 +19,8 @@ sys.path.insert(0, os.path.abspath('.') + '/_extensions')
 # -- Project information -----------------------------------------------------
 
 project = 'CARTA Interface Control Document'
-#copyright = '2020, ASIAA, IDIA and NRAO'
 author = 'A. Comrie, R. Simmonds and the CARTA team'
+copyright = f'2018- {author}'
 
 
 # -- General configuration ---------------------------------------------------

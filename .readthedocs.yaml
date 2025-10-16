@@ -19,6 +19,9 @@ build:
         - tar xf protoc-gen-doc_1.5.1_linux_amd64.tar.gz -C $READTHEDOCS_VIRTUALENV_PATH/bin
         - make -C docs/protoc
 
+formats:
+    - pdf
+
 # Build documentation in the docs/ directory with Sphinx
 sphinx:
   configuration: docs/src/conf.py
