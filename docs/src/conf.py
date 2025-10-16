@@ -30,10 +30,13 @@ author = 'Angus Comrie and Rob Simmonds'
 # ones.
 extensions = [
     'cartaref',
-    'plantweb.directive',
+    'sphinxcontrib.plantuml',
     'sphinxcontrib.rsvgconverter',
     'sphinx_rtd_theme',
 ]
+
+# plantuml config
+plantuml = 'java -Djava.awt.headless=true -jar /usr/share/plantuml/plantuml.jar'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
