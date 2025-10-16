@@ -9,6 +9,7 @@ version: 2
 build:
   os: ubuntu-22.04
   apt_packages:
+    - default-jre
     - protobuf-compiler
     - librsvg2-bin
   tools:
