@@ -17,19 +17,27 @@ message DoublePoint {
     double y = 2;
 }
 
-// File info message structure (internal use only)
+// File info message structure, sub-message of FileListResponse
 message FileInfo {
+    // File name
     string name = 1;
+    // File type. This field may be unused (and set to UNKNOWN) if FileListFilterMode is AllFiles
     FileType type = 2;
+    // File size
     sfixed64 size = 3;
+    // HDU list
     repeated string HDU_list = 4;
+    // Modification date
     sfixed64 date = 5;
 }
 
-// Directory info message structure (internal use only)
+// Directory info message structure, sub-message of FileListResponse
 message DirectoryInfo {
+    // Directory name
     string name = 1;
+    // Number of items in the directory. This field is always unused (and left as zero) if FileListFilterMode is AllFiles.
     sfixed32 item_count = 2;
+    // Modification date
     sfixed64 date = 3;
 }
 
