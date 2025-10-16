@@ -35,7 +35,9 @@ extensions = [
     'sphinx_rtd_theme',
 ]
 
-# plantuml config
+# Run plantuml headlessly on RTD
+# The default plantuml executable is `plantuml`
+# (please ensure it's on your path to test builds locally)
 if os.environ.get('READTHEDOCS') == 'True':
     plantuml = 'java -Djava.awt.headless=true -jar /usr/share/plantuml/plantuml.jar'
 
