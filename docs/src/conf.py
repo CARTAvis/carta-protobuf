@@ -20,7 +20,7 @@ sys.path.insert(0, os.path.abspath('.') + '/_extensions')
 
 project = 'CARTA Interface Control Document'
 #copyright = '2020, ASIAA, IDIA and NRAO'
-author = 'Angus Comrie and Rob Simmonds'
+author = 'A. Comrie, R. Simmonds and the CARTA team'
 
 
 # -- General configuration ---------------------------------------------------
@@ -40,6 +40,9 @@ extensions = [
 # (please ensure it's on your path to test builds locally)
 if os.environ.get('READTHEDOCS') == 'True':
     plantuml = 'java -Djava.awt.headless=true -jar /usr/share/plantuml/plantuml.jar'
+
+plantuml_output_format = 'svg_img'
+plantuml_latex_output_format = 'svg_pdf'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
