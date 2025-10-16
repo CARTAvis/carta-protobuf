@@ -9,7 +9,6 @@ version: 2
 build:
   os: ubuntu-22.04
   apt_packages:
-    - plantuml
     - protobuf-compiler
     - librsvg2-bin
   tools:
@@ -19,6 +18,7 @@ build:
         - curl -L -O "https://github.com/pseudomuto/protoc-gen-doc/releases/download/v1.5.1/protoc-gen-doc_1.5.1_linux_amd64.tar.gz"
         - tar xf protoc-gen-doc_1.5.1_linux_amd64.tar.gz -C $READTHEDOCS_VIRTUALENV_PATH/bin
         - make -C docs/protoc
+        - curl -L -o "$READTHEDOCS_VIRTUALENV_PATH/plantuml.jar" "https://github.com/plantuml/plantuml/releases/download/v1.2025.8/plantuml-1.2025.8.jar"
 
 formats:
     - pdf

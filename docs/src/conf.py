@@ -35,11 +35,11 @@ extensions = [
     'sphinx_rtd_theme',
 ]
 
-# Run plantuml headlessly on RTD
+# Run (recent) plantuml headlessly on RTD
 # The default plantuml executable is `plantuml`
 # (please ensure it's on your path to test builds locally)
 if os.environ.get('READTHEDOCS') == 'True':
-    plantuml = 'java -Djava.awt.headless=true -jar /usr/share/plantuml/plantuml.jar'
+    plantuml = f'java -Djava.awt.headless=true -jar {os.environ.get("READTHEDOCS_VIRTUALENV_PATH")}/plantuml.jar'
 
 plantuml_output_format = 'svg_img'
 plantuml_latex_output_format = 'svg_pdf'
