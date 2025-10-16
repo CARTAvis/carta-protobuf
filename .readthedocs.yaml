@@ -17,6 +17,7 @@ build:
     pre_build:
         - curl -L -O "https://github.com/pseudomuto/protoc-gen-doc/releases/download/v1.5.1/protoc-gen-doc_1.5.1_linux_amd64.tar.gz"
         - tar xf protoc-gen-doc_1.5.1_linux_amd64.tar.gz -C $READTHEDOCS_VIRTUALENV_PATH/bin
+        - make -C docs/protoc
 
 # Build documentation in the docs/ directory with Sphinx
 sphinx:
