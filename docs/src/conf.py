@@ -36,7 +36,8 @@ extensions = [
 ]
 
 # plantuml config
-plantuml = 'java -Djava.awt.headless=true -jar /usr/share/plantuml/plantuml.jar'
+if os.environ.get('READTHEDOCS') == 'True':
+    plantuml = 'java -Djava.awt.headless=true -jar /usr/share/plantuml/plantuml.jar'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
