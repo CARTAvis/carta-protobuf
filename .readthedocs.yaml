@@ -11,6 +11,7 @@ build:
   apt_packages:
     - plantuml
     - protobuf-compiler
+    - librsvg2-bin
   tools:
     python: "3.11"
   jobs:
