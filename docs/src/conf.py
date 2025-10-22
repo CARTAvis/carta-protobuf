@@ -19,8 +19,8 @@ sys.path.insert(0, os.path.abspath('.') + '/_extensions')
 # -- Project information -----------------------------------------------------
 
 project = 'CARTA Interface Control Document'
-#copyright = '2020, ASIAA, IDIA and NRAO'
-author = 'Angus Comrie and Rob Simmonds'
+author = 'A. Comrie, R. Simmonds and the CARTA team'
+copyright = f'2018- {author}'
 
 
 # -- General configuration ---------------------------------------------------
@@ -30,10 +30,19 @@ author = 'Angus Comrie and Rob Simmonds'
 # ones.
 extensions = [
     'cartaref',
-    'plantweb.directive',
+    'sphinxcontrib.plantuml',
     'sphinxcontrib.rsvgconverter',
     'sphinx_rtd_theme',
 ]
+
+# Run (recent) plantuml headlessly on RTD
+# The default plantuml executable is `plantuml`
+# (please ensure it's on your path to test builds locally)
+if os.environ.get('READTHEDOCS') == 'True':
+    plantuml = f'java -Djava.awt.headless=true -jar {os.environ.get("READTHEDOCS_VIRTUALENV_PATH")}/plantuml.jar'
+
+plantuml_output_format = 'svg_img'
+plantuml_latex_output_format = 'svg_pdf'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
