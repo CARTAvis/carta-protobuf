@@ -9,7 +9,22 @@ Versioning information
 * Patch (``1.2.3`` -> ``1.2.4``): this is a change which does not affect functionality (e.g. a typo fix in a comment, or a changed field name).
 
 Some legacy changelog entries may not follow this approach. Only changes to the protocol buffer source files should be recorded here; changes only to this documentation do not require a version bump.
-   
+
+CARTA version 6
+~~~~~~~~~~~~~~~
+
+.. list-table::
+   :widths: 15 15 70
+   :header-rows: 1
+   :class: changelog
+
+   * - Version
+     - Date
+     - Description
+   * - ``30.2.0``
+     - 08/12/25
+     - Added ``vector_overlay_settings`` to :carta:ref:`ImageProperties` message to update vector overlay after session resume.
+
 CARTA version 5
 ~~~~~~~~~~~~~~~
 
