@@ -6,6 +6,7 @@ import "enums.proto";
 import "open_catalog_file.proto";
 import "contour.proto";
 import "concat_stokes_files.proto";
+import "vector_overlay.proto";
 
 message ImageProperties {
     string directory = 1;
@@ -20,6 +21,7 @@ message ImageProperties {
     SetContourParameters contour_settings = 10;
     repeated StokesFile stokes_files = 11;
     bool support_aips_beam = 12;
+    SetVectorOverlayParameters vector_overlay_settings = 13;
 }
 
 message ResumeSession {
