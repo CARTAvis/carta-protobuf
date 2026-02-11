@@ -11,7 +11,7 @@ message SetVectorOverlayParameters {
   fixed32 file_id = 1;
   // The XY bounds corresponding to the image data in pixel coordinates. Currently unused
   ImageBounds image_bounds = 3;
-  // Block smoothing factor to use. Must be an even integer, corresponds to the ``mip`` coordinate.
+  // Block smoothing factor to use. Must be an integer, corresponds to the ``mip`` coordinate.
   fixed32 smoothing_factor = 4;
   // Whether to use fractional polarization intensity
     bool fractional = 5;
