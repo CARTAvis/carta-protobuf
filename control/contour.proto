@@ -28,4 +28,6 @@ message SetContourParameters {
     int32 contour_chunk_size = 9;
     // Channel range for channel map
     IntBounds channel_range = 10;
+    // Requested stokes
+    sfixed32 stokes = 11;
 }
