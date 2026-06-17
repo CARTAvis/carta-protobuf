@@ -29,6 +29,8 @@ message FileInfo {
     repeated string HDU_list = 4;
     // Modification date
     sfixed64 date = 5;
+    // File size is an upper bound
+    bool size_is_upper_bound = 6;
 }
 
 // Directory info message structure, sub-message of FileListResponse
