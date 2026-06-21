@@ -83,6 +83,11 @@ enum EventType {
     REMOTE_FILE_REQUEST = 88;
     REMOTE_FILE_RESPONSE = 89;
     CHANNEL_MAP_FLOW_CONTROL = 90;
+    BULK_SET_REGION = 91;
+    BULK_SET_REGION_ACK = 92;
+    BULK_REMOVE_REGION = 93;
+    SERVER_LIST = 94;
+    SERVER_LIST_RESPONSE = 95;
 }
 
 enum SessionType {
@@ -192,6 +197,10 @@ enum ServerFeatureFlags {
     USER_PREFERENCES = 16;
     USER_LAYOUTS = 32;
     SCRIPTING = 64;
+    // Controller can reach other-site deployments; enables SERVER_LIST requests.
+    MULTI_SITE = 128;
+    // Each file is served by its own backend; frontend manages per-file regions and matching.
+    SINGLE_TENANT_BACKEND = 256;
 }
 
 enum FileFeatureFlags {

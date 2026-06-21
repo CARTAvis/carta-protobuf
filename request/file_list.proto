@@ -12,6 +12,8 @@ message FileListRequest {
     string directory = 1;
     // Filter mode to use when showing the file list
     FileListFilterMode filter_mode = 2;
+  // Server/site id to target (0 = primary/local). See SERVER_LIST_RESPONSE.
+  sfixed32 server = 3;
 }
 
 // FILE_LIST_RESPONSE

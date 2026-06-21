@@ -22,6 +22,8 @@ message OpenFile {
     bool lel_expr = 6;
     // Defines whether to support AIPS beam in FITS history headers
     bool support_aips_beam = 7;
+    // Target server/site (0 = primary/local). See FileListRequest.server.
+    sfixed32 server = 8;
 }
 
 // OPEN_FILE_ACK

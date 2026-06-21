@@ -27,6 +27,8 @@ message SetRegionAck {
     // The unique region ID. If the region is updated, this will be the same as the region ID specified in SET_REGION.
     // If  a new region is being created, the ID of the new region will be passed back.
     sfixed32 region_id = 3;
+  // File slot this ack corresponds to
+  sfixed32 file_id = 4;
 }
 
 // REMOVE_REGION:
@@ -34,4 +36,24 @@ message SetRegionAck {
 message RemoveRegion {
     // Unique region ID of the region to be removed
     sfixed32 region_id = 1;
+  // File slot the region belongs to
+  sfixed32 file_id = 2;
+}
+
+// BULK_SET_REGION:
+// Creates or updates multiple regions across files. Responds with BULK_SET_REGION_ACK
+message BulkSetRegion {
+  repeated SetRegion set_regions = 1;
+}
+
+// BULK_SET_REGION_ACK:
+// Aggregated response for BULK_SET_REGION, one SetRegionAck per region
+message BulkSetRegionAck {
+  repeated SetRegionAck acks = 1;
+}
+
+// BULK_REMOVE_REGION:
+// Removes multiple regions across files
+message BulkRemoveRegion {
+  repeated RemoveRegion remove_regions = 1;
 }

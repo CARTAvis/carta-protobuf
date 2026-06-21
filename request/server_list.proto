@@ -1,0 +1,27 @@
+syntax = "proto3";
+package CARTA;
+
+// SERVER_LIST:
+// Requests the list of available sites. Responds with SERVER_LIST_RESPONSE
+message ServerList {
+}
+
+// SERVER_LIST_RESPONSE:
+// Response for SERVER_LIST.
+message ServerListResponse {
+  bool success = 1;
+  string message = 2;
+  repeated ServerInfo servers = 3;
+}
+
+// ServerInfo describes one reachable controller deployment.
+message ServerInfo {
+  // Server/site id (0 = primary/local)
+  sfixed32 id = 1;
+  // Short human-readable site name for the file browser.
+  string name = 2;
+  // Longer description of the site.
+  string description = 3;
+  // Physical/geographic location of the deployment.
+  string location = 4;
+}
