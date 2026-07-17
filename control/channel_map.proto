@@ -2,10 +2,10 @@ syntax = "proto3";
 package CARTA;
 
 // CHANNEL_MAP_FLOW_CONTROL
-// Used for informing the backend of which frames have been received
+// Used for informing the frontend that all data for a channel has been sent
 message ChannelMapFlowControl {
     // The file ID that the channel map view corresponds to
     sfixed32 file_id = 1;
-    // The latest flow control channel received
+    // The completed channel
     sfixed32 received_channel = 2;
 }
