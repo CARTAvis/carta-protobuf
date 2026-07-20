@@ -21,6 +21,9 @@ CARTA version 6
    * - Version
      - Date
      - Description
+   * - ``32.0.0``
+     - 20/07/26
+     - Added optional ``next_channel`` and ``next_required_tiles`` fields to :carta:ref:`SetImageChannels` for channel map tile preparation.
    * - ``31.0.0``
      - 17/07/26
      - Changed channel map requests to process one channel at a time, changed :carta:ref:`ChannelMapFlowControl` to a backend completion event, and removed the channel range cancellation fields.

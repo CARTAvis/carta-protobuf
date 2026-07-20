@@ -17,4 +17,8 @@ message SetImageChannels {
     reserved 5, 6;
     // Set current image channel during channel map
     bool channel_map_enabled = 7;
+    // The next image channel to prepare while sending the current channel map tiles
+    optional sfixed32 next_channel = 8;
+    // Required tiles to prepare for the next image channel
+    AddRequiredTiles next_required_tiles = 9;
 }
