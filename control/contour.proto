@@ -26,6 +26,10 @@ message SetContourParameters {
     int32 compression_level = 8;
     // Size of contour chunks, in number of vertices. If this is set to zero, partial contour results are not used
     int32 contour_chunk_size = 9;
-    // Channel range for channel map
-    IntBounds channel_range = 10;
+    reserved 10;
+    reserved "channel_range";
+    // Explicit channel for a single channel-map contour request
+    optional sfixed32 channel = 11;
+    // Explicit Stokes for a single channel-map contour request
+    optional sfixed32 stokes = 12;
 }
