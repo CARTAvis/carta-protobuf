@@ -17,4 +17,6 @@ message SetImageChannels {
     reserved 5, 6;
     // Set current image channel during channel map
     bool channel_map_enabled = 7;
+    // Requested channels for a channel map view
+    repeated sfixed32 channels = 8;
 }
