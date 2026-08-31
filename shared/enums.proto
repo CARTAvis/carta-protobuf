@@ -157,6 +157,11 @@ enum StatsType {
     Trcf = 16;
     MinPosf = 17;
     MaxPosf = 18;
+    Median = 19;
+    MedAbsDevMed = 20;
+    Quartile = 21;
+    Q1 = 22;
+    Q3 = 23;
 }
 
 enum ErrorSeverity {
