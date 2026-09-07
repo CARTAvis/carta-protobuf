@@ -23,7 +23,7 @@ CARTA version 6
      - Description
    * - ``31.0.0``
      - 20/07/26
-     - Changed channel map requests to process one channel at a time, changed :carta:ref:`ChannelMapFlowControl` to report the completed channel and request status, and removed the channel range cancellation fields.
+     - Changed channel map requests to process one channel at a time, changed :carta:ref:`ChannelMapFlowControl` to report the completed channel and request status, and replaced the channel range with channel list to support the channel step.
    * - ``30.2.0``
      - 08/12/25
      - Added ``vector_overlay_settings`` to :carta:ref:`ImageProperties` message to update vector overlay after session resume.
