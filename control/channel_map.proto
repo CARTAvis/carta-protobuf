@@ -2,10 +2,21 @@ syntax = "proto3";
 package CARTA;
 
 // CHANNEL_MAP_FLOW_CONTROL
-// Used for informing the backend of which frames have been received
+// Reports the outcome after the backend processes a channel map request
 message ChannelMapFlowControl {
+    enum Status {
+        STATUS_UNSPECIFIED = 0;
+        COMPLETED = 1;
+        REJECTED = 2;
+        CANCELLED = 3;
+    }
+
     // The file ID that the channel map view corresponds to
     sfixed32 file_id = 1;
-    // The latest flow control channel received
-    sfixed32 received_channel = 2;
+    // The completed channel
+    sfixed32 completed_channel = 2;
+    // The outcome of the channel map request
+    Status status = 3;
+    // An optional explanation when the request was not completed
+    string message = 4;
 }
