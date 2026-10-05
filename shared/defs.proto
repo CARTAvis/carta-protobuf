@@ -29,8 +29,10 @@ message FileInfo {
     repeated string HDU_list = 4;
     // Modification date
     sfixed64 date = 5;
-    // File size is an upper bound
-    bool size_is_upper_bound = 6;
+    // The size is the uncompressed size the file's metadata declares rather than the bytes it occupies,
+    // which could not be measured. It is not a bound on them either way: compression makes a store
+    // smaller than it declares, and its metadata makes it larger.
+    bool size_is_declared = 6;
 }
 
 // Directory info message structure, sub-message of FileListResponse
