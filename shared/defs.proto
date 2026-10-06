@@ -29,6 +29,8 @@ message FileInfo {
     repeated string HDU_list = 4;
     // Modification date
     sfixed64 date = 5;
+    // Size is the uncompressed size declared in the file's metadata, because the bytes on disk could not be measured
+    bool size_is_declared = 6;
 }
 
 // Directory info message structure, sub-message of FileListResponse

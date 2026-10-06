@@ -98,6 +98,7 @@ enum FileType {
     HDF5 = 4;
     MIRIAD = 5;
     UNKNOWN = 6;
+    ZARR = 7;
 }
 
 enum RenderMode {
