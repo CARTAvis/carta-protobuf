@@ -29,7 +29,7 @@ message FileInfo {
     repeated string HDU_list = 4;
     // Modification date
     sfixed64 date = 5;
-    // Size is the uncompressed size declared in the file's metadata, because the bytes on disk could not be measured
+    // Size is the uncompressed size declared in the file's metadata, because measuring the bytes on disk took too long
     bool size_is_declared = 6;
 }
 
