@@ -21,6 +21,9 @@ CARTA version 6
    * - Version
      - Date
      - Description
+   * - ``30.3.0``
+     - 06/10/26
+     - Added ``ZARR`` to :carta:ref:`FileType` enum and ``size_is_declared`` to :carta:ref:`FileInfo` message for Zarr images.
    * - ``30.2.0``
      - 08/12/25
      - Added ``vector_overlay_settings`` to :carta:ref:`ImageProperties` message to update vector overlay after session resume.
