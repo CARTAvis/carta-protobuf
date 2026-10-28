@@ -16,6 +16,9 @@ message MomentRequest {
     bool keep = 8;
     // Set the rest frequency (Hz) of the image
     double rest_freq = 9;
+    // Spectral coordinate and standard of rest used to select the channel range.
+    string spectral_type = 10;
+    string spectral_system = 11;
 }
 
 message MomentResponse {
