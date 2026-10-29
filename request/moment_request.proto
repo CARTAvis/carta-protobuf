@@ -16,6 +16,8 @@ message MomentRequest {
     bool keep = 8;
     // Set the rest frequency (Hz) of the image
     double rest_freq = 9;
+    // Standard of rest used for spectral range logging.
+    string spectral_system = 10;
 }
 
 message MomentResponse {
