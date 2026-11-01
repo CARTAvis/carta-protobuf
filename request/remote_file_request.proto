@@ -29,6 +29,22 @@ message RemoteFileRequest {
   // Name of the object the output image will be centered on.
   // The name will be resolved to coordinated by the Sesame service.
   string object = 12;
+  // 1-based index of a record cached by the backend from this session's last SIA query
+  // (SiaRecord.index); if set, the HiPS fields (2-12) are ignored. 0 means unset.
+  int32 sia_record_index = 13;
+  // Optional display name for the opened image (e.g. obs_id). Sanitized by the backend.
+  string filename = 14;
+}
+
+message RemoteFileProgress {
+  // File ID of the pending file, matching the RemoteFileRequest
+  sfixed32 file_id = 1;
+  // Fraction downloaded, ranging from 0 to 1; negative if the total size is unknown
+  float progress = 2;
+  // Bytes downloaded so far
+  sint64 downloaded_bytes = 3;
+  // Total bytes to download, or -1 if unknown
+  sint64 total_bytes = 4;
 }
 
 message RemoteFileResponse {

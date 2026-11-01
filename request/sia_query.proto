@@ -1,0 +1,73 @@
+syntax = "proto3";
+package CARTA;
+
+// An SIA 2.0 query parameter, e.g. key "BAND", value "-Inf 0.21". The backend only accepts
+// standard parameter names; repeated keys are multi-valued parameters (combined with OR).
+message SiaFilter {
+  string key = 1;
+  string value = 2;
+}
+
+message SiaQueryRequest {
+  // Query endpoint of the SIA service; must exactly match a service configured on the backend
+  string service_url = 1;
+  // Right ascension of the search circle centre, in ICRS decimal degrees
+  double ra = 2;
+  // Declination of the search circle centre, in ICRS decimal degrees
+  double dec = 3;
+  // Radius of the search circle, in decimal degrees
+  double radius = 4;
+  // Additional SIA 2.0 parameters (BAND, TIME, POL, COLLECTION, FACILITY,
+  // INSTRUMENT, DPTYPE, CALIB, TARGET, MAXREC)
+  repeated SiaFilter filters = 5;
+}
+
+// A dataset from an SIA query response (ObsCore). Unset numeric values are NaN
+// (or -1 for the integer fields).
+message SiaRecord {
+  // 1-based index of the record in the backend's cached result set,
+  // used as RemoteFileRequest.sia_record_index to load it
+  int32 index = 1;
+  string obs_id = 2;
+  string target_name = 3;
+  string collection = 4;
+  string facility = 5;
+  string instrument = 6;
+  string dataproduct_type = 7;
+  sint32 calib_level = 8;
+  double ra = 9;
+  double dec = 10;
+  // Field of view in decimal degrees
+  double fov = 11;
+  // Wavelength coverage in metres
+  double em_min = 12;
+  double em_max = 13;
+  // Time coverage in MJD
+  double t_min = 14;
+  double t_max = 15;
+  // Exposure time in seconds
+  double t_exptime = 16;
+  // Where the data lives (informational; loading goes through the record index)
+  string access_url = 17;
+  // MIME type of the access URL: a FITS type, or a DataLink service document
+  string access_format = 18;
+  // Estimated dataset size in kilobytes
+  sint64 access_estsize = 19;
+  // Free-text fields, where the service provides them: ObsCore has no abstract, but
+  // some services publish a dataset title, and the proposal the observation belongs to
+  string obs_title = 20;
+  string proposal_title = 21;
+  // Finer product classification than dataproduct_type, e.g. "science", "weight"
+  string dataproduct_subtype = 22;
+  // Filter or bandpass name, e.g. "IRAC1"
+  string bandpass = 23;
+}
+
+message SiaQueryResponse {
+  // Defines whether the query succeeded
+  bool success = 1;
+  // Error message (if applicable)
+  string message = 2;
+  // The matching datasets, in service order
+  repeated SiaRecord records = 3;
+}
