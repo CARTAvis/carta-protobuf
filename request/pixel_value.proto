@@ -1,0 +1,22 @@
+syntax = "proto3";
+package CARTA;
+
+// PIXEL_VALUE_REQUEST
+// Requests the uncompressed value of a single voxel of an open image.
+// Backend responds with PIXEL_VALUE_RESPONSE, using the same request ID
+message PixelValueRequest {
+    // The file ID that the voxel corresponds to
+    sfixed32 file_id = 1;
+    sfixed32 x = 2;
+    sfixed32 y = 3;
+    sfixed32 z = 4;
+    sfixed32 stokes = 5;
+}
+
+// PIXEL_VALUE_RESPONSE
+// Response for PIXEL_VALUE_REQUEST
+message PixelValueResponse {
+    // The file ID that the voxel corresponds to
+    sfixed32 file_id = 1;
+    float value = 2;
+}

@@ -1,0 +1,33 @@
+syntax = "proto3";
+package CARTA;
+
+import "enums.proto";
+
+// ADD_REQUIRED_CUBELETS
+// Provides a list of cubelets that are required for the specified file.
+// Backend responds with a CUBELET_DATA message for each cubelet, in the order listed
+message AddRequiredCubelets {
+    // The file ID that the cubelets correspond to
+    sfixed32 file_id = 1;
+    // Downsampling mode used below full resolution (BlockMax or BlockAverage)
+    SmoothingMode mode = 2;
+    // The list of cubelets required, in encoded coordinate
+    repeated fixed64 cubelets = 3;
+    // The compression algorithm used (NONE or ZFP_EXPLICIT)
+    CompressionType compression_type = 4;
+    // Maximum error allowed by ZFP_EXPLICIT compression at full resolution, in image units. For BlockAverage
+    // levels it is divided by the square root of the number of voxels averaged, since their noise is lower
+    double tolerance = 5;
+}
+
+// REMOVE_REQUIRED_CUBELETS
+// Provides a list of cubelets that are no longer required for the specified file.
+// Cubelets that have already been sent are not affected
+message RemoveRequiredCubelets {
+    // The file ID that the cubelets correspond to
+    sfixed32 file_id = 1;
+    // Downsampling mode the cubelets were requested with
+    SmoothingMode mode = 2;
+    // The list of cubelets no longer required, in encoded coordinate
+    repeated fixed64 cubelets = 3;
+}

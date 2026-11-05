@@ -317,3 +317,30 @@ message PvPreviewSettings {
     float image_compression_quality = 6;
     float animation_compression_quality = 7;
 }
+
+// Limits of the frontend's volume renderer, used by the backend to choose the level at which the whole image fits
+message VolumeBudget {
+    // GPU memory available for the volume texture, in MB
+    sfixed64 gpu_memory_limit_mb = 1;
+    // Maximum number of channels the volume texture can hold, limited by the frontend's GPU
+    sfixed32 max_depth = 2;
+}
+
+// Downsampling factors of one level along each axis
+message LevelFactors {
+    sfixed32 x = 1;
+    sfixed32 y = 2;
+    sfixed32 z = 3;
+}
+
+// How an image is divided into cubelets
+message VolumeInfo {
+    // Width of a cubelet in voxels, the same along each axis
+    sfixed32 cubelet_size = 1;
+    // Downsampling factors of each level, starting with level 0 (full resolution)
+    repeated LevelFactors levels = 2;
+    // Identifies the file's contents, and changes when the file changes. Used as a cache key
+    string content_id = 3;
+    // Estimated noise (standard deviation) of the image in image units, or zero if unknown. Used to choose a compression tolerance
+    double noise_sigma = 4;
+}

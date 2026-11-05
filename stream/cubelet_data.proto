@@ -1,0 +1,34 @@
+syntax = "proto3";
+package CARTA;
+
+import "enums.proto";
+
+// CUBELET_DATA
+// Data for a single cubelet requested with ADD_REQUIRED_CUBELETS
+message CubeletData {
+    // The file ID that the cubelet corresponds to
+    sfixed32 file_id = 1;
+    // Downsampling mode the cubelet was requested with
+    SmoothingMode mode = 2;
+    // Level of the cubelet (0 is full resolution), followed by its coordinates within the level, in cubelets
+    sfixed32 level = 3;
+    sfixed32 x = 4;
+    sfixed32 y = 5;
+    sfixed32 z = 6;
+    // Width, height and depth of the cubelet in voxels. Smaller than cubelet_size at the far edges of the image
+    repeated sfixed32 dims = 7;
+    // Number of finite voxels in the cubelet. If zero, every voxel is NaN and image_data is empty
+    sfixed32 finite_count = 8;
+    // The compression algorithm used
+    CompressionType compression_type = 9;
+    // Image data. Uncompressed data is FP32, with x varying fastest, then y, then z. ZFP_EXPLICIT data is a ZFP
+    // stream including its header
+    bytes image_data = 10;
+    // Run-length encodings of NaN values in the same format as TileData. Used to restore NaN values after ZFP
+    // decompression, and empty if there are none
+    bytes nan_encodings = 11;
+    // Maximum value in the cubelet and a one-voxel border around it, ignoring NaN. Used to skip empty regions when rendering
+    float cell_max = 12;
+    // Whether the cubelet or the one-voxel border around it contains NaN values
+    bool cell_has_nan = 13;
+}

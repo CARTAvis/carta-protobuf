@@ -83,6 +83,11 @@ enum EventType {
     REMOTE_FILE_REQUEST = 88;
     REMOTE_FILE_RESPONSE = 89;
     CHANNEL_MAP_FLOW_CONTROL = 90;
+    ADD_REQUIRED_CUBELETS = 96;
+    REMOVE_REQUIRED_CUBELETS = 97;
+    CUBELET_DATA = 98;
+    PIXEL_VALUE_REQUEST = 99;
+    PIXEL_VALUE_RESPONSE = 100;
 }
 
 enum SessionType {
@@ -109,6 +114,8 @@ enum CompressionType {
     NONE = 0;
     ZFP = 1;
     SZ = 2;
+    // ZFP, with the compression mode and parameters stored in the stream header
+    ZFP_EXPLICIT = 3;
 }
 
 enum RegionType {
@@ -135,6 +142,7 @@ enum SmoothingMode {
     NoSmoothing = 0;
     BlockAverage = 1;
     GaussianBlur = 2;
+    BlockMax = 3;
 }
 
 enum StatsType {
@@ -192,6 +200,7 @@ enum ServerFeatureFlags {
     USER_PREFERENCES = 16;
     USER_LAYOUTS = 32;
     SCRIPTING = 64;
+    VOLUMES = 512;
 }
 
 enum FileFeatureFlags {

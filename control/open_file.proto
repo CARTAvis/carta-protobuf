@@ -22,6 +22,8 @@ message OpenFile {
     bool lel_expr = 6;
     // Defines whether to support AIPS beam in FITS history headers
     bool support_aips_beam = 7;
+    // Optional limits of the frontend's volume renderer. If set, and the backend has the VOLUMES feature, OPEN_FILE_ACK includes volume_info
+    VolumeBudget volume_budget = 8;
 }
 
 // OPEN_FILE_ACK
@@ -41,4 +43,6 @@ message OpenFileAck {
     fixed32 file_feature_flags = 6;
     // Beam table for multiple-beam images
     repeated Beam beam_table = 7;
+    // How the image is divided into cubelets (only if volume_budget was set)
+    VolumeInfo volume_info = 8;
 }
