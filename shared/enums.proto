@@ -88,6 +88,7 @@ enum EventType {
     CUBELET_DATA = 98;
     PIXEL_VALUE_REQUEST = 99;
     PIXEL_VALUE_RESPONSE = 100;
+    CUBELET_FLOW_CONTROL = 101;
 }
 
 enum SessionType {

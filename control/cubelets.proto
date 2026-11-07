@@ -20,6 +20,15 @@ message AddRequiredCubelets {
     double tolerance = 5;
 }
 
+// CUBELET_FLOW_CONTROL
+// Used for informing the backend of how many cubelets have been received. If sent, the backend limits how many are in flight
+message CubeletFlowControl {
+    // The file ID that the cubelets correspond to
+    sfixed32 file_id = 1;
+    // The number of CUBELET_DATA messages received for the file since it was opened
+    sfixed32 received = 2;
+}
+
 // REMOVE_REQUIRED_CUBELETS
 // Provides a list of cubelets that are no longer required for the specified file.
 // Cubelets that have already been sent are not affected

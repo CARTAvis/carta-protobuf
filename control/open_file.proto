@@ -24,6 +24,8 @@ message OpenFile {
     bool support_aips_beam = 7;
     // Optional limits of the frontend's volume renderer. If set, and the backend has the VOLUMES feature, OPEN_FILE_ACK includes volume_info
     VolumeBudget volume_budget = 8;
+    // The Stokes parameter to load the volume from, if volume_budget is set. volume_info, including noise_sigma, is then that of this Stokes parameter
+    sfixed32 stokes = 9;
 }
 
 // OPEN_FILE_ACK
