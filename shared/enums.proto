@@ -129,6 +129,7 @@ enum RegionType {
     ANNRULER = 14;
     ANNTEXT = 15;
     ANNCOMPASS = 16;
+    ANNANNULUS = 17;
 }
 
 enum SmoothingMode {
